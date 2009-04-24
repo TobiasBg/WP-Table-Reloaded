@@ -1,0 +1,47 @@
+/************************************************
+*                                               *
+* This CSS file contains EXAMPLE styles for the *
+*   plugin WP-Table Reloaded by Tobias Bäthge!  *
+*                                               * 
+*    PLEASE DO NOT MODIFY THIS FILE DIRECTLY!   *
+* PLEASE COPY IT, THEN EDIT THE COPY AND SELECT *
+*     THE COPIED FILE IN THE PLUGIN OPTIONS!    *
+* OTHERWISE YOUR CHANGES MIGHT GET OVERWRITTEN  *
+*          WHEN UPDATING THE PLUGIN!            *
+*                                               *
+*                   Thank you!                  *
+*                                               *
+************************************************/
+
+/* These CSS definitions come from the original WP-Table plugin by Alex Rabe.
+They are here for backward compatibility. You can use them, to style your
+table in the same style, WP-Table used to do. 
+PLEASE DO NOT MODIFY THIS FILE DIRECTLY. READ THE HEADER ABOVE! */
+
+.wp-table-reloaded {
+	font:		Icon;
+	border:		1px Solid ThreeDShadow;
+	background:	Window;
+	color:		WindowText;
+	border-collapse: collapse;	
+}
+
+/* header row*/
+.wp-table-reloaded th {
+	padding:	2px 5px;
+ 	border:		1px solid;
+	border-color: ButtonHighlight ButtonShadow ButtonShadow ButtonHighlight;
+	cursor:		default;
+	background:	ButtonFace;
+
+}
+
+/* normal row*/
+.wp-table-reloaded td {
+	padding:	3px;
+}
+
+/* alternative row */
+.wp-table-reloaded tr.odd {
+  	background-color: #F4F4EC; 
+}
