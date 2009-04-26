@@ -49,12 +49,14 @@ class WP_Table_Reloaded_Frontend {
     function handle_content_shortcode( $attr ) {
         $table_id = $attr['id'];
 
+        $output_id = ( isset( $attr['output_id'] ) && true == $attr['output_id'] ) ? true : false;
+
         if ( !is_numeric( $table_id ) || 1 > $table_id || false == $this->is_table( $table_id ) )
             return "[table \"{$table_id}\" not found /]<br />\n";
 
         $table = $this->load_table( $table_id );
 
-        $output = $this->render_table( $table );
+        $output = $this->render_table( $table, $output_id );
 
         return $output;
     }
@@ -83,10 +85,12 @@ class WP_Table_Reloaded_Frontend {
 
     // ###################################################################################################################
     // echo content of array
-    function render_table( $table ) {
+    function render_table( $table, $output_id ) {
         // classes that will be added to <table class=...>, can be used for css-styling
         $cssclasses = array( 'wp-table-reloaded', "wp-table-reloaded-id-{$table['id']}" );
         $cssclasses = implode( ' ', $cssclasses );
+
+        $id_output = ( true == $output_id ) ? " id=\"wp-table-reloaded-id-{$table['id']}\"" : '';
 
         $rows = count( $table['data'] );
         $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
@@ -98,7 +102,7 @@ class WP_Table_Reloaded_Frontend {
             if ( true == $table['options']['print_name'] )
                 $output .= '<h2 class="wp-table-reloaded-table-name">' . $this->safe_output( $table['name'] ) . "</h2>\n";
         
-            $output .= "<table class=\"{$cssclasses}\" cellspacing=\"1\" cellpadding=\"0\" border=\"0\">\n";
+            $output .= "<table{$id_output} class=\"{$cssclasses}\" cellspacing=\"1\" cellpadding=\"0\" border=\"0\">\n";
 
             foreach( $table['data'] as $row_idx => $row ) {
                 if ( true == $table['options']['alternating_row_colors'] )
