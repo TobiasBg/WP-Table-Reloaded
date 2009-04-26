@@ -1,14 +1,14 @@
 <?php
 /*
 Plugin Name: WP-Table Reloaded
-Plugin URI: http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded/
+Plugin URI: http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/
 Description: This plugin allows you to create and manage tables in the admin-area of WordPress. You can then show them in your posts, on your pages or in text widgets by using a shortcode. The plugin is a completely rewritten and extended version of Alex Rabe's "wp-Table" and uses the state-of-the-art WordPress techniques which makes it faster and lighter than the original plugin.
 Version: 1.0.1
 Author: Tobias B&auml;thge
 Author URI: http://tobias.baethge.com/
 */
 
-/*  Copyright 2009 Tobias B&auml;thge (email: mail@tobias.baethge.com )
+/*  Copyright 2009 Tobias B&auml;thge (email: wordpress@tobias.baethge.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by

@@ -65,12 +65,12 @@ table.wp-table-reloaded tbody tr.odd td {
 you can access a column with its CSS-class
 (that is ".column-" plus the number of the column)
 use table.wp-table-reloaded to do your change for every table, or use
-table.wp-table-reloaded-<id> for just a single table (with ID <id>)
+table.wp-table-reloaded-id-<id> for just a single table (with ID <id>)
 
 example: this changes the width of the third column of table ID 5 to 25px:
 
 
-table.wp-table-reloaded-5 .column-3
+table.wp-table-reloaded-id-5 .column-3
 {
 	width: 25px;
 }

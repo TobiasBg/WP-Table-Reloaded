@@ -10,6 +10,8 @@ This plugin allows you to create and manage tables in your WP's admin-area. You 
 
 == Description ==
 
+**IMPORTANT: PLEASE MAKE SURE TO HAVE A BACKUP OF YOUR CSS-STYLESHEET (IF YOU MADE ANY CHANGES TO IT) AS IT WILL BE OVERWRITTEN DURING THE AUTOMATIC UPDATE BY WORDPRESS!**
+
 This plugin allows you to create and manage tables in the admin-area of WordPress. You can then show them in your posts, on your pages or in text widgets by using a shortcode. The plugin is a completely rewritten and extended version of Alex Rabe's "wp-Table" and uses the state-of-the-art WordPress techniques which makes it faster and lighter than the original plugin. You may also have both plugins installed at the same time and you can also import your tables from the wp-Table plugin!
 
 = More information =
