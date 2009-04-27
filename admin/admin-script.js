@@ -15,11 +15,11 @@ jQuery(document).ready(function($){
         })
         .change();
 
-    $("#options_use_global_css input").click(function () {
-	  if( $('#options_use_global_css input:checked').val() ) {
-        $('#options_css_filename select').removeAttr("disabled");
+    $("#options_use_custom_css input").click(function () {
+	  if( $('#options_use_custom_css input:checked').val() ) {
+        $('#options_custom_css textarea').removeAttr("disabled");
 	  } else {
-        $('#options_css_filename select').attr("disabled", true);
+        $('#options_custom_css textarea').attr("disabled", true);
 	  }
       return true;
 	});

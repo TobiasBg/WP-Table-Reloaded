@@ -32,8 +32,8 @@ class WP_Table_Reloaded_Admin {
         'installed_version' => '0',
         'uninstall_upon_deactivation' => false,
         'enable_tablesorter' => true,
-        'use_global_css' => true,
-        'css_filename' => 'example-style.css',
+        'use_custom_css' => true,
+        'custom_css' => '.wp-table-reloaded {width:100%;}',
         'last_id' => 0
     );
     var $default_tables = array();
@@ -416,11 +416,18 @@ class WP_Table_Reloaded_Admin {
             check_admin_referer( $this->get_nonce( 'options' ) );
 
             $new_options = $_POST['options'];
+            
             // checkboxes: option value is defined by whether option isset (e.g. was checked) or not
             $this->options['uninstall_upon_deactivation'] = isset( $new_options['uninstall_upon_deactivation'] );
             $this->options['enable_tablesorter'] = isset( $new_options['enable_tablesorter'] );
-            $this->options['use_global_css'] = isset( $new_options['use_global_css'] );
-            $this->options['css_filename'] = isset( $new_options['css_filename'] ) ? $new_options['css_filename'] : $this->options['css_filename'];
+            $this->options['use_custom_css'] = isset( $new_options['use_custom_css'] );
+            // clean up CSS style input (if user enclosed it into <style...></style>
+            if ( isset( $new_options['custom_css'] ) ) {
+                    if ( 1 == preg_match( '/<style.*?>(.*?)<\/style>/is', stripslashes( $new_options['custom_css'] ), $matches ) )
+                        $new_options['custom_css'] = $matches[1]; // if found, take match as style to save
+                    $this->options['custom_css'] =  $new_options['custom_css'];
+            }
+
             $this->update_options();
 
             $this->print_success_message( __( 'Options saved successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
@@ -963,25 +970,14 @@ class WP_Table_Reloaded_Admin {
             <th scope="row"><?php _e( 'Enable Tablesorter-JavaScript?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
             <td><input type="checkbox" name="options[enable_tablesorter]" id="options[enable_tablesorter]"<?php echo ( true == $this->options['enable_tablesorter'] ) ? ' checked="checked"': '' ;?> value="true" /> <label for="options[enable_tablesorter]"><?php _e( 'Yes, enable <a href="http://www.tablesorter.com/">Tablesorter-jQuery-Plugin</a> to be used to make table sortable (can be changed for every table separatly).', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
-        <tr valign="top" id="options_use_global_css">
-            <th scope="row"><?php _e( 'Use global CSS-file?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="options[use_global_css]" id="options[use_global_css]"<?php echo ( true == $this->options['use_global_css'] ) ? ' checked="checked"': '' ;?> value="true" /> <label for="options[use_global_css]"><?php _e( 'Yes, load a CSS-file, which contains basic styles for the table. The CSS-files must be located in subfolder "css". To change styles, please copy the file "example-style.css", edit the copied file with your style changes and place it in the same folder. You may then select it below. ', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+        <tr valign="top" id="options_use_custom_css">
+            <th scope="row"><?php _e( 'Add custom CSS?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
+            <td><input type="checkbox" name="options[use_custom_css]" id="options[use_custom_css]"<?php echo ( true == $this->options['use_custom_css'] ) ? ' checked="checked"': '' ;?> value="true" /> <label for="options[use_custom_css]"><?php echo sprintf( __( 'Yes, include and load the following CSS-snippet on my site inside a [style]-HTML-tag. (If you do not want this, just add your CSS styling to your theme\'s "style.css" <small>(located at %s)</small>.) (See the <a href="http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/">plugin website</a> for examples.)', WP_TABLE_RELOADED_TEXTDOMAIN ), get_stylesheet_uri() ); ?></label></td>
         </tr>
-        <tr valign="top" id="options_css_filename">
+        <tr valign="top" id="options_custom_css">
             <th scope="row">&nbsp;</th>
-            <td><label for="options[css_filename]"><?php _e( 'Select CSS file to use', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label><select id="options[css_filename]"<?php echo ( false == $this->options['use_global_css'] ) ? ' disabled="disabled"': '' ;?> name="options[css_filename]">
-        <?php
-            // get all files the extension ".css" from the css-subfolder,
-            // remove all folders and unwanted css-files and print them in a select-list
-            $directory = scandir( WP_TABLE_RELOADED_ABSPATH . 'css/' );
-            $directory = array_diff( $directory, array( '.', '..', 'admin-style.css' ) ); // remove ., .., and admin-style.css from the array
-            foreach ($directory as $key => $filename ) {
-                $extension = substr( $filename, strrpos( $filename, '.' ) + 1 );
-                if( ( 'css' == $extension ) && !is_dir( WP_TABLE_RELOADED_ABSPATH . 'css/' . $filename ) )
-                    echo "<option" . ( ( $filename == $this->options['css_filename'] ) ? ' selected="selected"': '' ) . " value=\"{$filename}\">{$filename}</option>";
-            }
-        ?>
-        </select> <?php _e( '(These files are located in the subfolder "css" of the plugin folder.)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></td>
+            <td><label for="options[custom_css]"><?php _e( 'Enter custom CSS', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label><br/>
+            <textarea name="options[custom_css]" id="options[use_custom_css]" rows="15" cols="40" style="width:600px;height:300px;"<?php echo ( false == $this->options['use_custom_css'] ) ? ' disabled="disabled"': '' ;?>><?php echo $this->safe_output( $this->options[custom_css] ); ?></textarea></td>
         </tr>
         </table>
         </div
@@ -1010,11 +1006,13 @@ class WP_Table_Reloaded_Admin {
         </div>
 <script type="text/javascript">
 /* <![CDATA[ */
+jQuery(document).ready(function($){
     $("#options_uninstall input").click(function () {
 	  if( $('#options_uninstall input:checked').val() ) {
 		return confirm( '<?php _e( 'Do you really want to activate this? You should only do that right before uninstallation!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>' );
 	  }
 	});
+});
 /* ]]> */
 </script>
         <h2><?php _e( 'Manually Uninstall Plugin', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></h2>
@@ -1296,10 +1294,8 @@ class WP_Table_Reloaded_Admin {
         // 3. step: update installed version number
         $new_options['installed_version'] = $this->plugin_version;
         
-        // 3b., take care of css filename (added in version 1.0)
-        $old_global_css = 'global-frontend-style.css';
-        if ( file_exists( WP_TABLE_RELOADED_ABSPATH . 'css/' . $old_global_css ) && !isset( $this->options['css_filename'] ) )
-            $new_options['css_filename'] = $old_global_css;
+        // 3b., take care of css
+        $new_options['use_custom_css'] = $this->options['use_global_css'];
         
         // 4. step: save the new options
         $this->options = $new_options;

@@ -3,7 +3,7 @@
 File Name: WP-Table Reloaded - Frontend Class (see main file wp-table-reloaded.php)
 Plugin URI: http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/
 Description: This plugin allows you to create and manage tables in the admin-area of WordPress. You can then show them in your posts, on your pages or in text widgets by using a shortcode. The plugin is a completely rewritten and extended version of Alex Rabe's "wp-Table" and uses the state-of-the-art WordPress techniques which makes it faster and lighter than the original plugin.
-Version: 1.0.1
+Version: 1.1-beta
 Author: Tobias B&auml;thge
 Author URI: http://tobias.baethge.com/
 */
@@ -40,8 +40,8 @@ class WP_Table_Reloaded_Frontend {
     		$this->add_head_tablesorter_js();
 
         // if global css shall be used
-		if ( true == $this->options['use_global_css'] )
-    		$this->add_head_global_css();
+		if ( true == $this->options['use_custom_css'] )
+            add_action( 'wp_head', array( &$this, 'add_custom_css' ) );
     }
 
     // ###################################################################################################################
@@ -194,35 +194,21 @@ JSSCRIPT;
     }
     
     // ###################################################################################################################
-    // enqueue global-css-file, if it exists, may be modified by user
-    function add_head_global_css() {
-    
+    // load and print css-style, (only called if enabled, by wp_head-action)
+    function add_custom_css() {
         // load css filename from options, if option doesnt exist, use default
-        $cssfile = ( isset( $this->options['css_filename'] ) && !empty( $this->options['css_filename'] ) ) ? $this->options['css_filename'] : 'example-style.css';
+        $css = ( isset( $this->options['custom_css'] ) ) ? $this->options['custom_css'] : '';
         
-        if ( file_exists( WP_TABLE_RELOADED_ABSPATH . 'css/' . $cssfile ) ) {
-            if ( function_exists( 'wp_enqueue_style' ) ) {
-                wp_enqueue_style( 'wp-table-reloaded-global-css', WP_TABLE_RELOADED_URL . 'css/' . $cssfile );
-                // WP < 2.7 does not contain call to add_action( 'wp_head', 'wp_print_styles' ) in default-filters.php (Core Trac Ticket #7720)
-                if ( false == has_action( 'wp_head', 'wp_print_styles' ) )
-                    add_action( 'wp_head', array( &$this, 'print_styles' ) );
-            } else {
-                add_action( 'wp_head', array( &$this, 'print_styles' ) );
-            }
+        if ( !empty( $css ) ) {
+            $output .= <<<CSSSTYLE
+<style type="text/css" media="all">
+/* <![CDATA[ */
+{$css}
+/* ]]> */
+</style>
+CSSSTYLE;
+            echo $output;
         }
-    }
-
-    // ###################################################################################################################
-    // print our style in wp-head (only needed for WP < 2.7)
-    function print_styles() {
-    
-        // load css filename from options, if option doesnt exist, use default
-        $cssfile = ( isset( $this->options['css_filename'] ) && !empty( $this->options['css_filename'] ) ) ? $this->options['css_filename'] : 'example-style.css';
-
-        if ( function_exists( 'wp_print_styles' ) )
-            wp_print_styles( 'wp-table-reloaded-global-css' );
-        else
-            echo "<link rel='stylesheet' href='" . WP_TABLE_RELOADED_URL . 'css/' . $cssfile . "' type='text/css' media='' />\n";
     }
 
 } // class WP_Table_Reloaded_Frontend
