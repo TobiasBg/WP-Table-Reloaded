@@ -47,16 +47,26 @@ class WP_Table_Reloaded_Frontend {
     // ###################################################################################################################
     // handle [table id=<the_table_id> /] in the_content()
     function handle_content_shortcode( $attr ) {
+
+        // parse shortcode attributs, only allow those specified
+        $default_atts = array(
+                'id' => 0,
+                'output_id' => false,
+                'column_widths' => ''
+                );
+      	$atts = shortcode_atts( $default_atts, $atts );
+
+        // get atts from array to variables
         $table_id = $attr['id'];
+        $output_id = (  true == $attr['output_id'] ) ? true : false;
+        $column_widths = explode( '|', $attr['column_widths'] );
 
-        $output_id = ( isset( $attr['output_id'] ) && true == $attr['output_id'] ) ? true : false;
-
-        if ( !is_numeric( $table_id ) || 1 > $table_id || false == $this->is_table( $table_id ) )
+        if ( !is_numeric( $table_id ) || 1 > $table_id || false == $this->table_exists( $table_id ) )
             return "[table \"{$table_id}\" not found /]<br />\n";
 
         $table = $this->load_table( $table_id );
 
-        $output = $this->render_table( $table, $output_id );
+        $output = $this->render_table( $table, $column_widths, $output_id );
 
         return $output;
     }
@@ -72,7 +82,7 @@ class WP_Table_Reloaded_Frontend {
 
     // ###################################################################################################################
     // check, if given table id really exists
-    function is_table( $table_id ) {
+    function table_exists( $table_id ) {
         return isset( $this->tables[ $table_id ] );
     }
 
@@ -85,7 +95,7 @@ class WP_Table_Reloaded_Frontend {
 
     // ###################################################################################################################
     // echo content of array
-    function render_table( $table, $output_id ) {
+    function render_table( $table, $column_widths, $output_id ) {
         // classes that will be added to <table class=...>, can be used for css-styling
         $cssclasses = array( 'wp-table-reloaded', "wp-table-reloaded-id-{$table['id']}" );
         $cssclasses = implode( ' ', $cssclasses );
@@ -94,6 +104,9 @@ class WP_Table_Reloaded_Frontend {
 
         $rows = count( $table['data'] );
         $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
+
+        // make array $column_widths have $cols entries
+        $column_widths = array_pad( $column_widths, $cols, '' );
 
         $output = '';
 
@@ -116,8 +129,9 @@ class WP_Table_Reloaded_Frontend {
                         $output .= "\t<tr{$row_class}>\n\t\t";
                         foreach( $row as $col_idx => $cell_content ) {
                             $col_class = ' class="column-' . ( $col_idx + 1 ) . '"';
+                            $width_style = ( !empty( $column_widths[$col_idx] ) ) ? " style=\"width:{$column_widths[$col_idx]};\"" : '';
                             $cell_content = $this->safe_output( $cell_content );
-                            $output .= "<th{$col_class}>" . "{$cell_content}" . "</th>";
+                            $output .= "<th{$col_class}{$width_style}>" . "{$cell_content}" . "</th>";
                         }
                         $output .= "\n\t</tr>\n";
                         $output .= "</thead>\n";
@@ -127,8 +141,9 @@ class WP_Table_Reloaded_Frontend {
                         $output .= "\t<tr{$row_class}>\n\t\t";
                         foreach( $row as $col_idx => $cell_content ) {
                             $col_class = ' class="column-' . ( $col_idx + 1 ) . '"';
+                            $width_style = ( !empty( $column_widths[$col_idx] ) ) ? " style=\"width:{$column_widths[$col_idx]};\"" : '';
                             $cell_content = $this->safe_output( $cell_content );
-                            $output .= "<td{$col_class}>" . "{$cell_content}" . "</td>";
+                            $output .= "<td{$col_class}{$width_style}>" . "{$cell_content}" . "</td>";
                         }
                         $output .= "\n\t</tr>\n";
                     }
