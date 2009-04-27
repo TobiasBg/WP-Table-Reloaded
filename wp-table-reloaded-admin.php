@@ -577,12 +577,12 @@ class WP_Table_Reloaded_Admin {
         $rows = count( $table['data'] );
         $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
 
-        $this->print_page_header( __( sprintf( 'Edit Table "%s"', $this->safe_output( $table['name'] ) ), WP_TABLE_RELOADED_TEXTDOMAIN ) );
+        $this->print_page_header( sprintf( __( 'Edit Table "%s"', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $table['name'] ) ) );
         $this->print_submenu_navigation( 'edit' );
 
         ?>
         <div style="clear:both;"><p><?php _e( 'You may edit the content of the table here. It is also possible to add or delete columns and rows.', WP_TABLE_RELOADED_TEXTDOMAIN ) ?><br />
-		<?php _e( sprintf( 'If you want to show a table in your pages, posts or text-widgets, use this shortcode: <strong>[table id=%s /]</strong>', $this->safe_output( $table_id ) ), WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p></div>
+		<?php echo sprintf( __( 'If you want to show a table in your pages, posts or text-widgets, use this shortcode: <strong>[table id=%s /]</strong>', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $table_id ) ); ?></p></div>
         <form method="post" action="<?php echo $this->get_action_url(); ?>">
         <?php wp_nonce_field( $this->get_nonce( 'edit' ) ); ?>
 
@@ -615,7 +615,7 @@ class WP_Table_Reloaded_Admin {
             <div class="postbox">
             <h3 class="hndle"><span><?php _e( 'Table Contents', WP_TABLE_RELOADED_TEXTDOMAIN ) ?></span></h3>
             <div class="inside">
-            <table class="widefat" style="width:auto;">
+            <table class="widefat" style="width:auto;" id="table_contents">
                 <thead>
                     <tr>
                         <th>&nbsp;</th>
@@ -668,7 +668,10 @@ class WP_Table_Reloaded_Admin {
         </div>
         </div>
         <?php } //endif ?>
-        <div style="clear:both;">
+            <div class="postbox">
+            <h3 class="hndle"><span><?php _e( 'Data Manipulation', WP_TABLE_RELOADED_TEXTDOMAIN ) ?></span></h3>
+            <div class="inside">
+<table><tr><td>
         <?php if ( 1 < $rows ) { // swap rows form
 
             $row1_select = '<select name="swap[row][1]">';
@@ -706,7 +709,59 @@ class WP_Table_Reloaded_Admin {
             ?>
             <input type="submit" name="submit[swap_cols]" class="button-primary" value="<?php _e( 'Swap', WP_TABLE_RELOADED_TEXTDOMAIN ) ?>" />
         <?php } // end if form swap cols ?>
+</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>
+        <p class="submit">
+        <a id="a-insert-link" class="button-primary" href=""><?php _e( 'Insert Link', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a> <a id="a-insert-image" class="button-primary" href=""><?php _e( 'Insert Image', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
+        </p>
+</td></tr>
+</table>
+<script type="text/javascript">
+/* <![CDATA[ */
+jQuery(document).ready(function($){
+
+    var insert_html = '';
+
+    function add_html() {
+        var old_value = $(this).val();
+        var new_value = old_value + insert_html;
+        $(this).val( new_value );
+        $("#table_contents input").unbind('click', add_html);
+    }
+
+    $("#a-insert-link").click(function () {
+        var link_url = prompt( '<?php _e( 'URL of link to insert', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>' + ':', 'http://' );
+        if ( link_url ) {
+            var link_text = prompt( '<?php _e( 'Text of link', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>' + ':', '<?php _e( 'Text of link', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>' );
+            if ( link_text ) {
+                insert_html = '<a href="' + link_url + '">' + link_text + '</a>';
+                if ( confirm( '<?php _e( 'To insert the following link into a cell, just click the cell after closing this dialog.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>' + '\n\n' + insert_html ) ) {
+                    $("#table_contents input").bind('click', add_html);
+                }
+            }
+        }
+		return false;
+	});
+	
+    $("#a-insert-image").click(function () {
+        var image_url = prompt( '<?php _e( 'URL of image to insert', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>' + ':', 'http://' );
+        if ( image_url ) {
+            var image_alt = prompt( '<?php _e( '"alt" text of the image', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>' + ':', '' );
+            // if ( image_alt ) { // won't check for alt, because there are cases where an empty one makes sense
+                insert_html = '<img src="' + image_url + '" alt="' + image_alt + '" />';
+                if ( true == confirm( '<?php _e( 'To insert the following image into a cell, just click the cell after closing this dialog.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>' + '\n\n' + insert_html ) ) {
+                    $("#table_contents input").bind('click', add_html);
+                }
+            // }
+        }
+		return false;
+	});
+	
+});
+/* ]]> */
+</script>
         </div>
+        </div>
+        
         <br/>
         <div class="postbox">
         <h3 class="hndle"><span><?php _e( 'Table Settings', WP_TABLE_RELOADED_TEXTDOMAIN ) ?></span></h3>
