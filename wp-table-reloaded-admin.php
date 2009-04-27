@@ -595,6 +595,15 @@ class WP_Table_Reloaded_Admin {
         </div>
         </div>
 
+        <p class="submit">
+        <input type="submit" name="submit[update]" class="button-primary" value="<?php _e( 'Update Changes', WP_TABLE_RELOADED_TEXTDOMAIN ) ?>" />
+        <input type="submit" name="submit[save_back]" class="button-primary" value="<?php _e( 'Save and go back', WP_TABLE_RELOADED_TEXTDOMAIN ) ?>" />
+        <?php
+        $list_url = $this->get_action_url( array( 'action' => 'list' ) );
+        echo " <a class=\"button-primary\" href=\"{$list_url}\">" . __( 'Cancel', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>";
+        ?>
+        </p>
+
         <?php if ( 0 < $cols && 0 < $rows ) { ?>
             <div class="postbox">
             <h3 class="hndle"><span><?php _e( 'Table Contents', WP_TABLE_RELOADED_TEXTDOMAIN ) ?></span></h3>
