@@ -17,7 +17,7 @@ This plugin allows you to create and manage tables in the admin-area of WordPres
 = More information =
 Please see the English plugin website http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/ .
 
-If you like this plugin, please rate it here in the WordPress Plugin Directory. Thank you!
+If you like this plugin, please rate it here in the WordPress Plugin Directory or make a donation. Thank you!
 
 = Informationen auf Deutsch =
 Dieses Plugin erlaubt die Verwaltung von Tabellen in WordPress.
@@ -49,7 +49,7 @@ Manual Installation works just as for most other WordPress plugins:
 
 1. Include a table by adding the shortcode [table id=&lt;your-table's-id&gt; /] to your post, page or text widget.
 
-1. You might want to add styling features via your blog's theme's CSS file (probably style.css) or via plugin css file. There are two demo file "example-style.css" and "example-style-wp-table.css" in the subfolder "css". Please copy them, edit the copy, and select the copy in the plugin options screen!
+1. You might want to add styling features via your blog's theme's CSS file (probably style.css) or via the option in the "Plugin Options" screen, where you can enter your CSS directly.
 
 
 == Frequently Asked Questions ==
@@ -61,7 +61,12 @@ If WP-Table Reloaded finds the wp-Table database tables, it can import the found
 
 = Support? =
 
-If you experience trouble in using the plugin or find a bug, please don't hesitate to tell me about it. Right now the preferred way is the comments section of the [plugin page](http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded/) (that way other users with the same problem could get help, too). I might add a support forum later. Till then you might also consider opening a new topic in the [WordPress Support Forums](http://wordpress.org/support/) and send me the link to your thread. You may also make feature requests using this method! Don't be shy!
+If you find a bug or have a feature request, please don’t hesitate to tell me about it.
+You would help a lot if you could add an issue ticket in the [issue tracker on Google Code](http://code.google.com/p/wp-table-reloaded/).
+You may also post it in the comments on the plugin website.
+
+For other help or support questions, please use the [WordPress Support Forums](http://wordpress.org/support/). Please [open a new topic](http://wordpress.org/tags/wp-table-reloaded?forum_id=10#postform) there (with the tag "wp-table-reloaded") and email me a link to the thread (or post it as a comment on the plugin website). Thank you!
+You may also make feature requests using this method! Don't be shy!
 
 = Requirements? =
 
@@ -87,7 +92,7 @@ Die Webseite des Plugins ist auch [auf Deutsch](http://tobias.baethge.com/wordpr
 After installing the plugin, you can add, import, export, edit, copy, delete, ... tables via the "WP-Table Reloaded" screen which appears under the "Tools" section in your Admin menu.
 Everything should be self-explaining there.
 To show one of your tables in a post, on a page or in a text widget, just include the shortcode [table id=&lt;the-id&gt; /] to your post/page/text-widget, where &lt;the-id&gt is the ID of your table (can be found on the left side of the "List tables" screen.)
-After that you might want to change the style of the table: Just copy the CSS-file "example-style.css" in the subfolder "css" of the plugin folder, edit the copy to fit your layout needs. Be sure to activate the option "Use global css-file?" in the plugin options and select your copied file for this to work!
+After that you might want to change the style of the table. You can do this either by adding CSS to your theme's CSS stylesheet (probably style.css) or by entering it into the box on the "Plugin Options" screen.
 You may also add certain features (like table-sorting, alternating row colors, print name and/or description, ...) by checking the appropriate options in the "Edit table" screen.
 
 == Acknowledgements ==
@@ -105,7 +110,8 @@ I kindly ask you for link somewhere on your website http://tobias.baethge.com/. 
 
 == Changelog ==
 
-* 1.0: Language files, more import/export (including directly from wp-Table!), shortcode supported in text widgets
+* 1.1: changed way of CSS handling (database option instead of file), fixed bug for users with PHP4 (certain function doesn't exist there), added two additional shortcode parameters
+* 1.0(.1): Language files, more import/export (including directly from wp-Table!), shortcode supported in text widgets
 * 0.9.2: fixed bug with plugin deactivation hook, added missing css-file
 * 0.9.1: first good release with all mentioned functions working well
 * 0.9 beta 1b: small bug which prevented showing of tables (but still not everything implemented)
