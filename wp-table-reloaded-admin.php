@@ -1295,7 +1295,7 @@ jQuery(document).ready(function($){
         $new_options['installed_version'] = $this->plugin_version;
         
         // 3b., take care of css
-        $new_options['use_custom_css'] = $this->options['use_global_css'];
+        $new_options['use_custom_css'] = ( true == isset( $this->options['use_global_css'] ) ) ? $this->options['use_global_css'] : true;
         
         // 4. step: save the new options
         $this->options = $new_options;
