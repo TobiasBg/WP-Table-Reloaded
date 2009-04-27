@@ -568,10 +568,6 @@ msgstr "Tausche die Spalten %s und %s"
 msgid "Christian Bach for the <a href=\"http://www.tablesorter.com/\">Tablesorter-jQuery-Plugin</a>,"
 msgstr "Christian Bach für das <a href=\"http://www.tablesorter.com/\">Tablesorter-jQuery-Plugin</a>,"
 
-#: wp-table-reloaded-admin.php:823
-msgid "You may import a table from existing data here.<br/>It may be a CSV, XML oder HTML file. It needs a certain structure though. Please consult the documentation."
-msgstr "Hier kannst du eine bestehende Tabelle importieren.<br/>Dies kann eine CSV-, XML- oder HTML-Datei sein. Sie muss jedoch eine bestimmte Struktur besitzen. Bitte lies bei Problemen die Dokumentation."
-
 #: wp-table-reloaded-admin.php:877
 msgid "Import from original wp-Table plugin"
 msgstr "Import von Tabellen aus dem Plugin wp-Table"
@@ -679,4 +675,8 @@ msgstr "Alternativtext (\"alt\") des Bildes:"
 #: wp-table-reloaded-admin.php:751
 msgid "To insert the following image into a cell, just click the cell after closing this dialog."
 msgstr "Um das folgende Bild in eine Tabellenzelle einzufügen, klicke einfach auf diese."
+
+#: wp-table-reloaded-admin.php:823
+msgid "You may import a table from existing data here.<br/>It may be a CSV, XML or HTML file. It needs a certain structure though. Please consult the documentation."
+msgstr "Hier kannst du eine Tabelle aus existierenden Daten importieren.<br/>Dies kann eine CSV-, XML- oder HTML-Datei sein. Sie benötigt jedoch eine bestimmte Struktur. Bitte lies bei Problemen die Dokumentation."
 

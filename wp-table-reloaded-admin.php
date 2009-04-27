@@ -820,7 +820,7 @@ jQuery(document).ready(function($){
         $this->print_submenu_navigation( 'import' );
         ?>
         <div style="clear:both;">
-        <p><?php _e( 'You may import a table from existing data here.<br/>It may be a CSV, XML oder HTML file. It needs a certain structure though. Please consult the documentation.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
+        <p><?php _e( 'You may import a table from existing data here.<br/>It may be a CSV, XML or HTML file. It needs a certain structure though. Please consult the documentation.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
         </div>
         <div style="clear:both;">
         <form method="post" enctype="multipart/form-data" action="<?php echo $this->get_action_url(); ?>">
