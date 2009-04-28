@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Table Reloaded (sv_SE)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-27 16:52+0100\n"
+"POT-Creation-Date: 2009-04-27 19:27+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: ZuperZed <info@zuperzed.se>\n"
 "Language-Team: www.zuperzed.se <info@zuperzed.se>\n"
@@ -122,26 +122,26 @@ msgid "If you want to show a table in your pages, posts or text-widgets, use the
 msgstr "Om du vill visa en tabell på en sida, i ett inlägg eller i en textwidget, använd snabbkoden: <strong>[table id=&lt;the_table_ID&gt; /]</strong>"
 
 #: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:483
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:832
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:887
 msgid "ID"
 msgstr "ID"
 
 #: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:484
 #: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:544
 #: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:594
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:833
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:888
 msgid "Table Name"
 msgstr "Tabellnamn"
 
 #: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:485
 #: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:548
 #: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:598
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:834
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:889
 msgid "Description"
 msgstr "Beskrivning"
 
 #: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:486
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:835
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:890
 msgid "Action"
 msgstr "Åtgärd"
 
@@ -162,7 +162,7 @@ msgid "Export"
 msgstr "Exportera"
 
 #: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:514
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:752
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:807
 msgid "The complete table and all content will be erased. Do you really want to delete it?"
 msgstr "Tabellen och dess inehåll kommer raderas. Vill du verkligen radera den?"
 
@@ -171,18 +171,18 @@ msgid "Delete"
 msgstr "Radera"
 
 #: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:524
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:946
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1001
 msgid "No tables found."
 msgstr "Inga tabeller hittades."
 
 #: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:524
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:946
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1001
 #, php-format
 msgid "You might <a href=\"%s\">add</a> or <a href=\"%s\">import</a> one!"
 msgstr "Du kan <a href=\"%s\">lägga till</a> eller <a href=\"%s\">importera</a> en!"
 
 #: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:532
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1116
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1171
 msgid "Add new Table"
 msgstr "Lägg till tabell"
 
@@ -210,26 +210,36 @@ msgstr "Antal kolumner"
 msgid "Add Table"
 msgstr "Lägg till tabell"
 
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:580
+#, php-format
+msgid "Edit Table \"%s\""
+msgstr "Redigera tabellen \"%s\""
+
 #: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:584
 msgid "You may edit the content of the table here. It is also possible to add or delete columns and rows."
 msgstr "Du kan redigera tabellens innehåll här. Det är även möjligt att lägga till eller radera kolumner och rader."
+
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:585
+#, php-format
+msgid "If you want to show a table in your pages, posts or text-widgets, use this shortcode: <strong>[table id=%s /]</strong>"
+msgstr "Om du vill visa en tabell på dina sidor, i inlägg eller i textwidgets, använd denna snabbkod: <strong>[table id=%s /]</strong>"
 
 #: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:590
 msgid "Table Information"
 msgstr "Tabellinformation"
 
 #: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:606
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:743
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:798
 msgid "Update Changes"
 msgstr "Spara ändringar"
 
 #: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:607
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:744
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:799
 msgid "Save and go back"
 msgstr "Spara och gå tillbaka"
 
 #: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:610
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:747
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:802
 msgid "Cancel"
 msgstr "Ångra"
 
@@ -269,339 +279,375 @@ msgstr "Lägg till rad"
 msgid "Add Column"
 msgstr "Lägg till kolumn"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:684
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:672
+msgid "Data Manipulation"
+msgstr "Datahantering"
+
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:687
 #, php-format
 msgid "Swap rows %s and %s"
 msgstr "Byt plats på rader %s och %s"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:687
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:707
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:690
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:710
 msgid "Swap"
 msgstr "Byt plats"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:704
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:707
 #, php-format
 msgid "Swap columns %s and %s"
 msgstr "Byt plats på kolumner %s och %s"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:712
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:714
+msgid "Insert Link"
+msgstr "Infoga Länk"
+
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:714
+msgid "Insert Image"
+msgstr "Infoga Bild"
+
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:732
+msgid "URL of link to insert"
+msgstr "URL till länken som ska infogas"
+
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:734
+msgid "Text of link"
+msgstr "Länkens text"
+
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:737
+msgid "To insert the following link into a cell, just click the cell after closing this dialog."
+msgstr "För att infoga följande länk i en cell, klicka bara på cellen efter att denna ruta har stängts."
+
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:746
+msgid "URL of image to insert"
+msgstr "URL till bilden som ska infogas"
+
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:748
+msgid "\"alt\" text of the image"
+msgstr "\"alt\" bildens text"
+
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:751
+msgid "To insert the following image into a cell, just click the cell after closing this dialog."
+msgstr "För att infoga foljande bild i en cell, klicka bara på cellen efter att denna ruta har stängts."
+
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:767
 msgid "Table Settings"
 msgstr "Tabellinställningar"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:714
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:769
 msgid "These settings will only be used for this table."
 msgstr "Dessa inställningar kommer endast användas för denna tabell."
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:717
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:772
 msgid "Alternating row colors"
 msgstr "Växlande radfärg"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:718
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:773
 msgid "Every second row will have an alternating background color."
 msgstr "Varannan rad kommer att ha en alternativ bakgrundsfärg."
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:721
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:776
 msgid "Use Table Headline"
 msgstr "Använd tabellrubrik"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:722
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:777
 msgid "The first row of your table will use the [th] tag."
 msgstr "Första raden i din tabell kommer använda etiketten [th]."
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:725
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:780
 msgid "Print Table Name"
 msgstr "Visa tabellnamn"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:726
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:781
 msgid "The Table Name will be written above the table in a [h2] tag."
 msgstr "Tabellens namn kommer att visas ovanför tabellen med etiketten [h2]."
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:729
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:784
 msgid "Print Table Description"
 msgstr "Visa tabellbeskrivning"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:730
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:785
 msgid "The Table Description will be written under the table."
 msgstr "Tabellens beskrivning kommer att visas under tabellen."
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:733
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:788
 msgid "Use Tablesorter"
 msgstr "Använd Tablesorter"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:734
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:789
 msgid "You may sort a table using the <a href=\"http://www.tablesorter.com/\">Tablesorter-jQuery-Plugin</a>. <small>Attention: You must have Tablesorter enabled on the \"Plugin Options\" page and the option \"Use Table Headline\" has to be enabled above for this to work!</small>"
 msgstr "Du kan använda tabellsortering med hjälp av <a href=\"http://www.tablesorter.com/\">Tablesorter-jQuery-tillägget</a>. <small>OBS!: Tablesorter måste aktiveras på \"Inställningssidan\" och \"Använd tabellrubrik\" ovan måste vara förbockat för att detta ska fungera!</small>"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:749
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:804
 msgid "Other actions"
 msgstr "Andra åtgärder"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:752
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:807
 msgid "Delete Table"
 msgstr "Radera tabell"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:753
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:935
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:808
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:990
 msgid "Export Table"
 msgstr "Exportera tabell"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:764
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1117
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:819
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1172
 msgid "Import a Table"
 msgstr "Importera tabell"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:768
-msgid "You may import a table from existing data here.<br/>It may be a CSV, XML oder HTML file. It needs a certain structure though. Please consult the documentation."
-msgstr "Du kan importera en tabell från existerande data här.<br/>Det kan vara en CSV-, XML- eller HTML-fil. De måste dock vara strukturerade på ett visst sätt. Var vänlig kolla dokumentationen."
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:823
+msgid "You may import a table from existing data here.<br/>It may be a CSV, XML or HTML file. It needs a certain structure though. Please consult the documentation."
+msgstr "Du kan importera en tabell från existerande data här.<br/>Det kan vara en CSV, XML eller HTML-fil. Den måste dock vara strukturerad på ett visst sätt. Var vänlig kolla dokumentationen."
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:775
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:830
 msgid "Select Import Format"
 msgstr "Välj importformat"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:785
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:840
 msgid "Used Delimiter"
 msgstr "Välj avgränsare"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:792
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:926
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:847
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:981
 msgid "<small>(Only needed for CSV export.)</small>"
 msgstr "<small>(Behövs endast för CSV export.)</small>"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:795
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:850
 msgid "Select File with Table to Import"
 msgstr "Välj tabellfil som ska importeras"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:799
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:854
 msgid "- or -"
 msgstr "- eller -"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:800
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:855
 msgid "(upload will be preferred over pasting)"
 msgstr "(ladda upp föredras framför klistra in)"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:803
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:858
 msgid "Paste data with Table to Import"
 msgstr "Klistra in data med tabell som ska importeras"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:809
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:864
 msgid "Import Table"
 msgstr "Importera tabell"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:822
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:877
 msgid "Import from original wp-Table plugin"
 msgstr "Importera från originalet wp-Table"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:855
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:910
 msgid "Do you really want to import this table from the wp-Table plugin?"
 msgstr "Vill du verkligen importera denna tabell från wp-Table tillägget?"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:855
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:910
 msgid "Import"
 msgstr "Importera"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:863
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:918
 msgid "wp-Table by Alex Rabe seems to be installed, but no tables were found."
 msgstr "wp-Table av Alex Rabe verkar vara installerat men inga tabeller kunde hittas."
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:882
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1118
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:937
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1173
 msgid "Export a Table"
 msgstr "Exportera tabell"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:886
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:941
 msgid "You may export a table here. Just select the table, your desired export format and a delimiter (needed for CSV only).<br/>You may opt to download the export file. Otherwise it will be shown on this page."
 msgstr "Du kan exportera en tabell här. Välj en tabell, önskat exportformat och avgränsare (endast för CSV).<br/>Du kan välja att ladda ner exportfilen annars kommer den att visas på denna sida."
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:894
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:949
 msgid "Select Table to Export"
 msgstr "Välj tabell som ska exporteras"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:909
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:964
 msgid "Select Export Format"
 msgstr "Välj exportformat"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:919
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:974
 msgid "Select Delimiter to use"
 msgstr "Välj avgränsare"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:929
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:984
 msgid "Download file"
 msgstr "Ladda ner"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:930
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:985
 msgid "Yes, I want to download the export file."
 msgstr "Ja, jag vill ladda ner exportfilen."
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:955
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1010
 msgid "General Plugin Options"
 msgstr "Allmänna inställningar"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:959
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1014
 msgid "You may change these global options.<br/>They will effect all tables or the general plugin behaviour."
 msgstr "Detta är globala inställningar.<br/>De kommer påverka alla tabeller eller tilläggets generella beteende."
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:966
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1021
 msgid "Frontend Options"
 msgstr "Gränssnittsalternativ"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:970
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1025
 msgid "Enable Tablesorter-JavaScript?"
 msgstr "Aktivera Tablesorter-JavaScript?"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:971
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1026
 msgid "Yes, enable <a href=\"http://www.tablesorter.com/\">Tablesorter-jQuery-Plugin</a> to be used to make table sortable (can be changed for every table separatly)."
 msgstr "Ja, aktivera <a href=\"http://www.tablesorter.com/\">Tablesorter-jQuery-Plugin</a> för att möjliggöra tabellsortering (kan ställas in separat för varje tabell)."
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:974
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1029
 msgid "Add custom CSS?"
 msgstr "Lägg till anpassad CSS?"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:975
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1030
 #, php-format
 msgid "Yes, include and load the following CSS-snippet on my site inside a [style]-HTML-tag. (If you do not want this, just add your CSS styling to your theme's \"style.css\" <small>(located at %s)</small>.) (See the <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/\">plugin website</a> for examples.)"
 msgstr "Ja, inkludera och ladda följande CSS-sträng på min hemsida inuti [style]-HTML-tag. (Om du inte vill göra detta, lägg till din CSS-kod till temats \"style.css\" <small>(som finns i %s)</small>.) (Se <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/\">tilläggets hemsida</a> för exempel.)"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:979
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1034
 msgid "Enter custom CSS"
 msgstr "Ange anpassad CSS"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:987
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1042
 msgid "Admin Options"
 msgstr "Adminalternativ"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:991
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1046
 msgid "Uninstall Plugin upon Deactivation?"
 msgstr "Avinstallera tillägget vid inaktivering?"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:992
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1047
 msgid "Yes, uninstall everything when plugin is deactivated. Attention: You should only enable this checkbox directly before deactivating the plugin from the WordPress plugins page! (It does not influence the \"Manually Uninstall Plugin\" button below!)"
 msgstr "Ja, avinstallera allt när tillägget inaktiveras. OBS! Du bör endast markera denna ruta precis innan du inaktiverar tillägget via WordPress tilläggssida! (Detta påverkar inte \"Avinstallera manuellt\"-knappen nedan!)"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1002
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1057
 msgid "Save Options"
 msgstr "Spara"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1012
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1067
 msgid "Do you really want to activate this? You should only do that right before uninstallation!"
 msgstr "Vill du verkligen aktivera det här? Du bör endast göra detta precis innan avinstallation!"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1018
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1073
 msgid "Manually Uninstall Plugin"
 msgstr "Avinstallera tillägget manuellt"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1020
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1075
 msgid "You may uninstall the plugin here. This <strong>will delete</strong> all tables, data, options, etc., that belong to the plugin, including all tables you added or imported.<br/> Be very careful with this and only click the button if you know what you are doing!"
 msgstr "Du kan avinstallera tillägget här. Detta <strong>kommer att radera</strong> alla tabeller, data, inställningar, etc. som hör till tillägget, inklusive alla tabeller som lagts till eller importerats.<br/>Var väldigt försiktig med detta och klicka på knappen bara om du vet vad du gör!"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1023
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1078
 msgid "Do you really want to uninstall the plugin and delete ALL data?"
 msgstr "Vill du verkligen avinstallera tillägget och radera ALL data?"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1023
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1078
 msgid "Are you really sure?"
 msgstr "Är du riktigt säker?"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1023
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1078
 msgid "Uninstall Plugin WP-Table Reloaded"
 msgstr "Avinstallera WP-Table Reloaded"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1033
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1088
 msgid "Information about the plugin"
 msgstr "Information om tillägget"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1039
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1094
 msgid "Plugin Purpose"
 msgstr "Tilläggets ändamål"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1041
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1096
 msgid "This plugin allows you to create and manage tables in the admin-area of WordPress. You can then show them in your posts, on your pages or in text widgets by using a shortcode."
 msgstr "Med detta tillägg kan du skapa och hantera tabeller i adminpanelen i WordPress. Du kan sedan visa dem i dina inlägg, på dina sidor eller i textwidgets genom att använda en snabbkod."
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1046
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1101
 msgid "Usage"
 msgstr "Användning"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1048
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1103
 msgid "At first you should add or import a table. Then edit your data and select the options you want. To include the table into your posts, pages or text widgets, write the shortcode [table id=&lt;table-id&gt;] into them. You may then style your table via CSS. Every table has the CSS-class \"wp-table-reloaded\". A table also has the class \"wp-table-reloaded-&lt;table-id&gt;\". You can also use the classes \"column-&lt;number&gt;\" and \"row-&lt;number&gt;\" to style rows and columns individually. Use this to style columns width and text alignment."
 msgstr "Du bör först lägga till eller importera en tabell. Sedan kan du redigera data och välja inställningar som du vill. Använd snabbkoden [table id=&lt;table-id&gt;] för att inkludera tabellen på dina sidor, i dina inlägg eller i textwidgets. Du kan bestämma stil med hjälp av CSS. Varje tabell har CSS-class \"wp-table-reloaded\". En specifik tabell har även CSS-class \"wp-table-reloaded-&lt;table-id&gt;\". Du kan även använda CSS-class \"column-&lt;number&gt;\" och \"row-&lt;number&gt;\" för att ställa in stil för rader och kolumner individuellt. Använd detta för att ställa in kolumnernas bredd och textjustering."
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1052
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1107
 msgid "More Information and Documentation"
 msgstr "Mer Information och Dokumentation"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1054
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1109
 msgid "More information can be found on the <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded/\">plugin's website</a> or on its page in the <a href=\"http://wordpress.org/extend/plugins/wp-table-reloaded/\">WordPress Plugin Directory</a>. A documentation and certain support and help request possibilities will be available soon."
 msgstr "Mer information hittar du på <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded/\">tilläggets hemsida</a> eller på denna sida i <a href=\"http://wordpress.org/extend/plugins/wp-table-reloaded/\">WordPress Plugin Directory</a>. Dokumentation, viss support och möjlighet att få hjälp kommer att finnas tillgängligt inom kort."
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1059
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1114
 msgid "Author and Licence"
 msgstr "Författare och Licens"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1061
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1116
 msgid "This plugin was written by <a href=\"http://tobias.baethge.com/\">Tobias B&auml;thge</a>. It is licenced as Free Software under GPL 2."
 msgstr "Detta tillägg är skrivet av <a href=\"http://tobias.baethge.com/\">Tobias B&auml;thge</a>. Det är licensierat som Gratis Programvara under GPL 2."
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1061
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1116
 msgid "If you like the plugin, please consider <a href=\"http://tobias.baethge.com/wordpress-plugins/donate/\">donating</a> or rating it at the <a href=\"http://wordpress.org/extend/plugins/wp-table-reloaded/\">WordPress Plugin Directory</a>. Thanks!"
 msgstr "Om du gillar detta tillägg var vänlig <a href=\"http://tobias.baethge.com/wordpress-plugins/donate/\">donera</a> eller betygsätt det på <a href=\"http://wordpress.org/extend/plugins/wp-table-reloaded/\">WordPress Plugin Directory</a>. Tack!"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1066
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1121
 msgid "Credits and Thanks"
 msgstr "Medverkande och Tack"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1069
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1124
 msgid "Thanks go to <a href=\"http://alexrabe.boelinger.com/\">Alex Rabe</a> for the original wp-Table plugin,"
 msgstr "Tack till <a href=\"http://alexrabe.boelinger.com/\">Alex Rabe</a> skaparen av originaltillägget wp-Table,"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1070
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1125
 msgid "Christian Bach for the <a href=\"http://www.tablesorter.com/\">Tablesorter-jQuery-Plugin</a>,"
 msgstr "Christian Bach för <a href=\"http://www.tablesorter.com/\">Tablesorter-jQuery-tillägget</a>,"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1071
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1126
 msgid "the submitters of translations:"
 msgstr "inskickade översättningar:"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1072
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1127
 msgid "Albanian (thanks to <a href=\"http://www.romeolab.com/\">Romeo</a>)"
 msgstr "Albanska (tack till <a href=\"http://www.romeolab.com/\">Romeo</a>)"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1073
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1128
 msgid "French (thanks to <a href=\"http://ultratrailer.net/\">Yin-Yin</a>)"
 msgstr "Franska (tack till <a href=\"http://ultratrailer.net/\">Yin-Yin</a>)"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1074
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1129
 msgid "Russian (thanks to <a href=\"http://wp-skins.info/\">Truper</a>)"
 msgstr "Ryska (tack till <a href=\"http://wp-skins.info/\">Truper</a>)"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1075
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1130
 msgid "Spanish (thanks to <a href=\"http://theindependentproject.com/\">Alejandro Urrutia</a>)"
 msgstr "Spanska (tack till <a href=\"http://theindependentproject.com/\">Alejandro Urrutia</a>)"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1076
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1131
 msgid "Swedish (thanks to <a href=\"http://www.zuperzed.se/\">ZuperZed</a>)"
 msgstr "Svenska (tack till <a href=\"http://www.zuperzed.se/\">ZuperZed</a>)"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1077
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1132
 msgid "Turkish (thanks to <a href=\"http://www.wpuzmani.com/\">Semih</a>)"
 msgstr "Turkiska (tack till <a href=\"http://www.wpuzmani.com/\">Semih</a>)"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1078
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1133
 msgid "and all contributors, supporters, reviewers and users of the plugin!"
 msgstr "och alla bidragsgivare, anhängare, recensenter och användare av tillägget!"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1115
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1170
 msgid "List Tables"
 msgstr "Visa tabeller"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1120
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1175
 msgid "Plugin Options"
 msgstr "Inställningar"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1121
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1176
 msgid "About the Plugin"
 msgstr "Om tillägget"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1129
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1184
 msgid "More information can be found on the <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded/\">plugin's website</a>. A documentation and certain support and help request possibilities will be available soon."
 msgstr "Mer information hittar du på <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded/\">tilläggets hemsida</a>. Dokumentation och viss support och möjlighet att få hjälp finns tillgängligt inom kort."
 
