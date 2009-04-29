@@ -1,11 +1,4 @@
 jQuery(document).ready(function($){
-    $("#import_format").change(function () {
-          if ( 'csv' == $(this).val() )
-		$(".tr-import-delimiter").css('display','table-row');
-	  else
-		$(".tr-import-delimiter").css('display','none');
-        })
-        .change();
 
     $("#export_format").change(function () {
           if ( 'csv' == $(this).val() )

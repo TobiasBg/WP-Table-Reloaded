@@ -58,6 +58,19 @@ if ( is_admin() ) {
         include_once ( WP_TABLE_RELOADED_ABSPATH . 'wp-table-reloaded-frontend.php' );
         if ( class_exists( 'WP_Table_Reloaded_Frontend' ) )
             $WP_Table_Reloaded_Frontend = new WP_Table_Reloaded_Frontend();
+            
+            // ###################################################################################################################
+            // add template tag function to be used anywhere in the template
+            function wp_table_reloaded_print_table( $table_id, $output_id = false, $column_widths = '' ) {
+                global $WP_Table_Reloaded_Frontend;
+                $atts = array(
+                    'id' => $table_id,
+                    'output_id' => $output_id,
+                    'column_widths' => $column_widths
+                );
+                echo $WP_Table_Reloaded_Frontend->handle_content_shortcode( $atts );
+            }
+
     }
 }
 

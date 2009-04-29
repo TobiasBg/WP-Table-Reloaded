@@ -11,7 +11,7 @@ Author URI: http://tobias.baethge.com/
 class WP_Table_Reloaded_Admin {
 
     // ###################################################################################################################
-    var $plugin_version = '1.1';
+    var $plugin_version = '1.2-bleeding-edge';
     // nonce for security of links/forms, try to prevent "CSRF"
     var $nonce_base = 'wp-table-reloaded-nonce';
     // names for the options which are stored in the WP database
@@ -330,11 +330,10 @@ class WP_Table_Reloaded_Admin {
                 $this->import_instance->mimetype = $_FILES['import_file']['type'];
                 $this->import_instance->import_from = 'file-upload';
                 $this->import_instance->import_format = $_POST['import_format'];
-                $this->import_instance->delimiter = $_POST['delimiter'];
                 $this->import_instance->import_table();
                 $error = $this->import_instance->error;
                 $imported_table = $this->import_instance->imported_table;
-                $this->import_instance->unlink_csv_file();
+                $this->import_instance->unlink_uploaded_file();
             } elseif ( isset( $_POST['import_data'] ) ) {
                 $this->import_instance->tempname = '';
                 $this->import_instance->filename = __( 'Imported Table', WP_TABLE_RELOADED_TEXTDOMAIN );
@@ -342,7 +341,6 @@ class WP_Table_Reloaded_Admin {
                 $this->import_instance->import_from = 'form-field';
                 $this->import_instance->import_data = stripslashes( $_POST['import_data'] );
                 $this->import_instance->import_format = $_POST['import_format'];
-                $this->import_instance->delimiter = $_POST['delimiter'];
                 $this->import_instance->import_table();
                 $error = $this->import_instance->error;
                 $imported_table = $this->import_instance->imported_table;
@@ -836,16 +834,6 @@ jQuery(document).ready(function($){
         ?>
         </select></td>
         </tr>
-        <tr valign="top" class="tr-import-delimiter">
-            <th scope="row"><label for="delimiter"><?php _e( 'Used Delimiter', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
-            <td><select id="delimiter" name="delimiter">
-        <?php
-            $delimiters = $this->import_instance->delimiters;
-            foreach ( $delimiters as $delimiter => $longname )
-                echo "<option" . ( ( $delimiter == $_POST['delimiter'] ) ? ' selected="selected"': '' ) . " value=\"{$delimiter}\">{$longname}</option>";
-        ?>
-        </select> <?php _e( '<small>(Only needed for CSV export.)</small>', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></td>
-        </tr>
         <tr valign="top" class="tr-import-file">
             <th scope="row"><label for="import_file"><?php _e( 'Select File with Table to Import', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
             <td><input name="import_file" id="import_file" type="file" /></td>
@@ -1023,7 +1011,7 @@ jQuery(document).ready(function($){
         <table class="wp-table-reloaded-options">
         <tr valign="top">
             <th scope="row"><?php _e( 'Enable Tablesorter-JavaScript?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="options[enable_tablesorter]" id="options[enable_tablesorter]"<?php echo ( true == $this->options['enable_tablesorter'] ) ? ' checked="checked"': '' ;?> value="true" /> <label for="options[enable_tablesorter]"><?php _e( 'Yes, enable <a href="http://www.tablesorter.com/">Tablesorter-jQuery-Plugin</a> to be used to make table sortable (can be changed for every table separatly).', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <td><input type="checkbox" name="options[enable_tablesorter]" id="options[enable_tablesorter]"<?php echo ( true == $this->options['enable_tablesorter'] ) ? ' checked="checked"': '' ;?> value="true" /> <label for="options[enable_tablesorter]"><?php _e( 'Yes, enable <a href="http://www.tablesorter.com/">Tablesorter-jQuery-Plugin</a> to be used to make table sortable (can be changed for every table separately).', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
         <tr valign="top" id="options_use_custom_css">
             <th scope="row"><?php _e( 'Add custom CSS?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
@@ -1125,12 +1113,28 @@ jQuery(document).ready(function($){
             <?php _e( 'Christian Bach for the <a href="http://www.tablesorter.com/">Tablesorter-jQuery-Plugin</a>,', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/>
             <?php _e( 'the submitters of translations:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'Albanian (thanks to <a href="http://www.romeolab.com/">Romeo</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
+            <br/>&middot; <?php _e( 'Czech (thanks to <a href="http://separatista.net/">Pavel</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'French (thanks to <a href="http://ultratrailer.net/">Yin-Yin</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'Russian (thanks to <a href="http://wp-skins.info/">Truper</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'Spanish (thanks to <a href="http://theindependentproject.com/">Alejandro Urrutia</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'Swedish (thanks to <a href="http://www.zuperzed.se/">ZuperZed</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'Turkish (thanks to <a href="http://www.wpuzmani.com/">Semih</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/><?php _e( 'and all contributors, supporters, reviewers and users of the plugin!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
+        </p>
+        </div>
+        </div>
+        
+        <div class="postbox closed">
+        <h3 class="hndle"><span><?php _e( 'Debug and Version Information', WP_TABLE_RELOADED_TEXTDOMAIN ) ?></span></h3>
+        <div class="inside">
+        <p>
+            <?php _e( 'You are using the following versions of the software. Please provide this information in bug reports.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/>
+            <br/>&middot; WP-Table Reloaded (DB): <?php echo $this->options['installed_version']; ?>
+            <br/>&middot; WP-Table Reloaded (Script): <?php echo $this->plugin_version; ?>
+            <br/>&middot; WordPress: <?php echo $GLOBALS['wp_version']; ?>
+            <br/>&middot; PHP: <?php echo phpversion(); ?>
+            <br/>&middot; mySQL (Server): <?php echo mysql_get_server_info() ?>
+            <br/>&middot; mySQL (Client): <?php echo mysql_get_client_info() ?>
         </p>
         </div>
         </div>
@@ -1343,27 +1347,33 @@ jQuery(document).ready(function($){
         // update general plugin options
         // 1. step: by adding/overwriting existing options
 		$this->options = get_option( $this->optionname['options'] );
-        $new_options = array_merge( $this->default_options, $this->options );
-        // 2. step: by removing options which are deprecated (and thus not in_array(default_options)
-        $new_options = array_intersect_key( $new_options, $this->default_options );
+		$new_options = array();
+
+        // 2a. step: add/delete new/deprecated options by overwriting new ones with existing ones, if existant
+		foreach ( $this->default_options as $key => $value )
+            $new_options[ $key ] = ( true == isset( $this->options[ $key ] ) ) ? $this->options[ $key ] : $this->default_options[ $key ] ;
+
+        // 2b., take care of css
+        $new_options['use_custom_css'] = ( false == isset( $this->options['use_custom_css'] ) && true == isset( $this->options['use_global_css'] ) ) ? $this->options['use_global_css'] : $this->options['use_custom_css'];
+
         // 3. step: update installed version number
         $new_options['installed_version'] = $this->plugin_version;
-        
-        // 3b., take care of css
-        $new_options['use_custom_css'] = ( true == isset( $this->options['use_global_css'] ) ) ? $this->options['use_global_css'] : true;
-        
+
         // 4. step: save the new options
         $this->options = $new_options;
         $this->update_options();
 
-        // update individual table options
+        // update individual tables and their options
 		$this->tables = get_option( $this->optionname['tables'] );
         foreach ( $this->tables as $id => $tableoptionname ) {
             $table = $this->load_table( $id );
-            $new_table = array_merge( $this->default_table, $table );
-            $new_table = array_intersect_key( $new_table, $this->default_table );
-            $new_table['options'] = array_merge( $this->default_table['options'], $new_table['options'] );
-            $new_table['options'] = array_intersect_key( $new_table['options'], $this->default_table['options'] );
+            
+            foreach ( $this->default_table as $key => $value )
+                $new_table[ $key ] = ( true == isset( $table[ $key ] ) ) ? $table[ $key ] : $this->default_table[ $key ] ;
+
+            foreach ( $this->default_table['options'] as $key => $value )
+                $new_table['options'][ $key ] = ( true == isset( $table['options'][ $key ] ) ) ? $table['options'][ $key ] : $this->default_table['options'][ $key ] ;
+
             $this->save_table( $new_table );
         }
     }

@@ -3,7 +3,7 @@
 File Name: WP-Table Reloaded - Import Class (see main file wp-table-reloaded.php)
 Plugin URI: http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/
 Description: This plugin allows you to create and manage tables in the admin-area of WordPress. You can then show them in your posts or on your pages by using a shortcode. The plugin is greatly influenced by the plugin "wp-Table" by Alex Rabe, but was completely rewritten and uses the state-of-the-art WordPress techniques which makes it faster and lighter than the original plugin.
-Version: 1.0
+Version: 1.2
 Author: Tobias B&auml;thge
 Author URI: http://tobias.baethge.com/
 */
@@ -12,37 +12,34 @@ Author URI: http://tobias.baethge.com/
 class WP_Table_Reloaded_Import {
 
     // ###################################################################################################################
-    var $import_class_version = '1.0';
+    var $import_class_version = '1.2';
 
-    var $delimiters = array();
+    // possible import formats
     var $import_formats = array();
 
+    // used if file uploaded
     var $filename = '';
     var $tempname = '';
     var $mimetype = '';
-    var $delimiter = ';';
+
+    // filled before import
     var $import_format = '';
     var $import_from = '';
     var $wp_table_id = '';
+    
+    // return values
     var $error = false;
     var $imported_table = array();
-    
 
     // ###################################################################################################################
     // constructor class
     function WP_Table_Reloaded_Import() {
-        // initiate here, because function call __() not allowed outside function
-        $this->delimiters = array(
-            ';' => __( '; (semicolon)', WP_TABLE_RELOADED_TEXTDOMAIN ),
-            ',' => __( ', (comma)', WP_TABLE_RELOADED_TEXTDOMAIN ),
-            ':' => __( ': (colon)', WP_TABLE_RELOADED_TEXTDOMAIN )
-        );
         $this->import_formats = array(
             'csv' => __( 'CSV - Character-Separated Values', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'html' => __( 'HTML - Hypertext Markup Language', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'xml' => __( 'XML - eXtended Markup Language', WP_TABLE_RELOADED_TEXTDOMAIN )
             // don't have this show up in list, as handled in separate table
-            //'wp_table' => _ _( 'wp-Table plugin database', WP_TABLE_RELOADED_TEXTDOMAIN )
+            // 'wp_table' => 'wp-Table plugin database'
         );
     }
 
@@ -69,13 +66,22 @@ class WP_Table_Reloaded_Import {
     // ###################################################################################################################
     function import_csv() {
         $table = $this->get_table_meta();
+
+        $parseCSV = $this->create_class_instance( 'parseCSV', 'parsecsv.class.php' );
         
         if ( 'form-field' == $this->import_from )
-            $this->tempname = $this->csv_string_to_file( $this->import_data );
+            $temp_data = $this->import_data;
+        elseif ( 'file-upload' == $this->import_from )
+            $temp_data = file_get_contents( $this->tempname );
 
-        $temp_data = $this->csv_file_to_array( $this->tempname, $this->delimiter, '"' );
+        $parseCSV->heading = false; // means: treat first row like all others
+        $parseCSV->encoding( 'ISO-8859-1', 'UTF-8' ); // might need to play with this a little or offer an option
+        $parseCSV->load_data( $temp_data );
+        $parseCSV->auto(); // let parsecsv do its magic (determine delimiter and parse the data)
+
+        $temp_table = $parseCSV->data;
             
-        $table['data'] = $this->pad_array_to_max_cols( $temp_data );
+        $table['data'] = $this->pad_array_to_max_cols( $temp_table );
         $this->imported_table = $table;
     }
 
@@ -83,12 +89,7 @@ class WP_Table_Reloaded_Import {
     function import_html() {
         $table = $this->get_table_meta();
 
-        if ( !class_exists( 'simplexml' ) ) {
-            include_once ( WP_TABLE_RELOADED_ABSPATH . 'php/' . 'simplexml.class.php' );
-            if ( class_exists( 'simplexml' ) )  {
-                $simpleXML = new simplexml();
-            }
-        }
+        $simpleXML = $this->create_class_instance( 'simplexml', 'simplexml.class.php' );
 
         if ( 'form-field' == $this->import_from )
             $temp_data = $this->import_data;
@@ -144,12 +145,7 @@ class WP_Table_Reloaded_Import {
     function import_xml() {
         $table = $this->get_table_meta();
 
-        if ( !class_exists( 'simplexml' ) ) {
-            include_once ( WP_TABLE_RELOADED_ABSPATH . 'php/' . 'simplexml.class.php' );
-            if ( class_exists( 'simplexml' ) )  {
-                $simpleXML = new simplexml();
-            }
-        }
+        $simpleXML = $this->create_class_instance( 'simplexml', 'simplexml.class.php' );
 
         if ( 'form-field' == $this->import_from )
             $temp_data = $simpleXML->xml_load_string( $this->import_data, 'array' );
@@ -217,34 +213,8 @@ class WP_Table_Reloaded_Import {
     }
 
     // ###################################################################################################################
-    function unlink_csv_file() {
+    function unlink_uploaded_file() {
         unlink( $this->tempname );
-    }
-
-    // ###################################################################################################################
-    function csv_file_to_array( $filename, $delimiter = ';', $enclosure = '"' ) {
-        $data = array();
-        $handle = fopen( $filename, 'r' );
-            while ( false !== ( $read_line = fgetcsv( $handle, 1024, $delimiter, $enclosure ) ) ) {
-                $data[] = $this->add_slashes( $read_line );
-            }
-        fclose($handle);
-        return $data;
-    }
-    
-    // ###################################################################################################################
-    function csv_string_to_file( $data ) {
-        $temp_file_name = tempnam( $this->get_temp_dir(), 'import_table_' );
-
-        if ( function_exists( 'file_put_contents' ) ) {
-            file_put_contents( $temp_file_name, $data );
-        } else {
-            $handle = fopen( $temp_file_name, 'w' );
-            $bytes = fwrite( $handle, $data );
-            fclose( $handle );
-        }
-        
-        return $temp_file_name;
     }
 
     // ###################################################################################################################
@@ -283,19 +253,13 @@ class WP_Table_Reloaded_Import {
         $table['description'] .= ( false == empty( $this->mimetype ) ) ? ' (' . $this->mimetype . ')' : '';
         return $table;
     }
-    
-    // ###################################################################################################################
-    function get_temp_dir() {
-        if ( function_exists( 'sys_get_temp_dir' ) ) { return sys_get_temp_dir(); } // introduced in PHP 5.2.1
 
-        if ( !empty($_ENV['TMP'] ) ) { return realpath( $_ENV['TMP'] ); }
-        if ( !empty($_ENV['TMPDIR'] ) ) { return realpath( $_ENV['TMPDIR'] ); }
-        if ( !empty($_ENV['TEMP'] ) ) { return realpath( $_ENV['TEMP'] ); }
-    
-        $tempfile = tempnam( uniqid( rand(), true ), '' );
-        if ( file_exists( $tempfile ) ) {
-            unlink( $tempfile );
-            return realpath( dirname( $tempfile ) );
+    // ###################################################################################################################
+    function create_class_instance( $class, $file) {
+        if ( !class_exists( $class ) ) {
+            include_once ( WP_TABLE_RELOADED_ABSPATH . 'php/' . $file );
+            if ( class_exists( $class ) )
+                return new $class;
         }
     }
 
