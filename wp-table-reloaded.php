@@ -61,13 +61,9 @@ if ( is_admin() ) {
             
             // ###################################################################################################################
             // add template tag function to be used anywhere in the template
-            function wp_table_reloaded_print_table( $table_id, $output_id = false, $column_widths = '' ) {
+            function wp_table_reloaded_print_table( $table_query ) {
                 global $WP_Table_Reloaded_Frontend;
-                $atts = array(
-                    'id' => $table_id,
-                    'output_id' => $output_id,
-                    'column_widths' => $column_widths
-                );
+                parse_str( $table_query, $atts );
                 echo $WP_Table_Reloaded_Frontend->handle_content_shortcode( $atts );
             }
 

@@ -46,27 +46,43 @@ class WP_Table_Reloaded_Frontend {
 
     // ###################################################################################################################
     // handle [table id=<the_table_id> /] in the_content()
-    function handle_content_shortcode( $attr ) {
-
+    function handle_content_shortcode( $atts ) {
         // parse shortcode attributs, only allow those specified
         $default_atts = array(
                 'id' => 0,
                 'output_id' => false,
-                'column_widths' => ''
-                );
+                'column_widths' => '',
+                'alternating_row_colors' => -1,
+                'first_row_th' => -1,
+                'print_name' => -1,
+                'print_description' => -1,
+                'use_tablesorter' => -1,
+        );
       	$atts = shortcode_atts( $default_atts, $atts );
 
-        // get atts from array to variables
-        $table_id = $attr['id'];
-        $output_id = (  true == $attr['output_id'] ) ? true : false;
-        $column_widths = explode( '|', $attr['column_widths'] );
-
+        // check if table exists
+        $table_id = $atts['id'];
         if ( !is_numeric( $table_id ) || 1 > $table_id || false == $this->table_exists( $table_id ) )
             return "[table \"{$table_id}\" not found /]<br />\n";
 
+        // explode from string to array
+        $atts['column_widths'] = explode( '|', $atts['column_widths'] );
+
         $table = $this->load_table( $table_id );
 
-        $output = $this->render_table( $table, $column_widths, $output_id );
+        // determine options to use (if set in shortcode, use those, otherwise use options from "Edit Table" screen)
+        $output_options = array();
+        foreach ( $atts as $key => $value ) {
+            // have to check this, because strings 'true' or 'false' are not recognized as boolean!
+            if ( 'true' == strtolower( $value ) )
+                $output_options[ $key ] = true;
+            elseif ( 'false' == strtolower( $value ) )
+                $output_options[ $key ] = false;
+            else
+                $output_options[ $key ] = ( -1 !== $value ) ? $value : $table['options'][ $key ] ;
+        }
+        
+        $output = $this->render_table( $table, $output_options );
 
         return $output;
     }
@@ -95,36 +111,36 @@ class WP_Table_Reloaded_Frontend {
 
     // ###################################################################################################################
     // echo content of array
-    function render_table( $table, $column_widths, $output_id ) {
+    function render_table( $table, $output_options ) {
         // classes that will be added to <table class=...>, can be used for css-styling
         $cssclasses = array( 'wp-table-reloaded', "wp-table-reloaded-id-{$table['id']}" );
         $cssclasses = implode( ' ', $cssclasses );
 
-        $id_output = ( true == $output_id ) ? " id=\"wp-table-reloaded-id-{$table['id']}\"" : '';
+        $id_output = ( true == $output_options['output_id'] ) ? " id=\"wp-table-reloaded-id-{$table['id']}\"" : '';
 
         $rows = count( $table['data'] );
         $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
 
-        // make array $column_widths have $cols entries
-        $column_widths = array_pad( $column_widths, $cols, '' );
+        // make array $shortcode_atts['column_widths'] have $cols entries
+        $output_options['column_widths'] = array_pad( $output_options['column_widths'], $cols, '' );
 
         $output = '';
 
         if ( 0 < $rows && 0 < $cols) {
         
-            if ( true == $table['options']['print_name'] )
+            if ( true == $output_options['print_name'] )
                 $output .= '<h2 class="wp-table-reloaded-table-name">' . $this->safe_output( $table['name'] ) . "</h2>\n";
         
             $output .= "<table{$id_output} class=\"{$cssclasses}\" cellspacing=\"1\" cellpadding=\"0\" border=\"0\">\n";
 
             foreach( $table['data'] as $row_idx => $row ) {
-                if ( true == $table['options']['alternating_row_colors'] )
+                if ( true == $output_options['alternating_row_colors'] )
                     $row_class = ( 1 == ($row_idx % 2) ) ? ' class="even row-' . ( $row_idx + 1 ) . '"' : ' class="odd row-' . ( $row_idx + 1 ) . '"';
                 else
                     $row_class = ' class="row-' . ( $row_idx + 1 ) . '"';
                     
                 if( 0 == $row_idx ) {
-                    if ( true == $table['options']['first_row_th'] ) {
+                    if ( true == $output_options['first_row_th'] ) {
                         $output .= "<thead>\n";
                         $output .= "\t<tr{$row_class}>\n\t\t";
                         foreach( $row as $col_idx => $cell_content ) {
@@ -160,12 +176,12 @@ class WP_Table_Reloaded_Frontend {
             $output .= "</tbody>\n";
             $output .= "</table>\n";
 
-            if ( true == $table['options']['print_description'] )
+            if ( true == $output_options['print_description'] )
                 $output .= '<span class="wp-table-reloaded-table-description">' . $this->safe_output( $table['description'] ) . "</span>\n";
 
-            $widgets = ( true == $table['options']['alternating_row_colors'] ) ? "{widgets: ['zebra']}" : '';
+            $widgets = ( true == $output_options['alternating_row_colors'] ) ? "{widgets: ['zebra']}" : '';
             
-            if ( true == $table['options']['use_tablesorter'] && true == $table['options']['first_row_th'] && true == $this->options['enable_tablesorter'] ) {
+            if ( true == $output_options['use_tablesorter'] && true == $output_options['first_row_th'] && true == $this->options['enable_tablesorter'] ) {
                 $output .= <<<JSSCRIPT
 <script type="text/javascript">
 /* <![CDATA[ */
