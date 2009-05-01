@@ -3,7 +3,7 @@
 File Name: WP-Table Reloaded - Admin Class (see main file wp-table-reloaded.php)
 Plugin URI: http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/
 Description: This plugin allows you to create and manage tables in the admin-area of WordPress. You can then show them in your posts, on your pages or in text widgets by using a shortcode. The plugin is a completely rewritten and extended version of Alex Rabe's "wp-Table" and uses the state-of-the-art WordPress techniques which makes it faster and lighter than the original plugin.
-Version: 1.1
+Version: 1.2
 Author: Tobias B&auml;thge
 Author URI: http://tobias.baethge.com/
 */
@@ -83,7 +83,8 @@ class WP_Table_Reloaded_Admin {
     // all of this will be done before the page is shown by show_manage_page()
     function load_manage_page() {
         // load js and css for admin
-        $this->add_manage_page_js();
+        //$this->add_manage_page_js();
+        add_action( 'admin_footer', array( &$this, 'add_manage_page_js' ) ); // can be put in footer, jQuery will be loaded anyway
         $this->add_manage_page_css();
 
         // init language support (add later)
@@ -193,6 +194,24 @@ class WP_Table_Reloaded_Admin {
                 }
                 $this->save_table( $table );
                 $message =  __( 'Columns swapped successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                break;
+            case 'sort':
+                $table_id = $_POST['table']['id'];
+                $column = ( isset( $_POST['sort']['col'] ) ) ? $_POST['sort']['col'] : -1;
+                $sort_order= ( isset( $_POST['sort']['order'] ) ) ? $_POST['sort']['order'] : 'ASC';
+                $table = $this->load_table( $table_id );
+                $rows = count( $table['data'] );
+                // sort array for $column in $sort_order
+                if ( ( 1 < $rows ) && ( -1 < $column ) ) {
+                    $sortarray = $this->create_class_instance( 'arraysort', 'arraysort.class.php' );
+                    $sortarray->input_array = $table['data'];
+                    $sortarray->column = $column;
+                    $sortarray->order = $sort_order;
+                    $sortarray->sort();
+                    $table['data'] = $sortarray->sorted_array;
+                }
+                $this->save_table( $table );
+                $message =  __( 'Table sorted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
             default:
                 $this->do_action_list();
@@ -507,9 +526,9 @@ class WP_Table_Reloaded_Admin {
                 echo "<td>{$name}</td>";
                 echo "<td>{$description}</td>";
                 echo "<td><a href=\"{$edit_url}\">" . __( 'Edit', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
-                echo "<a href=\"{$copy_url}\" onclick=\"javascript:return confirm( '".__( 'Do you want to copy this table?', WP_TABLE_RELOADED_TEXTDOMAIN  )."' );\">" . __( 'Copy', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
+                echo "<a class=\"copy_table_link\" href=\"{$copy_url}\">" . __( 'Copy', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
                 echo "<a href=\"{$export_url}\">" . __( 'Export', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
-                echo "<a href=\"{$delete_url}\" class=\"delete\" onclick=\"javascript:return confirm( '".__( 'The complete table and all content will be erased. Do you really want to delete it?', WP_TABLE_RELOADED_TEXTDOMAIN  )."' );\">" . __( 'Delete', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a></td>\n";
+                echo "<a class=\"delete_table_link delete\" href=\"{$delete_url}\">" . __( 'Delete', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a></td>\n";
                 echo "</tr>\n";
 
             }
@@ -577,7 +596,6 @@ class WP_Table_Reloaded_Admin {
 
         $this->print_page_header( sprintf( __( 'Edit Table "%s"', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $table['name'] ) ) );
         $this->print_submenu_navigation( 'edit' );
-
         ?>
         <div style="clear:both;"><p><?php _e( 'You may edit the content of the table here. It is also possible to add or delete columns and rows.', WP_TABLE_RELOADED_TEXTDOMAIN ) ?><br />
 		<?php echo sprintf( __( 'If you want to show a table in your pages, posts or text-widgets, use this shortcode: <strong>[table id=%s /]</strong>', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $table_id ) ); ?></p></div>
@@ -611,7 +629,7 @@ class WP_Table_Reloaded_Admin {
 
         <?php if ( 0 < $cols && 0 < $rows ) { ?>
             <div class="postbox">
-            <h3 class="hndle"><span><?php _e( 'Table Contents', WP_TABLE_RELOADED_TEXTDOMAIN ) ?></span></h3>
+            <h3 class="hndle"><span><?php _e( 'Table Contents', WP_TABLE_RELOADED_TEXTDOMAIN ) ?></span><span class="hide_link"><small><?php _e( 'Hide', WP_TABLE_RELOADED_TEXTDOMAIN ) ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ) ?></small></span></h3>
             <div class="inside">
             <table class="widefat" style="width:auto;" id="table_contents">
                 <thead>
@@ -641,7 +659,7 @@ class WP_Table_Reloaded_Admin {
                     $delete_row_url = $this->get_action_url( array( 'action' => 'delete', 'table_id' => $table['id'], 'item' => 'row', 'element_id' => $row_idx ), true );
                     echo "\t<td><a href=\"{$insert_row_url}\">" . __( 'Insert Row', WP_TABLE_RELOADED_TEXTDOMAIN )."</a>";
                     if ( 1 < $rows ) // don't show delete link for last and only row
-                        echo " | <a href=\"{$delete_row_url}\" onclick=\"javascript:return confirm( '".__( 'Do you really want to delete this row?', WP_TABLE_RELOADED_TEXTDOMAIN )."' );\">".__( 'Delete Row', WP_TABLE_RELOADED_TEXTDOMAIN )."</a>";
+                        echo " | <a class=\"delete_row_link\" href=\"{$delete_row_url}\">".__( 'Delete Row', WP_TABLE_RELOADED_TEXTDOMAIN )."</a>";
                     echo "</td>\n</tr>";
                 }
                 ?>
@@ -653,7 +671,7 @@ class WP_Table_Reloaded_Admin {
                         $delete_col_url = $this->get_action_url( array( 'action' => 'delete', 'table_id' => $table['id'], 'item' => 'col', 'element_id' => $col_idx ), true );
                         echo "\t<td><a href=\"{$insert_col_url}\">" . __( 'Insert Column', WP_TABLE_RELOADED_TEXTDOMAIN )."</a>";
                         if ( 1 < $cols ) // don't show delete link for last and only column
-                            echo " | <a href=\"{$delete_col_url}\" onclick=\"javascript:return confirm( '" . __( 'Do you really want to delete this column?', WP_TABLE_RELOADED_TEXTDOMAIN )."' );\">" . __('Delete Column', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>";
+                            echo " | <a class=\"delete_column_link\" href=\"{$delete_col_url}\">" . __('Delete Column', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>";
                         echo "</td>\n";
                     }
                     $add_row_url = $this->get_action_url( array( 'action' => 'insert', 'table_id' => $table['id'],'item' => 'row',  'element_id' => $rows ), true ); // number of $rows is equal to new row's id
@@ -667,9 +685,9 @@ class WP_Table_Reloaded_Admin {
         </div>
         <?php } //endif ?>
             <div class="postbox">
-            <h3 class="hndle"><span><?php _e( 'Data Manipulation', WP_TABLE_RELOADED_TEXTDOMAIN ) ?></span></h3>
+            <h3 class="hndle"><span><?php _e( 'Data Manipulation', WP_TABLE_RELOADED_TEXTDOMAIN ) ?></span><span class="hide_link"><small><?php _e( 'Hide', WP_TABLE_RELOADED_TEXTDOMAIN ) ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ) ?></small></span></h3>
             <div class="inside">
-<table><tr><td>
+<table class="wp-table-reloaded-data-manipulation"><tr><td>
         <?php if ( 1 < $rows ) { // swap rows form
 
             $row1_select = '<select name="swap[row][1]">';
@@ -707,62 +725,38 @@ class WP_Table_Reloaded_Admin {
             ?>
             <input type="submit" name="submit[swap_cols]" class="button-primary" value="<?php _e( 'Swap', WP_TABLE_RELOADED_TEXTDOMAIN ) ?>" />
         <?php } // end if form swap cols ?>
-</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>
+</td><td>
         <p class="submit">
         <a id="a-insert-link" class="button-primary" href=""><?php _e( 'Insert Link', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a> <a id="a-insert-image" class="button-primary" href=""><?php _e( 'Insert Image', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
         </p>
-</td></tr>
+</td>
+<td>
+        <?php if ( 1 < $rows ) { // sort form
+
+            $col_select = '<select name="sort[col]">';
+            foreach ( $table['data'][0] as $col_idx => $cell_content )
+                $col_select .= "<option value=\"{$col_idx}\">" . ( chr( ord( 'A' ) + $col_idx ) ) . "</option>";
+            $col_select .= '</select>';
+
+            $sort_order_select = '<select name="sort[order]">';
+            $sort_order_select .=  "<option value=\"ASC\">" . __( 'ascending', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</option>";
+            $sort_order_select .=  "<option value=\"DESC\">" . __( 'descending', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</option>";
+            $sort_order_select .= '</select>';
+
+            echo sprintf( __( 'Sort table by column %s in %s order', WP_TABLE_RELOADED_TEXTDOMAIN ), $col_select, $sort_order_select );
+
+            ?>
+            <input type="submit" name="submit[sort]" class="button-primary" value="<?php _e( 'Sort', WP_TABLE_RELOADED_TEXTDOMAIN ) ?>" />
+        <?php } // end if sort form ?>
+</td>
+</tr>
 </table>
-<script type="text/javascript">
-/* <![CDATA[ */
-jQuery(document).ready(function($){
-
-    var insert_html = '';
-
-    function add_html() {
-        var old_value = $(this).val();
-        var new_value = old_value + insert_html;
-        $(this).val( new_value );
-        $("#table_contents input").unbind('click', add_html);
-    }
-
-    $("#a-insert-link").click(function () {
-        var link_url = prompt( '<?php _e( 'URL of link to insert', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>' + ':', 'http://' );
-        if ( link_url ) {
-            var link_text = prompt( '<?php _e( 'Text of link', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>' + ':', '<?php _e( 'Text of link', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>' );
-            if ( link_text ) {
-                insert_html = '<a href="' + link_url + '">' + link_text + '</a>';
-                if ( confirm( '<?php _e( 'To insert the following link into a cell, just click the cell after closing this dialog.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>' + '\n\n' + insert_html ) ) {
-                    $("#table_contents input").bind('click', add_html);
-                }
-            }
-        }
-		return false;
-	});
-	
-    $("#a-insert-image").click(function () {
-        var image_url = prompt( '<?php _e( 'URL of image to insert', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>' + ':', 'http://' );
-        if ( image_url ) {
-            var image_alt = prompt( '<?php _e( '"alt" text of the image', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>' + ':', '' );
-            // if ( image_alt ) { // won't check for alt, because there are cases where an empty one makes sense
-                insert_html = '<img src="' + image_url + '" alt="' + image_alt + '" />';
-                if ( true == confirm( '<?php _e( 'To insert the following image into a cell, just click the cell after closing this dialog.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>' + '\n\n' + insert_html ) ) {
-                    $("#table_contents input").bind('click', add_html);
-                }
-            // }
-        }
-		return false;
-	});
-	
-});
-/* ]]> */
-</script>
         </div>
         </div>
         
         <br/>
         <div class="postbox">
-        <h3 class="hndle"><span><?php _e( 'Table Settings', WP_TABLE_RELOADED_TEXTDOMAIN ) ?></span></h3>
+        <h3 class="hndle"><span><?php _e( 'Table Settings', WP_TABLE_RELOADED_TEXTDOMAIN ) ?></span><span class="hide_link"><small><?php _e( 'Hide', WP_TABLE_RELOADED_TEXTDOMAIN ) ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ) ?></small></span></h3>
         <div class="inside">
         <p><?php _e( 'These settings will only be used for this table.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
         <table class="wp-table-reloaded-options">
@@ -802,7 +796,7 @@ jQuery(document).ready(function($){
         echo '<br/><br/>' . __( 'Other actions', WP_TABLE_RELOADED_TEXTDOMAIN ) . ':';
         $delete_url = $this->get_action_url( array( 'action' => 'delete', 'table_id' => $table['id'], 'item' => 'table' ), true );
         $export_url = $this->get_action_url( array( 'action' => 'export', 'table_id' => $table['id'] ), false );
-        echo " <a class=\"button-secondary\" href=\"{$delete_url}\" onclick=\"javascript:return confirm( '".__( 'The complete table and all content will be erased. Do you really want to delete it?', WP_TABLE_RELOADED_TEXTDOMAIN )."' );\">" . __( 'Delete Table', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>";
+        echo " <a class=\"button-secondary delete_table_link\" href=\"{$delete_url}\">" . __( 'Delete Table', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>";
         echo " <a class=\"button-secondary\" href=\"{$export_url}\">" . __( 'Export Table', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>";
         ?>
         </p>
@@ -895,7 +889,7 @@ jQuery(document).ready(function($){
                 echo "\t<th scope=\"row\">{$table_id}</th>";
                 echo "<td>{$name}</td>";
                 echo "<td>{$description}</td>";
-                echo "<td><a href=\"{$import_url}\" onclick=\"javascript:return confirm( '" . __( 'Do you really want to import this table from the wp-Table plugin?', WP_TABLE_RELOADED_TEXTDOMAIN ) . "' );\">" . __( 'Import', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a></td>\n";
+                echo "<td><a class=\"import_wptable_link\" href=\"{$import_url}\">" . __( 'Import', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a></td>\n";
                 echo "</tr>\n";
 
             }
@@ -1047,23 +1041,13 @@ jQuery(document).ready(function($){
 
         </form>
         </div>
-<script type="text/javascript">
-/* <![CDATA[ */
-jQuery(document).ready(function($){
-    $("#options_uninstall input").click(function () {
-	  if( $('#options_uninstall input:checked').val() ) {
-		return confirm( '<?php _e( 'Do you really want to activate this? You should only do that right before uninstallation!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>' );
-	  }
-	});
-});
-/* ]]> */
-</script>
+        
         <h2><?php _e( 'Manually Uninstall Plugin', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></h2>
         <div style="clear:both;">
             <p><?php _e( 'You may uninstall the plugin here. This <strong>will delete</strong> all tables, data, options, etc., that belong to the plugin, including all tables you added or imported.<br/> Be very careful with this and only click the button if you know what you are doing!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
         <?php
             $uninstall_url = $this->get_action_url( array( 'action' => 'uninstall' ), true );
-            echo " <a class=\"button-secondary delete\" href=\"{$uninstall_url}\" onclick=\"javascript:if ( confirm( '".__( 'Do you really want to uninstall the plugin and delete ALL data?', WP_TABLE_RELOADED_TEXTDOMAIN )."' ) ) { return confirm( '".__( 'Are you really sure?', WP_TABLE_RELOADED_TEXTDOMAIN )."' ); } else { return false; }\">" . __( 'Uninstall Plugin WP-Table Reloaded', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>";
+            echo " <a class=\"button-secondary delete uninstall_plugin_link\" href=\"{$uninstall_url}\">" . __( 'Uninstall Plugin WP-Table Reloaded', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>";
         ?>
         </div>
         <?php
@@ -1125,7 +1109,7 @@ jQuery(document).ready(function($){
         </div>
         
         <div class="postbox closed">
-        <h3 class="hndle"><span><?php _e( 'Debug and Version Information', WP_TABLE_RELOADED_TEXTDOMAIN ) ?></span></h3>
+        <h3 class="hndle"><span><?php _e( 'Debug and Version Information', WP_TABLE_RELOADED_TEXTDOMAIN ) ?></span><span class="hide_link"><small><?php _e( 'Hide', WP_TABLE_RELOADED_TEXTDOMAIN ) ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ) ?></small></span></h3>
         <div class="inside">
         <p>
             <?php _e( 'You are using the following versions of the software. Please provide this information in bug reports.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/>
@@ -1389,8 +1373,27 @@ jQuery(document).ready(function($){
     // enqueue javascript-file, with some jQuery stuff
     function add_manage_page_js() {
         $jsfile =  'admin-script.js';
-        if ( file_exists( WP_TABLE_RELOADED_ABSPATH . 'admin/' . $jsfile ) )
-            wp_enqueue_script( 'wp-table-reloaded-admin-js', WP_TABLE_RELOADED_URL . 'admin/' . $jsfile, array( 'jquery' ) );
+        if ( file_exists( WP_TABLE_RELOADED_ABSPATH . 'admin/' . $jsfile ) ) {
+            wp_register_script( 'wp-table-reloaded-admin-js', WP_TABLE_RELOADED_URL . 'admin/' . $jsfile, array( 'jquery' ) );
+            // add all strings to translate here
+            wp_localize_script( 'wp-table-reloaded-admin-js', 'WP_Table_Reloaded_Admin', array(
+	  	        'str_UninstallCheckboxActivation' => __( 'Do you really want to activate this? You should only do that right before uninstallation!', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_DataManipulationLinkInsertURL' => __( 'URL of link to insert', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_DataManipulationLinkInsertText' => __( 'Text of link', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_DataManipulationLinkInsertExplain' => __( 'To insert the following link into a cell, just click the cell after closing this dialog.', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_DataManipulationImageInsertURL' => __( 'URL of image to insert', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_DataManipulationImageInsertAlt' => __( "''alt'' text of the image", WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_DataManipulationImageInsertExplain' => __( 'To insert the following image into a cell, just click the cell after closing this dialog.', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_CopyTableLink' => __( 'Do you want to copy this table?', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_DeleteTableLink' => __( 'The complete table and all content will be erased. Do you really want to delete it?', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_DeleteRowLink' => __( 'Do you really want to delete this row?', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_DeleteColumnLink' => __( 'Do you really want to delete this column?', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_ImportwpTableLink' => __( 'Do you really want to import this table from the wp-Table plugin?', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_UninstallPluginLink_1' => __( 'Do you really want to uninstall the plugin and delete ALL data?', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_UninstallPluginLink_2' => __( 'Are you really sure?', WP_TABLE_RELOADED_TEXTDOMAIN )
+            ) );
+            wp_print_scripts( 'wp-table-reloaded-admin-js' );
+        }
     }
 
     // ###################################################################################################################

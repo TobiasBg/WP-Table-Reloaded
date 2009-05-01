@@ -3,7 +3,7 @@
 File Name: WP-Table Reloaded - Frontend Class (see main file wp-table-reloaded.php)
 Plugin URI: http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/
 Description: This plugin allows you to create and manage tables in the admin-area of WordPress. You can then show them in your posts, on your pages or in text widgets by using a shortcode. The plugin is a completely rewritten and extended version of Alex Rabe's "wp-Table" and uses the state-of-the-art WordPress techniques which makes it faster and lighter than the original plugin.
-Version: 1.1
+Version: 1.2
 Author: Tobias B&auml;thge
 Author URI: http://tobias.baethge.com/
 */
@@ -21,6 +21,8 @@ class WP_Table_Reloaded_Frontend {
         'table' => 'wp_table_reloaded_data'
     );
     var $shortcode = 'table';
+    
+    var $tablesorter_tables = array();
 
     // ###################################################################################################################
     function WP_Table_Reloaded_Frontend() {
@@ -36,8 +38,10 @@ class WP_Table_Reloaded_Frontend {
         add_filter('widget_text', array( &$this, 'handle_widget_filter' ) );
 
         // if tablesorter enabled (globally) include javascript
-		if ( true == $this->options['enable_tablesorter'] )
-    		$this->add_head_tablesorter_js();
+		if ( true == $this->options['enable_tablesorter'] ) {
+    		$this->add_head_jquery_js(); // jquery needed in any case (it's too late to do this, when shortcode is executed
+            add_action( 'wp_footer', array( &$this, 'output_tablesorter_js' ) ); // but if we actually need the tablesorter script can be determined in the footer
+            }
 
         // if global css shall be used
 		if ( true == $this->options['use_custom_css'] )
@@ -181,16 +185,11 @@ class WP_Table_Reloaded_Frontend {
 
             $widgets = ( true == $output_options['alternating_row_colors'] ) ? "{widgets: ['zebra']}" : '';
             
-            if ( true == $output_options['use_tablesorter'] && true == $output_options['first_row_th'] && true == $this->options['enable_tablesorter'] ) {
-                $output .= <<<JSSCRIPT
-<script type="text/javascript">
-/* <![CDATA[ */
-jQuery(document).ready(function($){
-    $(".wp-table-reloaded-id-{$table['id']}").tablesorter({$widgets});
-});
-/* ]]> */
-</script>
-JSSCRIPT;
+            if ( true == $output_options['use_tablesorter'] && true == $output_options['first_row_th'] ) {
+                // check if tablesorter is generally enabled already done
+                
+                // add this table to list of tables which will be tablesorted and thus be included in the script call in wp_footer
+                $this->tablesorter_tables[ $table['id'] ] = $widgets;
             }
         }
         return $output;
@@ -200,15 +199,13 @@ JSSCRIPT;
     function safe_output( $string ) {
         return stripslashes( $string );
     }
-    
+
     // ###################################################################################################################
-    // enqueue tablesorter-js-file, if it exists
-    function add_head_tablesorter_js() {
-        $jsfile =  'jquery.tablesorter.min.js';
-        if ( file_exists( WP_TABLE_RELOADED_ABSPATH . 'js/' . $jsfile ) )
-            wp_enqueue_script( 'wp-table-reloaded-tablesorter-js', WP_TABLE_RELOADED_URL . 'js/' . $jsfile, array( 'jquery' ) );
+    // enqueue jquery-js-file
+    function add_head_jquery_js() {
+            wp_enqueue_script( 'jquery' );
     }
-    
+
     // ###################################################################################################################
     // load and print css-style, (only called if enabled, by wp_head-action)
     function add_custom_css() {
@@ -224,6 +221,36 @@ JSSCRIPT;
 </style>
 CSSSTYLE;
             echo $output;
+        }
+    }
+
+    // ###################################################################################################################
+    // output tablesorter execution js for all tables in wp_footer
+    function output_tablesorter_js() {
+        if ( 0 < count( $this->tablesorter_tables ) ) {
+        
+            // we have tables that shall be sortable, so we load the js
+            $jsfile =  'jquery.tablesorter.min.js';
+            if ( file_exists( WP_TABLE_RELOADED_ABSPATH . 'js/' . $jsfile ) ) {
+                wp_register_script( 'wp-table-reloaded-tablesorter-js', WP_TABLE_RELOADED_URL . 'js/' . $jsfile, array( 'jquery' ) );
+                wp_print_scripts( 'wp-table-reloaded-tablesorter-js' );
+            }
+        
+            // and echo the specific commands to make them sortable
+            echo <<<JSSCRIPT
+<script type="text/javascript">
+/* <![CDATA[ */
+jQuery(document).ready(function($){\n
+JSSCRIPT;
+
+            foreach ( $this->tablesorter_tables as $table_id => $widgets )
+                echo "\t$(\".wp-table-reloaded-id-{$table_id}\").tablesorter({$widgets});\n";
+    
+            echo <<<JSSCRIPT
+});
+/* ]]> */
+</script>
+JSSCRIPT;
         }
     }
 

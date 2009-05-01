@@ -1,8 +1,8 @@
-/********************************************
-* This CSS file belongs to the Admin part   *
-* of WP-Table Reloaded 1.0.1! PLEASE DO NOT *
-* make any changes here! Thank you!         *
-********************************************/
+/******************************************
+* This CSS file belongs to the Admin part *
+* of WP-Table Reloaded 1.2! PLEASE DO NOT *
+* make any changes here! Thank you!       *
+******************************************/
 
 table.wp-table-reloaded-options td {
 	padding: 5px 0px 5px 0px;
@@ -15,5 +15,18 @@ table.wp-table-reloaded-options th {
 	vertical-align: middle;
 }
 
+table.wp-table-reloaded-data-manipulation { width:100%; }
+
 /* overwrite 980px max-width in WP < 2.7 */
 div.wrap { max-width: 100%!important; }
+
+.hide_link, .expand_link {
+    position: absolute;
+    right: 10px;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+div.postbox .expand_link { display: none; }
+div.closed .expand_link { display: inline!important; }
+div.closed .hide_link { display: none; }
