@@ -75,6 +75,18 @@ jQuery(document).ready(function($){
 		return false;
 	});
 
+    $("input.bulk_copy_tables").click(function () {
+    	return confirm( WP_Table_Reloaded_Admin.str_BulkCopyTablesLink );
+    });
+
+    $("input.bulk_delete_tables").click(function () {
+    	return confirm( WP_Table_Reloaded_Admin.str_BulkDeleteTablesLink );
+    });
+
+    $("input.bulk_wp_table_import_tables").click(function () {
+    	return confirm( WP_Table_Reloaded_Admin.str_BulkImportwpTableTablesLink );
+    });
+
     $("a.copy_table_link").click(function () {
     	return confirm( WP_Table_Reloaded_Admin.str_CopyTableLink );
     });

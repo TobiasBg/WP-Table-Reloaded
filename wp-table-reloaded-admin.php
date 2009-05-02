@@ -21,7 +21,7 @@ class WP_Table_Reloaded_Admin {
         'table' => 'wp_table_reloaded_data'
     );
     // allowed actions in this class
-    var $allowed_actions = array( 'list', 'add', 'edit', 'copy', 'delete', 'insert', 'import', 'export', 'options', 'uninstall', 'info' );
+    var $allowed_actions = array( 'list', 'add', 'edit', 'bulk_edit', 'copy', 'delete', 'insert', 'import', 'export', 'options', 'uninstall', 'info' );
     
     // init vars
     var $tables = array();
@@ -98,7 +98,7 @@ class WP_Table_Reloaded_Admin {
     // ###################################################################################################################
     function show_manage_page() {
         // get and check action parameter from passed variables
-        $action = ( isset( $_REQUEST['action'] ) and !empty( $_REQUEST['action'] ) ) ? $_REQUEST['action'] : 'list';
+        $action = ( isset( $_REQUEST['action'] ) && !empty( $_REQUEST['action'] ) ) ? $_REQUEST['action'] : 'list';
         // check if action is in allowed actions and if method is callable, if yes, call it
         if ( in_array( $action, $this->allowed_actions ) && is_callable( array( &$this, 'do_action_' . $action ) ) )
             call_user_func( array( &$this, 'do_action_' . $action ) );
@@ -193,7 +193,7 @@ class WP_Table_Reloaded_Admin {
                     unset($temp_col);
                 }
                 $this->save_table( $table );
-                $message =  __( 'Columns swapped successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                $message = __( 'Columns swapped successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
             case 'sort':
                 $table_id = $_POST['table']['id'];
@@ -211,7 +211,7 @@ class WP_Table_Reloaded_Admin {
                     $table['data'] = $sortarray->sorted_array;
                 }
                 $this->save_table( $table );
-                $message =  __( 'Table sorted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                $message = __( 'Table sorted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
             default:
                 $this->do_action_list();
@@ -228,6 +228,61 @@ class WP_Table_Reloaded_Admin {
         } else {
             $this->do_action_list();
         }
+    }
+
+    // ###################################################################################################################
+    function do_action_bulk_edit() {
+        if ( isset( $_POST['submit'] ) ) {
+            check_admin_referer( $this->get_nonce( 'bulk_edit' ) );
+
+            if ( isset( $_POST['tables'] ) ) {
+
+                $subactions = array_keys( $_POST['submit'] );
+                $subaction = $subactions[0];
+
+                switch( $subaction ) {
+                case 'copy': // see do_action_copy for explanations
+                    foreach ( $_POST['tables'] as $table_id ) {
+                        $table_to_copy = $this->load_table( $table_id );
+                        $new_table = $table_to_copy;
+                        $new_table['id'] = $this->get_new_table_id();
+                        $new_table['name'] = __( 'Copy of', WP_TABLE_RELOADED_TEXTDOMAIN ) . ' ' . $table_to_copy['name'];
+                        unset( $table_to_copy );
+                        $this->save_table( $new_table );
+                    }
+                    $message = __ngettext( 'Table copied successfully.', 'Tables copied successfully.', count( $_POST['tables'] ), WP_TABLE_RELOADED_TEXTDOMAIN );
+                    break;
+                case 'delete': // see do_action_delete for explanations
+                    foreach ( $_POST['tables'] as $table_id ) {
+                        $this->tables[ $table_id ] = ( isset( $this->tables[ $table_id ] ) ) ? $this->tables[ $table_id ] : $this->optionname['table'] . '_' . $table_id;
+                        delete_option( $this->tables[ $table_id ] );
+                        unset( $this->tables[ $table_id ] );
+                    }
+                    $this->update_tables();
+                    $message = __ngettext( 'Table deleted successfully.', 'Tables deleted successfully.', count( $_POST['tables'] ), WP_TABLE_RELOADED_TEXTDOMAIN );
+                    break;
+                case 'wp_table_import': // see do_action_import for explanations
+                    $this->import_instance = $this->create_class_instance( 'WP_Table_Reloaded_Import', 'wp-table-reloaded-import.class.php' );
+                    $this->import_instance->import_format = 'wp_table';
+                    foreach ( $_POST['tables'] as $table_id ) {
+                        $this->import_instance->wp_table_id = $table_id;
+                        $this->import_instance->import_table();
+                        $imported_table = $this->import_instance->imported_table;
+                        $table = array_merge( $this->default_table, $imported_table );
+                        $table['id'] = $this->get_new_table_id();
+                        $this->save_table( $table );
+                    }
+                    $message = __ngettext( 'Table imported successfully.', 'Tables imported successfully.', count( $_POST['tables'] ), WP_TABLE_RELOADED_TEXTDOMAIN );
+                    break;
+                default:
+                }
+
+            } else {
+                $message = __( 'You did not select any tables!', WP_TABLE_RELOADED_TEXTDOMAIN );
+            }
+            $this->print_success_message( $message );
+        }
+        $this->do_action_list();
     }
 
     // ###################################################################################################################
@@ -494,9 +549,12 @@ class WP_Table_Reloaded_Admin {
         if ( 0 < count( $this->tables ) ) {
             ?>
         <div style="clear:both;">
+            <form method="post" action="<?php echo $this->get_action_url(); ?>">
+            <?php wp_nonce_field( $this->get_nonce( 'bulk_edit' ) ); ?>
             <table class="widefat">
             <thead>
                 <tr>
+                    <th class="check-column" scope="col"><input type="checkbox" /></th>
                     <th scope="col"><?php _e( 'ID', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
                     <th scope="col"><?php _e( 'Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
                     <th scope="col"><?php _e( 'Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
@@ -522,7 +580,8 @@ class WP_Table_Reloaded_Admin {
                 $delete_url = $this->get_action_url( array( 'action' => 'delete', 'table_id' => $id, 'item' => 'table' ), true );
 
                 echo "<tr{$bg_style}>\n";
-                echo "\t<th scope=\"row\">{$id}</th>";
+                echo "\t<th class=\"check-column\" scope=\"row\"><input type=\"checkbox\" name=\"tables[]\" value=\"{$id}\" /></th>";
+                echo "<th scope=\"row\">{$id}</th>";
                 echo "<td>{$name}</td>";
                 echo "<td>{$description}</td>";
                 echo "<td><a href=\"{$edit_url}\">" . __( 'Edit', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
@@ -534,6 +593,13 @@ class WP_Table_Reloaded_Admin {
             }
             echo "</tbody>\n";
             echo "</table>\n";
+        ?>
+        <input type="hidden" name="action" value="bulk_edit" />
+        <p class="submit"><?php _e( 'Bulk actions:', WP_TABLE_RELOADED_TEXTDOMAIN ) ?>  <input type="submit" name="submit[copy]" class="button-primary bulk_copy_tables" value="<?php _e( 'Copy Tables', WP_TABLE_RELOADED_TEXTDOMAIN ) ?>" /> <input type="submit" name="submit[delete]" class="button-primary bulk_delete_tables" value="<?php _e( 'Delete Tables', WP_TABLE_RELOADED_TEXTDOMAIN ) ?>" />
+        </p>
+
+        </form>
+        <?php
             echo "</div>";
         } else { // end if $tables
             $add_url = $this->get_action_url( array( 'action' => 'add' ), false );
@@ -863,9 +929,12 @@ class WP_Table_Reloaded_Admin {
         if ( 0 < count( $tables ) ) {
             // Tables found in db
         ?>
+            <form method="post" action="<?php echo $this->get_action_url(); ?>">
+            <?php wp_nonce_field( $this->get_nonce( 'bulk_edit' ) ); ?>
             <table class="widefat">
             <thead>
                 <tr>
+                    <th class="check-column" scope="col"><input type="checkbox" /></th>
                     <th scope="col"><?php _e( 'ID', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
                     <th scope="col"><?php _e( 'Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
                     <th scope="col"><?php _e( 'Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
@@ -886,7 +955,8 @@ class WP_Table_Reloaded_Admin {
                 $import_url = $this->get_action_url( array( 'action' => 'import', 'import_format' => 'wp_table', 'wp_table_id' => $table_id ), true );
 
                 echo "<tr{$bg_style}>\n";
-                echo "\t<th scope=\"row\">{$table_id}</th>";
+                echo "\t<th class=\"check-column\" scope=\"row\"><input type=\"checkbox\" name=\"tables[]\" value=\"{$table_id}\" /></th>";
+                echo "<th scope=\"row\">{$table_id}</th>";
                 echo "<td>{$name}</td>";
                 echo "<td>{$description}</td>";
                 echo "<td><a class=\"import_wptable_link\" href=\"{$import_url}\">" . __( 'Import', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a></td>\n";
@@ -895,7 +965,13 @@ class WP_Table_Reloaded_Admin {
             }
             echo "</tbody>\n";
             echo "</table>\n";
-            
+        ?>
+        <input type="hidden" name="action" value="bulk_edit" />
+        <p class="submit"><?php _e( 'Bulk actions:', WP_TABLE_RELOADED_TEXTDOMAIN ) ?>  <input type="submit" name="submit[wp_table_import]" class="button-primary bulk_wp_table_import_tables" value="<?php _e( 'Import Tables', WP_TABLE_RELOADED_TEXTDOMAIN ) ?>" />
+        </p>
+
+        </form>
+        <?
         } else { // end if $tables
             echo "<div style=\"clear:both;\"><p>" . __( 'wp-Table by Alex Rabe seems to be installed, but no tables were found.', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</p></div>";
         }
@@ -1384,6 +1460,9 @@ class WP_Table_Reloaded_Admin {
 	  	        'str_DataManipulationImageInsertURL' => __( 'URL of image to insert', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_DataManipulationImageInsertAlt' => __( "''alt'' text of the image", WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_DataManipulationImageInsertExplain' => __( 'To insert the following image into a cell, just click the cell after closing this dialog.', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_BulkCopyTablesLink' => __( 'Do you want to copy the selected tables?', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_BulkDeleteTablesLink' => __( 'The selected tables and all content will be erased. Do you really want to delete them?', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_BulkImportwpTableTablesLink' => __( 'Do you really want to import the selected tables from the wp-Table plugin?', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_CopyTableLink' => __( 'Do you want to copy this table?', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_DeleteTableLink' => __( 'The complete table and all content will be erased. Do you really want to delete it?', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_DeleteRowLink' => __( 'Do you really want to delete this row?', WP_TABLE_RELOADED_TEXTDOMAIN ),

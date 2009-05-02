@@ -4,6 +4,8 @@
 * make any changes here! Thank you!       *
 ******************************************/
 
+/* OWN PLUGIN STYLES */
+
 table.wp-table-reloaded-options td {
 	padding: 5px 0px 5px 0px;
 }
@@ -17,9 +19,6 @@ table.wp-table-reloaded-options th {
 
 table.wp-table-reloaded-data-manipulation { width:100%; }
 
-/* overwrite 980px max-width in WP < 2.7 */
-div.wrap { max-width: 100%!important; }
-
 .hide_link, .expand_link {
     position: absolute;
     right: 10px;
@@ -30,3 +29,12 @@ div.wrap { max-width: 100%!important; }
 div.postbox .expand_link { display: none; }
 div.closed .expand_link { display: inline!important; }
 div.closed .hide_link { display: none; }
+
+/* OVERRIDE EXISTING WP STYLES */
+
+/* overwrite 980px max-width in WP < 2.7 */
+div.wrap { max-width: 100%!important; }
+
+.widefat tbody th.check-column {
+	padding: 0!important;
+}
