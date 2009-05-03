@@ -222,7 +222,8 @@ class WP_Table_Reloaded_Frontend {
     function add_custom_css() {
         // load css filename from options, if option doesnt exist, use default
         $css = ( isset( $this->options['custom_css'] ) ) ? $this->options['custom_css'] : '';
-        
+        $css = stripslashes( $css );
+
         if ( !empty( $css ) ) {
             echo <<<CSSSTYLE
 <style type="text/css" media="all">
