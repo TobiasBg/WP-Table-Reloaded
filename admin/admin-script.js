@@ -12,9 +12,9 @@ jQuery(document).ready(function($){
 
     $("#options_use_custom_css input").click(function () {
 	  if( $('#options_use_custom_css input:checked').val() ) {
-        $('#options_custom_css textarea').removeAttr("disabled");
+        $('#options_custom_css').removeAttr("disabled");
 	  } else {
-        $('#options_custom_css textarea').attr("disabled", true);
+        $('#options_custom_css').attr("disabled", true);
 	  }
       return true;
 	});

@@ -8,6 +8,8 @@ Author: Tobias B&auml;thge
 Author URI: http://tobias.baethge.com/
 */
 
+define( 'WP_TABLE_RELOADED_TEXTDOMAIN', 'wp-table-reloaded' );
+
 class WP_Table_Reloaded_Admin {
 
     // ###################################################################################################################
@@ -21,7 +23,7 @@ class WP_Table_Reloaded_Admin {
         'table' => 'wp_table_reloaded_data'
     );
     // allowed actions in this class
-    var $allowed_actions = array( 'list', 'add', 'edit', 'bulk_edit', 'copy', 'delete', 'insert', 'import', 'export', 'options', 'uninstall', 'info' );
+    var $allowed_actions = array( 'list', 'add', 'edit', 'bulk_edit', 'copy', 'delete', 'insert', 'import', 'export', 'options', 'uninstall', 'info'); // 'ajax_list', but handled separatly
     
     // init vars
     var $tables = array();
@@ -58,13 +60,28 @@ class WP_Table_Reloaded_Admin {
     // ###################################################################################################################
     // add admin-page to sidebar navigation, function called by PHP when class is constructed
     function WP_Table_Reloaded_Admin() {
+        // init plugin (means: load plugin options and existing tables)
+        $this->init_plugin();
+
         add_action( 'admin_menu', array( &$this, 'add_manage_page' ) );
+
+        // add JS to add button to editor on these pages
+        add_action( 'load-post.php', array( &$this, 'add_editor_button' ) );
+        add_action( 'load-post-new.php', array( &$this, 'add_editor_button' ) );
+        add_action( 'load-page.php', array( &$this, 'add_editor_button' ) );
+        add_action( 'load-page-new.php', array( &$this, 'add_editor_button' ) );
 
         // have to check for possible export file download request this early,
         // because otherwise http-headers will be sent by WP before we can send download headers
         if ( isset( $_POST['wp_table_reloaded_download_export_file'] ) ) {
             add_action('init', array( &$this, 'do_action_export' ) );
         }
+
+        // have to check for possible call by editor button to show list of tables
+        if ( isset( $_GET['action'] ) && 'ajax_list' == $_GET['action'] ) {
+            add_action('init', array( &$this, 'do_action_ajax_list' ) );
+        }
+
     }
 
     // ###################################################################################################################
@@ -88,11 +105,7 @@ class WP_Table_Reloaded_Admin {
         $this->add_manage_page_css();
 
         // init language support (add later)
-        define( 'WP_TABLE_RELOADED_TEXTDOMAIN', 'wp-table-reloaded' );
         $this->init_language_support();
-
-        // init plugin (means: load plugin options and existing tables)
-        $this->init_plugin();
     }
 
     // ###################################################################################################################
@@ -530,6 +543,78 @@ class WP_Table_Reloaded_Admin {
     function do_action_info() {
         $this->print_plugin_info_form();
     }
+
+    // ###################################################################################################################
+    function do_action_ajax_list() {
+        check_admin_referer( $this->get_nonce( 'ajax_list' ) );
+
+        // init language support (add later)
+        $this->init_language_support();
+
+
+        $this->print_page_header( __( 'List of Tables', WP_TABLE_RELOADED_TEXTDOMAIN ) );
+        ?>
+        <div style="clear:both;"><p style="width:97%;"><?php _e( 'This is a list of all available tables.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'You may insert a table into a post or page here.', WP_TABLE_RELOADED_TEXTDOMAIN ) ?><br />
+		<?php _e( 'Click the "Insert" link after the desired table and the corresponding shortcode will be inserted into the editor (<strong>[table id=&lt;the_table_ID&gt; /]</strong>).', WP_TABLE_RELOADED_TEXTDOMAIN ) ?></p></div>
+		<?php
+        if ( 0 < count( $this->tables ) ) {
+            ?>
+        <div style="clear:both;">
+            <table class="widefat" style="width:97%;">
+            <thead>
+                <tr>
+                    <th scope="col"><?php _e( 'ID', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
+                    <th scope="col"><?php _e( 'Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
+                    <th scope="col"><?php _e( 'Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
+                    <th scope="col"><?php _e( 'Action', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php
+            $bg_style_index = 0;
+            foreach ( $this->tables as $id => $tableoptionname ) {
+                $bg_style_index++;
+                $bg_style = ( 0 == ($bg_style_index % 2) ) ? ' class="alternate"' : '';
+
+                // get name and description to show in list
+                $table = $this->load_table( $id );
+                    $name = $this->safe_output( $table['name'] );
+                    $description = $this->safe_output( $table['description'] );
+                unset( $table );
+
+                echo "<tr{$bg_style}>\n";
+                echo "\t<th scope=\"row\">{$id}</th>";
+                echo "<td>{$name}</td>";
+                echo "<td>{$description}</td>";
+                echo "<td><a class=\"send_table_to_editor\" title=\"{$id}\" href=\"#\" style=\"color:#21759B;\">" . __( 'Insert', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a></td>\n";
+                echo "</tr>\n";
+            }
+            ?>
+           </tbody>
+           </table>
+           
+<script type="text/javascript">
+//<![CDATA[
+jQuery(document).ready(function($){
+    $("a.send_table_to_editor").click(function () {
+        var table_id = $(this).attr('title');
+        send_to_editor( '[table id=' + table_id + ' /]' );
+        return false;
+    });
+});
+//]]>
+</script>
+
+        </div>
+        <?php
+        } else { // end if $tables
+            echo "<div style=\"clear:both;\"><p>" . __( 'No tables found.', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</p></div>";
+        }
+        $this->print_page_footer();
+
+        // necessary to stop page building here!
+        exit;
+    }
     
     // ###################################################################################################################
     // ##########################################                     ####################################################
@@ -543,7 +628,7 @@ class WP_Table_Reloaded_Admin {
         $this->print_page_header( __( 'List of Tables', WP_TABLE_RELOADED_TEXTDOMAIN ) );
         $this->print_submenu_navigation( 'list' );
         ?>
-        <div style="clear:both;"><p><?php _e( 'This is a list of all available tables. You may add, edit, copy or delete tables here.', WP_TABLE_RELOADED_TEXTDOMAIN ) ?><br />
+        <div style="clear:both;"><p><?php _e( 'This is a list of all available tables.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'You may add, edit, copy or delete tables here.', WP_TABLE_RELOADED_TEXTDOMAIN ) ?><br />
 		<?php _e( 'If you want to show a table in your pages, posts or text-widgets, use the shortcode: <strong>[table id=&lt;the_table_ID&gt; /]</strong>', WP_TABLE_RELOADED_TEXTDOMAIN ) ?></p></div>
 		<?php
         if ( 0 < count( $this->tables ) ) {
@@ -1085,12 +1170,17 @@ class WP_Table_Reloaded_Admin {
         </tr>
         <tr valign="top" id="options_use_custom_css">
             <th scope="row"><?php _e( 'Add custom CSS?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="options[use_custom_css]" id="options[use_custom_css]"<?php echo ( true == $this->options['use_custom_css'] ) ? ' checked="checked"': '' ;?> value="true" /> <label for="options[use_custom_css]"><?php echo sprintf( __( 'Yes, include and load the following CSS-snippet on my site inside a [style]-HTML-tag. (If you do not want this, just add your CSS styling to your theme\'s "style.css" <small>(located at %s)</small>.) (See the <a href="http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/">plugin website</a> for examples.)', WP_TABLE_RELOADED_TEXTDOMAIN ), get_stylesheet_uri() ); ?></label></td>
+            <td><input type="checkbox" name="options[use_custom_css]" id="options[use_custom_css]"<?php echo ( true == $this->options['use_custom_css'] ) ? ' checked="checked"': '' ;?> value="true" /> <label for="options[use_custom_css]">
+            <?php _e( 'Yes, include and load the following CSS-snippet on my site inside a [style]-HTML-tag.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
+            <?php echo sprintf( __( '(You might get a better website performance, if you add the CSS styling to your theme\'s "style.css" <small>(located at %s)</small>.)', WP_TABLE_RELOADED_TEXTDOMAIN ), get_stylesheet_uri() ); ?>
+            <?php echo sprintf( __( '(See the <a href="%s">plugin website</a> for examples or use one of the following: <a href="%s">Example Style 1</a> <a href="%s">Example Style 2</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ), 'http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/', 'http://tobias.baethge.com/download/plugins/additional/example-style-1.css', 'http://tobias.baethge.com/download/plugins/additional/example-style-2.css' ); ?>
+             </label></td>
         </tr>
-        <tr valign="top" id="options_custom_css">
+        <tr valign="top">
             <th scope="row">&nbsp;</th>
-            <td><label for="options[custom_css]"><?php _e( 'Enter custom CSS', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label><br/>
-            <textarea name="options[custom_css]" id="options[use_custom_css]" rows="15" cols="40" style="width:600px;height:300px;"<?php echo ( false == $this->options['use_custom_css'] ) ? ' disabled="disabled"': '' ;?>><?php echo $this->safe_output( $this->options[custom_css] ); ?></textarea></td>
+            <td><label for="options_custom_css"><?php _e( 'Enter custom CSS', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label><br/>
+            <textarea name="options[custom_css]" id="options_custom_css" rows="15" cols="40" style="width:600px;height:300px;"<?php echo ( false == $this->options['use_custom_css'] ) ? ' disabled="disabled"': '' ;?>><?php echo $this->safe_output( $this->options[custom_css] ); ?></textarea>
+            </td>
         </tr>
         </table>
         </div
@@ -1483,15 +1573,62 @@ class WP_Table_Reloaded_Admin {
             if ( function_exists( 'wp_enqueue_style' ) )
                 wp_enqueue_style( 'wp-table-reloaded-admin-css', WP_TABLE_RELOADED_URL . 'admin/' . $cssfile );
             else
-                add_action( 'admin_head', array( &$this, 'print_styles' ) );
+                add_action( 'admin_head', array( &$this, 'print_admin_style' ) );
         }
     }
 
     // ###################################################################################################################
     // print our style in wp-admin-head (only needed for WP < 2.6)
-    function print_styles() {
+    function print_admin_style() {
         $cssfile =  'admin-style.css';
         echo "<link rel='stylesheet' href='" . WP_TABLE_RELOADED_URL . 'admin/' . $cssfile . "' type='text/css' media='' />\n";
+    }
+
+    // ###################################################################################################################
+    // add button to visual editor
+    function add_editor_button() {
+        if ( 0 < count( $this->tables ) ) {
+            wp_enqueue_script( 'thickbox' );
+            if ( function_exists( 'wp_enqueue_style' ) )
+                wp_enqueue_style( 'thickbox' );
+            else
+                add_action( 'admin_head', array( &$this, 'print_thickbox_style' ) );
+            add_action( 'admin_footer', array( &$this, 'add_editor_button_js' ) );
+        }
+    }
+    
+    // ###################################################################################################################
+    // print thickbox style in wp-admin-head (only needed for WP < 2.6)
+    function print_thickbox_style() {
+        $cssfile =  'thickbox.css';
+        echo "<link rel='stylesheet' href='" . get_option('siteurl') . '/wp-includes/js/thickbox/thickbox.css' . "' type='text/css' media='' />\n";
+    }
+
+    // ###################################################################################################################
+    // print out the JS in the admin footer
+    function add_editor_button_js() {
+
+        $params = array(
+                'page' => 'wp_table_reloaded_manage_page',
+                'action' => 'ajax_list'
+        );
+
+        $ajax_url = add_query_arg( $params, dirname( $_SERVER['PHP_SELF'] ) . '/tools.php' );
+        $ajax_url = wp_nonce_url( $ajax_url, $this->get_nonce( $params['action'], false ) );
+        ?>
+        
+<a id="wp_table_reloaded_tables_window" href="<?php echo $ajax_url; ?>" class="thickbox" title="" style="display:none;"></a>
+        <?php
+
+        $jsfile =  'admin-editor-buttons-script.js';
+        if ( file_exists( WP_TABLE_RELOADED_ABSPATH . 'admin/' . $jsfile ) ) {
+            wp_register_script( 'wp-table-reloaded-admin-editor-buttons-js', WP_TABLE_RELOADED_URL . 'admin/' . $jsfile, array( 'jquery' ) );
+            // add all strings to translate here
+            wp_localize_script( 'wp-table-reloaded-admin-editor-buttons-js', 'WP_Table_Reloaded_Admin', array(
+	  	        'str_EditorButtonCaption' => __( 'Table', WP_TABLE_RELOADED_TEXTDOMAIN ),
+            ) );
+            wp_print_scripts( 'wp-table-reloaded-admin-editor-buttons-js' );
+        }
     }
 
 } // class WP_Table_Reloaded_Admin
