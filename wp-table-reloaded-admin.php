@@ -1168,7 +1168,7 @@ class WP_Table_Reloaded_Admin {
             </td>
         </tr>
         </table>
-        </div
+        </div>
         </div>
         
         <div class="postbox">
@@ -1201,6 +1201,7 @@ class WP_Table_Reloaded_Admin {
             echo " <a class=\"button-secondary delete uninstall_plugin_link\" href=\"{$uninstall_url}\">" . __( 'Uninstall Plugin WP-Table Reloaded', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>";
         ?>
         </div>
+        <br style="clear:both;" />
         <?php
         $this->print_page_footer();
     }

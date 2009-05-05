@@ -19,11 +19,25 @@ table.wp-table-reloaded-options th {
 
 table.wp-table-reloaded-data-manipulation { width:100%; }
 
+table#table_contents td, table#table_contents th {
+    white-space:nowrap;
+    vertical-align: middle;
+}
+
+table#table_contents input[type=text] {
+    width:100%;
+}
+
 .hide_link, .expand_link {
     position: absolute;
     right: 10px;
     font-weight: normal;
     cursor: pointer;
+    padding: 0px!important;
+}
+
+.postbox h3.hndle {
+    cursor: pointer!important;
 }
 
 div.postbox .expand_link { display: none; }
