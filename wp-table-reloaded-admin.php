@@ -103,7 +103,7 @@ class WP_Table_Reloaded_Admin {
         add_action( 'admin_footer', array( &$this, 'add_manage_page_js' ) ); // can be put in footer, jQuery will be loaded anyway
         $this->add_manage_page_css();
 
-        // init language support (add later)
+        // init language support
         $this->init_language_support();
     }
 
@@ -547,9 +547,8 @@ class WP_Table_Reloaded_Admin {
     function do_action_ajax_list() {
         check_admin_referer( $this->get_nonce( 'ajax_list' ) );
 
-        // init language support (add later)
+        // init language support
         $this->init_language_support();
-
 
         $this->print_page_header( __( 'List of Tables', WP_TABLE_RELOADED_TEXTDOMAIN ) );
         ?>
@@ -592,17 +591,6 @@ class WP_Table_Reloaded_Admin {
            </tbody>
            </table>
         </div>
-<script type="text/javascript">
-//<![CDATA[
-jQuery(document).ready(function($){
-    $("a.send_table_to_editor").click(function () {
-        var table_id = $(this).attr('title');
-        send_to_editor( '[table id=' + table_id + ' /]' );
-        return false;
-    });
-});
-//]]>
-</script>
         <?php
         } else { // end if $tables
             echo "<div style=\"clear:both;\"><p>" . __( 'No tables found.', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</p></div>";

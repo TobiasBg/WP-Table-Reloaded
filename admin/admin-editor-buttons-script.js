@@ -20,7 +20,15 @@ jQuery(document).ready(function($){
 
         tb_show( title, url, false);
         
-        $("#TB_ajaxContent").width("100%").height("100%");
+        $("#TB_ajaxContent").width("100%").height("100%")
+        .click(function(event) {
+            var $target = $(event.target);
+            if ( $target.is('a.send_table_to_editor') ) {
+                var table_id = $target.attr('title');
+                send_to_editor( '[table id=' + table_id + ' /]' );
+            }
+            return false;
+        });
 
         return false;
     }
