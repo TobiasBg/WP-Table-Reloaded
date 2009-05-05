@@ -13,7 +13,7 @@ define( 'WP_TABLE_RELOADED_TEXTDOMAIN', 'wp-table-reloaded' );
 class WP_Table_Reloaded_Admin {
 
     // ###################################################################################################################
-    var $plugin_version = '1.2-bleeding-edge';
+    var $plugin_version = '1.2';
     // nonce for security of links/forms, try to prevent "CSRF"
     var $nonce_base = 'wp-table-reloaded-nonce';
     // names for the options which are stored in the WP database
@@ -66,10 +66,9 @@ class WP_Table_Reloaded_Admin {
         add_action( 'admin_menu', array( &$this, 'add_manage_page' ) );
 
         // add JS to add button to editor on these pages
-        add_action( 'load-post.php', array( &$this, 'add_editor_button' ) );
-        add_action( 'load-post-new.php', array( &$this, 'add_editor_button' ) );
-        add_action( 'load-page.php', array( &$this, 'add_editor_button' ) );
-        add_action( 'load-page-new.php', array( &$this, 'add_editor_button' ) );
+        $pages_with_editor_button = array( 'post.php', 'post-new.php', 'page.php', 'page-new.php' );
+        foreach ( $pages_with_editor_button as $page )
+            add_action( 'load-' . $page, array( &$this, 'add_editor_button' ) );
 
         // have to check for possible export file download request this early,
         // because otherwise http-headers will be sent by WP before we can send download headers
@@ -592,7 +591,7 @@ class WP_Table_Reloaded_Admin {
             ?>
            </tbody>
            </table>
-           
+        </div>
 <script type="text/javascript">
 //<![CDATA[
 jQuery(document).ready(function($){
@@ -604,8 +603,6 @@ jQuery(document).ready(function($){
 });
 //]]>
 </script>
-
-        </div>
         <?php
         } else { // end if $tables
             echo "<div style=\"clear:both;\"><p>" . __( 'No tables found.', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</p></div>";
@@ -1587,45 +1584,28 @@ jQuery(document).ready(function($){
     // ###################################################################################################################
     // add button to visual editor
     function add_editor_button() {
-        if ( 0 < count( $this->tables ) ) {
-            wp_enqueue_script( 'thickbox' );
-            if ( function_exists( 'wp_enqueue_style' ) )
-                wp_enqueue_style( 'thickbox' );
-            else
-                add_action( 'admin_head', array( &$this, 'print_thickbox_style' ) );
+        if ( 0 < count( $this->tables ) )
             add_action( 'admin_footer', array( &$this, 'add_editor_button_js' ) );
-        }
     }
-    
-    // ###################################################################################################################
-    // print thickbox style in wp-admin-head (only needed for WP < 2.6)
-    function print_thickbox_style() {
-        $cssfile =  'thickbox.css';
-        echo "<link rel='stylesheet' href='" . get_option('siteurl') . '/wp-includes/js/thickbox/thickbox.css' . "' type='text/css' media='' />\n";
-    }
+
 
     // ###################################################################################################################
     // print out the JS in the admin footer
     function add_editor_button_js() {
-
         $params = array(
                 'page' => 'wp_table_reloaded_manage_page',
                 'action' => 'ajax_list'
         );
-
         $ajax_url = add_query_arg( $params, dirname( $_SERVER['PHP_SELF'] ) . '/tools.php' );
         $ajax_url = wp_nonce_url( $ajax_url, $this->get_nonce( $params['action'], false ) );
-        ?>
-        
-<a id="wp_table_reloaded_tables_window" href="<?php echo $ajax_url; ?>" class="thickbox" title="" style="display:none;"></a>
-        <?php
 
         $jsfile =  'admin-editor-buttons-script.js';
         if ( file_exists( WP_TABLE_RELOADED_ABSPATH . 'admin/' . $jsfile ) ) {
-            wp_register_script( 'wp-table-reloaded-admin-editor-buttons-js', WP_TABLE_RELOADED_URL . 'admin/' . $jsfile, array( 'jquery' ) );
+            wp_register_script( 'wp-table-reloaded-admin-editor-buttons-js', WP_TABLE_RELOADED_URL . 'admin/' . $jsfile, array( 'jquery', 'thickbox' ) );
             // add all strings to translate here
             wp_localize_script( 'wp-table-reloaded-admin-editor-buttons-js', 'WP_Table_Reloaded_Admin', array(
 	  	        'str_EditorButtonCaption' => __( 'Table', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_EditorButtonAjaxURL' => $ajax_url
             ) );
             wp_print_scripts( 'wp-table-reloaded-admin-editor-buttons-js' );
         }

@@ -14,13 +14,14 @@ jQuery(document).ready(function($){
     }
 
     function wp_table_reloaded_button_click() {
-        $("#wp_table_reloaded_tables_window").click(function () {
-            $("#TB_ajaxContent").width("100%").height("100%");
-            $('#TB_ajaxWindowTitle').text('WP-Table Reloaded');
-            return false;
-        });
+
+        var title = 'WP-Table Reloaded';
+        var url = WP_Table_Reloaded_Admin.str_EditorButtonAjaxURL.replace(/&amp;/g, "&");
+
+        tb_show( title, url, false);
         
-        $("#wp_table_reloaded_tables_window").click();
+        $("#TB_ajaxContent").width("100%").height("100%");
+
         return false;
     }
 
