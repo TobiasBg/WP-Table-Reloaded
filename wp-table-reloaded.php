@@ -2,8 +2,8 @@
 /*
 Plugin Name: WP-Table Reloaded
 Plugin URI: http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/
-Description: This plugin allows you to create and manage tables in the admin-area of WordPress. You can then show them in your posts, on your pages or in text widgets by using a shortcode. The plugin is a completely rewritten and extended version of Alex Rabe's "wp-Table" and uses the state-of-the-art WordPress techniques which makes it faster and lighter than the original plugin.
-Version: 1.1
+Description: This plugin allows you to create and easily manage tables in the admin-area of WordPress. A comfortable backend allows an easy manipulation of table data. You can then include the tables into your posts, on your pages or in text widgets by using a shortcode or a template tag function. Tables can be imported and exported from/to CSV, XML and HTML.
+Version: 1.2
 Author: Tobias B&auml;thge
 Author URI: http://tobias.baethge.com/
 */
@@ -40,7 +40,6 @@ if ( !defined( 'WP_TABLE_RELOADED_URL' ) )
 if ( !defined( 'WP_TABLE_RELOADED_BASENAME' ) )
     define( 'WP_TABLE_RELOADED_BASENAME', plugin_basename( __FILE__ ) );
 
-
 // decide whether admin or frontend
 if ( is_admin() ) {
     // we are in admin mode
@@ -66,7 +65,6 @@ if ( is_admin() ) {
                 parse_str( $table_query, $atts );
                 echo $WP_Table_Reloaded_Frontend->handle_content_shortcode( $atts );
             }
-
     }
 }
 
