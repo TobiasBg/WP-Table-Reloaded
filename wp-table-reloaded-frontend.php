@@ -128,14 +128,17 @@ class WP_Table_Reloaded_Frontend {
         $cssclasses = array( 'wp-table-reloaded', "wp-table-reloaded-id-{$table['id']}" );
         $cssclasses = implode( ' ', $cssclasses );
 
+        // if row_offset or row_count were given, we cut that part from the table and show just that
+        if ( null === $output_options['row_count'] )
+            $table['data'] = array_slice( $table['data'], $output_options['row_offset'] - 1 ); // -1 because we start from 1
+        else
+            $table['data'] = array_slice( $table['data'], $output_options['row_offset'] - 1 , $output_options['row_count'] ); // -1 because we start from 1
+
         $rows = count( $table['data'] );
         $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
 
         // make array $shortcode_atts['column_widths'] have $cols entries
         $output_options['column_widths'] = array_pad( $output_options['column_widths'], $cols, '' );
-
-        // if row_offset or row_count were given, we cut that part from the table and show just that
-        $table['data'] = array_slice( $table['data'], $output_options['row_offset'] - 1 , $output_options['row_count'] ); // -1 because we start from 1
 
         $output = '';
 

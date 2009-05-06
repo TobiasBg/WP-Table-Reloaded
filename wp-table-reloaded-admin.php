@@ -56,6 +56,9 @@ class WP_Table_Reloaded_Admin {
     // class instances
     var $export_instance;
     var $import_instance;
+    
+    // temp variables
+    var $hook = '';
 
     // ###################################################################################################################
     // add admin-page to sidebar navigation, function called by PHP when class is constructed
@@ -87,11 +90,8 @@ class WP_Table_Reloaded_Admin {
     // add page, and what happens when page is loaded or shown
     function add_manage_page() {
         $min_needed_capability = 'publish_posts'; // user needs at least this capability to show WP-Table Reloaded config page
-        $hook = add_management_page( 'WP-Table Reloaded', 'WP-Table Reloaded', $min_needed_capability, 'wp_table_reloaded_manage_page', array( &$this, 'show_manage_page' ) );
-        add_action('load-' . $hook, array( &$this, 'load_manage_page' ) );
-        
-        if ( true == function_exists( 'add_contextual_help' ) ) // then WP version is >= 2.7
-            add_contextual_help( $hook, $this->get_contextual_help_string() );
+        $this->hook = add_management_page( 'WP-Table Reloaded', 'WP-Table Reloaded', $min_needed_capability, 'wp_table_reloaded_manage_page', array( &$this, 'show_manage_page' ) );
+        add_action('load-' . $this->hook, array( &$this, 'load_manage_page' ) );
     }
     
     // ###################################################################################################################
@@ -105,6 +105,9 @@ class WP_Table_Reloaded_Admin {
 
         // init language support
         $this->init_language_support();
+        
+        if ( true == function_exists( 'add_contextual_help' ) ) // then WP version is >= 2.7
+            add_contextual_help( $this->hook, $this->get_contextual_help_string() );
     }
 
     // ###################################################################################################################
@@ -1253,7 +1256,7 @@ class WP_Table_Reloaded_Admin {
             <br/>&middot; <?php _e( 'Czech (thanks to <a href="http://separatista.net/">Pavel</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'French (thanks to <a href="http://ultratrailer.net/">Yin-Yin</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'Russian (thanks to <a href="http://wp-skins.info/">Truper</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
-            <br/>&middot; <?php _e( 'Spanish (thanks to <a href="http://theindependentproject.com/">Alejandro Urrutia</a> and <a href="http://halles.cl/">Matías Halles</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
+            <br/>&middot; <?php _e( 'Spanish (thanks to <a href="http://theindependentproject.com/">Alejandro Urrutia</a> and <a href="http://halles.cl/">Matias Halles</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'Swedish (thanks to <a href="http://www.zuperzed.se/">ZuperZed</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'Turkish (thanks to <a href="http://www.wpuzmani.com/">Semih</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/><?php _e( 'and to all donors, contributors, supporters, reviewers and users of the plugin!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
@@ -1575,6 +1578,9 @@ class WP_Table_Reloaded_Admin {
     // add button to visual editor
     function add_editor_button() {
         if ( 0 < count( $this->tables ) )
+            // init language support
+            $this->init_language_support();
+        
             add_action( 'admin_footer', array( &$this, 'add_editor_button_js' ) );
     }
 
