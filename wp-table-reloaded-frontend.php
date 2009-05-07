@@ -161,7 +161,7 @@ class WP_Table_Reloaded_Frontend {
                         $output .= "\t<tr{$row_class}>\n\t\t";
                         foreach( $row as $col_idx => $cell_content ) {
                             $col_class = ' class="column-' . ( $col_idx + 1 ) . '"';
-                            $width_style = ( !empty( $column_widths[$col_idx] ) ) ? " style=\"width:{$column_widths[$col_idx]};\"" : '';
+                            $width_style = ( !empty( $output_options['column_widths'][$col_idx] ) ) ? " style=\"width:{$output_options['column_widths'][$col_idx]};\"" : '';
                             $cell_content = $this->safe_output( $cell_content );
                             $output .= "<th{$col_class}{$width_style}>" . "{$cell_content}" . "</th>";
                         }
@@ -173,7 +173,7 @@ class WP_Table_Reloaded_Frontend {
                         $output .= "\t<tr{$row_class}>\n\t\t";
                         foreach( $row as $col_idx => $cell_content ) {
                             $col_class = ' class="column-' . ( $col_idx + 1 ) . '"';
-                            $width_style = ( !empty( $column_widths[$col_idx] ) ) ? " style=\"width:{$column_widths[$col_idx]};\"" : '';
+                            $width_style = ( !empty( $output_options['column_widths'][$col_idx] ) ) ? " style=\"width:{$output_options['column_widths'][$col_idx]};\"" : '';
                             $cell_content = $this->safe_output( $cell_content );
                             $output .= "<td{$col_class}{$width_style}>" . "{$cell_content}" . "</td>";
                         }
