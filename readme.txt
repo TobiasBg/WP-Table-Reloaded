@@ -4,13 +4,13 @@ Donate link: http://tobias.baethge.com/donate/
 Tags: html,table,editor,csv,import,export,excel,widget,admin,sidebar
 Requires at least: 2.5
 Tested up to: 2.8
-Stable tag: 1.1
+Stable tag: 1.2
 
-This plugin allows you to create and easily manage tables in your WP's admin-area. A comfortable backend allows an easy manipulation of table data. You can then include the tables into your posts, on your pages or in text widgets by using a shortcode or a template tag function. Tables can be imported and exported from/to CSV, XML and HTML.
+WP-Table Reloaded enables you to create and manage tables in your WP’s admin area. No HTML knowledge is needed. A comfortable backend allows to easily edit table data. You can include the tables into your posts, on your pages or in text widgets by using a shortcode or a template tag function. Tables can be imported and exported from/to CSV, XML and HTML.
 
 == Description ==
 
-This plugin allows you to create and easily manage tables in the admin-area of WordPress. A comfortable backend allows an easy manipulation of table data. You can then include the tables into your posts, on your pages or in text widgets by using a shortcode or a template tag function. Tables can be imported and exported from/to CSV, XML and HTML.
+WP-Table Reloaded enables you to create and manage tables in your WP’s admin area. No HTML knowledge is needed. A comfortable backend allows to easily edit table data. You can include the tables into your posts, on your pages or in text widgets by using a shortcode or a template tag function. Tables can be imported and exported from/to CSV, XML and HTML.
 
 The plugin is a completely rewritten and extended version of Alex Rabe's "wp-Table" and uses the state-of-the-art WordPress techniques which makes it faster and lighter than the original plugin. You may also have both plugins installed at the same time and you can also import your tables from the wp-Table plugin!
 
@@ -77,9 +77,8 @@ In short: WordPress 2.5 or higher
 The plugin currently includes the following languages:
 Albanian, Czech, English, French, German, Russian, Spanish, Swedish and Turkish.
 
-I'd really appreciate it, if you would translate the plugin into your language! Using Heiko Rabe's WordPress plugin [Codestyling Localization](http://www.code-styling.de/english/development/wordpress-plugin-codestyling-localization-en) that really is as easy as pie. Just install the plugin, add your language, create the .po-file, translate the strings in the comfortable editor and create the .mo-file. It will automatically be saved in WP-Table Reloaded's plugin folder. If you send me the .mo- and .po-file, I will gladly include them into future plugin releases.
-There is also a .pot-file available to use in the "languages subfolder.
-
+I'd really appreciate it, if you would translate the plugin into your language! Using Heiko Rabe's WordPress plugin [Codestyling Localization](http://www.code-styling.de/english/development/wordpress-plugin-codestyling-localization-en/) that really is as easy as pie. Just install the plugin, add your language, create the .po-file, translate the strings in the comfortable editor and create the .mo-file. It will automatically be saved in WP-Table Reloaded's plugin folder. If you send me the .mo- and .po-file, I will gladly include them into future plugin releases.
+There is also a .pot-file available to use in the "languages" subfolder.
 
 = Where can I get more information? =
 
@@ -91,7 +90,9 @@ Die Webseite des Plugins ist auch [auf Deutsch](http://tobias.baethge.com/wordpr
 
 After installing the plugin, you can add, import, export, edit, copy, delete, ... tables via the "WP-Table Reloaded" screen which appears under the "Tools" section in your Admin menu.
 Everything should be self-explaining there.
+
 To show one of your tables in a post, on a page or in a text widget, just include the shortcode [table id=&lt;the-id&gt; /] to your post/page/text-widget, where &lt;the-id&gt is the ID of your table (can be found on the left side of the "List tables" screen.)
+
 After that you might want to change the style of the table. You can do this either by adding CSS to your theme's CSS stylesheet (probably style.css) or by entering it into the box on the "Plugin Options" screen.
 You may also add certain features (like table-sorting, alternating row colors, print name and/or description, ...) by checking the appropriate options in the "Edit table" screen.
 
@@ -110,7 +111,7 @@ I kindly ask you for link somewhere on your website http://tobias.baethge.com/. 
 
 == Changelog ==
 
-* 1.2: editor toolbar button to insert tables; bulk actions; improved CSS and JS loading and performance; template tag function; new CSV import/export class; table specific settings can be overwritten by shortcode parameters; new language: Czech; fixed a few minor bug; smaller enhancements and text corrections
+* 1.2: editor toolbar button to insert tables; bulk actions; improved CSS and JS loading and performance; template tag function; new CSV import/export class; table specific settings can be overwritten by shortcode parameters; new language: Czech; fixed a few minor bugs; smaller enhancements and text corrections
 * 1.1: changed way of CSS handling (database option instead of file), fixed bug for users with PHP4 (certain function doesn't exist there), added two additional shortcode parameters, added buttons to easily add links and images
 * 1.0(.1): Language files, more import/export (including directly from wp-Table!), shortcode supported in text widgets
 * 0.9.2: fixed bug with plugin deactivation hook, added missing css-file

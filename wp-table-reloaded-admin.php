@@ -865,9 +865,7 @@ class WP_Table_Reloaded_Admin {
             <input type="submit" name="submit[swap_cols]" class="button-primary" value="<?php _e( 'Swap', WP_TABLE_RELOADED_TEXTDOMAIN ) ?>" />
         <?php } // end if form swap cols ?>
 </td><td>
-        <p class="submit">
         <a id="a-insert-link" class="button-primary" href=""><?php _e( 'Insert Link', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a> <a id="a-insert-image" class="button-primary" href=""><?php _e( 'Insert Image', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
-        </p>
 </td>
 <td>
         <?php if ( 1 < $rows ) { // sort form
