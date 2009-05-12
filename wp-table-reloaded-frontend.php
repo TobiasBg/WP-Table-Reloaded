@@ -36,13 +36,13 @@ class WP_Table_Reloaded_Frontend {
 
 		// front-end function, shortcode for the_content, manual filter for widget_text
 		add_shortcode( $this->shortcode, array( &$this, 'handle_content_shortcode' ) );
-        add_filter('widget_text', array( &$this, 'handle_widget_filter' ) );
+        add_filter( 'widget_text', array( &$this, 'handle_widget_filter' ) );
 
         // if tablesorter enabled (globally) include javascript
 		if ( true == $this->options['enable_tablesorter'] ) {
     		$this->add_head_jquery_js(); // jquery needed in any case (it's too late to do this, when shortcode is executed
             add_action( 'wp_footer', array( &$this, 'output_tablesorter_js' ) ); // but if we actually need the tablesorter script can be determined in the footer
-            }
+        }
 
         // if global css shall be used
 		if ( true == $this->options['use_custom_css'] )
@@ -92,7 +92,7 @@ class WP_Table_Reloaded_Frontend {
         $count = ( isset( $this->shown_tables[ $table_id ] ) ) ? $this->shown_tables[ $table['id'] ] : 0;
         $count = $count + 1;
         $this->shown_tables[ $table_id ] = $count;
-        $output_options[ 'html_id' ] = "wp-table-reloaded-id-{$table_id}-no-{$count}";
+        $output_options['html_id'] = "wp-table-reloaded-id-{$table_id}-no-{$count}";
         
         $output = $this->render_table( $table, $output_options );
 
@@ -132,7 +132,7 @@ class WP_Table_Reloaded_Frontend {
         if ( null === $output_options['row_count'] )
             $table['data'] = array_slice( $table['data'], $output_options['row_offset'] - 1 ); // -1 because we start from 1
         else
-            $table['data'] = array_slice( $table['data'], $output_options['row_offset'] - 1 , $output_options['row_count'] ); // -1 because we start from 1
+            $table['data'] = array_slice( $table['data'], $output_options['row_offset'] - 1, $output_options['row_count'] ); // -1 because we start from 1
 
         $rows = count( $table['data'] );
         $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;

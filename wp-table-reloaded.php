@@ -47,15 +47,15 @@ if ( is_admin() ) {
         include_once ( WP_TABLE_RELOADED_ABSPATH . 'wp-table-reloaded-admin.php' );
         if ( class_exists( 'WP_Table_Reloaded_Admin' ) )  {
             $WP_Table_Reloaded_Admin = new WP_Table_Reloaded_Admin();
-            register_activation_hook( __FILE__, array( &$WP_Table_Reloaded_Admin, 'plugin_activation_hook' ));
-            register_deactivation_hook( __FILE__, array( &$WP_Table_Reloaded_Admin, 'plugin_deactivation_hook' ));
+            register_activation_hook( __FILE__, array( &$WP_Table_Reloaded_Admin, 'plugin_activation_hook' ) );
+            register_deactivation_hook( __FILE__, array( &$WP_Table_Reloaded_Admin, 'plugin_deactivation_hook' ) );
         }
     }
 } else {
     // we are in frontend mode
     if ( !class_exists( 'WP_Table_Reloaded_Frontend' ) ) {
         include_once ( WP_TABLE_RELOADED_ABSPATH . 'wp-table-reloaded-frontend.php' );
-        if ( class_exists( 'WP_Table_Reloaded_Frontend' ) )
+        if ( class_exists( 'WP_Table_Reloaded_Frontend' ) ) {
             $WP_Table_Reloaded_Frontend = new WP_Table_Reloaded_Frontend();
             
             // ###################################################################################################################
@@ -65,6 +65,7 @@ if ( is_admin() ) {
                 parse_str( $table_query, $atts );
                 echo $WP_Table_Reloaded_Frontend->handle_content_shortcode( $atts );
             }
+        }
     }
 }
 
