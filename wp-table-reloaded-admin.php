@@ -23,7 +23,7 @@ class WP_Table_Reloaded_Admin {
         'table' => 'wp_table_reloaded_data'
     );
     // allowed actions in this class
-    var $allowed_actions = array( 'list', 'add', 'edit', 'bulk_edit', 'copy', 'delete', 'insert', 'import', 'export', 'options', 'uninstall', 'info'); // 'ajax_list', but handled separatly
+    var $allowed_actions = array( 'list', 'add', 'edit', 'bulk_edit', 'copy', 'delete', 'insert', 'import', 'export', 'options', 'uninstall', 'info' ); // 'ajax_list', but handled separatly
     
     // init vars
     var $tables = array();
@@ -76,12 +76,12 @@ class WP_Table_Reloaded_Admin {
         // have to check for possible export file download request this early,
         // because otherwise http-headers will be sent by WP before we can send download headers
         if ( isset( $_POST['wp_table_reloaded_download_export_file'] ) ) {
-            add_action('init', array( &$this, 'do_action_export' ) );
+            add_action( 'init', array( &$this, 'do_action_export' ) );
         }
 
         // have to check for possible call by editor button to show list of tables
         if ( isset( $_GET['action'] ) && 'ajax_list' == $_GET['action'] ) {
-            add_action('init', array( &$this, 'do_action_ajax_list' ) );
+            add_action( 'init', array( &$this, 'do_action_ajax_list' ) );
         }
 
     }
@@ -91,7 +91,7 @@ class WP_Table_Reloaded_Admin {
     function add_manage_page() {
         $min_needed_capability = 'publish_posts'; // user needs at least this capability to show WP-Table Reloaded config page
         $this->hook = add_management_page( 'WP-Table Reloaded', 'WP-Table Reloaded', $min_needed_capability, 'wp_table_reloaded_manage_page', array( &$this, 'show_manage_page' ) );
-        add_action('load-' . $this->hook, array( &$this, 'load_manage_page' ) );
+        add_action( 'load-' . $this->hook, array( &$this, 'load_manage_page' ) );
     }
     
     // ###################################################################################################################
@@ -1263,7 +1263,7 @@ class WP_Table_Reloaded_Admin {
         </div>
         
         <div class="postbox closed">
-        <h3 class="hndle"><span><?php _e( 'Debug and Version Information', WP_TABLE_RELOADED_TEXTDOMAIN ) ?></span><span class="hide_link"><small><?php _e( 'Hide', WP_TABLE_RELOADED_TEXTDOMAIN ) ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ) ?></small></span></h3>
+        <h3 class="hndle"><span><?php _e( 'Debug and Version Information', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php _e( 'Hide', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
         <p>
             <?php _e( 'You are using the following versions of the software. <strong>Please provide this information in bug reports.</strong>', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/>
@@ -1271,8 +1271,8 @@ class WP_Table_Reloaded_Admin {
             <br/>&middot; WP-Table Reloaded (Script): <?php echo $this->plugin_version; ?>
             <br/>&middot; WordPress: <?php echo $GLOBALS['wp_version']; ?>
             <br/>&middot; PHP: <?php echo phpversion(); ?>
-            <br/>&middot; mySQL (Server): <?php echo mysql_get_server_info() ?>
-            <br/>&middot; mySQL (Client): <?php echo mysql_get_client_info() ?>
+            <br/>&middot; mySQL (Server): <?php echo mysql_get_server_info(); ?>
+            <br/>&middot; mySQL (Client): <?php echo mysql_get_client_info(); ?>
         </p>
         </div>
         </div>
@@ -1376,8 +1376,9 @@ class WP_Table_Reloaded_Admin {
             $this->tables[ $table_id ] = ( isset( $this->tables[ $table_id ] ) ) ? $this->tables[ $table_id ] : $this->optionname['table'] . '_' . $table_id;
             $table = get_option( $this->tables[ $table_id ], $this->default_table);
             return $table;
-        } else
+        } else {
             return $this->default_table;
+        }
     }
     
     // ###################################################################################################################
@@ -1445,7 +1446,7 @@ class WP_Table_Reloaded_Admin {
         $this->options = get_option( $this->optionname['options'] );
         if ( false !== $this->options && isset( $this->options['installed_version'] ) ) {
             // check if update needed, or just reactivated the latest version of it
-            if ( version_compare($this->options['installed_version'], $this->plugin_version, '<') ) {
+            if ( version_compare( $this->options['installed_version'], $this->plugin_version, '<') ) {
                 $this->plugin_update();
             } else {
                 // just reactivating, but latest version of plugin installed
@@ -1515,7 +1516,7 @@ class WP_Table_Reloaded_Admin {
             $this->save_table( $new_table );
         }
     }
-    
+
     // ###################################################################################################################
     // initialize i18n support, load textdomain
     function init_language_support() {
@@ -1575,13 +1576,11 @@ class WP_Table_Reloaded_Admin {
     // ###################################################################################################################
     // add button to visual editor
     function add_editor_button() {
-        if ( 0 < count( $this->tables ) )
-            // init language support
+        if ( 0 < count( $this->tables ) ) {
             $this->init_language_support();
-        
             add_action( 'admin_footer', array( &$this, 'add_editor_button_js' ) );
+        }
     }
-
 
     // ###################################################################################################################
     // print out the JS in the admin footer
