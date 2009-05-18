@@ -1257,7 +1257,7 @@ class WP_Table_Reloaded_Admin {
             <br/>&middot; <?php _e( 'Albanian (thanks to <a href="http://www.romeolab.com/">Romeo</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'Czech (thanks to <a href="http://separatista.net/">Separatista</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'French (thanks to <a href="http://ultratrailer.net/">Yin-Yin</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
-            <br/>&middot; <?php _e( 'Polish (thanks to <a href="http://otwartawystawa.com/">Alex Kortan</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
+            <br/>&middot; <?php _e( 'Polish (thanks to Alex Kortan)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'Russian (thanks to <a href="http://wp-skins.info/">Truper</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'Spanish (thanks to <a href="http://theindependentproject.com/">Alejandro Urrutia</a> and <a href="http://halles.cl/">Matias Halles</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'Swedish (thanks to <a href="http://www.zuperzed.se/">ZuperZed</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
