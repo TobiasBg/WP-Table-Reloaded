@@ -3,7 +3,7 @@
 File Name: WP-Table Reloaded - Frontend Class (see main file wp-table-reloaded.php)
 Plugin URI: http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/
 Description: Description: This plugin allows you to create and easily manage tables in the admin-area of WordPress. A comfortable backend allows an easy manipulation of table data. You can then include the tables into your posts, on your pages or in text widgets by using a shortcode or a template tag function. Tables can be imported and exported from/to CSV, XML and HTML.
-Version: 1.2
+Version: 1.2.1
 Author: Tobias B&auml;thge
 Author URI: http://tobias.baethge.com/
 */
