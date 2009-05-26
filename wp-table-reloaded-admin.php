@@ -3,7 +3,7 @@
 File Name: WP-Table Reloaded - Admin Class (see main file wp-table-reloaded.php)
 Plugin URI: http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/
 Description: Description: This plugin allows you to create and easily manage tables in the admin-area of WordPress. A comfortable backend allows an easy manipulation of table data. You can then include the tables into your posts, on your pages or in text widgets by using a shortcode or a template tag function. Tables can be imported and exported from/to CSV, XML and HTML.
-Version: 1.2.1
+Version: 1.3-alpha
 Author: Tobias B&auml;thge
 Author URI: http://tobias.baethge.com/
 */
@@ -13,7 +13,7 @@ define( 'WP_TABLE_RELOADED_TEXTDOMAIN', 'wp-table-reloaded' );
 class WP_Table_Reloaded_Admin {
 
     // ###################################################################################################################
-    var $plugin_version = '1.2.1';
+    var $plugin_version = '1.3-alpha';
     // nonce for security of links/forms, try to prevent "CSRF"
     var $nonce_base = 'wp-table-reloaded-nonce';
     // names for the options which are stored in the WP database
@@ -172,6 +172,7 @@ class WP_Table_Reloaded_Admin {
                 $table['options']['first_row_th'] = isset( $_POST['table']['options']['first_row_th'] );
                 $table['options']['print_name'] = isset( $_POST['table']['options']['print_name'] );
                 $table['options']['print_description'] = isset( $_POST['table']['options']['print_description'] );
+                $table['options']['use_tablesorter'] = isset( $_POST['table']['options']['use_tablesorter'] );
                 $this->save_table( $table );
                 $message = __( 'Table edited successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
@@ -796,7 +797,8 @@ class WP_Table_Reloaded_Admin {
                     foreach ( $table_row as $col_idx => $cell_content ) {
                         $cell_content = $this->safe_output( $cell_content );
                         $cell_name = "table[data][{$row_idx}][{$col_idx}]";
-                        echo "\t<td><input type=\"text\" name=\"{$cell_name}\" value=\"{$cell_content}\" /></td>\n";
+                        //echo "\t<td><input type=\"text\" name=\"{$cell_name}\" value=\"{$cell_content}\" /></td>\n";
+                        echo "\t<td><textarea rows=\"1\" cols=\"22\" name=\"{$cell_name}\">{$cell_content}</textarea></td>\n";
                     }
                     $insert_row_url = $this->get_action_url( array( 'action' => 'insert', 'table_id' => $table['id'], 'item' => 'row', 'element_id' => $row_idx ), true );
                     $delete_row_url = $this->get_action_url( array( 'action' => 'delete', 'table_id' => $table['id'], 'item' => 'row', 'element_id' => $row_idx ), true );

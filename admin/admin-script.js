@@ -38,6 +38,14 @@ jQuery(document).ready(function($){
 	  }
 	});
 
+    $("#table_contents textarea").keypress(function () {
+        var currentTextsize = $(this).val().split('\n').length;
+
+        if (currentTextsize >= 1) {
+            $(this).attr('rows', currentTextsize);
+        }
+	}).keypress();;
+
     var insert_html = '';
 
     function add_html() {
