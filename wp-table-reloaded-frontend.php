@@ -103,7 +103,11 @@ class WP_Table_Reloaded_Frontend {
     // handle [table id=<the_table_id> /] in widget texts
     function handle_widget_filter( $text ) {
         // pattern to search for in widget text (only our plugin's shortcode!)
-        $pattern = '\[(' . preg_quote( $this->shortcode ) . ')\b(.*?)(?:(\/))?\](?:(.+?)\[\/\1\])?';
+        if ( version_compare( '2.7.1', $wp_version, '>') ) {
+            $pattern = '(.?)\[(' . preg_quote( $this->shortcode ) . ')\b(.*?)(?:(\/))?\](?:(.+?)\[\/\2\])?(.?)';
+        } else {
+            $pattern = '\[(' . preg_quote( $this->shortcode ) . ')\b(.*?)(?:(\/))?\](?:(.+?)\[\/\1\])?';
+        }
         // search for it, if found, handle as if it were a shortcode
         return preg_replace_callback( '/'.$pattern.'/s', 'do_shortcode_tag', $text );
     }

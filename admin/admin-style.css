@@ -19,9 +19,9 @@ table.wp-table-reloaded-options th {
 
 table.wp-table-reloaded-data-manipulation { width:100%; }
 
-table#table_contents td, table#table_contents th {
+table#table_contents td, table#table_contents th, .widefat td {
     white-space:nowrap;
-    vertical-align: middle;
+    vertical-align: baseline!important;
 }
 
 table#table_contents input[type=text] {

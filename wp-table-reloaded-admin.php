@@ -590,9 +590,9 @@ class WP_Table_Reloaded_Admin {
 
                 echo "<tr{$bg_style}>\n";
                 echo "\t<th scope=\"row\">{$id}</th>";
-                echo "<td>{$name}</td>";
-                echo "<td>{$description}</td>";
-                echo "<td><a class=\"send_table_to_editor\" title=\"{$id}\" href=\"#\" style=\"color:#21759B;\">" . __( 'Insert', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a></td>\n";
+                echo "<td style=\"vertical-align:baseline;\">{$name}</td>";
+                echo "<td style=\"vertical-align:baseline;\">{$description}</td>";
+                echo "<td style=\"vertical-align:baseline;\"><a class=\"send_table_to_editor\" title=\"{$id}\" href=\"#\" style=\"color:#21759B;\">" . __( 'Insert', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a></td>\n";
                 echo "</tr>\n";
             }
             ?>
@@ -1257,6 +1257,7 @@ class WP_Table_Reloaded_Admin {
             <?php _e( 'Christian Bach for the <a href="http://www.tablesorter.com/">Tablesorter jQuery plugin</a>,', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/>
             <?php _e( 'the submitters of translations:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'Albanian (thanks to <a href="http://www.romeolab.com/">Romeo</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
+            <br/>&middot; <?php _e( 'Brazilian Portugues (thanks to <a href="http://www.pensarics.com/">Rics</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'Czech (thanks to <a href="http://separatista.net/">Separatista</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'French (thanks to <a href="http://ultratrailer.net/">Yin-Yin</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'Polish (thanks to Alex Kortan)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
