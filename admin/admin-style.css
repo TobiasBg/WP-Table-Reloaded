@@ -1,6 +1,6 @@
 /******************************************
 * This CSS file belongs to the Admin part *
-* of WP-Table Reloaded 1.2! PLEASE DO NOT *
+* of WP-Table Reloaded 1.3! PLEASE DO NOT *
 * make any changes here! Thank you!       *
 ******************************************/
 
@@ -19,9 +19,14 @@ table.wp-table-reloaded-options th {
 
 table.wp-table-reloaded-data-manipulation { width:100%; }
 
-table#table_contents td, table#table_contents th, .widefat td {
+.widefat td {
     white-space:nowrap;
     vertical-align: baseline!important;
+}
+
+table#table_contents td, table#table_contents th{
+    white-space:nowrap;
+    vertical-align:middle!important;
 }
 
 table#table_contents input[type=text] {

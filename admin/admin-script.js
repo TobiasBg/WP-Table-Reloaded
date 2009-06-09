@@ -3,12 +3,49 @@ jQuery(document).ready(function($){
     // WP_Table_Reloaded_Admin object will contain all localized strings
 
     $("#export_format").change(function () {
-          if ( 'csv' == $(this).val() )
-		$(".tr-export-delimiter").css('display','table-row');
-	  else
-		$(".tr-export-delimiter").css('display','none');
+        if ( 'csv' == $(this).val() )
+            $(".tr-export-delimiter").css('display','table-row');
+        else
+            $(".tr-export-delimiter").css('display','none');
         })
         .change();
+
+    var table_id = $(".wp-table-reloaded-options #table_id").val();
+    $(".wp-table-reloaded-options #table_id").change(function () {
+        if ( table_id != $(this).val() ) {
+            if ( confirm( WP_Table_Reloaded_Admin.str_ChangeTableID ) )
+                table_id = $(this).val();
+            else
+                $(this).val( table_id );
+        }
+    });
+
+    $(".tr-import-addreplace input").click(function () {
+        $('.tr-import-addreplace-table').css('display','none');
+
+        if( 'replace' == $('.tr-import-addreplace input:checked').val() ) {
+            $('.tr-import-addreplace-table').css('display','table-row');
+        }
+    });
+    $('.tr-import-addreplace input:checked').click();
+
+    $(".tr-import-from input").click(function () {
+        $('.tr-import-file').css('display','none');
+        $('.tr-import-url').css('display','none');
+        $('.tr-import-field').css('display','none');
+        $('.tr-import-server').css('display','none');
+      
+        if( 'file-upload' == $('.tr-import-from input:checked').val() ) {
+            $('.tr-import-file').css('display','table-row');
+        } else if( 'url' == $('.tr-import-from input:checked').val() ) {
+            $('.tr-import-url').css('display','table-row');
+        } else if( 'form-field' == $('.tr-import-from input:checked').val() ) {
+            $('.tr-import-field').css('display','table-row');
+        } else if( 'server' == $('.tr-import-from input:checked').val() ) {
+            $('.tr-import-server').css('display','table-row');
+        }
+    });
+    $('.tr-import-from input:checked').click();
 
     $("#options_use_custom_css input").click(function () {
 	  if( $('#options_use_custom_css input:checked').val() ) {
@@ -38,13 +75,15 @@ jQuery(document).ready(function($){
 	  }
 	});
 
+    /*
     $("#table_contents textarea").keypress(function () {
         var currentTextsize = $(this).val().split('\n').length;
 
-        if (currentTextsize >= 1) {
+        if ( 0 < currentTextsize ) {
             $(this).attr('rows', currentTextsize);
         }
-	}).keypress();;
+	}).keypress();
+    */
 
     var insert_html = '';
 

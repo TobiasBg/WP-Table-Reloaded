@@ -75,7 +75,7 @@ In short: WordPress 2.5 or higher
 = Languages and Localization? =
 
 The plugin currently includes the following languages:
-Albanian, Czech, English, French, German, Polish, Russian, Spanish, Swedish and Turkish.
+Albanian, Brazilian Portuguese, Czech, English, French, German, Polish, Russian, Spanish, Swedish and Turkish.
 
 I'd really appreciate it, if you would translate the plugin into your language! Using Heiko Rabe's WordPress plugin [Codestyling Localization](http://www.code-styling.de/english/development/wordpress-plugin-codestyling-localization-en/) that really is as easy as pie. Just install the plugin, add your language, create the .po-file, translate the strings in the comfortable editor and create the .mo-file. It will automatically be saved in WP-Table Reloaded's plugin folder. If you send me the .mo- and .po-file, I will gladly include them into future plugin releases.
 There is also a .pot-file available to use in the "languages" subfolder.
@@ -111,6 +111,7 @@ I kindly ask you for link somewhere on your website http://tobias.baethge.com/. 
 
 == Changelog ==
 
+* 1.3: fixed bug with shortcode in text widgets for WP 2.8; added Brazilian Portuguese language file; fixed small bug with "Table" button in editor toolbar; table ID can now be changed and existing tables can be replaced upon import; possibility to add multiple rows/columns
 * 1.2.1: fixed syntax errors that appeared for some users, added Polish language file
 * 1.2: editor toolbar button to insert tables; bulk actions; improved CSS and JS loading and performance; template tag function; new CSV import/export class; table specific settings can be overwritten by shortcode parameters; new language: Czech; fixed a few minor bugs; smaller enhancements and text corrections
 * 1.1: changed way of CSS handling (database option instead of file), fixed bug for users with PHP4 (certain function doesn't exist there), added two additional shortcode parameters, added buttons to easily add links and images

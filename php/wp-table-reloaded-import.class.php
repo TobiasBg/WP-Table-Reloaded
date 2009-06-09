@@ -3,7 +3,7 @@
 File Name: WP-Table Reloaded - Import Class (see main file wp-table-reloaded.php)
 Plugin URI: http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/
 Description: This plugin allows you to create and manage tables in the admin-area of WordPress. You can then show them in your posts or on your pages by using a shortcode. The plugin is greatly influenced by the plugin "wp-Table" by Alex Rabe, but was completely rewritten and uses the state-of-the-art WordPress techniques which makes it faster and lighter than the original plugin.
-Version: 1.2
+Version: 1.3
 Author: Tobias B&auml;thge
 Author URI: http://tobias.baethge.com/
 */
@@ -12,7 +12,7 @@ Author URI: http://tobias.baethge.com/
 class WP_Table_Reloaded_Import {
 
     // ###################################################################################################################
-    var $import_class_version = '1.2';
+    var $import_class_version = '1.3';
 
     // possible import formats
     var $import_formats = array();
@@ -69,10 +69,18 @@ class WP_Table_Reloaded_Import {
 
         $parseCSV = $this->create_class_instance( 'parseCSV', 'parsecsv.class.php' );
         
-        if ( 'form-field' == $this->import_from )
-            $temp_data = $this->import_data;
-        elseif ( 'file-upload' == $this->import_from )
-            $temp_data = file_get_contents( $this->tempname );
+        switch ( $this->import_from ) {
+            case 'form-field':
+            case 'url':
+                $temp_data = $this->import_data;
+                break;
+            case 'file-upload':
+            case 'server':
+                $temp_data = file_get_contents( $this->tempname );
+                break;
+            default:
+                exit; // this should never happen
+        }
 
         $parseCSV->heading = false; // means: treat first row like all others
         $parseCSV->encoding( 'ISO-8859-1', 'UTF-8' ); // might need to play with this a little or offer an option

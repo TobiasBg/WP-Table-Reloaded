@@ -3,7 +3,7 @@
 File Name: WP-Table Reloaded - Admin Class (see main file wp-table-reloaded.php)
 Plugin URI: http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/
 Description: Description: This plugin allows you to create and easily manage tables in the admin-area of WordPress. A comfortable backend allows an easy manipulation of table data. You can then include the tables into your posts, on your pages or in text widgets by using a shortcode or a template tag function. Tables can be imported and exported from/to CSV, XML and HTML.
-Version: 1.3-alpha
+Version: 1.3
 Author: Tobias B&auml;thge
 Author URI: http://tobias.baethge.com/
 */
@@ -13,7 +13,7 @@ define( 'WP_TABLE_RELOADED_TEXTDOMAIN', 'wp-table-reloaded' );
 class WP_Table_Reloaded_Admin {
 
     // ###################################################################################################################
-    var $plugin_version = '1.3-alpha';
+    var $plugin_version = '1.3';
     // nonce for security of links/forms, try to prevent "CSRF"
     var $nonce_base = 'wp-table-reloaded-nonce';
     // names for the options which are stored in the WP database
@@ -168,13 +168,28 @@ class WP_Table_Reloaded_Admin {
             case 'update':
             case 'save_back':
                 $table = $_POST['table'];   // careful here to not miss any stuff!!! (options, etc.)
+                // do we want to change the ID?
+                $new_table_id = ( isset( $_POST['table_id'] ) ) ? $_POST['table_id'] : $table['id'] ;
+                if ( $new_table_id != $table['id'] && is_numeric( $new_table_id ) && ( 0 < $new_table_id ) ) {
+                    if ( false === $this->table_exists( $new_table_id ) ) {
+                        // delete table with old ID
+                        $old_table_id = $table['id'];
+                        $this->delete_table( $old_table_id );
+                        // set new table ID
+                        $table['id'] = $new_table_id;
+                        $message = sprintf( __( "Table edited successfully. This Table now has the ID %s. You'll need to adjust existing shortcodes accordingly.", WP_TABLE_RELOADED_TEXTDOMAIN ), $new_table_id );
+                    } else {
+                        $message = sprintf( __( 'The ID could not be changed from %s to %s, because there already is a Table with that ID.', WP_TABLE_RELOADED_TEXTDOMAIN ), $table['id'], $new_table_id );
+                    }
+                } else {
+                    $message = __( 'Table edited successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                }
                 $table['options']['alternating_row_colors'] = isset( $_POST['table']['options']['alternating_row_colors'] );
                 $table['options']['first_row_th'] = isset( $_POST['table']['options']['first_row_th'] );
                 $table['options']['print_name'] = isset( $_POST['table']['options']['print_name'] );
                 $table['options']['print_description'] = isset( $_POST['table']['options']['print_description'] );
                 $table['options']['use_tablesorter'] = isset( $_POST['table']['options']['use_tablesorter'] );
                 $this->save_table( $table );
-                $message = __( 'Table edited successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
             case 'swap_rows':
                 $table_id = $_POST['table']['id'];
@@ -229,6 +244,31 @@ class WP_Table_Reloaded_Admin {
                 $this->save_table( $table );
                 $message = __( 'Table sorted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
+            case 'insert_rows':
+                $table_id = $_POST['table']['id'];
+                $number = ( isset( $_POST['insert']['row']['number'] ) && ( 0 < isset( $_POST['insert']['row']['number'] ) ) ) ? $_POST['insert']['row']['number'] : 1;
+                $row_id = $_POST['insert']['row']['id'];
+                $table = $this->load_table( $table_id );
+                $rows = count( $table['data'] );
+                $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
+                // init new empty row (with all columns) and insert it before row with key $row_id
+                $new_rows = $this->create_empty_table( $number, $cols, '' );
+                array_splice( $table['data'], $row_id, 0, $new_rows );
+                $this->save_table( $table );
+                $message = __ngettext( 'Row added successfully.', 'Rows added successfully.', $number, WP_TABLE_RELOADED_TEXTDOMAIN );
+                break;
+            case 'insert_cols':
+                $table_id = $_POST['table']['id'];
+                $number = ( isset( $_POST['insert']['col']['number'] ) && ( 0 < isset( $_POST['insert']['col']['number'] ) ) ) ? $_POST['insert']['col']['number'] : 1;
+                $col_id = $_POST['insert']['col']['id'];
+                $table = $this->load_table( $table_id );
+                // init new empty row (with all columns) and insert it before row with key $row_id
+                $new_col = array_fill( 0, $number, '' );
+                foreach ( $table['data'] as $row_idx => $row )
+                    array_splice( $table['data'][$row_idx], $col_id, 0, $new_col );
+                $this->save_table( $table );
+                $message = __ngettext( 'Column added successfully.', 'Columns added successfully.', $number, WP_TABLE_RELOADED_TEXTDOMAIN );
+                break;
             default:
                 $this->do_action_list();
             }
@@ -270,11 +310,8 @@ class WP_Table_Reloaded_Admin {
                     break;
                 case 'delete': // see do_action_delete for explanations
                     foreach ( $_POST['tables'] as $table_id ) {
-                        $this->tables[ $table_id ] = ( isset( $this->tables[ $table_id ] ) ) ? $this->tables[ $table_id ] : $this->optionname['table'] . '_' . $table_id;
-                        delete_option( $this->tables[ $table_id ] );
-                        unset( $this->tables[ $table_id ] );
+                        $this->delete_table( $table_id );
                     }
-                    $this->update_tables();
                     $message = __ngettext( 'Table deleted successfully.', 'Tables deleted successfully.', count( $_POST['tables'] ), WP_TABLE_RELOADED_TEXTDOMAIN );
                     break;
                 case 'wp_table_import': // see do_action_import for explanations
@@ -332,10 +369,7 @@ class WP_Table_Reloaded_Admin {
 
             switch( $_GET['item'] ) {
             case 'table':
-                $this->tables[ $table_id ] = ( isset( $this->tables[ $table_id ] ) ) ? $this->tables[ $table_id ] : $this->optionname['table'] . '_' . $table_id;
-                delete_option( $this->tables[ $table_id ] );
-                unset( $this->tables[ $table_id ] );
-                $this->update_tables();
+                $this->delete_table( $table_id );
                 $this->print_success_message( sprintf( __( 'Table "%s" deleted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $table['name'] ) ) );
                 $this->do_action_list();
                 break;
@@ -413,11 +447,11 @@ class WP_Table_Reloaded_Admin {
     // ###################################################################################################################
     function do_action_import() {
         $this->import_instance = $this->create_class_instance( 'WP_Table_Reloaded_Import', 'wp-table-reloaded-import.class.php' );
-        if ( isset( $_POST['submit'] ) && ( isset( $_FILES['import_file'] ) || isset( $_POST['import_data'] ) ) ) {
+        if ( isset( $_POST['submit'] ) && isset( $_POST['import_from'] ) ) {
             check_admin_referer( $this->get_nonce( 'import' ) );
 
             // do import
-            if ( false == empty( $_FILES['import_file']['tmp_name'] ) ) {
+            if ( 'file-upload' == $_POST['import_from'] && false === empty( $_FILES['import_file']['tmp_name'] ) ) {
                 $this->import_instance->tempname = $_FILES['import_file']['tmp_name'];
                 $this->import_instance->filename = $_FILES['import_file']['name'];
                 $this->import_instance->mimetype = $_FILES['import_file']['type'];
@@ -427,7 +461,16 @@ class WP_Table_Reloaded_Admin {
                 $error = $this->import_instance->error;
                 $imported_table = $this->import_instance->imported_table;
                 $this->import_instance->unlink_uploaded_file();
-            } elseif ( isset( $_POST['import_data'] ) ) {
+            } elseif ( 'server' == $_POST['import_from'] && false === empty( $_POST['import_server'] ) ) {
+                $this->import_instance->tempname = $_POST['import_server'];
+                $this->import_instance->filename = __( 'Imported Table', WP_TABLE_RELOADED_TEXTDOMAIN );
+                $this->import_instance->mimetype = sprintf( __( 'from %s', WP_TABLE_RELOADED_TEXTDOMAIN ), $_POST['import_server'] );
+                $this->import_instance->import_from = 'server';
+                $this->import_instance->import_format = $_POST['import_format'];
+                $this->import_instance->import_table();
+                $error = $this->import_instance->error;
+                $imported_table = $this->import_instance->imported_table;
+            } elseif ( 'form-field' == $_POST['import_from'] && false === empty( $_POST['import_data'] ) ) {
                 $this->import_instance->tempname = '';
                 $this->import_instance->filename = __( 'Imported Table', WP_TABLE_RELOADED_TEXTDOMAIN );
                 $this->import_instance->mimetype = __( 'via form', WP_TABLE_RELOADED_TEXTDOMAIN );
@@ -437,16 +480,41 @@ class WP_Table_Reloaded_Admin {
                 $this->import_instance->import_table();
                 $error = $this->import_instance->error;
                 $imported_table = $this->import_instance->imported_table;
+            } elseif ( 'url' == $_POST['import_from'] && false === empty( $_POST['import_url'] ) ) {
+                $this->import_instance->tempname = '';
+                $this->import_instance->filename = __( 'Imported Table', WP_TABLE_RELOADED_TEXTDOMAIN );
+                $this->import_instance->mimetype = sprintf( __( 'from %s', WP_TABLE_RELOADED_TEXTDOMAIN ), $_POST['import_url'] );
+                $this->import_instance->import_from = 'url';
+                $url = clean_url( $_POST['import_url'] );
+                $this->import_instance->import_data = wp_remote_retrieve_body( wp_remote_get( $url ) );
+                $this->import_instance->import_format = $_POST['import_format'];
+                $this->import_instance->import_table();
+                $error = $this->import_instance->error;
+                $imported_table = $this->import_instance->imported_table;
+            } else { // no valid data submitted
+                $this->print_success_message( __( 'Table could not be imported.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
+                $this->print_import_table_form();
+                exit;
             }
 
             $table = array_merge( $this->default_table, $imported_table );
 
-            $table['id'] = $this->get_new_table_id();
+            if ( isset( $_POST['import_addreplace'] ) && isset( $_POST['import_addreplace_table'] ) && ( 'replace' == $_POST['import_addreplace'] ) && $this->table_exists( $_POST['import_addreplace_table'] ) ) {
+                $existing_table = $this->load_table( $_POST['import_addreplace_table'] );
+                $table['id'] = $existing_table['id'];
+                $table['name'] = $existing_table['name'];
+                $table['description'] = $existing_table['description'];
+                $success_message = sprintf( __( 'Table %s (%s) replaced successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $table['name'] ), $this->safe_output( $table['id'] ) );
+                unset( $existing_table );
+            } else {
+                $table['id'] = $this->get_new_table_id();
+                $success_message = sprintf( __( 'Table imported successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
+            }
 
             $this->save_table( $table );
 
             if ( false == $error ) {
-                $this->print_success_message( __( 'Table imported successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
+                $this->print_success_message( $success_message );
                 $this->print_edit_table_form( $table['id'] );
             } else {
                 $this->print_success_message( __( 'Table could not be imported.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
@@ -738,7 +806,7 @@ class WP_Table_Reloaded_Admin {
         $rows = count( $table['data'] );
         $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
 
-        $this->print_page_header( sprintf( __( 'Edit Table "%s"', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $table['name'] ) ) );
+        $this->print_page_header( sprintf( __( 'Edit Table "%s"', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $table['name'] ) ) . " (ID " . $this->safe_output( $table['id'] ) . ")"  );
         $this->print_submenu_navigation( 'edit' );
         ?>
         <div style="clear:both;"><p><?php _e( 'You may edit the content of the table here. It is also possible to add or delete columns and rows.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br />
@@ -750,6 +818,10 @@ class WP_Table_Reloaded_Admin {
         <h3 class="hndle"><span><?php _e( 'Table Information', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span></h3>
         <div class="inside">
         <table class="wp-table-reloaded-options">
+        <tr valign="top">
+            <th scope="row"><label for="table_id"><?php _e( 'Table ID', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
+            <td><input type="text" name="table_id" id="table_id" value="<?php echo $this->safe_output( $table['id'] ); ?>" style="width:250px" /></td>
+        </tr>
         <tr valign="top">
             <th scope="row"><label for="table[name]"><?php _e( 'Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
             <td><input type="text" name="table[name]" id="table[name]" value="<?php echo $this->safe_output( $table['name'] ); ?>" style="width:250px" /></td>
@@ -819,9 +891,18 @@ class WP_Table_Reloaded_Admin {
                             echo " | <a class=\"delete_column_link\" href=\"{$delete_col_url}\">" . __('Delete Column', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>";
                         echo "</td>\n";
                     }
-                    $add_row_url = $this->get_action_url( array( 'action' => 'insert', 'table_id' => $table['id'],'item' => 'row',  'element_id' => $rows ), true ); // number of $rows is equal to new row's id
-                    $add_col_url = $this->get_action_url( array( 'action' => 'insert', 'table_id' => $table['id'],'item' => 'col',  'element_id' => $cols ), true ); // number of $cols is equal to new col's id
-                    echo "\t<td><a href=\"{$add_row_url}\">" . __( 'Add Row', WP_TABLE_RELOADED_TEXTDOMAIN )."</a> | <a href=\"{$add_col_url}\">" . __( 'Add Column', WP_TABLE_RELOADED_TEXTDOMAIN )."</a></td>\n";
+
+                    // add rows/columns buttons
+                    echo "\t<td><input type=\"hidden\" name=\"insert[row][id]\" value=\"{$rows}\" /><input type=\"hidden\" name=\"insert[col][id]\" value=\"{$cols}\" />";
+
+                    $row_insert = '<input type="text" name="insert[row][number]" value="1" style="width:30px" />';
+                    $col_insert = '<input type="text" name="insert[col][number]" value="1" style="width:30px" />';
+                    ?>
+                    <?php echo sprintf( __( 'Add %s row(s)', WP_TABLE_RELOADED_TEXTDOMAIN ), $row_insert ); ?>
+                    <input type="submit" name="submit[insert_rows]" class="button-primary" value="<?php _e( 'Add', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" /><br/>
+                    <?php echo sprintf( __( 'Add %s column(s)', WP_TABLE_RELOADED_TEXTDOMAIN ), $col_insert ); ?>
+                    <input type="submit" name="submit[insert_cols]" class="button-primary" value="<?php _e( 'Add', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" /></td>
+                    <?php
                     echo "</tr>";
                 ?>
                 </tbody>
@@ -971,15 +1052,54 @@ class WP_Table_Reloaded_Admin {
         ?>
         </select></td>
         </tr>
+        <tr valign="top" class="tr-import-addreplace">
+            <th scope="row" style="min-width:350px;"><?php _e( 'Add or Replace Table?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
+            <td>
+            <input name="import_addreplace" id="import_addreplace_add" type="radio" value="add" <?php echo ( 'replace' != $_POST['import_from'] ) ? 'checked="checked" ': '' ; ?>/> <label for="import_addreplace_add"><?php _e( 'Add as new Table', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label>
+            <input name="import_addreplace" id="import_addreplace_replace" type="radio" value="replace" <?php echo ( 'replace' == $_POST['import_from'] ) ? 'checked="checked" ': '' ; ?>/> <label for="import_addreplace_replace"><?php _e( 'Replace existing Table', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label>
+            </td>
+        </tr>
+        <tr valign="top" class="tr-import-addreplace-table">
+            <th scope="row"><label for="import_addreplace_table"><?php _e( 'Select existing Table to Replace', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
+            <td><select id="import_addreplace_table" name="import_addreplace_table">
+        <?php
+            foreach ( $this->tables as $id => $tableoptionname ) {
+                // get name and description to show in list
+                $table = $this->load_table( $id );
+                    $name = $this->safe_output( $table['name'] );
+                    //$description = $this->safe_output( $table['description'] );
+                unset( $table );
+                echo "<option" . ( ( $id == $_POST['import_replace_table'] ) ? ' selected="selected"': '' ) . " value=\"{$id}\">{$name} (ID {$id})</option>";
+            }
+        ?>
+        </select></td>
+        </tr>
+        <tr valign="top" class="tr-import-from">
+            <th scope="row" style="min-width:350px;"><?php _e( 'Select source for import', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
+            <td>
+            <input name="import_from" id="import_from_file" type="radio" value="file-upload" <?php echo ( ( 'url' == $_POST['import_from'] ) || ( 'form-field' == $_POST['import_from'] ) || ( 'server' == $_POST['import_from'] ))? '' :'checked="checked" ' ; ?>/> <label for="import_from_file"><?php _e( 'File upload', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label>
+        <?php if ( version_compare( '2.7', $wp_version, '>=') ) { ?>
+            <input name="import_from" id="import_from_url" type="radio" value="url" <?php echo ( 'url' == $_POST['import_from'] ) ? 'checked="checked" ': '' ; ?>/> <label for="import_from_url"><?php _e( 'URL', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label>
+        <?php } ?>
+            <input name="import_from" id="import_from_field" type="radio" value="form-field" <?php echo ( 'form-field' == $_POST['import_from'] ) ? 'checked="checked" ': '' ; ?>/> <label for="import_from_field"><?php _e( 'Manual input', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label>
+            <input name="import_from" id="import_from_server" type="radio" value="server" <?php echo ( 'server' == $_POST['import_from'] ) ? 'checked="checked" ': '' ; ?>/> <label for="import_from_server"><?php _e( 'File on server', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label>
+            </td>
+        </tr>
         <tr valign="top" class="tr-import-file">
             <th scope="row"><label for="import_file"><?php _e( 'Select File with Table to Import', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
             <td><input name="import_file" id="import_file" type="file" /></td>
         </tr>
-        <tr valign="top">
-            <th scope="row" style="text-align:center;"><strong><?php _e( '- or -', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></strong></th>
-            <td><small><?php _e( '(upload will be preferred over pasting)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></td>
+        <?php if ( version_compare( '2.7', $wp_version, '>=') ) { ?>
+        <tr valign="top" class="tr-import-url">
+            <th scope="row"><label for="import_url"><?php _e( 'URL to import table from', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
+            <td><input type="text" name="import_url" id="import_url" style="width:400px;" value="<?php echo ( isset( $_POST['import_url'] ) ) ? $_POST['import_url'] : 'http://' ; ?>" /></td>
         </tr>
-        <tr valign="top" class="tr-import-data">
+        <?php } ?>
+        <tr valign="top" class="tr-import-server">
+            <th scope="row"><label for="import_server"><?php _e( 'Path to file on server', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
+            <td><input type="text" name="import_server" id="import_server" style="width:400px;" value="<?php echo ( isset( $_POST['import_server'] ) ) ? $_POST['import_server'] : '' ; ?>" /></td>
+        </tr>
+        <tr valign="top" class="tr-import-field">
             <th scope="row" style="vertical-align:top;"><label for="import_data"><?php _e( 'Paste data with Table to Import', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
             <td><textarea  name="import_data" id="import_data" rows="15" cols="40" style="width:600px;height:300px;"></textarea></td>
         </tr>
@@ -1348,8 +1468,17 @@ TEXT;
     // ###################################################################################################################
 
     // ###################################################################################################################
+    // check, if given table id really exists
+    function table_exists( $table_id ) {
+        return isset( $this->tables[ $table_id ] );
+    }
+
+    // ###################################################################################################################
     function get_new_table_id() {
-        $this->options['last_id'] = $this->options['last_id'] + 1;
+        // need to check new ID, because a higher one might have been used by manually changing an existing ID
+        do {
+            $this->options['last_id'] += 1;
+        } while ( $this->table_exists( $this->options['last_id'] ) );
         $this->update_options();
         return $this->options['last_id'];
     }
@@ -1360,7 +1489,6 @@ TEXT;
         return array_fill( 0, $num_rows, array_fill( 0, $num_cols, $default_cell_content ) );
     }
 
-
     // ###################################################################################################################
     function update_options() {
         update_option( $this->optionname['options'], $this->options );
@@ -1368,6 +1496,7 @@ TEXT;
 
     // ###################################################################################################################
     function update_tables() {
+        ksort( $this->tables, SORT_NUMERIC ); // sort for table IDs, as one with a small ID might have been appended
         update_option( $this->optionname['tables'], $this->tables );
     }
 
@@ -1389,6 +1518,14 @@ TEXT;
         } else {
             return $this->default_table;
         }
+    }
+    
+    // ###################################################################################################################
+    function delete_table( $table_id ) {
+        $this->tables[ $table_id ] = ( isset( $this->tables[ $table_id ] ) ) ? $this->tables[ $table_id ] : $this->optionname['table'] . '_' . $table_id;
+        delete_option( $this->tables[ $table_id ] );
+        unset( $this->tables[ $table_id ] );
+        $this->update_tables();
     }
     
     // ###################################################################################################################
@@ -1558,7 +1695,8 @@ TEXT;
 	  	        'str_DeleteColumnLink' => __( 'Do you really want to delete this column?', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_ImportwpTableLink' => __( 'Do you really want to import this table from the wp-Table plugin?', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_UninstallPluginLink_1' => __( 'Do you really want to uninstall the plugin and delete ALL data?', WP_TABLE_RELOADED_TEXTDOMAIN ),
-	  	        'str_UninstallPluginLink_2' => __( 'Are you really sure?', WP_TABLE_RELOADED_TEXTDOMAIN )
+	  	        'str_UninstallPluginLink_2' => __( 'Are you really sure?', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_ChangeTableID' => __( 'Do you really want to change the ID of the table?', WP_TABLE_RELOADED_TEXTDOMAIN )
             ) );
             wp_print_scripts( 'wp-table-reloaded-admin-js' );
         }
