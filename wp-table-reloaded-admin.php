@@ -1477,7 +1477,7 @@ TEXT;
     function get_new_table_id() {
         // need to check new ID, because a higher one might have been used by manually changing an existing ID
         do {
-            $this->options['last_id'] += 1;
+            $this->options['last_id'] = $this->options['last_id'] + 1;
         } while ( $this->table_exists( $this->options['last_id'] ) );
         $this->update_options();
         return $this->options['last_id'];
