@@ -91,7 +91,7 @@ jQuery(document).ready(function($){
         var old_value = $(this).val();
         var new_value = old_value + insert_html;
         $(this).val( new_value );
-        $("#table_contents input").unbind('click', add_html);
+        $("#table_contents textarea").unbind('click', add_html);
     }
 
     $("#a-insert-link").click(function () {
@@ -101,7 +101,7 @@ jQuery(document).ready(function($){
             if ( link_text ) {
                 insert_html = '<a href="' + link_url + '">' + link_text + '</a>';
                 if ( confirm( WP_Table_Reloaded_Admin.str_DataManipulationLinkInsertExplain + '\n\n' + insert_html ) ) {
-                    $("#table_contents input").bind('click', add_html);
+                    $("#table_contents textarea").bind('click', add_html);
                 }
             }
         }
@@ -115,7 +115,7 @@ jQuery(document).ready(function($){
             // if ( image_alt ) { // won't check for alt, because there are cases where an empty one makes sense
                 insert_html = '<img src="' + image_url + '" alt="' + image_alt + '" />';
                 if ( true == confirm( WP_Table_Reloaded_Admin.str_DataManipulationImageInsertExplain + '\n\n' + insert_html ) ) {
-                    $("#table_contents input").bind('click', add_html);
+                    $("#table_contents textarea").bind('click', add_html);
                 }
             // }
         }
