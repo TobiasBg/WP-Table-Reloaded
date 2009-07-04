@@ -757,10 +757,8 @@ class WP_Table_Reloaded_Admin {
                 $table = $this->load_table( $id );
                     $name = $this->safe_output( $table['name'] );
                     $description = $this->safe_output( $table['description'] );
-                    $last_modified = mysql2date( get_option('date_format'), $table['last_modified'] ) . ' ' . mysql2date( get_option('time_format'), $table['last_modified'] );
-                    $user = get_userdata( $table['last_editor_id'] );
-                    $last_editor = $user->nickname;
-                    unset( $user );
+                    $last_modified = $this->format_datetime( $table['last_modified'] );
+                    $last_editor = $this->get_last_editor( $table['last_editor_id'] );
                 unset( $table );
 
                 $edit_url = $this->get_action_url( array( 'action' => 'edit', 'table_id' => $id ), false );
@@ -799,7 +797,7 @@ class WP_Table_Reloaded_Admin {
         }
         $this->print_page_footer();
     }
-    
+
     // ###################################################################################################################
     function print_add_table_form() {
         // Begin Add Table Form
@@ -865,16 +863,22 @@ class WP_Table_Reloaded_Admin {
         <table class="wp-table-reloaded-options">
         <tr valign="top">
             <th scope="row"><label for="table_id"><?php _e( 'Table ID', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
-            <td><input type="text" name="table_id" id="table_id" value="<?php echo $this->safe_output( $table['id'] ); ?>" style="width:250px" /></td>
+            <td><input type="text" name="table_id" id="table_id" value="<?php echo $this->safe_output( $table['id'] ); ?>" style="width:50px" /></td>
         </tr>
         <tr valign="top">
             <th scope="row"><label for="table[name]"><?php _e( 'Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
-            <td><input type="text" name="table[name]" id="table[name]" value="<?php echo $this->safe_output( $table['name'] ); ?>" style="width:250px" /></td>
+            <td><input type="text" name="table[name]" id="table[name]" value="<?php echo $this->safe_output( $table['name'] ); ?>" style="width:300px" /></td>
         </tr>
         <tr valign="top">
             <th scope="row"><label for="table[description]"><?php _e( 'Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
-            <td><textarea name="table[description]" id="table[description]" rows="15" cols="40" style="width:250px;height:85px;"><?php echo $this->safe_output( $table['description'] ); ?></textarea></td>
+            <td><textarea name="table[description]" id="table[description]" rows="15" cols="40" style="width:300px;height:85px;"><?php echo $this->safe_output( $table['description'] ); ?></textarea></td>
         </tr>
+        <?php if ( !empty( $table['last_editor_id'] ) ) { ?>
+        <tr valign="top">
+            <th scope="row"><?php _e( 'Last Modified', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
+            <td><?php echo $this->format_datetime( $table['last_modified'] ); ?> <?php _e( 'by', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php echo $this->get_last_editor( $table['last_editor_id'] ); ?></td>
+        </tr>
+        <?php } ?>
         </table>
         </div>
         </div>
@@ -1608,6 +1612,17 @@ TEXT;
         header( 'Content-Disposition: attachment; filename="' . $filename . '"');
         header( 'Content-Length: ' . $filesize );
         //header( 'Content-type: ' . $filetype. '; charset=' . get_option('blog_charset') );
+    }
+
+    // ###################################################################################################################
+    function format_datetime( $last_modified ) {
+        return mysql2date( get_option('date_format'), $last_modified ) . ' ' . mysql2date( get_option('time_format'), $last_modified );
+    }
+
+    // ###################################################################################################################
+    function get_last_editor( $last_editor_id ) {
+        $user = get_userdata( $last_editor_id );
+        return $user->nickname;
     }
 
     // ###################################################################################################################
