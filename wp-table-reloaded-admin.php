@@ -23,7 +23,7 @@ class WP_Table_Reloaded_Admin {
         'table' => 'wp_table_reloaded_data'
     );
     // allowed actions in this class
-    var $allowed_actions = array( 'list', 'add', 'edit', 'bulk_edit', 'copy', 'delete', 'insert', 'import', 'export', 'options', 'uninstall', 'info' ); // 'ajax_list', but handled separatly
+    var $allowed_actions = array( 'list', 'add', 'edit', 'bulk_edit', 'copy', 'delete', 'insert', 'import', 'export', 'options', 'uninstall', 'info', 'hide_donate_message' ); // 'ajax_list', but handled separatly
     
     // init vars
     var $tables = array();
@@ -36,6 +36,8 @@ class WP_Table_Reloaded_Admin {
         'enable_tablesorter' => true,
         'use_custom_css' => true,
         'custom_css' => '.wp-table-reloaded {width:100%;}',
+        'install_time' => 0,
+        'show_donate_message' => true,
         'last_id' => 0
     );
     var $default_tables = array();
@@ -128,7 +130,19 @@ class WP_Table_Reloaded_Admin {
 
     // ###################################################################################################################
     // list all tables
-    function do_action_list()  {
+    function do_action_list() {
+        if ( true == $this->may_print_donate_message() ) {
+            $donate_url = 'http://tobias.baethge.com/donate-message/';
+            $donated_true_url = $this->get_action_url( array( 'action' => 'hide_donate_message', 'user_donated' => true ), true );
+            $donated_false_url = $this->get_action_url( array( 'action' => 'hide_donate_message', 'user_donated' => false ), true );
+            $this->print_success_message(
+                sprintf( __( 'Thanks for using this plugin! You\'ve installed WP-Table Reloaded over a month ago. If it works and you are satisfied with the results of managing your %s tables, isn\'t it worth at least one dollar or euro?', WP_TABLE_RELOADED_TEXTDOMAIN ), count( $this->tables ) ) . '<br/>' .
+                sprintf( __( '<a href="%s">Donations</a> help me to continue support and development of this <i>free</i> software - things for which I spend countless hours of my free time! Thank you!', WP_TABLE_RELOADED_TEXTDOMAIN ), $donate_url ) . '<br/><br/>' .
+                sprintf( __( '<a href="%s" target="_blank">Sure, no problem!</a>', WP_TABLE_RELOADED_TEXTDOMAIN ), $donate_url ) . '&nbsp;&nbsp;&middot;&nbsp;&nbsp;' .
+                sprintf( __( '<a href="%s" style="font-weight:normal;">I already donated.</a>', WP_TABLE_RELOADED_TEXTDOMAIN ), $donated_true_url ) . '&nbsp;&nbsp;&middot;&nbsp;&nbsp;' .
+                sprintf( __( '<a href="%s" style="font-weight:normal;">No, thanks. Don\'t ask again.</a>', WP_TABLE_RELOADED_TEXTDOMAIN ), $donated_false_url )
+            );
+        }
         $this->print_list_tables_form();
     }
     
@@ -580,6 +594,7 @@ class WP_Table_Reloaded_Admin {
             // checkboxes: option value is defined by whether option isset (e.g. was checked) or not
             $this->options['uninstall_upon_deactivation'] = isset( $new_options['uninstall_upon_deactivation'] );
             $this->options['enable_tablesorter'] = isset( $new_options['enable_tablesorter'] );
+            $this->options['show_donate_message'] = isset( $new_options['show_donate_message'] );
             $this->options['use_custom_css'] = isset( $new_options['use_custom_css'] );
             // clean up CSS style input (if user enclosed it into <style...></style>
             if ( isset( $new_options['custom_css'] ) ) {
@@ -675,6 +690,23 @@ class WP_Table_Reloaded_Admin {
 
         // necessary to stop page building here!
         exit;
+    }
+    
+    // ###################################################################################################################
+    // user donated
+    function do_action_hide_donate_message() {
+        check_admin_referer( $this->get_nonce( 'hide_donate_message' ) );
+
+        $this->options['show_donate_message'] = false;
+        $this->update_options();
+
+        if ( isset( $_GET['user_donated'] ) && true == isset( $_GET['user_donated'] ) ) {
+            $this->print_success_message( __( 'Thank you very much! Your donation is highly appreciated. You just contributed to the further development of WP-Table Reloaded!', WP_TABLE_RELOADED_TEXTDOMAIN ) );
+        } else {
+            $this->print_success_message( sprintf( __( 'No problem! I still hope you enjoy the benefits that WP-Table Reloaded brings to you. If you should want to change your mind, you\'ll also find the "Donate" button on the <a href="%s">WP-Table Reloaded website</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ), 'http://tobias.baethge.com/donate/' ) );
+        }
+        
+        $this->print_list_tables_form();
     }
     
     // ###################################################################################################################
@@ -1306,6 +1338,10 @@ class WP_Table_Reloaded_Admin {
             <th scope="row"><?php _e( 'Uninstall Plugin upon Deactivation?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
             <td><input type="checkbox" name="options[uninstall_upon_deactivation]" id="options[uninstall_upon_deactivation]"<?php echo ( true == $this->options['uninstall_upon_deactivation'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options[uninstall_upon_deactivation]"><?php _e( 'Yes, uninstall everything when the plugin is deactivated. Attention: You should only enable this checkbox directly before deactivating the plugin from the WordPress plugins page!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( '<small>(This setting does not influence the "Manually Uninstall Plugin" button below!)</small>', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
+        <tr valign="top">
+            <th scope="row"><?php _e( 'Allow donation message?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
+            <td><input type="checkbox" name="options[show_donate_message]" id="options[show_donate_message]"<?php echo ( true == $this->options['show_donate_message'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options[show_donate_message]"><small><?php _e( 'Yes, show a donation message after 30 days of using the plugin.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></label></td>
+        </tr>
         </table>
         </div>
         </div>
@@ -1365,7 +1401,7 @@ class WP_Table_Reloaded_Admin {
         <div class="postbox">
         <h3 class="hndle"><span><?php _e( 'Author and Licence', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span></h3>
         <div class="inside">
-        <p><?php _e( 'This plugin was written by <a href="http://tobias.baethge.com/">Tobias B&auml;thge</a>. It is licenced as Free Software under GPL 2.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/><?php _e( 'If you like the plugin, please consider <a href="http://tobias.baethge.com/wordpress-plugins/donate/"><strong>a donation</strong></a> and rate the plugin in the <a href="http://wordpress.org/extend/plugins/wp-table-reloaded/">WordPress Plugin Directory</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/><?php _e( 'Donations and good ratings encourage me to further develop the plugin and to provide countless hours of support. Any amount is appreciated! Thanks!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
+        <p><?php _e( 'This plugin was written by <a href="http://tobias.baethge.com/">Tobias B&auml;thge</a>. It is licensed as Free Software under GPL 2.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/><?php _e( 'If you like the plugin, please consider <a href="http://tobias.baethge.com/donate/"><strong>a donation</strong></a> and rate the plugin in the <a href="http://wordpress.org/extend/plugins/wp-table-reloaded/">WordPress Plugin Directory</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/><?php _e( 'Donations and good ratings encourage me to further develop the plugin and to provide countless hours of support. Any amount is appreciated! Thanks!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
         </div>
         </div>
 
@@ -1450,6 +1486,20 @@ TEXT;
         </ul>
         <br class="clear" />
         <?php
+    }
+    
+    // ###################################################################################################################
+    function may_print_donate_message() {
+        if ( false == $this->options['show_donate_message'] )
+            return false;
+
+        // how long is the plugin installed
+        $secs = time() - $this->options['install_time'];
+        $days = floor( $secs / (60*60*24) );
+        if ( $days >= 30 )
+            return true;
+        else
+            return false;
     }
 
     // ###################################################################################################################
@@ -1624,6 +1674,7 @@ TEXT;
     function plugin_install() {
         $this->options = $this->default_options;
         $this->options['installed_version'] = $this->plugin_version;
+        $this->options['install_time'] = time();
         $this->update_options();
         $this->tables = $this->default_tables;
         $this->update_tables();
@@ -1645,6 +1696,7 @@ TEXT;
 
         // 3. step: update installed version number
         $new_options['installed_version'] = $this->plugin_version;
+        $new_options['install_time'] = time();
 
         // 4. step: save the new options
         $this->options = $new_options;
