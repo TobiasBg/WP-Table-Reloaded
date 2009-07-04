@@ -16,8 +16,7 @@ jQuery(document).ready(function($){
     function wp_table_reloaded_button_click() {
 
         var title = 'WP-Table Reloaded';
-        var url = WP_Table_Reloaded_Admin.str_EditorButtonAjaxURL.replace(/&amp;/g, "&");
-        url = url.replace(/&#038;/g, "&");
+        var url = WP_Table_Reloaded_Admin.str_EditorButtonAjaxURL;
 
         tb_show( title, url, false);
         
