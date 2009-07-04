@@ -46,6 +46,8 @@ class WP_Table_Reloaded_Admin {
         'data' => array( 0 => array( 0 => '' ) ),
         'name' => 'default',
         'description' => 'default',
+        'last_modified' => '0000-00-00 00:00:00',
+        'last_editor_id' => '',
         'options' => array(
             'alternating_row_colors' => true,
             'first_row_th' => true,
@@ -739,6 +741,8 @@ class WP_Table_Reloaded_Admin {
                     <th scope="col"><?php _e( 'ID', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
                     <th scope="col"><?php _e( 'Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
                     <th scope="col"><?php _e( 'Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
+                    <th scope="col"><?php _e( 'Last Modified', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
+                    <th scope="col"><?php _e( 'By', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
                     <th scope="col"><?php _e( 'Action', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
                 </tr>
             </thead>
@@ -753,6 +757,10 @@ class WP_Table_Reloaded_Admin {
                 $table = $this->load_table( $id );
                     $name = $this->safe_output( $table['name'] );
                     $description = $this->safe_output( $table['description'] );
+                    $last_modified = mysql2date( get_option('date_format'), $table['last_modified'] ) . ' ' . mysql2date( get_option('time_format'), $table['last_modified'] );
+                    $user = get_userdata( $table['last_editor_id'] );
+                    $last_editor = $user->nickname;
+                    unset( $user );
                 unset( $table );
 
                 $edit_url = $this->get_action_url( array( 'action' => 'edit', 'table_id' => $id ), false );
@@ -765,6 +773,8 @@ class WP_Table_Reloaded_Admin {
                 echo "<th scope=\"row\">{$id}</th>";
                 echo "<td>{$name}</td>";
                 echo "<td>{$description}</td>";
+                echo "<td>{$last_modified}</td>";
+                echo "<td>{$last_editor}</td>";
                 echo "<td><a href=\"{$edit_url}\">" . __( 'Edit', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
                 echo "<a class=\"copy_table_link\" href=\"{$copy_url}\">" . __( 'Copy', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
                 echo "<a href=\"{$export_url}\">" . __( 'Export', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
@@ -1559,6 +1569,11 @@ TEXT;
     // ###################################################################################################################
     function save_table( $table ) {
         if ( 0 < $table['id'] ) {
+            // update last changes data
+            $table['last_modified'] = current_time('mysql');
+            $user = wp_get_current_user();
+            $table['last_editor_id'] = $user->ID;
+            
             $this->tables[ $table['id'] ] = ( isset( $this->tables[ $table['id'] ] ) ) ? $this->tables[ $table['id'] ] : $this->optionname['table'] . '_' . $table['id'];
             update_option( $this->tables[ $table['id'] ], $table );
             $this->update_tables();
