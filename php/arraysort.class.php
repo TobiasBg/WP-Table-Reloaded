@@ -30,12 +30,8 @@ class arraysort {
     {
         if ( -1 == $this->column )
             return 0;
-            
-        if ( $a[ $this->column ] == $b[ $this->column ] )
-            return 0;
 
-        return ( $a[ $this->column ] < $b[ $this->column ] ) ? -1 : 1;
-        // return strcmp( $a[ $this->column ], $b[ $this->column ] ); // doesn't work for integer columns obviously
+        return strnatcasecmp( $a[ $this->column ], $b[ $this->column ] );
     }
     
     function sort() {
