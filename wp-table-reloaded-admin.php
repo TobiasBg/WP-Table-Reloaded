@@ -734,7 +734,7 @@ class WP_Table_Reloaded_Admin {
         <div style="clear:both;">
             <form method="post" action="<?php echo $this->get_action_url(); ?>">
             <?php wp_nonce_field( $this->get_nonce( 'bulk_edit' ) ); ?>
-            <table class="widefat">
+            <table class="widefat" id="wp-table-reloaded-list">
             <thead>
                 <tr>
                     <th class="check-column" scope="col"><input type="checkbox" /></th>
@@ -746,6 +746,17 @@ class WP_Table_Reloaded_Admin {
                     <th scope="col"><?php _e( 'Action', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
                 </tr>
             </thead>
+            <tfoot>
+                <tr>
+                    <th class="check-column" scope="col"><input type="checkbox" /></th>
+                    <th scope="col"><?php _e( 'ID', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
+                    <th scope="col"><?php _e( 'Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
+                    <th scope="col"><?php _e( 'Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
+                    <th scope="col"><?php _e( 'Last Modified', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
+                    <th scope="col"><?php _e( 'By', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
+                    <th scope="col"><?php _e( 'Action', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
+                </tr>
+            </tfoot>
             <?php
             echo "<tbody>\n";
             $bg_style_index = 0;
@@ -796,6 +807,8 @@ class WP_Table_Reloaded_Admin {
             echo "<div style=\"clear:both;\"><p>" . __( 'No tables found.', WP_TABLE_RELOADED_TEXTDOMAIN ) . '<br/>' . sprintf( __( 'You might <a href="%s">add</a> or <a href="%s">import</a> one!', WP_TABLE_RELOADED_TEXTDOMAIN ), $add_url, $import_url ) . "</p></div>";
         }
         $this->print_page_footer();
+        // add tablesorter script
+        add_action( 'admin_footer', array( &$this, 'output_tablesorter_js' ) );
     }
 
     // ###################################################################################################################
@@ -1810,8 +1823,32 @@ TEXT;
             else
                 add_action( 'admin_head', array( &$this, 'print_admin_style' ) );
         }
+
+        add_action( 'admin_head', array( &$this, 'print_admin_list_tables_style' ) );
     }
 
+    // ###################################################################################################################
+    // print styles for "List of Tables" in wp-admin-head (because of background-images, we can't do it in the external css file
+    function print_admin_list_tables_style() {
+        $image_path = WP_TABLE_RELOADED_URL . 'img';
+        echo <<<CSSSTYLE
+<style type="text/css" media="all">
+/* <![CDATA[ */
+#wp-table-reloaded-list .headerSortUp {
+	background-repeat: no-repeat;
+	background-position: center right;
+	background-image: url({$image_path}/asc.gif);
+}
+#wp-table-reloaded-list .headerSortDown {
+	background-repeat: no-repeat;
+	background-position: center right;
+	background-image: url({$image_path}/desc.gif);
+}
+/* ]]> */
+</style>
+CSSSTYLE;
+    }
+    
     // ###################################################################################################################
     // print our style in wp-admin-head (only needed for WP < 2.6)
     function print_admin_style() {
@@ -1848,6 +1885,26 @@ TEXT;
                 'l10n_print_after' => 'try{convertEntities(WP_Table_Reloaded_Admin);}catch(e){};'
             ) );
             wp_print_scripts( 'wp-table-reloaded-admin-editor-buttons-js' );
+        }
+    }
+    
+    // ###################################################################################################################
+    // output tablesorter execution js for all tables in wp_footer
+    function output_tablesorter_js() {
+        $jsfile =  'jquery.tablesorter.min.js'; // filename of the tablesorter script
+
+        if ( 0 < count( $this->tables ) && file_exists( WP_TABLE_RELOADED_ABSPATH . 'js/' . $jsfile ) ) {
+            wp_register_script( 'wp-table-reloaded-tablesorter-js', WP_TABLE_RELOADED_URL . 'js/' . $jsfile, array( 'jquery' ) );
+            wp_print_scripts( 'wp-table-reloaded-tablesorter-js' );
+            echo <<<JSSCRIPT
+<script type="text/javascript">
+/* <![CDATA[ */
+jQuery(document).ready(function($){
+$("#wp-table-reloaded-list").tablesorter({widgets: ['zebra'], headers: {0: {sorter: false},6: {sorter: false}}});
+});
+/* ]]> */
+</script>
+JSSCRIPT;
         }
     }
 
