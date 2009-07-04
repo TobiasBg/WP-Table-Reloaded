@@ -135,7 +135,7 @@ class WP_Table_Reloaded_Admin {
             $donate_url = 'http://tobias.baethge.com/donate-message/';
             $donated_true_url = $this->get_action_url( array( 'action' => 'hide_donate_message', 'user_donated' => true ), true );
             $donated_false_url = $this->get_action_url( array( 'action' => 'hide_donate_message', 'user_donated' => false ), true );
-            $this->print_success_message(
+            $this->print_header_message(
                 sprintf( __( 'Thanks for using this plugin! You\'ve installed WP-Table Reloaded over a month ago. If it works and you are satisfied with the results of managing your %s tables, isn\'t it worth at least one dollar or euro?', WP_TABLE_RELOADED_TEXTDOMAIN ), count( $this->tables ) ) . '<br/>' .
                 sprintf( __( '<a href="%s">Donations</a> help me to continue support and development of this <i>free</i> software - things for which I spend countless hours of my free time! Thank you!', WP_TABLE_RELOADED_TEXTDOMAIN ), $donate_url ) . '<br/><br/>' .
                 sprintf( __( '<a href="%s" target="_blank">Sure, no problem!</a>', WP_TABLE_RELOADED_TEXTDOMAIN ), $donate_url ) . '&nbsp;&nbsp;&middot;&nbsp;&nbsp;' .
@@ -163,7 +163,7 @@ class WP_Table_Reloaded_Admin {
 
             $this->save_table( $table );
 
-            $this->print_success_message( sprintf( __( 'Table "%s" added successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $table['name'] ) ) );
+            $this->print_header_message( sprintf( __( 'Table "%s" added successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $table['name'] ) ) );
             $this->print_edit_table_form( $table['id'] );
         } else {
             $this->print_add_table_form();
@@ -287,7 +287,7 @@ class WP_Table_Reloaded_Admin {
                 $this->do_action_list();
             }
 
-            $this->print_success_message( $message );
+            $this->print_header_message( $message );
             if ( 'save_back' == $subaction ) {
                 $this->do_action_list();
             } else {
@@ -348,7 +348,7 @@ class WP_Table_Reloaded_Admin {
             } else {
                 $message = __( 'You did not select any tables!', WP_TABLE_RELOADED_TEXTDOMAIN );
             }
-            $this->print_success_message( $message );
+            $this->print_header_message( $message );
         }
         $this->do_action_list();
     }
@@ -368,7 +368,7 @@ class WP_Table_Reloaded_Admin {
 
             $this->save_table( $new_table );
 
-            $this->print_success_message( sprintf( __( 'Table "%s" copied successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $new_table['name'] ) ) );
+            $this->print_header_message( sprintf( __( 'Table "%s" copied successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $new_table['name'] ) ) );
         }
         $this->do_action_list();
     }
@@ -384,7 +384,7 @@ class WP_Table_Reloaded_Admin {
             switch( $_GET['item'] ) {
             case 'table':
                 $this->delete_table( $table_id );
-                $this->print_success_message( sprintf( __( 'Table "%s" deleted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $table['name'] ) ) );
+                $this->print_header_message( sprintf( __( 'Table "%s" deleted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $table['name'] ) ) );
                 $this->do_action_list();
                 break;
             case 'row':
@@ -394,7 +394,7 @@ class WP_Table_Reloaded_Admin {
                 if ( ( 1 < $rows ) && ( -1 < $row_id ) ) {
                     array_splice( $table['data'], $row_id, 1 );
                     $this->save_table( $table );
-                    $this->print_success_message( __( 'Row deleted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
+                    $this->print_header_message( __( 'Row deleted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
                 }
                 $this->print_edit_table_form( $table_id );
                 break;
@@ -407,12 +407,12 @@ class WP_Table_Reloaded_Admin {
                     foreach ( $table['data'] as $row_idx => $row )
                         array_splice( $table['data'][$row_idx], $col_id, 1 );
                     $this->save_table( $table );
-                    $this->print_success_message( __( 'Column deleted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
+                    $this->print_header_message( __( 'Column deleted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
                 }
                 $this->print_edit_table_form( $table_id );
                 break;
             default:
-                $this->print_success_message( __( 'Delete failed.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
+                $this->print_header_message( __( 'Delete failed.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
                 $this->do_action_list();
             } // end switch
         } else {
@@ -451,7 +451,7 @@ class WP_Table_Reloaded_Admin {
             default:
                 $message = __( 'Insert failed.', WP_TABLE_RELOADED_TEXTDOMAIN );
             }
-            $this->print_success_message( $message );
+            $this->print_header_message( $message );
             $this->print_edit_table_form( $table_id );
         } else {
             $this->do_action_list();
@@ -506,7 +506,7 @@ class WP_Table_Reloaded_Admin {
                 $error = $this->import_instance->error;
                 $imported_table = $this->import_instance->imported_table;
             } else { // no valid data submitted
-                $this->print_success_message( __( 'Table could not be imported.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
+                $this->print_header_message( __( 'Table could not be imported.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
                 $this->print_import_table_form();
                 exit;
             }
@@ -528,10 +528,10 @@ class WP_Table_Reloaded_Admin {
             $this->save_table( $table );
 
             if ( false == $error ) {
-                $this->print_success_message( $success_message );
+                $this->print_header_message( $success_message );
                 $this->print_edit_table_form( $table['id'] );
             } else {
-                $this->print_success_message( __( 'Table could not be imported.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
+                $this->print_header_message( __( 'Table could not be imported.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
                 $this->print_import_table_form();
             }
         } elseif (  'wp_table' == $_GET['import_format'] && isset( $_GET['wp_table_id'] ) ) {
@@ -549,7 +549,7 @@ class WP_Table_Reloaded_Admin {
 
             $this->save_table( $table );
 
-            $this->print_success_message( __( 'Table imported successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
+            $this->print_header_message( __( 'Table imported successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
             $this->print_edit_table_form( $table['id'] );
         } else {
             $this->print_import_table_form();
@@ -576,7 +576,7 @@ class WP_Table_Reloaded_Admin {
                 echo $exported_table;
                 exit;
             } else {
-                $this->print_success_message( sprintf( __( 'Table "%s" exported successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $table_to_export['name'] ) ) );
+                $this->print_header_message( sprintf( __( 'Table "%s" exported successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $table_to_export['name'] ) ) );
                 $this->print_export_table_form( $_POST['table_id'], $exported_table );
             }
         } else {
@@ -605,7 +605,7 @@ class WP_Table_Reloaded_Admin {
 
             $this->update_options();
 
-            $this->print_success_message( __( 'Options saved successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
+            $this->print_header_message( __( 'Options saved successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
         }
         $this->print_plugin_options_form();
     }
@@ -624,7 +624,7 @@ class WP_Table_Reloaded_Admin {
             update_option( 'recently_activated', array( $plugin => time()) + (array)get_option( 'recently_activated' ) );
 
         $this->print_page_header( __( 'WP-Table Reloaded', WP_TABLE_RELOADED_TEXTDOMAIN ) );
-        $this->print_success_message( __( 'Plugin deactivated successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
+        $this->print_header_message( __( 'Plugin deactivated successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
         echo "<p>" . __( "All tables, data and options were deleted. You may now remove the plugin's subfolder from your WordPress plugin folder.", WP_TABLE_RELOADED_TEXTDOMAIN ) . "</p>";
         $this->print_page_footer();
     }
@@ -701,9 +701,9 @@ class WP_Table_Reloaded_Admin {
         $this->update_options();
 
         if ( isset( $_GET['user_donated'] ) && true == isset( $_GET['user_donated'] ) ) {
-            $this->print_success_message( __( 'Thank you very much! Your donation is highly appreciated. You just contributed to the further development of WP-Table Reloaded!', WP_TABLE_RELOADED_TEXTDOMAIN ) );
+            $this->print_header_message( __( 'Thank you very much! Your donation is highly appreciated. You just contributed to the further development of WP-Table Reloaded!', WP_TABLE_RELOADED_TEXTDOMAIN ) );
         } else {
-            $this->print_success_message( sprintf( __( 'No problem! I still hope you enjoy the benefits that WP-Table Reloaded brings to you. If you should want to change your mind, you\'ll also find the "Donate" button on the <a href="%s">WP-Table Reloaded website</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ), 'http://tobias.baethge.com/donate/' ) );
+            $this->print_header_message( sprintf( __( 'No problem! I still hope you enjoy the benefits that WP-Table Reloaded brings to you. If you should want to change your mind, you\'ll also find the "Donate" button on the <a href="%s">WP-Table Reloaded website</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ), 'http://tobias.baethge.com/donate/' ) );
         }
         
         $this->print_list_tables_form();
@@ -1454,7 +1454,7 @@ class WP_Table_Reloaded_Admin {
     // ###################################################################################################################
 
     // ###################################################################################################################
-    function print_success_message( $text ) {
+    function print_header_message( $text ) {
         echo "<div id='message' class='updated fade'><p><strong>{$text}</strong></p></div>";
     }
 
