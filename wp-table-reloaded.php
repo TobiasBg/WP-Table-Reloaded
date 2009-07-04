@@ -24,7 +24,7 @@ Author URI: http://tobias.baethge.com/
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-// folder definitions as constants
+// folder definitions as constants (only needed for WP 2.5)
 if ( !defined( 'WP_CONTENT_DIR' ) )
     define( 'WP_CONTENT_DIR', ABSPATH . 'wp-content' );
 if ( !defined( 'WP_CONTENT_URL' ) )

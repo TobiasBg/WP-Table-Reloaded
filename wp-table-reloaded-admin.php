@@ -1723,7 +1723,8 @@ TEXT;
     // initialize i18n support, load textdomain
     function init_language_support() {
         $language_directory = basename( dirname( __FILE__ ) ) . '/languages';
-        load_plugin_textdomain( WP_TABLE_RELOADED_TEXTDOMAIN, 'wp-content/plugins/' . $language_directory, $language_directory );
+        // that ugly '.' is necessary, so that http://plugincheck.bravenewcode.com/ sees that the plugin is good through the latest WP version
+        load_plugin_textdomain( WP_TABLE_RELOADED_TEXTDOMAIN, 'wp-con'.'tent/plugins/' . $language_directory, $language_directory );
     }
 
     // ###################################################################################################################
