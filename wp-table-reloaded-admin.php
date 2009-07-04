@@ -767,13 +767,13 @@ class WP_Table_Reloaded_Admin {
                 $delete_url = $this->get_action_url( array( 'action' => 'delete', 'table_id' => $id, 'item' => 'table' ), true );
 
                 echo "<tr{$bg_style}>\n";
-                echo "\t<th class=\"check-column\" scope=\"row\"><input type=\"checkbox\" name=\"tables[]\" value=\"{$id}\" /></th>";
-                echo "<th scope=\"row\">{$id}</th>";
+                echo "\t<th class=\"check-column\" scope=\"row\" class=\"no-wrap\"><input type=\"checkbox\" name=\"tables[]\" value=\"{$id}\" /></th>";
+                echo "<th scope=\"row\" class=\"no-wrap\">{$id}</th>";
                 echo "<td>{$name}</td>";
                 echo "<td>{$description}</td>";
-                echo "<td>{$last_modified}</td>";
-                echo "<td>{$last_editor}</td>";
-                echo "<td><a href=\"{$edit_url}\">" . __( 'Edit', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
+                echo "<td class=\"no-wrap\">{$last_modified}</td>";
+                echo "<td class=\"no-wrap\">{$last_editor}</td>";
+                echo "<td class=\"no-wrap\"><a href=\"{$edit_url}\">" . __( 'Edit', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
                 echo "<a class=\"copy_table_link\" href=\"{$copy_url}\">" . __( 'Copy', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
                 echo "<a href=\"{$export_url}\">" . __( 'Export', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
                 echo "<a class=\"delete_table_link delete\" href=\"{$delete_url}\">" . __( 'Delete', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a></td>\n";
