@@ -85,6 +85,9 @@ class WP_Table_Reloaded_Admin {
         if ( isset( $_GET['action'] ) && 'ajax_list' == $_GET['action'] ) {
             add_action( 'init', array( &$this, 'do_action_ajax_list' ) );
         }
+
+        // add remote message, if update available
+        add_action( 'in_plugin_update_message-' . WP_TABLE_RELOADED_BASENAME, array( &$this, 'plugin_update_message' ) );
     }
 
     // ###################################################################################################################
@@ -1717,6 +1720,14 @@ TEXT;
 
             $this->save_table( $new_table );
         }
+    }
+    
+    // ###################################################################################################################
+    // get remote plugin update message and show it right under the "upgrade automatically" message
+    function plugin_update_message() {
+        $message = wp_remote_fopen( "http://tobias.baethge.com/dev/wp-table-reloaded/update/{$this->options['installed_version']}/" );
+        if ( false !== $message )
+            echo '<br />' . $this->safe_output( $message );
     }
 
     // ###################################################################################################################
