@@ -1,9 +1,9 @@
 === WP-Table Reloaded ===
 Contributors: TobiasBg 
 Donate link: http://tobias.baethge.com/donate/
-Tags: html,table,editor,csv,import,export,excel,widget,admin,sidebar
+Tags: html,table,data,editor,csv,import,export,excel,widget,admin,sidebar
 Requires at least: 2.5
-Tested up to: 2.8
+Tested up to: 2.8.1
 Stable tag: 1.3
 
 WP-Table Reloaded enables you to create and manage tables in your WP's admin area. No HTML knowledge is needed. A comfortable backend allows to easily edit table data. You can include the tables into your posts, on your pages or in text widgets by using a shortcode or a template tag function. Tables can be imported and exported from/to CSV, XML and HTML.
@@ -17,14 +17,14 @@ The plugin is a completely rewritten and extended version of Alex Rabe's "wp-Tab
 = More information =
 Please see the English plugin website http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/ .
 
-If you like this plugin, please rate it here in the WordPress Plugin Directory or make a donation. Thank you!
+If you like this plugin, please rate it here in the WordPress Plugin Directory or make a [donation](http://tobias.baethge.com/donate/). Thank you!
 
 = Informationen auf Deutsch =
 Dieses Plugin erlaubt die Verwaltung von Tabellen in WordPress.
 
 Weitere Informationen auf Deutsch: http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-deutsch/
 
-Wenn die das Plugin gef&auml;llt, bewerte es bitte hier im WordPress Plugin Directory. Danke!
+Wenn dir das Plugin gef&auml;llt, bewerte es bitte hier im WordPress Plugin Directory oder [spende](http://tobias.baethge.com/donate/). Danke!
 
 == Screenshots ==
 
@@ -37,11 +37,11 @@ Wenn die das Plugin gef&auml;llt, bewerte es bitte hier im WordPress Plugin Dire
 
 == Installation ==
 
-The easiest way would be through your WordPress Admin area. Go to the plugin section and search for "WP-Table Reloaded" in the WordPress Plugin Directory. Then you can click "Install now" and the following steps will be done for you automatically. You just have to activate the plugin (step 5).
+The easiest way is through your WordPress Admin area. Go to the plugin section and search for "WP-Table Reloaded" in the WordPress Plugin Directory. Then you can click "Install" and the following steps will be done for you automatically. You just have to activate the plugin (step 5).
 
 Manual Installation works just as for most other WordPress plugins:
 
-1. Extract the zip file and just drop the folder "wp-table-reloaded" into the wp-content/plugins/ directory of your WordPress installation.
+1. Download and Extract the zip file and just drop the folder "wp-table-reloaded" into the wp-content/plugins/ directory of your WordPress installation.
 
 1. Activate the Plugin "WP-Table Reloaded" on your "Plugins" page.
 
@@ -50,7 +50,6 @@ Manual Installation works just as for most other WordPress plugins:
 1. Include a table by adding the shortcode [table id=&lt;your-table's-id&gt; /] to your post, page or text widget.
 
 1. You might want to add styling features via your blog's theme's CSS file (probably style.css) or via the option in the "Plugin Options" screen, where you can enter your CSS directly.
-
 
 == Frequently Asked Questions ==
 
@@ -63,7 +62,7 @@ If WP-Table Reloaded finds the wp-Table database tables, it can import the found
 
 If you find a bug or have a feature request, please don’t hesitate to tell me about it.
 You would help a lot if you could add an issue ticket in the [issue tracker on Google Code](http://code.google.com/p/wp-table-reloaded/).
-You may also post it in the comments on the plugin website.
+Feature requests may also posted in the comments on the plugin website.
 
 For other help or support questions (especially with CSS), please use the [WordPress Support Forums](http://wordpress.org/support/). Please [open a new topic](http://wordpress.org/tags/wp-table-reloaded?forum_id=10#postform) there (with the tag "wp-table-reloaded") and email me a link to the thread (or post it as a comment on the plugin website). Thank you!
 You may also make feature requests using this method! Don't be shy!
@@ -75,7 +74,7 @@ In short: WordPress 2.5 or higher
 = Languages and Localization? =
 
 The plugin currently includes the following languages:
-Albanian, Belorussian, Brazilian Portuguese, Czech, English, French, German, Polish, Russian, Spanish, Swedish and Turkish.
+Albanian, Belorussian, Brazilian Portuguese, Czech, English, French, German, Italian, Japanese, Polish, Russian, Spanish, Swedish and Turkish.
 
 I'd really appreciate it, if you would translate the plugin into your language! Using Heiko Rabe's WordPress plugin [Codestyling Localization](http://www.code-styling.de/english/development/wordpress-plugin-codestyling-localization-en/) that really is as easy as pie. Just install the plugin, add your language, create the .po-file, translate the strings in the comfortable editor and create the .mo-file. It will automatically be saved in WP-Table Reloaded's plugin folder. If you send me the .mo- and .po-file, I will gladly include them into future plugin releases.
 There is also a .pot-file available to use in the "languages" subfolder.
@@ -93,7 +92,7 @@ Everything should be self-explaining there.
 
 To show one of your tables in a post, on a page or in a text widget, just include the shortcode [table id=&lt;the-id&gt; /] to your post/page/text-widget, where &lt;the-id&gt is the ID of your table (can be found on the left side of the "List tables" screen.)
 
-After that you might want to change the style of the table. You can do this either by adding CSS to your theme's CSS stylesheet (probably style.css) or by entering it into the box on the "Plugin Options" screen.
+After that you might want to change the style of the table. You can do this either by adding CSS to your theme's CSS stylesheet (probably style.css) or by entering it into the box on the "Plugin Options" screen. There are two example styles available on the [plugin website](http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/#usage)
 You may also add certain features (like table-sorting, alternating row colors, print name and/or description, ...) by checking the appropriate options in the "Edit table" screen.
 
 == Acknowledgements ==
@@ -107,16 +106,58 @@ Thanks to every donor, supporter and bug reporter!
 
 This plugin is Free Software, released under the GPL version 2.
 You may use it free of charge for any purposes.
-I kindly ask you for link somewhere on your website http://tobias.baethge.com/. This is not required!
+I kindly ask you for link somewhere on your website to http://tobias.baethge.com/. This is not required!
+I'm also happy about [donations](http://tobias.baethge.com/donate/) or something from [my wishlist](http://tobias.baethge.com/wishlist)! Thanks!
 
 == Changelog ==
 
-* 1.3: fixed bug with shortcode in text widgets for WP 2.8; added Brazilian Portuguese language file; fixed small bug with "Table" button in editor toolbar; table ID can now be changed and existing tables can be replaced upon import; possibility to add multiple rows/columns; import from URLs/webserver; WordPress shortcodes are supported within table cells; inputs are now textareas to allow easier editing of larger texts
-* 1.2.1: fixed syntax errors that appeared for some users, added Polish language file
-* 1.2: editor toolbar button to insert tables; bulk actions; improved CSS and JS loading and performance; template tag function; new CSV import/export class; table specific settings can be overwritten by shortcode parameters; new language: Czech; fixed a few minor bugs; smaller enhancements and text corrections
-* 1.1: changed way of CSS handling (database option instead of file), fixed bug for users with PHP4 (certain function doesn't exist there), added two additional shortcode parameters, added buttons to easily add links and images
-* 1.0(.1): Language files, more import/export (including directly from wp-Table!), shortcode supported in text widgets
-* 0.9.2: fixed bug with plugin deactivation hook, added missing css-file
-* 0.9.1: first good release with all mentioned functions working well
-* 0.9 beta 1b: small bug which prevented showing of tables (but still not everything implemented)
-* 0.9 beta 1: First release (not everything functional)
+= Version 1.4 =
+* added Italian and Japanese language files
+* fixed small bug with JavaScript errors
+
+= Version 1.3 =
+* fixed bug with shortcode in text widgets for WP 2.8
+* added Brazilian Portuguese language file
+* fixed small bug with "Table" button in editor toolbar
+* table ID can now be changed and existing tables can be replaced upon import
+* possibility to add multiple rows/columns; import from URLs/webserver
+* WordPress shortcodes are supported within table cells
+* inputs are now textareas to allow easier editing of larger texts
+
+= Version 1.2.1 =
+* fixed syntax errors that appeared for some users
+* added Polish language file
+
+= Version 1.2 =
+* editor toolbar button to insert tables
+* bulk actions
+* improved CSS and JS loading and performance
+* template tag function; new CSV import/export class
+* table specific settings can be overwritten by shortcode parameters
+* new language: Czech
+* fixed a few minor bugs
+* smaller enhancements and text corrections
+
+= Version 1.1 =
+* changed way of CSS handling (database option instead of file)
+* fixed bug for users with PHP4 (certain function doesn't exist there)
+* added two additional shortcode parameters
+* added buttons to easily add links and images
+
+= Version 1.0(.1) =
+* Language files
+* more import/export (including directly from wp-Table!)
+* shortcode supported in text widgets
+
+= Version 0.9.2 =
+* fixed bug with plugin deactivation hook
+* added missing css-file
+
+= Version 0.9.1 =
+* first good release with all mentioned functions working well
+
+= Version 0.9 beta 1b =
+* small bug which prevented showing of tables (but still not everything implemented)
+
+= Version 0.9 beta 1 =
+* First release (not everything functional)
