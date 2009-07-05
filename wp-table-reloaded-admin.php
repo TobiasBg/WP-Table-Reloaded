@@ -1159,9 +1159,7 @@ class WP_Table_Reloaded_Admin {
             <th scope="row" style="min-width:350px;"><?php _e( 'Select source for import', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
             <td>
             <input name="import_from" id="import_from_file" type="radio" value="file-upload" <?php echo ( ( 'url' == $_POST['import_from'] ) || ( 'form-field' == $_POST['import_from'] ) || ( 'server' == $_POST['import_from'] ))? '' :'checked="checked" ' ; ?>/> <label for="import_from_file"><?php _e( 'File upload', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label>
-        <?php if ( version_compare( '2.7', $wp_version, '>=') ) { ?>
             <input name="import_from" id="import_from_url" type="radio" value="url" <?php echo ( 'url' == $_POST['import_from'] ) ? 'checked="checked" ': '' ; ?>/> <label for="import_from_url"><?php _e( 'URL', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label>
-        <?php } ?>
             <input name="import_from" id="import_from_field" type="radio" value="form-field" <?php echo ( 'form-field' == $_POST['import_from'] ) ? 'checked="checked" ': '' ; ?>/> <label for="import_from_field"><?php _e( 'Manual input', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label>
             <input name="import_from" id="import_from_server" type="radio" value="server" <?php echo ( 'server' == $_POST['import_from'] ) ? 'checked="checked" ': '' ; ?>/> <label for="import_from_server"><?php _e( 'File on server', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label>
             </td>
@@ -1170,12 +1168,10 @@ class WP_Table_Reloaded_Admin {
             <th scope="row"><label for="import_file"><?php _e( 'Select File with Table to Import', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
             <td><input name="import_file" id="import_file" type="file" /></td>
         </tr>
-        <?php if ( version_compare( '2.7', $wp_version, '>=') ) { ?>
         <tr valign="top" class="tr-import-url">
             <th scope="row"><label for="import_url"><?php _e( 'URL to import table from', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
             <td><input type="text" name="import_url" id="import_url" style="width:400px;" value="<?php echo ( isset( $_POST['import_url'] ) ) ? $_POST['import_url'] : 'http://' ; ?>" /></td>
         </tr>
-        <?php } ?>
         <tr valign="top" class="tr-import-server">
             <th scope="row"><label for="import_server"><?php _e( 'Path to file on server', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
             <td><input type="text" name="import_server" id="import_server" style="width:400px;" value="<?php echo ( isset( $_POST['import_server'] ) ) ? $_POST['import_server'] : '' ; ?>" /></td>
