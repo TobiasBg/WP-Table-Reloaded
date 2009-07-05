@@ -508,7 +508,8 @@ class WP_Table_Reloaded_Admin {
                 $this->import_instance->mimetype = sprintf( __( 'from %s', WP_TABLE_RELOADED_TEXTDOMAIN ), $_POST['import_url'] );
                 $this->import_instance->import_from = 'url';
                 $url = clean_url( $_POST['import_url'] );
-                $this->import_instance->import_data = wp_remote_retrieve_body( wp_remote_get( $url ) );
+                $temp_data = wp_remote_fopen( $url );
+                $this->import_instance->import_data = ( false !== $temp_data ) ? $temp_data : '';
                 $this->import_instance->import_format = $_POST['import_format'];
                 $this->import_instance->import_table();
                 $error = $this->import_instance->error;
