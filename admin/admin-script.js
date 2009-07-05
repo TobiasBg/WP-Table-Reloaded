@@ -2,12 +2,27 @@ jQuery(document).ready(function($){
 
     // WP_Table_Reloaded_Admin object will contain all localized strings
 
-    // toggleClass needs jQuery 1.3!!!
+    // jQuery's original toggleClass needs jQuery 1.3, which is only available since 1.3
+    // which is only available since WP 2.8, that's why we copy the function here to maintain
+    // backward compatibility
+    jQuery.each({
+        TBtoggleClass: function( classNames, state ) {
+            if( typeof state !== "boolean" )
+                state = !jQuery.className.has( this, classNames );
+            jQuery.className[ state ? "add" : "remove" ]( this, classNames );
+        }
+    }, function(name, fn){
+        jQuery.fn[ name ] = function(){
+            return this.each( fn, arguments );
+        };
+    });
+
+    // uses TBtoggleClass instead of toggleClass, see above
     $( '#table_contents :checkbox' ).change( function() {
         $( '#table_contents .hide-row' ).each(function(rowindex, domRow){
-            $(domRow).find( 'textarea' ).toggleClass( 'row-hidden', $(domRow).find( ':checkbox' ).attr( 'checked' ) );
+            $(domRow).find( 'textarea' ).TBtoggleClass( 'row-hidden', $(domRow).find( ':checkbox' ).attr( 'checked' ) );
             $( '#table_contents .hide-column' ).each(function(colindex, domColumn){
-                $(domRow).find( 'td:eq(' +colindex+ ') textarea' ).toggleClass( 'column-hidden', $(domColumn).find( ':checkbox' ).attr( 'checked' ) );
+                $(domRow).find( 'td:eq(' +colindex+ ') textarea' ).TBtoggleClass( 'column-hidden', $(domColumn).find( ':checkbox' ).attr( 'checked' ) );
             });
         });
 	}).change();
