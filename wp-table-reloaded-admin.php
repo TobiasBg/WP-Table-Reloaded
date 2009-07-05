@@ -109,6 +109,9 @@ class WP_Table_Reloaded_Admin {
         add_action( 'admin_footer', array( &$this, 'add_manage_page_js' ) ); // can be put in footer, jQuery will be loaded anyway
         $this->add_manage_page_css();
 
+        // show admin footer message (only on pages of WP-Table Reloaded)
+		add_filter( 'admin_footer_text', array (&$this, 'add_admin_footer_text') );
+
         // init language support
         $this->init_language_support();
         
@@ -1906,6 +1909,13 @@ $("#wp-table-reloaded-list").tablesorter({widgets: ['zebra'], headers: {0: {sort
 </script>
 JSSCRIPT;
         }
+    }
+
+    // ###################################################################################################################
+    // add admin footer text
+    function add_admin_footer_text( $content ) {
+        $content .= ' | ' . __( 'Thank you for using <a href="http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/">WP-Table Reloaded</a>.', WP_TABLE_RELOADED_TEXTDOMAIN );
+        return $content;
     }
 
 } // class WP_Table_Reloaded_Admin
