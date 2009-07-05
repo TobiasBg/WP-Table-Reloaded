@@ -2,6 +2,16 @@ jQuery(document).ready(function($){
 
     // WP_Table_Reloaded_Admin object will contain all localized strings
 
+    // toggleClass needs jQuery 1.3!!!
+    $( '#table_contents :checkbox' ).change( function() {
+        $( '#table_contents .hide-row' ).each(function(rowindex, domRow){
+            $(domRow).find( 'textarea' ).toggleClass( 'row-hidden', $(domRow).find( ':checkbox' ).attr( 'checked' ) );
+            $( '#table_contents .hide-column' ).each(function(colindex, domColumn){
+                $(domRow).find( 'td:eq(' +colindex+ ') textarea' ).toggleClass( 'column-hidden', $(domColumn).find( ':checkbox' ).attr( 'checked' ) );
+            });
+        });
+	}).change();
+
     $("#export_format").change(function () {
         if ( 'csv' == $(this).val() )
             $(".tr-export-delimiter").css('display','table-row');

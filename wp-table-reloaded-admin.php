@@ -916,6 +916,7 @@ class WP_Table_Reloaded_Admin {
             <table class="widefat" style="width:auto;" id="table_contents">
                 <thead>
                     <tr>
+                        <th class="check-column" scope="col"><input type="checkbox" style="display:none;" /></th>
                         <th>&nbsp;</th>
                         <?php
                             // Table Header (Columns get a Letter between A and A+$cols-1)
@@ -928,7 +929,9 @@ class WP_Table_Reloaded_Admin {
                 <tbody>
                 <?php
                 foreach ( $table['data'] as $row_idx => $table_row ) {
-                    echo "<tr>\n";
+                    echo "<tr class=\"hide-row\">\n";
+                    $checked = ( true == $table['visibility']['row'][$row_idx] ) ? 'checked="checked" ': '' ;
+                    echo "\t<th class=\"check-column\" scope=\"row\"><input type=\"checkbox\" name=\"table[visibility][row][{$row_idx}]\" value=\"true\" {$checked}/></th>";
                     // Table Header (Rows get a Number between 1 and $rows)
                     $output_idx = $row_idx + 1;
                     echo "\t<th scope=\"row\">{$output_idx}</th>\n";
@@ -945,9 +948,10 @@ class WP_Table_Reloaded_Admin {
                         echo " | <a class=\"delete_row_link\" href=\"{$delete_row_url}\">".__( 'Delete Row', WP_TABLE_RELOADED_TEXTDOMAIN )."</a>";
                     echo "</td>\n</tr>";
                 }
-                ?>
-                <?php
+
+                // ACTION links
                     echo "<tr>\n";
+                    echo "\t<th scope=\"row\">&nbsp;</th>\n";
                     echo "\t<th scope=\"row\">&nbsp;</th>\n";
                     foreach ( $table['data'][0] as $col_idx => $cell_content ) {
                         $insert_col_url = $this->get_action_url( array( 'action' => 'insert', 'table_id' => $table['id'], 'item' => 'col', 'element_id' => $col_idx ), true );
@@ -958,7 +962,7 @@ class WP_Table_Reloaded_Admin {
                         echo "</td>\n";
                     }
 
-                    // add rows/columns buttons
+                // add rows/columns buttons
                     echo "\t<td><input type=\"hidden\" name=\"insert[row][id]\" value=\"{$rows}\" /><input type=\"hidden\" name=\"insert[col][id]\" value=\"{$cols}\" />";
 
                     $row_insert = '<input type="text" name="insert[row][number]" value="1" style="width:30px" />';
@@ -969,6 +973,17 @@ class WP_Table_Reloaded_Admin {
                     <?php echo sprintf( __( 'Add %s column(s)', WP_TABLE_RELOADED_TEXTDOMAIN ), $col_insert ); ?>
                     <input type="submit" name="submit[insert_cols]" class="button-primary" value="<?php _e( 'Add', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" /></td>
                     <?php
+                    echo "</tr>";
+
+                // hide checkboxes
+                    echo "<tr>\n";
+                    echo "\t<th scope=\"row\">&nbsp;</th>";
+                    echo "\t<th scope=\"row\">&nbsp;</th>\n";
+                    foreach ( $table['data'][0] as $col_idx => $cell_content ) {
+                        $checked = ( true == $table['visibility']['column'][$col_idx] ) ? 'checked="checked" ': '' ;
+                        echo "\t<td class=\"check-column hide-column\"><input type=\"checkbox\" name=\"table[visibility][column][{$col_idx}]\" value=\"true\" {$checked}/></td>";
+                    }
+                    echo "\t<th>&nbsp;</th>";
                     echo "</tr>";
                 ?>
                 </tbody>

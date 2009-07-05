@@ -8,6 +8,10 @@
 
 /* Styles for the List of tables (sortable by Tablesorter!) */
 
+textarea.row-hidden, textarea.column-hidden {
+    background-color: #E9E9E9;
+}
+
 #wp-table-reloaded-list thead th {
     cursor: pointer;
 }
