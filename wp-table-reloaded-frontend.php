@@ -6,6 +6,7 @@ Description: Description: This plugin allows you to create and easily manage tab
 Version: 1.4-alpha
 Author: Tobias B&auml;thge
 Author URI: http://tobias.baethge.com/
+Donate URI: http://tobias.baethge.com/donate/
 */
 
 class WP_Table_Reloaded_Frontend {

@@ -6,6 +6,7 @@ Description: Description: This plugin allows you to create and easily manage tab
 Version: 1.4-alpha
 Author: Tobias B&auml;thge
 Author URI: http://tobias.baethge.com/
+Donate URI: http://tobias.baethge.com/donate/
 */
 
 define( 'WP_TABLE_RELOADED_TEXTDOMAIN', 'wp-table-reloaded' );
@@ -29,7 +30,7 @@ class WP_Table_Reloaded_Admin {
     var $tables = array();
     var $options = array();
 
-    // default values, could be different in future plugin version
+    // default values, could be different in future plugin versions
     var $default_options = array(
         'installed_version' => '0',
         'uninstall_upon_deactivation' => false,
@@ -61,7 +62,7 @@ class WP_Table_Reloaded_Admin {
     var $export_instance;
     var $import_instance;
     
-    // temp variables
+    // temporary variables
     var $hook = '';
 
     // ###################################################################################################################
@@ -95,7 +96,7 @@ class WP_Table_Reloaded_Admin {
     // ###################################################################################################################
     // add page, and what happens when page is loaded or shown
     function add_manage_page() {
-        $min_needed_capability = 'publish_posts'; // user needs at least this capability to show WP-Table Reloaded config page
+        $min_needed_capability = 'publish_posts'; // user needs at least this capability to view WP-Table Reloaded config page
         $this->hook = add_management_page( 'WP-Table Reloaded', 'WP-Table Reloaded', $min_needed_capability, 'wp_table_reloaded_manage_page', array( &$this, 'show_manage_page' ) );
         add_action( 'load-' . $this->hook, array( &$this, 'load_manage_page' ) );
     }
@@ -1688,11 +1689,9 @@ TEXT;
 
     // ###################################################################################################################
     function create_class_instance( $class, $file ) {
-        if ( !class_exists( $class ) ) {
+        if ( !class_exists( $class ) )
             include_once ( WP_TABLE_RELOADED_ABSPATH . 'php/' . $file );
-            if ( class_exists( $class ) )
-                return new $class;
-        }
+        return new $class;
     }
 
     // ###################################################################################################################
