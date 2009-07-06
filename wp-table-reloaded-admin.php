@@ -39,7 +39,7 @@ class WP_Table_Reloaded_Admin {
         'custom_css' => '.wp-table-reloaded {width:100%;}',
         'install_time' => 0,
         'show_donate_nag' => true,
-        'update_message' = array(),
+        'update_message' => array(),
         'last_id' => 0
     );
     var $default_tables = array();
@@ -1788,13 +1788,13 @@ TEXT;
     function plugin_update_message( $current, $new ) {
         if ( !isset( $this->options['update_message'][$new->new_version] ) || empty( $this->options['update_message'][$new->new_version] ) ) {
             $message_text = '';
-            $update_message = wp_remote_fopen( "http://tobias.baethge.com/dev/wp-table-reloaded/update/{$this->options['installed_version']}/{$new->new_version}/" );
+            $update_message = wp_remote_fopen( "http://tobias.baethge.com/dev/wp-table-reloaded/update/{$current['Version']}/{$new->new_version}/" );
             if ( false !== $update_message ) {
                 if ( 1 == preg_match( '/<info>(.*?)<\/info>/is', $update_message, $matches ) )
                     $message_text = $matches[1];
             }
             $this->options['update_message'][$new->new_version] = $message_text;
-            $this->save_options;
+            $this->update_options();
         }
 
         $message = $this->options['update_message'][$new->new_version];
