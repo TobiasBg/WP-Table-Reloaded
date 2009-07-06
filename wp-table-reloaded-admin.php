@@ -50,6 +50,10 @@ class WP_Table_Reloaded_Admin {
         'description' => '',
         'last_modified' => '0000-00-00 00:00:00',
         'last_editor_id' => '',
+        'visibility' => array(
+            'rows' => array(),
+            'columns' => array()
+        ),
         'options' => array(
             'alternating_row_colors' => true,
             'first_row_th' => true,
@@ -208,11 +212,16 @@ class WP_Table_Reloaded_Admin {
                 } else {
                     $message = __( 'Table edited successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
                 }
+                // save table options (checkboxes!)
                 $table['options']['alternating_row_colors'] = isset( $_POST['table']['options']['alternating_row_colors'] );
                 $table['options']['first_row_th'] = isset( $_POST['table']['options']['first_row_th'] );
                 $table['options']['print_name'] = isset( $_POST['table']['options']['print_name'] );
                 $table['options']['print_description'] = isset( $_POST['table']['options']['print_description'] );
                 $table['options']['use_tablesorter'] = isset( $_POST['table']['options']['use_tablesorter'] );
+                // save visibility settings (checkboxes!)
+                $table['visibility']['rows'] = ( isset( $_POST['table']['visibility']['rows'] ) ? $_POST['table']['visibility']['rows'] : array() );
+                $table['visibility']['columns'] = ( isset( $_POST['table']['visibility']['columns'] ) ? $_POST['table']['visibility']['columns'] : array() );
+
                 $this->save_table( $table );
                 break;
             case 'swap_rows':
@@ -863,7 +872,6 @@ class WP_Table_Reloaded_Admin {
 
     // ###################################################################################################################
     function print_edit_table_form( $table_id ) {
-
         $table = $this->load_table( $table_id );
 
         $rows = count( $table['data'] );
@@ -931,10 +939,11 @@ class WP_Table_Reloaded_Admin {
                 </thead>
                 <tbody>
                 <?php
+                $hidden_rows = isset( $table['visibility']['rows'] ) ? $table['visibility']['rows'] : array();
                 foreach ( $table['data'] as $row_idx => $table_row ) {
                     echo "<tr class=\"hide-row\">\n";
-                    $checked = ( true == $table['visibility']['row'][$row_idx] ) ? 'checked="checked" ': '' ;
-                    echo "\t<th class=\"check-column\" scope=\"row\"><input type=\"checkbox\" name=\"table[visibility][row][{$row_idx}]\" value=\"true\" {$checked}/></th>";
+                    $checked = ( in_array( $row_idx, $hidden_rows ) ) ? 'checked="checked" ': '' ;
+                    echo "\t<th class=\"check-column\" scope=\"row\"><input type=\"checkbox\" name=\"table[visibility][rows][]\" value=\"{$row_idx}\" {$checked}/></th>";
                     // Table Header (Rows get a Number between 1 and $rows)
                     $output_idx = $row_idx + 1;
                     echo "\t<th scope=\"row\">{$output_idx}</th>\n";
@@ -982,9 +991,10 @@ class WP_Table_Reloaded_Admin {
                     echo "<tr>\n";
                     echo "\t<th scope=\"row\">&nbsp;</th>";
                     echo "\t<th scope=\"row\">&nbsp;</th>\n";
+                    $hidden_columns = isset( $table['visibility']['columns'] ) ? $table['visibility']['columns'] : array();
                     foreach ( $table['data'][0] as $col_idx => $cell_content ) {
-                        $checked = ( true == $table['visibility']['column'][$col_idx] ) ? 'checked="checked" ': '' ;
-                        echo "\t<td class=\"check-column hide-column\"><input type=\"checkbox\" name=\"table[visibility][column][{$col_idx}]\" value=\"true\" {$checked}/></td>";
+                        $checked = ( in_array( $col_idx, $hidden_columns ) ) ? 'checked="checked" ': '' ;
+                        echo "\t<td class=\"check-column hide-column\"><input type=\"checkbox\" name=\"table[visibility][columns][]\" value=\"{$col_idx}\" {$checked}/></td>";
                     }
                     echo "\t<th>&nbsp;</th>";
                     echo "</tr>";
@@ -1421,7 +1431,7 @@ class WP_Table_Reloaded_Admin {
     // ###################################################################################################################
     function print_plugin_info_form() {
         // Begin Add Table Form
-        $this->print_page_header( __( 'Information about the plugin', WP_TABLE_RELOADED_TEXTDOMAIN ) );
+        $this->print_page_header( __( 'About WP-Table Reloaded', WP_TABLE_RELOADED_TEXTDOMAIN ) );
         $this->print_submenu_navigation( 'info' );
         ?>
 

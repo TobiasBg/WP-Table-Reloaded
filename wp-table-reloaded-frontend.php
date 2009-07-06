@@ -62,8 +62,12 @@ class WP_Table_Reloaded_Frontend {
                 'print_name' => -1,
                 'print_description' => -1,
                 'use_tablesorter' => -1,
-                'row_offset' => 1,
-                'row_count' => null
+                'row_offset' => 1, // ATTENTION: MIGHT BE DROPPED IN FUTURE VERSIONS!
+                'row_count' => null, // ATTENTION: MIGHT BE DROPPED IN FUTURE VERSIONS!
+                'show_rows' => '',
+                'show_columns' => '',
+                'hide_rows' => '',
+                'hide_columns' => ''
         );
       	$atts = shortcode_atts( $default_atts, $atts );
 
@@ -74,6 +78,20 @@ class WP_Table_Reloaded_Frontend {
 
         // explode from string to array
         $atts['column_widths'] = explode( '|', $atts['column_widths'] );
+
+        // rows/columns are indexed from 0 internally
+        $atts['show_rows'] = ( !empty( $atts['show_rows'] ) ) ? explode( ',', $atts['show_rows'] ) : array();
+        foreach ( $atts['show_rows'] as $key => $value )
+            $atts['show_rows'][$key] = (string) ( $value - 1 );
+        $atts['show_columns'] = ( !empty( $atts['show_columns'] ) ) ? explode( ',', $atts['show_columns'] ) : array();
+        foreach ( $atts['show_columns'] as $key => $value )
+            $atts['show_columns'][$key] = (string) ( $value - 1 );
+        $atts['hide_rows'] = ( !empty( $atts['hide_rows'] ) ) ? explode( ',', $atts['hide_rows'] ) : array();
+        foreach ( $atts['hide_rows'] as $key => $value )
+            $atts['hide_rows'][$key] = (string) ( $value - 1 );
+        $atts['hide_columns'] = ( !empty( $atts['hide_columns'] ) ) ? explode( ',', $atts['hide_columns'] ) : array();
+        foreach ( $atts['hide_columns'] as $key => $value )
+            $atts['hide_columns'][$key] = (string) ( $value - 1 );
 
         $table = $this->load_table( $table_id );
 
@@ -134,10 +152,34 @@ class WP_Table_Reloaded_Frontend {
         $cssclasses = implode( ' ', $cssclasses );
 
         // if row_offset or row_count were given, we cut that part from the table and show just that
+        // ATTENTION: MIGHT BE DROPPED IN FUTURE VERSIONS!
         if ( null === $output_options['row_count'] )
             $table['data'] = array_slice( $table['data'], $output_options['row_offset'] - 1 ); // -1 because we start from 1
         else
             $table['data'] = array_slice( $table['data'], $output_options['row_offset'] - 1, $output_options['row_count'] ); // -1 because we start from 1
+
+        // load information about hidden rows and columns
+        $hidden_rows = isset( $table['visibility']['rows'] ) ? $table['visibility']['rows'] : array();
+        $hidden_rows = array_merge( $hidden_rows, $output_options['hide_rows'] );
+        $hidden_rows = array_diff( $hidden_rows, $output_options['show_rows'] );
+        sort( $hidden_rows, SORT_NUMERIC );
+        $hidden_columns = isset( $table['visibility']['columns'] ) ? $table['visibility']['columns'] : array();
+        $hidden_columns = array_merge( $hidden_columns, $output_options['hide_columns'] );
+        $hidden_columns = array_merge( array_diff( $hidden_columns, $output_options['show_columns'] ) );
+        sort( $hidden_columns, SORT_NUMERIC );
+
+        // remove hidden rows and re-index
+        foreach( $hidden_rows as $row_idx ) {
+            unset( $table['data'][$row_idx] );
+        }
+        $table['data'] = array_merge( $table['data'] );
+        // remove hidden columns and re-index
+        foreach( $table['data'] as $row_idx => $row ) {
+            foreach( $hidden_columns as $col_idx ) {
+                unset( $row[$col_idx] );
+            }
+            $table['data'][$row_idx] = array_merge( $row );
+        }
 
         $rows = count( $table['data'] );
         $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
