@@ -69,7 +69,7 @@ You may also make feature requests using this method! Don't be shy!
 
 = Requirements? =
 
-In short: WordPress 2.5 or higher
+In short: WordPress 2.6 or higher
 
 = Languages and Localization? =
 
@@ -112,8 +112,11 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 == Changelog ==
 
 = Version 1.4 =
+* drop support for WordPress 2.5
 * added Italian and Japanese language files
 * fixed small bug with JavaScript errors
+* revamped "List of Tables" to suit WP 2.8 layout, list now sortable
+* show/hide rows/columns with checkboxes in the backend
 
 = Version 1.3 =
 * fixed bug with shortcode in text widgets for WP 2.8
