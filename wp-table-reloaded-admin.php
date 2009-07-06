@@ -1034,7 +1034,8 @@ class WP_Table_Reloaded_Admin {
             <input type="submit" name="submit[swap_cols]" class="button-primary" value="<?php _e( 'Swap', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
         <?php } // end if form swap cols ?>
 </td><td>
-        <a id="a-insert-link" class="button-primary" href=""><?php _e( 'Insert Link', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a> <a id="a-insert-image" class="button-primary" href=""><?php _e( 'Insert Image', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
+        <a id="a-insert-link" class="button-primary" href=""><?php _e( 'Insert Link', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a><br/><br/>
+        <a id="a-insert-image" class="button-primary" href=""><?php _e( 'Insert Image', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
 </td>
 <td>
         <?php if ( 1 < $rows ) { // sort form
@@ -1916,7 +1917,7 @@ CSSSTYLE;
 /* <![CDATA[ */
 jQuery(document).ready(function($){
 $('#wp-table-reloaded-list').tablesorter({widgets: ['zebra'], headers: {0: {sorter: false},4: {sorter: false}}})
-.find('.header').append('&nbsp;<span>&nbsp;&nbsp;</span>');
+.find('.header').append('&nbsp;<span>&nbsp;&nbsp;&nbsp;</span>');
 });
 /* ]]> */
 </script>
