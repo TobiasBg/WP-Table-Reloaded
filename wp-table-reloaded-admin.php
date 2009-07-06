@@ -39,14 +39,15 @@ class WP_Table_Reloaded_Admin {
         'custom_css' => '.wp-table-reloaded {width:100%;}',
         'install_time' => 0,
         'show_donate_nag' => true,
+        'update_message' = array(),
         'last_id' => 0
     );
     var $default_tables = array();
     var $default_table = array(
         'id' => 0,
         'data' => array( 0 => array( 0 => '' ) ),
-        'name' => 'default',
-        'description' => 'default',
+        'name' => '',
+        'description' => '',
         'last_modified' => '0000-00-00 00:00:00',
         'last_editor_id' => '',
         'options' => array(
@@ -90,7 +91,7 @@ class WP_Table_Reloaded_Admin {
         }
 
         // add remote message, if update available
-        add_action( 'in_plugin_update_message-' . WP_TABLE_RELOADED_BASENAME, array( &$this, 'plugin_update_message' ) );
+        add_action( 'in_plugin_update_message-' . WP_TABLE_RELOADED_BASENAME, array( &$this, 'plugin_update_message' ), 10, 2 );
     }
 
     // ###################################################################################################################
@@ -1546,10 +1547,7 @@ TEXT;
         // how long is the plugin installed
         $secs = time() - $this->options['install_time'];
         $days = floor( $secs / (60*60*24) );
-        if ( $days >= 30 )
-            return true;
-        else
-            return false;
+        return ( $days >= 30 ) ? true : false;
     }
 
     // ###################################################################################################################
@@ -1751,6 +1749,9 @@ TEXT;
 		$this->options = get_option( $this->optionname['options'] );
 		$new_options = array();
 
+        // 1b. step: update new default options before possibly adding them
+        $this->default_options['install_time'] = time();
+
         // 2a. step: add/delete new/deprecated options by overwriting new ones with existing ones, if existant
 		foreach ( $this->default_options as $key => $value )
             $new_options[ $key ] = ( true == isset( $this->options[ $key ] ) ) ? $this->options[ $key ] : $this->default_options[ $key ] ;
@@ -1758,10 +1759,10 @@ TEXT;
         // 2b., take care of css
         $new_options['use_custom_css'] = ( false == isset( $this->options['use_custom_css'] ) && true == isset( $this->options['use_global_css'] ) ) ? $this->options['use_global_css'] : $this->options['use_custom_css'];
 
-        // 3. step: update installed version number
+        // 3. step: update installed version number/empty update message cache
         $new_options['installed_version'] = $this->plugin_version;
-        $new_options['install_time'] = time();
-
+        $new_options['update_message'] = array();
+        
         // 4. step: save the new options
         $this->options = $new_options;
         $this->update_options();
@@ -1783,9 +1784,21 @@ TEXT;
     
     // ###################################################################################################################
     // get remote plugin update message and show it right under the "upgrade automatically" message
-    function plugin_update_message() {
-        $message = wp_remote_fopen( "http://tobias.baethge.com/dev/wp-table-reloaded/update/{$this->options['installed_version']}/" );
-        if ( false !== $message )
+    // $current and $new are passed by the do_action call and contain respective plugin version information
+    function plugin_update_message( $current, $new ) {
+        if ( !isset( $this->options['update_message'][$new->new_version] ) || empty( $this->options['update_message'][$new->new_version] ) ) {
+            $message_text = '';
+            $update_message = wp_remote_fopen( "http://tobias.baethge.com/dev/wp-table-reloaded/update/{$this->options['installed_version']}/{$new->new_version}/" );
+            if ( false !== $update_message ) {
+                if ( 1 == preg_match( '/<info>(.*?)<\/info>/is', $update_message, $matches ) )
+                    $message_text = $matches[1];
+            }
+            $this->options['update_message'][$new->new_version] = $message_text;
+            $this->save_options;
+        }
+
+        $message = $this->options['update_message'][$new->new_version];
+        if ( !empty( $message ) )
             echo '<br />' . $this->safe_output( $message );
     }
 
