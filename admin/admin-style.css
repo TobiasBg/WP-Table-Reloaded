@@ -8,12 +8,23 @@
 
 /* Styles for the List of tables (sortable by Tablesorter!) */
 
-textarea.row-hidden, textarea.column-hidden {
-    background-color: #E9E9E9;
+#wp-table-reloaded-list .table-id {
+    font-size:12px;
 }
 
-#wp-table-reloaded-list thead th {
+#wp-table-reloaded-list .header {
     cursor: pointer;
+    white-space:nowrap;
+}
+
+#wp-table-reloaded-list .header span {
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-right: -5px;
+}
+
+#wp-table-reloaded-list .check-column {
+    padding-right: 8px!important;
 }
 
 #wp-table-reloaded-list .odd { /*alternate*/
@@ -22,6 +33,10 @@ textarea.row-hidden, textarea.column-hidden {
 
 #wp-table-reloaded-list .even {
     background-color: #FFFFFF!important;
+}
+
+textarea.row-hidden, textarea.column-hidden {
+    background-color: #E9E9E9;
 }
 
 table.wp-table-reloaded-options td {
@@ -41,7 +56,7 @@ table.wp-table-reloaded-data-manipulation { width:100%; }
     vertical-align: baseline!important;
 }
 
-table#table_contents td, table#table_contents th {
+#table_contents td, #table_contents th {
     white-space:nowrap;
     vertical-align:middle!important;
 }
@@ -50,7 +65,7 @@ table#table_contents td, table#table_contents th {
     white-space:nowrap;
 }
 
-table#table_contents input[type=text] {
+#table_contents input[type=text] {
     width:100%;
 }
 

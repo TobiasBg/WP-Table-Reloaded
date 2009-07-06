@@ -727,7 +727,7 @@ class WP_Table_Reloaded_Admin {
     // ###################################################################################################################
     // list all tables
     function print_list_tables_form()  {
-        $this->print_page_header( __( 'List of Tables', WP_TABLE_RELOADED_TEXTDOMAIN ) );
+        $this->print_page_header( __( 'List of Tables', WP_TABLE_RELOADED_TEXTDOMAIN ) . ' &lsaquo; ' . __( 'WP-Table Reloaded', WP_TABLE_RELOADED_TEXTDOMAIN ) );
         $this->print_submenu_navigation( 'list' );
         ?>
         <div style="clear:both;"><p><?php _e( 'This is a list of all available tables.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'You may add, edit, copy or delete tables here.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br />
@@ -746,8 +746,6 @@ class WP_Table_Reloaded_Admin {
                     <th scope="col"><?php _e( 'Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
                     <th scope="col"><?php _e( 'Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
                     <th scope="col"><?php _e( 'Last Modified', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
-                    <th scope="col"><?php _e( 'By', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
-                    <th scope="col"><?php _e( 'Action', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
                 </tr>
             </thead>
             <tfoot>
@@ -757,8 +755,6 @@ class WP_Table_Reloaded_Admin {
                     <th scope="col"><?php _e( 'Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
                     <th scope="col"><?php _e( 'Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
                     <th scope="col"><?php _e( 'Last Modified', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
-                    <th scope="col"><?php _e( 'By', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
-                    <th scope="col"><?php _e( 'Action', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
                 </tr>
             </tfoot>
             <?php
@@ -770,10 +766,12 @@ class WP_Table_Reloaded_Admin {
 
                 // get name and description to show in list
                 $table = $this->load_table( $id );
-                    $name = $this->safe_output( $table['name'] );
-                    $description = $this->safe_output( $table['description'] );
+                    $name = ( !empty( $table['name'] ) ) ? $this->safe_output( $table['name'] ) : __( '(no name)', WP_TABLE_RELOADED_TEXTDOMAIN );
+                    $description = ( !empty( $table['description'] ) ) ? $this->safe_output( $table['description'] ) : __( '(no description)', WP_TABLE_RELOADED_TEXTDOMAIN );
                     $last_modified = $this->format_datetime( $table['last_modified'] );
                     $last_editor = $this->get_last_editor( $table['last_editor_id'] );
+                    if ( !empty( $last_editor ) )
+                        $last_editor = __( 'by', WP_TABLE_RELOADED_TEXTDOMAIN ) . ' ' . $last_editor;
                 unset( $table );
 
                 $edit_url = $this->get_action_url( array( 'action' => 'edit', 'table_id' => $id ), false );
@@ -782,16 +780,19 @@ class WP_Table_Reloaded_Admin {
                 $delete_url = $this->get_action_url( array( 'action' => 'delete', 'table_id' => $id, 'item' => 'table' ), true );
 
                 echo "<tr{$bg_style}>\n";
-                echo "\t<th class=\"check-column\" scope=\"row\" class=\"no-wrap\"><input type=\"checkbox\" name=\"tables[]\" value=\"{$id}\" /></th>";
-                echo "<th scope=\"row\" class=\"no-wrap\">{$id}</th>";
-                echo "<td>{$name}</td>";
-                echo "<td>{$description}</td>";
-                echo "<td class=\"no-wrap\">{$last_modified}</td>";
-                echo "<td class=\"no-wrap\">{$last_editor}</td>";
-                echo "<td class=\"no-wrap\"><a href=\"{$edit_url}\">" . __( 'Edit', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
+                echo "\t<th class=\"check-column\" scope=\"row\" class=\"no-wrap\"><input type=\"checkbox\" name=\"tables[]\" value=\"{$id}\" /></th>\n";
+                echo "\t<th scope=\"row\" class=\"no-wrap table-id\">{$id}</th>\n";
+                echo "\t<td>\n";
+                echo "\t\t<a title=\"" . __( 'Edit', WP_TABLE_RELOADED_TEXTDOMAIN ) . " &#8220;{$name}&#8221;\" class=\"row-title\" href=\"{$edit_url}\">{$name}</a>\n";
+                echo "\t\t<div class=\"row-actions no-wrap\">";
+                echo "<a href=\"{$edit_url}\">" . __( 'Edit', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
                 echo "<a class=\"copy_table_link\" href=\"{$copy_url}\">" . __( 'Copy', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
                 echo "<a href=\"{$export_url}\">" . __( 'Export', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
-                echo "<a class=\"delete_table_link delete\" href=\"{$delete_url}\">" . __( 'Delete', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a></td>\n";
+                echo "<a class=\"delete_table_link\" href=\"{$delete_url}\">" . __( 'Delete', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>";
+                echo "</div>\n";
+                echo "\t</td>\n";
+                echo "\t<td>{$description}</td>\n";
+                echo "\t<td class=\"no-wrap\">{$last_modified}<br/>{$last_editor}</td>\n";
                 echo "</tr>\n";
 
             }
@@ -831,11 +832,11 @@ class WP_Table_Reloaded_Admin {
         <table class="wp-table-reloaded-options">
         <tr valign="top">
             <th scope="row"><label for="table[name]"><?php _e( 'Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
-            <td><input type="text" name="table[name]" value="<?php _e( 'Enter Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" style="width:250px;" /></td>
+            <td><input type="text" name="table[name]" value="<?php _e( 'Enter Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" style="width:250px;" onfocus="if (this.value == '<?php _e( 'Enter Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>') {this.value = '';}" onblur="if (this.value == '') {this.value = '<?php _e( 'Enter Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>';}" /></td>
         </tr>
         <tr valign="top">
             <th scope="row"><label for="table[description]"><?php _e( 'Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
-            <td><textarea name="table[description]" id="table[description]" rows="15" cols="40" style="width:250px;height:85px;"><?php _e( 'Enter Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></textarea></td>
+            <td><textarea name="table[description]" id="table[description]" rows="15" cols="40" style="width:250px;height:85px;" onfocus="if (this.value == '<?php _e( 'Enter Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>') {this.value = '';}" onblur="if (this.value == '') {this.value = '<?php _e( 'Enter Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>';}"><?php _e( 'Enter Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></textarea></td>
         </tr>
         <tr valign="top">
             <th scope="row"><label for="table[rows]"><?php _e( 'Number of Rows', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
@@ -1849,14 +1850,13 @@ TEXT;
         echo <<<CSSSTYLE
 <style type="text/css" media="all">
 /* <![CDATA[ */
-#wp-table-reloaded-list .headerSortUp {
-	background-repeat: no-repeat;
-	background-position: center right;
+#wp-table-reloaded-list .header span {
+	background-image: url({$image_path}/bg.gif);
+}
+#wp-table-reloaded-list .headerSortUp span {
 	background-image: url({$image_path}/asc.gif);
 }
-#wp-table-reloaded-list .headerSortDown {
-	background-repeat: no-repeat;
-	background-position: center right;
+#wp-table-reloaded-list .headerSortDown span {
 	background-image: url({$image_path}/desc.gif);
 }
 /* ]]> */
@@ -1915,7 +1915,8 @@ CSSSTYLE;
 <script type="text/javascript">
 /* <![CDATA[ */
 jQuery(document).ready(function($){
-$("#wp-table-reloaded-list").tablesorter({widgets: ['zebra'], headers: {0: {sorter: false},6: {sorter: false}}});
+$('#wp-table-reloaded-list').tablesorter({widgets: ['zebra'], headers: {0: {sorter: false},4: {sorter: false}}})
+.find('.header').append('&nbsp;<span>&nbsp;&nbsp;</span>');
 });
 /* ]]> */
 </script>
