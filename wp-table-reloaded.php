@@ -24,15 +24,7 @@ Author URI: http://tobias.baethge.com/
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-// folder definitions as constants (only needed for WP 2.5)
-if ( !defined( 'WP_CONTENT_DIR' ) )
-    define( 'WP_CONTENT_DIR', ABSPATH . 'wp-content' );
-if ( !defined( 'WP_CONTENT_URL' ) )
-    define( 'WP_CONTENT_URL', get_option('siteurl') . '/wp-content' );
-if ( !defined( 'WP_PLUGIN_URL' ) )
-	define( 'WP_PLUGIN_URL', WP_CONTENT_URL . '/plugins' );
-if ( !defined( 'WP_PLUGIN_DIR' ) )
-	define( 'WP_PLUGIN_DIR', WP_CONTENT_DIR . '/plugins');
+// folder definitions as constants
 if ( !defined( 'WP_TABLE_RELOADED_ABSPATH' ) )
     define( 'WP_TABLE_RELOADED_ABSPATH', WP_PLUGIN_DIR . '/' . basename( dirname ( __FILE__ ) ) . '/' );
 if ( !defined( 'WP_TABLE_RELOADED_URL' ) )

@@ -1794,8 +1794,7 @@ TEXT;
     // initialize i18n support, load textdomain
     function init_language_support() {
         $language_directory = basename( dirname( __FILE__ ) ) . '/languages';
-        // that ugly '.' is necessary, so that http://plugincheck.bravenewcode.com/ sees that the plugin is good through the latest WP version
-        load_plugin_textdomain( WP_TABLE_RELOADED_TEXTDOMAIN, 'wp-con'.'tent/plugins/' . $language_directory, $language_directory );
+        load_plugin_textdomain( WP_TABLE_RELOADED_TEXTDOMAIN, false, $language_directory );
     }
 
     // ###################################################################################################################
@@ -1835,10 +1834,7 @@ TEXT;
     function add_manage_page_css() {
         $cssfile = 'admin-style.css';
         if ( file_exists( WP_TABLE_RELOADED_ABSPATH . 'admin/' . $cssfile ) ) {
-            if ( function_exists( 'wp_enqueue_style' ) )
-                wp_enqueue_style( 'wp-table-reloaded-admin-css', WP_TABLE_RELOADED_URL . 'admin/' . $cssfile, array(), $this->plugin_version );
-            else
-                add_action( 'admin_head', array( &$this, 'print_admin_style' ) );
+            wp_enqueue_style( 'wp-table-reloaded-admin-css', WP_TABLE_RELOADED_URL . 'admin/' . $cssfile, array(), $this->plugin_version );
         }
 
         add_action( 'admin_head', array( &$this, 'print_admin_list_tables_style' ) );
@@ -1865,13 +1861,6 @@ TEXT;
 CSSSTYLE;
     }
     
-    // ###################################################################################################################
-    // print our style in wp-admin-head (only needed for WP < 2.6)
-    function print_admin_style() {
-        $cssfile = 'admin-style.css';
-        echo "<link rel='stylesheet' href='" . WP_TABLE_RELOADED_URL . 'admin/' . $cssfile . "' type='text/css' media='' />\n";
-    }
-
     // ###################################################################################################################
     // add button to visual editor
     function add_editor_button() {

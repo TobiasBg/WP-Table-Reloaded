@@ -2,7 +2,7 @@
 Contributors: TobiasBg 
 Donate link: http://tobias.baethge.com/donate/
 Tags: html,table,data,editor,csv,import,export,excel,widget,admin,sidebar
-Requires at least: 2.5
+Requires at least: 2.6
 Tested up to: 2.8.1
 Stable tag: 1.3
 
