@@ -25,6 +25,8 @@ class WP_Table_Reloaded_Admin {
     );
     // allowed actions in this class
     var $allowed_actions = array( 'list', 'add', 'edit', 'bulk_edit', 'copy', 'delete', 'insert', 'import', 'export', 'options', 'uninstall', 'info', 'hide_donate_nag' ); // 'ajax_list', but handled separatly
+    // current action, populated in load_manage_page
+    var action = 'list';
     
     // init vars
     var $tables = array();
@@ -102,7 +104,7 @@ class WP_Table_Reloaded_Admin {
     // add page, and what happens when page is loaded or shown
     function add_manage_page() {
         $min_needed_capability = 'publish_posts'; // user needs at least this capability to view WP-Table Reloaded config page
-        $this->hook = add_management_page( 'WP-Table Reloaded', 'WP-Table Reloaded', $min_needed_capability, 'wp_table_reloaded_manage_page', array( &$this, 'show_manage_page' ) );
+        $this->hook = add_management_page( 'WP-Table Reloaded', 'WP-Table Reloaded', $min_needed_capability, 'wp_table_reloaded', array( &$this, 'show_manage_page' ) );
         add_action( 'load-' . $this->hook, array( &$this, 'load_manage_page' ) );
     }
     
@@ -120,20 +122,23 @@ class WP_Table_Reloaded_Admin {
 
         // init language support
         $this->init_language_support();
-        
+
+        // get and check action parameter from passed variables
+        $action = ( isset( $_REQUEST['action'] ) && !empty( $_REQUEST['action'] ) ) ? $_REQUEST['action'] : 'list';
+        // check if action is in allowed actions and if method is callable, if yes, call it
+        if ( in_array( $action, $this->allowed_actions ) )
+            $this->action = $action;
+
+        // after get_action, because needs action parameter
         if ( true == function_exists( 'add_contextual_help' ) ) // then WP version is >= 2.7
-            add_contextual_help( $this->hook, $this->get_contextual_help_string() );
+            add_contextual_help( $this->hook, $this->get_contextual_help_string( $this->action ) );
     }
 
     // ###################################################################################################################
     function show_manage_page() {
-        // get and check action parameter from passed variables
-        $action = ( isset( $_REQUEST['action'] ) && !empty( $_REQUEST['action'] ) ) ? $_REQUEST['action'] : 'list';
-        // check if action is in allowed actions and if method is callable, if yes, call it
-        if ( in_array( $action, $this->allowed_actions ) && is_callable( array( &$this, 'do_action_' . $action ) ) )
-            call_user_func( array( &$this, 'do_action_' . $action ) );
-        else
-            call_user_func( array( &$this, 'do_action_list' ) );
+        // call approriate action, $this->action is populated in load_manage_page
+        if( is_callable( array( &$this, 'do_action_' . $this->action ) ) )
+            call_user_func( array( &$this, 'do_action_' . $this->action ) );
     }
     
     // ###################################################################################################################
@@ -1643,8 +1648,18 @@ TEXT;
     }
 
     // ###################################################################################################################
-    function get_contextual_help_string() {
-        return __( 'More information can be found on the <a href="http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/">plugin\'s website</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ) . '<br/>' . __( 'See the <a href="http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/documentation/">documentation</a> or find out how to get <a href="http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/support/">support</a>.', WP_TABLE_RELOADED_TEXTDOMAIN );
+    function get_contextual_help_string( $action ) {
+        switch( $action ) {
+            case 'list':
+            case 'edit':
+            case 'add':
+            case 'import':
+            case 'export':
+            case 'options':
+            case 'info':
+            default:
+                return __( 'More information can be found on the <a href="http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/">plugin\'s website</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ) . '<br/>' . __( 'See the <a href="http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/documentation/">documentation</a> or find out how to get <a href="http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/support/">support</a>.', WP_TABLE_RELOADED_TEXTDOMAIN );
+        }
     }
 
     // ###################################################################################################################
