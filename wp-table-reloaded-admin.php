@@ -891,7 +891,7 @@ class WP_Table_Reloaded_Admin {
         $this->print_submenu_navigation( 'add' );
         ?>
         <div style="clear:both;">
-        <p><?php _e( 'You can add a new table here. Just enter it\'s name, a description (optional) and the number of rows and columns.<br/>You may add, insert or delete rows and columns later.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
+        <p><?php _e( 'You can add a new table here. Just enter its name, a description (optional) and the number of rows and columns.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/><?php _e( 'You may add, insert or delete rows and columns later.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
         </div>
 		<div style="clear:both;">
         <form method="post" action="<?php echo $this->get_action_url(); ?>">
@@ -1366,13 +1366,9 @@ class WP_Table_Reloaded_Admin {
         $this->print_submenu_navigation( 'export' );
         ?>
         <div style="clear:both;">
-        <p><?php
-            _e( 'You may export a table here. Just select the table, your desired export format and (for CSV only) a delimiter.', WP_TABLE_RELOADED_TEXTDOMAIN );
-            echo '<br/>';
-            _e( 'You may opt to download the export file. Otherwise it will be shown on this page.', WP_TABLE_RELOADED_TEXTDOMAIN );
-            echo ' ';
-            _e( 'Be aware that only the table data, but no options or settings are exported.', WP_TABLE_RELOADED_TEXTDOMAIN );
-        ?></p>
+        <p><?php _e( 'You may export a table here. Just select the table, your desired export format and (for CSV only) a delimiter.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/>
+        <?php _e( 'You may opt to download the export file. Otherwise it will be shown on this page.', WP_TABLE_RELOADED_TEXTDOMAIN ); echo ' '; ?>
+        <?php _e( 'Be aware that only the table data, but no options or settings are exported.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
         </div>
         <?php if( 0 < count( $this->tables ) ) { ?>
         <div style="clear:both;">
