@@ -47,26 +47,36 @@ textarea.row-hidden, textarea.column-hidden {
     background-color: #E9E9E9;
 }
 
-table.wp-table-reloaded-options td {
+textarea.focus {
+    height:80px;
+}
+
+.wp-table-reloaded-options td {
 	padding: 5px 0px 5px 0px;
 }
 
-table.wp-table-reloaded-options th {
+.wp-table-reloaded-options th {
 	font-weight: normal;
 	text-align: left;
 	padding: 5px 10px 5px 0px;
 	vertical-align: middle;
 }
 
-table.wp-table-reloaded-data-manipulation { width:100%; }
+.wp-table-reloaded-data-manipulation { width:100%; }
 
 .widefat td {
     vertical-align: baseline!important;
 }
 
-#table_contents td, #table_contents th {
+#table_contents td {
     white-space:nowrap;
     vertical-align:middle!important;
+}
+
+#table_contents th {
+    white-space:nowrap;
+    vertical-align:middle!important;
+    text-align: center;
 }
 
 #table_contents .check-column {

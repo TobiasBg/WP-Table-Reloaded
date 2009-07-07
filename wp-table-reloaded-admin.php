@@ -945,7 +945,7 @@ class WP_Table_Reloaded_Admin {
         <div class="postbox">
         <h3 class="hndle"><span><?php _e( 'Table Information', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span></h3>
         <div class="inside">
-        <table class="wp-table-reloaded-options">
+        <table class="wp-table-reloaded-options wp-table-reloaded-table-information">
         <tr valign="top">
             <th scope="row"><label for="table_id"><?php _e( 'Table ID', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
             <td><input type="text" name="table_id" id="table_id" value="<?php echo $this->safe_output( $table['id'] ); ?>" style="width:50px" /></td>
@@ -1011,7 +1011,7 @@ class WP_Table_Reloaded_Admin {
                 <tbody>
                 <?php
                 foreach ( $table['data'] as $row_idx => $table_row ) {
-                    echo "<tr class=\"hide-row\">\n";
+                    echo "<tr>\n";
                     // Table Header (Rows get a Number between 1 and $rows)
                     $output_idx = $row_idx + 1;
                     echo "\t<th scope=\"row\">{$output_idx}</th>\n";
@@ -1061,7 +1061,7 @@ class WP_Table_Reloaded_Admin {
                     echo "</tr>";
 
                 // hide checkboxes
-                    echo "<tr class=\"hide-column\">\n";
+                    echo "<tr>\n";
                     echo "\t<th scope=\"row\">&nbsp;</th>\n";
                     foreach ( $table['data'][0] as $col_idx => $cell_content ) {
                         $checked = ( isset( $table['visibility']['columns'][$col_idx] ) && true == $table['visibility']['columns'][$col_idx] ) ? 'checked="checked" ': '' ;
@@ -1251,7 +1251,7 @@ class WP_Table_Reloaded_Admin {
             <input name="import_from" id="import_from_server" type="radio" value="server" <?php echo ( 'server' == $_POST['import_from'] ) ? 'checked="checked" ': '' ; ?>/> <label for="import_from_server"><?php _e( 'File on server', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label>
             </td>
         </tr>
-        <tr valign="top" class="tr-import-file">
+        <tr valign="top" class="tr-import-file-upload">
             <th scope="row"><label for="import_file"><?php _e( 'Select File with Table to Import', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
             <td><input name="import_file" id="import_file" type="file" /></td>
         </tr>
@@ -1263,7 +1263,7 @@ class WP_Table_Reloaded_Admin {
             <th scope="row"><label for="import_server"><?php _e( 'Path to file on server', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
             <td><input type="text" name="import_server" id="import_server" style="width:400px;" value="<?php echo ( isset( $_POST['import_server'] ) ) ? $_POST['import_server'] : '' ; ?>" /></td>
         </tr>
-        <tr valign="top" class="tr-import-field">
+        <tr valign="top" class="tr-import-form-field">
             <th scope="row" style="vertical-align:top;"><label for="import_data"><?php _e( 'Paste data with Table to Import', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
             <td><textarea  name="import_data" id="import_data" rows="15" cols="40" style="width:600px;height:300px;"></textarea></td>
         </tr>
