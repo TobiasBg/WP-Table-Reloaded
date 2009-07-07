@@ -172,6 +172,8 @@ class WP_Table_Reloaded_Admin {
 
             $table['id'] = $this->get_new_table_id();
             $table['data'] = $this->create_empty_table( $rows, $cols );
+            $table['visibility']['rows'] = array_fill( 0, $rows, false );
+            $table['visibility']['columns'] = array_fill( 0, $cols, false );
             $table['name'] = $_POST['table']['name'];
             $table['description'] = $_POST['table']['description'];
 
@@ -218,9 +220,14 @@ class WP_Table_Reloaded_Admin {
                 $table['options']['print_name'] = isset( $_POST['table']['options']['print_name'] );
                 $table['options']['print_description'] = isset( $_POST['table']['options']['print_description'] );
                 $table['options']['use_tablesorter'] = isset( $_POST['table']['options']['use_tablesorter'] );
+
                 // save visibility settings (checkboxes!)
-                $table['visibility']['rows'] = ( isset( $_POST['table']['visibility']['rows'] ) ? $_POST['table']['visibility']['rows'] : array() );
-                $table['visibility']['columns'] = ( isset( $_POST['table']['visibility']['columns'] ) ? $_POST['table']['visibility']['columns'] : array() );
+                foreach ( $table['data'] as $row_idx => $row )
+                    $table['visibility']['rows'][$row_idx] = isset( $_POST['table']['visibility']['rows'][$row_idx] );
+                ksort( $table['visibility']['rows'], SORT_NUMERIC );
+                foreach ( $table['data'][0] as $col_idx => $col )
+                    $table['visibility']['columns'][$col_idx] = isset( $_POST['table']['visibility']['columns'][$col_idx] );
+                ksort( $table['visibility']['columns'], SORT_NUMERIC );
 
                 $this->save_table( $table );
                 break;
@@ -235,7 +242,11 @@ class WP_Table_Reloaded_Admin {
                     $temp_row = $table['data'][$row_id1];
                     $table['data'][$row_id1] = $table['data'][$row_id2];
                     $table['data'][$row_id2] = $temp_row;
-                    unset($temp_row);
+                    unset( $temp_row );
+                    $temp_visibility = $table['visibility']['rows'][$row_id1];
+                    $table['visibility']['rows'][$row_id1] = $table['visibility']['rows'][$row_id2];
+                    $table['visibility']['rows'][$row_id2] = $temp_visibility;
+                    unset( $temp_visibility );
                 }
                 $this->save_table( $table );
                 $message = __( 'Rows swapped successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
@@ -249,12 +260,16 @@ class WP_Table_Reloaded_Admin {
                 $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
                 // swap rows $col_id1 and $col_id2
                 if ( ( 1 < $cols ) && ( -1 < $col_id1 ) && ( -1 < $col_id2 ) ) {
-                  foreach ( $table['data'] as $row_idx => $row ) {
+                    foreach ( $table['data'] as $row_idx => $row ) {
                         $temp_col = $table['data'][$row_idx][$col_id1];
                         $table['data'][$row_idx][$col_id1] = $table['data'][$row_idx][$col_id2];
                         $table['data'][$row_idx][$col_id2] = $temp_col;
                     }
-                    unset($temp_col);
+                    unset( $temp_col );
+                    $temp_visibility = $table['visibility']['columns'][$col_id1];
+                    $table['visibility']['columns'][$col_id1] = $table['visibility']['columns'][$col_id2];
+                    $table['visibility']['columns'][$col_id2] = $temp_visibility;
+                    unset( $temp_visibility );
                 }
                 $this->save_table( $table );
                 $message = __( 'Columns swapped successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
@@ -265,14 +280,27 @@ class WP_Table_Reloaded_Admin {
                 $sort_order= ( isset( $_POST['sort']['order'] ) ) ? $_POST['sort']['order'] : 'ASC';
                 $table = $this->load_table( $table_id );
                 $rows = count( $table['data'] );
+                $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
                 // sort array for $column in $sort_order
                 if ( ( 1 < $rows ) && ( -1 < $column ) ) {
+
+                    // for sorting: temporarily store row visibility in data, so that it gets sorted, too
+                    foreach ( $table['data'] as $row_idx => $row )
+                        array_splice( $table['data'][$row_idx], $cols, 0, $table['visibility']['rows'][$row_idx] );
+
                     $sortarray = $this->create_class_instance( 'arraysort', 'arraysort.class.php' );
                     $sortarray->input_array = $table['data'];
                     $sortarray->column = $column;
                     $sortarray->order = $sort_order;
                     $sortarray->sort();
                     $table['data'] = $sortarray->sorted_array;
+
+                    // then restore row visibility from sorted data and remove temporary column
+                    foreach ( $table['data'] as $row_idx => $row ) {
+                        $table['visibility']['rows'][$row_idx] = $table['data'][$row_idx][$cols];
+                        array_splice( $table['data'][$row_idx], $cols, 1 );
+                    }
+
                 }
                 $this->save_table( $table );
                 $message = __( 'Table sorted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
@@ -286,7 +314,9 @@ class WP_Table_Reloaded_Admin {
                 $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
                 // init new empty row (with all columns) and insert it before row with key $row_id
                 $new_rows = $this->create_empty_table( $number, $cols, '' );
+                $new_rows_visibility = array_fill( 0, $number, false );
                 array_splice( $table['data'], $row_id, 0, $new_rows );
+                array_splice( $table['visibility']['rows'], $row_id, 0, $new_rows_visibility );
                 $this->save_table( $table );
                 $message = __ngettext( 'Row added successfully.', 'Rows added successfully.', $number, WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
@@ -295,10 +325,12 @@ class WP_Table_Reloaded_Admin {
                 $number = ( isset( $_POST['insert']['col']['number'] ) && ( 0 < isset( $_POST['insert']['col']['number'] ) ) ) ? $_POST['insert']['col']['number'] : 1;
                 $col_id = $_POST['insert']['col']['id'];
                 $table = $this->load_table( $table_id );
-                // init new empty row (with all columns) and insert it before row with key $row_id
-                $new_col = array_fill( 0, $number, '' );
+                // init new empty row (with all columns) and insert it before row with key $col_id
+                $new_cols = array_fill( 0, $number, '' );
+                $new_cols_visibility = array_fill( 0, $number, false );
                 foreach ( $table['data'] as $row_idx => $row )
-                    array_splice( $table['data'][$row_idx], $col_id, 0, $new_col );
+                    array_splice( $table['data'][$row_idx], $col_id, 0, $new_cols );
+                array_splice( $table['visibility']['columns'], $col_id, 0, $new_cols_visibility );
                 $this->save_table( $table );
                 $message = __ngettext( 'Column added successfully.', 'Columns added successfully.', $number, WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
@@ -355,6 +387,12 @@ class WP_Table_Reloaded_Admin {
                         $this->import_instance->import_table();
                         $imported_table = $this->import_instance->imported_table;
                         $table = array_merge( $this->default_table, $imported_table );
+                        
+                        $rows = count( $table['data'] );
+                        $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
+                        $table['visibility']['rows'] = array_fill( 0, $rows, false );
+                        $table['visibility']['columns'] = array_fill( 0, $cols, false );
+                        
                         $table['id'] = $this->get_new_table_id();
                         $this->save_table( $table );
                     }
@@ -412,6 +450,7 @@ class WP_Table_Reloaded_Admin {
                 // delete row with key $row_id, if there are at least 2 rows
                 if ( ( 1 < $rows ) && ( -1 < $row_id ) ) {
                     array_splice( $table['data'], $row_id, 1 );
+                    array_splice( $table['visibility']['rows'], $row_id, 1 );
                     $this->save_table( $table );
                     $this->print_header_message( __( 'Row deleted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
                 }
@@ -425,6 +464,7 @@ class WP_Table_Reloaded_Admin {
                 if ( ( 1 < $cols ) && ( -1 < $col_id ) ) {
                     foreach ( $table['data'] as $row_idx => $row )
                         array_splice( $table['data'][$row_idx], $col_id, 1 );
+                    array_splice( $table['visibility']['columns'], $col_id, 1 );
                     $this->save_table( $table );
                     $this->print_header_message( __( 'Column deleted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
                 }
@@ -455,6 +495,7 @@ class WP_Table_Reloaded_Admin {
                 // init new empty row (with all columns) and insert it before row with key $row_id
                 $new_row = array( array_fill( 0, $cols, '' ) );
                 array_splice( $table['data'], $row_id, 0, $new_row );
+                array_splice( $table['visibility']['rows'], $row_id, 0, false );
                 $this->save_table( $table );
                 $message = __( 'Row inserted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
@@ -464,6 +505,7 @@ class WP_Table_Reloaded_Admin {
                 $new_col = '';
                 foreach ( $table['data'] as $row_idx => $row )
                     array_splice( $table['data'][$row_idx], $col_id, 0, $new_col );
+                array_splice( $table['visibility']['columns'], $col_id, 0, false );
                 $this->save_table( $table );
                 $message = __( 'Column inserted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
@@ -545,6 +587,11 @@ class WP_Table_Reloaded_Admin {
                 $success_message = sprintf( __( 'Table imported successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
             }
 
+            $rows = count( $table['data'] );
+            $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
+            $table['visibility']['rows'] = array_fill( 0, $rows, false );
+            $table['visibility']['columns'] = array_fill( 0, $cols, false );
+
             $this->save_table( $table );
 
             if ( false == $error ) {
@@ -564,6 +611,11 @@ class WP_Table_Reloaded_Admin {
             $imported_table = $this->import_instance->imported_table;
 
             $table = array_merge( $this->default_table, $imported_table );
+
+            $rows = count( $table['data'] );
+            $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
+            $table['visibility']['rows'] = array_fill( 0, $rows, false );
+            $table['visibility']['columns'] = array_fill( 0, $cols, false );
 
             $table['id'] = $this->get_new_table_id();
 
@@ -903,7 +955,7 @@ class WP_Table_Reloaded_Admin {
         </tr>
         <?php if ( !empty( $table['last_editor_id'] ) ) { ?>
         <tr valign="top">
-            <th scope="row"><?php _e( 'Last Modified', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
+            <th scope="row"><?php _e( 'Last Modified', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
             <td><?php echo $this->format_datetime( $table['last_modified'] ); ?> <?php _e( 'by', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php echo $this->get_last_editor( $table['last_editor_id'] ); ?></td>
         </tr>
         <?php } ?>
@@ -927,23 +979,34 @@ class WP_Table_Reloaded_Admin {
             <table class="widefat" style="width:auto;" id="table_contents">
                 <thead>
                     <tr>
-                        <th class="check-column" scope="col"><input type="checkbox" style="display:none;" /></th>
-                        <th>&nbsp;</th>
+                        <th scope="col">&nbsp;</th>
                         <?php
                             // Table Header (Columns get a Letter between A and A+$cols-1)
                             foreach ( range( 'A', chr( ord( 'A' ) + $cols - 1 ) ) as $letter )
                                 echo "<th scope=\"col\">".$letter."</th>";
                         ?>
-                        <th>&nbsp;</th>
+                        <th scope="col">&nbsp;</th>
+                        <th class="check-column" scope="col"><input type="checkbox" style="display:none;" /></th>
+                        <th scope="col">&nbsp;</th>
                     </tr>
                 </thead>
+                <tfoot>
+                    <tr>
+                        <th scope="col">&nbsp;</th>
+                        <?php
+                            // Table Footer (Columns get a Letter between A and A+$cols-1)
+                            foreach ( range( 'A', chr( ord( 'A' ) + $cols - 1 ) ) as $letter )
+                                echo "<th scope=\"col\">".$letter."</th>";
+                        ?>
+                        <th scope="col">&nbsp;</th>
+                        <th scope="col">&nbsp;</th>
+                        <th scope="col">&nbsp;</th>
+                    </tr>
+                </tfoot>
                 <tbody>
                 <?php
-                $hidden_rows = isset( $table['visibility']['rows'] ) ? $table['visibility']['rows'] : array();
                 foreach ( $table['data'] as $row_idx => $table_row ) {
                     echo "<tr class=\"hide-row\">\n";
-                    $checked = ( in_array( $row_idx, $hidden_rows ) ) ? 'checked="checked" ': '' ;
-                    echo "\t<th class=\"check-column\" scope=\"row\"><input type=\"checkbox\" name=\"table[visibility][rows][]\" value=\"{$row_idx}\" {$checked}/></th>";
                     // Table Header (Rows get a Number between 1 and $rows)
                     $output_idx = $row_idx + 1;
                     echo "\t<th scope=\"row\">{$output_idx}</th>\n";
@@ -958,12 +1021,15 @@ class WP_Table_Reloaded_Admin {
                     echo "\t<td><a href=\"{$insert_row_url}\">" . __( 'Insert Row', WP_TABLE_RELOADED_TEXTDOMAIN )."</a>";
                     if ( 1 < $rows ) // don't show delete link for last and only row
                         echo " | <a class=\"delete_row_link\" href=\"{$delete_row_url}\">".__( 'Delete Row', WP_TABLE_RELOADED_TEXTDOMAIN )."</a>";
-                    echo "</td>\n</tr>";
+                    echo "</td>\n";
+                    $checked = ( isset( $table['visibility']['rows'][$col_idx] ) && true == $table['visibility']['rows'][$row_idx] ) ? 'checked="checked" ': '' ;
+                    echo "\t<td class=\"check-column\"><input type=\"checkbox\" name=\"table[visibility][rows][{$row_idx}]\" id=\"row_visibility_{$row_idx}\" value=\"true\" {$checked}/> <label for=\"row_visibility_{$row_idx}\">" . __( 'Row hidden', WP_TABLE_RELOADED_TEXTDOMAIN ) ."</label></td>\n";
+                    echo "\t<th scope=\"row\">{$output_idx}</th>\n";
+                    echo "</tr>";
                 }
 
                 // ACTION links
                     echo "<tr>\n";
-                    echo "\t<th scope=\"row\">&nbsp;</th>\n";
                     echo "\t<th scope=\"row\">&nbsp;</th>\n";
                     foreach ( $table['data'][0] as $col_idx => $cell_content ) {
                         $insert_col_url = $this->get_action_url( array( 'action' => 'insert', 'table_id' => $table['id'], 'item' => 'col', 'element_id' => $col_idx ), true );
@@ -985,18 +1051,20 @@ class WP_Table_Reloaded_Admin {
                     <?php echo sprintf( __( 'Add %s column(s)', WP_TABLE_RELOADED_TEXTDOMAIN ), $col_insert ); ?>
                     <input type="submit" name="submit[insert_cols]" class="button-primary" value="<?php _e( 'Add', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" /></td>
                     <?php
+                    echo "\t<td>&nbsp;</td>\n";
+                    echo "\t<th scope=\"row\">&nbsp;</th>\n";
                     echo "</tr>";
 
                 // hide checkboxes
                     echo "<tr>\n";
-                    echo "\t<th scope=\"row\">&nbsp;</th>";
                     echo "\t<th scope=\"row\">&nbsp;</th>\n";
-                    $hidden_columns = isset( $table['visibility']['columns'] ) ? $table['visibility']['columns'] : array();
                     foreach ( $table['data'][0] as $col_idx => $cell_content ) {
-                        $checked = ( in_array( $col_idx, $hidden_columns ) ) ? 'checked="checked" ': '' ;
-                        echo "\t<td class=\"check-column hide-column\"><input type=\"checkbox\" name=\"table[visibility][columns][]\" value=\"{$col_idx}\" {$checked}/></td>";
+                        $checked = ( isset( $table['visibility']['columns'][$col_idx] ) && true == $table['visibility']['columns'][$col_idx] ) ? 'checked="checked" ': '' ;
+                        echo "\t<td class=\"check-column hide-column\"><input type=\"checkbox\" name=\"table[visibility][columns][{$col_idx}]\" id=\"column_visibility_{$col_idx}\" value=\"true\" {$checked}/> <label for=\"column_visibility_{$col_idx}\">" . __( 'Column hidden', WP_TABLE_RELOADED_TEXTDOMAIN ) ."</label></td>";
                     }
-                    echo "\t<th>&nbsp;</th>";
+                    echo "\t<td>&nbsp;</td>";
+                    echo "\t<td>&nbsp;</td>";
+                    echo "\t<th scope=\"row\">&nbsp;</th>\n";
                     echo "</tr>";
                 ?>
                 </tbody>
@@ -1229,6 +1297,15 @@ class WP_Table_Reloaded_Admin {
                     <th scope="col"><?php _e( 'Action', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
                 </tr>
             </thead>
+            <tfoot>
+                <tr>
+                    <th class="check-column" scope="col"><input type="checkbox" /></th>
+                    <th scope="col"><?php _e( 'ID', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
+                    <th scope="col"><?php _e( 'Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
+                    <th scope="col"><?php _e( 'Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
+                    <th scope="col"><?php _e( 'Action', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
+                </tr>
+            </tfoot>
             <?php
             echo "<tbody>\n";
             $bg_style_index = 0;
@@ -1267,7 +1344,7 @@ class WP_Table_Reloaded_Admin {
         </div>
         <?php
         } else {
-            // one of the wp-Table tables was not found in database, so nothing to show here
+            // at least one of the wp-Table tables was *not* found in database, so nothing to show here
         }
         $this->print_page_footer();
     }
@@ -1284,7 +1361,13 @@ class WP_Table_Reloaded_Admin {
         $this->print_submenu_navigation( 'export' );
         ?>
         <div style="clear:both;">
-        <p><?php _e( 'You may export a table here. Just select the table, your desired export format and a delimiter (needed for CSV only).<br/>You may opt to download the export file. Otherwise it will be shown on this page.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
+        <p><?php
+            _e( 'You may export a table here. Just select the table, your desired export format and (for CSV only) a delimiter.', WP_TABLE_RELOADED_TEXTDOMAIN );
+            echo '<br/>';
+            _e( 'You may opt to download the export file. Otherwise it will be shown on this page.', WP_TABLE_RELOADED_TEXTDOMAIN );
+            echo ' ';
+            _e( 'Be aware that only the table data, but no options or settings are exported.', WP_TABLE_RELOADED_TEXTDOMAIN );
+        ?></p>
         </div>
         <?php if( 0 < count( $this->tables ) ) { ?>
         <div style="clear:both;">
@@ -1405,8 +1488,6 @@ class WP_Table_Reloaded_Admin {
         </div>
         </div>
 
-        <input type="hidden" name="options[installed_version]" value="<?php echo $this->options['installed_version']; ?>" />
-        <input type="hidden" name="options[last_id]" value="<?php echo $this->options['last_id']; ?>" />
         <input type="hidden" name="action" value="options" />
         <p class="submit">
         <input type="submit" name="submit[form]" class="button-primary" value="<?php _e( 'Save Options', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
@@ -1495,6 +1576,7 @@ class WP_Table_Reloaded_Admin {
             <?php _e( 'You are using the following versions of the software. <strong>Please provide this information in bug reports.</strong>', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/>
             <br/>&middot; WP-Table Reloaded (DB): <?php echo $this->options['installed_version']; ?>
             <br/>&middot; WP-Table Reloaded (Script): <?php echo $this->plugin_version; ?>
+            <br/>&middot; <?php _e( 'Plugin installed', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>: <?php echo date( 'Y/m/d H:i:s', $this->options['install_time'] ); ?>
             <br/>&middot; WordPress: <?php echo $GLOBALS['wp_version']; ?>
             <br/>&middot; PHP: <?php echo phpversion(); ?>
             <br/>&middot; mySQL (Server): <?php echo mysql_get_server_info(); ?>
@@ -1782,11 +1864,19 @@ TEXT;
         foreach ( $this->tables as $id => $tableoptionname ) {
             $table = $this->load_table( $id );
             
-            foreach ( $this->default_table as $key => $value )
-                $new_table[ $key ] = ( true == isset( $table[ $key ] ) ) ? $table[ $key ] : $this->default_table[ $key ] ;
+            $temp_table = $this->default_table;
+            
+            // if table doesn't have visibility information, it gets them
+            $rows = count( $table['data'] );
+            $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
+            $temp_table['visibility']['rows'] = array_fill( 0, $rows, false );
+            $temp_table['visibility']['columns'] = array_fill( 0, $cols, false );
+            
+            foreach ( $temp_table as $key => $value )
+                $new_table[ $key ] = ( true == isset( $table[ $key ] ) ) ? $table[ $key ] : $temp_table[ $key ] ;
 
-            foreach ( $this->default_table['options'] as $key => $value )
-                $new_table['options'][ $key ] = ( true == isset( $table['options'][ $key ] ) ) ? $table['options'][ $key ] : $this->default_table['options'][ $key ] ;
+            foreach ( $temp_table['options'] as $key => $value )
+                $new_table['options'][ $key ] = ( true == isset( $table['options'][ $key ] ) ) ? $table['options'][ $key ] : $temp_table['options'][ $key ] ;
 
             $this->save_table( $new_table );
         }

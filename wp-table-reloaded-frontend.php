@@ -159,11 +159,11 @@ class WP_Table_Reloaded_Frontend {
             $table['data'] = array_slice( $table['data'], $output_options['row_offset'] - 1, $output_options['row_count'] ); // -1 because we start from 1
 
         // load information about hidden rows and columns
-        $hidden_rows = isset( $table['visibility']['rows'] ) ? $table['visibility']['rows'] : array();
+        $hidden_rows = isset( $table['visibility']['rows'] ) ? array_keys( $table['visibility']['rows'], true ) : array();
         $hidden_rows = array_merge( $hidden_rows, $output_options['hide_rows'] );
         $hidden_rows = array_diff( $hidden_rows, $output_options['show_rows'] );
         sort( $hidden_rows, SORT_NUMERIC );
-        $hidden_columns = isset( $table['visibility']['columns'] ) ? $table['visibility']['columns'] : array();
+        $hidden_columns = isset( $table['visibility']['columns'] ) ? array_keys( $table['visibility']['columns'], true ) : array();
         $hidden_columns = array_merge( $hidden_columns, $output_options['hide_columns'] );
         $hidden_columns = array_merge( array_diff( $hidden_columns, $output_options['show_columns'] ) );
         sort( $hidden_columns, SORT_NUMERIC );

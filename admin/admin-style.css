@@ -61,6 +61,11 @@ table.wp-table-reloaded-data-manipulation { width:100%; }
     vertical-align:middle!important;
 }
 
+#table_contents .check-column {
+    padding: 3px 7px!important;
+    width: auto!important;
+}
+
 .no-wrap {
     white-space:nowrap;
 }
