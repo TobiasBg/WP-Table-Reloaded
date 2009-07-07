@@ -60,7 +60,7 @@ class WP_Table_Reloaded_Export {
                 break;
             case 'xml':
                 if ( 0 < $rows && 0 < $cols) {
-                    $output .= "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n";
+                    $output .= "<?xml version=\"1.0\" encoding=\"" . get_option('blog_charset') . "\"?>\n";
                     $output .= "<table>\n";
                     foreach ( $data as $row_idx => $row ) {
                         $output .= "\t<row>\n";
