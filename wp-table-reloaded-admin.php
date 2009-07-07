@@ -26,7 +26,7 @@ class WP_Table_Reloaded_Admin {
     // allowed actions in this class
     var $allowed_actions = array( 'list', 'add', 'edit', 'bulk_edit', 'copy', 'delete', 'insert', 'import', 'export', 'options', 'uninstall', 'info', 'hide_donate_nag' ); // 'ajax_list', but handled separatly
     // current action, populated in load_manage_page
-    var action = 'list';
+    var $action = 'list';
     
     // init vars
     var $tables = array();
