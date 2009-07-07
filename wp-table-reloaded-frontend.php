@@ -21,8 +21,10 @@ class WP_Table_Reloaded_Frontend {
         'options' => 'wp_table_reloaded_options',
         'table' => 'wp_table_reloaded_data'
     );
-    var $shortcode = 'table';
-
+    // shortcodes
+    var $shortcode_table = 'table';
+    var $shortcode_table_info = 'table-info';
+    
     var $shown_tables = array();
     var $tablesorter_tables = array();
 
@@ -36,8 +38,12 @@ class WP_Table_Reloaded_Frontend {
             return '';
 
 		// front-end function, shortcode for the_content, manual filter for widget_text
-		add_shortcode( $this->shortcode, array( &$this, 'handle_content_shortcode' ) );
-        add_filter( 'widget_text', array( &$this, 'handle_widget_filter' ) );
+		// shortcode "table-info" needs to be declared before "table"! Otherwise it will not be recognized!
+        add_shortcode( $this->shortcode_table_info, array( &$this, 'handle_content_shortcode_table_info' ) );
+        add_shortcode( $this->shortcode_table, array( &$this, 'handle_content_shortcode_table' ) );
+
+        add_filter( 'widget_text', array( &$this, 'handle_widget_filter_table_info' ) );
+        add_filter( 'widget_text', array( &$this, 'handle_widget_filter_table' ) );
 
         // if tablesorter enabled (globally) include javascript
 		if ( true == $this->options['enable_tablesorter'] ) {
@@ -51,8 +57,48 @@ class WP_Table_Reloaded_Frontend {
     }
 
     // ###################################################################################################################
+    // handle [table-info id=<the_table_id> field=<name> /] in the_content()
+    function handle_content_shortcode_table_info( $atts ) {
+
+        // parse shortcode attributs, only allow those specified
+        $default_atts = array(
+                'id' => 0,
+                'field' => '',
+                'format' => ''
+        );
+      	$atts = shortcode_atts( $default_atts, $atts );
+
+        // check if table exists
+        $table_id = $atts['id'];
+        if ( !is_numeric( $table_id ) || 1 > $table_id || false == $this->table_exists( $table_id ) )
+            return "[table \"{$table_id}\" not found /]<br />\n";
+
+        $field = $atts['field'];
+        $format = $atts['format'];
+        
+        $table = $this->load_table( $table_id );
+
+        switch ( $field ) {
+            case 'name':
+            case 'description':
+                $output = $table[ $field ];
+                break;
+            case 'last_modified':
+                $output = ( 'raw' == $format ) ?  $table['last_modified'] : $this->format_datetime( $table['last_modified'] );
+                break;
+            case 'last_editor':
+                $output = $this->get_last_editor( $table['last_editor_id'] );
+                break;
+            default:
+                $output = "[table-info field \"{$field}\" not found /]<br />\n";
+        }
+
+        return $output;
+    }
+
+    // ###################################################################################################################
     // handle [table id=<the_table_id> /] in the_content()
-    function handle_content_shortcode( $atts ) {
+    function handle_content_shortcode_table( $atts ) {
         // parse shortcode attributs, only allow those specified
         $default_atts = array(
                 'id' => 0,
@@ -117,15 +163,27 @@ class WP_Table_Reloaded_Frontend {
 
         return $output;
     }
-    
+
     // ###################################################################################################################
-    // handle [table id=<the_table_id> /] in widget texts
-    function handle_widget_filter( $text ) {
+    // handle [table-info id=<the_table_id> field="name" /] in widget texts
+    function handle_widget_filter_table_info( $text ) {
         // pattern to search for in widget text (only our plugin's shortcode!)
         if ( version_compare( $GLOBALS['wp_version'], '2.8alpha', '>=') ) {
-            $pattern = '(.?)\[(' . preg_quote( $this->shortcode ) . ')\b(.*?)(?:(\/))?\](?:(.+?)\[\/\2\])?(.?)';
+            $pattern = '(.?)\[(' . preg_quote( $this->shortcode_table_info ) . ')\b(.*?)(?:(\/))?\](?:(.+?)\[\/\2\])?(.?)';
         } else {
-            $pattern = '\[(' . preg_quote( $this->shortcode ) . ')\b(.*?)(?:(\/))?\](?:(.+?)\[\/\1\])?';
+            $pattern = '\[(' . preg_quote( $this->shortcode_table_info ) . ')\b(.*?)(?:(\/))?\](?:(.+?)\[\/\1\])?';
+        }
+        // search for it, if found, handle as if it were a shortcode
+        return preg_replace_callback( '/'.$pattern.'/s', 'do_shortcode_tag', $text );
+    }
+
+    // handle [table id=<the_table_id> /] in widget texts
+    function handle_widget_filter_table( $text ) {
+        // pattern to search for in widget text (only our plugin's shortcode!)
+        if ( version_compare( $GLOBALS['wp_version'], '2.8alpha', '>=') ) {
+            $pattern = '(.?)\[(' . preg_quote( $this->shortcode_table ) . ')\b(.*?)(?:(\/))?\](?:(.+?)\[\/\2\])?(.?)';
+        } else {
+            $pattern = '\[(' . preg_quote( $this->shortcode_table ) . ')\b(.*?)(?:(\/))?\](?:(.+?)\[\/\1\])?';
         }
         // search for it, if found, handle as if it were a shortcode
         return preg_replace_callback( '/'.$pattern.'/s', 'do_shortcode_tag', $text );
@@ -259,6 +317,17 @@ class WP_Table_Reloaded_Frontend {
     // ###################################################################################################################
     function safe_output( $string ) {
         return nl2br( stripslashes( $string ) );
+    }
+
+    // ###################################################################################################################
+    function format_datetime( $last_modified ) {
+        return mysql2date( get_option('date_format'), $last_modified ) . ' ' . mysql2date( get_option('time_format'), $last_modified );
+    }
+
+    // ###################################################################################################################
+    function get_last_editor( $last_editor_id ) {
+        $user = get_userdata( $last_editor_id );
+        return $user->nickname;
     }
 
     // ###################################################################################################################

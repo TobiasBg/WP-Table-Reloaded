@@ -47,12 +47,19 @@ if ( is_admin() ) {
     include_once ( WP_TABLE_RELOADED_ABSPATH . 'wp-table-reloaded-frontend.php' );
     $WP_Table_Reloaded_Frontend = new WP_Table_Reloaded_Frontend();
 
-    // add template tag function to be used anywhere in the template
+    // add template tag function for "table" shortcode to be used anywhere in the template
     function wp_table_reloaded_print_table( $table_query ) {
         global $WP_Table_Reloaded_Frontend;
         parse_str( $table_query, $atts );
-        echo $WP_Table_Reloaded_Frontend->handle_content_shortcode( $atts );
+        echo $WP_Table_Reloaded_Frontend->handle_content_shortcode_table( $atts );
     }
+    // add template tag function for "table-info" shortcode to be used anywhere in the template
+    function wp_table_reloaded_print_table_info( $table_query ) {
+        global $WP_Table_Reloaded_Frontend;
+        parse_str( $table_query, $atts );
+        echo $WP_Table_Reloaded_Frontend->handle_content_shortcode_table_info( $atts );
+    }
+
 }
 
 ?>
