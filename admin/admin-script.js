@@ -19,11 +19,11 @@ jQuery(document).ready(function($){
 
     // uses TBtoggleClass instead of toggleClass, see above
     $( '#table_contents :checkbox' ).change( function() {
-        $( '#table_contents .hide-row' ).each(function(rowindex, domRow){
-            $(domRow).find( 'textarea' ).TBtoggleClass( 'row-hidden', $(domRow).find( ':checkbox' ).attr( 'checked' ) );
-            $( '#table_contents .hide-column' ).each(function(colindex, domColumn){
-                $(domRow).find( 'td:eq(' +colindex+ ') textarea' ).TBtoggleClass( 'column-hidden', $(domColumn).find( ':checkbox' ).attr( 'checked' ) );
-            });
+        $( '#table_contents .hide-row :checkbox' ).each(function(){
+            $( '#table_contents .' + $(this).attr('id') ).TBtoggleClass( 'row-hidden', $(this).attr( 'checked' ) );
+        });
+        $( '#table_contents .hide-column :checkbox' ).each(function(){
+            $( '#table_contents .' + $(this).attr('id') ).TBtoggleClass( 'column-hidden', $(this).attr( 'checked' ) );
         });
 	}).change();
 
