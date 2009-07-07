@@ -20,7 +20,15 @@
 #wp-table-reloaded-list .header span {
 	background-repeat: no-repeat;
 	background-position: center;
+	background-image: url( '../img/bg.gif' );
 	margin-right: -5px;
+}
+
+#wp-table-reloaded-list .headerSortUp span {
+	background-image: url( '../img/asc.gif' );
+}
+#wp-table-reloaded-list .headerSortDown span {
+	background-image: url( '../img/desc.gif' );
 }
 
 #wp-table-reloaded-list .check-column {

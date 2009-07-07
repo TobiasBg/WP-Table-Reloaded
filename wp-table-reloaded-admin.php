@@ -1945,34 +1945,10 @@ TEXT;
     // enqueue css-stylesheet-file for admin, if it exists
     function add_manage_page_css() {
         $cssfile = 'admin-style.css';
-        if ( file_exists( WP_TABLE_RELOADED_ABSPATH . 'admin/' . $cssfile ) ) {
+        if ( file_exists( WP_TABLE_RELOADED_ABSPATH . 'admin/' . $cssfile ) )
             wp_enqueue_style( 'wp-table-reloaded-admin-css', WP_TABLE_RELOADED_URL . 'admin/' . $cssfile, array(), $this->plugin_version );
-        }
-
-        add_action( 'admin_head', array( &$this, 'print_admin_list_tables_style' ) );
     }
 
-    // ###################################################################################################################
-    // print styles for "List of Tables" in wp-admin-head (because of background-images, we can't do it in the external css file
-    function print_admin_list_tables_style() {
-        $image_path = WP_TABLE_RELOADED_URL . 'img';
-        echo <<<CSSSTYLE
-<style type="text/css" media="all">
-/* <![CDATA[ */
-#wp-table-reloaded-list .header span {
-	background-image: url({$image_path}/bg.gif);
-}
-#wp-table-reloaded-list .headerSortUp span {
-	background-image: url({$image_path}/asc.gif);
-}
-#wp-table-reloaded-list .headerSortDown span {
-	background-image: url({$image_path}/desc.gif);
-}
-/* ]]> */
-</style>
-CSSSTYLE;
-    }
-    
     // ###################################################################################################################
     // add button to visual editor
     function add_editor_button() {
