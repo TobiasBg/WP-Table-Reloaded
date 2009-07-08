@@ -892,7 +892,7 @@ class WP_Table_Reloaded_Admin {
                 $delete_url = $this->get_action_url( array( 'action' => 'delete', 'table_id' => $id, 'item' => 'table' ), true );
 
                 echo "<tr{$bg_style}>\n";
-                echo "\t<th class=\"check-column\" scope=\"row\" class=\"no-wrap\"><input type=\"checkbox\" name=\"tables[]\" value=\"{$id}\" /></th>\n";
+                echo "\t<th class=\"check-column no-wrap\" scope=\"row\"><input type=\"checkbox\" name=\"tables[]\" value=\"{$id}\" /></th>\n";
                 echo "\t<th scope=\"row\" class=\"no-wrap table-id\">{$id}</th>\n";
                 echo "\t<td>\n";
                 echo "\t\t<a title=\"" . __( 'Edit', WP_TABLE_RELOADED_TEXTDOMAIN ) . " &#8220;{$name}&#8221;\" class=\"row-title\" href=\"{$edit_url}\">{$name}</a>\n";
@@ -946,11 +946,11 @@ class WP_Table_Reloaded_Admin {
         <table class="wp-table-reloaded-options">
         <tr valign="top">
             <th scope="row"><label for="table[name]"><?php _e( 'Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
-            <td><input type="text" name="table[name]" value="<?php _e( 'Enter Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" style="width:250px;" onfocus="if (this.value == '<?php _e( 'Enter Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>') {this.value = '';}" onblur="if (this.value == '') {this.value = '<?php _e( 'Enter Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>';}" /></td>
+            <td><input type="text" name="table[name]" id="table[name]" class="focus-blur-change" value="<?php _e( 'Enter Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" style="width:250px;" title="<?php _e( 'Enter Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" /></td>
         </tr>
         <tr valign="top">
             <th scope="row"><label for="table[description]"><?php _e( 'Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
-            <td><textarea name="table[description]" id="table[description]" rows="15" cols="40" style="width:250px;height:85px;" onfocus="if (this.value == '<?php _e( 'Enter Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>') {this.value = '';}" onblur="if (this.value == '') {this.value = '<?php _e( 'Enter Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>';}"><?php _e( 'Enter Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></textarea></td>
+            <td><textarea name="table[description]" id="table[description]" class="focus-blur-change" rows="15" cols="40" style="width:250px;height:85px;" title="<?php _e( 'Enter Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>"><?php _e( 'Enter Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></textarea></td>
         </tr>
         <tr valign="top">
             <th scope="row"><label for="table[rows]"><?php _e( 'Number of Rows', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
@@ -1279,7 +1279,7 @@ class WP_Table_Reloaded_Admin {
             <br/>
         <?php } // endif custom_fields ?>
         <?php _e( 'To add a new Custom Data Field, enter its name (only lowercase letters, numbers, _ and -).', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/>
-        <?php _e( 'Custom Data Field Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>: <input type="text" name="insert[custom_field]" value="" style="width:150px" onkeyup="javascript:this.value=this.value.toLowerCase().replace(/[^a-z0-9_-]/g, '');" /> <input type="submit" name="submit[insert_cf]" class="button-primary" value="<?php _e( 'Add', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
+        <?php _e( 'Custom Data Field Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>: <input type="text" id="insert_custom_field_name" name="insert[custom_field]" value="" style="width:150px" /> <input type="submit" name="submit[insert_cf]" class="button-primary" value="<?php _e( 'Add', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
     </div>
     </div>
 
@@ -1926,7 +1926,7 @@ TEXT;
     // ###################################################################################################################
     function get_action_url( $params = array(), $add_nonce = false ) {
         $default_params = array(
-                'page' => $_REQUEST['page'], // might put hardcoded 'wp-table-reloaded' here
+                'page' => 'wp_table_reloaded', // might need to change this back to $_REQUEST['page'] if errors happen
                 'action' => false,
                 'item' => false
         );
@@ -1934,6 +1934,7 @@ TEXT;
 
         $action_url = add_query_arg( $url_params, $_SERVER['PHP_SELF'] );
         $action_url = ( true == $add_nonce ) ? wp_nonce_url( $action_url, $this->get_nonce( $url_params['action'], $url_params['item'] ) ) : $action_url;
+        $action_url = clean_url( $action_url );
         return $action_url;
     }
     
@@ -2130,11 +2131,12 @@ TEXT;
     // print out the JS in the admin footer
     function add_editor_button_js() {
         $params = array(
-                'page' => 'wp_table_reloaded_manage_page',
+                'page' => 'wp_table_reloaded',
                 'action' => 'ajax_list'
         );
         $ajax_url = add_query_arg( $params, dirname( $_SERVER['PHP_SELF'] ) . '/tools.php' );
         $ajax_url = wp_nonce_url( $ajax_url, $this->get_nonce( $params['action'], false ) );
+        $ajax_url = clean_url( $ajax_url );
 
         $jsfile = 'admin-editor-buttons-script.js';
         if ( file_exists( WP_TABLE_RELOADED_ABSPATH . 'admin/' . $jsfile ) ) {

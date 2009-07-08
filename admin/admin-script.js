@@ -158,6 +158,20 @@ jQuery(document).ready( function( $ ) {
 		return false;
     } );
 
+    // not all characters allowed for name of Custom Data Field
+    $( '#insert_custom_field_name' ).keyup( function () {
+        $(this).val( $(this).val().toLowerCase().replace(/[^a-z0-9_-]/g, '') );
+    } );
+
+    // remove/add title on focus/blur
+    $( '.focus-blur-change' ).focus( function () {
+        if ( $(this).attr('title') == $(this).val() )
+            $(this).val( '' );
+    } )
+    .blur( function () {
+        if ( '' == $(this).val() )
+            $(this).val( $(this).attr('title') );
+    } );
 
     // confirmation of certain actions
     $( 'input.bulk_copy_tables' ).click( function () {
