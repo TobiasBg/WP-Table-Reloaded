@@ -344,16 +344,32 @@ class WP_Table_Reloaded_Admin {
                 $table_id = $_POST['table']['id'];
                 $table = $this->load_table( $table_id );
                 $name = ( isset ( $_POST['insert']['custom_field'] ) ) ? $_POST['insert']['custom_field'] : '';
-                if ( !empty( $name ) && !isset ( $table['custom_fields'][$name] ) ) {
-                    $table['custom_fields'][$name] = '';
-                    $this->save_table( $table );
-                    $message = __( 'Custom Data Field added successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
-                } else {
-                    $message = __( 'Could not add Custom Data Field as a Field with that name already exists.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                if ( empty( $name ) ) {
+                    $message = __( 'Could not add Custom Data Field, because you did not enter a name.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                    break;
                 }
+                $reserved_names = array( 'name', 'description', 'last_modified', 'last_editor' );
+                if ( in_array( $name, $reserved_names ) ) {
+                    $message = __( 'Could not add Custom Data Field, because the name you entered is reserved for other table data.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                    break;
+                }
+                // Name can only contain lowercase letters, numbers, _ and - (like permalink slugs)
+                $clean_name = sanitize_title_with_dashes( $name );
+                if ( $name != $clean_name ) {
+                    $message = __( 'Could not add Custom Data Field, because the name contained illegal characters.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                    break;
+                }
+                if ( isset ( $table['custom_fields'][$name] ) ) {
+                    $message = __( 'Could not add Custom Data Field, because a Field with that name already exists.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                    break;
+                }
+                $table['custom_fields'][$name] = '';
+                $this->save_table( $table );
+                $message = __( 'Custom Data Field added successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
             default:
                 $this->do_action_list();
+                exit;
             }
 
             $this->print_header_message( $message );
@@ -408,6 +424,8 @@ class WP_Table_Reloaded_Admin {
                         
                         $rows = count( $table['data'] );
                         $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
+                        $rows = ( 0 < $rows ) ? $rows : 1;
+                        $cols = ( 0 < $cols ) ? $cols : 1;
                         $table['visibility']['rows'] = array_fill( 0, $rows, false );
                         $table['visibility']['columns'] = array_fill( 0, $cols, false );
                         
@@ -619,12 +637,13 @@ class WP_Table_Reloaded_Admin {
 
             $rows = count( $table['data'] );
             $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
+            $rows = ( 0 < $rows ) ? $rows : 1;
+            $cols = ( 0 < $cols ) ? $cols : 1;
             $table['visibility']['rows'] = array_fill( 0, $rows, false );
             $table['visibility']['columns'] = array_fill( 0, $cols, false );
 
-            $this->save_table( $table );
-
             if ( false == $error ) {
+                $this->save_table( $table );
                 $this->print_header_message( $success_message );
                 $this->print_edit_table_form( $table['id'] );
             } else {
@@ -1259,7 +1278,8 @@ class WP_Table_Reloaded_Admin {
             </table>
             <br/>
         <?php } // endif custom_fields ?>
-        <?php _e( 'Add new Custom Data Field', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <input type="text" name="insert[custom_field]" value="" style="width:150px" /> <input type="submit" name="submit[insert_cf]" class="button-primary" value="<?php _e( 'Add', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
+        <?php _e( 'To add a new Custom Data Field, enter its name (only lowercase letters, numbers, _ and -).', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/>
+        <?php _e( 'Custom Data Field Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>: <input type="text" name="insert[custom_field]" value="" style="width:150px" onkeyup="javascript:this.value=this.value.toLowerCase().replace(/[^a-z0-9_-]/g, '');" /> <input type="submit" name="submit[insert_cf]" class="button-primary" value="<?php _e( 'Add', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
     </div>
     </div>
 
@@ -1305,7 +1325,7 @@ class WP_Table_Reloaded_Admin {
         <?php
             $import_formats = $this->import_instance->import_formats;
             foreach ( $import_formats as $import_format => $longname )
-                echo "<option value=\"{$import_format}\">{$longname}</option>";
+                echo "<option" . ( ( $import_format == $_POST['import_format'] ) ? ' selected="selected"': '' ) . " value=\"{$import_format}\">{$longname}</option>\n";
         ?>
         </select></td>
         </tr>
@@ -1735,19 +1755,61 @@ TEXT;
     }
 
     // ###################################################################################################################
+    // for each $action an approriate message will be shown
     function get_contextual_help_string( $action ) {
-        // For each $action an approriate message will be shown
+        // certain $actions need different help string, because different screen is actually shown
+
+        // problem: delete -> edit/list     'table' == $_GET['item'] -> list
+        if ( 'delete' == $action && 'table' == $_GET['item'] )
+            $action = 'list';
+        // problem: import -> edit          $_REQUEST['import_format'] -> edit
+        if ( 'import' == $action && isset( $_REQUEST['import_format'] ) )
+            $action = 'edit';
+        // problem: add -> edit             $_POST['table'] ) -> edit
+        if ( 'add' == $action && isset( $_POST['table'] ) )
+            $action = 'edit';
+        // a few problems remain: import fails will show edit
+        
         switch( $action ) {
+            case 'copy':
+            case 'bulk_edit':
+            case 'hide_donate_nag':
             case 'list':
+                $help = __( 'This is the "List Tables" screen.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                break;
+            case 'insert':
             case 'edit':
+                $help = __( 'This is the "Edit Table" screen.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                break;
             case 'add':
+                $help = __( 'This is the "Add new Table" screen.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                break;
             case 'import':
+                $help = __( 'This is the "Import a Table" screen.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                break;
             case 'export':
+                $help = __( 'This is the "Export a Table" screen.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                break;
             case 'options':
+                $help = __( 'This is the "Plugin Options" screen.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                break;
+            case 'uninstall':
+                $help = __( 'Plugin deactivated successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ) . ' ' . __( 'All tables, data and options were deleted. You may now remove the plugin\'s subfolder from your WordPress plugin folder.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                break;
             case 'info':
+                $help = __( 'This is the "About WP-Table Reloaded" screen.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                break;
+            // case 'ajax_list': // not needed, no contextual_help here
             default:
-                return __( 'More information can be found on the <a href="http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/">plugin\'s website</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ) . '<br/>' . __( 'See the <a href="http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/documentation/">documentation</a> or find out how to get <a href="http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/support/">support</a>.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                $help = '';
+                break;
         }
+
+        $help .= '<br/><br/>' . __( 'More information can be found on the <a href="http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/">plugin\'s website</a>.', WP_TABLE_RELOADED_TEXTDOMAIN );
+        $help .= ' ' . __( 'See the <a href="http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/documentation/">documentation</a> or find out how to get <a href="http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/support/">support</a>.', WP_TABLE_RELOADED_TEXTDOMAIN );
+        $help .= '<br/>' . __( 'If you like the plugin, please consider <a href="http://tobias.baethge.com/donate/"><strong>a donation</strong></a> and rate the plugin in the <a href="http://wordpress.org/extend/plugins/wp-table-reloaded/">WordPress Plugin Directory</a>.', WP_TABLE_RELOADED_TEXTDOMAIN );
+
+        return $help;
     }
 
     // ###################################################################################################################
@@ -2040,7 +2102,7 @@ TEXT;
 	  	        'str_UninstallPluginLink_2' => __( 'Are you really sure?', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_ChangeTableID' => __( 'Do you really want to change the ID of the table?', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_CFShortcodeMessage' => __( 'To show this Custom Data Field, use this shortcode:', WP_TABLE_RELOADED_TEXTDOMAIN ),
-	  	        'str_TableShortcodeMessage' => __( 'To show this Table, use this shortcode:', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_TableShortcodeMessage' => __( 'To show this table, use this shortcode:', WP_TABLE_RELOADED_TEXTDOMAIN ),
                 'l10n_print_after' => 'try{convertEntities(WP_Table_Reloaded_Admin);}catch(e){};'
             ) );
             wp_print_scripts( 'wp-table-reloaded-admin-js' );
