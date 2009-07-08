@@ -82,6 +82,12 @@ class WP_Table_Reloaded_Import {
                 exit; // this should never happen
         }
 
+        if ( empty( $temp_data ) ) {
+            $this->imported_table = array();
+            $this->error = true;
+            return;
+        }
+
         $parseCSV->heading = false; // means: treat first row like all others
         $parseCSV->encoding( 'ISO-8859-1', 'UTF-8' ); // might need to play with this a little or offer an option
         $parseCSV->load_data( $temp_data );
@@ -230,6 +236,8 @@ class WP_Table_Reloaded_Import {
     function pad_array_to_max_cols( $array_to_pad ){
         $rows = count( $array_to_pad );
         $max_columns = $this->count_max_columns( $array_to_pad );
+        $rows = ( 0 < $rows ) ? $rows : 1;
+        $max_columns = ( 0 < $max_columns ) ? $max_columns : 1;
         // array_map wants arrays as additional parameters (so we create one with the max_cols to pad to and one with the value to use (empty string)
         $max_columns_array = array_fill( 1, $rows, $max_columns );
         $pad_values_array =  array_fill( 1, $rows, '' );
