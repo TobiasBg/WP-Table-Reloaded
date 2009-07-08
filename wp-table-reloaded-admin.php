@@ -879,6 +879,8 @@ class WP_Table_Reloaded_Admin {
                 echo "\t\t<a title=\"" . __( 'Edit', WP_TABLE_RELOADED_TEXTDOMAIN ) . " &#8220;{$name}&#8221;\" class=\"row-title\" href=\"{$edit_url}\">{$name}</a>\n";
                 echo "\t\t<div class=\"row-actions no-wrap\">";
                 echo "<a href=\"{$edit_url}\">" . __( 'Edit', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
+                $shortcode = sprintf( __( '[table id=%s /]', WP_TABLE_RELOADED_TEXTDOMAIN ), $id );
+                echo "<a href=\"javascript:void(0);\" class=\"table_shortcode_link\" title=\"{$shortcode}\">" . __( 'Shortcode', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
                 echo "<a class=\"copy_table_link\" href=\"{$copy_url}\">" . __( 'Copy', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
                 echo "<a href=\"{$export_url}\">" . __( 'Export', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
                 echo "<a class=\"delete_table_link\" href=\"{$delete_url}\">" . __( 'Delete', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>";
@@ -1220,45 +1222,44 @@ class WP_Table_Reloaded_Admin {
         ?>
         </p>
 
-        <div class="postbox closed">
+        <div class="postbox">
         <h3 class="hndle"><span><?php _e( 'Custom Data Fields', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php _e( 'Hide', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
+        <?php _e( 'Custom Data Fields can be used to add extra metadata to a table.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'For example, this could be information about the source or the creator of the data.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
+        <br/>
+        <?php echo sprintf( __( 'You can show this data in the same way as tables by using the shortcode <strong>[table-info id=%s field="&lt;field-name&gt;" /]</strong>.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $table_id ) ); ?>
+        <br/><br/>
         <?php if ( isset( $table['custom_fields'] ) && !empty ( $table['custom_fields'] ) ) { ?>
             <table class="widefat" style="width:auto;" id="table_custom_fields">
                 <thead>
                     <tr>
-                        <th scope="col">&nbsp;</th>
                         <th scope="col"><?php _e( 'Field Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
                         <th scope="col"><?php _e( 'Value', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
-                        <th scope="col">&nbsp;</th>
+                        <th scope="col"><?php _e( 'Action', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr>
-                        <th scope="col">&nbsp;</th>
-                        <th scope="col"><?php _e( 'Field Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
-                        <th scope="col"><?php _e( 'Value', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
-                        <th scope="col">&nbsp;</th>
-                    </tr>
-                </tfoot>
                 <tbody>
                 <?php
                 foreach ( $table['custom_fields'] as $name => $value ) {
                     $name = $this->safe_output( $name );
                     $value = $this->safe_output( $value );
                     echo "<tr>\n";
-                        echo "\t<th scope=\"row\">&nbsp;</th>\n";
                         echo "\t<td>{$name}</td>\n";
-                        echo "\t<td><input type=\"text\" name=\"table[custom_fields][{$name}]\" value=\"{$value}\" style=\"width:100px\" /></td>\n";
+                        echo "\t<td><input type=\"text\" name=\"table[custom_fields][{$name}]\" value=\"{$value}\" style=\"width:200px\" /></td>\n";
                         $delete_cf_url = $this->get_action_url( array( 'action' => 'delete', 'table_id' => $table['id'], 'item' => 'custom_field', 'element_id' => $name ), true );
-                        echo "\t<td><a href=\"{$delete_cf_url}\">" . __( 'Delete Field', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a></td>\n";
+                        echo "\t<td>";
+                        echo "<a href=\"{$delete_cf_url}\">" . __( 'Delete Field', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>";
+                        $shortcode = sprintf( __( '[table-info id=%s field=&quot;%s&quot; /]', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $table_id ), $name );
+                        echo " | <a href=\"javascript:void(0);\" class=\"cf_shortcode_link\" title=\"{$shortcode}\">" . __( 'View shortcode', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>";
+                        echo "</td>\n";
                     echo "</tr>";
                 }
                 ?>
                 </tbody>
             </table>
+            <br/>
         <?php } // endif custom_fields ?>
-        <?php _e( 'Add new Custom Data Field', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <input type="text" name="insert[custom_field]" value="" style="width:100px" /> <input type="submit" name="submit[insert_cf]" class="button-primary" value="<?php _e( 'Add', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
+        <?php _e( 'Add new Custom Data Field', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <input type="text" name="insert[custom_field]" value="" style="width:150px" /> <input type="submit" name="submit[insert_cf]" class="button-primary" value="<?php _e( 'Add', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
     </div>
     </div>
 
@@ -2038,6 +2039,8 @@ TEXT;
 	  	        'str_UninstallPluginLink_1' => __( 'Do you really want to uninstall the plugin and delete ALL data?', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_UninstallPluginLink_2' => __( 'Are you really sure?', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_ChangeTableID' => __( 'Do you really want to change the ID of the table?', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_CFShortcodeMessage' => __( 'To show this Custom Data Field, use this shortcode:', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_TableShortcodeMessage' => __( 'To show this Table, use this shortcode:', WP_TABLE_RELOADED_TEXTDOMAIN ),
                 'l10n_print_after' => 'try{convertEntities(WP_Table_Reloaded_Admin);}catch(e){};'
             ) );
             wp_print_scripts( 'wp-table-reloaded-admin-js' );

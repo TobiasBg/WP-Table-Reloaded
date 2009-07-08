@@ -198,6 +198,16 @@ jQuery(document).ready( function( $ ) {
         else
             return false;
     } );
+
+    $( 'a.cf_shortcode_link' ).click( function () {
+    	var dummy = prompt( WP_Table_Reloaded_Admin.str_CFShortcodeMessage, $(this).attr('title') );
+    	return false;
+    } );
+
+    $( 'a.table_shortcode_link' ).click( function () {
+    	var dummy = prompt( WP_Table_Reloaded_Admin.str_TableShortcodeMessage, $(this).attr('title') );
+    	return false;
+    } );
     
     // toggling of boxes
     $( '.postbox h3, .postbox .handlediv' ).click( function() {
