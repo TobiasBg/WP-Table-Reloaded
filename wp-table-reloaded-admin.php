@@ -62,7 +62,8 @@ class WP_Table_Reloaded_Admin {
             'print_name' => false,
             'print_description' => false,
             'use_tablesorter' => true
-        )
+        ),
+        'custom_fields' => array()
     );
     
     // class instances
@@ -339,6 +340,18 @@ class WP_Table_Reloaded_Admin {
                 $this->save_table( $table );
                 $message = __ngettext( 'Column added successfully.', 'Columns added successfully.', $number, WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
+            case 'insert_cf':
+                $table_id = $_POST['table']['id'];
+                $table = $this->load_table( $table_id );
+                $name = ( isset ( $_POST['insert']['custom_field'] ) ) ? $_POST['insert']['custom_field'] : '';
+                if ( !empty( $name ) && !isset ( $table['custom_fields'][$name] ) ) {
+                    $table['custom_fields'][$name] = '';
+                    $this->save_table( $table );
+                    $message = __( 'Custom Data Field added successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                } else {
+                    $message = __( 'Could not add Custom Data Field as a Field with that name already exists.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                }
+                break;
             default:
                 $this->do_action_list();
             }
@@ -473,6 +486,18 @@ class WP_Table_Reloaded_Admin {
                     $this->save_table( $table );
                     $this->print_header_message( __( 'Column deleted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
                 }
+                $this->print_edit_table_form( $table_id );
+                break;
+            case 'custom_field':
+                $name = ( isset( $_GET['element_id'] ) ) ? $_GET['element_id'] : '';
+                if ( !empty( $name ) && isset ( $table['custom_fields'][$name] ) ) {
+                    unset( $table['custom_fields'][$name] );
+                    $this->save_table( $table );
+                    $message = __( 'Custom Data Field deleted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                } else {
+                    $message = __( 'Custom Data Field could not be deleted.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                }
+                $this->print_header_message( $message );
                 $this->print_edit_table_form( $table_id );
                 break;
             default:
@@ -941,6 +966,8 @@ class WP_Table_Reloaded_Admin {
 		<?php echo sprintf( __( 'If you want to show a table in your pages, posts or text-widgets, use this shortcode: <strong>[table id=%s /]</strong>', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $table_id ) ); ?></p></div>
         <form method="post" action="<?php echo $this->get_action_url(); ?>">
         <?php wp_nonce_field( $this->get_nonce( 'edit' ) ); ?>
+        <input type="hidden" name="table[id]" value="<?php echo $table['id']; ?>" />
+        <input type="hidden" name="action" value="edit" />
 
         <div class="postbox">
         <h3 class="hndle"><span><?php _e( 'Table Information', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span></h3>
@@ -1075,10 +1102,12 @@ class WP_Table_Reloaded_Admin {
         </div>
         </div>
         <?php } //endif 0 < $rows/$cols ?>
-            <div class="postbox">
-            <h3 class="hndle"><span><?php _e( 'Data Manipulation', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php _e( 'Hide', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
-            <div class="inside">
-<table class="wp-table-reloaded-data-manipulation"><tr><td>
+
+        <div class="postbox">
+        <h3 class="hndle"><span><?php _e( 'Data Manipulation', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php _e( 'Hide', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+        <div class="inside">
+    <table class="wp-table-reloaded-data-manipulation"><tr>
+    <td>
         <?php if ( 1 < $rows ) { // swap rows form
 
             $row1_select = '<select name="swap[row][1]">';
@@ -1116,11 +1145,10 @@ class WP_Table_Reloaded_Admin {
             ?>
             <input type="submit" name="submit[swap_cols]" class="button-primary" value="<?php _e( 'Swap', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
         <?php } // end if form swap cols ?>
-</td><td>
+    </td><td>
         <a id="a-insert-link" class="button-primary" href=""><?php _e( 'Insert Link', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a><br/><br/>
         <a id="a-insert-image" class="button-primary" href=""><?php _e( 'Insert Image', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
-</td>
-<td>
+    </td><td>
         <?php if ( 1 < $rows ) { // sort form
 
             $col_select = '<select name="sort[col]">';
@@ -1138,13 +1166,20 @@ class WP_Table_Reloaded_Admin {
         ?>
             <input type="submit" name="submit[sort]" class="button-primary" value="<?php _e( 'Sort', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
         <?php } // end if sort form ?>
-</td>
-</tr>
-</table>
+        </td>
+    </tr></table>
         </div>
         </div>
-        
-        <br/>
+
+        <p class="submit">
+        <input type="submit" name="submit[update]" class="button-primary" value="<?php _e( 'Update Changes', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
+        <input type="submit" name="submit[save_back]" class="button-primary" value="<?php _e( 'Save and go back', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
+        <?php
+        $list_url = $this->get_action_url( array( 'action' => 'list' ) );
+        echo " <a class=\"button-primary\" href=\"{$list_url}\">" . __( 'Cancel', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>";
+        ?>
+        </p>
+
         <div class="postbox">
         <h3 class="hndle"><span><?php _e( 'Table Settings', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php _e( 'Hide', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
@@ -1168,31 +1203,86 @@ class WP_Table_Reloaded_Admin {
         </tr>
         <tr valign="top" id="options_use_tablesorter">
             <th scope="row"><?php _e( 'Use Tablesorter', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="table[options][use_tablesorter]" id="table[options][use_tablesorter]"<?php echo ( true == $table['options']['use_tablesorter'] ) ? ' checked="checked"': '' ; ?><?php echo ( false == $this->options['enable_tablesorter'] || false == $table['options']['first_row_th'] ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="table[options][use_tablesorter]"><?php _e( 'You may sort a table using the <a href="http://www.tablesorter.com/">Tablesorter-jQuery-Plugin</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( '<small>Attention: You must have Tablesorter enabled on the "Plugin Options" screen and the option "Use Table Headline" has to be enabled above for this to work!</small>', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <td>
+            <input type="hidden" id="tablesorter_enabled" value="<?php echo $this->options['enable_tablesorter']; ?>" />
+            <input type="checkbox" name="table[options][use_tablesorter]" id="table[options][use_tablesorter]"<?php echo ( true == $table['options']['use_tablesorter'] ) ? ' checked="checked"': '' ; ?><?php echo ( false == $this->options['enable_tablesorter'] || false == $table['options']['first_row_th'] ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="table[options][use_tablesorter]"><?php _e( 'You may sort a table using the <a href="http://www.tablesorter.com/">Tablesorter-jQuery-Plugin</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( '<small>Attention: You must have Tablesorter enabled on the "Plugin Options" screen and the option "Use Table Headline" has to be enabled above for this to work!</small>', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
         </table>
         </div>
         </div>
-        <input type="hidden" id="tablesorter_enabled" value="<?php echo $this->options['enable_tablesorter']; ?>" />
-        <input type="hidden" name="table[id]" value="<?php echo $table['id']; ?>" />
-        <input type="hidden" name="action" value="edit" />
+
         <p class="submit">
         <input type="submit" name="submit[update]" class="button-primary" value="<?php _e( 'Update Changes', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
         <input type="submit" name="submit[save_back]" class="button-primary" value="<?php _e( 'Save and go back', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
         <?php
         $list_url = $this->get_action_url( array( 'action' => 'list' ) );
         echo " <a class=\"button-primary\" href=\"{$list_url}\">" . __( 'Cancel', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>";
-        
-        echo '<br/><br/>' . __( 'Other actions', WP_TABLE_RELOADED_TEXTDOMAIN ) . ':';
-        $delete_url = $this->get_action_url( array( 'action' => 'delete', 'table_id' => $table['id'], 'item' => 'table' ), true );
-        $export_url = $this->get_action_url( array( 'action' => 'export', 'table_id' => $table['id'] ), false );
-        echo " <a class=\"button-secondary delete_table_link\" href=\"{$delete_url}\">" . __( 'Delete Table', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>";
-        echo " <a class=\"button-secondary\" href=\"{$export_url}\">" . __( 'Export Table', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>";
         ?>
         </p>
-        </form>
-        <?php
-        $this->print_page_footer();
+
+        <div class="postbox closed">
+        <h3 class="hndle"><span><?php _e( 'Custom Data Fields', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php _e( 'Hide', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+        <div class="inside">
+        <?php if ( isset( $table['custom_fields'] ) && !empty ( $table['custom_fields'] ) ) { ?>
+            <table class="widefat" style="width:auto;" id="table_custom_fields">
+                <thead>
+                    <tr>
+                        <th scope="col">&nbsp;</th>
+                        <th scope="col"><?php _e( 'Field Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
+                        <th scope="col"><?php _e( 'Value', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
+                        <th scope="col">&nbsp;</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th scope="col">&nbsp;</th>
+                        <th scope="col"><?php _e( 'Field Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
+                        <th scope="col"><?php _e( 'Value', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
+                        <th scope="col">&nbsp;</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                <?php
+                foreach ( $table['custom_fields'] as $name => $value ) {
+                    $name = $this->safe_output( $name );
+                    $value = $this->safe_output( $value );
+                    echo "<tr>\n";
+                        echo "\t<th scope=\"row\">&nbsp;</th>\n";
+                        echo "\t<td>{$name}</td>\n";
+                        echo "\t<td><input type=\"text\" name=\"table[custom_fields][{$name}]\" value=\"{$value}\" style=\"width:100px\" /></td>\n";
+                        $delete_cf_url = $this->get_action_url( array( 'action' => 'delete', 'table_id' => $table['id'], 'item' => 'custom_field', 'element_id' => $name ), true );
+                        echo "\t<td><a href=\"{$delete_cf_url}\">" . __( 'Delete Field', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a></td>\n";
+                    echo "</tr>";
+                }
+                ?>
+                </tbody>
+            </table>
+        <?php } // endif custom_fields ?>
+        <?php _e( 'Add new Custom Data Field', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <input type="text" name="insert[custom_field]" value="" style="width:100px" /> <input type="submit" name="submit[insert_cf]" class="button-primary" value="<?php _e( 'Add', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
+    </div>
+    </div>
+
+    <p class="submit">
+    <input type="submit" name="submit[update]" class="button-primary" value="<?php _e( 'Update Changes', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
+    <input type="submit" name="submit[save_back]" class="button-primary" value="<?php _e( 'Save and go back', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
+    <?php
+    $list_url = $this->get_action_url( array( 'action' => 'list' ) );
+    echo " <a class=\"button-primary\" href=\"{$list_url}\">" . __( 'Cancel', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>";
+    ?>
+    </p>
+
+    <p>
+    <?php echo __( 'Other actions', WP_TABLE_RELOADED_TEXTDOMAIN ) . ':';
+    $delete_url = $this->get_action_url( array( 'action' => 'delete', 'table_id' => $table['id'], 'item' => 'table' ), true );
+    $export_url = $this->get_action_url( array( 'action' => 'export', 'table_id' => $table['id'] ), false );
+    echo " <a class=\"button-secondary delete_table_link\" href=\"{$delete_url}\">" . __( 'Delete Table', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>";
+    echo " <a class=\"button-secondary\" href=\"{$export_url}\">" . __( 'Export Table', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>";
+    ?>
+    </p>
+        
+    </form>
+    <?php
+    $this->print_page_footer();
     }
 
     // ###################################################################################################################
