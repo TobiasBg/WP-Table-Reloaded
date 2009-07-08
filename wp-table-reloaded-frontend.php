@@ -90,8 +90,11 @@ class WP_Table_Reloaded_Frontend {
                 $output = $this->get_last_editor( $table['last_editor_id'] );
                 break;
             default:
-                //$output = "[table-info field \"{$field}\" not found /]<br />\n";
-                $output = $table['custom_fields'][ $field ];
+                if ( isset( $table['custom_fields'][ $field ] ) ) {
+                    $output = $table['custom_fields'][ $field ];
+                } else {
+                    $output = "[table-info field \"{$field}\" not found in table {$table_id} /]<br />\n";
+                }
         }
 
         return $output;
