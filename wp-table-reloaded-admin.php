@@ -87,12 +87,14 @@ class WP_Table_Reloaded_Admin {
         // have to check for possible export file download request this early,
         // because otherwise http-headers will be sent by WP before we can send download headers
         if ( $valid_ajax_call && isset( $_POST['download_export_file'] ) && 'true' == $_POST['download_export_file'] ) {
-            add_action( 'init', array( &$this, 'do_action_export' ) );
+            // can be done in plugins_loaded, as no language support is needed
+            add_action( 'plugins_loaded', array( &$this, 'do_action_export' ) );
             $doing_ajax = true;
         }
         // have to check for possible call by editor button to show list of tables
         // and possible call to show Table preview in a thickbox on "List tables" screen
         if ( !$doing_ajax && $valid_ajax_call && isset( $_GET['action'] ) && ( 'ajax_list' == $_GET['action'] || 'ajax_preview' == $_GET['action'] ) ) {
+            // can not be done earlier, because we need language support
             add_action( 'init', array( &$this, 'do_action_' . $_GET['action'] ) );
             $doing_ajax = true;
         }
