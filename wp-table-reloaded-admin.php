@@ -17,6 +17,7 @@ class WP_Table_Reloaded_Admin {
     var $plugin_version = '1.4-alpha';
     // nonce for security of links/forms, try to prevent "CSRF"
     var $nonce_base = 'wp-table-reloaded-nonce';
+    var $page_slug = 'wp_table_reloaded';
     // names for the options which are stored in the WP database
     var $optionname = array(
         'tables' => 'wp_table_reloaded_tables',
@@ -24,7 +25,7 @@ class WP_Table_Reloaded_Admin {
         'table' => 'wp_table_reloaded_data'
     );
     // allowed actions in this class
-    var $allowed_actions = array( 'list', 'add', 'edit', 'bulk_edit', 'copy', 'delete', 'insert', 'import', 'export', 'options', 'uninstall', 'info', 'hide_donate_nag' ); // 'ajax_list', but handled separatly
+    var $allowed_actions = array( 'list', 'add', 'edit', 'bulk_edit', 'copy', 'delete', 'insert', 'import', 'export', 'options', 'uninstall', 'info', 'hide_donate_nag' ); // 'ajax_list', 'ajax_preview', but handled separatly
     // current action, populated in load_manage_page
     var $action = 'list';
     
@@ -79,33 +80,42 @@ class WP_Table_Reloaded_Admin {
         // init plugin (means: load plugin options and existing tables)
         $this->init_plugin();
 
-        add_action( 'admin_menu', array( &$this, 'add_manage_page' ) );
-
-        // add JS to add button to editor on these pages
-        $pages_with_editor_button = array( 'post.php', 'post-new.php', 'page.php', 'page-new.php' );
-        foreach ( $pages_with_editor_button as $page )
-            add_action( 'load-' . $page, array( &$this, 'add_editor_button' ) );
+        // init variables to check whether we do valid AJAX
+        $doing_ajax = false;
+        $valid_ajax_call = ( isset( $_GET['page'] ) && $this->page_slug == $_GET['page'] ) ? true : false;
 
         // have to check for possible export file download request this early,
         // because otherwise http-headers will be sent by WP before we can send download headers
-        if ( isset( $_POST['wp_table_reloaded_download_export_file'] ) ) {
+        if ( $valid_ajax_call && isset( $_POST['download_export_file'] ) && 'true' == $_POST['download_export_file'] ) {
             add_action( 'init', array( &$this, 'do_action_export' ) );
+            $doing_ajax = true;
         }
-
         // have to check for possible call by editor button to show list of tables
-        if ( isset( $_GET['action'] ) && 'ajax_list' == $_GET['action'] ) {
-            add_action( 'init', array( &$this, 'do_action_ajax_list' ) );
+        // and possible call to show Table preview in a thickbox on "List tables" screen
+        if ( !$doing_ajax && $valid_ajax_call && isset( $_GET['action'] ) && ( 'ajax_list' == $_GET['action'] || 'ajax_preview' == $_GET['action'] ) ) {
+            add_action( 'init', array( &$this, 'do_action_' . $_GET['action'] ) );
+            $doing_ajax = true;
         }
 
-        // add remote message, if update available
-        add_action( 'in_plugin_update_message-' . WP_TABLE_RELOADED_BASENAME, array( &$this, 'plugin_update_message' ), 10, 2 );
+        // if we are not doing AJAX, we call the main plugin handler
+        if ( !$doing_ajax ) {
+            add_action( 'admin_menu', array( &$this, 'add_manage_page' ) );
+
+            // add JS to add button to editor on these pages
+            $pages_with_editor_button = array( 'post.php', 'post-new.php', 'page.php', 'page-new.php' );
+            foreach ( $pages_with_editor_button as $page )
+                add_action( 'load-' . $page, array( &$this, 'add_editor_button' ) );
+
+            // add remote message, if update available
+            add_action( 'in_plugin_update_message-' . WP_TABLE_RELOADED_BASENAME, array( &$this, 'plugin_update_message' ), 10, 2 );
+        }
     }
 
     // ###################################################################################################################
     // add page, and what happens when page is loaded or shown
     function add_manage_page() {
         $min_needed_capability = 'publish_posts'; // user needs at least this capability to view WP-Table Reloaded config page
-        $this->hook = add_management_page( 'WP-Table Reloaded', 'WP-Table Reloaded', $min_needed_capability, 'wp_table_reloaded', array( &$this, 'show_manage_page' ) );
+        $this->hook = add_management_page( 'WP-Table Reloaded', 'WP-Table Reloaded', $min_needed_capability, $this->page_slug, array( &$this, 'show_manage_page' ) );
         add_action( 'load-' . $this->hook, array( &$this, 'load_manage_page' ) );
     }
     
@@ -129,6 +139,13 @@ class WP_Table_Reloaded_Admin {
         // check if action is in allowed actions and if method is callable, if yes, call it
         if ( in_array( $action, $this->allowed_actions ) )
             $this->action = $action;
+
+        // need thickbox to be able to show table in iframe on certain action pages (but not all)
+        $thickbox_actions = array ( 'list', 'copy', 'bulk_edit', 'hide_donate_nag' ); // those all show the "List of tables"
+        if ( in_array( $action, $thickbox_actions ) ) {
+            add_thickbox();
+            wp_enqueue_script( 'media-upload' ); // for resizing the thickbox
+        }
 
         // after get_action, because needs action parameter
         if ( true == function_exists( 'add_contextual_help' ) ) // then WP version is >= 2.7
@@ -691,7 +708,7 @@ class WP_Table_Reloaded_Admin {
             $this->export_instance->export_table();
             $exported_table = $this->export_instance->exported_table;
 
-            if ( isset( $_POST['wp_table_reloaded_download_export_file'] ) ) {
+            if ( isset( $_POST['download_export_file'] ) && 'true' == $_POST['download_export_file'] ) {
                 $filename = $table_to_export['id'] . '-' . $table_to_export['name'] . '-' . date('Y-m-d') . '.' . $_POST['export_format'];
                 $this->prepare_download( $filename, strlen( $exported_table ), 'text/' . $_POST['export_format'] );
                 echo $exported_table;
@@ -701,7 +718,8 @@ class WP_Table_Reloaded_Admin {
                 $this->print_export_table_form( $_POST['table_id'], $exported_table );
             }
         } else {
-            $this->print_export_table_form( $_REQUEST['table_id'] );
+            $table_id = isset( $_REQUEST['table_id'] ) ? $_REQUEST['table_id'] : 0;
+            $this->print_export_table_form( $table_id );
         }
     }
     
@@ -814,6 +832,43 @@ class WP_Table_Reloaded_Admin {
     }
     
     // ###################################################################################################################
+    function do_action_ajax_preview() {
+        check_admin_referer( $this->get_nonce( 'ajax_preview' ) );
+
+        // init language support
+        $this->init_language_support();
+
+        $table_id = ( isset( $_GET['table_id'] ) && 0 < $_GET['table_id'] ) ? $_GET['table_id'] : 0;
+
+        if ( $this->table_exists( $table_id ) ) {
+            $table = $this->load_table( $_GET['table_id'] );
+
+            $this->print_page_header( sprintf( __( 'Preview of Table "%s"', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $table['name'] ) ) . " (ID " . $this->safe_output( $table['id'] ) . ")"  );
+            ?>
+            <div style="clear:both;"><p>
+            <?php _e( 'This is a preview of the table data.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/>
+            <?php _e( 'Because of CSS styling, the table might look different on your page!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
+            </p></div>
+            <div style="clear:both;">
+            <?php
+                $WP_Table_Reloaded_Frontend = $this->create_class_instance( 'WP_Table_Reloaded_Frontend', 'wp-table-reloaded-frontend.php', '' );
+                $atts = array( 'id' => $_GET['table_id'] );
+                echo $WP_Table_Reloaded_Frontend->handle_content_shortcode_table( $atts );
+            ?>
+            </div>
+            <?php
+            $this->print_page_footer();
+        } else {
+            ?>
+            <div style="clear:both;"><p style="width:97%;"><?php _e( 'There is no table with this ID!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p></div>
+            <?php
+        }
+
+        // necessary to stop page building here!
+        exit;
+    }
+    
+    // ###################################################################################################################
     // user donated
     function do_action_hide_donate_nag() {
         check_admin_referer( $this->get_nonce( 'hide_donate_nag' ) );
@@ -890,6 +945,7 @@ class WP_Table_Reloaded_Admin {
                 $copy_url = $this->get_action_url( array( 'action' => 'copy', 'table_id' => $id ), true );
                 $export_url = $this->get_action_url( array( 'action' => 'export', 'table_id' => $id ), false );
                 $delete_url = $this->get_action_url( array( 'action' => 'delete', 'table_id' => $id, 'item' => 'table' ), true );
+                $preview_url = $this->get_action_url( array( 'action' => 'ajax_preview', 'table_id' => $id ), true );
 
                 echo "<tr{$bg_style}>\n";
                 echo "\t<th class=\"check-column no-wrap\" scope=\"row\"><input type=\"checkbox\" name=\"tables[]\" value=\"{$id}\" /></th>\n";
@@ -902,7 +958,9 @@ class WP_Table_Reloaded_Admin {
                 echo "<a href=\"javascript:void(0);\" class=\"table_shortcode_link\" title=\"{$shortcode}\">" . __( 'Shortcode', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
                 echo "<a class=\"copy_table_link\" href=\"{$copy_url}\">" . __( 'Copy', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
                 echo "<a href=\"{$export_url}\">" . __( 'Export', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
-                echo "<a class=\"delete_table_link\" href=\"{$delete_url}\">" . __( 'Delete', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>";
+                echo "<a class=\"delete_table_link\" href=\"{$delete_url}\">" . __( 'Delete', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
+                $preview_title = sprintf( __( 'Preview Table %s', WP_TABLE_RELOADED_TEXTDOMAIN ), $id );
+                echo "<a class=\"thickbox\" href=\"{$preview_url}\" title=\"{$preview_title}\">" . __( 'Preview', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>";
                 echo "</div>\n";
                 echo "\t</td>\n";
                 echo "\t<td>{$description}</td>\n";
@@ -1521,7 +1579,7 @@ class WP_Table_Reloaded_Admin {
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Download file', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="wp_table_reloaded_download_export_file" id="wp_table_reloaded_download_export_file" value="true" /> <label for="wp_table_reloaded_download_export_file"><?php _e( 'Yes, I want to download the export file.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <td><input type="checkbox" name="download_export_file" id="download_export_file" value="true" /> <label for="download_export_file"><?php _e( 'Yes, I want to download the export file.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
         </table>
         <input type="hidden" name="action" value="export" />
@@ -1731,13 +1789,13 @@ TEXT;
     function print_submenu_navigation( $action ) {
         ?>
         <ul class="subsubsub">
-            <li><a <?php if ( 'list' == $action ) echo 'class="current" '; ?>href="<?php echo $this->get_action_url( array( 'action' => 'list' ) ); ?>"><?php _e( 'List Tables', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a> | </li>
-            <li><a <?php if ( 'add' == $action ) echo 'class="current" '; ?>href="<?php echo $this->get_action_url( array( 'action' => 'add' ) ); ?>"><?php _e( 'Add new Table', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a> | </li>
-            <li><a <?php if ( 'import' == $action ) echo 'class="current" '; ?>href="<?php echo $this->get_action_url( array( 'action' => 'import' ) ); ?>"><?php _e( 'Import a Table', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a> | </li>
-            <li><a <?php if ( 'export' == $action ) echo 'class="current" '; ?>href="<?php echo $this->get_action_url( array( 'action' => 'export' ) ); ?>"><?php _e( 'Export a Table', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a></li>
+            <li><a <?php if ( 'list' == $action ) echo 'class="current" '; ?>href="<?php echo $this->get_action_url( array( 'action' => 'list' ), false ); ?>"><?php _e( 'List Tables', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a> | </li>
+            <li><a <?php if ( 'add' == $action ) echo 'class="current" '; ?>href="<?php echo $this->get_action_url( array( 'action' => 'add' ), false ); ?>"><?php _e( 'Add new Table', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a> | </li>
+            <li><a <?php if ( 'import' == $action ) echo 'class="current" '; ?>href="<?php echo $this->get_action_url( array( 'action' => 'import' ), false ); ?>"><?php _e( 'Import a Table', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a> | </li>
+            <li><a <?php if ( 'export' == $action ) echo 'class="current" '; ?>href="<?php echo $this->get_action_url( array( 'action' => 'export' ), false ); ?>"><?php _e( 'Export a Table', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a></li>
             <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-            <li><a <?php if ( 'options' == $action ) echo 'class="current" '; ?>href="<?php echo $this->get_action_url( array( 'action' => 'options' ) ); ?>"><?php _e( 'Plugin Options', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a> | </li>
-            <li><a <?php if ( 'info' == $action ) echo 'class="current" '; ?>href="<?php echo $this->get_action_url( array( 'action' => 'info' ) ); ?>"><?php _e( 'About the Plugin', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a></li>
+            <li><a <?php if ( 'options' == $action ) echo 'class="current" '; ?>href="<?php echo $this->get_action_url( array( 'action' => 'options' ), false ); ?>"><?php _e( 'Plugin Options', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a> | </li>
+            <li><a <?php if ( 'info' == $action ) echo 'class="current" '; ?>href="<?php echo $this->get_action_url( array( 'action' => 'info' ), false ); ?>"><?php _e( 'About the Plugin', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a></li>
         </ul>
         <br class="clear" />
         <?php
@@ -1800,6 +1858,7 @@ TEXT;
                 $help = __( 'This is the "About WP-Table Reloaded" screen.', WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
             // case 'ajax_list': // not needed, no contextual_help here
+            // case 'ajax_preview': // not needed, no contextual_help here
             default:
                 $help = '';
                 break;
@@ -1926,7 +1985,7 @@ TEXT;
     // ###################################################################################################################
     function get_action_url( $params = array(), $add_nonce = false ) {
         $default_params = array(
-                'page' => 'wp_table_reloaded', // might need to change this back to $_REQUEST['page'] if errors happen
+                'page' => $this->page_slug,
                 'action' => false,
                 'item' => false
         );
@@ -1945,9 +2004,9 @@ TEXT;
     // ###################################################################################################################
 
     // ###################################################################################################################
-    function create_class_instance( $class, $file ) {
+    function create_class_instance( $class, $file, $folder = 'php' ) {
         if ( !class_exists( $class ) )
-            include_once ( WP_TABLE_RELOADED_ABSPATH . 'php/' . $file );
+            include_once ( WP_TABLE_RELOADED_ABSPATH . $folder . '/' . $file );
         return new $class;
     }
 
@@ -2131,7 +2190,7 @@ TEXT;
     // print out the JS in the admin footer
     function add_editor_button_js() {
         $params = array(
-                'page' => 'wp_table_reloaded',
+                'page' => $this->page_slug,
                 'action' => 'ajax_list'
         );
         $ajax_url = add_query_arg( $params, dirname( $_SERVER['PHP_SELF'] ) . '/tools.php' );
