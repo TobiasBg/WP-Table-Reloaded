@@ -392,7 +392,7 @@ class WP_Table_Reloaded_Admin {
                 break;
             default:
                 $this->do_action_list();
-                exit;
+                return;
             }
 
             $this->print_header_message( $message );
@@ -641,7 +641,7 @@ class WP_Table_Reloaded_Admin {
             } else { // no valid data submitted
                 $this->print_header_message( __( 'Table could not be imported.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
                 $this->print_import_table_form();
-                exit;
+                return;
             }
 
             $table = array_merge( $this->default_table, $imported_table );
@@ -673,7 +673,7 @@ class WP_Table_Reloaded_Admin {
                 $this->print_header_message( __( 'Table could not be imported.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
                 $this->print_import_table_form();
             }
-        } elseif (  'wp_table' == $_GET['import_format'] && isset( $_GET['wp_table_id'] ) ) {
+        } elseif ( isset( $_GET['import_format'] ) && 'wp_table' == $_GET['import_format'] && isset( $_GET['wp_table_id'] ) ) {
             check_admin_referer( $this->get_nonce( 'import' ) );
 
             // do import
@@ -1399,15 +1399,15 @@ class WP_Table_Reloaded_Admin {
         <?php
             $import_formats = $this->import_instance->import_formats;
             foreach ( $import_formats as $import_format => $longname )
-                echo "<option" . ( ( $import_format == $_POST['import_format'] ) ? ' selected="selected"': '' ) . " value=\"{$import_format}\">{$longname}</option>\n";
+                echo "<option" . ( isset( $_POST['import_format'] ) && ( $import_format == $_POST['import_format'] ) ? ' selected="selected"': '' ) . " value=\"{$import_format}\">{$longname}</option>\n";
         ?>
         </select></td>
         </tr>
         <tr valign="top" class="tr-import-addreplace">
             <th scope="row" style="min-width:350px;"><?php _e( 'Add or Replace Table?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
             <td>
-            <input name="import_addreplace" id="import_addreplace_add" type="radio" value="add" <?php echo ( 'replace' != $_POST['import_from'] ) ? 'checked="checked" ': '' ; ?>/> <label for="import_addreplace_add"><?php _e( 'Add as new Table', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label>
-            <input name="import_addreplace" id="import_addreplace_replace" type="radio" value="replace" <?php echo ( 'replace' == $_POST['import_from'] ) ? 'checked="checked" ': '' ; ?>/> <label for="import_addreplace_replace"><?php _e( 'Replace existing Table', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label>
+            <input name="import_addreplace" id="import_addreplace_add" type="radio" value="add" <?php echo ( isset( $_POST['import_addreplace'] ) && 'add' != $_POST['import_addreplace'] ) ? '' : 'checked="checked" ' ; ?>/> <label for="import_addreplace_add"><?php _e( 'Add as new Table', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label>
+            <input name="import_addreplace" id="import_addreplace_replace" type="radio" value="replace" <?php echo ( isset( $_POST['import_addreplace'] ) && 'replace' == $_POST['import_addreplace'] ) ? 'checked="checked" ': '' ; ?>/> <label for="import_addreplace_replace"><?php _e( 'Replace existing Table', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label>
             </td>
         </tr>
         <tr valign="top" class="tr-import-addreplace-table">
@@ -1420,7 +1420,7 @@ class WP_Table_Reloaded_Admin {
                     $name = $this->safe_output( $table['name'] );
                     //$description = $this->safe_output( $table['description'] );
                 unset( $table );
-                echo "<option" . ( ( $id == $_POST['import_replace_table'] ) ? ' selected="selected"': '' ) . " value=\"{$id}\">{$name} (ID {$id})</option>";
+                echo "<option" . ( isset( $_POST['import_addreplace_table'] ) && ( $id == $_POST['import_addreplace_table'] ) ? ' selected="selected"': '' ) . " value=\"{$id}\">{$name} (ID {$id})</option>";
             }
         ?>
         </select></td>
@@ -1428,10 +1428,10 @@ class WP_Table_Reloaded_Admin {
         <tr valign="top" class="tr-import-from">
             <th scope="row" style="min-width:350px;"><?php _e( 'Select source for import', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
             <td>
-            <input name="import_from" id="import_from_file" type="radio" value="file-upload" <?php echo ( ( 'url' == $_POST['import_from'] ) || ( 'form-field' == $_POST['import_from'] ) || ( 'server' == $_POST['import_from'] ))? '' :'checked="checked" ' ; ?>/> <label for="import_from_file"><?php _e( 'File upload', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label>
-            <input name="import_from" id="import_from_url" type="radio" value="url" <?php echo ( 'url' == $_POST['import_from'] ) ? 'checked="checked" ': '' ; ?>/> <label for="import_from_url"><?php _e( 'URL', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label>
-            <input name="import_from" id="import_from_field" type="radio" value="form-field" <?php echo ( 'form-field' == $_POST['import_from'] ) ? 'checked="checked" ': '' ; ?>/> <label for="import_from_field"><?php _e( 'Manual input', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label>
-            <input name="import_from" id="import_from_server" type="radio" value="server" <?php echo ( 'server' == $_POST['import_from'] ) ? 'checked="checked" ': '' ; ?>/> <label for="import_from_server"><?php _e( 'File on server', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label>
+            <input name="import_from" id="import_from_file" type="radio" value="file-upload" <?php echo ( isset( $_POST['import_from'] ) && 'file-upload' != $_POST['import_from'] ) ? '' : 'checked="checked" ' ; ?>/> <label for="import_from_file"><?php _e( 'File upload', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label>
+            <input name="import_from" id="import_from_url" type="radio" value="url" <?php echo ( isset( $_POST['import_from'] ) && 'url' == $_POST['import_from'] ) ? 'checked="checked" ': '' ; ?>/> <label for="import_from_url"><?php _e( 'URL', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label>
+            <input name="import_from" id="import_from_field" type="radio" value="form-field" <?php echo ( isset( $_POST['import_from'] ) && 'form-field' == $_POST['import_from'] ) ? 'checked="checked" ': '' ; ?>/> <label for="import_from_field"><?php _e( 'Manual input', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label>
+            <input name="import_from" id="import_from_server" type="radio" value="server" <?php echo ( isset( $_POST['import_from'] ) && 'server' == $_POST['import_from'] ) ? 'checked="checked" ': '' ; ?>/> <label for="import_from_server"><?php _e( 'File on server', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label>
             </td>
         </tr>
         <tr valign="top" class="tr-import-file-upload">
@@ -1648,7 +1648,7 @@ class WP_Table_Reloaded_Admin {
         <tr valign="top">
             <th scope="row">&nbsp;</th>
             <td><label for="options_custom_css"><?php _e( 'Enter custom CSS', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label><br/>
-            <textarea name="options[custom_css]" id="options_custom_css" rows="15" cols="40" style="width:600px;height:300px;"<?php echo ( false == $this->options['use_custom_css'] ) ? ' disabled="disabled"': '' ; ?>><?php echo $this->safe_output( $this->options[custom_css] ); ?></textarea><br/><br/>
+            <textarea name="options[custom_css]" id="options_custom_css" rows="15" cols="40" style="width:600px;height:300px;"<?php echo ( false == $this->options['use_custom_css'] ) ? ' disabled="disabled"': '' ; ?>><?php echo $this->safe_output( $this->options['custom_css'] ); ?></textarea><br/><br/>
             <?php echo sprintf( __( '(You might get a better website performance, if you add the CSS styling to your theme\'s "style.css" <small>(located at %s)</small>) instead.', WP_TABLE_RELOADED_TEXTDOMAIN ), get_stylesheet_uri() ); ?><br/>
             <?php echo sprintf( __( 'See the <a href="%s">plugin website</a> for styling examples or use one of the following: <a href="%s">Example Style 1</a> <a href="%s">Example Style 2</a>', WP_TABLE_RELOADED_TEXTDOMAIN ), 'http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/', 'http://tobias.baethge.com/download/plugins/additional/example-style-1.css', 'http://tobias.baethge.com/download/plugins/additional/example-style-2.css' ); ?><br/><?php _e( 'Just copy the contents of a file into the textarea.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             </td>
