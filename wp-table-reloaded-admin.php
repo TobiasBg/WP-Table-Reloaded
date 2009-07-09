@@ -252,6 +252,9 @@ class WP_Table_Reloaded_Admin {
                     $table['visibility']['columns'][$col_idx] = isset( $_POST['table']['visibility']['columns'][$col_idx] );
                 ksort( $table['visibility']['columns'], SORT_NUMERIC );
 
+                if ( isset( $table['custom_fields'] ) && !empty( $table['custom_fields'] ) )
+                    uksort( $table['custom_fields'], 'strnatcasecmp' ); // sort the keys naturally
+
                 $this->save_table( $table );
                 break;
             case 'swap_rows':
@@ -381,6 +384,7 @@ class WP_Table_Reloaded_Admin {
                     break;
                 }
                 $table['custom_fields'][$name] = '';
+                uksort( $table['custom_fields'], 'strnatcasecmp' ); // sort the keys naturally
                 $this->save_table( $table );
                 $message = __( 'Custom Data Field added successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
@@ -782,13 +786,15 @@ class WP_Table_Reloaded_Admin {
 
         $this->print_page_header( __( 'List of Tables', WP_TABLE_RELOADED_TEXTDOMAIN ) );
         ?>
-        <div style="clear:both;"><p style="width:97%;"><?php _e( 'This is a list of all available tables.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'You may insert a table into a post or page here.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br />
-		<?php _e( 'Click the "Insert" link after the desired table and the corresponding shortcode will be inserted into the editor (<strong>[table id=&lt;the_table_ID&gt; /]</strong>).', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p></div>
+        <div style="clear:both;"><p>
+        <?php _e( 'This is a list of all available tables.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'You may insert a table into a post or page here.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br />
+		<?php _e( 'Click the "Insert" link after the desired table and the corresponding shortcode will be inserted into the editor (<strong>[table id=&lt;the_table_ID&gt; /]</strong>).', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
+        </p></div>
 		<?php
         if ( 0 < count( $this->tables ) ) {
             ?>
         <div style="clear:both;">
-            <table class="widefat" style="width:97%;">
+            <table class="widefat">
             <thead>
                 <tr>
                     <th scope="col"><?php _e( 'ID', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
@@ -797,6 +803,14 @@ class WP_Table_Reloaded_Admin {
                     <th scope="col"><?php _e( 'Action', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
                 </tr>
             </thead>
+            <tfoot>
+                <tr>
+                    <th scope="col"><?php _e( 'ID', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
+                    <th scope="col"><?php _e( 'Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
+                    <th scope="col"><?php _e( 'Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
+                    <th scope="col"><?php _e( 'Action', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
+                </tr>
+            </tfoot>
             <tbody>
             <?php
             $bg_style_index = 0;
@@ -2182,6 +2196,7 @@ TEXT;
     function add_editor_button() {
         if ( 0 < count( $this->tables ) ) {
             $this->init_language_support();
+            add_thickbox(); // we need thickbox to show the list
             add_action( 'admin_footer', array( &$this, 'add_editor_button_js' ) );
         }
     }
@@ -2197,6 +2212,7 @@ TEXT;
         $ajax_url = wp_nonce_url( $ajax_url, $this->get_nonce( $params['action'], false ) );
         $ajax_url = clean_url( $ajax_url );
 
+        // currently doing this by hand in the footer, as footer-scripts are only available since WP 2.8
         $jsfile = 'admin-editor-buttons-script.js';
         if ( file_exists( WP_TABLE_RELOADED_ABSPATH . 'admin/' . $jsfile ) ) {
             wp_register_script( 'wp-table-reloaded-admin-editor-buttons-js', WP_TABLE_RELOADED_URL . 'admin/' . $jsfile, array( 'jquery', 'thickbox' ), $this->plugin_version );
