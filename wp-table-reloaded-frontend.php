@@ -149,7 +149,9 @@ class WP_Table_Reloaded_Frontend {
         $output_options = array();
         foreach ( $atts as $key => $value ) {
             // have to check this, because strings 'true' or 'false' are not recognized as boolean!
-            if ( 'true' == strtolower( $value ) )
+            if ( is_array( $value ) )
+                $output_options[ $key ] = $value;
+            elseif ( 'true' == strtolower( $value ) )
                 $output_options[ $key ] = true;
             elseif ( 'false' == strtolower( $value ) )
                 $output_options[ $key ] = false;
