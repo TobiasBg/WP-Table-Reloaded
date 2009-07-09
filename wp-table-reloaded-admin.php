@@ -1984,7 +1984,8 @@ TEXT;
     // ###################################################################################################################
     function get_last_editor( $last_editor_id ) {
         $user = get_userdata( $last_editor_id );
-        return $user->nickname;
+        $nickname = ( isset( $user->nickname ) ) ? $user->nickname : '';
+        return $nickname;
     }
 
     // ###################################################################################################################
