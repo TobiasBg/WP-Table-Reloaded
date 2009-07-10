@@ -93,7 +93,7 @@ class WP_Table_Reloaded_Frontend {
                 if ( isset( $table['custom_fields'][ $field ] ) ) {
                     $output = $table['custom_fields'][ $field ];
                 } else {
-                    $output = "[table-info field \"{$field}\" not found in table {$table_id} /]<br />\n";
+                    $output = "[table-info field &quot;{$field}&quot; not found in table {$table_id} /]<br />\n";
                 }
         }
 
@@ -124,7 +124,7 @@ class WP_Table_Reloaded_Frontend {
         // check if table exists
         $table_id = $atts['id'];
         if ( !is_numeric( $table_id ) || 1 > $table_id || false == $this->table_exists( $table_id ) )
-            return "[table \"{$table_id}\" not found /]<br />\n";
+            return "[table &quot;{$table_id}&quot; not found /]<br />\n";
 
         // explode from string to array
         $atts['column_widths'] = explode( '|', $atts['column_widths'] );
@@ -322,6 +322,9 @@ class WP_Table_Reloaded_Frontend {
 
     // ###################################################################################################################
     function safe_output( $string ) {
+        // replace any & with &amp; that is not already an encoded entity (from function htmlentities2 in WP 2.8)
+        $string = preg_replace( "/&(?![A-Za-z]{0,4}\w{2,3};|#[0-9]{2,4};)/", "&amp;", $string );
+        // then we only remove slashes and change line breaks, htmlspecialchars would encode <HTML> tags which we don't want
         return nl2br( stripslashes( $string ) );
     }
 
