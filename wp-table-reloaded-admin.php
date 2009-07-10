@@ -859,7 +859,7 @@ class WP_Table_Reloaded_Admin {
         if ( $this->table_exists( $table_id ) ) {
             $table = $this->load_table( $_GET['table_id'] );
 
-            $this->print_page_header( sprintf( __( 'Preview of Table "%s"', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $table['name'] ) ) . " (ID " . $this->safe_output( $table['id'] ) . ")"  );
+            $this->print_page_header( sprintf( __( 'Preview of Table "%s" (ID %s)', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $table['name'] ), $this->safe_output( $table['id'] ) ) );
             ?>
             <div style="clear:both;"><p>
             <?php _e( 'This is a preview of the table data.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/>
@@ -1054,7 +1054,7 @@ class WP_Table_Reloaded_Admin {
         $rows = count( $table['data'] );
         $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
 
-        $this->print_page_header( sprintf( __( 'Edit Table "%s"', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $table['name'] ) ) . " (ID " . $this->safe_output( $table['id'] ) . ")"  );
+        $this->print_page_header( sprintf( __( 'Edit Table "%s" (ID %s)', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $table['name'] ), $this->safe_output( $table['id'] ) ) );
         $this->print_submenu_navigation( 'edit' );
         ?>
         <div style="clear:both;"><p><?php _e( 'You may edit the content of the table here. It is also possible to add or delete columns and rows.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br />
@@ -1889,8 +1889,8 @@ TEXT;
 
     // ###################################################################################################################
     function safe_output( $string ) {
-        // need to check for better possibilities, e.g. WP 2.8's new escaping functions
-        return htmlspecialchars( stripslashes( $string ) );
+        $string = stripslashes( $string ); // because $string is add_slashed before WP stores it in DB
+        return wp_specialchars( $string, ENT_QUOTES, false, true );
     }
 
     // ###################################################################################################################
