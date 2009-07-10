@@ -79,7 +79,10 @@ class WP_Table_Reloaded_Import {
                 $temp_data = file_get_contents( $this->tempname );
                 break;
             default:
-                exit; // this should never happen
+                // this should never happen
+                $this->imported_table = array();
+                $this->error = true;
+                return;
         }
 
         if ( empty( $temp_data ) ) {
@@ -110,10 +113,27 @@ class WP_Table_Reloaded_Import {
 
         $simpleXML = $this->create_class_instance( 'simplexml', 'simplexml.class.php' );
 
-        if ( 'form-field' == $this->import_from )
-            $temp_data = $this->import_data;
-        elseif ( 'file-upload' == $this->import_from )
-            $temp_data = file_get_contents( $this->tempname );
+        switch ( $this->import_from ) {
+            case 'form-field':
+            case 'url':
+                $temp_data = $this->import_data;
+                break;
+            case 'file-upload':
+            case 'server':
+                $temp_data = file_get_contents( $this->tempname );
+                break;
+            default:
+                // this should never happen
+                $this->imported_table = array();
+                $this->error = true;
+                return;
+        }
+
+        if ( empty( $temp_data ) ) {
+            $this->imported_table = array();
+            $this->error = true;
+            return;
+        }
 
         // extract table from html, pattern: <table> (with eventually class, id, ...
         // . means any charactery (except newline),
@@ -166,10 +186,21 @@ class WP_Table_Reloaded_Import {
 
         $simpleXML = $this->create_class_instance( 'simplexml', 'simplexml.class.php' );
 
-        if ( 'form-field' == $this->import_from )
-            $temp_data = $simpleXML->xml_load_string( $this->import_data, 'array' );
-        elseif ( 'file-upload' == $this->import_from )
-            $temp_data = $simpleXML->xml_load_file( $this->tempname, 'array' );
+        switch ( $this->import_from ) {
+            case 'form-field':
+            case 'url':
+                $temp_data = $simpleXML->xml_load_string( $this->import_data, 'array' );
+                break;
+            case 'file-upload':
+            case 'server':
+                $temp_data = $simpleXML->xml_load_file( $this->tempname, 'array' );
+                break;
+            default:
+                // this should never happen
+                $this->imported_table = array();
+                $this->error = true;
+                return;
+        }
 
         if ( false == is_array( $temp_data ) || false == isset( $temp_data['row'] ) || empty( $temp_data['row'] ) ) {
             $this->imported_table = array();
@@ -279,8 +310,7 @@ class WP_Table_Reloaded_Import {
     function create_class_instance( $class, $file) {
         if ( !class_exists( $class ) ) {
             include_once ( WP_TABLE_RELOADED_ABSPATH . 'php/' . $file );
-            if ( class_exists( $class ) )
-                return new $class;
+            return new $class;
         }
     }
 
