@@ -266,15 +266,13 @@ class WP_Table_Reloaded_Admin {
                 $table = $this->load_table( $table_id );
                 $rows = count( $table['data'] );
                 // swap rows $row_id1 and $row_id2
-                if ( ( 1 < $rows ) && ( -1 < $row_id1 ) && ( -1 < $row_id2 ) ) {
+                if ( ( 1 < $rows ) && ( -1 < $row_id1 ) && ( -1 < $row_id2 ) && ( $row_id1 != $row_id2 ) ) {
                     $temp_row = $table['data'][$row_id1];
                     $table['data'][$row_id1] = $table['data'][$row_id2];
                     $table['data'][$row_id2] = $temp_row;
-                    unset( $temp_row );
                     $temp_visibility = $table['visibility']['rows'][$row_id1];
                     $table['visibility']['rows'][$row_id1] = $table['visibility']['rows'][$row_id2];
                     $table['visibility']['rows'][$row_id2] = $temp_visibility;
-                    unset( $temp_visibility );
                 }
                 $this->save_table( $table );
                 $message = __( 'Rows swapped successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
@@ -287,17 +285,15 @@ class WP_Table_Reloaded_Admin {
                 $rows = count( $table['data'] );
                 $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
                 // swap rows $col_id1 and $col_id2
-                if ( ( 1 < $cols ) && ( -1 < $col_id1 ) && ( -1 < $col_id2 ) ) {
+                if ( ( 1 < $cols ) && ( -1 < $col_id1 ) && ( -1 < $col_id2 ) && ( $col_id1 != $col_id2 )) {
                     foreach ( $table['data'] as $row_idx => $row ) {
                         $temp_col = $table['data'][$row_idx][$col_id1];
                         $table['data'][$row_idx][$col_id1] = $table['data'][$row_idx][$col_id2];
                         $table['data'][$row_idx][$col_id2] = $temp_col;
                     }
-                    unset( $temp_col );
                     $temp_visibility = $table['visibility']['columns'][$col_id1];
                     $table['visibility']['columns'][$col_id1] = $table['visibility']['columns'][$col_id2];
                     $table['visibility']['columns'][$col_id2] = $temp_visibility;
-                    unset( $temp_visibility );
                 }
                 $this->save_table( $table );
                 $message = __( 'Columns swapped successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
@@ -305,7 +301,7 @@ class WP_Table_Reloaded_Admin {
             case 'sort':
                 $table_id = $_POST['table']['id'];
                 $column = ( isset( $_POST['sort']['col'] ) ) ? $_POST['sort']['col'] : -1;
-                $sort_order= ( isset( $_POST['sort']['order'] ) ) ? $_POST['sort']['order'] : 'ASC';
+                $sort_order = ( isset( $_POST['sort']['order'] ) ) ? $_POST['sort']['order'] : 'ASC';
                 $table = $this->load_table( $table_id );
                 $rows = count( $table['data'] );
                 $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
@@ -361,6 +357,52 @@ class WP_Table_Reloaded_Admin {
                 array_splice( $table['visibility']['columns'], $col_id, 0, $new_cols_visibility );
                 $this->save_table( $table );
                 $message = __ngettext( 'Column added successfully.', 'Columns added successfully.', $number, WP_TABLE_RELOADED_TEXTDOMAIN );
+                break;
+            case 'move_row':
+                $table_id = $_POST['table']['id'];
+                $row_id1 = ( isset( $_POST['move']['row'][1] ) ) ? $_POST['move']['row'][1] : -1;
+                $row_id2 = ( isset( $_POST['move']['row'][2] ) ) ? $_POST['move']['row'][2] : -1;
+                $move_where = ( isset( $_POST['move']['where'] ) ) ? $_POST['move']['where'] : 'before';
+                if ( 'after' == $move_where )
+                    $row_id2 = $row_id2 + 1; // move after is the same as move before the next row
+                $table = $this->load_table( $table_id );
+                $rows = count( $table['data'] );
+                // move row $row_id1 before/after $row_id2
+                if ( ( 1 < $rows ) && ( -1 < $row_id1 ) && ( -1 < $row_id2 ) && ( $row_id1 != $row_id2 ) ) {
+                    $temp_row = array( $table['data'][$row_id1] );
+                    unset( $table['data'][$row_id1] );
+                    array_splice( $table['data'], $row_id2, 0, $temp_row );
+                    $temp_visibility = $table['visibility']['rows'][$row_id1];
+                    unset( $table['visibility']['rows'][$row_id1] );
+                    array_splice( $table['visibility']['rows'], $row_id2, 0, $temp_visibility );
+                }
+                $this->save_table( $table );
+                $message = __( 'Row moved successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                break;
+            case 'move_col':
+                $table_id = $_POST['table']['id'];
+                $col_id1 = ( isset( $_POST['move']['col'][1] ) ) ? $_POST['move']['col'][1] : -1;
+                $col_id2 = ( isset( $_POST['move']['col'][2] ) ) ? $_POST['move']['col'][2] : -1;
+                $move_where = ( isset( $_POST['move']['where'] ) ) ? $_POST['move']['where'] : 'before';
+                if ( 'after' == $move_where )
+                    $col_id2 = $col_id2 + 1; // move after is the same as move before the next row
+                $table = $this->load_table( $table_id );
+                $rows = count( $table['data'] );
+                $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
+                // move col $col_id1 before/after $col_id2
+                if ( ( 1 < $cols ) && ( -1 < $col_id1 ) && ( -1 < $col_id2 ) && ( $col_id1 != $col_id2 ) ) {
+                    foreach ( $table['data'] as $row_idx => $row ) {
+                        $temp_col = $table['data'][$row_idx][$col_id1];
+                        unset( $table['data'][$row_idx][$col_id1] );
+                        array_splice( $table['data'][$row_idx], $col_id2, 0, $temp_col );
+
+                    }
+                    $temp_visibility = $table['visibility']['columns'][$col_id1];
+                    unset( $table['visibility']['columns'][$col_id1] );
+                    array_splice( $table['visibility']['columns'], $col_id2, 0, $temp_visibility );
+                }
+                $this->save_table( $table );
+                $message = __( 'Column moved successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
             case 'insert_cf':
                 $table_id = $_POST['table']['id'];
@@ -1201,22 +1243,19 @@ class WP_Table_Reloaded_Admin {
         <div class="postbox">
         <h3 class="hndle"><span><?php _e( 'Data Manipulation', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php _e( 'Hide', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
-    <table class="wp-table-reloaded-data-manipulation"><tr>
-    <td>
+    <table class="wp-table-reloaded-data-manipulation widefat">
+    <tr><td>
         <?php if ( 1 < $rows ) { // swap rows form
-
             $row1_select = '<select name="swap[row][1]">';
-            foreach ( $table['data'] as $row_idx => $table_row )
-                       $row1_select .= "<option value=\"{$row_idx}\">" . ( $row_idx + 1 ) . "</option>";
-            $row1_select .= '</select>';
-
             $row2_select = '<select name="swap[row][2]">';
-            foreach ( $table['data'] as $row_idx => $table_row )
-                      $row2_select .= "<option value=\"{$row_idx}\">" . ( $row_idx + 1 ) . "</option>";
+            foreach ( $table['data'] as $row_idx => $table_row ) {
+                $row1_select .= "<option value=\"{$row_idx}\">" . ( $row_idx + 1 ) . "</option>";
+                $row2_select .= "<option value=\"{$row_idx}\">" . ( $row_idx + 1 ) . "</option>";
+            }
+            $row1_select .= '</select>';
             $row2_select .= '</select>';
             
             echo sprintf( __( 'Swap rows %s and %s', WP_TABLE_RELOADED_TEXTDOMAIN ), $row1_select, $row2_select );
-
             ?>
             <input type="submit" name="submit[swap_rows]" class="button-primary" value="<?php _e( 'Swap', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
         <?php } // end if form swap rows ?>
@@ -1224,24 +1263,66 @@ class WP_Table_Reloaded_Admin {
         <?php if ( 1 < $cols ) { // swap cols form ?>
             <br/>
             <?php
-            
             $col1_select = '<select name="swap[col][1]">';
-            foreach ( $table['data'][0] as $col_idx => $cell_content )
-                $col1_select .= "<option value=\"{$col_idx}\">" . ( chr( ord( 'A' ) + $col_idx ) ) . "</option>";
-            $col1_select .= '</select>';
-
             $col2_select = '<select name="swap[col][2]">';
-            foreach ( $table['data'][0] as $col_idx => $cell_content )
-                $col2_select .= "<option value=\"{$col_idx}\">" . ( chr( ord( 'A' ) + $col_idx ) ) . "</option>";
+            foreach ( $table['data'][0] as $col_idx => $cell_content ) {
+                $col_letter = chr( ord( 'A' ) + $col_idx );
+                $col1_select .= "<option value=\"{$col_idx}\">{$col_letter}</option>";
+                $col2_select .= "<option value=\"{$col_idx}\">{$col_letter}</option>";
+            }
+            $col1_select .= '</select>';
             $col2_select .= '</select>';
 
             echo sprintf( __( 'Swap columns %s and %s', WP_TABLE_RELOADED_TEXTDOMAIN ), $col1_select, $col2_select );
-
             ?>
             <input type="submit" name="submit[swap_cols]" class="button-primary" value="<?php _e( 'Swap', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
         <?php } // end if form swap cols ?>
     </td><td>
-        <a id="a-insert-link" class="button-primary" href=""><?php _e( 'Insert Link', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a><br/><br/>
+        <?php if ( 1 < $rows ) { // move row form
+            $row1_select = '<select name="move[row][1]">';
+            $row2_select = '<select name="move[row][2]">';
+            foreach ( $table['data'] as $row_idx => $table_row ) {
+                $row1_select .= "<option value=\"{$row_idx}\">" . ( $row_idx + 1 ) . "</option>";
+                $row2_select .= "<option value=\"{$row_idx}\">" . ( $row_idx + 1 ) . "</option>";
+            }
+            $row1_select .= '</select>';
+            $row2_select .= '</select>';
+
+            $move_where_select = '<select name="move[where]">';
+            $move_where_select .= "<option value=\"before\">" . __( 'before', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</option>";
+            $move_where_select .= "<option value=\"after\">" . __( 'after', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</option>";
+            $move_where_select .= '</select>';
+
+            echo sprintf( __( 'Move row %s %s row %s', WP_TABLE_RELOADED_TEXTDOMAIN ), $row1_select, $move_where_select, $row2_select );
+            ?>
+            <input type="submit" name="submit[move_row]" class="button-primary" value="<?php _e( 'Move', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
+        <?php } // end if form move row ?>
+
+        <?php if ( 1 < $cols ) { // move col form ?>
+            <br/>
+            <?php
+            $col1_select = '<select name="move[col][1]">';
+            $col2_select = '<select name="move[col][2]">';
+            foreach ( $table['data'][0] as $col_idx => $cell_content ) {
+                $col_letter = chr( ord( 'A' ) + $col_idx );
+                $col1_select .= "<option value=\"{$col_idx}\">{$col_letter}</option>";
+                $col2_select .= "<option value=\"{$col_idx}\">{$col_letter}</option>";
+            }
+            $col1_select .= '</select>';
+            $col2_select .= '</select>';
+
+            $move_where_select = '<select name="move[where]">';
+            $move_where_select .= "<option value=\"before\">" . __( 'before', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</option>";
+            $move_where_select .= "<option value=\"after\">" . __( 'after', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</option>";
+            $move_where_select .= '</select>';
+
+            echo sprintf( __( 'Move column %s %s column %s', WP_TABLE_RELOADED_TEXTDOMAIN ), $col1_select, $move_where_select, $col2_select );
+            ?>
+            <input type="submit" name="submit[move_col]" class="button-primary" value="<?php _e( 'Move', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
+        <?php } // end if form move col ?>
+    </td></tr>
+    <tr><td>
+        <a id="a-insert-link" class="button-primary" href=""><?php _e( 'Insert Link', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
         <a id="a-insert-image" class="button-primary" href=""><?php _e( 'Insert Image', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
     </td><td>
         <?php if ( 1 < $rows ) { // sort form
@@ -1261,8 +1342,8 @@ class WP_Table_Reloaded_Admin {
         ?>
             <input type="submit" name="submit[sort]" class="button-primary" value="<?php _e( 'Sort', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
         <?php } // end if sort form ?>
-        </td>
-    </tr></table>
+    </td></tr>
+    </table>
         </div>
         </div>
 

@@ -64,6 +64,11 @@ textarea.focus {
 
 .wp-table-reloaded-data-manipulation { width:100%; }
 
+.wp-table-reloaded-data-manipulation td {
+    padding-top: 7px!important;
+    padding-bottom: 7px!important;
+}
+
 .widefat td {
     vertical-align: baseline!important;
 }
