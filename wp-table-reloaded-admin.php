@@ -38,6 +38,7 @@ class WP_Table_Reloaded_Admin {
         'installed_version' => '0',
         'uninstall_upon_deactivation' => false,
         'enable_tablesorter' => true,
+        'use_tablesorter_extended' => false,
         'use_custom_css' => true,
         'custom_css' => '.wp-table-reloaded {width:100%;}',
         'install_time' => 0,
@@ -781,6 +782,7 @@ class WP_Table_Reloaded_Admin {
             // checkboxes: option value is defined by whether option isset (e.g. was checked) or not
             $this->options['uninstall_upon_deactivation'] = isset( $new_options['uninstall_upon_deactivation'] );
             $this->options['enable_tablesorter'] = isset( $new_options['enable_tablesorter'] );
+            $this->options['use_tablesorter_extended'] = isset( $new_options['use_tablesorter_extended'] );
             $this->options['show_donate_nag'] = isset( $new_options['show_donate_nag'] );
             $this->options['use_custom_css'] = isset( $new_options['use_custom_css'] );
             // clean up CSS style input (if user enclosed it into <style...></style>
@@ -905,7 +907,8 @@ class WP_Table_Reloaded_Admin {
             ?>
             <div style="clear:both;"><p>
             <?php _e( 'This is a preview of the table data.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/>
-            <?php _e( 'Because of CSS styling, the table might look different on your page!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
+            <?php _e( 'Because of CSS styling, the table might look different on your page!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/>
+            <?php echo sprintf( __( 'To show this table in your pages, posts or text-widgets, use the shortcode <strong>[table id=%s /]</strong>.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $table['id'] ) ); ?>
             </p></div>
             <div style="clear:both;">
             <?php
@@ -1017,7 +1020,7 @@ class WP_Table_Reloaded_Admin {
                 echo "<a class=\"copy_table_link\" href=\"{$copy_url}\">" . __( 'Copy', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
                 echo "<a href=\"{$export_url}\">" . __( 'Export', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
                 echo "<a class=\"delete_table_link\" href=\"{$delete_url}\">" . __( 'Delete', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
-                $preview_title = sprintf( __( 'Preview Table %s', WP_TABLE_RELOADED_TEXTDOMAIN ), $id );
+                $preview_title = sprintf( __( 'Preview of Table %s', WP_TABLE_RELOADED_TEXTDOMAIN ), $id );
                 echo "<a class=\"thickbox\" href=\"{$preview_url}\" title=\"{$preview_title}\">" . __( 'Preview', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>";
                 echo "</div>\n";
                 echo "\t</td>\n";
@@ -1061,20 +1064,20 @@ class WP_Table_Reloaded_Admin {
 
         <table class="wp-table-reloaded-options">
         <tr valign="top">
-            <th scope="row"><label for="table[name]"><?php _e( 'Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
-            <td><input type="text" name="table[name]" id="table[name]" class="focus-blur-change" value="<?php _e( 'Enter Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" style="width:250px;" title="<?php _e( 'Enter Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" /></td>
+            <th scope="row"><label for="table_name"><?php _e( 'Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
+            <td><input type="text" name="table[name]" id="table_name" class="focus-blur-change" value="<?php _e( 'Enter Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" style="width:250px;" title="<?php _e( 'Enter Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" /></td>
         </tr>
         <tr valign="top">
-            <th scope="row"><label for="table[description]"><?php _e( 'Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
-            <td><textarea name="table[description]" id="table[description]" class="focus-blur-change" rows="15" cols="40" style="width:250px;height:85px;" title="<?php _e( 'Enter Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>"><?php _e( 'Enter Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></textarea></td>
+            <th scope="row"><label for="table_description"><?php _e( 'Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
+            <td><textarea name="table[description]" id="table_description" class="focus-blur-change" rows="15" cols="40" style="width:250px;height:85px;" title="<?php _e( 'Enter Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>"><?php _e( 'Enter Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></textarea></td>
         </tr>
         <tr valign="top">
-            <th scope="row"><label for="table[rows]"><?php _e( 'Number of Rows', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
-            <td><input type="text" name="table[rows]" id="table[rows]" value="5" /></td>
+            <th scope="row"><label for="table_rows"><?php _e( 'Number of Rows', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
+            <td><input type="text" name="table[rows]" id="table_rows" value="5" /></td>
         </tr>
         <tr valign="top">
-            <th scope="row"><label for="table[cols]"><?php _e( 'Number of Columns', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
-            <td><input type="text" name="table[cols]" id="table[cols]" value="5" /></td>
+            <th scope="row"><label for="table_cols"><?php _e( 'Number of Columns', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
+            <td><input type="text" name="table[cols]" id="table_cols" value="5" /></td>
         </tr>
         </table>
 
@@ -1100,7 +1103,7 @@ class WP_Table_Reloaded_Admin {
         $this->print_submenu_navigation( 'edit' );
         ?>
         <div style="clear:both;"><p><?php _e( 'You may edit the content of the table here. It is also possible to add or delete columns and rows.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br />
-		<?php echo sprintf( __( 'If you want to show a table in your pages, posts or text-widgets, use this shortcode: <strong>[table id=%s /]</strong>', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $table_id ) ); ?></p></div>
+		<?php echo sprintf( __( 'To show this table in your pages, posts or text-widgets, use the shortcode <strong>[table id=%s /]</strong>.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $table_id ) ); ?></p></div>
         <form method="post" action="<?php echo $this->get_action_url(); ?>">
         <?php wp_nonce_field( $this->get_nonce( 'edit' ) ); ?>
         <input type="hidden" name="table[id]" value="<?php echo $table['id']; ?>" />
@@ -1115,12 +1118,12 @@ class WP_Table_Reloaded_Admin {
             <td><input type="text" name="table_id" id="table_id" value="<?php echo $this->safe_output( $table['id'] ); ?>" style="width:50px" /></td>
         </tr>
         <tr valign="top">
-            <th scope="row"><label for="table[name]"><?php _e( 'Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
-            <td><input type="text" name="table[name]" id="table[name]" value="<?php echo $this->safe_output( $table['name'] ); ?>" style="width:300px" /></td>
+            <th scope="row"><label for="table_name"><?php _e( 'Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
+            <td><input type="text" name="table[name]" id="table_name" value="<?php echo $this->safe_output( $table['name'] ); ?>" style="width:300px" /></td>
         </tr>
         <tr valign="top">
-            <th scope="row"><label for="table[description]"><?php _e( 'Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
-            <td><textarea name="table[description]" id="table[description]" rows="15" cols="40" style="width:300px;height:85px;"><?php echo $this->safe_output( $table['description'] ); ?></textarea></td>
+            <th scope="row"><label for="table_description"><?php _e( 'Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
+            <td><textarea name="table[description]" id="table_description" rows="15" cols="40" style="width:300px;height:85px;"><?php echo $this->safe_output( $table['description'] ); ?></textarea></td>
         </tr>
         <?php if ( !empty( $table['last_editor_id'] ) ) { ?>
         <tr valign="top">
@@ -1180,7 +1183,6 @@ class WP_Table_Reloaded_Admin {
                         foreach ( $table_row as $col_idx => $cell_content ) {
                             $cell_content = $this->safe_output( $cell_content );
                             $cell_name = "table[data][{$row_idx}][{$col_idx}]";
-                            //echo "\t<td><input type=\"text\" name=\"{$cell_name}\" value=\"{$cell_content}\" /></td>\n";
                             echo "\t<td><textarea rows=\"1\" cols=\"22\" name=\"{$cell_name}\" class=\"edit_row_{$row_idx} edit_col_{$col_idx}\">{$cell_content}</textarea></td>\n";
                         }
                         $insert_row_url = $this->get_action_url( array( 'action' => 'insert', 'table_id' => $table['id'], 'item' => 'row', 'element_id' => $row_idx ), true );
@@ -1363,25 +1365,25 @@ class WP_Table_Reloaded_Admin {
         <table class="wp-table-reloaded-options">
         <tr valign="top">
             <th scope="row"><?php _e( 'Alternating row colors', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="table[options][alternating_row_colors]" id="table[options][alternating_row_colors]"<?php echo ( true == $table['options']['alternating_row_colors'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="table[options][alternating_row_colors]"><?php _e( 'Every second row will have an alternating background color.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <td><input type="checkbox" name="table[options][alternating_row_colors]" id="table_options_alternating_row_colors"<?php echo ( true == $table['options']['alternating_row_colors'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="table_options_alternating_row_colors"><?php _e( 'Every second row will have an alternating background color.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
-        <tr valign="top" id="options_use_tableheadline">
+        <tr valign="top">
             <th scope="row"><?php _e( 'Use Table Headline', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="table[options][first_row_th]" id="table[options][first_row_th]"<?php echo ( true == $table['options']['first_row_th'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="table[options][first_row_th]"><?php _e( 'The first row of your table will use the [th] tag.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <td><input type="checkbox" name="table[options][first_row_th]" id="table_options_first_row_th"<?php echo ( true == $table['options']['first_row_th'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="table_options_first_row_th"><?php _e( 'The first row of your table will use the [th] tag.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Print Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="table[options][print_name]" id="table[options][print_name]"<?php echo ( true == $table['options']['print_name'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="table[options][print_name]"><?php _e( 'The Table Name will be written above the table in a [h2] tag.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <td><input type="checkbox" name="table[options][print_name]" id="table_options_print_name"<?php echo ( true == $table['options']['print_name'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="table_options_print_name"><?php _e( 'The Table Name will be written above the table in a [h2] tag.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Print Table Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="table[options][print_description]" id="table[options][print_description]"<?php echo ( true == $table['options']['print_description'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="table[options][print_description]"><?php _e( 'The Table Description will be written under the table.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <td><input type="checkbox" name="table[options][print_description]" id="table_options_print_description"<?php echo ( true == $table['options']['print_description'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="table_options_print_description"><?php _e( 'The Table Description will be written under the table.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
         <tr valign="top" id="options_use_tablesorter">
             <th scope="row"><?php _e( 'Use Tablesorter', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
             <td>
             <input type="hidden" id="tablesorter_enabled" value="<?php echo $this->options['enable_tablesorter']; ?>" />
-            <input type="checkbox" name="table[options][use_tablesorter]" id="table[options][use_tablesorter]"<?php echo ( true == $table['options']['use_tablesorter'] ) ? ' checked="checked"': '' ; ?><?php echo ( false == $this->options['enable_tablesorter'] || false == $table['options']['first_row_th'] ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="table[options][use_tablesorter]"><?php _e( 'You may sort a table using the <a href="http://www.tablesorter.com/">Tablesorter-jQuery-Plugin</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( '<small>Attention: You must have Tablesorter enabled on the "Plugin Options" screen and the option "Use Table Headline" has to be enabled above for this to work!</small>', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <input type="checkbox" name="table[options][use_tablesorter]" id="table_options_use_tablesorter"<?php echo ( true == $table['options']['use_tablesorter'] ) ? ' checked="checked"': '' ; ?><?php echo ( false == $this->options['enable_tablesorter'] || false == $table['options']['first_row_th'] ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="table_options_use_tablesorter"><?php _e( 'You may sort a table using the <a href="http://www.tablesorter.com/">Tablesorter-jQuery-Plugin</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( '<small>Attention: You must have Tablesorter enabled on the "Plugin Options" screen and the option "Use Table Headline" has to be enabled above for this to work!</small>', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
         </table>
         </div>
@@ -1718,11 +1720,11 @@ class WP_Table_Reloaded_Admin {
         <table class="wp-table-reloaded-options">
         <tr valign="top">
             <th scope="row"><?php _e( 'Enable Tablesorter-JavaScript?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="options[enable_tablesorter]" id="options[enable_tablesorter]"<?php echo ( true == $this->options['enable_tablesorter'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options[enable_tablesorter]"><?php _e( 'Yes, enable the <a href="http://www.tablesorter.com/">Tablesorter jQuery plugin</a>. This can be used to make tables sortable (can be activated for each table separately in its options).', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <td><input type="checkbox" name="options[enable_tablesorter]" id="options_enable_tablesorter"<?php echo ( true == $this->options['enable_tablesorter'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_enable_tablesorter"><?php _e( 'Yes, enable the <a href="http://www.tablesorter.com/">Tablesorter jQuery plugin</a>. This can be used to make tables sortable (can be activated for each table separately in its options).', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
-        <tr valign="top" id="options_use_custom_css">
+        <tr valign="top">
             <th scope="row"><?php _e( 'Add custom CSS?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="options[use_custom_css]" id="options[use_custom_css]"<?php echo ( true == $this->options['use_custom_css'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options[use_custom_css]">
+            <td><input type="checkbox" name="options[use_custom_css]" id="options_use_custom_css"<?php echo ( true == $this->options['use_custom_css'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_use_custom_css">
             <?php _e( 'Yes, include and load the following CSS-snippet on my site inside a [style]-HTML-tag.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
              </label></td>
         </tr>
@@ -1742,13 +1744,17 @@ class WP_Table_Reloaded_Admin {
         <h3 class="hndle"><span><?php _e( 'Advanced Options', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php _e( 'Hide', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
         <table class="wp-table-reloaded-options">
-        <tr valign="top" id="options_uninstall">
+        <tr valign="top">
+            <th scope="row"><?php _e( 'Use Tablesorter Extended?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
+            <td><input type="checkbox" name="options[use_tablesorter_extended]" id="options_use_tablesorter_extended"<?php echo ( true == $this->options['use_tablesorter_extended'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_use_tablesorter_extended"><small><?php _e( 'Yes, use Extended Tablesorter from <a href="http://tablesorter.openwerk.de">S&ouml;ren Krings</a> instead of original Tablesorter script (EXPERIMENTAL FEATURE!).', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><small></label></td>
+        </tr>
+        <tr valign="top">
             <th scope="row"><?php _e( 'Uninstall Plugin upon Deactivation?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="options[uninstall_upon_deactivation]" id="options[uninstall_upon_deactivation]"<?php echo ( true == $this->options['uninstall_upon_deactivation'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options[uninstall_upon_deactivation]"><?php _e( 'Yes, uninstall everything when the plugin is deactivated. Attention: You should only enable this checkbox directly before deactivating the plugin from the WordPress plugins page!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( '<small>(This setting does not influence the "Manually Uninstall Plugin" button below!)</small>', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <td><input type="checkbox" name="options[uninstall_upon_deactivation]" id="options_uninstall_upon_deactivation"<?php echo ( true == $this->options['uninstall_upon_deactivation'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_uninstall_upon_deactivation"><?php _e( 'Yes, uninstall everything when the plugin is deactivated. Attention: You should only enable this checkbox directly before deactivating the plugin from the WordPress plugins page!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( '<small>(This setting does not influence the "Manually Uninstall Plugin" button below!)</small>', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Allow donation message?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="options[show_donate_nag]" id="options[show_donate_nag]"<?php echo ( true == $this->options['show_donate_nag'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options[show_donate_nag]"><small><?php _e( 'Yes, show a donation message after 30 days of using the plugin.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></label></td>
+            <td><input type="checkbox" name="options[show_donate_nag]" id="options_show_donate_nag"<?php echo ( true == $this->options['show_donate_nag'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_show_donate_nag"><small><?php _e( 'Yes, show a donation message after 30 days of using the plugin.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></label></td>
         </tr>
         </table>
         </div>

@@ -87,7 +87,7 @@ jQuery(document).ready( function( $ ) {
     $( '.tr-import-addreplace input:checked' ).click();
 
     // show only checked import fields depending on radio button
-    $( '.tr-import-from input ').click( function () {
+    $( '.tr-import-from input' ).click( function () {
         $('.tr-import-file-upload').css('display','none');
         $('.tr-import-url').css('display','none');
         $('.tr-import-form-field').css('display','none');
@@ -98,24 +98,32 @@ jQuery(document).ready( function( $ ) {
     $('.tr-import-from input:checked').click();
 
     // enable/disable custom css textarea according to state of checkbox
-    $( '#options_use_custom_css :checkbox' ).change( function () {
+    $( '#options_use_custom_css' ).change( function () {
         if( $(this).attr('checked') )
             $( '#options_custom_css' ).removeAttr("disabled");
         else
             $( '#options_custom_css' ).attr("disabled", true);
     } );
 
+    // enable/disable Extended Tablesorter checkbox according to state of checkbox
+    $( '#options_enable_tablesorter' ).change( function () {
+        if( $(this).attr('checked') )
+            $( '#options_use_tablesorter_extended' ).removeAttr("disabled");
+        else
+            $( '#options_use_tablesorter_extended' ).attr("disabled", true);
+    } );
+
     // enable/disable "use tableheadline" according to state of checkbox
-    $( '#options_use_tableheadline :checkbox' ).change( function () {
+    $( '#table_options_first_row_th' ).change( function () {
         if( $(this).attr('checked') && $( '#tablesorter_enabled' ).val() ) {
-            $( '#options_use_tablesorter :checkbox' ).removeAttr("disabled");
+            $( '#table_options_use_tablesorter' ).removeAttr("disabled");
         } else {
-            $( '#options_use_tablesorter :checkbox' ).attr("disabled", true);
+            $( '#table_options_use_tablesorter' ).attr("disabled", true);
         }
     } );
 
     // confirm uninstall setting
-    $( '#options_uninstall :checkbox ').click( function () {
+    $( '#options_uninstall_upon_deactivation').click( function () {
         if( $(this).attr('checked') )
             return confirm( WP_Table_Reloaded_Admin.str_UninstallCheckboxActivation );
     } );

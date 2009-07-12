@@ -366,7 +366,10 @@ CSSSTYLE;
     // ###################################################################################################################
     // output tablesorter execution js for all tables in wp_footer
     function output_tablesorter_js() {
-        $jsfile =  'jquery.tablesorter.min.js'; // filename of the tablesorter script
+        if ( isset( $this->options['use_tablesorter_extended'] ) && true == $this->options['use_tablesorter_extended'] )
+            $jsfile =  'jquery.tablesorter.extended.js'; // filename of the tablesorter extended script
+        else
+            $jsfile =  'jquery.tablesorter.min.js'; // filename of the tablesorter script
 
         if ( 0 < count( $this->tablesorter_tables ) && file_exists( WP_TABLE_RELOADED_ABSPATH . 'js/' . $jsfile ) ) {
         
