@@ -85,6 +85,11 @@ textarea.focus {
     width:100%;
 }
 
+#table_contents .hide-columns .check-column {
+    padding-left:7px;
+    width:auto;
+}
+
 .no-wrap {
     white-space:nowrap;
 }
@@ -109,10 +114,6 @@ div.closed .hide_link { display: none; }
 
 /* overwrite 980px max-width in WP < 2.7 */
 div.wrap { max-width:100%!important; }
-
-#wp-table-reloaded-list .check-column {
-	padding:0!important;
-}
 
 /* table styles for the table preview */
 

@@ -1225,7 +1225,7 @@ class WP_Table_Reloaded_Admin {
                     echo "</tr>";
 
                 // hide checkboxes
-                    echo "<tr>\n";
+                    echo "<tr class=\"hide-columns\">\n";
                         echo "\t<th scope=\"row\">&nbsp;</th>\n";
                         foreach ( $table['data'][0] as $col_idx => $cell_content ) {
                             $checked = ( isset( $table['visibility']['columns'][$col_idx] ) && true == $table['visibility']['columns'][$col_idx] ) ? 'checked="checked" ': '' ;
