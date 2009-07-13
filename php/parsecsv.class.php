@@ -540,8 +540,9 @@ class parseCSV {
 		$file = null;
 		if ( $input === null ) {
 			$file = $this->file;
-		} elseif ( file_exists($input) ) {
-			$file = $input;
+    // don't needed for us, as we only pass data not file names
+		//} elseif ( file_exists($input) ) {
+		//	$file = $input;
 		} else {
 			$data = $input;
 		}
@@ -550,7 +551,8 @@ class parseCSV {
 			if ( preg_match('/\.php$/i', $file) && preg_match('/<\?.*?\?>(.*)/ims', $data, $strip) ) {
 				$data = ltrim($strip[1]);
 			}
-			if ( $this->convert_encoding ) $data = iconv($this->input_encoding, $this->output_encoding, $data);
+      // added @ to suppress error messages if iconv is missing
+			if ( $this->convert_encoding ) $data = @iconv($this->input_encoding, $this->output_encoding, $data);
 			if ( substr($data, -1) != "\n" ) $data .= "\n";
 			$this->file_data = &$data;
 			return true;
