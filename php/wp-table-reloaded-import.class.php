@@ -61,6 +61,9 @@ class WP_Table_Reloaded_Import {
             default:
                 $this->imported_table = array();
         }
+        
+        $this->fix_table_encoding();
+        
     }
 
     // ###################################################################################################################
@@ -285,19 +288,14 @@ class WP_Table_Reloaded_Import {
     function count_max_columns( $array ){
         $max_cols = 0 ;
         if ( is_array( $array ) && 0 < count( $array ) ) {
-                foreach ( $array as $row_idx => $row ) {
-                    $cols  = count( $row );
-                    $max_cols = ( $cols > $max_cols ) ? $cols : $max_cols;
-                }
+            foreach ( $array as $row_idx => $row ) {
+                $cols  = count( $row );
+                $max_cols = ( $cols > $max_cols ) ? $cols : $max_cols;
+            }
         }
         return 	$max_cols;
     }
 
-    // ###################################################################################################################
-    function add_slashes( $array ) {
-        return array_map( 'addslashes', $array );
-    }
-    
     // ###################################################################################################################
     function get_table_meta() {
         $table['name'] = $this->filename;
@@ -311,6 +309,24 @@ class WP_Table_Reloaded_Import {
         if ( !class_exists( $class ) ) {
             include_once ( WP_TABLE_RELOADED_ABSPATH . 'php/' . $file );
             return new $class;
+        }
+    }
+
+    // ###################################################################################################################
+    // fixes the encoding to UTF-8
+    function fix_encoding( $string ) {
+        return ( 'UTF-8' == mb_detect_encoding( $string ) && mb_check_encoding( $string, 'UTF-8' ) ) ? $string : utf8_encode( $string );
+    }
+
+    // ###################################################################################################################
+    // fixes the encoding to UTF-8
+    function fix_table_encoding() {
+        $data = $this->imported_table['data'];
+        if ( is_array( $data ) && 0 < count( $data ) ) {
+            foreach ( $data as $row_idx => $row ) {
+                $data[$row_idx] = array_map( array( &$this, 'fix_encoding' ), $row );
+            }
+            $this->imported_table['data'] = $data;
         }
     }
 
