@@ -1,50 +1,46 @@
 /******************************************
 * This CSS file belongs to the Admin part *
-* of WP-Table Reloaded 1.3! PLEASE DO NOT *
+* of WP-Table Reloaded 1.4! PLEASE DO NOT *
 * make any changes here! Thank you!       *
 ******************************************/
-
-/* OWN PLUGIN STYLES */
-
-/* Styles for the List of tables (sortable by Tablesorter!) */
 
 #wp-table-reloaded-list .table-id {
     font-size:12px;
 }
 
 #wp-table-reloaded-list .header {
-    cursor: pointer;
+    cursor:pointer;
     white-space:nowrap;
 }
 
 #wp-table-reloaded-list .header span {
-	background-repeat: no-repeat;
-	background-position: center;
-	background-image: url( '../img/bg.gif' );
-	margin-right: -5px;
+	background-repeat:no-repeat;
+	background-position:center;
+	background-image:url( '../img/bg.gif' );
+	margin-right:-5px;
 }
 
 #wp-table-reloaded-list .headerSortUp span {
-	background-image: url( '../img/asc.gif' );
+	background-image:url( '../img/asc.gif' );
 }
 #wp-table-reloaded-list .headerSortDown span {
-	background-image: url( '../img/desc.gif' );
+	background-image:url( '../img/desc.gif' );
 }
 
 #wp-table-reloaded-list .check-column {
-    padding-right: 8px!important;
+    padding-right:7px!important;
 }
 
 #wp-table-reloaded-list .odd { /*alternate*/
-    background-color: #F9F9F9!important;
+    background-color:#F9F9F9!important;
 }
 
 #wp-table-reloaded-list .even {
-    background-color: #FFFFFF!important;
+    background-color:#FFFFFF!important;
 }
 
 textarea.row-hidden, textarea.column-hidden {
-    background-color: #FFE0E0;
+    background-color:#FFE0E0;
 }
 
 textarea.focus {
@@ -52,25 +48,25 @@ textarea.focus {
 }
 
 .wp-table-reloaded-options td {
-	padding: 5px 0px 5px 0px;
+	padding:5px 0px 5px 0px;
 }
 
 .wp-table-reloaded-options th {
-	font-weight: normal;
-	text-align: left;
-	padding: 5px 10px 5px 0px;
-	vertical-align: middle;
+    font-weight:normal;
+    text-align:left;
+    padding:5px 10px 5px 0px;
+    vertical-align:middle;
 }
 
 .wp-table-reloaded-data-manipulation { width:100%; }
 
 .wp-table-reloaded-data-manipulation td {
-    padding-top: 7px!important;
-    padding-bottom: 7px!important;
+    padding-top:7px!important;
+    padding-bottom:7px!important;
 }
 
 .widefat td {
-    vertical-align: baseline!important;
+    vertical-align:baseline!important;
 }
 
 #table_contents td {
@@ -81,80 +77,76 @@ textarea.focus {
 #table_contents th {
     white-space:nowrap;
     vertical-align:middle!important;
-    text-align: center;
+    text-align:center;
 }
 
-#table_contents .check-column {
-    padding: 3px 7px!important;
-    width: auto!important;
+#table_contents textarea {
+    min-width:180px;
+    width:100%;
 }
 
 .no-wrap {
     white-space:nowrap;
 }
 
-#table_contents input[type=text] {
-    width:100%;
-}
-
 .hide_link, .expand_link {
-    position: absolute;
-    right: 10px;
-    font-weight: normal;
-    cursor: pointer;
-    padding: 0px!important;
+    position:absolute;
+    right:10px;
+    font-weight:normal;
+    cursor:pointer;
+    padding:0px!important;
 }
 
 .postbox h3.hndle {
-    cursor: pointer!important;
+    cursor:pointer!important;
 }
 
 div.postbox .expand_link { display: none; }
 div.closed .expand_link { display: inline!important; }
 div.closed .hide_link { display: none; }
 
-/* OVERRIDE EXISTING WP STYLES */
+/* OVERRIDE EXISTING WordPress STYLES */
 
 /* overwrite 980px max-width in WP < 2.7 */
-div.wrap { max-width: 100%!important; }
+div.wrap { max-width:100%!important; }
 
-.widefat tbody th.check-column {
-	padding: 0!important;
+#wp-table-reloaded-list .check-column {
+	padding:0!important;
 }
 
 /* table styles for the table preview */
 
 /* Inner content div of thickbox needs to grow with outer div */
 #TB_ajaxContent {
-    width: auto!important;
-    height: 94.5%!important;
+    width:auto!important;
+    height:94.5%!important;
 }
 
 #TB_ajaxContent .wrap {
-    margin: 0 7px 0 5px;
+    margin:0 7px 0 5px;
 }
 
 #TB_ajaxContent .wp-table-reloaded {
-	background-color: #CDCDCD;
-	width: 100%;
+	background-color:#CDCDCD;
+	width:100%;
 }
 
 /* Styles for the tablehead (<th>) (if enabled) */
 #TB_ajaxContent .wp-table-reloaded th {
-	border: 1px solid #FFF;
-	padding: 4px;
+	border:1px solid #FFF;
+	padding:4px;
 }
 
 #TB_ajaxContent .wp-table-reloaded td {
-	padding: 4px;
-	background-color: #FFF;
-	vertical-align: top;
+	padding:4px;
+	background-color:#FFF;
+	vertical-align:top;
 }
 
 /* Styles for alternating row colors (if enabled) */
 #TB_ajaxContent .wp-table-reloaded .even td {
-	background-color: #FFF;
+	background-color:#FFF;
 }
 #TB_ajaxContent .wp-table-reloaded .odd td {
-	background-color: #F0F0F6;
+	background-color:#F0F0F6;
 }
