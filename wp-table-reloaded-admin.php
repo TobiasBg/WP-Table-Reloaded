@@ -178,9 +178,9 @@ class WP_Table_Reloaded_Admin {
             $this->print_header_message(
                 sprintf( __( 'Thanks for using this plugin! You\'ve installed WP-Table Reloaded over a month ago. If it works and you are satisfied with the results of managing your %s tables, isn\'t it worth at least one dollar or euro?', WP_TABLE_RELOADED_TEXTDOMAIN ), count( $this->tables ) ) . '<br/><br/>' .
                 sprintf( __( '<a href="%s">Donations</a> help me to continue support and development of this <i>free</i> software - things for which I spend countless hours of my free time! Thank you!', WP_TABLE_RELOADED_TEXTDOMAIN ), $donate_url ) . '<br/><br/>' .
-                sprintf( __( '<a href="%s" target="_blank">Sure, no problem!</a>', WP_TABLE_RELOADED_TEXTDOMAIN ), $donate_url ) . '&nbsp;&nbsp;&middot;&nbsp;&nbsp;' .
-                sprintf( __( '<a href="%s" style="font-weight:normal;">I already donated.</a>', WP_TABLE_RELOADED_TEXTDOMAIN ), $donated_true_url ) . '&nbsp;&nbsp;&middot;&nbsp;&nbsp;' .
-                sprintf( __( '<a href="%s" style="font-weight:normal;">No, thanks. Don\'t ask again.</a>', WP_TABLE_RELOADED_TEXTDOMAIN ), $donated_false_url )
+                sprintf( '<a href="%s" target="_blank">%s</a>', $donate_url, __( 'Sure, no problem!', WP_TABLE_RELOADED_TEXTDOMAIN ) ) . '&nbsp;&nbsp;&middot;&nbsp;&nbsp;' .
+                sprintf( '<a href="%s" style="font-weight:normal;">%s</a>', $donated_true_url, __( 'I already donated.', WP_TABLE_RELOADED_TEXTDOMAIN ) ) . '&nbsp;&nbsp;&middot;&nbsp;&nbsp;' .
+                sprintf( '<a href="%s" style="font-weight:normal;">%s</a>', $donated_false_url, __( 'No, thanks. Don\'t ask again.', WP_TABLE_RELOADED_TEXTDOMAIN ) )
             );
         }
         $this->print_list_tables_form();
@@ -1012,10 +1012,10 @@ class WP_Table_Reloaded_Admin {
                 echo "\t<th class=\"check-column no-wrap\" scope=\"row\"><input type=\"checkbox\" name=\"tables[]\" value=\"{$id}\" /></th>\n";
                 echo "\t<th scope=\"row\" class=\"no-wrap table-id\">{$id}</th>\n";
                 echo "\t<td>\n";
-                echo "\t\t<a title=\"" . __( 'Edit', WP_TABLE_RELOADED_TEXTDOMAIN ) . " &#8220;{$name}&#8221;\" class=\"row-title\" href=\"{$edit_url}\">{$name}</a>\n";
+                echo "\t\t<a title=\"" . sprintf( __( 'Edit %s', WP_TABLE_RELOADED_TEXTDOMAIN ), "&quot;{$name}&quot;" ) . "\" class=\"row-title\" href=\"{$edit_url}\">{$name}</a>\n";
                 echo "\t\t<div class=\"row-actions no-wrap\">";
                 echo "<a href=\"{$edit_url}\">" . __( 'Edit', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
-                $shortcode = sprintf( __( '[table id=%s /]', WP_TABLE_RELOADED_TEXTDOMAIN ), $id );
+                $shortcode = "[table id={$id} /]";
                 echo "<a href=\"javascript:void(0);\" class=\"table_shortcode_link\" title=\"{$shortcode}\">" . __( 'Shortcode', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
                 echo "<a class=\"copy_table_link\" href=\"{$copy_url}\">" . __( 'Copy', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
                 echo "<a href=\"{$export_url}\">" . __( 'Export', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
@@ -1425,7 +1425,7 @@ class WP_Table_Reloaded_Admin {
                         $delete_cf_url = $this->get_action_url( array( 'action' => 'delete', 'table_id' => $table['id'], 'item' => 'custom_field', 'element_id' => $name ), true );
                         echo "\t<td>";
                         echo "<a href=\"{$delete_cf_url}\">" . __( 'Delete Field', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>";
-                        $shortcode = sprintf( __( '[table-info id=%s field=&quot;%s&quot; /]', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $table_id ), $name );
+                        $shortcode = "[table-info id=" . $this->safe_output( $table_id ) . " field=&quot;{$name}&quot; /]";
                         echo " | <a href=\"javascript:void(0);\" class=\"cf_shortcode_link\" title=\"{$shortcode}\">" . __( 'View shortcode', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>";
                         echo "</td>\n";
                     echo "</tr>";
@@ -1680,7 +1680,7 @@ class WP_Table_Reloaded_Admin {
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Download file', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="download_export_file" id="download_export_file" value="true" /> <label for="download_export_file"><?php _e( 'Yes, I want to download the export file.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <td><input type="checkbox" name="download_export_file" id="download_export_file" value="true"<?php echo ( isset( $_POST['submit'] ) && !isset( $_POST['download_export_file'] ) ) ? '' : ' checked="checked"'; ?> /> <label for="download_export_file"><?php _e( 'Yes, I want to download the export file.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
         </table>
         <input type="hidden" name="action" value="export" />
