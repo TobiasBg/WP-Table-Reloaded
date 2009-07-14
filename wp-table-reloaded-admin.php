@@ -144,7 +144,7 @@ class WP_Table_Reloaded_Admin {
             $this->action = $action;
 
         // need thickbox to be able to show table in iframe on certain action pages (but not all)
-        $thickbox_actions = array ( 'list', 'copy', 'bulk_edit', 'hide_donate_nag' ); // those all show the "List of tables"
+        $thickbox_actions = array ( 'list', 'edit', 'copy', 'delete', 'bulk_edit', 'hide_donate_nag' ); // those all show the "List of tables"
         if ( in_array( $action, $thickbox_actions ) ) {
             add_thickbox();
             wp_enqueue_script( 'media-upload' ); // for resizing the thickbox
@@ -1928,6 +1928,9 @@ TEXT;
 
         // problem: delete -> edit/list     'table' == $_GET['item'] -> list
         if ( 'delete' == $action && 'table' == $_GET['item'] )
+            $action = 'list';
+        // problem: edit+save -> list       'table' == $_GET['item'] -> list
+        if ( 'edit' == $action && isset( $_POST['submit']['save_back'] ) )
             $action = 'list';
         // problem: import -> edit          $_REQUEST['import_format'] -> edit
         if ( 'import' == $action && isset( $_REQUEST['import_format'] ) )
