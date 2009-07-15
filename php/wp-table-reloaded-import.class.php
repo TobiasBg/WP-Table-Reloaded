@@ -97,10 +97,11 @@ class WP_Table_Reloaded_Import {
         $parseCSV->heading = false; // means: treat first row like all others
         
         // different things have worked, but don't always
-        //$parseCSV->encoding( 'ISO-8859-1', 'ISO-8859-1//IGNORE' ); // might need to play with this a little or offer an option
-        //$parseCSV->encoding( 'ISO-8859-1', 'UTF-8//IGNORE' ); // might need to play with this a little or offer an option
-        $parseCSV->encoding( 'ISO-8859-1', 'UTF-8' ); // might need to play with this a little or offer an option
-        //$parseCSV->encoding( 'Windows-1252', 'UTF-8//IGNORE' ); // might need to play with this a little or offer an option
+        // none of the following: 1 of 3
+        //$parseCSV->encoding( 'ISO-8859-1', 'ISO-8859-1//IGNORE' ); // might need to play with this a little or offer an option // 1 of 3
+        //$parseCSV->encoding( 'ISO-8859-1', 'UTF-8//IGNORE' ); // might need to play with this a little or offer an option // 0 of 3
+        //$parseCSV->encoding( 'ISO-8859-1', 'UTF-8' ); // might need to play with this a little or offer an option // 0 of 3
+        //$parseCSV->encoding( 'Windows-1252', 'UTF-8//IGNORE' ); // might need to play with this a little or offer an option // 1 of 3
         $parseCSV->load_data( $temp_data );
         $parseCSV->auto(); // let parsecsv do its magic (determine delimiter and parse the data)
 
