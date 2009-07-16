@@ -289,20 +289,10 @@ msgstr "Jede zweite Zeile bekommt eine alternierende Hintergrundfarbe."
 msgid "Use Table Headline"
 msgstr "Tabellenüberschrift"
 
-#: wp-table-reloaded-admin.php:1372
-#@ wp-table-reloaded
-msgid "The first row of your table will use the [th] tag."
-msgstr "Die erste Zeile der Tabelle wird mit dem HTML-Tag [th] markiert."
-
 #: wp-table-reloaded-admin.php:1375
 #@ wp-table-reloaded
 msgid "Print Table Name"
 msgstr "Tabellennamen ausgeben"
-
-#: wp-table-reloaded-admin.php:1376
-#@ wp-table-reloaded
-msgid "The Table Name will be written above the table in a [h2] tag."
-msgstr "Der Name der Tabelle wird in einem [h2]-HTML-Tag über die Tabelle geschrieben."
 
 #: wp-table-reloaded-admin.php:1379
 #@ wp-table-reloaded
@@ -916,7 +906,7 @@ msgstr "Um einen Link oder ein Bild in eine Zelle einzufügen, nutze die entspre
 #: wp-table-reloaded-admin.php:1809
 #@ wp-table-reloaded
 msgid "To include the table into your posts, pages or text widgets, write the shortcode [table id=&lt;table-id&gt;] into them."
-msgstr "Um die Tabelle in einen Beitrag, eine Seite oder ein Text-Widget einzufügen, füge diesen einfach den Shortcode [table id=&lt;ID_der_Tabelle &gt; /] hinzu."
+msgstr "Um die Tabelle in einen Beitrag, eine Seite oder ein Text-Widget einzufügen, füge diesen einfach den Shortcode [table id=&lt;ID_der_Tabelle&gt; /] hinzu."
 
 #: wp-table-reloaded-admin.php:1809
 #@ wp-table-reloaded
@@ -978,11 +968,6 @@ msgstr "Du nutzt folgende Software-Versionen. <strong>Bitte gib diese Informatio
 #@ wp-table-reloaded
 msgid "More information can be found on the <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/\">plugin's website</a>."
 msgstr "Weitere Informationen findest du auf der <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-deutsch/\">Plugin-Webseite</a>."
-
-#: wp-table-reloaded-admin.php:2264
-#@ wp-table-reloaded
-msgid "''alt'' text of the image"
-msgstr "''alt''-Text des Bildes"
 
 #: wp-table-reloaded-admin.php:2266
 #@ wp-table-reloaded
@@ -1236,7 +1221,7 @@ msgstr "Vielen Dank! Deine Spende leistet einen wichtigen Beitrag für die weite
 #, php-format
 #@ wp-table-reloaded
 msgid "No problem! I still hope you enjoy the benefits that WP-Table Reloaded brings to you. If you should want to change your mind, you'll always find the \"Donate\" button on the <a href=\"%s\">WP-Table Reloaded website</a>."
-msgstr "Kein Problem! Ich hoffe dennoch, dass du die Vorteile von WP-Table Reloaded genießt. Falls du deine Meinung später ändern solltest, findest du den \"Spenden\"-Button auf der <a href=\\\"%s\\\">Website von WP-Table Reloaded</a>."
+msgstr "Kein Problem! Ich hoffe dennoch, dass du die Vorteile von WP-Table Reloaded genießt. Falls du deine Meinung später ändern solltest, findest du den \"Spenden\"-Button auf der <a href=\"%s\">Website von WP-Table Reloaded</a>."
 
 #: wp-table-reloaded-admin.php:976
 #: wp-table-reloaded-admin.php:985
@@ -1341,7 +1326,7 @@ msgstr "Du kannst eine Tabelle mit dem <a href=\"http://www.tablesorter.com/\">T
 #: wp-table-reloaded-admin.php:1386
 #@ wp-table-reloaded
 msgid "<small>Attention: You must have Tablesorter enabled on the \"Plugin Options\" screen and the option \"Use Table Headline\" has to be enabled above for this to work!</small>"
-msgstr "<small>Achtung: Hierzu muss Tablesorte in den Plugin-Optionen aktiviert und die Option \"Tabellenüberschrift\" angekreuzt sein!</small>"
+msgstr "<small>Achtung: Hierzu muss Tablesorter in den Plugin-Optionen aktiviert und die Option \"Tabellenüberschrift\" angekreuzt sein!</small>"
 
 #: wp-table-reloaded-admin.php:1402
 #@ wp-table-reloaded
@@ -1444,7 +1429,7 @@ msgstr "Du kannst eine kürzere Seitenladezeit erreichen, wenn du die CSS-Anweis
 #, php-format
 #@ wp-table-reloaded
 msgid "Another possibility is, to include a CSS file (e.g. from your theme folder) with the CSS @import command: %s"
-msgstr "Eine weitere Möglichkeit ist das Laden einer CSS-Datei (z.B. aus deinem Theme-Ordner) mittels des CSS-Kommandos \\\"@import\\\": %s"
+msgstr "Eine weitere Möglichkeit ist das Laden einer CSS-Datei (z.B. aus deinem Theme-Ordner) mittels des CSS-Kommandos \"@import\": %s"
 
 #: wp-table-reloaded-admin.php:1750
 #@ wp-table-reloaded
@@ -1459,7 +1444,7 @@ msgstr "Nutze Tablesorter Extended?"
 #: wp-table-reloaded-admin.php:1755
 #@ wp-table-reloaded
 msgid "Yes, use Extended Tablesorter from <a href=\"http://tablesorter.openwerk.de\">S&ouml;ren Krings</a> instead of original Tablesorter script (EXPERIMENTAL FEATURE!)."
-msgstr "Ja, nutze das \\\"Tablesorter Extended\\\" Script von <a href=\"http://tablesorter.openwerk.de\">S&ouml;ren Krings</a> anstelle des Original-Tablesorter-Scripts (EXPERIMENTELL!)."
+msgstr "Ja, nutze das \"Tablesorter Extended\" Script von <a href=\"http://tablesorter.openwerk.de\">S&ouml;ren Krings</a> anstelle des Original-Tablesorter-Scripts (EXPERIMENTELL!)."
 
 #: wp-table-reloaded-admin.php:1759
 #@ wp-table-reloaded
@@ -1494,7 +1479,7 @@ msgstr "Über WP-Table Reloaded"
 #: wp-table-reloaded-admin.php:1823
 #@ wp-table-reloaded
 msgid "This plugin was written by <a href=\"http://tobias.baethge.com/\">Tobias B&auml;thge</a>. It is licensed as Free Software under GPL 2."
-msgstr "Dieses WordPress-Plugin wurde von <a href=\"http://tobias.baethge.com/\">Tobias B&auml;thge</a> programmiert. Es ist \\\"Freie Software\\\" unter der Lizenz GPL 2."
+msgstr "Dieses WordPress-Plugin wurde von <a href=\"http://tobias.baethge.com/\">Tobias B&auml;thge</a> programmiert. Es ist \"Freie Software\" unter der Lizenz GPL 2."
 
 #: wp-table-reloaded-admin.php:1823
 #: wp-table-reloaded-admin.php:1981
@@ -1592,4 +1577,19 @@ msgstr "Nein, Danke. Frag nicht nochmal."
 #@ wp-table-reloaded
 msgid "Edit %s"
 msgstr "Bearbeite %s"
+
+#: wp-table-reloaded-admin.php:1372
+#@ wp-table-reloaded
+msgid "The first row of your table will use the &lt;th&gt; tag."
+msgstr "Die erste Zeile der Tabelle wird mit dem HTML-Tag &lt;th&gt; markiert."
+
+#: wp-table-reloaded-admin.php:1376
+#@ wp-table-reloaded
+msgid "The Table Name will be written above the table in a &lt;h2&gt; tag."
+msgstr "Der Name der Tabelle wird in einem &lt;h2&gt;-HTML-Tag über die Tabelle geschrieben."
+
+#: wp-table-reloaded-admin.php:2264
+#@ wp-table-reloaded
+msgid "&quot;alt&quot; text of the image"
+msgstr "Alternativtext (&quot;alt&quot;) des Bildes"
 

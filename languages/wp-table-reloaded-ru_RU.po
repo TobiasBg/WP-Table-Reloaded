@@ -386,20 +386,10 @@ msgstr "Каждая вторая строка будет иметь друго�
 msgid "Use Table Headline"
 msgstr "Использовать заголовок таблицы"
 
-#: wp-table-reloaded-admin.php:1372
-#@ wp-table-reloaded
-msgid "The first row of your table will use the [th] tag."
-msgstr "Первая строка Вашей таблицы будет использовать тег [th]."
-
 #: wp-table-reloaded-admin.php:1375
 #@ wp-table-reloaded
 msgid "Print Table Name"
 msgstr "Печатать название таблицы"
-
-#: wp-table-reloaded-admin.php:1376
-#@ wp-table-reloaded
-msgid "The Table Name will be written above the table in a [h2] tag."
-msgstr "Имя таблицы будет написано над таблицей в теге [h2]."
 
 #: wp-table-reloaded-admin.php:1379
 #@ wp-table-reloaded
@@ -976,11 +966,6 @@ msgstr "Вы используете следующую версию програ
 #@ wp-table-reloaded
 msgid "More information can be found on the <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/\">plugin's website</a>."
 msgstr "Более подробную информацию можно найти на <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/\">сайте плагина</a>."
-
-#: wp-table-reloaded-admin.php:2264
-#@ wp-table-reloaded
-msgid "''alt'' text of the image"
-msgstr "''alt'' текст для картинки"
 
 #: wp-table-reloaded-admin.php:2266
 #@ wp-table-reloaded
@@ -1597,4 +1582,19 @@ msgstr "Чтобы показать эту таблицу, используйт�
 #@ wp-table-reloaded
 msgid "Thank you for using <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/\">WP-Table Reloaded</a>."
 msgstr "Спасибо за использование <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/\">WP-Table Reloaded</a>."
+
+#: wp-table-reloaded-admin.php:1372
+#@ wp-table-reloaded
+msgid "The first row of your table will use the &lt;th&gt; tag."
+msgstr "Первая строка Вашей таблицы будет использовать тег &lt;th&gt;."
+
+#: wp-table-reloaded-admin.php:1376
+#@ wp-table-reloaded
+msgid "The Table Name will be written above the table in a &lt;h2&gt; tag."
+msgstr "Имя таблицы будет написано над таблицей в теге &lt;h2&gt;."
+
+#: wp-table-reloaded-admin.php:2264
+#@ wp-table-reloaded
+msgid "&quot;alt&quot; text of the image"
+msgstr "&quot;alt&quot; текст для картинки"
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-table-reloaded\n"
-"POT-Creation-Date: 2009-07-16 09:47+0000\n"
+"POT-Creation-Date: 2009-07-16 17:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -658,7 +658,7 @@ msgid "Use Table Headline"
 msgstr ""
 
 #: wp-table-reloaded-admin.php:1372
-msgid "The first row of your table will use the [th] tag."
+msgid "The first row of your table will use the &lt;th&gt; tag."
 msgstr ""
 
 #: wp-table-reloaded-admin.php:1375
@@ -666,7 +666,7 @@ msgid "Print Table Name"
 msgstr ""
 
 #: wp-table-reloaded-admin.php:1376
-msgid "The Table Name will be written above the table in a [h2] tag."
+msgid "The Table Name will be written above the table in a &lt;h2&gt; tag."
 msgstr ""
 
 #: wp-table-reloaded-admin.php:1379
@@ -1321,7 +1321,7 @@ msgid "URL of image to insert"
 msgstr ""
 
 #: wp-table-reloaded-admin.php:2264
-msgid "''alt'' text of the image"
+msgid "&quot;alt&quot; text of the image"
 msgstr ""
 
 #: wp-table-reloaded-admin.php:2265
