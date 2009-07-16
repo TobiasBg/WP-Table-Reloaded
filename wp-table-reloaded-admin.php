@@ -1108,7 +1108,12 @@ class WP_Table_Reloaded_Admin {
         <?php wp_nonce_field( $this->get_nonce( 'edit' ) ); ?>
         <input type="hidden" name="table[id]" value="<?php echo $table['id']; ?>" />
         <input type="hidden" name="action" value="edit" />
-
+        <input type="hidden" id="hidden_edcanvas" value="" />
+        <script type="text/javascript">
+        /* <![CDATA[ */
+            edCanvas = document.getElementById('hidden_edcanvas');
+        /* ]]> */
+        </script>
         <div class="postbox">
         <h3 class="hndle"><span><?php _e( 'Table Information', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span></h3>
         <div class="inside">
@@ -1324,8 +1329,9 @@ class WP_Table_Reloaded_Admin {
         <?php } // end if form move col ?>
     </td></tr>
     <tr><td>
-        <a id="a-insert-link" class="button-primary" href=""><?php _e( 'Insert Link', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
-        <a id="a-insert-image" class="button-primary" href=""><?php _e( 'Insert Image', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
+        <a id="a-insert-link" class="button-primary" href="javascript:void(0);"><?php _e( 'Insert Link', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
+        <a id="a-tb-insert-link" href="media-upload.php?type=image&amp;TB_iframe=true" class="thickbox button-primary" title="<?php _e( 'Insert Image', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" onclick="return false;"><?php _e( 'Insert Image', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
+        <?php // <a id="a-insert-image" class="button-primary" href="javascript:void(0);"><? php _e( 'Insert Image', WP_TABLE_RELOADED_TEXTDOMAIN ); ? ></a> ?>
     </td><td>
         <?php if ( 1 < $rows ) { // sort form
 
@@ -1736,7 +1742,7 @@ class WP_Table_Reloaded_Admin {
             <textarea name="options[custom_css]" id="options_custom_css" rows="15" cols="40" style="width:600px;height:300px;"<?php echo ( false == $this->options['use_custom_css'] ) ? ' disabled="disabled"': '' ; ?>><?php echo $this->safe_output( $this->options['custom_css'] ); ?></textarea><br/><br/>
             <?php
             $stylesheet = '/themes/' . get_stylesheet() . '/style.css';
-            $editor_uri = dirname( $_SERVER['PHP_SELF'] ) . '/theme-editor.php?file=' . $stylesheet;
+            $editor_uri = 'theme-editor.php?file=' . $stylesheet;
             echo sprintf( __( 'You might get a better website performance, if you add the CSS styling to your theme\'s "style.css" (located at <a href="%s">%s</a>) instead.', WP_TABLE_RELOADED_TEXTDOMAIN ), $editor_uri, $stylesheet ); ?><br/>
             <?php echo sprintf( __( 'See the <a href="%s">plugin website</a> for styling examples or use one of the following: <a href="%s">Example Style 1</a> <a href="%s">Example Style 2</a>', WP_TABLE_RELOADED_TEXTDOMAIN ), 'http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/', 'http://tobias.baethge.com/download/plugins/additional/example-style-1.css', 'http://tobias.baethge.com/download/plugins/additional/example-style-2.css' ); ?><br/><?php _e( 'Just copy the contents of a file into the textarea.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/>
             <?php echo sprintf( __( 'Another possibility is, to include a CSS file (e.g. from your theme folder) with the CSS @import command: %s', WP_TABLE_RELOADED_TEXTDOMAIN ), '<code>@import url( "YOUR-CSS-FILE.css" ) screen, print;</code>' ); ?>
@@ -2260,9 +2266,10 @@ TEXT;
 	  	        'str_DataManipulationLinkInsertURL' => __( 'URL of link to insert', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_DataManipulationLinkInsertText' => __( 'Text of link', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_DataManipulationLinkInsertExplain' => __( 'To insert the following link into a cell, just click the cell after closing this dialog.', WP_TABLE_RELOADED_TEXTDOMAIN ),
-	  	        'str_DataManipulationImageInsertURL' => __( 'URL of image to insert', WP_TABLE_RELOADED_TEXTDOMAIN ),
-	  	        'str_DataManipulationImageInsertAlt' => __( "&quot;alt&quot; text of the image", WP_TABLE_RELOADED_TEXTDOMAIN ),
-	  	        'str_DataManipulationImageInsertExplain' => __( 'To insert the following image into a cell, just click the cell after closing this dialog.', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_DataManipulationImageInsertThickbox' => __( 'Select the image you want to insert from the following dialog and click the approriate "Insert" button.', WP_TABLE_RELOADED_TEXTDOMAIN ) . "\n" . __( 'Then click the cell into which you want to insert the image.', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        //'str_DataManipulationImageInsertURL' => __( 'URL of image to insert', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        //'str_DataManipulationImageInsertAlt' => __( "&quot;alt&quot; text of the image", WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        //'str_DataManipulationImageInsertExplain' => __( 'To insert the following image into a cell, just click the cell after closing this dialog.', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_BulkCopyTablesLink' => __( 'Do you want to copy the selected tables?', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_BulkDeleteTablesLink' => __( 'The selected tables and all content will be erased. Do you really want to delete them?', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_BulkImportwpTableTablesLink' => __( 'Do you really want to import the selected tables from the wp-Table plugin?', WP_TABLE_RELOADED_TEXTDOMAIN ),
@@ -2307,7 +2314,7 @@ TEXT;
                 'page' => $this->page_slug,
                 'action' => 'ajax_list'
         );
-        $ajax_url = add_query_arg( $params, dirname( $_SERVER['PHP_SELF'] ) . '/tools.php' );
+        $ajax_url = add_query_arg( $params, 'tools.php' );
         $ajax_url = wp_nonce_url( $ajax_url, $this->get_nonce( $params['action'], false ) );
         $ajax_url = clean_url( $ajax_url );
 

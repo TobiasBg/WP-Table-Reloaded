@@ -152,6 +152,29 @@ jQuery(document).ready( function( $ ) {
 		return false;
     } );
 
+    function insert_img_html() {
+        // add the value of edCanvas to the textarea
+        $(this).val( $(this).val() + $(edCanvas).val() );
+        $(edCanvas).val( '' )
+        $( '#table_contents textarea' ).unbind( 'click', set_edCanvas );
+    }
+
+    $( '#a-tb-insert-link' ).click( function (event) {
+        alert( WP_Table_Reloaded_Admin.str_DataManipulationImageInsertThickbox );
+        $("#table_contents textarea").bind( 'click', insert_img_html );
+        /*
+        if ( true == confirm( WP_Table_Reloaded_Admin.str_DataManipulationImageInsertThickbox ) ) {
+            $("#table_contents textarea").bind( 'click', insert_img_html );
+            // the media-upload thickbox will now be loaded
+            // if an image is selected, the HTML will be written to edCanvas
+        } else {
+            event.preventDefault();
+            return false;
+        }
+        */
+    });
+
+    /*
     $( '#a-insert-image' ).click( function () {
         var image_url = prompt( WP_Table_Reloaded_Admin.str_DataManipulationImageInsertURL + ':', 'http://' );
         if ( image_url ) {
@@ -165,6 +188,7 @@ jQuery(document).ready( function( $ ) {
         }
 		return false;
     } );
+    */
 
     // not all characters allowed for name of Custom Data Field
     $( '#insert_custom_field_name' ).keyup( function () {
