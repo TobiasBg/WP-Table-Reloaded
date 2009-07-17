@@ -161,12 +161,12 @@ jQuery(document).ready( function( $ ) {
     }
 
     function add_image() {
-        $(this).unbind( 'click' );
+        $(this).unbind( 'click' ); // this unbind is for WP 2.8, where our script is added before thickbox.js
         $(this).bind('click', add_image);
         if ( true == confirm( WP_Table_Reloaded_Admin.str_DataManipulationImageInsertThickbox ) )
             $("#table_contents textarea").bind( 'click', call_media_library_thickbox );
     }
-    $( '#a-insert-image' ).bind('click', add_image);
+    $( '#a-insert-image' ).unbind( 'click' ).bind('click', add_image); // this unbind is for WP < 2.8, where our script is added after thickbox.js
 
     // not all characters allowed for name of Custom Data Field
     $( '#insert_custom_field_name' ).keyup( function () {
