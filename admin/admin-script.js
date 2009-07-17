@@ -129,9 +129,8 @@ jQuery(document).ready( function( $ ) {
     } );
 
 
-    // insert image / insert link functions
+    // insert link functions
     var insert_html = '';
-
     function add_html() {
         var current_content = $(this).val();
         $(this).val( current_content + insert_html );
@@ -152,43 +151,22 @@ jQuery(document).ready( function( $ ) {
 		return false;
     } );
 
-    function insert_img_html() {
-        // add the value of edCanvas to the textarea
-        $(this).val( $(this).val() + $(edCanvas).val() );
-        $(edCanvas).val( '' )
-        $( '#table_contents textarea' ).unbind( 'click', set_edCanvas );
+    // insert image functions
+    function call_media_library_thickbox() {
+        edCanvas = this;
+        $( '#table_contents textarea' ).unbind( 'click', call_media_library_thickbox );
+        var link = $( '#a-tb-insert-link' );
+        tb_show( link.attr('title'), link.attr('href'), link.attr('rel') );
+        $(this).blur();
     }
 
-    $( '#a-tb-insert-link' ).click( function (event) {
-        alert( WP_Table_Reloaded_Admin.str_DataManipulationImageInsertThickbox );
-        $("#table_contents textarea").bind( 'click', insert_img_html );
-        /*
-        if ( true == confirm( WP_Table_Reloaded_Admin.str_DataManipulationImageInsertThickbox ) ) {
-            $("#table_contents textarea").bind( 'click', insert_img_html );
-            // the media-upload thickbox will now be loaded
-            // if an image is selected, the HTML will be written to edCanvas
-        } else {
-            event.preventDefault();
-            return false;
-        }
-        */
-    });
-
-    /*
-    $( '#a-insert-image' ).click( function () {
-        var image_url = prompt( WP_Table_Reloaded_Admin.str_DataManipulationImageInsertURL + ':', 'http://' );
-        if ( image_url ) {
-            var image_alt = prompt( WP_Table_Reloaded_Admin.str_DataManipulationImageInsertAlt + ':', '' );
-            // if ( image_alt ) { // won't check for alt, because there are cases where an empty one makes sense
-                insert_html = '<img src="' + image_url + '" alt="' + image_alt + '" />';
-                if ( true == confirm( WP_Table_Reloaded_Admin.str_DataManipulationImageInsertExplain + '\n\n' + insert_html ) ) {
-                    $("#table_contents textarea").bind('click', add_html);
-                }
-            // }
-        }
-		return false;
-    } );
-    */
+    function add_image() {
+        $(this).unbind( 'click' );
+        $(this).bind('click', add_image);
+        if ( true == confirm( WP_Table_Reloaded_Admin.str_DataManipulationImageInsertThickbox ) )
+            $("#table_contents textarea").bind( 'click', call_media_library_thickbox );
+    }
+    $( '#a-insert-image' ).bind('click', add_image);
 
     // not all characters allowed for name of Custom Data Field
     $( '#insert_custom_field_name' ).keyup( function () {
