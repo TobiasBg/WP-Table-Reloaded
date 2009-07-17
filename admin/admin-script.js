@@ -155,7 +155,7 @@ jQuery(document).ready( function( $ ) {
     function call_media_library_thickbox() {
         edCanvas = this;
         $( '#table_contents textarea' ).unbind( 'click', call_media_library_thickbox );
-        var link = $( '#a-tb-insert-link' );
+        var link = $( '#a-insert-image' );
         tb_show( link.attr('title'), link.attr('href'), link.attr('rel') );
         $(this).blur();
     }
