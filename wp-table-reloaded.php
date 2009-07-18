@@ -6,6 +6,9 @@ Description: This plugin allows you to create and easily manage tables in the ad
 Version: 1.4-beta1
 Author: Tobias B&auml;thge
 Author URI: http://tobias.baethge.com/
+Author eMail: wordpress@tobias.baethge.com
+Text Domain: wp-table-reloaded
+Domain Path: /languages
 Donate URI: http://tobias.baethge.com/donate/
 */
 
