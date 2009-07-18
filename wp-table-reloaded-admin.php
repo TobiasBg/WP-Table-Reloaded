@@ -1065,11 +1065,11 @@ class WP_Table_Reloaded_Admin {
         <table class="wp-table-reloaded-options">
         <tr valign="top">
             <th scope="row"><label for="table_name"><?php _e( 'Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
-            <td><input type="text" name="table[name]" id="table_name" class="focus-blur-change" value="<?php _e( 'Enter Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" style="width:250px;" title="<?php _e( 'Enter Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" /></td>
+            <td><input type="text" name="table[name]" id="table_name" class="focus-blur-change" value="<?php _e( 'Enter Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" style="width:100%;" title="<?php _e( 'Enter Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" /></td>
         </tr>
         <tr valign="top">
             <th scope="row"><label for="table_description"><?php _e( 'Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
-            <td><textarea name="table[description]" id="table_description" class="focus-blur-change" rows="15" cols="40" style="width:250px;height:85px;" title="<?php _e( 'Enter Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>"><?php _e( 'Enter Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></textarea></td>
+            <td><textarea name="table[description]" id="table_description" class="focus-blur-change" rows="15" cols="40" style="width:100%;height:85px;" title="<?php _e( 'Enter Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>"><?php _e( 'Enter Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></textarea></td>
         </tr>
         <tr valign="top">
             <th scope="row"><label for="table_rows"><?php _e( 'Number of Rows', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
@@ -1112,18 +1112,18 @@ class WP_Table_Reloaded_Admin {
         <div class="postbox">
         <h3 class="hndle"><span><?php _e( 'Table Information', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span></h3>
         <div class="inside">
-        <table class="wp-table-reloaded-options wp-table-reloaded-table-information">
+        <table class="wp-table-reloaded-table-information">
         <tr valign="top">
             <th scope="row"><label for="table_id"><?php _e( 'Table ID', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
-            <td><input type="text" name="table_id" id="table_id" value="<?php echo $this->safe_output( $table['id'] ); ?>" style="width:50px" /></td>
+            <td><input type="text" name="table_id" id="table_id" value="<?php echo $this->safe_output( $table['id'] ); ?>" style="width:80px" /></td>
         </tr>
         <tr valign="top">
             <th scope="row"><label for="table_name"><?php _e( 'Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
-            <td><input type="text" name="table[name]" id="table_name" value="<?php echo $this->safe_output( $table['name'] ); ?>" style="width:300px" /></td>
+            <td><input type="text" name="table[name]" id="table_name" value="<?php echo $this->safe_output( $table['name'] ); ?>" /></td>
         </tr>
         <tr valign="top">
             <th scope="row"><label for="table_description"><?php _e( 'Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
-            <td><textarea name="table[description]" id="table_description" rows="15" cols="40" style="width:300px;height:85px;"><?php echo $this->safe_output( $table['description'] ); ?></textarea></td>
+            <td><textarea name="table[description]" id="table_description" rows="15" cols="40" style="height:84px;"><?php echo $this->safe_output( $table['description'] ); ?></textarea></td>
         </tr>
         <?php if ( !empty( $table['last_editor_id'] ) ) { ?>
         <tr valign="top">
@@ -1406,7 +1406,7 @@ class WP_Table_Reloaded_Admin {
         <?php echo sprintf( __( 'You can show this data in the same way as tables by using the shortcode <strong>[table-info id=%s field="&lt;field-name&gt;" /]</strong>.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $table_id ) ); ?>
         <br/><br/>
         <?php if ( isset( $table['custom_fields'] ) && !empty ( $table['custom_fields'] ) ) { ?>
-            <table class="widefat" style="width:auto;" id="table_custom_fields">
+            <table class="widefat" style="width:100%" id="table_custom_fields">
                 <thead>
                     <tr>
                         <th scope="col"><?php _e( 'Field Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
@@ -1420,10 +1420,10 @@ class WP_Table_Reloaded_Admin {
                     $name = $this->safe_output( $name );
                     $value = $this->safe_output( $value );
                     echo "<tr>\n";
-                        echo "\t<td>{$name}</td>\n";
-                        echo "\t<td><input type=\"text\" name=\"table[custom_fields][{$name}]\" value=\"{$value}\" style=\"width:200px\" /></td>\n";
+                        echo "\t<td style=\"width:10%;\">{$name}</td>\n";
+                        echo "\t<td style=\"width:75%;\"><textarea rows=\"1\" cols=\"20\" name=\"table[custom_fields][{$name}]\" style=\"width:90%\">{$value}</textarea></td>\n";
                         $delete_cf_url = $this->get_action_url( array( 'action' => 'delete', 'table_id' => $table['id'], 'item' => 'custom_field', 'element_id' => $name ), true );
-                        echo "\t<td>";
+                        echo "\t<td style=\"width:15%;min-width:200px;\">";
                         echo "<a href=\"{$delete_cf_url}\">" . __( 'Delete Field', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>";
                         $shortcode = "[table-info id=" . $this->safe_output( $table_id ) . " field=&quot;{$name}&quot; /]";
                         echo " | <a href=\"javascript:void(0);\" class=\"cf_shortcode_link\" title=\"{$shortcode}\">" . __( 'View shortcode', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>";
@@ -1436,7 +1436,7 @@ class WP_Table_Reloaded_Admin {
             <br/>
         <?php } // endif custom_fields ?>
         <?php _e( 'To add a new Custom Data Field, enter its name (only lowercase letters, numbers, _ and -).', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/>
-        <?php _e( 'Custom Data Field Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>: <input type="text" id="insert_custom_field_name" name="insert[custom_field]" value="" style="width:150px" /> <input type="submit" name="submit[insert_cf]" class="button-primary" value="<?php _e( 'Add', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
+        <?php _e( 'Custom Data Field Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>: <input type="text" id="insert_custom_field_name" name="insert[custom_field]" value="" style="width:300px" /> <input type="submit" name="submit[insert_cf]" class="button-primary" value="<?php _e( 'Add', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
     </div>
     </div>
 

@@ -47,8 +47,27 @@ textarea.focus {
     height:84px;
 }
 
+.wp-table-reloaded-table-information td {
+	padding:5px 0px 5px 0px;
+    width:90%;
+}
+
+.wp-table-reloaded-table-information th {
+    font-weight:normal;
+    text-align:left;
+    padding:5px 10px 5px 0px;
+    vertical-align:middle;
+    width:10%;
+    min-width:130px;
+}
+
+.wp-table-reloaded-table-information, .wp-table-reloaded-table-information input, .wp-table-reloaded-table-information textarea {
+    width:100%;
+}
+
 .wp-table-reloaded-options td {
 	padding:5px 0px 5px 0px;
+    width:90%;
 }
 
 .wp-table-reloaded-options th {
@@ -67,6 +86,10 @@ textarea.focus {
 
 .widefat td {
     vertical-align:baseline!important;
+}
+
+#table_custom_fields td {
+    vertical-align:middle!important;
 }
 
 #table_contents td {

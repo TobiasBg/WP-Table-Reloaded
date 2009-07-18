@@ -183,6 +183,11 @@ jQuery(document).ready( function( $ ) {
             $(this).val( $(this).attr('title') );
     } );
 
+    $( '#table_custom_fields textarea' ).focus( function() {
+        $( '#table_custom_fields .focus' ).removeClass('focus');
+        $(this).addClass('focus');
+    } );
+
     // confirmation of certain actions
     $( 'input.bulk_copy_tables' ).click( function () {
         return confirm( WP_Table_Reloaded_Admin.str_BulkCopyTablesLink );
