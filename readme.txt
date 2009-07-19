@@ -114,6 +114,7 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 = Version 1.4 =
 * restyled "List of Tables" to suit WP 2.7/2.8 layout, list now sortable
 * added Table and shortcode Preview in the backend
+* "Insert Image" now allows inserting images from the WP Media Library
 * added possibility to show/hide rows/columns with checkboxes in the backend
 * textarea for cell data now grows when focussed
 * added "Custom Data Fields" to be able to store table meta data, accessible with a shortcode
