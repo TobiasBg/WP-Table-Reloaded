@@ -2251,7 +2251,8 @@ TEXT;
     // ###################################################################################################################
     // enqueue javascript-file, with some jQuery stuff
     function add_manage_page_js() {
-        $jsfile = 'admin-script.js';
+        $suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.dev' : '';
+        $jsfile = "admin-script{$suffix}.js";
         if ( file_exists( WP_TABLE_RELOADED_ABSPATH . 'admin/' . $jsfile ) ) {
             wp_register_script( 'wp-table-reloaded-admin-js', WP_TABLE_RELOADED_URL . 'admin/' . $jsfile, array( 'jquery' ), $this->plugin_version );
             // add all strings to translate here
@@ -2283,7 +2284,8 @@ TEXT;
     // ###################################################################################################################
     // enqueue css-stylesheet-file for admin, if it exists
     function add_manage_page_css() {
-        $cssfile = 'admin-style.css';
+        $suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.dev' : '';
+        $cssfile = "admin-style{$suffix}.css";
         if ( file_exists( WP_TABLE_RELOADED_ABSPATH . 'admin/' . $cssfile ) )
             wp_enqueue_style( 'wp-table-reloaded-admin-css', WP_TABLE_RELOADED_URL . 'admin/' . $cssfile, array(), $this->plugin_version );
     }
@@ -2310,7 +2312,8 @@ TEXT;
         $ajax_url = clean_url( $ajax_url );
 
         // currently doing this by hand in the footer, as footer-scripts are only available since WP 2.8
-        $jsfile = 'admin-editor-buttons-script.js';
+        $suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.dev' : '';
+        $jsfile = "admin-editor-buttons-script{$suffix}.js";
         if ( file_exists( WP_TABLE_RELOADED_ABSPATH . 'admin/' . $jsfile ) ) {
             wp_register_script( 'wp-table-reloaded-admin-editor-buttons-js', WP_TABLE_RELOADED_URL . 'admin/' . $jsfile, array( 'jquery', 'thickbox' ), $this->plugin_version );
             // add all strings to translate here
