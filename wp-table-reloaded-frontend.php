@@ -145,6 +145,10 @@ class WP_Table_Reloaded_Frontend {
 
         $table = $this->load_table( $table_id );
 
+        // check for table data
+        if ( !isset( $table['data'] ) || empty( $table['data'] ) )
+            return "[table &quot;{$table_id}&quot; seems to be empty /]<br />\n";
+
         // determine options to use (if set in shortcode, use those, otherwise use options from "Edit Table" screen)
         $output_options = array();
         foreach ( $atts as $key => $value ) {
