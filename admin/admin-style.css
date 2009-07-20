@@ -48,8 +48,14 @@ textarea.focus {
 }
 
 .wp-table-reloaded-table-information td {
-	padding:5px 0px 5px 0px;
+    padding:5px 0px 5px 0px;
     width:90%;
+}
+
+
+.wp-table-reloaded-newtable td {
+    padding:5px 0px 5px 0px;
+    width:85%;
 }
 
 .wp-table-reloaded-table-information th {
@@ -61,13 +67,12 @@ textarea.focus {
     min-width:130px;
 }
 
-.wp-table-reloaded-table-information, .wp-table-reloaded-table-information input, .wp-table-reloaded-table-information textarea {
+.wp-table-reloaded-newtable, .wp-table-reloaded-table-information, .wp-table-reloaded-table-information input, .wp-table-reloaded-table-information textarea {
     width:100%;
 }
 
 .wp-table-reloaded-options td {
-	padding:5px 0px 5px 0px;
-    width:90%;
+    padding:5px 0px 5px 0px;
 }
 
 .wp-table-reloaded-options th {

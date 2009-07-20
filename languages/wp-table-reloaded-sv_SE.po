@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Table Reloaded (sv_SE)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-17 10:12+0100\n"
+"POT-Creation-Date: 2009-07-20 12:47+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: ZuperZed <info@zuperzed.se>\n"
 "Language-Team: www.zuperzed.se <info@zuperzed.se>\n"
@@ -1163,74 +1163,79 @@ msgid "To insert the following link into a cell, just click the cell after closi
 msgstr "För att infoga följande länk i en cell, klicka bara på cellen efter att denna ruta har stängts."
 
 #: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2263
-msgid "URL of image to insert"
-msgstr "URL till bilden som ska infogas"
+msgid "To insert an image, click the cell into which you want to insert the image."
+msgstr "För att infoga en bild klicka på cellen där du vill infoga bilden."
+
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2263
+msgid "The Media Library will open, from which you can select the desired image or insert the image URL."
+msgstr "Mediebiblioteket kommer öppnas, därifrån kan du välja önskad bild eller infoga bildens URL."
+
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2263
+#, php-format
+msgid "Click the \"%s\" button to insert the image."
+msgstr "Klicka på \"%s\"knappen för att infoga bilden."
+
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2263
+msgid "Insert into Post"
+msgstr "Infoga i ett inlägg"
 
 #: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2264
-msgid "&quot;alt&quot; text of the image"
-msgstr "&quot;alt&quot; bildens text"
-
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2265
-msgid "To insert the following image into a cell, just click the cell after closing this dialog."
-msgstr "För att infoga foljande bild i en cell, klicka bara på cellen efter att denna ruta har stängts."
-
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2266
 msgid "Do you want to copy the selected tables?"
 msgstr "Vill du kopiera valda tabeller?"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2267
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2265
 msgid "The selected tables and all content will be erased. Do you really want to delete them?"
 msgstr "Valda tabeller och allt inehåll kommer raderas. Vill du verkligen radera dem?"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2268
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2266
 msgid "Do you really want to import the selected tables from the wp-Table plugin?"
 msgstr "Vill du verkligen importera valda tabeller från wp-Table tillägget?"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2269
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2267
 msgid "Do you want to copy this table?"
 msgstr "Vill du kopiera denna tabell?"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2270
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2268
 msgid "The complete table and all content will be erased. Do you really want to delete it?"
 msgstr "Tabellen och dess inehåll kommer raderas. Vill du verkligen radera den?"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2271
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2269
 msgid "Do you really want to delete this row?"
 msgstr "Vill du verkligen radera denna rad?"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2272
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2270
 msgid "Do you really want to delete this column?"
 msgstr "Vill du verkligen radera denna kolumn?"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2273
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2271
 msgid "Do you really want to import this table from the wp-Table plugin?"
 msgstr "Vill du verkligen importera denna tabell från wp-Table tillägget?"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2274
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2272
 msgid "Do you really want to uninstall the plugin and delete ALL data?"
 msgstr "Vill du verkligen avinstallera tillägget och radera ALL data?"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2275
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2273
 msgid "Are you really sure?"
 msgstr "Är du riktigt säker?"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2276
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2274
 msgid "Do you really want to change the ID of the table?"
 msgstr "Vill du verkligen ändra ID för denna tabell?"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2277
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2275
 msgid "To show this Custom Data Field, use this shortcode:"
 msgstr "För att visa detta anpassade datafält, använd snabbkoden:"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2278
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2276
 msgid "To show this table, use this shortcode:"
 msgstr "För att visa denna tabell, använd snabbkoden:"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2320
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2318
 msgid "Table"
 msgstr "Tabell"
 
-#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2352
+#: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:2350
 msgid "Thank you for using <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/\">WP-Table Reloaded</a>."
 msgstr "Tack för att du använder <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/\">WP-Table Reloaded</a>."
 
@@ -1269,6 +1274,16 @@ msgstr ". (punkt)"
 msgid "| (pipe)"
 msgstr "| (pipe)"
 
+#~ msgid "URL of image to insert"
+#~ msgstr "URL till bilden som ska infogas"
+#~ msgid "&quot;alt&quot; text of the image"
+#~ msgstr "&quot;alt&quot; bildens text"
+#~ msgid ""
+#~ "To insert the following image into a cell, just click the cell after "
+#~ "closing this dialog."
+#~ msgstr ""
+#~ "För att infoga foljande bild i en cell, klicka bara på cellen efter att "
+#~ "denna ruta har stängts."
 #~ msgid "Information about the plugin"
 #~ msgstr "Information om tillägget"
 #~ msgid "- or -"
