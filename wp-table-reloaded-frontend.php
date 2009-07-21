@@ -117,7 +117,11 @@ class WP_Table_Reloaded_Frontend {
                 'show_rows' => '',
                 'show_columns' => '',
                 'hide_rows' => '',
-                'hide_columns' => ''
+                'hide_columns' => '',
+                'cellspacing' => 1,
+                'cellpadding' => 0,
+                'border' => 0
+                
         );
       	$atts = shortcode_atts( $default_atts, $atts );
 
@@ -262,7 +266,7 @@ class WP_Table_Reloaded_Frontend {
             if ( true == $output_options['print_name'] )
                 $output .= '<h2 class="wp-table-reloaded-table-name">' . $this->safe_output( $table['name'] ) . "</h2>\n";
         
-            $output .= "<table id=\"{$output_options['html_id']}\" class=\"{$cssclasses}\" cellspacing=\"1\" cellpadding=\"0\" border=\"0\">\n";
+            $output .= "<table id=\"{$output_options['html_id']}\" class=\"{$cssclasses}\" cellspacing=\"{$output_options['cellspacing']}\" cellpadding=\"{$output_options['cellpadding']}\" border=\"{$output_options['border']}\">\n";
 
             foreach( $table['data'] as $row_idx => $row ) {
                 if ( true == $output_options['alternating_row_colors'] )
