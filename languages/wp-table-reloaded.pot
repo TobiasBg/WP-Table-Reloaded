@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-table-reloaded\n"
-"POT-Creation-Date: 2009-07-20 15:07+0000\n"
+"POT-Creation-Date: 2009-07-21 08:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1296,100 +1296,100 @@ msgid ""
 "wordpress-plugins/wp-table-reloaded-english/\">plugin's website</a>."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2259
+#: wp-table-reloaded-admin.php:2260
 msgid ""
 "Do you really want to activate this? You should only do that right before "
 "uninstallation!"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2260
+#: wp-table-reloaded-admin.php:2261
 msgid "URL of link to insert"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2261
+#: wp-table-reloaded-admin.php:2262
 msgid "Text of link"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2262
+#: wp-table-reloaded-admin.php:2263
 msgid ""
 "To insert the following link into a cell, just click the cell after closing "
 "this dialog."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2263
+#: wp-table-reloaded-admin.php:2264
 msgid ""
 "To insert an image, click the cell into which you want to insert the image."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2263
+#: wp-table-reloaded-admin.php:2264
 msgid ""
 "The Media Library will open, from which you can select the desired image or "
 "insert the image URL."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2263
+#: wp-table-reloaded-admin.php:2264
 #, php-format
 msgid "Click the \"%s\" button to insert the image."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2263
+#: wp-table-reloaded-admin.php:2264
 msgid "Insert into Post"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2264
+#: wp-table-reloaded-admin.php:2265
 msgid "Do you want to copy the selected tables?"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2265
+#: wp-table-reloaded-admin.php:2266
 msgid ""
 "The selected tables and all content will be erased. Do you really want to "
 "delete them?"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2266
+#: wp-table-reloaded-admin.php:2267
 msgid ""
 "Do you really want to import the selected tables from the wp-Table plugin?"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2267
+#: wp-table-reloaded-admin.php:2268
 msgid "Do you want to copy this table?"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2268
+#: wp-table-reloaded-admin.php:2269
 msgid ""
 "The complete table and all content will be erased. Do you really want to "
 "delete it?"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2269
+#: wp-table-reloaded-admin.php:2270
 msgid "Do you really want to delete this row?"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2270
+#: wp-table-reloaded-admin.php:2271
 msgid "Do you really want to delete this column?"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2271
+#: wp-table-reloaded-admin.php:2272
 msgid "Do you really want to import this table from the wp-Table plugin?"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2272
+#: wp-table-reloaded-admin.php:2273
 msgid "Do you really want to uninstall the plugin and delete ALL data?"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2273
+#: wp-table-reloaded-admin.php:2274
 msgid "Are you really sure?"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2274
+#: wp-table-reloaded-admin.php:2275
 msgid "Do you really want to change the ID of the table?"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2275
+#: wp-table-reloaded-admin.php:2276
 msgid "To show this Custom Data Field, use this shortcode:"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2276
+#: wp-table-reloaded-admin.php:2277
 msgid "To show this table, use this shortcode:"
 msgstr ""
 
@@ -1397,7 +1397,7 @@ msgstr ""
 msgid "Table"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2350
+#: wp-table-reloaded-admin.php:2349
 msgid ""
 "Thank you for using <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-"
 "table-reloaded-english/\">WP-Table Reloaded</a>."

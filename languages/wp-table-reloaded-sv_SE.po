@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Table Reloaded (sv_SE)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-20 12:47+0100\n"
+"POT-Creation-Date: 2009-07-20 19:11+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: ZuperZed <info@zuperzed.se>\n"
 "Language-Team: www.zuperzed.se <info@zuperzed.se>\n"
@@ -854,8 +854,8 @@ msgid "Add custom CSS?"
 msgstr "Lägg till anpassad CSS?"
 
 #: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1730
-msgid "Yes, include and load the following CSS-snippet on my site inside a [style]-HTML-tag."
-msgstr "Ja, inkludera och ladda följande CSS-sträng på min sida inuti en [style]-HTML-tag."
+msgid "Yes, include and load the following CSS-snippet on my site inside a &lt;style&gt;-HTML-tag."
+msgstr "Ja, inkludera och ladda följande CSS-sträng på min sida inuti en &lt;style&gt;-HTML-tag."
 
 #: D:\Hemsida\ZuperZed.se\wp-content\plugins\wp-table-reloaded/wp-table-reloaded-admin.php:1735
 msgid "Enter custom CSS"
