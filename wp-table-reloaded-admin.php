@@ -151,7 +151,7 @@ class WP_Table_Reloaded_Admin {
         }
 
         // after get_action, because needs action parameter
-        if ( true == function_exists( 'add_contextual_help' ) ) // then WP version is >= 2.7
+        if ( function_exists( 'add_contextual_help' ) ) // then WP version is >= 2.7
             add_contextual_help( $this->hook, $this->get_contextual_help_string( $this->action ) );
     }
 
@@ -332,7 +332,7 @@ class WP_Table_Reloaded_Admin {
                 break;
             case 'insert_rows':
                 $table_id = $_POST['table']['id'];
-                $number = ( isset( $_POST['insert']['row']['number'] ) && ( 0 < isset( $_POST['insert']['row']['number'] ) ) ) ? $_POST['insert']['row']['number'] : 1;
+                $number = ( isset( $_POST['insert']['row']['number'] ) && ( 0 < $_POST['insert']['row']['number'] ) ) ? $_POST['insert']['row']['number'] : 1;
                 $row_id = $_POST['insert']['row']['id'];
                 $table = $this->load_table( $table_id );
                 $rows = count( $table['data'] );
@@ -347,7 +347,7 @@ class WP_Table_Reloaded_Admin {
                 break;
             case 'insert_cols':
                 $table_id = $_POST['table']['id'];
-                $number = ( isset( $_POST['insert']['col']['number'] ) && ( 0 < isset( $_POST['insert']['col']['number'] ) ) ) ? $_POST['insert']['col']['number'] : 1;
+                $number = ( isset( $_POST['insert']['col']['number'] ) && ( 0 < $_POST['insert']['col']['number'] ) ) ? $_POST['insert']['col']['number'] : 1;
                 $col_id = $_POST['insert']['col']['id'];
                 $table = $this->load_table( $table_id );
                 // init new empty row (with all columns) and insert it before row with key $col_id
@@ -408,7 +408,7 @@ class WP_Table_Reloaded_Admin {
             case 'insert_cf':
                 $table_id = $_POST['table']['id'];
                 $table = $this->load_table( $table_id );
-                $name = ( isset ( $_POST['insert']['custom_field'] ) ) ? $_POST['insert']['custom_field'] : '';
+                $name = ( isset( $_POST['insert']['custom_field'] ) ) ? $_POST['insert']['custom_field'] : '';
                 if ( empty( $name ) ) {
                     $message = __( 'Could not add Custom Data Field, because you did not enter a name.', WP_TABLE_RELOADED_TEXTDOMAIN );
                     break;
@@ -424,7 +424,7 @@ class WP_Table_Reloaded_Admin {
                     $message = __( 'Could not add Custom Data Field, because the name contained illegal characters.', WP_TABLE_RELOADED_TEXTDOMAIN );
                     break;
                 }
-                if ( isset ( $table['custom_fields'][$name] ) ) {
+                if ( isset( $table['custom_fields'][$name] ) ) {
                     $message = __( 'Could not add Custom Data Field, because a Field with that name already exists.', WP_TABLE_RELOADED_TEXTDOMAIN );
                     break;
                 }
@@ -574,7 +574,7 @@ class WP_Table_Reloaded_Admin {
                 break;
             case 'custom_field':
                 $name = ( isset( $_GET['element_id'] ) ) ? $_GET['element_id'] : '';
-                if ( !empty( $name ) && isset ( $table['custom_fields'][$name] ) ) {
+                if ( !empty( $name ) && isset( $table['custom_fields'][$name] ) ) {
                     unset( $table['custom_fields'][$name] );
                     $this->save_table( $table );
                     $message = __( 'Custom Data Field deleted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
@@ -937,7 +937,7 @@ class WP_Table_Reloaded_Admin {
         $this->options['show_donate_nag'] = false;
         $this->update_options();
 
-        if ( isset( $_GET['user_donated'] ) && true == isset( $_GET['user_donated'] ) ) {
+        if ( isset( $_GET['user_donated'] ) && true == $_GET['user_donated'] ) {
             $this->print_header_message( __( 'Thank you very much! Your donation is highly appreciated. You just contributed to the further development of WP-Table Reloaded!', WP_TABLE_RELOADED_TEXTDOMAIN ) );
         } else {
             $this->print_header_message( sprintf( __( 'No problem! I still hope you enjoy the benefits that WP-Table Reloaded brings to you. If you should want to change your mind, you\'ll always find the "Donate" button on the <a href="%s">WP-Table Reloaded website</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ), 'http://tobias.baethge.com/donate-message/' ) );
@@ -1405,7 +1405,7 @@ class WP_Table_Reloaded_Admin {
         <br/>
         <?php echo sprintf( __( 'You can show this data in the same way as tables by using the shortcode <strong>[table-info id=%s field="&lt;field-name&gt;" /]</strong>.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $table_id ) ); ?>
         <br/><br/>
-        <?php if ( isset( $table['custom_fields'] ) && !empty ( $table['custom_fields'] ) ) { ?>
+        <?php if ( isset( $table['custom_fields'] ) && !empty( $table['custom_fields'] ) ) { ?>
             <table class="widefat" style="width:100%" id="table_custom_fields">
                 <thead>
                     <tr>
@@ -2185,10 +2185,10 @@ TEXT;
 
         // 2a. step: add/delete new/deprecated options by overwriting new ones with existing ones, if existant
 		foreach ( $this->default_options as $key => $value )
-            $new_options[ $key ] = ( true == isset( $this->options[ $key ] ) ) ? $this->options[ $key ] : $this->default_options[ $key ] ;
+            $new_options[ $key ] = ( isset( $this->options[ $key ] ) ) ? $this->options[ $key ] : $this->default_options[ $key ] ;
 
         // 2b., take care of css
-        $new_options['use_custom_css'] = ( false == isset( $this->options['use_custom_css'] ) && true == isset( $this->options['use_global_css'] ) ) ? $this->options['use_global_css'] : $this->options['use_custom_css'];
+        $new_options['use_custom_css'] = ( !isset( $this->options['use_custom_css'] ) && isset( $this->options['use_global_css'] ) ) ? $this->options['use_global_css'] : $this->options['use_custom_css'];
 
         // 3. step: update installed version number/empty update message cache
         $new_options['installed_version'] = $this->plugin_version;
@@ -2212,10 +2212,10 @@ TEXT;
             $temp_table['visibility']['columns'] = array_fill( 0, $cols, false );
             
             foreach ( $temp_table as $key => $value )
-                $new_table[ $key ] = ( true == isset( $table[ $key ] ) ) ? $table[ $key ] : $temp_table[ $key ] ;
+                $new_table[ $key ] = ( isset( $table[ $key ] ) ) ? $table[ $key ] : $temp_table[ $key ] ;
 
             foreach ( $temp_table['options'] as $key => $value )
-                $new_table['options'][ $key ] = ( true == isset( $table['options'][ $key ] ) ) ? $table['options'][ $key ] : $temp_table['options'][ $key ] ;
+                $new_table['options'][ $key ] = ( isset( $table['options'][ $key ] ) ) ? $table['options'][ $key ] : $temp_table['options'][ $key ] ;
 
             $this->save_table( $new_table );
         }
