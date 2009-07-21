@@ -2253,10 +2253,10 @@ TEXT;
     function add_manage_page_js() {
         $suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.dev' : '';
         $jsfile = "admin-script{$suffix}.js";
-        if ( file_exists( WP_TABLE_RELOADED_ABSPATH . 'admin/' . $jsfile ) ) {
-            wp_register_script( 'wp-table-reloaded-admin-js', WP_TABLE_RELOADED_URL . 'admin/' . $jsfile, array( 'jquery' ), $this->plugin_version );
-            // add all strings to translate here
-            wp_localize_script( 'wp-table-reloaded-admin-js', 'WP_Table_Reloaded_Admin', array(
+
+        wp_register_script( 'wp-table-reloaded-admin-js', WP_TABLE_RELOADED_URL . 'admin/' . $jsfile, array( 'jquery' ), $this->plugin_version );
+        // add all strings to translate here
+        wp_localize_script( 'wp-table-reloaded-admin-js', 'WP_Table_Reloaded_Admin', array(
 	  	        'str_UninstallCheckboxActivation' => __( 'Do you really want to activate this? You should only do that right before uninstallation!', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_DataManipulationLinkInsertURL' => __( 'URL of link to insert', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_DataManipulationLinkInsertText' => __( 'Text of link', WP_TABLE_RELOADED_TEXTDOMAIN ),
@@ -2276,9 +2276,8 @@ TEXT;
 	  	        'str_CFShortcodeMessage' => __( 'To show this Custom Data Field, use this shortcode:', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_TableShortcodeMessage' => __( 'To show this table, use this shortcode:', WP_TABLE_RELOADED_TEXTDOMAIN ),
                 'l10n_print_after' => 'try{convertEntities(WP_Table_Reloaded_Admin);}catch(e){};'
-            ) );
-            wp_print_scripts( 'wp-table-reloaded-admin-js' );
-        }
+        ) );
+        wp_print_scripts( 'wp-table-reloaded-admin-js' );
     }
 
     // ###################################################################################################################
@@ -2286,8 +2285,7 @@ TEXT;
     function add_manage_page_css() {
         $suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.dev' : '';
         $cssfile = "admin-style{$suffix}.css";
-        if ( file_exists( WP_TABLE_RELOADED_ABSPATH . 'admin/' . $cssfile ) )
-            wp_enqueue_style( 'wp-table-reloaded-admin-css', WP_TABLE_RELOADED_URL . 'admin/' . $cssfile, array(), $this->plugin_version );
+        wp_enqueue_style( 'wp-table-reloaded-admin-css', WP_TABLE_RELOADED_URL . 'admin/' . $cssfile, array(), $this->plugin_version );
     }
 
     // ###################################################################################################################
@@ -2314,16 +2312,14 @@ TEXT;
         // currently doing this by hand in the footer, as footer-scripts are only available since WP 2.8
         $suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.dev' : '';
         $jsfile = "admin-editor-buttons-script{$suffix}.js";
-        if ( file_exists( WP_TABLE_RELOADED_ABSPATH . 'admin/' . $jsfile ) ) {
-            wp_register_script( 'wp-table-reloaded-admin-editor-buttons-js', WP_TABLE_RELOADED_URL . 'admin/' . $jsfile, array( 'jquery', 'thickbox' ), $this->plugin_version );
-            // add all strings to translate here
-            wp_localize_script( 'wp-table-reloaded-admin-editor-buttons-js', 'WP_Table_Reloaded_Admin', array(
+        wp_register_script( 'wp-table-reloaded-admin-editor-buttons-js', WP_TABLE_RELOADED_URL . 'admin/' . $jsfile, array( 'jquery', 'thickbox' ), $this->plugin_version );
+        // add all strings to translate here
+        wp_localize_script( 'wp-table-reloaded-admin-editor-buttons-js', 'WP_Table_Reloaded_Admin', array(
 	  	        'str_EditorButtonCaption' => __( 'Table', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_EditorButtonAjaxURL' => $ajax_url,
                 'l10n_print_after' => 'try{convertEntities(WP_Table_Reloaded_Admin);}catch(e){};'
-            ) );
-            wp_print_scripts( 'wp-table-reloaded-admin-editor-buttons-js' );
-        }
+        ) );
+        wp_print_scripts( 'wp-table-reloaded-admin-editor-buttons-js' );
     }
     
     // ###################################################################################################################
@@ -2331,7 +2327,7 @@ TEXT;
     function output_tablesorter_js() {
         $jsfile =  'jquery.tablesorter.min.js'; // filename of the tablesorter script
 
-        if ( 0 < count( $this->tables ) && file_exists( WP_TABLE_RELOADED_ABSPATH . 'js/' . $jsfile ) ) {
+        if ( 0 < count( $this->tables ) ) {
             wp_register_script( 'wp-table-reloaded-tablesorter-js', WP_TABLE_RELOADED_URL . 'js/' . $jsfile, array( 'jquery' ) );
             wp_print_scripts( 'wp-table-reloaded-tablesorter-js' );
             echo <<<JSSCRIPT
