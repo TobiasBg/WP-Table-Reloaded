@@ -40,7 +40,7 @@ class WP_Table_Reloaded_Admin {
         'enable_tablesorter' => true,
         'use_tablesorter_extended' => false,
         'use_custom_css' => true,
-        'custom_css' => '.wp-table-reloaded {width:100%;}',
+        'custom_css' => '',
         'install_time' => 0,
         'show_donate_nag' => true,
         'update_message' => array(),
@@ -2168,6 +2168,48 @@ TEXT;
         $this->options = $this->default_options;
         $this->options['installed_version'] = $this->plugin_version;
         $this->options['install_time'] = time();
+        $image_path = WP_TABLE_RELOADED_URL . 'img';
+        $this->options['custom_css'] = <<<CSS
+.wp-table-reloaded {
+	background-color:#CDCDCD;
+	margin:10px 0px 15px 0px;
+	font-size:8pt;
+	width:100%;
+	text-align:left;
+}
+.wp-table-reloaded th {
+	background-color:#E6EEEE;
+	border:1px solid #FFFFFF;
+	padding:4px;
+}
+.wp-table-reloaded td {
+	color:#3D3D3D;
+	padding:4px;
+	background-color:#FFFFFF;
+	vertical-align:top;
+}
+.wp-table-reloaded .even td {
+	background-color:#FFFFFF;
+}
+.wp-table-reloaded .odd td{
+	background-color:#F0F0F6;
+}
+.wp-table-reloaded .header {
+	background-image:url({$image_path}/bg.gif);
+	background-repeat:no-repeat;
+	background-position:center right;
+	cursor:pointer;
+}
+.wp-table-reloaded .headerSortUp {
+	background-color:#8DBDD8;
+	background-image:url({$image_path}/asc.gif);
+}
+
+.wp-table-reloaded .headerSortDown {
+	background-color:#8DBDD8;
+	background-image:url({$image_path}/desc.gif);
+}
+CSS;
         $this->update_options();
         $this->tables = $this->default_tables;
         $this->update_tables();
