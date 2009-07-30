@@ -85,8 +85,10 @@ class WP_Table_Reloaded_Admin {
         $doing_ajax = defined( 'DOING_AJAX' ) ? DOING_AJAX : false;
         $valid_ajax_call = ( isset( $_GET['page'] ) && $this->page_slug == $_GET['page'] ) ? true : false;
 
-        if ( $doing_ajax )
+        // real WP AJAX actions (other AJAX calls can not be done like this, because they are GET-requests)
+        if ( $doing_ajax ) {
             add_action( 'wp_ajax_delete-wp-table-reloaded-table', array( &$this, 'do_action_ajax_delete_table') );
+        }
 
         // have to check for possible export file download request this early,
         // because otherwise http-headers will be sent by WP before we can send download headers
@@ -934,8 +936,8 @@ class WP_Table_Reloaded_Admin {
 
     // ###################################################################################################################
     function do_action_ajax_delete_table() {
-	   check_ajax_referer( $this->get_nonce( 'delete', 'table' ) );
-    	$table_id = isset( $_POST['id'] ) ? (int) $_POST['id'] : 0;
+        check_ajax_referer( $this->get_nonce( 'delete', 'table' ) );
+        $table_id = isset( $_POST['id'] ) ? (int) $_POST['id'] : 0;
         $this->delete_table( $table_id );
         die('1');
     }
@@ -1030,7 +1032,7 @@ class WP_Table_Reloaded_Admin {
                 echo "<a href=\"javascript:void(0);\" class=\"table_shortcode_link\" title=\"{$shortcode}\">" . __( 'Shortcode', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
                 echo "<a class=\"copy_table_link\" href=\"{$copy_url}\">" . __( 'Copy', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
                 echo "<a href=\"{$export_url}\">" . __( 'Export', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
-                echo "<a class=\"delete:the-list:wp-table-reloaded-table-{$id} delete_table_link\" href=\"{$delete_url}\">" . __( 'Delete', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
+                echo "<span class=\"delete\"><a class=\"delete:the-list:wp-table-reloaded-table-{$id} delete_table_link\" href=\"{$delete_url}\">" . __( 'Delete', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a></span>" . " | ";
                 $preview_title = sprintf( __( 'Preview of Table %s', WP_TABLE_RELOADED_TEXTDOMAIN ), $id );
                 echo "<a class=\"thickbox\" href=\"{$preview_url}\" title=\"{$preview_title}\">" . __( 'Preview', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>";
                 echo "</div>\n";
@@ -2379,16 +2381,33 @@ CSS;
     // output tablesorter execution js for all tables in wp_footer
     function output_tablesorter_js() {
         if ( 0 < count( $this->tables ) ) {
-            wp_print_scripts( 'wp-lists' ); // for AJAX on list of tables
+        
+            $wpList = '';
+            if ( version_compare( $GLOBALS['wp_version'], '2.7alpha', '>=') ) {
+                wp_print_scripts( 'wp-lists' ); // for AJAX on list of tables
+                $wpList = <<<WPLIST
+
+var delBefore;
+delBefore = function(s) {
+    return confirm( WP_Table_Reloaded_Admin.str_DeleteTableLink ) ? s : false;
+}
+$('#the-list').wpList( { alt: 'even', delBefore: delBefore } );
+$('.delete a[class^="delete"]').click(function(){return false;});
+
+WPLIST;
+            }
+            
             wp_register_script( 'wp-table-reloaded-tablesorter-js', WP_TABLE_RELOADED_URL . 'js/jquery.tablesorter.min.js', array( 'jquery' ) );
             wp_print_scripts( 'wp-table-reloaded-tablesorter-js' );
+
             echo <<<JSSCRIPT
 <script type="text/javascript">
 /* <![CDATA[ */
 jQuery(document).ready(function($){
+
 $('#wp-table-reloaded-list').tablesorter({widgets: ['zebra'], headers: {0: {sorter: false},4: {sorter: false}}})
 .find('.header').append('&nbsp;<span>&nbsp;&nbsp;&nbsp;</span>');
-$('#the-list').wpList( { alt: 'even' } );
+{$wpList}
 });
 /* ]]> */
 </script>

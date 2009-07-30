@@ -205,10 +205,13 @@ jQuery(document).ready( function( $ ) {
     	return confirm( WP_Table_Reloaded_Admin.str_CopyTableLink );
     } );
 
+    /*
+    // moved to inline script, because of using wpList script
     $( 'a.delete_table_link' ).click( function () {
     	return confirm( WP_Table_Reloaded_Admin.str_DeleteTableLink );
     } );
-    
+    */
+
     $(' a.delete_row_link' ).click( function () {
     	return confirm( WP_Table_Reloaded_Admin.str_DeleteRowLink );
     } );
