@@ -31,12 +31,8 @@
     padding-right:7px!important;
 }
 
-#wp-table-reloaded-list .odd { /*alternate*/
-    background-color:#F9F9F9!important;
-}
-
-#wp-table-reloaded-list .even {
-    background-color:#FFFFFF!important;
+#wp-table-reloaded-list .even { /* = alternate*/
+    background-color:#F9F9F9;
 }
 
 textarea.row-hidden, textarea.column-hidden {
