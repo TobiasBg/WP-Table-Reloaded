@@ -1196,7 +1196,9 @@ class WP_Table_Reloaded_Admin {
                         foreach ( $table_row as $col_idx => $cell_content ) {
                             $cell_content = $this->safe_output( $cell_content );
                             $cell_name = "table[data][{$row_idx}][{$col_idx}]";
-                            echo "\t<td><textarea rows=\"1\" cols=\"20\" name=\"{$cell_name}\" class=\"edit_row_{$row_idx} edit_col_{$col_idx}\">{$cell_content}</textarea></td>\n";
+                            $hidden = ( isset( $table['visibility']['rows'][$col_idx] ) && true == $table['visibility']['rows'][$row_idx] ) ? ' row-hidden' : '';
+                            $hidden .= ( isset( $table['visibility']['columns'][$col_idx] ) && true == $table['visibility']['columns'][$col_idx] ) ? ' column-hidden' : '';
+                            echo "\t<td><textarea rows=\"1\" cols=\"20\" name=\"{$cell_name}\" class=\"edit_row_{$row_idx} edit_col_{$col_idx}{$hidden}\">{$cell_content}</textarea></td>\n";
                         }
                         $insert_row_url = $this->get_action_url( array( 'action' => 'insert', 'table_id' => $table['id'], 'item' => 'row', 'element_id' => $row_idx ), true );
                         $delete_row_url = $this->get_action_url( array( 'action' => 'delete', 'table_id' => $table['id'], 'item' => 'row', 'element_id' => $row_idx ), true );
@@ -1204,7 +1206,7 @@ class WP_Table_Reloaded_Admin {
                         if ( 1 < $rows ) // don't show delete link for last and only row
                             echo " | <a class=\"delete_row_link\" href=\"{$delete_row_url}\">".__( 'Delete Row', WP_TABLE_RELOADED_TEXTDOMAIN )."</a>";
                         echo "</td>\n";
-                        $checked = ( isset( $table['visibility']['rows'][$col_idx] ) && true == $table['visibility']['rows'][$row_idx] ) ? 'checked="checked" ': '' ;
+                        $checked = ( isset( $table['visibility']['rows'][$row_idx] ) && true == $table['visibility']['rows'][$row_idx] ) ? 'checked="checked" ': '' ;
                         echo "\t<td class=\"check-column\"><input type=\"checkbox\" name=\"table[visibility][rows][{$row_idx}]\" id=\"edit_row_{$row_idx}\" value=\"true\" {$checked}/> <label for=\"edit_row_{$row_idx}\">" . __( 'Row hidden', WP_TABLE_RELOADED_TEXTDOMAIN ) ."</label></td>\n";
                         echo "\t<th scope=\"row\">{$output_idx}</th>\n";
                     echo "</tr>";

@@ -26,8 +26,8 @@ jQuery(document).ready( function( $ ) {
             cb_class = ( -1 != cb_id.search(/row/) ) ? 'row-hidden' : 'column-hidden';
             $( '#table_contents .' + cb_id ).TBtoggleClass( cb_class, $(this).attr('checked') );
         } );
-	})
-    .change();
+	});
+    //.change();
 
     // functions to make focussed textareas bigger
     // commented code is for handling all textareas in same row or same column
