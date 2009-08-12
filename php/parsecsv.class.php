@@ -225,6 +225,7 @@ class parseCSV {
 	function output ($filename = null, $data = array(), $fields = array(), $delimiter = null) {
 		if ( empty($filename) ) $filename = $this->output_filename;
 		if ( $delimiter === null ) $delimiter = $this->output_delimiter;
+        $this->delimiter = $delimiter;
 		$data = $this->unparse($data, $fields, null, null, $delimiter);
 		if ( $filename !== null ) {
 			header('Content-type: application/csv');
