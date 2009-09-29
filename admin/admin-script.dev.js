@@ -60,9 +60,9 @@ jQuery(document).ready( function( $ ) {
     // show export delimiter selectbox only if export format is csv
     $( '#export_format' ).change( function () {
         if ( 'csv' == $(this).val() )
-            $('.tr-export-delimiter').css('display','table-row');
+            $('.tr-export-delimiter').show();
         else
-            $('.tr-export-delimiter').css('display','none');
+            $('.tr-export-delimiter').hide();
     })
     .change();
 
@@ -80,20 +80,20 @@ jQuery(document).ready( function( $ ) {
     // show select box for table to replace only if needed
     $( '.tr-import-addreplace input' ).click( function () {
         if( 'replace' == $( '.tr-import-addreplace input:checked' ).val() )
-            $( '.tr-import-addreplace-table' ).css('display','table-row');
+            $( '.tr-import-addreplace-table' ).show();
         else
-            $( '.tr-import-addreplace-table' ).css('display','none');
+            $( '.tr-import-addreplace-table' ).hide();
     } );
     $( '.tr-import-addreplace input:checked' ).click();
 
     // show only checked import fields depending on radio button
     $( '.tr-import-from input' ).click( function () {
-        $('.tr-import-file-upload').css('display','none');
-        $('.tr-import-url').css('display','none');
-        $('.tr-import-form-field').css('display','none');
-        $('.tr-import-server').css('display','none');
+        $('.tr-import-file-upload').hide();
+        $('.tr-import-url').hide();
+        $('.tr-import-form-field').hide();
+        $('.tr-import-server').hide();
 
-        $( '.tr-import-' + $( '.tr-import-from input:checked' ).val() ).css('display','table-row');
+        $( '.tr-import-' + $( '.tr-import-from input:checked' ).val() ).show();
     } );
     $('.tr-import-from input:checked').click();
 
