@@ -123,7 +123,12 @@ class WP_Table_Reloaded_Admin {
     // add page, and what happens when page is loaded or shown
     function add_manage_page() {
         $min_needed_capability = 'publish_posts'; // user needs at least this capability to view WP-Table Reloaded config page
-        $this->hook = add_management_page( 'WP-Table Reloaded', 'WP-Table Reloaded', $min_needed_capability, $this->page_slug, array( &$this, 'show_manage_page' ) );
+        $min_needed_capability = apply_filters( 'wp_table_reloaded_min_needed_capability', $min_needed_capability );
+        
+        $display_name = 'WP-Table Reloaded'; // the name that is displayed in the admin menu
+        $display_name = apply_filters( 'wp_table_reloaded_plugin_display_name', $display_name );
+        
+        $this->hook = add_management_page( 'WP-Table Reloaded', $display_name, $min_needed_capability, $this->page_slug, array( &$this, 'show_manage_page' ) );
         add_action( 'load-' . $this->hook, array( &$this, 'load_manage_page' ) );
     }
 
