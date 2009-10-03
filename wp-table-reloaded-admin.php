@@ -128,8 +128,14 @@ class WP_Table_Reloaded_Admin {
         
         $display_name = 'WP-Table Reloaded'; // the name that is displayed in the admin menu on the left
         $display_name = apply_filters( 'wp_table_reloaded_plugin_display_name', $display_name ); // can be filtered to something shorter maybe
-        
-        $this->hook = add_management_page( 'WP-Table Reloaded', $display_name, $min_needed_capability, $this->page_slug, array( &$this, 'show_manage_page' ) );
+
+        $top_level_menu = false; // add menu entry unter "Tools" (i.e. Management)
+        $top_level_menu = apply_filters( 'wp_table_reloaded_top_level_menu', $top_level_menu ); // filter to true for top-level menu entry
+        if ( true == $top_level_menu )
+            $this->hook = add_menu_page( 'WP-Table Reloaded', $display_name, $min_needed_capability, $this->page_slug, array( &$this, 'show_manage_page' ) );
+        else
+            $this->hook = add_management_page( 'WP-Table Reloaded', $display_name, $min_needed_capability, $this->page_slug, array( &$this, 'show_manage_page' ) );
+
         add_action( 'load-' . $this->hook, array( &$this, 'load_manage_page' ) );
     }
 
