@@ -20,14 +20,22 @@ jQuery(document).ready( function( $ ) {
     // function to toggle textarea background color according to state of checkboxes
     // uses TBtoggleClass instead of toggleClass, see above
     var cb_id, cb_class;
-    $( '#table_contents tbody :checkbox' ).change( function() {
-        $( '#table_contents tbody :checkbox' ).each( function() {
-            cb_id = $(this).attr('id');
+    $( '#a-hide-rows-columns' ).click( function() {
+        $( '#table_contents tbody :checked' ).each( function() {
+            cb_id = $(this).prev().val( true ).attr('id'); // set the value of the previous hidden field and get its ID
             cb_class = ( -1 != cb_id.search(/row/) ) ? 'row-hidden' : 'column-hidden';
-            $( '#table_contents .' + cb_id ).TBtoggleClass( cb_class, $(this).attr('checked') );
-        } );
+            $( '#table_contents .' + cb_id ).TBtoggleClass( cb_class, true );
+        } ).attr( 'checked', false );
+        set_table_data_changed();
 	});
-    //.change();
+    $( '#a-unhide-rows-columns' ).click( function() {
+        $( '#table_contents tbody :checked' ).each( function() {
+            cb_id = $(this).prev().val( false ).attr('id'); // set the value of the previous hidden field and get its ID
+            cb_class = ( -1 != cb_id.search(/row/) ) ? 'row-hidden' : 'column-hidden';
+            $( '#table_contents .' + cb_id ).TBtoggleClass( cb_class, false );
+        } ).attr( 'checked', false );
+        set_table_data_changed();
+	});
 
     // functions to make focussed textareas bigger
     // commented code is for handling all textareas in same row or same column

@@ -266,10 +266,10 @@ class WP_Table_Reloaded_Admin {
 
                 // save visibility settings (checkboxes!)
                 foreach ( $table['data'] as $row_idx => $row )
-                    $table['visibility']['rows'][$row_idx] = isset( $_POST['table']['visibility']['rows'][$row_idx] );
+                    $table['visibility']['rows'][$row_idx] = ( isset( $_POST['table']['visibility']['rows'][$row_idx] ) && ( 'true' == $_POST['table']['visibility']['rows'][$row_idx] ) );
                 ksort( $table['visibility']['rows'], SORT_NUMERIC );
                 foreach ( $table['data'][0] as $col_idx => $col )
-                    $table['visibility']['columns'][$col_idx] = isset( $_POST['table']['visibility']['columns'][$col_idx] );
+                    $table['visibility']['columns'][$col_idx] = ( isset( $_POST['table']['visibility']['columns'][$col_idx] ) && ( 'true' == $_POST['table']['visibility']['columns'][$col_idx] ) );
                 ksort( $table['visibility']['columns'], SORT_NUMERIC );
 
                 if ( isset( $table['custom_fields'] ) && !empty( $table['custom_fields'] ) )
@@ -1185,17 +1185,17 @@ class WP_Table_Reloaded_Admin {
                 <thead>
                     <tr>
                         <th scope="col">&nbsp;</th>
+                        <th class="check-column" scope="col"><input type="checkbox" style="display:none;" /></th><?php // "display:none;" because JS checks wrong index otherwise ?>
                         <?php echo $cols_output; ?>
                         <th scope="col">&nbsp;</th>
-                        <th class="check-column" scope="col"><input type="checkbox" style="display:none;" /></th><?php // "display:none;" because JS checks wrong index otherwise ?>
                         <th scope="col">&nbsp;</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
                         <th scope="col">&nbsp;</th>
-                        <?php echo $cols_output; ?>
                         <th scope="col">&nbsp;</th>
+                        <?php echo $cols_output; ?>
                         <th scope="col">&nbsp;</th>
                         <th scope="col">&nbsp;</th>
                     </tr>
@@ -1207,6 +1207,8 @@ class WP_Table_Reloaded_Admin {
                         // Table Header (Rows get a Number between 1 and $rows)
                         $output_idx = $row_idx + 1;
                         echo "\t<th scope=\"row\">{$output_idx}</th>\n";
+                        $hidden = ( isset( $table['visibility']['rows'][$row_idx] ) && true == $table['visibility']['rows'][$row_idx] ) ? 'true': '' ;
+                        echo "\t<td class=\"check-column\"><input type=\"hidden\" name=\"table[visibility][rows][{$row_idx}]\" id=\"edit_row_{$row_idx}\" class=\"cell-hide\" value=\"{$hidden}\" /><input type=\"checkbox\" name=\"table_select[rows][{$row_idx}]\" id=\"select_row_{$row_idx}\" value=\"true\" /></td>\n";
                         foreach ( $table_row as $col_idx => $cell_content ) {
                             $cell_content = $this->safe_output( $cell_content );
                             $cell_name = "table[data][{$row_idx}][{$col_idx}]";
@@ -1220,8 +1222,6 @@ class WP_Table_Reloaded_Admin {
                         if ( 1 < $rows ) // don't show delete link for last and only row
                             echo " | <a class=\"delete_row_link\" href=\"{$delete_row_url}\">".__( 'Delete Row', WP_TABLE_RELOADED_TEXTDOMAIN )."</a>";
                         echo "</td>\n";
-                        $checked = ( isset( $table['visibility']['rows'][$row_idx] ) && true == $table['visibility']['rows'][$row_idx] ) ? 'checked="checked" ': '' ;
-                        echo "\t<td class=\"check-column\"><input type=\"checkbox\" name=\"table[visibility][rows][{$row_idx}]\" id=\"edit_row_{$row_idx}\" value=\"true\" {$checked}/> <label for=\"edit_row_{$row_idx}\">" . __( 'Row hidden', WP_TABLE_RELOADED_TEXTDOMAIN ) ."</label></td>\n";
                         echo "\t<th scope=\"row\">{$output_idx}</th>\n";
                     echo "</tr>";
                 }
@@ -1229,6 +1229,7 @@ class WP_Table_Reloaded_Admin {
                 // ACTION links
                     echo "<tr>\n";
                         echo "\t<th scope=\"row\">&nbsp;</th>\n";
+                        echo "\t<td>&nbsp;</td>\n";
                         foreach ( $table['data'][0] as $col_idx => $cell_content ) {
                             $insert_col_url = $this->get_action_url( array( 'action' => 'insert', 'table_id' => $table['id'], 'item' => 'col', 'element_id' => $col_idx ), true );
                             $delete_col_url = $this->get_action_url( array( 'action' => 'delete', 'table_id' => $table['id'], 'item' => 'col', 'element_id' => $col_idx ), true );
@@ -1249,18 +1250,17 @@ class WP_Table_Reloaded_Admin {
                         <?php echo sprintf( __( 'Add %s column(s)', WP_TABLE_RELOADED_TEXTDOMAIN ), $col_insert ); ?>
                         <input type="submit" name="submit[insert_cols]" class="button-primary" value="<?php _e( 'Add', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" /></td>
                         <?php
-                        echo "\t<td>&nbsp;</td>\n";
                         echo "\t<th scope=\"row\">&nbsp;</th>\n";
                     echo "</tr>";
 
                 // hide checkboxes
                     echo "<tr class=\"hide-columns\">\n";
                         echo "\t<th scope=\"row\">&nbsp;</th>\n";
-                        foreach ( $table['data'][0] as $col_idx => $cell_content ) {
-                            $checked = ( isset( $table['visibility']['columns'][$col_idx] ) && true == $table['visibility']['columns'][$col_idx] ) ? 'checked="checked" ': '' ;
-                            echo "\t<td class=\"check-column\"><input type=\"checkbox\" name=\"table[visibility][columns][{$col_idx}]\" id=\"edit_col_{$col_idx}\" value=\"true\" {$checked}/> <label for=\"edit_col_{$col_idx}\">" . __( 'Column hidden', WP_TABLE_RELOADED_TEXTDOMAIN ) ."</label></td>";
-                        }
                         echo "\t<td>&nbsp;</td>";
+                        foreach ( $table['data'][0] as $col_idx => $cell_content ) {
+                            $hidden = ( isset( $table['visibility']['columns'][$col_idx] ) && true == $table['visibility']['columns'][$col_idx] ) ? 'true': '' ;
+                            echo "\t<td class=\"check-column\"><input type=\"hidden\" name=\"table[visibility][columns][{$col_idx}]\" id=\"edit_col_{$col_idx}\" class=\"cell-hide\" value=\"{$hidden}\" /><input type=\"checkbox\" name=\"table_select[columns][{$col_idx}]\" id=\"select_col_{$col_idx}\" value=\"true\" /></td>";
+                        }
                         echo "\t<td>&nbsp;</td>";
                         echo "\t<th scope=\"row\">&nbsp;</th>\n";
                     echo "</tr>";
@@ -1353,6 +1353,8 @@ class WP_Table_Reloaded_Admin {
         <?php } // end if form move col ?>
     </td></tr>
     <tr><td>
+        <a id="a-hide-rows-columns" class="button-primary" href="javascript:void(0);"><?php _e( 'Hide rows/cols', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
+        <a id="a-unhide-rows-columns" class="button-primary" href="javascript:void(0);"><?php _e( 'Unhide rows/cols', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
         <a id="a-insert-link" class="button-primary" href="javascript:void(0);"><?php _e( 'Insert Link', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
         <a id="a-insert-image" href="media-upload.php?type=image&amp;tab=library&amp;TB_iframe=true" class="thickbox button-primary" title="<?php _e( 'Insert Image', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" onclick="javascript:return false;"><?php _e( 'Insert Image', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
     </td><td>
