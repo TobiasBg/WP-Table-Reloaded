@@ -441,6 +441,7 @@ jQuery(document).ready(function($){
 /* ]]> */
 </script>
 JSSCRIPT;
+            }
         }
     }
 
