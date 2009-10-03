@@ -38,6 +38,7 @@ class WP_Table_Reloaded_Admin {
         'installed_version' => '0',
         'uninstall_upon_deactivation' => false,
         'show_exit_warning' => true,
+        'growing_textareas' => true,
         'enable_tablesorter' => true,
         'use_tablesorter_extended' => false,
         'use_custom_css' => true,
@@ -799,6 +800,7 @@ class WP_Table_Reloaded_Admin {
             // checkboxes: option value is defined by whether option isset (e.g. was checked) or not
             $this->options['uninstall_upon_deactivation'] = isset( $new_options['uninstall_upon_deactivation'] );
             $this->options['show_exit_warning'] = isset( $new_options['show_exit_warning'] );
+            $this->options['growing_textareas'] = isset( $new_options['growing_textareas'] );
             $this->options['enable_tablesorter'] = isset( $new_options['enable_tablesorter'] );
             $this->options['use_tablesorter_extended'] = isset( $new_options['use_tablesorter_extended'] );
             $this->options['show_donate_nag'] = isset( $new_options['show_donate_nag'] );
@@ -1133,6 +1135,7 @@ class WP_Table_Reloaded_Admin {
         <form id="wp_table_reloaded_edit_table" method="post" action="<?php echo $this->get_action_url(); ?>">
         <?php wp_nonce_field( $this->get_nonce( 'edit' ) ); ?>
         <input type="hidden" id="show_exit_warning" value="<?php echo ( $this->options['show_exit_warning'] ) ? 'true' : 'false' ; ?>" />
+        <input type="hidden" id="growing_textareas" value="<?php echo ( $this->options['growing_textareas'] ) ? 'true' : 'false' ; ?>" />
         <input type="hidden" name="table[id]" value="<?php echo $table['id']; ?>" />
         <input type="hidden" name="action" value="edit" />
 
@@ -1784,6 +1787,10 @@ class WP_Table_Reloaded_Admin {
         <tr valign="top">
             <th scope="row"><?php _e( 'Show Exit Warning?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
             <td><input type="checkbox" name="options[show_exit_warning]" id="options_show_exit_warning"<?php echo ( true == $this->options['show_exit_warning'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_show_exit_warning"><small><?php _e( 'Yes, show a warning message, if I leave the "Edit Table" screen and the current changes were not saved yet.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></label></td>
+        </tr>
+        <tr valign="top">
+            <th scope="row"><?php _e( 'Enable growing textareas?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
+            <td><input type="checkbox" name="options[growing_textareas]" id="options_growing_textareas"<?php echo ( true == $this->options['growing_textareas'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_growing_textareas"><small><?php _e( 'Yes, the textareas on the "Edit Table" screen shall be enlarged when focussed for input.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></label></td>
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Use Tablesorter Extended?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>

@@ -40,13 +40,15 @@ jQuery(document).ready( function( $ ) {
     // functions to make focussed textareas bigger
     // commented code is for handling all textareas in same row or same column
     // var ta_idx, tas;
-    $( '#table_contents textarea' ).focus( function() {
-        $( '#table_contents .focus' ).removeClass('focus');
-        $(this).parents('tr').find('textarea').addClass('focus');
+    if ( 'true' == $( '#wp_table_reloaded_edit_table #growing_textareas' ).val() ) {
+        $( '#table_contents textarea' ).focus( function() {
+            $( '#table_contents .focus' ).removeClass('focus');
+            $(this).parents('tr').find('textarea').addClass('focus');
+        } );
+    }
         //tas = $(this).parents('tr').find('textarea');
         //ta_idx = $( tas ).index( this ) + 2; // 2 is from: 1: <th> infront, 1: 1-based-index
         //$( '#table_contents tr :nth-child(' + ta_idx + ') textarea' ).add( tas ).addClass('focus');
-    } );
     //.blur( function() {
     //    $(this).parents('tr').find('textarea').removeClass('focus');
         //tas = $(this).parents('tr').find('textarea');
