@@ -3,7 +3,7 @@
 File Name: WP-Table Reloaded - Frontend Class (see main file wp-table-reloaded.php)
 Plugin URI: http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/
 Description: Description: This plugin allows you to create and easily manage tables in the admin-area of WordPress. A comfortable backend allows an easy manipulation of table data. You can then include the tables into your posts, on your pages or in text widgets by using a shortcode or a template tag function. Tables can be imported and exported from/to CSV, XML and HTML.
-Version: 1.4.2
+Version: 1.5-alpha
 Author: Tobias B&auml;thge
 Author URI: http://tobias.baethge.com/
 Donate URI: http://tobias.baethge.com/donate/
@@ -30,6 +30,7 @@ class WP_Table_Reloaded_Frontend {
 
     // ###################################################################################################################
     function WP_Table_Reloaded_Frontend() {
+    
         // load options and table information from database, if not available: default
 		$this->options = get_option( $this->optionname['options'], false );
 		$this->tables = get_option( $this->optionname['tables'], false );
@@ -37,6 +38,9 @@ class WP_Table_Reloaded_Frontend {
 		if ( false === $this->options || false === $this->tables )
             return '';
 
+        // make shortcode name filterable
+        $this->shortcode_table = apply_filters( 'wp_table_reloaded_shortcode_table', $this->shortcode_table );
+        
 		// front-end function, shortcode for the_content, manual filter for widget_text
 		// shortcode "table-info" needs to be declared before "table"! Otherwise it will not be recognized!
         add_shortcode( $this->shortcode_table_info, array( &$this, 'handle_content_shortcode_table_info' ) );
@@ -223,6 +227,10 @@ class WP_Table_Reloaded_Frontend {
         $cssclasses = array( 'wp-table-reloaded', "wp-table-reloaded-id-{$table['id']}" );
         $cssclasses = implode( ' ', $cssclasses );
 
+        // filter certain values, so plugins can change them
+        $cssclasses = apply_filters( 'wp_table_reloaded_css_classes', $cssclasses, $table['id'] );
+        $output_options['html_id'] = apply_filters( 'wp_table_reloaded_html_id', $output_options['html_id'], $table['id'] );
+
         // if row_offset or row_count were given, we cut that part from the table and show just that
         // ATTENTION: MIGHT BE DROPPED IN FUTURE VERSIONS!
         if ( null === $output_options['row_count'] )
@@ -263,47 +271,59 @@ class WP_Table_Reloaded_Frontend {
 
         if ( 0 < $rows && 0 < $cols) {
         
-            if ( true == $output_options['print_name'] )
-                $output .= '<h2 class="wp-table-reloaded-table-name">' . $this->safe_output( $table['name'] ) . "</h2>\n";
+            if ( true == $output_options['print_name'] ) {
+                $print_name_html_tag = apply_filters( 'wp_table_reloaded_print_name_html_tag', 'h2', $table['id'] );
+                $print_name_css_class = apply_filters( 'wp_table_reloaded_print_name_css_class', 'wp-table-reloaded-table-name', $table['id'] );
+                $output .= "<{$print_name_html_tag} class=\"{$print_name_css_class}\">" . $this->safe_output( $table['name'] ) . "</{$print_name_html_tag}>\n";
+            }
         
             $output .= "<table id=\"{$output_options['html_id']}\" class=\"{$cssclasses}\" cellspacing=\"{$output_options['cellspacing']}\" cellpadding=\"{$output_options['cellpadding']}\" border=\"{$output_options['border']}\">\n";
 
             foreach( $table['data'] as $row_idx => $row ) {
+
+                $row_class = 'row-' . ( $row_idx + 1 ) ;
+
                 if ( true == $output_options['alternating_row_colors'] )
-                    $row_class = ( 1 == ($row_idx % 2) ) ? ' class="even row-' . ( $row_idx + 1 ) . '"' : ' class="odd row-' . ( $row_idx + 1 ) . '"';
-                else
-                    $row_class = ' class="row-' . ( $row_idx + 1 ) . '"';
-                    
+                    $row_class = ( 1 == ($row_idx % 2) ) ? $row_class . ' even' : $row_class . ' odd';
+
+                $row_class = apply_filters( 'wp_table_reloaded_row_class', $row_class, $table['id'], $row_idx + 1 );
+
                 if( 0 == $row_idx ) {
                     if ( true == $output_options['first_row_th'] ) {
                         $output .= "<thead>\n";
-                        $output .= "\t<tr{$row_class}>\n\t\t";
+                        $output .= "\t<tr class=\"{$row_class}\">\n\t\t";
                         foreach( $row as $col_idx => $cell_content ) {
-                            $col_class = ' class="column-' . ( $col_idx + 1 ) . '"';
+                            $col_class = 'column-' . ( $col_idx + 1 );
+                            $col_class = apply_filters( 'wp_table_reloaded_cell_class', $col_class, $table['id'], $row_idx + 1, $col_idx + 1 );
                             $width_style = ( !empty( $output_options['column_widths'][$col_idx] ) ) ? " style=\"width:{$output_options['column_widths'][$col_idx]};\"" : '';
                             $cell_content = do_shortcode( $this->safe_output( $cell_content ) );
-                            $output .= "<th{$col_class}{$width_style}>" . "{$cell_content}" . "</th>";
+                            $cell_content = apply_filters( 'wp_table_reloaded_cell_content', $cell_content, $table['id'], $row_idx + 1, $col_idx + 1 );
+                            $output .= "<th class=\"{$col_class}\"{$width_style}>" . "{$cell_content}" . "</th>";
                         }
                         $output .= "\n\t</tr>\n";
                         $output .= "</thead>\n";
                         $output .= "<tbody>\n";
                     } else {
                         $output .= "<tbody>\n";
-                        $output .= "\t<tr{$row_class}>\n\t\t";
+                        $output .= "\t<tr class=\"{$row_class}\">\n\t\t";
                         foreach( $row as $col_idx => $cell_content ) {
-                            $col_class = ' class="column-' . ( $col_idx + 1 ) . '"';
+                            $col_class = 'column-' . ( $col_idx + 1 );
+                            $col_class = apply_filters( 'wp_table_reloaded_cell_class', $col_class, $table['id'], $row_idx + 1, $col_idx + 1 );
                             $width_style = ( !empty( $output_options['column_widths'][$col_idx] ) ) ? " style=\"width:{$output_options['column_widths'][$col_idx]};\"" : '';
                             $cell_content = do_shortcode( $this->safe_output( $cell_content ) );
-                            $output .= "<td{$col_class}{$width_style}>" . "{$cell_content}" . "</td>";
+                            $cell_content = apply_filters( 'wp_table_reloaded_cell_content', $cell_content, $table['id'], $row_idx + 1, $col_idx + 1 );
+                            $output .= "<td class=\"{$col_class}\"{$width_style}>" . "{$cell_content}" . "</td>";
                         }
                         $output .= "\n\t</tr>\n";
                     }
                 } else {
-                    $output .= "\t<tr{$row_class}>\n\t\t";
+                    $output .= "\t<tr class=\"{$row_class}\">\n\t\t";
                     foreach( $row as $col_idx => $cell_content ) {
-                        $col_class = ' class="column-' . ( $col_idx + 1 ) . '"';
+                        $col_class = 'column-' . ( $col_idx + 1 );
+                        $col_class = apply_filters( 'wp_table_reloaded_cell_class', $col_class, $table['id'], $row_idx + 1, $col_idx + 1 );
                         $cell_content = do_shortcode( $this->safe_output( $cell_content ) );
-                        $output .= "<td{$col_class}>" . "{$cell_content}" . "</td>";
+                        $cell_content = apply_filters( 'wp_table_reloaded_cell_content', $cell_content, $table['id'], $row_idx + 1, $col_idx + 1 );
+                        $output .= "<td class=\"{$col_class}\">" . "{$cell_content}" . "</td>";
                     }
                     $output .= "\n\t</tr>\n";
                 }
@@ -311,8 +331,11 @@ class WP_Table_Reloaded_Frontend {
             $output .= "</tbody>\n";
             $output .= "</table>\n";
 
-            if ( true == $output_options['print_description'] )
-                $output .= '<span class="wp-table-reloaded-table-description">' . $this->safe_output( $table['description'] ) . "</span>\n";
+            if ( true == $output_options['print_description'] ) {
+                $print_description_html_tag = apply_filters( 'wp_table_reloaded_print_description_html_tag', 'span', $table['id'] );
+                $print_description_css_class = apply_filters( 'wp_table_reloaded_print_description_css_class', 'wp-table-reloaded-table-description', $table['id'] );
+                $output .= "<{$print_description_html_tag} class=\"{$print_description_css_class}\">" . $this->safe_output( $table['description'] ) . "</{$print_description_html_tag}>\n";
+            }
 
             // if alternating row colors, we want to keep those when sorting
             $widgets = ( true == $output_options['alternating_row_colors'] ) ? "{widgets: ['zebra']}" : '';
@@ -320,7 +343,11 @@ class WP_Table_Reloaded_Frontend {
             // eventually add this table to list of tables which will be tablesorted and thus be included in the script call in wp_footer
             if ( true == $output_options['use_tablesorter'] && true == $output_options['first_row_th'] ) {
                 // check if tablesorter is generally enabled already done
-                $this->tablesorter_tables[ $output_options['html_id'] ] = $widgets;
+                $this->tablesorter_tables[] = array (
+                    'table_id' => $table['id'],
+                    'html_id' => $output_options['html_id'],
+                    'widgets' => $widgets
+                );
             }
             
         } // endif rows and cols exist
@@ -360,6 +387,8 @@ class WP_Table_Reloaded_Frontend {
         $css = ( isset( $this->options['custom_css'] ) ) ? $this->options['custom_css'] : '';
         $css = stripslashes( $css );
 
+        $css = apply_filters( 'wp_table_reloaded_custom_css', $css );
+
         if ( !empty( $css ) ) {
             echo <<<CSSSTYLE
 <style type="text/css" media="all">
@@ -386,15 +415,29 @@ CSSSTYLE;
             wp_print_scripts( 'wp-table-reloaded-tablesorter-js' );
 
             // generate the commands to make them sortable
-            $commands = "\n";
-            foreach ( $this->tablesorter_tables as $html_id => $widgets )
-                $commands .= "\t$(\"#{$html_id}\").tablesorter({$widgets});\n";
+            $commands = array();
+            foreach ( $this->tablesorter_tables as $tablesorter_table ) {
+                $table_id = $tablesorter_table['table_id'];
+                $html_id = $tablesorter_table['html_id'];
+                $widgets = $tablesorter_table['widgets'];
+
+                $command = "$(\"#{$html_id}\").tablesorter({$widgets});";
+                $command = apply_filters( 'wp_table_reloaded_tablesorter_command', $command, $table_id, $html_id, $widgets );
+                $commands[] = "\t{$command}";
+            }
+
+            $commands = implode( "\n", $commands );
+            // filter all commands
+            $commands = apply_filters( 'wp_table_reloaded_tablesorter_all_commands', $commands );
 
             // and echo the commands
-            echo <<<JSSCRIPT
+            if ( !empty( $commands ) ) {
+                echo <<<JSSCRIPT
 <script type="text/javascript">
 /* <![CDATA[ */
-jQuery(document).ready(function($){{$commands}});
+jQuery(document).ready(function($){
+{$commands}
+});
 /* ]]> */
 </script>
 JSSCRIPT;

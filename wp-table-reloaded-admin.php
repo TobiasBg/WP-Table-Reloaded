@@ -3,7 +3,7 @@
 File Name: WP-Table Reloaded - Admin Class (see main file wp-table-reloaded.php)
 Plugin URI: http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/
 Description: Description: This plugin allows you to create and easily manage tables in the admin-area of WordPress. A comfortable backend allows an easy manipulation of table data. You can then include the tables into your posts, on your pages or in text widgets by using a shortcode or a template tag function. Tables can be imported and exported from/to CSV, XML and HTML.
-Version: 1.4.2
+Version: 1.5-alpha
 Author: Tobias B&auml;thge
 Author URI: http://tobias.baethge.com/
 Donate URI: http://tobias.baethge.com/donate/
@@ -14,7 +14,7 @@ define( 'WP_TABLE_RELOADED_TEXTDOMAIN', 'wp-table-reloaded' );
 class WP_Table_Reloaded_Admin {
 
     // ###################################################################################################################
-    var $plugin_version = '1.4.2';
+    var $plugin_version = '1.5-alpha';
     // nonce for security of links/forms, try to prevent "CSRF"
     var $nonce_base = 'wp-table-reloaded-nonce';
     var $page_slug = 'wp_table_reloaded';
@@ -123,10 +123,10 @@ class WP_Table_Reloaded_Admin {
     // add page, and what happens when page is loaded or shown
     function add_manage_page() {
         $min_needed_capability = 'publish_posts'; // user needs at least this capability to view WP-Table Reloaded config page
-        $min_needed_capability = apply_filters( 'wp_table_reloaded_min_needed_capability', $min_needed_capability );
+        $min_needed_capability = apply_filters( 'wp_table_reloaded_min_needed_capability', $min_needed_capability ); // plugins may filter/change this though
         
-        $display_name = 'WP-Table Reloaded'; // the name that is displayed in the admin menu
-        $display_name = apply_filters( 'wp_table_reloaded_plugin_display_name', $display_name );
+        $display_name = 'WP-Table Reloaded'; // the name that is displayed in the admin menu on the left
+        $display_name = apply_filters( 'wp_table_reloaded_plugin_display_name', $display_name ); // can be filtered to something shorter maybe
         
         $this->hook = add_management_page( 'WP-Table Reloaded', $display_name, $min_needed_capability, $this->page_slug, array( &$this, 'show_manage_page' ) );
         add_action( 'load-' . $this->hook, array( &$this, 'load_manage_page' ) );
@@ -154,7 +154,7 @@ class WP_Table_Reloaded_Admin {
             $this->action = $action;
 
         // need thickbox to be able to show table in iframe on certain action pages (but not all)
-        $thickbox_actions = array ( 'list', 'edit', 'copy', 'delete', 'bulk_edit', 'hide_donate_nag' ); // those all show the "List of tables"
+        $thickbox_actions = array ( 'list', 'edit', 'copy', 'delete', 'bulk_edit', 'hide_donate_nag' ); // those all might show the "List of tables"
         if ( in_array( $action, $thickbox_actions ) ) {
             add_thickbox();
             wp_enqueue_script( 'media-upload' ); // for resizing the thickbox
@@ -167,7 +167,7 @@ class WP_Table_Reloaded_Admin {
 
     // ###################################################################################################################
     function show_manage_page() {
-        // call approriate action, $this->action is populated in load_manage_page
+        // call appropriate action, $this->action is populated in load_manage_page
         if( is_callable( array( &$this, 'do_action_' . $this->action ) ) )
             call_user_func( array( &$this, 'do_action_' . $this->action ) );
     }
