@@ -70,10 +70,12 @@ jQuery(document).ready( function( $ ) {
     var table_id = $( '.wp-table-reloaded-table-information #table_id' ).val();
     $( '.wp-table-reloaded-table-information #table_id' ).change( function () {
         if ( table_id != $(this).val() ) {
-            if ( confirm( WP_Table_Reloaded_Admin.str_ChangeTableID ) )
+            if ( confirm( WP_Table_Reloaded_Admin.str_ChangeTableID ) ) {
                 table_id = $(this).val();
-            else
+                set_table_data_changed();
+            } else {
                 $(this).val( table_id );
+            }
         }
     } );
 
@@ -245,5 +247,25 @@ jQuery(document).ready( function( $ ) {
     $( '.postbox h3, .postbox .handlediv' ).click( function() {
         $( $(this).parent().get(0) ).toggleClass('closed');
     } );
+
+    // exit message, if table content was changed but not yet saved
+    var table_data_changed = false;
+
+    function set_table_data_changed() {
+        table_data_changed = true;
+        $( '#wp_table_reloaded_edit_table' ).find( '#table_id, #table_name, textarea' ).unbind( 'click', set_table_data_changed );
+    }
+    $( '#wp_table_reloaded_edit_table' ).find( '#table_name, textarea' ).bind( 'change', set_table_data_changed ); // see also ID change function above
+
+    if ( 'true' == $( '#wp_table_reloaded_edit_table #show_exit_warning' ).val() ) {
+        window.onbeforeunload = function(){
+            if ( table_data_changed )
+                return WP_Table_Reloaded_Admin.str_saveAlert;
+        };
+
+        $("#wp_table_reloaded_edit_table input[name='submit[update]'], #wp_table_reloaded_edit_table input[name='submit[save_back]']").click(function(){
+            window.onbeforeunload = null;
+        } );
+    }
 
 } );

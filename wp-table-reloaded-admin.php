@@ -37,6 +37,7 @@ class WP_Table_Reloaded_Admin {
     var $default_options = array(
         'installed_version' => '0',
         'uninstall_upon_deactivation' => false,
+        'show_exit_warning' => true,
         'enable_tablesorter' => true,
         'use_tablesorter_extended' => false,
         'use_custom_css' => true,
@@ -791,6 +792,7 @@ class WP_Table_Reloaded_Admin {
             
             // checkboxes: option value is defined by whether option isset (e.g. was checked) or not
             $this->options['uninstall_upon_deactivation'] = isset( $new_options['uninstall_upon_deactivation'] );
+            $this->options['show_exit_warning'] = isset( $new_options['show_exit_warning'] );
             $this->options['enable_tablesorter'] = isset( $new_options['enable_tablesorter'] );
             $this->options['use_tablesorter_extended'] = isset( $new_options['use_tablesorter_extended'] );
             $this->options['show_donate_nag'] = isset( $new_options['show_donate_nag'] );
@@ -1122,8 +1124,9 @@ class WP_Table_Reloaded_Admin {
         ?>
         <div style="clear:both;"><p><?php _e( 'You may edit the content of the table here. It is also possible to add or delete columns and rows.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br />
 		<?php echo sprintf( __( 'To show this table in your pages, posts or text-widgets, use the shortcode <strong>[table id=%s /]</strong>.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $table_id ) ); ?></p></div>
-        <form method="post" action="<?php echo $this->get_action_url(); ?>">
+        <form id="wp_table_reloaded_edit_table" method="post" action="<?php echo $this->get_action_url(); ?>">
         <?php wp_nonce_field( $this->get_nonce( 'edit' ) ); ?>
+        <input type="hidden" id="show_exit_warning" value="<?php echo ( $this->options['show_exit_warning'] ) ? 'true' : 'false' ; ?>" />
         <input type="hidden" name="table[id]" value="<?php echo $table['id']; ?>" />
         <input type="hidden" name="action" value="edit" />
 
@@ -1771,6 +1774,10 @@ class WP_Table_Reloaded_Admin {
         <div class="inside">
         <table class="wp-table-reloaded-options">
         <tr valign="top">
+            <th scope="row"><?php _e( 'Show Exit Warning?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
+            <td><input type="checkbox" name="options[show_exit_warning]" id="options_show_exit_warning"<?php echo ( true == $this->options['show_exit_warning'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_show_exit_warning"><small><?php _e( 'Yes, show a warning message, if I leave the "Edit Table" screen and the current changes were not saved yet.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></label></td>
+        </tr>
+        <tr valign="top">
             <th scope="row"><?php _e( 'Use Tablesorter Extended?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
             <td><input type="checkbox" name="options[use_tablesorter_extended]" id="options_use_tablesorter_extended"<?php echo ( true == $this->options['use_tablesorter_extended'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_use_tablesorter_extended"><small><?php _e( 'Yes, use Extended Tablesorter from <a href="http://tablesorter.openwerk.de">S&ouml;ren Krings</a> instead of original Tablesorter script (EXPERIMENTAL FEATURE!).', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></label></td>
         </tr>
@@ -2337,6 +2344,7 @@ CSS;
 	  	        'str_ChangeTableID' => __( 'Do you really want to change the ID of the table?', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_CFShortcodeMessage' => __( 'To show this Custom Data Field, use this shortcode:', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_TableShortcodeMessage' => __( 'To show this table, use this shortcode:', WP_TABLE_RELOADED_TEXTDOMAIN ),
+                'str_saveAlert' => __( 'You have made changes to the content of this table and not yet saved them.', WP_TABLE_RELOADED_TEXTDOMAIN ) . ' ' . __('The changes you made will be lost if you navigate away from this page.'), // contained in WP textdomain, string for changes upon exit
                 'l10n_print_after' => 'try{convertEntities(WP_Table_Reloaded_Admin);}catch(e){};'
         ) );
         wp_print_scripts( 'wp-table-reloaded-admin-js' );
