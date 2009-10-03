@@ -228,7 +228,7 @@ class WP_Table_Reloaded_Frontend {
         $cssclasses = implode( ' ', $cssclasses );
 
         // filter certain values, so plugins can change them
-        $cssclasses = apply_filters( 'wp_table_reloaded_css_classes', $cssclasses, $table['id'] );
+        $cssclasses = apply_filters( 'wp_table_reloaded_table_css_class', $cssclasses, $table['id'] );
         $output_options['html_id'] = apply_filters( 'wp_table_reloaded_html_id', $output_options['html_id'], $table['id'] );
 
         // if row_offset or row_count were given, we cut that part from the table and show just that
@@ -286,7 +286,7 @@ class WP_Table_Reloaded_Frontend {
                 if ( true == $output_options['alternating_row_colors'] )
                     $row_class = ( 1 == ($row_idx % 2) ) ? $row_class . ' even' : $row_class . ' odd';
 
-                $row_class = apply_filters( 'wp_table_reloaded_row_class', $row_class, $table['id'], $row_idx + 1 );
+                $row_class = apply_filters( 'wp_table_reloaded_row_css_class', $row_class, $table['id'], $row_idx + 1 );
 
                 if( 0 == $row_idx ) {
                     if ( true == $output_options['first_row_th'] ) {
@@ -294,7 +294,7 @@ class WP_Table_Reloaded_Frontend {
                         $output .= "\t<tr class=\"{$row_class}\">\n\t\t";
                         foreach( $row as $col_idx => $cell_content ) {
                             $col_class = 'column-' . ( $col_idx + 1 );
-                            $col_class = apply_filters( 'wp_table_reloaded_cell_class', $col_class, $table['id'], $row_idx + 1, $col_idx + 1 );
+                            $col_class = apply_filters( 'wp_table_reloaded_cell_css_class', $col_class, $table['id'], $row_idx + 1, $col_idx + 1 );
                             $width_style = ( !empty( $output_options['column_widths'][$col_idx] ) ) ? " style=\"width:{$output_options['column_widths'][$col_idx]};\"" : '';
                             $cell_content = do_shortcode( $this->safe_output( $cell_content ) );
                             $cell_content = apply_filters( 'wp_table_reloaded_cell_content', $cell_content, $table['id'], $row_idx + 1, $col_idx + 1 );
@@ -308,7 +308,7 @@ class WP_Table_Reloaded_Frontend {
                         $output .= "\t<tr class=\"{$row_class}\">\n\t\t";
                         foreach( $row as $col_idx => $cell_content ) {
                             $col_class = 'column-' . ( $col_idx + 1 );
-                            $col_class = apply_filters( 'wp_table_reloaded_cell_class', $col_class, $table['id'], $row_idx + 1, $col_idx + 1 );
+                            $col_class = apply_filters( 'wp_table_reloaded_cell_css_class', $col_class, $table['id'], $row_idx + 1, $col_idx + 1 );
                             $width_style = ( !empty( $output_options['column_widths'][$col_idx] ) ) ? " style=\"width:{$output_options['column_widths'][$col_idx]};\"" : '';
                             $cell_content = do_shortcode( $this->safe_output( $cell_content ) );
                             $cell_content = apply_filters( 'wp_table_reloaded_cell_content', $cell_content, $table['id'], $row_idx + 1, $col_idx + 1 );
@@ -320,7 +320,7 @@ class WP_Table_Reloaded_Frontend {
                     $output .= "\t<tr class=\"{$row_class}\">\n\t\t";
                     foreach( $row as $col_idx => $cell_content ) {
                         $col_class = 'column-' . ( $col_idx + 1 );
-                        $col_class = apply_filters( 'wp_table_reloaded_cell_class', $col_class, $table['id'], $row_idx + 1, $col_idx + 1 );
+                        $col_class = apply_filters( 'wp_table_reloaded_cell_css_class', $col_class, $table['id'], $row_idx + 1, $col_idx + 1 );
                         $cell_content = do_shortcode( $this->safe_output( $cell_content ) );
                         $cell_content = apply_filters( 'wp_table_reloaded_cell_content', $cell_content, $table['id'], $row_idx + 1, $col_idx + 1 );
                         $output .= "<td class=\"{$col_class}\">" . "{$cell_content}" . "</td>";
