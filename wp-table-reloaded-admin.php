@@ -1185,31 +1185,20 @@ class WP_Table_Reloaded_Admin {
                 ?>
                 <thead>
                     <tr>
-                        <th scope="col">&nbsp;</th>
                         <th class="check-column" scope="col"><input type="checkbox" style="display:none;" /></th><?php // "display:none;" because JS checks wrong index otherwise ?>
                         <?php echo $cols_output; ?>
                         <th scope="col">&nbsp;</th>
                         <th scope="col">&nbsp;</th>
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr>
-                        <th scope="col">&nbsp;</th>
-                        <th scope="col">&nbsp;</th>
-                        <?php echo $cols_output; ?>
-                        <th scope="col">&nbsp;</th>
-                        <th scope="col">&nbsp;</th>
-                    </tr>
-                </tfoot>
                 <tbody>
                 <?php
                 foreach ( $table['data'] as $row_idx => $table_row ) {
                     echo "<tr>\n";
                         // Table Header (Rows get a Number between 1 and $rows)
                         $output_idx = $row_idx + 1;
-                        echo "\t<th scope=\"row\">{$output_idx}</th>\n";
                         $hidden = ( isset( $table['visibility']['rows'][$row_idx] ) && true == $table['visibility']['rows'][$row_idx] ) ? 'true': '' ;
-                        echo "\t<td class=\"check-column\"><input type=\"hidden\" name=\"table[visibility][rows][{$row_idx}]\" id=\"edit_row_{$row_idx}\" class=\"cell-hide\" value=\"{$hidden}\" /><input type=\"checkbox\" name=\"table_select[rows][{$row_idx}]\" id=\"select_row_{$row_idx}\" value=\"true\" /></td>\n";
+                        echo "\t<td class=\"check-column\"><label for=\"select_row_{$row_idx}\">{$output_idx} </label><input type=\"checkbox\" name=\"table_select[rows][{$row_idx}]\" id=\"select_row_{$row_idx}\" value=\"true\" /><input type=\"hidden\" name=\"table[visibility][rows][{$row_idx}]\" id=\"edit_row_{$row_idx}\" class=\"cell-hide\" value=\"{$hidden}\" /></td>\n";
                         foreach ( $table_row as $col_idx => $cell_content ) {
                             $cell_content = $this->safe_output( $cell_content );
                             $cell_name = "table[data][{$row_idx}][{$col_idx}]";
@@ -1230,7 +1219,6 @@ class WP_Table_Reloaded_Admin {
                 // ACTION links
                     echo "<tr>\n";
                         echo "\t<th scope=\"row\">&nbsp;</th>\n";
-                        echo "\t<td>&nbsp;</td>\n";
                         foreach ( $table['data'][0] as $col_idx => $cell_content ) {
                             $insert_col_url = $this->get_action_url( array( 'action' => 'insert', 'table_id' => $table['id'], 'item' => 'col', 'element_id' => $col_idx ), true );
                             $delete_col_url = $this->get_action_url( array( 'action' => 'delete', 'table_id' => $table['id'], 'item' => 'col', 'element_id' => $col_idx ), true );
@@ -1254,13 +1242,13 @@ class WP_Table_Reloaded_Admin {
                         echo "\t<th scope=\"row\">&nbsp;</th>\n";
                     echo "</tr>";
 
-                // hide checkboxes
+                // hide checkboxes / last row
                     echo "<tr class=\"hide-columns\">\n";
                         echo "\t<th scope=\"row\">&nbsp;</th>\n";
-                        echo "\t<td>&nbsp;</td>";
                         foreach ( $table['data'][0] as $col_idx => $cell_content ) {
+                            $letter = chr( ord( 'A' ) + $col_idx );
                             $hidden = ( isset( $table['visibility']['columns'][$col_idx] ) && true == $table['visibility']['columns'][$col_idx] ) ? 'true': '' ;
-                            echo "\t<td class=\"check-column\"><input type=\"hidden\" name=\"table[visibility][columns][{$col_idx}]\" id=\"edit_col_{$col_idx}\" class=\"cell-hide\" value=\"{$hidden}\" /><input type=\"checkbox\" name=\"table_select[columns][{$col_idx}]\" id=\"select_col_{$col_idx}\" value=\"true\" /></td>";
+                            echo "\t<td class=\"check-column\"><label for=\"select_col_{$col_idx}\">{$letter} </label><input type=\"checkbox\" name=\"table_select[columns][{$col_idx}]\" id=\"select_col_{$col_idx}\" value=\"true\" /><input type=\"hidden\" name=\"table[visibility][columns][{$col_idx}]\" id=\"edit_col_{$col_idx}\" class=\"cell-hide\" value=\"{$hidden}\" /></td>";
                         }
                         echo "\t<td>&nbsp;</td>";
                         echo "\t<th scope=\"row\">&nbsp;</th>\n";

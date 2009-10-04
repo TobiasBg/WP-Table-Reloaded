@@ -4,17 +4,17 @@ jQuery(document).ready( function( $ ) {
 
     // function to toggle textarea background color according to state of checkboxes
     $( '#a-hide-rows-columns' ).click( function() {
-        $( '#table_contents .hide-columns :checked' ).prev().each( function() {
+        $( '#table_contents .hide-columns :checked' ).next().each( function() {
             $( '#table_contents .' + $(this).attr('id') ).addClass( 'column-hidden' );
         } );
-        $( '#table_contents tbody :checked' ).attr( 'checked', false ).prev().val( true ).parents('tr').find('textarea').addClass('row-hidden');
+        $( '#table_contents tbody :checked' ).attr( 'checked', false ).next().val( true ).parents('tr').find('textarea').addClass('row-hidden');
         set_table_data_changed();
 	});
     $( '#a-unhide-rows-columns' ).click( function() {
-        $( '#table_contents .hide-columns :checked' ).prev().each( function() {
+        $( '#table_contents .hide-columns :checked' ).next().each( function() {
             $( '#table_contents .' + $(this).attr('id') ).removeClass( 'column-hidden' );
         } );
-        $( '#table_contents tbody :checked' ).attr( 'checked', false ).prev().val( false ).parents('tr').find('textarea').removeClass('row-hidden');
+        $( '#table_contents tbody :checked' ).attr( 'checked', false ).next().val( false ).parents('tr').find('textarea').removeClass('row-hidden');
         set_table_data_changed();
 	});
 

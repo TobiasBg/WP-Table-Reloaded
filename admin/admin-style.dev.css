@@ -109,9 +109,17 @@ textarea.focus {
     width:100%;
 }
 
-#table_contents .hide-columns .check-column {
+#table_contents .hide-columns td, #table_contents .hide-columns th {
+	color: #333;
+	background: #dfdfdf url(../../../../wp-admin/images/gray-grad.png) repeat-x scroll left top;
+	text-align:center;
+	text-shadow: rgba(255,255,255,0.8) 0 1px 0;
+	font-weight: bold;
+}
+
+#table_contents .check-column {
+	font-weight: bold;
     padding-left:7px;
-    width:auto;
 }
 
 .no-wrap {
