@@ -1,73 +1,32 @@
 jQuery(document).ready( function( $ ) {
 
-    // WP_Table_Reloaded_Admin object will contain all localized strings
-
-    // jQuery's original toggleClass needs jQuery 1.3, which is only available since 1.3
-    // which is only available since WP 2.8, that's why we copy the function here to maintain
-    // backward compatibility
-    jQuery.each({
-        TBtoggleClass: function( classNames, state ) {
-            if( typeof state !== "boolean" )
-                state = !jQuery.className.has( this, classNames );
-            jQuery.className[ state ? "add" : "remove" ]( this, classNames );
-        }
-    }, function(name, fn){
-        jQuery.fn[ name ] = function() {
-            return this.each( fn, arguments );
-        };
-    });
+    // WP_Table_Reloaded_Admin object will contain all localized strings and options that influence JavaScript
 
     // function to toggle textarea background color according to state of checkboxes
-    // uses TBtoggleClass instead of toggleClass, see above
-    var cb_id, cb_class;
     $( '#a-hide-rows-columns' ).click( function() {
-        $( '#table_contents tbody :checked' ).each( function() {
-            cb_id = $(this).prev().val( true ).attr('id'); // set the value of the previous hidden field and get its ID
-            cb_class = ( -1 != cb_id.search(/row/) ) ? 'row-hidden' : 'column-hidden';
-            $( '#table_contents .' + cb_id ).TBtoggleClass( cb_class, true );
-        } ).attr( 'checked', false );
+        $( '#table_contents .hide-columns :checked' ).prev().each( function() {
+            $( '#table_contents .' + $(this).attr('id') ).addClass( 'column-hidden' );
+        } );
+        $( '#table_contents tbody :checked' ).attr( 'checked', false ).prev().val( true ).parents('tr').find('textarea').addClass('row-hidden');
         set_table_data_changed();
 	});
     $( '#a-unhide-rows-columns' ).click( function() {
-        $( '#table_contents tbody :checked' ).each( function() {
-            cb_id = $(this).prev().val( false ).attr('id'); // set the value of the previous hidden field and get its ID
-            cb_class = ( -1 != cb_id.search(/row/) ) ? 'row-hidden' : 'column-hidden';
-            $( '#table_contents .' + cb_id ).TBtoggleClass( cb_class, false );
-        } ).attr( 'checked', false );
+        $( '#table_contents .hide-columns :checked' ).prev().each( function() {
+            $( '#table_contents .' + $(this).attr('id') ).removeClass( 'column-hidden' );
+        } );
+        $( '#table_contents tbody :checked' ).attr( 'checked', false ).prev().val( false ).parents('tr').find('textarea').removeClass('row-hidden');
         set_table_data_changed();
 	});
 
-    // functions to make focussed textareas bigger
-    // commented code is for handling all textareas in same row or same column
-    // var ta_idx, tas;
+    // functions to make focussed textareas bigger  (if backend option is enabled)
     if ( WP_Table_Reloaded_Admin.option_growing_textareas ) {
         $( '#table_contents textarea' ).focus( function() {
             $( '#table_contents .focus' ).removeClass('focus');
             $(this).parents('tr').find('textarea').addClass('focus');
         } );
     }
-        //tas = $(this).parents('tr').find('textarea');
-        //ta_idx = $( tas ).index( this ) + 2; // 2 is from: 1: <th> infront, 1: 1-based-index
-        //$( '#table_contents tr :nth-child(' + ta_idx + ') textarea' ).add( tas ).addClass('focus');
-    //.blur( function() {
-    //    $(this).parents('tr').find('textarea').removeClass('focus');
-        //tas = $(this).parents('tr').find('textarea');
-        //ta_idx = $( tas ).index( this ) + 2; // 2 is from: 1: <th> infront, 1: 1-based-index
-        //$( '#table_contents tr :nth-child(' + ta_idx + ') textarea' ).add( tas ).removeClass('focus');
-    //} );
 
-    // old code that makes textareas grow depending on content
-    /*
-    $("#table_contents textarea").keypress(function () {
-        var currentTextsize = $(this).val().split('\n').length;
-
-        if ( 0 < currentTextsize ) {
-            $(this).attr('rows', currentTextsize);
-        }
-	}).keypress();
-    */
-
-    // show export delimiter selectbox only if export format is csv
+    // show export delimiter dropdown box only if export format is csv
     $( '#export_format' ).change( function () {
         if ( 'csv' == $(this).val() )
             $('.tr-export-delimiter').show();
