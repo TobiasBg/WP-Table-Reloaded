@@ -183,12 +183,8 @@ jQuery(document).ready( function( $ ) {
     } );
     */
 
-    $(' a.delete_row_link' ).click( function () {
-    	return confirm( WP_Table_Reloaded_Admin.str_DeleteRowLink );
-    } );
-
-    $( 'a.delete_column_link' ).click( function () {
-    	return confirm( WP_Table_Reloaded_Admin.str_DeleteColumnLink );
+    $( '.delete_rowcol_button' ).click( function () {
+    	return confirm( WP_Table_Reloaded_Admin.str_DeleteRowColButton );
     } );
 
     $( 'a.import_wptable_link' ).click( function () {

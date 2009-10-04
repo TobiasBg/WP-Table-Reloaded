@@ -423,6 +423,39 @@ class WP_Table_Reloaded_Admin {
                 $this->save_table( $table );
                 $message = __( 'Column moved successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
+            case 'delete':
+                $table_id = $_POST['table']['id'];
+                $delete_rows = ( isset( $_POST['table_select']['rows'] ) ) ? $_POST['table_select']['rows'] : array();
+                $delete_columns = ( isset( $_POST['table_select']['columns'] ) ) ? $_POST['table_select']['columns'] : array();
+                $table = $this->load_table( $table_id );
+                $rows = count( $table['data'] );
+                $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
+                // move col $col_id1 before/after $col_id2
+                if ( 1 < $rows ) {
+                    // remove rows and re-index
+                    foreach( $delete_rows as $row_idx => $value) {
+                        unset( $table['data'][$row_idx] );
+                        unset( $table['visibility']['rows'][$row_idx] );
+                    }
+                    $table['data'] = array_merge( $table['data'] );
+                    $table['visibility']['rows'] = array_merge( $table['visibility']['rows'] );
+                }
+                if ( 1 < $cols ) {
+                    foreach ( $table['data'] as $row_idx => $row ) {
+                        // remove columns and re-index
+                        foreach( $delete_columns as $col_idx => $value) {
+                            unset( $table['data'][$row_idx][$col_idx] );
+                        }
+                        $table['data'][$row_idx] = array_merge( $table['data'][$row_idx] );
+                    }
+                    foreach( $delete_columns as $col_idx => $value) {
+                        unset( $table['visibility']['columns'][$col_idx] );
+                    }
+                    $table['visibility']['columns'] = array_merge( $table['visibility']['columns'] );
+                }
+                $this->save_table( $table );
+                $message = __( 'Rows/columns deleted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                break;
             case 'insert_cf':
                 $table_id = $_POST['table']['id'];
                 $table = $this->load_table( $table_id );
@@ -563,32 +596,6 @@ class WP_Table_Reloaded_Admin {
                 $this->delete_table( $table_id );
                 $this->print_header_message( sprintf( __( 'Table "%s" deleted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $table['name'] ) ) );
                 $this->do_action_list();
-                break;
-            case 'row':
-                $row_id = ( isset( $_GET['element_id'] ) ) ? $_GET['element_id'] : -1;
-                $rows = count( $table['data'] );
-                // delete row with key $row_id, if there are at least 2 rows
-                if ( ( 1 < $rows ) && ( -1 < $row_id ) ) {
-                    array_splice( $table['data'], $row_id, 1 );
-                    array_splice( $table['visibility']['rows'], $row_id, 1 );
-                    $this->save_table( $table );
-                    $this->print_header_message( __( 'Row deleted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
-                }
-                $this->print_edit_table_form( $table_id );
-                break;
-            case 'col':
-                $col_id = ( isset( $_GET['element_id'] ) ) ? $_GET['element_id'] : -1;
-                $rows = count( $table['data'] );
-                $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
-                // delete column with key $col_id, if there are at least 2 columns
-                if ( ( 1 < $cols ) && ( -1 < $col_id ) ) {
-                    foreach ( $table['data'] as $row_idx => $row )
-                        array_splice( $table['data'][$row_idx], $col_id, 1 );
-                    array_splice( $table['visibility']['columns'], $col_id, 1 );
-                    $this->save_table( $table );
-                    $this->print_header_message( __( 'Column deleted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
-                }
-                $this->print_edit_table_form( $table_id );
                 break;
             case 'custom_field':
                 $name = ( isset( $_GET['element_id'] ) ) ? $_GET['element_id'] : '';
@@ -1207,11 +1214,7 @@ class WP_Table_Reloaded_Admin {
                             echo "\t<td><textarea rows=\"1\" cols=\"20\" name=\"{$cell_name}\" class=\"edit_row_{$row_idx} edit_col_{$col_idx}{$hidden}\">{$cell_content}</textarea></td>\n";
                         }
                         $insert_row_url = $this->get_action_url( array( 'action' => 'insert', 'table_id' => $table['id'], 'item' => 'row', 'element_id' => $row_idx ), true );
-                        $delete_row_url = $this->get_action_url( array( 'action' => 'delete', 'table_id' => $table['id'], 'item' => 'row', 'element_id' => $row_idx ), true );
-                        echo "\t<td><a href=\"{$insert_row_url}\">" . __( 'Insert Row', WP_TABLE_RELOADED_TEXTDOMAIN )."</a>";
-                        if ( 1 < $rows ) // don't show delete link for last and only row
-                            echo " | <a class=\"delete_row_link\" href=\"{$delete_row_url}\">".__( 'Delete Row', WP_TABLE_RELOADED_TEXTDOMAIN )."</a>";
-                        echo "</td>\n";
+                        echo "\t<td><a href=\"{$insert_row_url}\">" . __( 'Insert Row', WP_TABLE_RELOADED_TEXTDOMAIN )."</a></td>\n";
                         echo "\t<th scope=\"row\">{$output_idx}</th>\n";
                     echo "</tr>";
                 }
@@ -1222,10 +1225,7 @@ class WP_Table_Reloaded_Admin {
                         foreach ( $table['data'][0] as $col_idx => $cell_content ) {
                             $insert_col_url = $this->get_action_url( array( 'action' => 'insert', 'table_id' => $table['id'], 'item' => 'col', 'element_id' => $col_idx ), true );
                             $delete_col_url = $this->get_action_url( array( 'action' => 'delete', 'table_id' => $table['id'], 'item' => 'col', 'element_id' => $col_idx ), true );
-                            echo "\t<td><a href=\"{$insert_col_url}\">" . __( 'Insert Column', WP_TABLE_RELOADED_TEXTDOMAIN )."</a>";
-                            if ( 1 < $cols ) // don't show delete link for last and only column
-                                echo " | <a class=\"delete_column_link\" href=\"{$delete_col_url}\">" . __('Delete Column', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>";
-                            echo "</td>\n";
+                            echo "\t<td><a href=\"{$insert_col_url}\">" . __( 'Insert Column', WP_TABLE_RELOADED_TEXTDOMAIN )."</a></td>\n";
                         }
 
                     // add rows/columns buttons
@@ -1342,6 +1342,9 @@ class WP_Table_Reloaded_Admin {
         <?php } // end if form move col ?>
     </td></tr>
     <tr><td>
+        <?php if ( ( 1 < $rows ) || ( 1 < $rows ) ) { // don't show delete link for last and only row ?>
+        <input type="submit" name="submit[delete]" class="button-primary delete_rowcol_button" value="<?php _e( 'Delete rows/cols', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
+        <?php } ?>
         <a id="a-hide-rows-columns" class="button-primary" href="javascript:void(0);"><?php _e( 'Hide rows/cols', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
         <a id="a-unhide-rows-columns" class="button-primary" href="javascript:void(0);"><?php _e( 'Unhide rows/cols', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
         <a id="a-insert-link" class="button-primary" href="javascript:void(0);"><?php _e( 'Insert Link', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
@@ -2338,8 +2341,7 @@ CSS;
 	  	        'str_BulkImportwpTableTablesLink' => __( 'Do you really want to import the selected tables from the wp-Table plugin?', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_CopyTableLink' => __( 'Do you want to copy this table?', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_DeleteTableLink' => __( 'The complete table and all content will be erased. Do you really want to delete it?', WP_TABLE_RELOADED_TEXTDOMAIN ),
-	  	        'str_DeleteRowLink' => __( 'Do you really want to delete this row?', WP_TABLE_RELOADED_TEXTDOMAIN ),
-	  	        'str_DeleteColumnLink' => __( 'Do you really want to delete this column?', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_DeleteRowColButton' => __( 'Do you really want to delete the selected rows and/or columns?', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_ImportwpTableLink' => __( 'Do you really want to import this table from the wp-Table plugin?', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_UninstallPluginLink_1' => __( 'Do you really want to uninstall the plugin and delete ALL data?', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_UninstallPluginLink_2' => __( 'Are you really sure?', WP_TABLE_RELOADED_TEXTDOMAIN ),
