@@ -1134,8 +1134,6 @@ class WP_Table_Reloaded_Admin {
 		<?php echo sprintf( __( 'To show this table in your pages, posts or text-widgets, use the shortcode <strong>[table id=%s /]</strong>.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $table_id ) ); ?></p></div>
         <form id="wp_table_reloaded_edit_table" method="post" action="<?php echo $this->get_action_url(); ?>">
         <?php wp_nonce_field( $this->get_nonce( 'edit' ) ); ?>
-        <input type="hidden" id="show_exit_warning" value="<?php echo ( $this->options['show_exit_warning'] ) ? 'true' : 'false' ; ?>" />
-        <input type="hidden" id="growing_textareas" value="<?php echo ( $this->options['growing_textareas'] ) ? 'true' : 'false' ; ?>" />
         <input type="hidden" name="table[id]" value="<?php echo $table['id']; ?>" />
         <input type="hidden" name="action" value="edit" />
 
@@ -2361,6 +2359,8 @@ CSS;
 	  	        'str_CFShortcodeMessage' => __( 'To show this Custom Data Field, use this shortcode:', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_TableShortcodeMessage' => __( 'To show this table, use this shortcode:', WP_TABLE_RELOADED_TEXTDOMAIN ),
                 'str_saveAlert' => __( 'You have made changes to the content of this table and not yet saved them.', WP_TABLE_RELOADED_TEXTDOMAIN ) . ' ' . __('The changes you made will be lost if you navigate away from this page.'), // contained in WP textdomain, string for changes upon exit
+                'option_show_exit_warning' => $this->options['show_exit_warning'],
+                'option_growing_textareas' => $this->options['growing_textareas'],
                 'l10n_print_after' => 'try{convertEntities(WP_Table_Reloaded_Admin);}catch(e){};'
         ) );
         wp_print_scripts( 'wp-table-reloaded-admin-js' );
