@@ -4,17 +4,17 @@ jQuery(document).ready( function( $ ) {
 
     // function to toggle textarea background color according to state of checkboxes
     $( '#a-hide-rows-columns' ).click( function() {
-        $( '#table_contents .hide-columns :checked' ).next().each( function() {
+        $( '#table_contents .table-foot :checked' ).next().each( function() {
             $( '#table_contents .' + $(this).attr('id') ).addClass( 'column-hidden' );
         } );
-        $( '#table_contents tbody :checked' ).attr( 'checked', false ).next().val( true ).parents('tr').find('textarea').addClass('row-hidden');
+        $( '#table_contents tbody :checked' ).attr( 'checked', false ).next().val( true ).parents('tr').not('.table-foot').addClass('row-hidden');
         set_table_data_changed();
 	});
     $( '#a-unhide-rows-columns' ).click( function() {
-        $( '#table_contents .hide-columns :checked' ).next().each( function() {
+        $( '#table_contents .table-foot :checked' ).next().each( function() {
             $( '#table_contents .' + $(this).attr('id') ).removeClass( 'column-hidden' );
         } );
-        $( '#table_contents tbody :checked' ).attr( 'checked', false ).next().val( false ).parents('tr').find('textarea').removeClass('row-hidden');
+        $( '#table_contents tbody :checked' ).attr( 'checked', false ).next().val( false ).parents('tr').removeClass('row-hidden');
         set_table_data_changed();
 	});
 
@@ -59,11 +59,7 @@ jQuery(document).ready( function( $ ) {
 
     // show only checked import fields depending on radio button
     $( '.tr-import-from input' ).click( function () {
-        $('.tr-import-file-upload').hide();
-        $('.tr-import-url').hide();
-        $('.tr-import-form-field').hide();
-        $('.tr-import-server').hide();
-
+        $('.tr-import-file-upload, .tr-import-url, .tr-import-form-field, .tr-import-server').hide();
         $( '.tr-import-' + $( '.tr-import-from input:checked' ).val() ).show();
     } );
     $('.tr-import-from input:checked').click();
@@ -184,7 +180,24 @@ jQuery(document).ready( function( $ ) {
     */
 
     $( '.delete_rowcol_button' ).click( function () {
-    	return confirm( WP_Table_Reloaded_Admin.str_DeleteRowColButton );
+        var total_cb = $( '#table_contents tbody :checkbox' ).length - 1; // -1 because of invisible checkbox in .table-head
+        var columns_cb = $( '#table_contents .table-foot :checkbox' ).length;
+        var rows_cb = total_cb - columns_cb;
+        var total_clicked = $( '#table_contents tbody :checked' ).length;
+        var columns_clicked = $( '#table_contents .table-foot :checked' ).length;
+        var rows_clicked = total_clicked - columns_clicked;
+
+        if ( total_clicked == 0 ) {
+            alert( WP_Table_Reloaded_Admin.str_DeleteRowColFailedNoSelection );
+            return false;
+        } else {
+            if ( ( total_cb < 3 ) || ( columns_cb == columns_clicked ) || ( rows_cb == rows_clicked ) ) {
+                alert( WP_Table_Reloaded_Admin.str_DeleteRowColFailedTooMany );
+                return false;
+            } else {
+        	   return confirm( WP_Table_Reloaded_Admin.str_DeleteRowColButton );
+            }
+        }
     } );
 
     $( 'a.import_wptable_link' ).click( function () {

@@ -25,7 +25,7 @@ class WP_Table_Reloaded_Admin {
         'table' => 'wp_table_reloaded_data'
     );
     // allowed actions in this class
-    var $allowed_actions = array( 'list', 'add', 'edit', 'bulk_edit', 'copy', 'delete', 'insert', 'import', 'export', 'options', 'uninstall', 'info', 'hide_donate_nag' ); // 'ajax_list', 'ajax_preview', but handled separatly
+    var $allowed_actions = array( 'list', 'add', 'edit', 'bulk_edit', 'copy', 'delete', 'import', 'export', 'options', 'uninstall', 'info', 'hide_donate_nag' ); // 'ajax_list', 'ajax_preview', but handled separatly
     // current action, populated in load_manage_page
     var $action = 'list';
     
@@ -430,7 +430,6 @@ class WP_Table_Reloaded_Admin {
                 $table = $this->load_table( $table_id );
                 $rows = count( $table['data'] );
                 $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
-                // move col $col_id1 before/after $col_id2
                 if ( 1 < $rows ) {
                     // remove rows and re-index
                     foreach( $delete_rows as $row_idx => $value) {
@@ -455,6 +454,45 @@ class WP_Table_Reloaded_Admin {
                 }
                 $this->save_table( $table );
                 $message = __( 'Rows/columns deleted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                break;
+            case 'insert':
+                $table_id = $_POST['table']['id'];
+                $insert_rows = ( isset( $_POST['table_select']['rows'] ) ) ? $_POST['table_select']['rows'] : array();
+                $insert_columns = ( isset( $_POST['table_select']['columns'] ) ) ? $_POST['table_select']['columns'] : array();
+                $table = $this->load_table( $table_id );
+                $rows = count( $table['data'] );
+                $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
+
+                // insert rows and re-index
+                $row_change = 0;
+                $new_row = array( array_fill( 0, $cols, '' ) );
+                foreach( $insert_rows as $row_idx => $value) {
+                    $row_id = $row_idx + $row_change;
+                    // init new empty row (with all columns) and insert it before row with key $row_id
+                    array_splice( $table['data'], $row_id, 0, $new_row );
+                    array_splice( $table['visibility']['rows'], $row_id, 0, false );
+                    $row_change++;
+                }
+
+                // insert cols and re-index
+                $new_col = '';
+                foreach ( $table['data'] as $row_idx => $row ) {
+                    $col_change = 0;
+                    foreach( $insert_columns as $col_idx => $value) {
+                        $col_id = $col_idx + $col_change;
+                        array_splice( $table['data'][$row_idx], $col_id, 0, $new_col );
+                        $col_change++;
+                    }
+                }
+                $col_change = 0;
+                foreach( $insert_columns as $col_idx => $value) {
+                    $col_id = $col_idx + $col_change;
+                    array_splice( $table['visibility']['columns'], $col_id, 0, false );
+                    $col_change++;
+                }
+                
+                $this->save_table( $table );
+                $message = __( 'Rows/columns inserted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
             case 'insert_cf':
                 $table_id = $_POST['table']['id'];
@@ -613,46 +651,6 @@ class WP_Table_Reloaded_Admin {
                 $this->print_header_message( __( 'Delete failed.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
                 $this->do_action_list();
             } // end switch
-        } else {
-            $this->do_action_list();
-        }
-    }
-
-    // ###################################################################################################################
-    function do_action_insert() {
-        if ( isset( $_GET['table_id'] ) && isset( $_GET['item'] ) && isset( $_GET['element_id'] ) ) {
-            check_admin_referer( $this->get_nonce( 'insert', $_GET['item']  ) );
-
-            $table_id = $_GET['table_id'];
-            $table = $this->load_table( $table_id );
-
-            switch( $_GET['item'] ) {
-            case 'row':
-                $row_id = $_GET['element_id'];
-                $rows = count( $table['data'] );
-                $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
-                // init new empty row (with all columns) and insert it before row with key $row_id
-                $new_row = array( array_fill( 0, $cols, '' ) );
-                array_splice( $table['data'], $row_id, 0, $new_row );
-                array_splice( $table['visibility']['rows'], $row_id, 0, false );
-                $this->save_table( $table );
-                $message = __( 'Row inserted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
-                break;
-            case 'col':
-                $col_id = $_GET['element_id'];
-                // init new empty row (with all columns) and insert it before row with key $row_id
-                $new_col = '';
-                foreach ( $table['data'] as $row_idx => $row )
-                    array_splice( $table['data'][$row_idx], $col_id, 0, $new_col );
-                array_splice( $table['visibility']['columns'], $col_id, 0, false );
-                $this->save_table( $table );
-                $message = __( 'Column inserted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
-                break;
-            default:
-                $message = __( 'Insert failed.', WP_TABLE_RELOADED_TEXTDOMAIN );
-            }
-            $this->print_header_message( $message );
-            $this->print_edit_table_form( $table_id );
         } else {
             $this->do_action_list();
         }
@@ -1139,10 +1137,9 @@ class WP_Table_Reloaded_Admin {
         ?>
         <div style="clear:both;"><p><?php _e( 'You may edit the content of the table here. It is also possible to add or delete columns and rows.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br />
 		<?php echo sprintf( __( 'To show this table in your pages, posts or text-widgets, use the shortcode <strong>[table id=%s /]</strong>.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->safe_output( $table_id ) ); ?></p></div>
-        <form id="wp_table_reloaded_edit_table" method="post" action="<?php echo $this->get_action_url(); ?>">
+        <form id="wp_table_reloaded_edit_table" method="post" action="<?php echo $this->get_action_url( array( 'action' => 'edit', 'table_id' => $table_id ), false ); ?>">
         <?php wp_nonce_field( $this->get_nonce( 'edit' ) ); ?>
         <input type="hidden" name="table[id]" value="<?php echo $table['id']; ?>" />
-        <input type="hidden" name="action" value="edit" />
 
         <div class="postbox">
         <h3 class="hndle"><span><?php _e( 'Table Information', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span></h3>
@@ -1184,75 +1181,48 @@ class WP_Table_Reloaded_Admin {
             <h3 class="hndle"><span><?php _e( 'Table Contents', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php _e( 'Hide', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
             <div class="inside">
             <table class="widefat" style="width:auto;" id="table_contents">
-                <?php
-                    // Table Header (Columns get a Letter between A and A+$cols-1)
-                    $cols_output = '';
-                    foreach ( range( 'A', chr( ord( 'A' ) + $cols - 1 ) ) as $letter )
-                        $cols_output .= "<th scope=\"col\">".$letter."</th>";
-                ?>
-                <thead>
-                    <tr>
-                        <th class="check-column" scope="col"><input type="checkbox" style="display:none;" /></th><?php // "display:none;" because JS checks wrong index otherwise ?>
-                        <?php echo $cols_output; ?>
-                        <th scope="col">&nbsp;</th>
-                        <th scope="col">&nbsp;</th>
-                    </tr>
-                </thead>
                 <tbody>
                 <?php
+                    // first row
+                    echo "<tr class=\"table-head\">\n";
+                        echo "\t<td class=\"check-column\"><input type=\"checkbox\" style=\"display:none;\" /></td>\n";
+                        foreach ( $table['data'][0] as $col_idx => $cell_content ) {
+                            $letter = chr( ord( 'A' ) + $col_idx );
+                            $hidden = ( isset( $table['visibility']['columns'][$col_idx] ) && true == $table['visibility']['columns'][$col_idx] ) ? 'true': '' ;
+                            $col_hidden = ( isset( $table['visibility']['columns'][$col_idx] ) && true == $table['visibility']['columns'][$col_idx] ) ? ' column-hidden' : '';
+                            echo "\t<td class=\"edit_col_{$col_idx}{$col_hidden}\">{$letter}</td>\n";
+                        }
+                        echo "\t<td>&nbsp;</td>\n";
+                    echo "</tr>\n";
+
+                    // data rows, with checkboxes to select rows
                 foreach ( $table['data'] as $row_idx => $table_row ) {
-                    echo "<tr>\n";
-                        // Table Header (Rows get a Number between 1 and $rows)
-                        $output_idx = $row_idx + 1;
+                    $row_hidden = ( isset( $table['visibility']['rows'][$col_idx] ) && true == $table['visibility']['rows'][$row_idx] ) ? ' row-hidden' : '';
+                    echo "<tr class=\"edit_row_{$row_idx}{$row_hidden}\">\n";
+                        $output_idx = $row_idx + 1; // start counting at 1 on output
                         $hidden = ( isset( $table['visibility']['rows'][$row_idx] ) && true == $table['visibility']['rows'][$row_idx] ) ? 'true': '' ;
                         echo "\t<td class=\"check-column\"><label for=\"select_row_{$row_idx}\">{$output_idx} </label><input type=\"checkbox\" name=\"table_select[rows][{$row_idx}]\" id=\"select_row_{$row_idx}\" value=\"true\" /><input type=\"hidden\" name=\"table[visibility][rows][{$row_idx}]\" id=\"edit_row_{$row_idx}\" class=\"cell-hide\" value=\"{$hidden}\" /></td>\n";
                         foreach ( $table_row as $col_idx => $cell_content ) {
                             $cell_content = $this->safe_output( $cell_content );
                             $cell_name = "table[data][{$row_idx}][{$col_idx}]";
-                            $hidden = ( isset( $table['visibility']['rows'][$col_idx] ) && true == $table['visibility']['rows'][$row_idx] ) ? ' row-hidden' : '';
-                            $hidden .= ( isset( $table['visibility']['columns'][$col_idx] ) && true == $table['visibility']['columns'][$col_idx] ) ? ' column-hidden' : '';
-                            echo "\t<td><textarea rows=\"1\" cols=\"20\" name=\"{$cell_name}\" class=\"edit_row_{$row_idx} edit_col_{$col_idx}{$hidden}\">{$cell_content}</textarea></td>\n";
+                            $col_hidden = ( isset( $table['visibility']['columns'][$col_idx] ) && true == $table['visibility']['columns'][$col_idx] ) ? ' column-hidden' : '';
+                            echo "\t<td class=\"edit_col_{$col_idx}{$col_hidden}\"><textarea rows=\"1\" cols=\"20\" name=\"{$cell_name}\">{$cell_content}</textarea></td>\n";
                         }
-                        $insert_row_url = $this->get_action_url( array( 'action' => 'insert', 'table_id' => $table['id'], 'item' => 'row', 'element_id' => $row_idx ), true );
-                        echo "\t<td><a href=\"{$insert_row_url}\">" . __( 'Insert Row', WP_TABLE_RELOADED_TEXTDOMAIN )."</a></td>\n";
                         echo "\t<th scope=\"row\">{$output_idx}</th>\n";
-                    echo "</tr>";
+                    echo "</tr>\n";
                 }
 
-                // ACTION links
-                    echo "<tr>\n";
-                        echo "\t<th scope=\"row\">&nbsp;</th>\n";
-                        foreach ( $table['data'][0] as $col_idx => $cell_content ) {
-                            $insert_col_url = $this->get_action_url( array( 'action' => 'insert', 'table_id' => $table['id'], 'item' => 'col', 'element_id' => $col_idx ), true );
-                            $delete_col_url = $this->get_action_url( array( 'action' => 'delete', 'table_id' => $table['id'], 'item' => 'col', 'element_id' => $col_idx ), true );
-                            echo "\t<td><a href=\"{$insert_col_url}\">" . __( 'Insert Column', WP_TABLE_RELOADED_TEXTDOMAIN )."</a></td>\n";
-                        }
-
-                    // add rows/columns buttons
-                        echo "\t<td><input type=\"hidden\" name=\"insert[row][id]\" value=\"{$rows}\" /><input type=\"hidden\" name=\"insert[col][id]\" value=\"{$cols}\" />";
-
-                        $row_insert = '<input type="text" name="insert[row][number]" value="1" style="width:30px" />';
-                        $col_insert = '<input type="text" name="insert[col][number]" value="1" style="width:30px" />';
-                        ?>
-                        <?php echo sprintf( __( 'Add %s row(s)', WP_TABLE_RELOADED_TEXTDOMAIN ), $row_insert ); ?>
-                        <input type="submit" name="submit[insert_rows]" class="button-primary" value="<?php _e( 'Add', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" /><br/>
-                        <?php echo sprintf( __( 'Add %s column(s)', WP_TABLE_RELOADED_TEXTDOMAIN ), $col_insert ); ?>
-                        <input type="submit" name="submit[insert_cols]" class="button-primary" value="<?php _e( 'Add', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" /></td>
-                        <?php
-                        echo "\t<th scope=\"row\">&nbsp;</th>\n";
-                    echo "</tr>";
-
-                // hide checkboxes / last row
-                    echo "<tr class=\"hide-columns\">\n";
-                        echo "\t<th scope=\"row\">&nbsp;</th>\n";
+                    // last row (with checkboxes to select columns)
+                    echo "<tr class=\"table-foot\">\n";
+                        echo "\t<td>&nbsp;</td>\n";
                         foreach ( $table['data'][0] as $col_idx => $cell_content ) {
                             $letter = chr( ord( 'A' ) + $col_idx );
                             $hidden = ( isset( $table['visibility']['columns'][$col_idx] ) && true == $table['visibility']['columns'][$col_idx] ) ? 'true': '' ;
-                            echo "\t<td class=\"check-column\"><label for=\"select_col_{$col_idx}\">{$letter} </label><input type=\"checkbox\" name=\"table_select[columns][{$col_idx}]\" id=\"select_col_{$col_idx}\" value=\"true\" /><input type=\"hidden\" name=\"table[visibility][columns][{$col_idx}]\" id=\"edit_col_{$col_idx}\" class=\"cell-hide\" value=\"{$hidden}\" /></td>";
+                            $col_hidden = ( isset( $table['visibility']['columns'][$col_idx] ) && true == $table['visibility']['columns'][$col_idx] ) ? ' column-hidden' : '';
+                            echo "\t<td class=\"check-column edit_col_{$col_idx}{$col_hidden}\"><label for=\"select_col_{$col_idx}\">{$letter} </label><input type=\"checkbox\" name=\"table_select[columns][{$col_idx}]\" id=\"select_col_{$col_idx}\" value=\"true\" /><input type=\"hidden\" name=\"table[visibility][columns][{$col_idx}]\" id=\"edit_col_{$col_idx}\" class=\"cell-hide\" value=\"{$hidden}\" /></td>\n";
                         }
-                        echo "\t<td>&nbsp;</td>";
-                        echo "\t<th scope=\"row\">&nbsp;</th>\n";
-                    echo "</tr>";
+                        echo "\t<td>&nbsp;</td>\n";
+                    echo "</tr>\n";
                 ?>
                 </tbody>
             </table>
@@ -1345,6 +1315,20 @@ class WP_Table_Reloaded_Admin {
         <?php if ( ( 1 < $rows ) || ( 1 < $rows ) ) { // don't show delete link for last and only row ?>
         <input type="submit" name="submit[delete]" class="button-primary delete_rowcol_button" value="<?php _e( 'Delete rows/cols', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
         <?php } ?>
+        <input type="submit" name="submit[insert]" class="button-primary" value="<?php _e( 'Insert rows/cols', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
+        
+                  <?php
+                    // add rows/columns buttons
+                        echo "\t<td><input type=\"hidden\" name=\"insert[row][id]\" value=\"{$rows}\" /><input type=\"hidden\" name=\"insert[col][id]\" value=\"{$cols}\" />";
+
+                        $row_insert = '<input type="text" name="insert[row][number]" value="1" style="width:30px" />';
+                        $col_insert = '<input type="text" name="insert[col][number]" value="1" style="width:30px" />';
+                        ?>
+                        <?php echo sprintf( __( 'Add %s row(s)', WP_TABLE_RELOADED_TEXTDOMAIN ), $row_insert ); ?>
+                        <input type="submit" name="submit[insert_rows]" class="button-primary" value="<?php _e( 'Add', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" /><br/>
+                        <?php echo sprintf( __( 'Add %s column(s)', WP_TABLE_RELOADED_TEXTDOMAIN ), $col_insert ); ?>
+                        <input type="submit" name="submit[insert_cols]" class="button-primary" value="<?php _e( 'Add', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" /></td>
+
         <a id="a-hide-rows-columns" class="button-primary" href="javascript:void(0);"><?php _e( 'Hide rows/cols', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
         <a id="a-unhide-rows-columns" class="button-primary" href="javascript:void(0);"><?php _e( 'Unhide rows/cols', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
         <a id="a-insert-link" class="button-primary" href="javascript:void(0);"><?php _e( 'Insert Link', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
@@ -1979,7 +1963,6 @@ TEXT;
             case 'list':
                 $help = __( 'This is the "List Tables" screen.', WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
-            case 'insert':
             case 'edit':
                 $help = __( 'This is the "Edit Table" screen.', WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
@@ -2342,6 +2325,8 @@ CSS;
 	  	        'str_CopyTableLink' => __( 'Do you want to copy this table?', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_DeleteTableLink' => __( 'The complete table and all content will be erased. Do you really want to delete it?', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_DeleteRowColButton' => __( 'Do you really want to delete the selected rows and/or columns?', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_DeleteRowColFailedNoSelection' => __( 'You did not select any rows and columns that shall be deleted!', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_DeleteRowColFailedTooMany' => __( 'You can not delete all of these rows and columns!', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_ImportwpTableLink' => __( 'Do you really want to import this table from the wp-Table plugin?', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_UninstallPluginLink_1' => __( 'Do you really want to uninstall the plugin and delete ALL data?', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_UninstallPluginLink_2' => __( 'Are you really sure?', WP_TABLE_RELOADED_TEXTDOMAIN ),
