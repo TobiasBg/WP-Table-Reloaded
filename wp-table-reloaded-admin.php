@@ -348,35 +348,6 @@ class WP_Table_Reloaded_Admin {
                 $this->save_table( $table );
                 $message = __( 'Table sorted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
-            case 'insert_rows':
-                $table_id = $_POST['table']['id'];
-                $number = ( isset( $_POST['insert']['row']['number'] ) && ( 0 < $_POST['insert']['row']['number'] ) ) ? $_POST['insert']['row']['number'] : 1;
-                $row_id = $_POST['insert']['row']['id'];
-                $table = $this->load_table( $table_id );
-                $rows = count( $table['data'] );
-                $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
-                // init new empty row (with all columns) and insert it before row with key $row_id
-                $new_rows = $this->create_empty_table( $number, $cols, '' );
-                $new_rows_visibility = array_fill( 0, $number, false );
-                array_splice( $table['data'], $row_id, 0, $new_rows );
-                array_splice( $table['visibility']['rows'], $row_id, 0, $new_rows_visibility );
-                $this->save_table( $table );
-                $message = __ngettext( 'Row added successfully.', 'Rows added successfully.', $number, WP_TABLE_RELOADED_TEXTDOMAIN );
-                break;
-            case 'insert_cols':
-                $table_id = $_POST['table']['id'];
-                $number = ( isset( $_POST['insert']['col']['number'] ) && ( 0 < $_POST['insert']['col']['number'] ) ) ? $_POST['insert']['col']['number'] : 1;
-                $col_id = $_POST['insert']['col']['id'];
-                $table = $this->load_table( $table_id );
-                // init new empty row (with all columns) and insert it before row with key $col_id
-                $new_cols = array_fill( 0, $number, '' );
-                $new_cols_visibility = array_fill( 0, $number, false );
-                foreach ( $table['data'] as $row_idx => $row )
-                    array_splice( $table['data'][$row_idx], $col_id, 0, $new_cols );
-                array_splice( $table['visibility']['columns'], $col_id, 0, $new_cols_visibility );
-                $this->save_table( $table );
-                $message = __ngettext( 'Column added successfully.', 'Columns added successfully.', $number, WP_TABLE_RELOADED_TEXTDOMAIN );
-                break;
             case 'move_row':
                 $table_id = $_POST['table']['id'];
                 $row_id1 = ( isset( $_POST['move']['row'][1] ) ) ? $_POST['move']['row'][1] : -1;
@@ -430,7 +401,9 @@ class WP_Table_Reloaded_Admin {
                 $table = $this->load_table( $table_id );
                 $rows = count( $table['data'] );
                 $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
-                if ( 1 < $rows ) {
+                $message = __( 'Rows/columns could not be deleted.', WP_TABLE_RELOADED_TEXTDOMAIN ); // only used if deletion fails below
+
+                if ( ( 1 < $rows ) && ( 0 < count( $delete_rows ) ) && ( count( $delete_rows ) < $rows ) ) {
                     // remove rows and re-index
                     foreach( $delete_rows as $row_idx => $value) {
                         unset( $table['data'][$row_idx] );
@@ -438,8 +411,9 @@ class WP_Table_Reloaded_Admin {
                     }
                     $table['data'] = array_merge( $table['data'] );
                     $table['visibility']['rows'] = array_merge( $table['visibility']['rows'] );
+                    $message = __( 'Rows/columns deleted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
                 }
-                if ( 1 < $cols ) {
+                if ( ( 1 < $cols ) && ( 0 < count( $delete_columns ) ) && ( count( $delete_columns ) < $cols ) ) {
                     foreach ( $table['data'] as $row_idx => $row ) {
                         // remove columns and re-index
                         foreach( $delete_columns as $col_idx => $value) {
@@ -451,11 +425,11 @@ class WP_Table_Reloaded_Admin {
                         unset( $table['visibility']['columns'][$col_idx] );
                     }
                     $table['visibility']['columns'] = array_merge( $table['visibility']['columns'] );
+                    $message = __( 'Rows/columns deleted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
                 }
                 $this->save_table( $table );
-                $message = __( 'Rows/columns deleted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
-            case 'insert':
+            case 'insert': // insert row/column before each selected row/column
                 $table_id = $_POST['table']['id'];
                 $insert_rows = ( isset( $_POST['table_select']['rows'] ) ) ? $_POST['table_select']['rows'] : array();
                 $insert_columns = ( isset( $_POST['table_select']['columns'] ) ) ? $_POST['table_select']['columns'] : array();
@@ -464,7 +438,7 @@ class WP_Table_Reloaded_Admin {
                 $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
 
                 // insert rows and re-index
-                $row_change = 0;
+                $row_change = 0; // row_change is growing parameter, needed because indices change
                 $new_row = array( array_fill( 0, $cols, '' ) );
                 foreach( $insert_rows as $row_idx => $value) {
                     $row_id = $row_idx + $row_change;
@@ -477,14 +451,14 @@ class WP_Table_Reloaded_Admin {
                 // insert cols and re-index
                 $new_col = '';
                 foreach ( $table['data'] as $row_idx => $row ) {
-                    $col_change = 0;
+                    $col_change = 0; // col_change is growing parameter, needed because indices change
                     foreach( $insert_columns as $col_idx => $value) {
                         $col_id = $col_idx + $col_change;
                         array_splice( $table['data'][$row_idx], $col_id, 0, $new_col );
                         $col_change++;
                     }
                 }
-                $col_change = 0;
+                $col_change = 0; // col_change is growing parameter, needed because indices change
                 foreach( $insert_columns as $col_idx => $value) {
                     $col_id = $col_idx + $col_change;
                     array_splice( $table['visibility']['columns'], $col_id, 0, false );
@@ -493,6 +467,35 @@ class WP_Table_Reloaded_Admin {
                 
                 $this->save_table( $table );
                 $message = __( 'Rows/columns inserted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                break;
+            case 'insert_rows': // append n rows
+                $table_id = $_POST['table']['id'];
+                $number = ( isset( $_POST['insert']['row']['number'] ) && ( 0 < $_POST['insert']['row']['number'] ) ) ? $_POST['insert']['row']['number'] : 1;
+                $row_id = $_POST['insert']['row']['id'];
+                $table = $this->load_table( $table_id );
+                $rows = count( $table['data'] );
+                $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
+                // init new empty row (with all columns) and insert it before row with key $row_id
+                $new_rows = $this->create_empty_table( $number, $cols, '' );
+                $new_rows_visibility = array_fill( 0, $number, false );
+                array_splice( $table['data'], $row_id, 0, $new_rows );
+                array_splice( $table['visibility']['rows'], $row_id, 0, $new_rows_visibility );
+                $this->save_table( $table );
+                $message = __ngettext( 'Row added successfully.', 'Rows added successfully.', $number, WP_TABLE_RELOADED_TEXTDOMAIN );
+                break;
+            case 'insert_cols': // append n columns
+                $table_id = $_POST['table']['id'];
+                $number = ( isset( $_POST['insert']['col']['number'] ) && ( 0 < $_POST['insert']['col']['number'] ) ) ? $_POST['insert']['col']['number'] : 1;
+                $col_id = $_POST['insert']['col']['id'];
+                $table = $this->load_table( $table_id );
+                // init new empty row (with all columns) and insert it before row with key $col_id
+                $new_cols = array_fill( 0, $number, '' );
+                $new_cols_visibility = array_fill( 0, $number, false );
+                foreach ( $table['data'] as $row_idx => $row )
+                    array_splice( $table['data'][$row_idx], $col_id, 0, $new_cols );
+                array_splice( $table['visibility']['columns'], $col_id, 0, $new_cols_visibility );
+                $this->save_table( $table );
+                $message = __ngettext( 'Column added successfully.', 'Columns added successfully.', $number, WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
             case 'insert_cf':
                 $table_id = $_POST['table']['id'];
