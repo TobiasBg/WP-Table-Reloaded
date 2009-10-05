@@ -394,15 +394,13 @@ class WP_Table_Reloaded_Admin {
                 $this->save_table( $table );
                 $message = __( 'Column moved successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
-            case 'delete':
+            case 'delete_rows':
                 $table_id = $_POST['table']['id'];
                 $delete_rows = ( isset( $_POST['table_select']['rows'] ) ) ? $_POST['table_select']['rows'] : array();
-                $delete_columns = ( isset( $_POST['table_select']['columns'] ) ) ? $_POST['table_select']['columns'] : array();
                 $table = $this->load_table( $table_id );
                 $rows = count( $table['data'] );
                 $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
-                $message = __( 'Rows/columns could not be deleted.', WP_TABLE_RELOADED_TEXTDOMAIN ); // only used if deletion fails below
-
+                $message = __ngettext( 'Row could not be deleted.', 'Rows could not be deleted.', count( $delete_rows ), WP_TABLE_RELOADED_TEXTDOMAIN ); // only used if deletion fails below
                 if ( ( 1 < $rows ) && ( 0 < count( $delete_rows ) ) && ( count( $delete_rows ) < $rows ) ) {
                     // remove rows and re-index
                     foreach( $delete_rows as $row_idx => $value) {
@@ -411,8 +409,17 @@ class WP_Table_Reloaded_Admin {
                     }
                     $table['data'] = array_merge( $table['data'] );
                     $table['visibility']['rows'] = array_merge( $table['visibility']['rows'] );
-                    $message = __( 'Rows/columns deleted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                    $message = __ngettext( 'Row deleted successfully.', 'Rows deleted successfully.', count( $delete_rows ), WP_TABLE_RELOADED_TEXTDOMAIN );
                 }
+                $this->save_table( $table );
+                break;
+            case 'delete_cols':
+                $table_id = $_POST['table']['id'];
+                $delete_columns = ( isset( $_POST['table_select']['columns'] ) ) ? $_POST['table_select']['columns'] : array();
+                $table = $this->load_table( $table_id );
+                $rows = count( $table['data'] );
+                $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
+                $message = __ngettext( 'Column could not be deleted.', 'Columns could not be deleted.', count( $delete_columns ), WP_TABLE_RELOADED_TEXTDOMAIN ); // only used if deletion fails below
                 if ( ( 1 < $cols ) && ( 0 < count( $delete_columns ) ) && ( count( $delete_columns ) < $cols ) ) {
                     foreach ( $table['data'] as $row_idx => $row ) {
                         // remove columns and re-index
@@ -425,14 +432,13 @@ class WP_Table_Reloaded_Admin {
                         unset( $table['visibility']['columns'][$col_idx] );
                     }
                     $table['visibility']['columns'] = array_merge( $table['visibility']['columns'] );
-                    $message = __( 'Rows/columns deleted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                    $message = __ngettext( 'Column deleted successfully.', 'Columns deleted successfully.', count( $delete_columns ), WP_TABLE_RELOADED_TEXTDOMAIN );
                 }
                 $this->save_table( $table );
                 break;
-            case 'insert': // insert row/column before each selected row/column
+            case 'insert_rows': // insert row before each selected row
                 $table_id = $_POST['table']['id'];
                 $insert_rows = ( isset( $_POST['table_select']['rows'] ) ) ? $_POST['table_select']['rows'] : array();
-                $insert_columns = ( isset( $_POST['table_select']['columns'] ) ) ? $_POST['table_select']['columns'] : array();
                 $table = $this->load_table( $table_id );
                 $rows = count( $table['data'] );
                 $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
@@ -447,6 +453,16 @@ class WP_Table_Reloaded_Admin {
                     array_splice( $table['visibility']['rows'], $row_id, 0, false );
                     $row_change++;
                 }
+                
+                $this->save_table( $table );
+                $message = __ngettext( 'Row inserted successfully.', 'Rows inserted successfully.', count( $insert_rows ), WP_TABLE_RELOADED_TEXTDOMAIN );
+                break;
+            case 'insert_cols': // insert column before each selected column
+                $table_id = $_POST['table']['id'];
+                $insert_columns = ( isset( $_POST['table_select']['columns'] ) ) ? $_POST['table_select']['columns'] : array();
+                $table = $this->load_table( $table_id );
+                $rows = count( $table['data'] );
+                $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
 
                 // insert cols and re-index
                 $new_col = '';
@@ -464,11 +480,11 @@ class WP_Table_Reloaded_Admin {
                     array_splice( $table['visibility']['columns'], $col_id, 0, false );
                     $col_change++;
                 }
-                
+
                 $this->save_table( $table );
-                $message = __( 'Rows/columns inserted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                $message = __ngettext( 'Column inserted successfully.', 'Columns inserted successfully.', count( $insert_columns ), WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
-            case 'insert_rows': // append n rows
+            case 'append_rows':
                 $table_id = $_POST['table']['id'];
                 $number = ( isset( $_POST['insert']['row']['number'] ) && ( 0 < $_POST['insert']['row']['number'] ) ) ? $_POST['insert']['row']['number'] : 1;
                 $row_id = $_POST['insert']['row']['id'];
@@ -483,7 +499,7 @@ class WP_Table_Reloaded_Admin {
                 $this->save_table( $table );
                 $message = __ngettext( 'Row added successfully.', 'Rows added successfully.', $number, WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
-            case 'insert_cols': // append n columns
+            case 'append_cols':
                 $table_id = $_POST['table']['id'];
                 $number = ( isset( $_POST['insert']['col']['number'] ) && ( 0 < $_POST['insert']['col']['number'] ) ) ? $_POST['insert']['col']['number'] : 1;
                 $col_id = $_POST['insert']['col']['id'];
@@ -1181,7 +1197,7 @@ class WP_Table_Reloaded_Admin {
 
         <?php if ( 0 < $cols && 0 < $rows ) { ?>
             <div class="postbox">
-            <h3 class="hndle"><span><?php _e( 'Table Contents', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php _e( 'Hide', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+            <h3 class="hndle"><span><?php _e( 'Table Contents', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
             <div class="inside">
             <table class="widefat" style="width:auto;" id="table_contents">
                 <tbody>
@@ -1234,10 +1250,70 @@ class WP_Table_Reloaded_Admin {
         <?php } //endif 0 < $rows/$cols ?>
 
         <div class="postbox">
-        <h3 class="hndle"><span><?php _e( 'Data Manipulation', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php _e( 'Hide', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+        <h3 class="hndle"><span><?php _e( 'Data Manipulation', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
     <table class="wp-table-reloaded-data-manipulation widefat">
-    <tr><td>
+
+        <tr><td>
+                <a id="a-insert-link" class="button-primary" href="javascript:void(0);"><?php _e( 'Insert Link', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
+                <a id="a-insert-image" href="media-upload.php?type=image&amp;tab=library&amp;TB_iframe=true" class="thickbox button-primary" title="<?php _e( 'Insert Image', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" onclick="javascript:return false;"><?php _e( 'Insert Image', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
+        </td><td>
+        <?php if ( 1 < $rows ) { // sort form ?>
+            <?php
+            $col_select = '<select name="sort[col]">';
+            foreach ( $table['data'][0] as $col_idx => $cell_content )
+                $col_select .= "<option value=\"{$col_idx}\">" . ( chr( ord( 'A' ) + $col_idx ) ) . "</option>";
+            $col_select .= '</select>';
+
+            $sort_order_select = '<select name="sort[order]">';
+            $sort_order_select .= "<option value=\"ASC\">" . __( 'ascending', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</option>";
+            $sort_order_select .= "<option value=\"DESC\">" . __( 'descending', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</option>";
+            $sort_order_select .= '</select>';
+
+            echo sprintf( __( 'Sort table by column %s in %s order', WP_TABLE_RELOADED_TEXTDOMAIN ), $col_select, $sort_order_select );
+        ?>
+            <input type="submit" name="submit[sort]" class="button-primary" value="<?php _e( 'Sort', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
+        <?php } // end if sort form ?>
+        </td></tr>
+
+        <tr><td>
+            <?php _e( 'Selected rows:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
+            <a id="a-hide-rows" class="button-primary" href="javascript:void(0);"><?php echo _c( 'Hide|item', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
+            <a id="a-unhide-rows" class="button-primary" href="javascript:void(0);"><?php echo _c( 'Unhide|item', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
+        </td><td>
+            <?php _e( 'Selected columns:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
+            <a id="a-hide-columns" class="button-primary" href="javascript:void(0);"><?php echo _c( 'Hide|item', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
+            <a id="a-unhide-columns" class="button-primary" href="javascript:void(0);"><?php echo _c( 'Unhide|item', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
+        </td></tr>
+
+        <tr><td>
+            <?php // don't show delete link for last and only row
+                $row_disabled = ( 1 < $rows ) ? '' : 'disabled="disabled" ';
+                $col_disabled = ( 1 < $cols ) ? '' : 'disabled="disabled" ';
+            ?>
+            <?php _e( 'Selected rows:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
+            <input id="button-insert-rows" type="submit" name="submit[insert_rows]" class="button-primary" value="<?php _e( 'Insert row', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
+            <input id="button-delete-rows" type="submit" name="submit[delete_rows]" class="button-primary" value="<?php _e( 'Delete', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" <?php echo $row_disabled; ?>/>
+            <br/>
+            <?php _e( 'Selected columns:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
+            <input id="button-insert-columns" type="submit" name="submit[insert_cols]" class="button-primary" value="<?php _e( 'Insert column', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
+            <input id="button-delete-columns" type="submit" name="submit[delete_cols]" class="button-primary" value="<?php _e( 'Delete', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" <?php echo $col_disabled; ?>/>
+        </td><td>
+        <?php
+            // add rows/columns buttons
+            echo "<input type=\"hidden\" name=\"insert[row][id]\" value=\"{$rows}\" /><input type=\"hidden\" name=\"insert[col][id]\" value=\"{$cols}\" />";
+
+            $row_insert = '<input type="text" name="insert[row][number]" value="1" style="width:30px" />';
+            $col_insert = '<input type="text" name="insert[col][number]" value="1" style="width:30px" />';
+        ?>
+        <?php echo sprintf( __( 'Add %s row(s)', WP_TABLE_RELOADED_TEXTDOMAIN ), $row_insert ); ?>
+        <input type="submit" name="submit[append_rows]" class="button-primary" value="<?php _e( 'Add', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
+        <br/>
+        <?php echo sprintf( __( 'Add %s column(s)', WP_TABLE_RELOADED_TEXTDOMAIN ), $col_insert ); ?>
+        <input type="submit" name="submit[append_cols]" class="button-primary" value="<?php _e( 'Add', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
+        </td></tr>
+        
+        <tr><td>
         <?php if ( 1 < $rows ) { // swap rows form
             $row1_select = '<select name="swap[row][1]">';
             $row2_select = '<select name="swap[row][2]">';
@@ -1247,12 +1323,11 @@ class WP_Table_Reloaded_Admin {
             }
             $row1_select .= '</select>';
             $row2_select .= '</select>';
-            
+
             echo sprintf( __( 'Swap rows %s and %s', WP_TABLE_RELOADED_TEXTDOMAIN ), $row1_select, $row2_select );
             ?>
             <input type="submit" name="submit[swap_rows]" class="button-primary" value="<?php _e( 'Swap', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
         <?php } // end if form swap rows ?>
-
         <?php if ( 1 < $cols ) { // swap cols form ?>
             <br/>
             <?php
@@ -1270,7 +1345,7 @@ class WP_Table_Reloaded_Admin {
             ?>
             <input type="submit" name="submit[swap_cols]" class="button-primary" value="<?php _e( 'Swap', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
         <?php } // end if form swap cols ?>
-    </td><td>
+        </td><td>
         <?php if ( 1 < $rows ) { // move row form
             $row1_select = '<select name="move[row][1]">';
             $row2_select = '<select name="move[row][2]">';
@@ -1290,7 +1365,6 @@ class WP_Table_Reloaded_Admin {
             ?>
             <input type="submit" name="submit[move_row]" class="button-primary" value="<?php _e( 'Move', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
         <?php } // end if form move row ?>
-
         <?php if ( 1 < $cols ) { // move col form ?>
             <br/>
             <?php
@@ -1313,48 +1387,8 @@ class WP_Table_Reloaded_Admin {
             ?>
             <input type="submit" name="submit[move_col]" class="button-primary" value="<?php _e( 'Move', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
         <?php } // end if form move col ?>
-    </td></tr>
-    <tr><td>
-        <?php if ( ( 1 < $rows ) || ( 1 < $rows ) ) { // don't show delete link for last and only row ?>
-        <input type="submit" name="submit[delete]" class="button-primary delete_rowcol_button" value="<?php _e( 'Delete rows/cols', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
-        <?php } ?>
-        <input type="submit" name="submit[insert]" class="button-primary" value="<?php _e( 'Insert rows/cols', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
-        
-                  <?php
-                    // add rows/columns buttons
-                        echo "\t<td><input type=\"hidden\" name=\"insert[row][id]\" value=\"{$rows}\" /><input type=\"hidden\" name=\"insert[col][id]\" value=\"{$cols}\" />";
+        </td></tr>
 
-                        $row_insert = '<input type="text" name="insert[row][number]" value="1" style="width:30px" />';
-                        $col_insert = '<input type="text" name="insert[col][number]" value="1" style="width:30px" />';
-                        ?>
-                        <?php echo sprintf( __( 'Add %s row(s)', WP_TABLE_RELOADED_TEXTDOMAIN ), $row_insert ); ?>
-                        <input type="submit" name="submit[insert_rows]" class="button-primary" value="<?php _e( 'Add', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" /><br/>
-                        <?php echo sprintf( __( 'Add %s column(s)', WP_TABLE_RELOADED_TEXTDOMAIN ), $col_insert ); ?>
-                        <input type="submit" name="submit[insert_cols]" class="button-primary" value="<?php _e( 'Add', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" /></td>
-
-        <a id="a-hide-rows-columns" class="button-primary" href="javascript:void(0);"><?php _e( 'Hide rows/cols', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
-        <a id="a-unhide-rows-columns" class="button-primary" href="javascript:void(0);"><?php _e( 'Unhide rows/cols', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
-        <a id="a-insert-link" class="button-primary" href="javascript:void(0);"><?php _e( 'Insert Link', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
-        <a id="a-insert-image" href="media-upload.php?type=image&amp;tab=library&amp;TB_iframe=true" class="thickbox button-primary" title="<?php _e( 'Insert Image', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" onclick="javascript:return false;"><?php _e( 'Insert Image', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
-    </td><td>
-        <?php if ( 1 < $rows ) { // sort form
-
-            $col_select = '<select name="sort[col]">';
-            foreach ( $table['data'][0] as $col_idx => $cell_content )
-                $col_select .= "<option value=\"{$col_idx}\">" . ( chr( ord( 'A' ) + $col_idx ) ) . "</option>";
-            $col_select .= '</select>';
-
-            $sort_order_select = '<select name="sort[order]">';
-            $sort_order_select .= "<option value=\"ASC\">" . __( 'ascending', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</option>";
-            $sort_order_select .= "<option value=\"DESC\">" . __( 'descending', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</option>";
-            $sort_order_select .= '</select>';
-
-            echo sprintf( __( 'Sort table by column %s in %s order', WP_TABLE_RELOADED_TEXTDOMAIN ), $col_select, $sort_order_select );
-
-        ?>
-            <input type="submit" name="submit[sort]" class="button-primary" value="<?php _e( 'Sort', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
-        <?php } // end if sort form ?>
-    </td></tr>
     </table>
         </div>
         </div>
@@ -1369,7 +1403,7 @@ class WP_Table_Reloaded_Admin {
         </p>
 
         <div class="postbox">
-        <h3 class="hndle"><span><?php _e( 'Table Settings', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php _e( 'Hide', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+        <h3 class="hndle"><span><?php _e( 'Table Settings', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
         <p><?php _e( 'These settings will only be used for this table.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
         <table class="wp-table-reloaded-options">
@@ -1409,7 +1443,7 @@ class WP_Table_Reloaded_Admin {
         </p>
 
         <div class="postbox">
-        <h3 class="hndle"><span><?php _e( 'Custom Data Fields', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php _e( 'Hide', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+        <h3 class="hndle"><span><?php _e( 'Custom Data Fields', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
         <?php _e( 'Custom Data Fields can be used to add extra metadata to a table.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'For example, this could be information about the source or the creator of the data.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
         <br/>
@@ -1757,7 +1791,7 @@ class WP_Table_Reloaded_Admin {
         </div>
         
         <div class="postbox closed">
-        <h3 class="hndle"><span><?php _e( 'Advanced Options', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php _e( 'Hide', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+        <h3 class="hndle"><span><?php _e( 'Advanced Options', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
         <table class="wp-table-reloaded-options">
         <tr valign="top">
@@ -1868,7 +1902,7 @@ class WP_Table_Reloaded_Admin {
         </div>
         
         <div class="postbox closed">
-        <h3 class="hndle"><span><?php _e( 'Debug and Version Information', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php _e( 'Hide', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+        <h3 class="hndle"><span><?php _e( 'Debug and Version Information', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
         <p>
             <?php _e( 'You are using the following versions of the software. <strong>Please provide this information in bug reports.</strong>', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/>
@@ -2327,16 +2361,23 @@ CSS;
 	  	        'str_BulkImportwpTableTablesLink' => __( 'Do you really want to import the selected tables from the wp-Table plugin?', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_CopyTableLink' => __( 'Do you want to copy this table?', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_DeleteTableLink' => __( 'The complete table and all content will be erased. Do you really want to delete it?', WP_TABLE_RELOADED_TEXTDOMAIN ),
-	  	        'str_DeleteRowColButton' => __( 'Do you really want to delete the selected rows and/or columns?', WP_TABLE_RELOADED_TEXTDOMAIN ),
-	  	        'str_DeleteRowColFailedNoSelection' => __( 'You did not select any rows and columns that shall be deleted!', WP_TABLE_RELOADED_TEXTDOMAIN ),
-	  	        'str_DeleteRowColFailedTooMany' => __( 'You can not delete all of these rows and columns!', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_DeleteRowsConfirm' => __( 'Do you really want to delete the selected rows?', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_DeleteColsConfirm' => __( 'Do you really want to delete the selected columns?', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_DeleteRowsFailedNoSelection' => __( 'You have not selected any rows.', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_DeleteColsFailedNoSelection' => __( 'You have not selected any columns.', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_DeleteRowsFailedNotAll' => __( 'You can not delete all rows of the table at once!', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_DeleteColsFailedNotAll' => __( 'You can not delete all columns of the table at once!', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_UnHideRowsNoSelection' => __( 'You have not selected any rows.', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_UnHideColsNoSelection' => __( 'You have not selected any columns.', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_InsertRowsNoSelection' => __( 'You have not selected any rows.', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_InsertColsNoSelection' => __( 'You have not selected any columns.', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_ImportwpTableLink' => __( 'Do you really want to import this table from the wp-Table plugin?', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_UninstallPluginLink_1' => __( 'Do you really want to uninstall the plugin and delete ALL data?', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_UninstallPluginLink_2' => __( 'Are you really sure?', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_ChangeTableID' => __( 'Do you really want to change the ID of the table?', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_CFShortcodeMessage' => __( 'To show this Custom Data Field, use this shortcode:', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_TableShortcodeMessage' => __( 'To show this table, use this shortcode:', WP_TABLE_RELOADED_TEXTDOMAIN ),
-                'str_saveAlert' => __( 'You have made changes to the content of this table and not yet saved them.', WP_TABLE_RELOADED_TEXTDOMAIN ) . ' ' . __('The changes you made will be lost if you navigate away from this page.'), // contained in WP textdomain, string for changes upon exit
+                'str_saveAlert' => __( 'You have made changes to the content of this table and not yet saved them.', WP_TABLE_RELOADED_TEXTDOMAIN ) . ' ' . __('You should first click "Update Changes" or they will be lost if you navigate away from this page.', WP_TABLE_RELOADED_TEXTDOMAIN ),
                 'option_show_exit_warning' => $this->options['show_exit_warning'],
                 'option_growing_textareas' => $this->options['growing_textareas'],
                 'l10n_print_after' => 'try{convertEntities(WP_Table_Reloaded_Admin);}catch(e){};'
