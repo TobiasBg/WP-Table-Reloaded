@@ -8,7 +8,7 @@ jQuery(document).ready( function( $ ) {
         if ( rows_selected == 0 ) {
             alert( WP_Table_Reloaded_Admin.str_UnHideRowsNoSelection );
         } else {
-            $( '#table_contents tr:not(".table-foot") :checked' ).attr( 'checked', false ).next().val( true ).parents('tr').addClass('row-hidden');
+            $( '#table_contents tr:not(".table-foot") :checked' ).removeAttr( 'checked' ).next().val( true ).parents('tr').addClass('row-hidden');
             set_table_data_changed();
         }
 	});
@@ -17,7 +17,7 @@ jQuery(document).ready( function( $ ) {
         if ( rows_selected == 0 ) {
             alert( WP_Table_Reloaded_Admin.str_UnHideRowsNoSelection );
         } else {
-            $( '#table_contents tr:not(".table-foot") :checked' ).attr( 'checked', false ).next().val( false ).parents('tr').removeClass('row-hidden');
+            $( '#table_contents tr:not(".table-foot") :checked' ).removeAttr( 'checked' ).next().val( false ).parents('tr').removeClass('row-hidden');
             set_table_data_changed();
         }
 	});
@@ -27,7 +27,7 @@ jQuery(document).ready( function( $ ) {
         if ( cols_selected == 0 ) {
             alert( WP_Table_Reloaded_Admin.str_UnHideColsNoSelection );
         } else {
-            $( '#table_contents .table-foot :checked' ).attr( 'checked', false ).next().val( true ).each( function() {
+            $( '#table_contents .table-foot :checked' ).removeAttr( 'checked' ).next().val( true ).each( function() {
                 $( '#table_contents .' + $(this).attr('id') ).addClass( 'column-hidden' );
             } );
             set_table_data_changed();
@@ -38,7 +38,7 @@ jQuery(document).ready( function( $ ) {
         if ( cols_selected == 0 ) {
             alert( WP_Table_Reloaded_Admin.str_UnHideColsNoSelection );
         } else {
-            $( '#table_contents .table-foot :checked' ).attr( 'checked', false ).next().val( false ).each( function() {
+            $( '#table_contents .table-foot :checked' ).removeAttr( 'checked' ).next().val( false ).each( function() {
                 $( '#table_contents .' + $(this).attr('id') ).removeClass( 'column-hidden' );
             } );
             set_table_data_changed();
@@ -114,25 +114,25 @@ jQuery(document).ready( function( $ ) {
     // enable/disable custom css textarea according to state of checkbox
     $( '#options_use_custom_css' ).change( function () {
         if( $(this).attr('checked') )
-            $( '#options_custom_css' ).removeAttr("disabled");
+            $( '#options_custom_css' ).removeAttr( 'disabled' );
         else
-            $( '#options_custom_css' ).attr("disabled", true);
+            $( '#options_custom_css' ).attr( 'disabled', 'disabled' );
     } );
 
-    // enable/disable Extended Tablesorter checkbox according to state of checkbox
+    // tablesorter selection dropdown according to state of checkbox
     $( '#options_enable_tablesorter' ).change( function () {
         if( $(this).attr('checked') )
-            $( '#options_use_tablesorter_extended' ).removeAttr("disabled");
+            $( '#options_tablesorter_script' ).removeAttr( 'disabled' );
         else
-            $( '#options_use_tablesorter_extended' ).attr("disabled", true);
+            $( '#options_tablesorter_script' ).attr( 'disabled' , 'disabled' );
     } );
 
     // enable/disable "use tableheadline" according to state of checkbox
     $( '#table_options_first_row_th' ).change( function () {
         if( $(this).attr('checked') && $( '#tablesorter_enabled' ).val() ) {
-            $( '#table_options_use_tablesorter' ).removeAttr("disabled");
+            $( '#table_options_use_tablesorter' ).removeAttr( 'disabled' );
         } else {
-            $( '#table_options_use_tablesorter' ).attr("disabled", true);
+            $( '#table_options_use_tablesorter' ).attr( 'disabled', 'disabled' );
         }
     } );
 
@@ -306,7 +306,7 @@ jQuery(document).ready( function( $ ) {
 
         $( '#wp_table_reloaded_edit_table' ).find( '#table_name, textarea' ).bind( 'change', set_table_data_changed ); // see also ID change function above
         
-        $( '.wp-table-reloaded-options :checkbox' ).bind( 'change', set_table_data_changed );
+        $( '#wp_table_reloaded_edit_table .wp-table-reloaded-options :checkbox' ).bind( 'change', set_table_data_changed );
     }
 
 } );

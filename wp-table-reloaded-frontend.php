@@ -337,8 +337,10 @@ class WP_Table_Reloaded_Frontend {
                 $output .= "<{$print_description_html_tag} class=\"{$print_description_css_class}\">" . $this->safe_output( $table['description'] ) . "</{$print_description_html_tag}>\n";
             }
 
-            // if alternating row colors, we want to keep those when sorting
-            $widgets = ( true == $output_options['alternating_row_colors'] ) ? "{widgets: ['zebra']}" : '';
+            // js options like alternating row colors
+            $js_options = array (
+                    'alternating_row_colors' => $output_options['alternating_row_colors']
+            );
 
             // eventually add this table to list of tables which will be tablesorted and thus be included in the script call in wp_footer
             if ( true == $output_options['use_tablesorter'] && true == $output_options['first_row_th'] ) {
@@ -346,7 +348,7 @@ class WP_Table_Reloaded_Frontend {
                 $this->tablesorter_tables[] = array (
                     'table_id' => $table['id'],
                     'html_id' => $output_options['html_id'],
-                    'widgets' => $widgets
+                    'js_options' => $js_options
                 );
             }
             
@@ -403,10 +405,23 @@ CSSSTYLE;
     // ###################################################################################################################
     // output tablesorter execution js for all tables in wp_footer
     function output_tablesorter_js() {
-        if ( isset( $this->options['use_tablesorter_extended'] ) && true == $this->options['use_tablesorter_extended'] )
-            $jsfile =  'jquery.tablesorter.extended.js'; // filename of the tablesorter extended script
-        else
-            $jsfile =  'jquery.tablesorter.min.js'; // filename of the tablesorter script
+    
+        switch ( $this->options['tablesorter_script'] ) {
+            case 'datatables':
+                $jsfile =  'jquery.datatables.min.js';
+                $js_command = 'dataTable';
+                break;
+            case 'tablesorter':
+                $jsfile =  'jquery.tablesorter.min.js';
+                $js_command = 'tablesorter';
+                break;
+            case 'tablesorter_extended':
+                $jsfile =  'jquery.tablesorter.extended.js';
+                $js_command = 'tablesorter';
+                break;
+            default:
+                $jsfile =  'jquery.tablesorter.min.js';
+        }
 
         if ( 0 < count( $this->tablesorter_tables ) && file_exists( WP_TABLE_RELOADED_ABSPATH . 'js/' . $jsfile ) ) {
         
@@ -419,10 +434,28 @@ CSSSTYLE;
             foreach ( $this->tablesorter_tables as $tablesorter_table ) {
                 $table_id = $tablesorter_table['table_id'];
                 $html_id = $tablesorter_table['html_id'];
-                $widgets = $tablesorter_table['widgets'];
+                $js_options = $tablesorter_table['js_options'];
 
-                $command = "$(\"#{$html_id}\").tablesorter({$widgets});";
-                $command = apply_filters( 'wp_table_reloaded_tablesorter_command', $command, $table_id, $html_id, $widgets );
+                $parameters = array();
+                switch ( $this->options['tablesorter_script'] ) {
+                    case 'datatables':
+                        $parameters[] = '"aaSorting": []';
+                        // alt row colors is default, so remove them if not wanted with []
+                        $parameters[] = ( $js_options['alternating_row_colors'] ) ? "\"asStripClasses\":['even','odd']" : '"asStripClasses":[]';
+                        break;
+                    case 'tablesorter':
+                    case 'tablesorter_extended':
+                        $parameters[] = ( $js_options['alternating_row_colors'] ) ? "widgets: ['zebra']" : '';
+                        break;
+                    default:
+                        $parameters[] = ( $js_options['alternating_row_colors'] ) ? "widgets: ['zebra']" : '';
+                }
+                $parameters = implode( ", ", $parameters );
+                $parameters = ( !empty( $parameters ) ) ? "{{$parameters}}" : '';
+
+                $command = "$(\"#{$html_id}\").{$js_command}({$parameters});";
+
+                $command = apply_filters( 'wp_table_reloaded_tablesorter_command', $command, $table_id, $html_id, $this->options['tablesorter_script'], $js_command, $parameters );
                 $commands[] = "\t{$command}";
             }
 

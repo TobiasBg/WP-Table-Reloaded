@@ -109,7 +109,7 @@
 				textExtraction: "simple",
 				parsers: {},
 				widgets: [],
-				widgetZebra: {css: ["even","odd"]},
+				widgetZebra: {css: ["odd","even"]},
 				headers: {},
 				widthFixed: false,
 				cancelSelection: true,

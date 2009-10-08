@@ -40,7 +40,7 @@ class WP_Table_Reloaded_Admin {
         'show_exit_warning' => true,
         'growing_textareas' => true,
         'enable_tablesorter' => true,
-        'use_tablesorter_extended' => false,
+        'tablesorter_script' => 'datatables', // others are tablesorter or tablesorter_extended
         'use_custom_css' => true,
         'custom_css' => '',
         'install_time' => 0,
@@ -826,9 +826,9 @@ class WP_Table_Reloaded_Admin {
             $this->options['show_exit_warning'] = isset( $new_options['show_exit_warning'] );
             $this->options['growing_textareas'] = isset( $new_options['growing_textareas'] );
             $this->options['enable_tablesorter'] = isset( $new_options['enable_tablesorter'] );
-            $this->options['use_tablesorter_extended'] = isset( $new_options['use_tablesorter_extended'] );
             $this->options['show_donate_nag'] = isset( $new_options['show_donate_nag'] );
             $this->options['use_custom_css'] = isset( $new_options['use_custom_css'] );
+            $this->options['tablesorter_script'] = $new_options['tablesorter_script'];
             // clean up CSS style input (if user enclosed it into <style...></style>
             if ( isset( $new_options['custom_css'] ) ) {
                     if ( 1 == preg_match( '/<style.*?>(.*?)<\/style>/is', stripslashes( $new_options['custom_css'] ), $matches ) )
@@ -1769,6 +1769,14 @@ class WP_Table_Reloaded_Admin {
             <td><input type="checkbox" name="options[enable_tablesorter]" id="options_enable_tablesorter"<?php echo ( true == $this->options['enable_tablesorter'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_enable_tablesorter"><?php _e( 'Yes, enable the <a href="http://www.tablesorter.com/">Tablesorter jQuery plugin</a>. This can be used to make tables sortable (can be activated for each table separately in its options).', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
         <tr valign="top">
+            <th scope="row"><?php _e( 'Tablesorter JS library', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
+            <td><?php _e( 'Select script to use:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <select id="options_tablesorter_script" name="options[tablesorter_script]"<?php echo ( false == $this->options['enable_tablesorter'] ) ? ' disabled="disabled"': '' ; ?>>
+                <option<?php echo ( 'datatables' == $this->options['tablesorter_script'] ) ? ' selected="selected"': ''; ?> value="datatables">DataTables (<?php _e( 'recommended', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>)</option>
+                <option<?php echo ( 'tablesorter' == $this->options['tablesorter_script'] ) ? ' selected="selected"': ''; ?> value="tablesorter">Tablesorter</option>
+                <option<?php echo ( 'tablesorter_extended' == $this->options['tablesorter_script'] ) ? ' selected="selected"': ''; ?> value="tablesorter_extended">Tablesorter Extended</option>
+        </select></td>
+        </tr>
+        <tr valign="top">
             <th scope="row"><?php _e( 'Add custom CSS?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
             <td><input type="checkbox" name="options[use_custom_css]" id="options_use_custom_css"<?php echo ( true == $this->options['use_custom_css'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_use_custom_css">
             <?php _e( 'Yes, include and load the following CSS-snippet on my site inside a &lt;style&gt;-HTML-tag.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
@@ -1801,10 +1809,6 @@ class WP_Table_Reloaded_Admin {
         <tr valign="top">
             <th scope="row"><?php _e( 'Enable growing textareas?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
             <td><input type="checkbox" name="options[growing_textareas]" id="options_growing_textareas"<?php echo ( true == $this->options['growing_textareas'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_growing_textareas"><small><?php _e( 'Yes, the textareas on the "Edit Table" screen shall be enlarged when focussed for input.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></label></td>
-        </tr>
-        <tr valign="top">
-            <th scope="row"><?php _e( 'Use Tablesorter Extended?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="options[use_tablesorter_extended]" id="options_use_tablesorter_extended"<?php echo ( true == $this->options['use_tablesorter_extended'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_use_tablesorter_extended"><small><?php _e( 'Yes, use Extended Tablesorter from <a href="http://tablesorter.openwerk.de">S&ouml;ren Krings</a> instead of original Tablesorter script (EXPERIMENTAL FEATURE!).', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></label></td>
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Uninstall Plugin upon Deactivation?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
@@ -2223,43 +2227,139 @@ TEXT;
         $image_path = WP_TABLE_RELOADED_URL . 'img';
         $this->options['custom_css'] = <<<CSS
 .wp-table-reloaded {
-	background-color:#CDCDCD;
-	margin:10px 0px 15px 0px;
-	font-size:8pt;
-	width:100%;
-	text-align:left;
+	background-color: #CDCDCD;
+	margin: 10px 0px 15px 0px;
+	font-size: 8pt;
+	width: 100%;
+	text-align: left;
 }
 .wp-table-reloaded th {
-	background-color:#E6EEEE;
-	border:1px solid #FFFFFF;
-	padding:4px;
+	background-color: #E6EEEE;
+	border: 1px solid #FFFFFF;
+	padding: 4px;
 }
 .wp-table-reloaded td {
-	color:#3D3D3D;
-	padding:4px;
-	background-color:#FFFFFF;
-	vertical-align:top;
+	color: #3D3D3D;
+	padding: 4px;
+	background-color: #FFFFFF;
+	vertical-align: top;
 }
 .wp-table-reloaded .even td {
-	background-color:#FFFFFF;
+	background-color: #FFFFFF;
 }
 .wp-table-reloaded .odd td{
-	background-color:#F0F0F6;
+	background-color: #F0F0F6;
 }
-.wp-table-reloaded .header {
-	background-image:url({$image_path}/bg.gif);
-	background-repeat:no-repeat;
-	background-position:center right;
-	cursor:pointer;
+.wp-table-reloaded .header, .wp-table-reloaded .sorting {
+	background: #E6EEEE url(http://localhost:8080/wp-neu/wp-content/plugins/wp-table-reloaded/img/bg.gif) no-repeat center right;
+	cursor: pointer;
 }
-.wp-table-reloaded .headerSortUp {
-	background-color:#8DBDD8;
-	background-image:url({$image_path}/asc.gif);
+.wp-table-reloaded .headerSortUp, .wp-table-reloaded .sorting_asc {
+	background: #8DBDD8 url(http://localhost:8080/wp-neu/wp-content/plugins/wp-table-reloaded/img/asc.gif) no-repeat center right;
 }
 
-.wp-table-reloaded .headerSortDown {
-	background-color:#8DBDD8;
-	background-image:url({$image_path}/desc.gif);
+.wp-table-reloaded .headerSortDown, .wp-table-reloaded .sorting_desc {
+	background: #8DBDD8 url(http://localhost:8080/wp-neu/wp-content/plugins/wp-table-reloaded/img/desc.gif) no-repeat center right;
+}
+
+/* New since WP-Table Reloaded 1.5 */
+
+.dataTables_wrapper {
+	position: relative;
+	min-height: 302px;
+	_height: 302px;
+	clear: both;
+}
+
+.dataTables_wrapper .wp-table-reloaded {
+    clear: both;
+}
+
+.dataTables_processing {
+	position: absolute;
+	top: 0px;
+	left: 50%;
+	width: 250px;
+	margin-left: -125px;
+	border: 1px solid #ddd;
+	text-align: center;
+	color: #999;
+	font-size: 11px;
+	padding: 2px 0;
+}
+
+.dataTables_length {
+	width: 50%;
+	float: left;
+}
+
+.dataTables_filter {
+	width: 45%;
+	float: right;
+	text-align: right;
+}
+
+.dataTables_info {
+	width: 60%;
+	float: left;
+}
+
+.dataTables_paginate {
+	width: 44px;
+	* width: 50px;
+	float: right;
+	text-align: right;
+}
+
+.paginate_disabled_previous, .paginate_enabled_previous, .paginate_disabled_next, .paginate_enabled_next {
+	height: 19px;
+	width: 19px;
+	margin-left: 3px;
+	float: left;
+}
+
+.paginate_disabled_previous {
+	background-image: url(http://localhost:8080/wp-neu/wp-content/plugins/wp-table-reloaded/img/back_disabled.jpg);
+}
+
+.paginate_enabled_previous {
+	background-image: url(http://localhost:8080/wp-neu/wp-content/plugins/wp-table-reloaded/img/back_enabled.jpg);
+}
+
+.paginate_disabled_next {
+	background-image: url(http://localhost:8080/wp-neu/wp-content/plugins/wp-table-reloaded/img/forward_disabled.jpg);
+}
+
+.paginate_enabled_next {
+	background-image: url(http://localhost:8080/wp-neu/wp-content/plugins/wp-table-reloaded/img/forward_enabled.jpg);
+}
+
+.paging_full_numbers {
+	width: 400px;
+	height: 22px;
+	line-height: 22px;
+}
+
+.paging_full_numbers span.paginate_button, .paging_full_numbers span.paginate_active {
+	border: 1px solid #aaa;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	padding: 2px 5px;
+	margin: 0 3px;
+	cursor: pointer;
+	*cursor: hand;
+}
+
+.paging_full_numbers span.paginate_button {
+	background-color: #ddd;
+}
+
+.paging_full_numbers span.paginate_button:hover {
+	background-color: #ccc;
+}
+
+.paging_full_numbers span.paginate_active {
+	background-color: #99B3FF;
 }
 CSS;
         $this->update_options();
@@ -2283,6 +2383,11 @@ CSS;
 
         // 2b., take care of css
         $new_options['use_custom_css'] = ( !isset( $this->options['use_custom_css'] ) && isset( $this->options['use_global_css'] ) ) ? $this->options['use_global_css'] : $this->options['use_custom_css'];
+
+        // 2c., take care of tablesorter script
+        if ( version_compare( $options['installed_version'] , '1.5', '<') ) {
+            $new_options['tablesorter_script'] = ( isset( $this->options['use_tablesorter_extended'] ) && true == $this->options['use_tablesorter_extended'] ) ? 'tablesorter_extended' : 'tablesorter';
+        }
 
         // 3. step: update installed version number/empty update message cache
         $new_options['installed_version'] = $this->plugin_version;
