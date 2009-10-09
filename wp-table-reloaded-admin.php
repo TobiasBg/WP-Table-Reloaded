@@ -2558,11 +2558,21 @@ WPLIST;
             wp_register_script( 'wp-table-reloaded-tablesorter-js', WP_TABLE_RELOADED_URL . 'js/jquery.datatables.min.js', array( 'jquery' ) );
             wp_print_scripts( 'wp-table-reloaded-tablesorter-js' );
 
-            echo <<<JSSCRIPT
-<script type="text/javascript">
-/* <![CDATA[ */
-jQuery(document).ready(function($){
+            $sProcessing = __( 'Please wait...', WP_TABLE_RELOADED_TEXTDOMAIN );
+            $sLengthMenu = __( 'Show _MENU_ Tables', WP_TABLE_RELOADED_TEXTDOMAIN );
+            $sZeroRecords = __( 'No Tables found.', WP_TABLE_RELOADED_TEXTDOMAIN );
+            $sInfo = __( '_START_ to _END_ of _TOTAL_ Tables', WP_TABLE_RELOADED_TEXTDOMAIN );
+            $sInfoEmpty = __( '0 to 0 of 0 Tables', WP_TABLE_RELOADED_TEXTDOMAIN );
+            $sInfoFiltered = __( '(filtered from _MAX_ Tables)', WP_TABLE_RELOADED_TEXTDOMAIN );
+            $sInfoPostFix = __( '', WP_TABLE_RELOADED_TEXTDOMAIN );
+            $sSearch = __( 'Filter:', WP_TABLE_RELOADED_TEXTDOMAIN );
+            $sUrl = __( '', WP_TABLE_RELOADED_TEXTDOMAIN );
+            $sFirst = __( 'First', WP_TABLE_RELOADED_TEXTDOMAIN );
+            $sPrevious = __( 'Back', WP_TABLE_RELOADED_TEXTDOMAIN );
+            $sNext = __( 'Next', WP_TABLE_RELOADED_TEXTDOMAIN );
+            $sLast = __( 'Last', WP_TABLE_RELOADED_TEXTDOMAIN );
 
+            $tsscript = <<<TSSCRIPT
 var tablelist = $('#wp-table-reloaded-list').dataTable({
     "bSortClasses": false,
     "aaSorting": [],
@@ -2580,25 +2590,35 @@ var tablelist = $('#wp-table-reloaded-list').dataTable({
         { "bSortable": false }
 	],
     "oLanguage": {
-	   "sProcessing":   "Bitte warten...",
-	   "sLengthMenu":   "_MENU_ Tabellen anzeigen",
-	   "sZeroRecords":  "Keine Tabellen vorhanden.",
-	   "sInfo":         "_START_ bis _END_ von _TOTAL_ Tabellen",
-	   "sInfoEmpty":    "0 bis 0 von 0 Tabellen",
-	   "sInfoFiltered": "(gefiltert von _MAX_  Tabellen)",
-	   "sInfoPostFix":  "",
-	   "sSearch":       "Filtern:",
-	   "sUrl":          "",
+	   "sProcessing": "{$sProcessing}",
+	   "sLengthMenu": "{$sLengthMenu}",
+	   "sZeroRecords": "{$sZeroRecords}",
+	   "sInfo": "{$sInfo}",
+	   "sInfoEmpty": "{$sInfoEmpty}",
+	   "sInfoFiltered": "{$sInfoFiltered}",
+	   "sInfoPostFix": "{$sInfoPostFix}",
+	   "sSearch": "{$sSearch}",
+	   "sUrl": "{$sUrl}",
 	   "oPaginate": {
-            "sFirst":    "Erster",
-            "sPrevious": "Zurück",
-            "sNext":     "Nächster",
-            "sLast":     "Letzter"
+            "sFirst": "{$sFirst}",
+            "sPrevious": "{$sPrevious}",
+            "sNext": "{$sNext}",
+            "sLast": "{$sLast}"
         }
     }
 })
-.find('.sorting').append('&nbsp;<span>&nbsp;&nbsp;&nbsp;</span>');
-{$wpList}
+.find('.sorting').append('&nbsp;<span>&nbsp;&nbsp;&nbsp;</span>');\n
+TSSCRIPT;
+
+            if ( 2 < count( $this->tables ) )
+                $tsscript = '';
+
+            echo <<<JSSCRIPT
+<script type="text/javascript">
+/* <![CDATA[ */
+jQuery(document).ready(function($){
+
+{$tsscript}{$wpList}
 });
 /* ]]> */
 </script>
