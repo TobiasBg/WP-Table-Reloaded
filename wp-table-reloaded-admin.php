@@ -1023,6 +1023,7 @@ class WP_Table_Reloaded_Admin {
                 <tr>
                     <th class="check-column" scope="col"><input type="checkbox" /></th>
                     <th scope="col"><?php _e( 'ID', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
+                    <th scope="col" style="display:none;"></th>
                     <th scope="col"><?php _e( 'Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
                     <th scope="col"><?php _e( 'Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
                     <th scope="col"><?php _e( 'Last Modified', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
@@ -1032,6 +1033,7 @@ class WP_Table_Reloaded_Admin {
                 <tr>
                     <th class="check-column" scope="col"><input type="checkbox" /></th>
                     <th scope="col"><?php _e( 'ID', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
+                    <th scope="col" style="display:none;"></th>
                     <th scope="col"><?php _e( 'Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
                     <th scope="col"><?php _e( 'Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
                     <th scope="col"><?php _e( 'Last Modified', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
@@ -1061,8 +1063,9 @@ class WP_Table_Reloaded_Admin {
                 $preview_url = $this->get_action_url( array( 'action' => 'ajax_preview', 'table_id' => $id ), true );
 
                 echo "<tr id=\"wp-table-reloaded-table-{$id}\" {$bg_style}>\n";
-                echo "\t<th class=\"check-column no-wrap\" scope=\"row\"><input type=\"checkbox\" name=\"tables[]\" value=\"{$id}\" /></th>\n";
-                echo "\t<th scope=\"row\" class=\"no-wrap table-id\">{$id}</th>\n";
+                echo "\t<td class=\"check-column no-wrap\"><input type=\"checkbox\" name=\"tables[]\" value=\"{$id}\" /></td>\n";
+                echo "\t<td class=\"no-wrap table-id\">{$id}</td>\n";
+                echo "\t<td style=\"display:none;\">{$name}</td>\n";
                 echo "\t<td>\n";
                 echo "\t\t<a title=\"" . sprintf( __( 'Edit %s', WP_TABLE_RELOADED_TEXTDOMAIN ), "&quot;{$name}&quot;" ) . "\" class=\"row-title\" href=\"{$edit_url}\">{$name}</a>\n";
                 echo "\t\t<div class=\"row-actions no-wrap\">";
@@ -1085,7 +1088,7 @@ class WP_Table_Reloaded_Admin {
             echo "</table>\n";
         ?>
         <input type="hidden" name="action" value="bulk_edit" />
-        <p class="submit"><?php _e( 'Bulk actions:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>  <input type="submit" name="submit[copy]" class="button-primary bulk_copy_tables" value="<?php _e( 'Copy Tables', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" /> <input type="submit" name="submit[delete]" class="button-primary bulk_delete_tables" value="<?php _e( 'Delete Tables', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
+        <p class="submit" style="clear:both;"><?php _e( 'Bulk actions:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>  <input type="submit" name="submit[copy]" class="button-primary bulk_copy_tables" value="<?php _e( 'Copy Tables', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" /> <input type="submit" name="submit[delete]" class="button-primary bulk_delete_tables" value="<?php _e( 'Delete Tables', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
         </p>
 
         </form>
@@ -2552,7 +2555,7 @@ $('.delete a[class^="delete"]').click(function(){return false;});
 WPLIST;
             }
             
-            wp_register_script( 'wp-table-reloaded-tablesorter-js', WP_TABLE_RELOADED_URL . 'js/jquery.tablesorter.min.js', array( 'jquery' ) );
+            wp_register_script( 'wp-table-reloaded-tablesorter-js', WP_TABLE_RELOADED_URL . 'js/jquery.datatables.min.js', array( 'jquery' ) );
             wp_print_scripts( 'wp-table-reloaded-tablesorter-js' );
 
             echo <<<JSSCRIPT
@@ -2560,8 +2563,41 @@ WPLIST;
 /* <![CDATA[ */
 jQuery(document).ready(function($){
 
-$('#wp-table-reloaded-list').tablesorter({widgets: ['zebra'], headers: {0: {sorter: false},4: {sorter: false}}})
-.find('.header').append('&nbsp;<span>&nbsp;&nbsp;&nbsp;</span>');
+var tablelist = $('#wp-table-reloaded-list').dataTable({
+    "bSortClasses": false,
+    "aaSorting": [],
+    "bProcessing": true,
+    "iDisplayLength": 10,
+    "iDisplayStart": 0,
+    "sPaginationType": "full_numbers",
+    "asStripClasses": ['even','odd'],
+    "aoColumns": [
+        { "sWidth": "24px", "bSortable": false, "bSearchable": false },
+        { "sType": "numeric" },
+        { "bVisible": false, "bSearchable": true, "sType": "string" },
+        { "bSearchable": false, "iDataSort": 2 },
+        { "sType": "string" },
+        { "bSortable": false }
+	],
+    "oLanguage": {
+	   "sProcessing":   "Bitte warten...",
+	   "sLengthMenu":   "_MENU_ Tabellen anzeigen",
+	   "sZeroRecords":  "Keine Tabellen vorhanden.",
+	   "sInfo":         "_START_ bis _END_ von _TOTAL_ Tabellen",
+	   "sInfoEmpty":    "0 bis 0 von 0 Tabellen",
+	   "sInfoFiltered": "(gefiltert von _MAX_  Tabellen)",
+	   "sInfoPostFix":  "",
+	   "sSearch":       "Filtern:",
+	   "sUrl":          "",
+	   "oPaginate": {
+            "sFirst":    "Erster",
+            "sPrevious": "Zurück",
+            "sNext":     "Nächster",
+            "sLast":     "Letzter"
+        }
+    }
+})
+.find('.sorting').append('&nbsp;<span>&nbsp;&nbsp;&nbsp;</span>');
 {$wpList}
 });
 /* ]]> */
