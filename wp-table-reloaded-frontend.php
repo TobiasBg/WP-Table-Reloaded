@@ -113,6 +113,7 @@ class WP_Table_Reloaded_Frontend {
                 'column_widths' => '',
                 'alternating_row_colors' => -1,
                 'first_row_th' => -1,
+                'table_footer' => -1,
                 'print_name' => -1,
                 'print_description' => -1,
                 'use_tablesorter' => -1,
@@ -279,6 +280,7 @@ class WP_Table_Reloaded_Frontend {
         
             $output .= "<table id=\"{$output_options['html_id']}\" class=\"{$cssclasses}\" cellspacing=\"{$output_options['cellspacing']}\" cellpadding=\"{$output_options['cellpadding']}\" border=\"{$output_options['border']}\">\n";
 
+            $last_row_idx = $rows - 1; // index of the last row, needed for table footer
             foreach( $table['data'] as $row_idx => $row ) {
 
                 $row_class = 'row-' . ( $row_idx + 1 ) ;
@@ -288,7 +290,7 @@ class WP_Table_Reloaded_Frontend {
 
                 $row_class = apply_filters( 'wp_table_reloaded_row_css_class', $row_class, $table['id'], $row_idx + 1 );
 
-                if( 0 == $row_idx ) {
+                if ( ( 0 == $row_idx ) && ( 1 < $rows ) ){
                     if ( true == $output_options['first_row_th'] ) {
                         $output .= "<thead>\n";
                         $output .= "\t<tr class=\"{$row_class}\">\n\t\t";
@@ -316,6 +318,32 @@ class WP_Table_Reloaded_Frontend {
                         }
                         $output .= "\n\t</tr>\n";
                     }
+                } elseif ( $last_row_idx == $row_idx ) {
+                    if ( true == $output_options['table_footer'] ) {
+                        $output .= "</tbody>\n";
+                        $output .= "<tfoot>\n";
+                        $output .= "\t<tr class=\"{$row_class}\">\n\t\t";
+                        foreach( $row as $col_idx => $cell_content ) {
+                            $col_class = 'column-' . ( $col_idx + 1 );
+                            $col_class = apply_filters( 'wp_table_reloaded_cell_css_class', $col_class, $table['id'], $row_idx + 1, $col_idx + 1 );
+                            $cell_content = do_shortcode( $this->safe_output( $cell_content ) );
+                            $cell_content = apply_filters( 'wp_table_reloaded_cell_content', $cell_content, $table['id'], $row_idx + 1, $col_idx + 1 );
+                            $output .= "<th class=\"{$col_class}\">" . "{$cell_content}" . "</th>";
+                        }
+                        $output .= "\n\t</tr>\n";
+                        $output .= "</tfoot>\n";
+                    } else {
+                        $output .= "\t<tr class=\"{$row_class}\">\n\t\t";
+                        foreach( $row as $col_idx => $cell_content ) {
+                            $col_class = 'column-' . ( $col_idx + 1 );
+                            $col_class = apply_filters( 'wp_table_reloaded_cell_css_class', $col_class, $table['id'], $row_idx + 1, $col_idx + 1 );
+                            $cell_content = do_shortcode( $this->safe_output( $cell_content ) );
+                            $cell_content = apply_filters( 'wp_table_reloaded_cell_content', $cell_content, $table['id'], $row_idx + 1, $col_idx + 1 );
+                            $output .= "<td class=\"{$col_class}\">" . "{$cell_content}" . "</td>";
+                        }
+                        $output .= "\n\t</tr>\n";
+                        $output .= "</tbody>\n";
+                    }
                 } else {
                     $output .= "\t<tr class=\"{$row_class}\">\n\t\t";
                     foreach( $row as $col_idx => $cell_content ) {
@@ -328,7 +356,6 @@ class WP_Table_Reloaded_Frontend {
                     $output .= "\n\t</tr>\n";
                 }
             }
-            $output .= "</tbody>\n";
             $output .= "</table>\n";
 
             if ( true == $output_options['print_description'] ) {
