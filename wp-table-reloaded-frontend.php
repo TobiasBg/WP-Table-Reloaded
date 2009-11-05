@@ -389,7 +389,12 @@ class WP_Table_Reloaded_Frontend {
         // replace any & with &amp; that is not already an encoded entity (from function htmlentities2 in WP 2.8)
         $string = preg_replace( "/&(?![A-Za-z]{0,4}\w{2,3};|#[0-9]{2,4};)/", "&amp;", $string );
         // then we only remove slashes and change line breaks, htmlspecialchars would encode <HTML> tags which we don't want
-        return nl2br( stripslashes( $string ) );
+        // nl2br can be overwritten to false, if not wanted
+        $apply_nl2br = apply_filters( 'wp_table_reloaded_apply_nl2br', true );
+        if ( true == $apply_nl2br )
+            return nl2br( stripslashes( $string ) );
+        else
+            return stripslashes( $string );
     }
 
     // ###################################################################################################################
