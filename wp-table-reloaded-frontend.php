@@ -74,8 +74,11 @@ class WP_Table_Reloaded_Frontend {
 
         // check if table exists
         $table_id = $atts['id'];
-        if ( !is_numeric( $table_id ) || 1 > $table_id || false == $this->table_exists( $table_id ) )
-            return "[table \"{$table_id}\" not found /]<br />\n";
+        if ( !is_numeric( $table_id ) || 1 > $table_id || false == $this->table_exists( $table_id ) ) {
+            $message = "[table \"{$table_id}\" not found /]<br />\n";
+            $message = apply_filters( 'wp_table_reloaded_table_not_found_message', $message, $table_id );
+            return $message;
+        }
 
         $field = $atts['field'];
         $format = $atts['format'];
@@ -132,8 +135,11 @@ class WP_Table_Reloaded_Frontend {
 
         // check if table exists
         $table_id = $atts['id'];
-        if ( !is_numeric( $table_id ) || 1 > $table_id || false == $this->table_exists( $table_id ) )
-            return "[table &quot;{$table_id}&quot; not found /]<br />\n";
+        if ( !is_numeric( $table_id ) || 1 > $table_id || false == $this->table_exists( $table_id ) ) {
+            $message = "[table \"{$table_id}\" not found /]<br />\n";
+            $message = apply_filters( 'wp_table_reloaded_table_not_found_message', $message, $table_id );
+            return $message;
+        }
 
         // explode from string to array
         $atts['column_widths'] = explode( '|', $atts['column_widths'] );
@@ -155,9 +161,12 @@ class WP_Table_Reloaded_Frontend {
         $table = $this->load_table( $table_id );
 
         // check for table data
-        if ( !isset( $table['data'] ) || empty( $table['data'] ) )
-            return "[table &quot;{$table_id}&quot; seems to be empty /]<br />\n";
-
+        if ( !isset( $table['data'] ) || empty( $table['data'] ) ) {
+            $message = "[table &quot;{$table_id}&quot; seems to be empty /]<br />\n";
+            $message = apply_filters( 'wp_table_reloaded_table_empty_message', $message, $table_id );
+            return $message;
+        }
+        
         // determine options to use (if set in shortcode, use those, otherwise use options from "Edit Table" screen)
         $output_options = array();
         foreach ( $atts as $key => $value ) {
@@ -453,6 +462,7 @@ CSSSTYLE;
                 break;
             default:
                 $jsfile =  'jquery.tablesorter.min.js';
+                $js_command = 'tablesorter';
         }
 
         if ( 0 < count( $this->tablesorter_tables ) && file_exists( WP_TABLE_RELOADED_ABSPATH . 'js/' . $jsfile ) ) {
