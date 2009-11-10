@@ -157,7 +157,9 @@ class WP_Table_Reloaded_Admin {
         $this->init_language_support();
 
         // get and check action parameter from passed variables
-        $action = ( isset( $_REQUEST['action'] ) && !empty( $_REQUEST['action'] ) ) ? $_REQUEST['action'] : 'list';
+        $default_action = 'list';
+        $default_action = apply_filters( 'wp_table_reloaded_default_action', $default_action );
+        $action = ( isset( $_REQUEST['action'] ) && !empty( $_REQUEST['action'] ) ) ? $_REQUEST['action'] : $default_action;
         // check if action is in allowed actions and if method is callable, if yes, call it
         if ( in_array( $action, $this->allowed_actions ) )
             $this->action = $action;
