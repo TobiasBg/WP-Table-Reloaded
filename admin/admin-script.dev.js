@@ -270,6 +270,10 @@ jQuery(document).ready( function( $ ) {
     	return confirm( WP_Table_Reloaded_Admin.str_ImportwpTableLink );
     } );
 
+    $( '#import_wp_table_reloaded_dump_file' ).click( function () {
+    	return confirm( WP_Table_Reloaded_Admin.str_ImportDumpFile );
+    } );
+
     $( 'a.uninstall_plugin_link' ).click( function () {
         if ( confirm( WP_Table_Reloaded_Admin.str_UninstallPluginLink_1 ) )
             return confirm( WP_Table_Reloaded_Admin.str_UninstallPluginLink_2 );

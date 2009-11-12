@@ -96,6 +96,13 @@ class WP_Table_Reloaded_Admin {
             add_action( 'wp_ajax_delete-wp-table-reloaded-table', array( &$this, 'do_action_ajax_delete_table') );
         }
 
+        // have to check for possible "export all" request this early,
+        // because otherwise http-headers will be sent by WP before we can send download headers
+        if ( !$doing_ajax && $valid_ajax_call && isset( $_POST['export_all'] ) ) {
+            // can be done in plugins_loaded, as no language support is needed
+            add_action( 'plugins_loaded', array( &$this, 'do_action_export_all' ) );
+            $doing_ajax = true;
+        }
         // have to check for possible export file download request this early,
         // because otherwise http-headers will be sent by WP before we can send download headers
         if ( !$doing_ajax && $valid_ajax_call && isset( $_POST['download_export_file'] ) && 'true' == $_POST['download_export_file'] ) {
@@ -793,6 +800,51 @@ class WP_Table_Reloaded_Admin {
 
             $this->print_header_message( __( 'Table imported successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
             $this->print_edit_table_form( $table['id'] );
+        } elseif ( isset( $_POST['import_wp_table_reloaded_dump_file'] ) ) {
+            check_admin_referer( $this->get_nonce( 'import_dump' ) );
+            
+            // check if file was uploaded
+            if ( true === empty( $_FILES['dump_file']['tmp_name'] ) ) {
+                $this->print_header_message( __( 'You did not upload a dump file.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
+                $this->print_import_table_form();
+                return;
+            }
+            // read data from file and rewrite string to array
+            $import_data = file_get_contents( $_FILES['dump_file']['tmp_name'] );
+            $import = unserialize( $import_data );
+            // check if import dump is not empty
+            if ( empty( $import ) ) {
+                $this->print_header_message( __( 'The uploaded dump file is empty. Please upload a valid file.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
+                $this->print_import_table_form();
+                return;
+            }
+
+            // NEED TO ADD SOME MORE CHECKS HERE, IF IMPORT IS VALID AND COMPLETE!
+
+            // remove all existing data
+            foreach ( $this->tables as $id => $tableoptionname )
+                delete_option( $tableoptionname );
+            delete_option( $this->optionname['tables'] );
+            delete_option( $this->optionname['options'] );
+
+            // import and save options
+            $this->options = $import['options'];
+            $this->update_options();
+            // import and save table overview
+            $this->tables = $import['table_info'];
+            $this->update_tables();
+            // import each table
+            foreach ( $this->tables as $table_id => $tableoptionname ) {
+                $dump_table = $import['tables'][ $table_id ];
+                update_option( $tableoptionname, $dump_table );
+            }
+            // check if plugin update is necessary, compared to imported data
+            if ( version_compare( $this->options['installed_version'], $this->plugin_version, '<') ) {
+                $this->plugin_update();
+            }
+
+            $this->print_header_message( __( 'All Tables, Settings and Options were successfully imported.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
+            $this->do_action_list();
         } else {
             $this->print_import_table_form();
         }
@@ -827,6 +879,34 @@ class WP_Table_Reloaded_Admin {
         }
     }
     
+    // ###################################################################################################################
+    function do_action_export_all() {
+        if ( isset( $_POST['export_all'] ) ) {
+            check_admin_referer( $this->get_nonce( 'export_all' ) );
+
+            // store all data, like tables, options, etc. in a single array
+            $export = array();
+            $export['table_info'] = $this->tables;
+            foreach ( $this->tables as $table_id => $tableoptionname ) {
+                $dump_table = $this->load_table( $table_id );
+                $export['tables'][ $table_id ] = $dump_table;
+            }
+            $export['options'] = $this->options;
+            
+            // serialize the export array to a string
+            $export_dump = serialize( $export );
+
+            $filename = 'wp-table-reloaded-export-' . date('Y-m-d') . '.data';
+            $this->prepare_download( $filename, strlen( $export_dump ), 'text/data' );
+            echo $export_dump;
+            exit;
+
+        } else {
+            $table_id = isset( $_REQUEST['table_id'] ) ? $_REQUEST['table_id'] : 0;
+            $this->print_export_table_form( $table_id );
+        }
+    }
+
     // ###################################################################################################################
     function do_action_options() {
         if ( isset( $_POST['submit'] ) && isset( $_POST['options'] ) ) {
@@ -1616,6 +1696,25 @@ class WP_Table_Reloaded_Admin {
         </p>
         </form>
         </div>
+        
+        <h2><?php _e( 'Import a WP-Table Reloaded dump file', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></h2>
+        <div style="clear:both;">
+        <p><?php _e( 'To import a WP-Table Reloaded dump file, upload the file from your computer.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( '<strong>Warning:</strong> You can only import dump files created with WP-Table Reloaded!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'All current data of this WP-Table Reloaded installation (Tables, Options, Settings) <strong>WILL BE OVERWRITTEN</strong> with the data from the file!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'Do not proceed, if you don\'t understand this!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'It is recommended to export and backup the data of this installation before importing another dump file.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
+        </div>
+        <div style="clear:both;">
+        <form method="post" enctype="multipart/form-data" action="<?php echo $this->get_action_url(); ?>">
+        <?php wp_nonce_field( $this->get_nonce( 'import_dump' ) ); ?>
+        <table class="wp-table-reloaded-options">
+        <tr valign="top">
+            <th scope="row"><label for="dump_file"><?php _e( 'Select Dump File', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
+            <td><input name="dump_file" id="dump_file" type="file" /></td>
+        </tr>
+        </table>
+        <input type="hidden" name="action" value="import" />
+        <p class="submit"><input id="import_wp_table_reloaded_dump_file" type="submit" name="import_wp_table_reloaded_dump_file" class="button-primary" value="<?php _e( 'Import Dump File', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" /></p>
+        </form>
+        </div>
+
         <?php // check if plugin is installed at all / if tables in db exist
         global $wpdb;
         $wpdb->golftable  = $wpdb->prefix . 'golftable';
@@ -1711,6 +1810,7 @@ class WP_Table_Reloaded_Admin {
         <p><?php _e( 'You may export a table here. Just select the table, your desired export format and (for CSV only) a delimiter.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/>
         <?php _e( 'You may opt to download the export file. Otherwise it will be shown on this page.', WP_TABLE_RELOADED_TEXTDOMAIN ); echo ' '; ?>
         <?php _e( 'Be aware that only the table data, but no options or settings are exported.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
+        <p><?php _e( 'To backup all tables, including their settings, click the "Export all Tables" button below.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
         </div>
         <?php if( 0 < count( $this->tables ) ) { ?>
         <div style="clear:both;">
@@ -1764,6 +1864,17 @@ class WP_Table_Reloaded_Admin {
         <?php if ( false != $output ) { ?>
         <textarea rows="15" cols="40" style="width:600px;height:300px;"><?php echo htmlspecialchars( $output ); ?></textarea>
         <?php } ?>
+        </form>
+        </div>
+
+        <h2><?php _e( 'Export a WP-Table Reloaded dump file', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></h2>
+        <div style="clear:both;">
+        <p><?php _e( 'To export all Tables and their settings, click the "Export all Tables" button.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'The created file can be used as a backup or to move all Tables to another WordPress installation.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( '<strong>Warning</strong>: Do <strong>not</strong> edit the content of that file under any circumstances!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
+        <form method="post" action="<?php echo $this->get_action_url(); ?>">
+        <?php wp_nonce_field( $this->get_nonce( 'export_all' ) ); ?>
+        <p class="submit">
+        <input type="submit" name="export_all" class="button-primary" value="<?php _e( 'Export all Tables', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
+        </p>
         </form>
         </div>
         <?php
@@ -1846,6 +1957,7 @@ class WP_Table_Reloaded_Admin {
         </tr>
         <?php
             // only show this setting, if user is administrator
+            // the strings don't have a textdomain, because they shall be the same as in the original WP admin menu (and those strings are in WP's textdomain)
             if ( current_user_can( 'manage_options' ) ) { ?>
         <tr valign="top">
             <th scope="row"><?php _e( 'Admin Menu Parent Page', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
@@ -2438,7 +2550,7 @@ CSS;
         $new_options['use_custom_css'] = ( !isset( $this->options['use_custom_css'] ) && isset( $this->options['use_global_css'] ) ) ? $this->options['use_global_css'] : $this->options['use_custom_css'];
 
         // 2c., take care of tablesorter script
-        if ( version_compare( $options['installed_version'] , '1.5', '<') ) {
+        if ( version_compare( $this->options['installed_version'] , '1.5', '<') ) {
             $new_options['tablesorter_script'] = ( isset( $this->options['use_tablesorter_extended'] ) && true == $this->options['use_tablesorter_extended'] ) ? 'tablesorter_extended' : 'tablesorter';
         }
 
@@ -2535,6 +2647,7 @@ CSS;
 	  	        'str_ChangeTableID' => __( 'Do you really want to change the ID of the table?', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_CFShortcodeMessage' => __( 'To show this Custom Data Field, use this shortcode:', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_TableShortcodeMessage' => __( 'To show this table, use this shortcode:', WP_TABLE_RELOADED_TEXTDOMAIN ),
+                'str_ImportDumpFile' => __( 'Warning: You will lose all current Tables and Settings! You should create a backup first. Be warned!', WP_TABLE_RELOADED_TEXTDOMAIN ),
                 'str_saveAlert' => __( 'You have made changes to the content of this table and not yet saved them.', WP_TABLE_RELOADED_TEXTDOMAIN ) . ' ' . __('You should first click "Update Changes" or they will be lost if you navigate away from this page.', WP_TABLE_RELOADED_TEXTDOMAIN ),
                 'option_show_exit_warning' => $this->options['show_exit_warning'],
                 'option_growing_textareas' => $this->options['growing_textareas'],
