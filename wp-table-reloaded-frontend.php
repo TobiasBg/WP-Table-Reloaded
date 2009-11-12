@@ -468,7 +468,7 @@ CSSSTYLE;
         if ( 0 < count( $this->tablesorter_tables ) && file_exists( WP_TABLE_RELOADED_ABSPATH . 'js/' . $jsfile ) ) {
         
             // we have tables that shall be sortable, so we load the js
-            wp_register_script( 'wp-table-reloaded-tablesorter-js', WP_TABLE_RELOADED_URL . 'js/' . $jsfile, array( 'jquery' ) );
+            wp_register_script( 'wp-table-reloaded-tablesorter-js', plugins_url( 'js/' . $jsfile, __FILE__ ), array( 'jquery' ) );
             wp_print_scripts( 'wp-table-reloaded-tablesorter-js' );
 
             // generate the commands to make them sortable

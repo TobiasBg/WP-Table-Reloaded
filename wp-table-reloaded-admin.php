@@ -1263,7 +1263,7 @@ class WP_Table_Reloaded_Admin {
 
         <tr><td>
                 <a id="a-insert-link" class="button-primary" href="javascript:void(0);"><?php _e( 'Insert Link', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
-                <a id="a-insert-image" href="media-upload.php?type=image&amp;tab=library&amp;TB_iframe=true" class="thickbox button-primary" title="<?php _e( 'Insert Image', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" onclick="javascript:return false;"><?php _e( 'Insert Image', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
+                <a id="a-insert-image" href="<?php echo admin_url( 'media-upload.php' ); ?>?type=image&amp;tab=library&amp;TB_iframe=true" class="thickbox button-primary" title="<?php _e( 'Insert Image', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" onclick="javascript:return false;"><?php _e( 'Insert Image', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
         </td><td>
         <?php if ( 1 < $rows ) { // sort form ?>
             <?php
@@ -1799,7 +1799,7 @@ class WP_Table_Reloaded_Admin {
             <textarea name="options[custom_css]" id="options_custom_css" rows="15" cols="40" style="width:600px;height:300px;"<?php echo ( false == $this->options['use_custom_css'] ) ? ' disabled="disabled"': '' ; ?>><?php echo $this->safe_output( $this->options['custom_css'] ); ?></textarea><br/><br/>
             <?php
             $stylesheet = '/themes/' . get_stylesheet() . '/style.css';
-            $editor_uri = 'theme-editor.php?file=' . $stylesheet;
+            $editor_uri = admin_url( 'theme-editor.php' ) . '?file=' . $stylesheet;
             echo sprintf( __( 'You might get a better website performance, if you add the CSS styling to your theme\'s "style.css" (located at <a href="%s">%s</a>) instead.', WP_TABLE_RELOADED_TEXTDOMAIN ), $editor_uri, $stylesheet ); ?><br/>
             <?php echo sprintf( __( 'See the <a href="%s">plugin website</a> for styling examples or use one of the following: <a href="%s">Example Style 1</a> <a href="%s">Example Style 2</a>', WP_TABLE_RELOADED_TEXTDOMAIN ), 'http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/', 'http://tobias.baethge.com/download/plugins/additional/example-style-1.css', 'http://tobias.baethge.com/download/plugins/additional/example-style-2.css' ); ?><br/><?php _e( 'Just copy the contents of a file into the textarea.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/>
             <?php echo sprintf( __( 'Another possibility is, to include a CSS file (e.g. from your theme folder) with the CSS @import command: %s', WP_TABLE_RELOADED_TEXTDOMAIN ), '<code>@import url( "YOUR-CSS-FILE.css" ) screen, print;</code>' ); ?>
@@ -2236,7 +2236,7 @@ TEXT;
         $this->options = $this->default_options;
         $this->options['installed_version'] = $this->plugin_version;
         $this->options['install_time'] = time();
-        $image_path = WP_TABLE_RELOADED_URL . 'img';
+        $image_path = plugins_url( 'img', __FILE__ );
         $this->options['custom_css'] = <<<CSS
 .wp-table-reloaded {
 	background-color: #CDCDCD;
@@ -2263,15 +2263,15 @@ TEXT;
 	background-color: #F0F0F6;
 }
 .wp-table-reloaded .header, .wp-table-reloaded .sorting {
-	background: #E6EEEE url(http://localhost:8080/wp-neu/wp-content/plugins/wp-table-reloaded/img/bg.gif) no-repeat center right;
+	background: #E6EEEE url({$image_path}/bg.gif) no-repeat center right;
 	cursor: pointer;
 }
 .wp-table-reloaded .headerSortUp, .wp-table-reloaded .sorting_asc {
-	background: #8DBDD8 url(http://localhost:8080/wp-neu/wp-content/plugins/wp-table-reloaded/img/asc.gif) no-repeat center right;
+	background: #8DBDD8 url({$image_path}/asc.gif) no-repeat center right;
 }
 
 .wp-table-reloaded .headerSortDown, .wp-table-reloaded .sorting_desc {
-	background: #8DBDD8 url(http://localhost:8080/wp-neu/wp-content/plugins/wp-table-reloaded/img/desc.gif) no-repeat center right;
+	background: #8DBDD8 url({$image_path}/desc.gif) no-repeat center right;
 }
 
 /* New since WP-Table Reloaded 1.5 */
@@ -2331,19 +2331,19 @@ TEXT;
 }
 
 .paginate_disabled_previous {
-	background-image: url(http://localhost:8080/wp-neu/wp-content/plugins/wp-table-reloaded/img/back_disabled.jpg);
+	background-image: url({$image_path}/back_disabled.jpg);
 }
 
 .paginate_enabled_previous {
-	background-image: url(http://localhost:8080/wp-neu/wp-content/plugins/wp-table-reloaded/img/back_enabled.jpg);
+	background-image: url({$image_path}/back_enabled.jpg);
 }
 
 .paginate_disabled_next {
-	background-image: url(http://localhost:8080/wp-neu/wp-content/plugins/wp-table-reloaded/img/forward_disabled.jpg);
+	background-image: url({$image_path}/forward_disabled.jpg);
 }
 
 .paginate_enabled_next {
-	background-image: url(http://localhost:8080/wp-neu/wp-content/plugins/wp-table-reloaded/img/forward_enabled.jpg);
+	background-image: url({$image_path}/forward_enabled.jpg);
 }
 
 .paging_full_numbers {
@@ -2465,7 +2465,7 @@ CSS;
         $suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.dev' : '';
         $jsfile = "admin-script{$suffix}.js";
 
-        wp_register_script( 'wp-table-reloaded-admin-js', WP_TABLE_RELOADED_URL . 'admin/' . $jsfile, array( 'jquery' ), $this->plugin_version );
+        wp_register_script( 'wp-table-reloaded-admin-js', plugins_url( 'admin/' . $jsfile, __FILE__ ), array( 'jquery' ), $this->plugin_version );
         // add all strings to translate here
         wp_localize_script( 'wp-table-reloaded-admin-js', 'WP_Table_Reloaded_Admin', array(
 	  	        'str_UninstallCheckboxActivation' => __( 'Do you really want to activate this? You should only do that right before uninstallation!', WP_TABLE_RELOADED_TEXTDOMAIN ),
@@ -2507,7 +2507,7 @@ CSS;
     function add_manage_page_css() {
         $suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.dev' : '';
         $cssfile = "admin-style{$suffix}.css";
-        wp_enqueue_style( 'wp-table-reloaded-admin-css', WP_TABLE_RELOADED_URL . 'admin/' . $cssfile, array(), $this->plugin_version );
+        wp_enqueue_style( 'wp-table-reloaded-admin-css', plugins_url( 'admin/' . $cssfile, __FILE__ ), array(), $this->plugin_version );
     }
 
     // ###################################################################################################################
@@ -2527,14 +2527,14 @@ CSS;
                 'page' => $this->page_slug,
                 'action' => 'ajax_list'
         );
-        $ajax_url = add_query_arg( $params, 'tools.php' );
+        $ajax_url = add_query_arg( $params, admin_url( 'tools.php' ) );
         $ajax_url = wp_nonce_url( $ajax_url, $this->get_nonce( $params['action'], false ) );
         $ajax_url = clean_url( $ajax_url );
 
         // currently doing this by hand in the footer, as footer-scripts are only available since WP 2.8
         $suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.dev' : '';
         $jsfile = "admin-editor-buttons-script{$suffix}.js";
-        wp_register_script( 'wp-table-reloaded-admin-editor-buttons-js', WP_TABLE_RELOADED_URL . 'admin/' . $jsfile, array( 'jquery', 'thickbox' ), $this->plugin_version );
+        wp_register_script( 'wp-table-reloaded-admin-editor-buttons-js', plugins_url( 'admin/' . $jsfile, __FILE__ ), array( 'jquery', 'thickbox' ), $this->plugin_version );
         // add all strings to translate here
         wp_localize_script( 'wp-table-reloaded-admin-editor-buttons-js', 'WP_Table_Reloaded_Admin', array(
 	  	        'str_EditorButtonCaption' => __( 'Table', WP_TABLE_RELOADED_TEXTDOMAIN ),
@@ -2564,7 +2564,7 @@ $('.delete a[class^="delete"]').click(function(){return false;});
 WPLIST;
             }
             
-            wp_register_script( 'wp-table-reloaded-tablesorter-js', WP_TABLE_RELOADED_URL . 'js/jquery.datatables.min.js', array( 'jquery' ) );
+            wp_register_script( 'wp-table-reloaded-tablesorter-js', plugins_url( 'js/jquery.datatables.min.js', __FILE__ ), array( 'jquery' ) );
             wp_print_scripts( 'wp-table-reloaded-tablesorter-js' );
 
             $sProcessing = __( 'Please wait...', WP_TABLE_RELOADED_TEXTDOMAIN );
