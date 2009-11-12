@@ -1855,7 +1855,7 @@ class WP_Table_Reloaded_Admin {
                 <option<?php echo ( 'edit.php' == $this->options['admin_menu_parent_page'] ) ? ' selected="selected"': ''; ?> value="edit.php"><?php _e( 'Posts' ); ?></option>
                 <option<?php echo ( 'edit-pages.php' == $this->options['admin_menu_parent_page'] ) ? ' selected="selected"': ''; ?> value="edit-pages.php"><?php _e( 'Pages' ); ?></option>
                 <option<?php echo ( 'plugins.php' == $this->options['admin_menu_parent_page'] ) ? ' selected="selected"': ''; ?> value="plugins.php"><?php _e( 'Plugins' ); ?></option>
-                <option<?php echo ( 'options-general.php' == $this->options['admin_menu_parent_page'] ) ? ' selected="selected"': ''; ?> value="options-general.php"><?php _e( 'Options' ); ?></option>
+                <option<?php echo ( 'options-general.php' == $this->options['admin_menu_parent_page'] ) ? ' selected="selected"': ''; ?> value="options-general.php"><?php _e( 'Settings' ); ?></option>
                 <option<?php echo ( 'index.php' == $this->options['admin_menu_parent_page'] ) ? ' selected="selected"': ''; ?> value="index.php"><?php _e( 'Dashboard' ); ?></option>
         </select><br/><small>(<?php _e( 'Change will take effect after another page load after saving.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>)</small></td>
         </tr>
