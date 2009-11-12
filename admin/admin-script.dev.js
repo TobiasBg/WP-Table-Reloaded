@@ -149,15 +149,20 @@ jQuery(document).ready( function( $ ) {
         var current_content = $(this).val();
         $(this).val( current_content + insert_html );
         $( '#table_contents textarea' ).unbind( 'click', add_html );
+        set_table_data_changed();
     }
 
     $( '#a-insert-link' ).click( function () {
+        var target = '';
+        if ( WP_Table_Reloaded_Admin.option_add_target_blank_to_links )
+            target = ' target="_blank"';
         var link_url = prompt( WP_Table_Reloaded_Admin.str_DataManipulationLinkInsertURL + ':', 'http://' );
         if ( link_url ) {
             var link_text = prompt( WP_Table_Reloaded_Admin.str_DataManipulationLinkInsertText + ':', WP_Table_Reloaded_Admin.str_DataManipulationLinkInsertText );
             if ( link_text ) {
-                insert_html = '<a href="' + link_url + '">' + link_text + '</a>';
-                if ( confirm( WP_Table_Reloaded_Admin.str_DataManipulationLinkInsertExplain + '\n\n' + insert_html ) ) {
+                insert_html = '<a href="' + link_url + '"' + target + '>' + link_text + '</a>';
+                insert_html = prompt( WP_Table_Reloaded_Admin.str_DataManipulationLinkInsertExplain, insert_html )
+                if ( insert_html ) {
                     $("#table_contents textarea").bind('click', add_html);
                 }
             }
@@ -172,6 +177,7 @@ jQuery(document).ready( function( $ ) {
         var link = $( '#a-insert-image' );
         tb_show( link.attr('title'), link.attr('href'), link.attr('rel') );
         $(this).blur();
+        set_table_data_changed();
     }
 
     function add_image() {

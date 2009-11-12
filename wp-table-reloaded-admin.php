@@ -39,6 +39,7 @@ class WP_Table_Reloaded_Admin {
         'uninstall_upon_deactivation' => false,
         'show_exit_warning' => true,
         'growing_textareas' => true,
+        'add_target_blank_to_links' => false,
         'enable_tablesorter' => true,
         'tablesorter_script' => 'datatables', // others are tablesorter or tablesorter_extended
         'use_custom_css' => true,
@@ -832,6 +833,7 @@ class WP_Table_Reloaded_Admin {
             $this->options['enable_tablesorter'] = isset( $new_options['enable_tablesorter'] );
             $this->options['show_donate_nag'] = isset( $new_options['show_donate_nag'] );
             $this->options['use_custom_css'] = isset( $new_options['use_custom_css'] );
+            $this->options['add_target_blank_to_links'] = isset( $new_options['add_target_blank_to_links'] );
             $this->options['tablesorter_script'] = $new_options['tablesorter_script'];
             // clean up CSS style input (if user enclosed it into <style...></style>
             if ( isset( $new_options['custom_css'] ) ) {
@@ -1805,6 +1807,10 @@ class WP_Table_Reloaded_Admin {
             <?php echo sprintf( __( 'Another possibility is, to include a CSS file (e.g. from your theme folder) with the CSS @import command: %s', WP_TABLE_RELOADED_TEXTDOMAIN ), '<code>@import url( "YOUR-CSS-FILE.css" ) screen, print;</code>' ); ?>
             </td>
         </tr>
+        <tr valign="top">
+            <th scope="row"><?php _e( 'Open links in new window?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
+            <td><input type="checkbox" name="options[add_target_blank_to_links]" id="options_add_target_blank_to_links"<?php echo ( true == $this->options['add_target_blank_to_links'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_add_target_blank_to_links"><?php _e( 'Yes, <strong>newly</strong> inserted links shall by default open in a new window.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'This is done by automatically adding <code>target="_blank"</code> to the HTML, which can be removed manually if needed.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( '<strong>Attention:</strong> This only applies to links, which are inserted with the helper on the "Edit" screen, from now on!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+        </tr>
         </table>
         </div>
         </div>
@@ -2471,7 +2477,7 @@ CSS;
 	  	        'str_UninstallCheckboxActivation' => __( 'Do you really want to activate this? You should only do that right before uninstallation!', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_DataManipulationLinkInsertURL' => __( 'URL of link to insert', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_DataManipulationLinkInsertText' => __( 'Text of link', WP_TABLE_RELOADED_TEXTDOMAIN ),
-	  	        'str_DataManipulationLinkInsertExplain' => __( 'To insert the following link into a cell, just click the cell after closing this dialog.', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	        'str_DataManipulationLinkInsertExplain' => __( 'To insert the following HTML code for a link into a cell, just click the cell after closing this dialog.', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_DataManipulationImageInsertThickbox' => __( 'To insert an image, click the cell into which you want to insert the image.', WP_TABLE_RELOADED_TEXTDOMAIN ) . "\n" . __( 'The Media Library will open, from which you can select the desired image or insert the image URL.', WP_TABLE_RELOADED_TEXTDOMAIN ) . "\n" . sprintf( __( 'Click the "%s" button to insert the image.', WP_TABLE_RELOADED_TEXTDOMAIN ), attribute_escape( __('Insert into Post') ) ),
 	  	        'str_BulkCopyTablesLink' => __( 'Do you want to copy the selected tables?', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_BulkDeleteTablesLink' => __( 'The selected tables and all content will be erased. Do you really want to delete them?', WP_TABLE_RELOADED_TEXTDOMAIN ),
@@ -2497,6 +2503,7 @@ CSS;
                 'str_saveAlert' => __( 'You have made changes to the content of this table and not yet saved them.', WP_TABLE_RELOADED_TEXTDOMAIN ) . ' ' . __('You should first click "Update Changes" or they will be lost if you navigate away from this page.', WP_TABLE_RELOADED_TEXTDOMAIN ),
                 'option_show_exit_warning' => $this->options['show_exit_warning'],
                 'option_growing_textareas' => $this->options['growing_textareas'],
+                'option_add_target_blank_to_links' => $this->options['add_target_blank_to_links'],
                 'l10n_print_after' => 'try{convertEntities(WP_Table_Reloaded_Admin);}catch(e){};'
         ) );
         wp_print_scripts( 'wp-table-reloaded-admin-js' );
