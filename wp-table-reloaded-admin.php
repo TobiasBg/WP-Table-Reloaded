@@ -28,7 +28,8 @@ class WP_Table_Reloaded_Admin {
     var $allowed_actions = array( 'list', 'add', 'edit', 'bulk_edit', 'copy', 'delete', 'import', 'export', 'options', 'uninstall', 'info', 'hide_donate_nag' ); // 'ajax_list', 'ajax_preview', but handled separatly
     // current action, populated in load_manage_page
     var $action = 'list';
-    
+    // allowed actions in this class
+    var $possible_admin_menu_parent_pages = array( 'tools.php', 'top-level', 'edit.php', 'edit-pages.php', 'plugins.php', 'index.php', 'options-general.php' );
     // init vars
     var $tables = array();
     var $options = array();
@@ -44,6 +45,7 @@ class WP_Table_Reloaded_Admin {
         'tablesorter_script' => 'datatables', // others are tablesorter or tablesorter_extended
         'use_custom_css' => true,
         'custom_css' => '',
+        'admin_menu_parent_page' => 'tools.php',
         'install_time' => 0,
         'show_donate_nag' => true,
         'update_message' => array(),
@@ -132,12 +134,18 @@ class WP_Table_Reloaded_Admin {
         $display_name = 'WP-Table Reloaded'; // the name that is displayed in the admin menu on the left
         $display_name = apply_filters( 'wp_table_reloaded_plugin_display_name', $display_name ); // can be filtered to something shorter maybe
 
-        $top_level_menu = false; // add menu entry unter "Tools" (i.e. Management)
-        $top_level_menu = apply_filters( 'wp_table_reloaded_top_level_menu', $top_level_menu ); // filter to true for top-level menu entry
-        if ( true == $top_level_menu )
+        $admin_menu_parent_page = $this->options['admin_menu_parent_page']; // default: add menu entry under "Tools" (i.e. Management)
+        $admin_menu_parent_page = apply_filters( 'wp_table_reloaded_admin_menu_parent_page', $admin_menu_parent_page ); // overwrite settings from Option page
+
+        // check if still valid after possible change by filter
+        if ( false == in_array( $admin_menu_parent_page, $this->possible_admin_menu_parent_pages ) )
+            $admin_menu_parent_page = 'tools.php';
+
+        // Top-Level menu is created in different function. All others are created with the filename as a parameter
+        if ( 'top-level' == $admin_menu_parent_page )
             $this->hook = add_menu_page( 'WP-Table Reloaded', $display_name, $min_needed_capability, $this->page_slug, array( &$this, 'show_manage_page' ) );
         else
-            $this->hook = add_management_page( 'WP-Table Reloaded', $display_name, $min_needed_capability, $this->page_slug, array( &$this, 'show_manage_page' ) );
+            $this->hook = add_submenu_page( $admin_menu_parent_page, 'WP-Table Reloaded', $display_name, $min_needed_capability, $this->page_slug, array( &$this, 'show_manage_page' ) );
 
         add_action( 'load-' . $this->hook, array( &$this, 'load_manage_page' ) );
     }
@@ -835,6 +843,15 @@ class WP_Table_Reloaded_Admin {
             $this->options['use_custom_css'] = isset( $new_options['use_custom_css'] );
             $this->options['add_target_blank_to_links'] = isset( $new_options['add_target_blank_to_links'] );
             $this->options['tablesorter_script'] = $new_options['tablesorter_script'];
+
+            // only save this setting, if user is administrator
+            if ( current_user_can( 'manage_options' ) ) {
+                if ( in_array( $new_options['admin_menu_parent_page'], $this->possible_admin_menu_parent_pages ) )
+                    $this->options['admin_menu_parent_page'] = $new_options['admin_menu_parent_page'];
+                else
+                    $this->options['admin_menu_parent_page'] = 'tools.php';
+            }
+            
             // clean up CSS style input (if user enclosed it into <style...></style>
             if ( isset( $new_options['custom_css'] ) ) {
                     if ( 1 == preg_match( '/<style.*?>(.*?)<\/style>/is', stripslashes( $new_options['custom_css'] ), $matches ) )
@@ -1827,6 +1844,24 @@ class WP_Table_Reloaded_Admin {
             <th scope="row"><?php _e( 'Enable growing textareas?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
             <td><input type="checkbox" name="options[growing_textareas]" id="options_growing_textareas"<?php echo ( true == $this->options['growing_textareas'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_growing_textareas"><small><?php _e( 'Yes, the textareas on the "Edit Table" screen shall be enlarged when focussed for input.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></label></td>
         </tr>
+        <?php
+            // only show this setting, if user is administrator
+            if ( current_user_can( 'manage_options' ) ) { ?>
+        <tr valign="top">
+            <th scope="row"><?php _e( 'Admin Menu Parent Page', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
+            <td><?php _e( 'WP-Table Reloaded shall be shown in this section of the admin menu:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <select id="options_admin_menu_parent_page" name="options[admin_menu_parent_page]">
+                <option<?php echo ( 'tools.php' == $this->options['admin_menu_parent_page'] ) ? ' selected="selected"': ''; ?> value="tools.php"><?php _e( 'Tools' ); ?> (<?php _e( 'recommended', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>)</option>
+                <option<?php echo ( 'top-level' == $this->options['admin_menu_parent_page'] ) ? ' selected="selected"': ''; ?> value="top-level""><?php _e( 'Top-Level', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></option>
+                <option<?php echo ( 'edit.php' == $this->options['admin_menu_parent_page'] ) ? ' selected="selected"': ''; ?> value="edit.php"><?php _e( 'Posts' ); ?></option>
+                <option<?php echo ( 'edit-pages.php' == $this->options['admin_menu_parent_page'] ) ? ' selected="selected"': ''; ?> value="edit-pages.php"><?php _e( 'Pages' ); ?></option>
+                <option<?php echo ( 'plugins.php' == $this->options['admin_menu_parent_page'] ) ? ' selected="selected"': ''; ?> value="plugins.php"><?php _e( 'Plugins' ); ?></option>
+                <option<?php echo ( 'options-general.php' == $this->options['admin_menu_parent_page'] ) ? ' selected="selected"': ''; ?> value="options-general.php"><?php _e( 'Options' ); ?></option>
+                <option<?php echo ( 'index.php' == $this->options['admin_menu_parent_page'] ) ? ' selected="selected"': ''; ?> value="index.php"><?php _e( 'Dashboard' ); ?></option>
+        </select><br/><small>(<?php _e( 'Change will take effect after another page load after saving.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>)</small></td>
+        </tr>
+        <?php
+            }
+        ?>
         <tr valign="top">
             <th scope="row"><?php _e( 'Uninstall Plugin upon Deactivation?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
             <td><input type="checkbox" name="options[uninstall_upon_deactivation]" id="options_uninstall_upon_deactivation"<?php echo ( true == $this->options['uninstall_upon_deactivation'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_uninstall_upon_deactivation"><small><?php _e( 'Yes, uninstall everything when the plugin is deactivated. Attention: You should only enable this checkbox directly before deactivating the plugin from the WordPress plugins page!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php _e( '(This setting does not influence the "Manually Uninstall Plugin" button below!)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></label></td>
