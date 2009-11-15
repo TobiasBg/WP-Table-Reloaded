@@ -1697,24 +1697,6 @@ class WP_Table_Reloaded_Admin {
         </form>
         </div>
         
-        <h2><?php _e( 'Import a WP-Table Reloaded dump file', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></h2>
-        <div style="clear:both;">
-        <p><?php _e( 'To import a WP-Table Reloaded dump file, upload the file from your computer.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( '<strong>Warning:</strong> You can only import dump files created with WP-Table Reloaded!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'All current data of this WP-Table Reloaded installation (Tables, Options, Settings) <strong>WILL BE OVERWRITTEN</strong> with the data from the file!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'Do not proceed, if you don\'t understand this!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'It is recommended to export and backup the data of this installation before importing another dump file.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
-        </div>
-        <div style="clear:both;">
-        <form method="post" enctype="multipart/form-data" action="<?php echo $this->get_action_url(); ?>">
-        <?php wp_nonce_field( $this->get_nonce( 'import_dump' ) ); ?>
-        <table class="wp-table-reloaded-options">
-        <tr valign="top">
-            <th scope="row"><label for="dump_file"><?php _e( 'Select Dump File', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
-            <td><input name="dump_file" id="dump_file" type="file" /></td>
-        </tr>
-        </table>
-        <input type="hidden" name="action" value="import" />
-        <p class="submit"><input id="import_wp_table_reloaded_dump_file" type="submit" name="import_wp_table_reloaded_dump_file" class="button-primary" value="<?php _e( 'Import Dump File', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" /></p>
-        </form>
-        </div>
-
         <?php // check if plugin is installed at all / if tables in db exist
         global $wpdb;
         $wpdb->golftable  = $wpdb->prefix . 'golftable';
@@ -1866,17 +1848,7 @@ class WP_Table_Reloaded_Admin {
         <?php } ?>
         </form>
         </div>
-
-        <h2><?php _e( 'Export a WP-Table Reloaded dump file', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></h2>
-        <div style="clear:both;">
-        <p><?php _e( 'To export all Tables and their settings, click the "Export all Tables" button.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'The created file can be used as a backup or to move all Tables to another WordPress installation.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( '<strong>Warning</strong>: Do <strong>not</strong> edit the content of that file under any circumstances!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
-        <form method="post" action="<?php echo $this->get_action_url(); ?>">
-        <?php wp_nonce_field( $this->get_nonce( 'export_all' ) ); ?>
-        <p class="submit">
-        <input type="submit" name="export_all" class="button-primary" value="<?php _e( 'Export all Tables', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
-        </p>
-        </form>
-        </div>
+        
         <?php
         } else { // end if $tables
             $add_url = $this->get_action_url( array( 'action' => 'add' ), false );
@@ -1994,6 +1966,34 @@ class WP_Table_Reloaded_Admin {
 
         </form>
         </div>
+        
+        <h2><?php _e( 'WP-Table Reloaded Data Export and Backup', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></h2>
+        <table style="margin:0;padding:0;">
+        <tr>
+
+        <td style="width:50%;padding-right:10px;vertical-align:top;">
+        <strong><?php _e( 'Export a dump file', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></strong><br/><br/>
+        <?php _e( 'To export all Tables and their settings, click the "Export all Tables" button.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'The created file can be used as a backup or to move all Tables to another WordPress installation.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( '<strong>Warning</strong>: Do <strong>not</strong> edit the content of that file under any circumstances!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'Editing this file will most certainly break it!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/><br/>
+        <form method="post" action="<?php echo $this->get_action_url(); ?>">
+        <?php wp_nonce_field( $this->get_nonce( 'export_all' ) ); ?>
+        <input type="submit" name="export_all" class="button-primary" value="<?php _e( 'Export all Tables', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
+        </form>
+        </td>
+        
+        <td style="width:50%;padding-left:10px;vertical-align:top;">
+        <strong><?php _e( 'Import a dump file', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></strong><br/><br/>
+        <?php _e( 'To import a WP-Table Reloaded dump file, upload the file from your computer.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( '<strong>Warning:</strong> You can only import dump files created with WP-Table Reloaded!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'All current data of this WP-Table Reloaded installation (Tables, Options, Settings) <strong>WILL BE OVERWRITTEN</strong> with the data from the file!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'Do not proceed, if you don\'t understand this!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'It is recommended to export and backup the data of this installation before importing another dump file.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/><br/>
+        <form method="post" enctype="multipart/form-data" action="<?php echo $this->get_action_url(); ?>">
+        <?php wp_nonce_field( $this->get_nonce( 'import_dump' ) ); ?>
+        <label for="dump_file"><?php _e( 'Select Dump File', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label> <input name="dump_file" id="dump_file" type="file" />
+        <input type="hidden" name="action" value="import" />
+        <input id="import_wp_table_reloaded_dump_file" type="submit" name="import_wp_table_reloaded_dump_file" class="button-primary" value="<?php _e( 'Import Dump File', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
+        </form>
+        </td>
+
+        </tr>
+        </table>
+        <br style="clear:both;"/>
         
         <h2><?php _e( 'Manually Uninstall Plugin', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></h2>
         <div style="clear:both;">
