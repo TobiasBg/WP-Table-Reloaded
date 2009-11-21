@@ -80,6 +80,7 @@ class WP_Table_Reloaded_Admin {
     
     // temporary variables
     var $hook = '';
+    var $page_url = '';
 
     // ###################################################################################################################
     // add admin-page to sidebar navigation, function called by PHP when class is constructed
@@ -149,10 +150,13 @@ class WP_Table_Reloaded_Admin {
             $admin_menu_parent_page = 'tools.php';
 
         // Top-Level menu is created in different function. All others are created with the filename as a parameter
-        if ( 'top-level' == $admin_menu_parent_page )
+        if ( 'top-level' == $admin_menu_parent_page ) {
             $this->hook = add_menu_page( 'WP-Table Reloaded', $display_name, $min_needed_capability, $this->page_slug, array( &$this, 'show_manage_page' ) );
-        else
+            $this->page_url = 'admin.php';
+        } else {
             $this->hook = add_submenu_page( $admin_menu_parent_page, 'WP-Table Reloaded', $display_name, $min_needed_capability, $this->page_slug, array( &$this, 'show_manage_page' ) );
+            $this->page_url = $admin_menu_parent_page;
+        }
 
         add_action( 'load-' . $this->hook, array( &$this, 'load_manage_page' ) );
     }
@@ -931,6 +935,8 @@ class WP_Table_Reloaded_Admin {
                 else
                     $this->options['admin_menu_parent_page'] = 'tools.php';
             }
+            // adjust $this->page_url, so that next page load will work
+            $this->page_url = ( 'top-level' == $this->options['admin_menu_parent_page'] ) ? 'admin.php' : $this->options['admin_menu_parent_page'] ;
             
             // clean up CSS style input (if user enclosed it into <style...></style>
             if ( isset( $new_options['custom_css'] ) ) {
@@ -2325,7 +2331,7 @@ TEXT;
         );
         $url_params = array_merge( $default_params, $params );
 
-        $action_url = add_query_arg( $url_params, $_SERVER['PHP_SELF'] );
+        $action_url = add_query_arg( $url_params, admin_url( $this->page_url ) );
         $action_url = ( true == $add_nonce ) ? wp_nonce_url( $action_url, $this->get_nonce( $url_params['action'], $url_params['item'] ) ) : $action_url;
         $action_url = clean_url( $action_url );
         return $action_url;
@@ -2682,7 +2688,8 @@ CSS;
                 'page' => $this->page_slug,
                 'action' => 'ajax_list'
         );
-        $ajax_url = add_query_arg( $params, admin_url( 'tools.php' ) );
+        
+        $ajax_url = add_query_arg( $params, admin_url( $this->page_url ) );
         $ajax_url = wp_nonce_url( $ajax_url, $this->get_nonce( $params['action'], false ) );
         $ajax_url = clean_url( $ajax_url );
 
