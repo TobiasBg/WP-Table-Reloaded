@@ -56,7 +56,7 @@ class WP_Table_Reloaded_Frontend {
 
         // if tablesorter enabled (globally) include javascript
 		if ( true == $this->options['enable_tablesorter'] ) {
-    		$this->add_head_jquery_js(); // jquery needed in any case (it's too late to do this, when shortcode is executed
+    		wp_enqueue_script( 'jquery' ); // jquery needed in any case (it's too late to do this, when shortcode is executed
             add_action( 'wp_footer', array( &$this, 'output_tablesorter_js' ) ); // but if we actually need the tablesorter script can be determined in the footer
         }
 
@@ -68,7 +68,6 @@ class WP_Table_Reloaded_Frontend {
     // ###################################################################################################################
     // handle [table-info id=<the_table_id> field=<name> /] in the_content()
     function handle_content_shortcode_table_info( $atts ) {
-
         // parse shortcode attributs, only allow those specified
         $default_atts = array(
                 'id' => 0,
@@ -106,6 +105,7 @@ class WP_Table_Reloaded_Frontend {
                     $output = $table['custom_fields'][ $field ];
                 } else {
                     $output = "[table-info field &quot;{$field}&quot; not found in table {$table_id} /]<br />\n";
+                    $output = apply_filters( 'wp_table_reloaded_table_info_not_found_message', $output, $table_id, $field );
                 }
         }
 
@@ -134,7 +134,6 @@ class WP_Table_Reloaded_Frontend {
                 'cellspacing' => 1,
                 'cellpadding' => 0,
                 'border' => 0
-                
         );
       	$atts = shortcode_atts( $default_atts, $atts );
 
@@ -187,7 +186,7 @@ class WP_Table_Reloaded_Frontend {
         }
         
         // how often was table displayed on this page yet? get its HTML ID
-        $count = ( isset( $this->shown_tables[ $table_id ] ) ) ? $this->shown_tables[ $table['id'] ] : 0;
+        $count = ( isset( $this->shown_tables[ $table_id ] ) ) ? $this->shown_tables[ $table_id ] : 0;
         $count = $count + 1;
         $this->shown_tables[ $table_id ] = $count;
         $output_options['html_id'] = "wp-table-reloaded-id-{$table_id}-no-{$count}";
@@ -200,23 +199,21 @@ class WP_Table_Reloaded_Frontend {
     // ###################################################################################################################
     // handle [table-info id=<the_table_id> field="name" /] in widget texts
     function handle_widget_filter_table_info( $text ) {
+        return widget_filter_replace( $this->shortcode_table_info, $text );
+    }
+
+    // handle [table id=<the_table_id> /] in widget texts
+    function handle_widget_filter_table( $text ) {
+        return widget_filter_replace( $this->shortcode_table, $text );
+    }
+
+    // actual replacement of above two functions, they are the same, besides the shortcode
+    function widget_filter_replace( $shortcode, $text ) {
         // pattern to search for in widget text (only our plugin's shortcode!)
         if ( version_compare( $GLOBALS['wp_version'], '2.8alpha', '>=') ) {
             $pattern = '(.?)\[(' . preg_quote( $this->shortcode_table_info ) . ')\b(.*?)(?:(\/))?\](?:(.+?)\[\/\2\])?(.?)';
         } else {
             $pattern = '\[(' . preg_quote( $this->shortcode_table_info ) . ')\b(.*?)(?:(\/))?\](?:(.+?)\[\/\1\])?';
-        }
-        // search for it, if found, handle as if it were a shortcode
-        return preg_replace_callback( '/'.$pattern.'/s', 'do_shortcode_tag', $text );
-    }
-
-    // handle [table id=<the_table_id> /] in widget texts
-    function handle_widget_filter_table( $text ) {
-        // pattern to search for in widget text (only our plugin's shortcode!)
-        if ( version_compare( $GLOBALS['wp_version'], '2.8alpha', '>=') ) {
-            $pattern = '(.?)\[(' . preg_quote( $this->shortcode_table ) . ')\b(.*?)(?:(\/))?\](?:(.+?)\[\/\2\])?(.?)';
-        } else {
-            $pattern = '\[(' . preg_quote( $this->shortcode_table ) . ')\b(.*?)(?:(\/))?\](?:(.+?)\[\/\1\])?';
         }
         // search for it, if found, handle as if it were a shortcode
         return preg_replace_callback( '/'.$pattern.'/s', 'do_shortcode_tag', $text );
@@ -405,16 +402,10 @@ class WP_Table_Reloaded_Frontend {
         // then we only remove slashes and change line breaks, htmlspecialchars would encode <HTML> tags which we don't want
         // nl2br can be overwritten to false, if not wanted
         $apply_nl2br = apply_filters( 'wp_table_reloaded_apply_nl2br', true );
-        if ( true == $apply_nl2br )
+        if ( $apply_nl2br )
             return nl2br( stripslashes( $string ) );
         else
             return stripslashes( $string );
-    }
-
-    // ###################################################################################################################
-    // enqueue jquery-js-file
-    function add_head_jquery_js() {
-        wp_enqueue_script( 'jquery' );
     }
 
     // ###################################################################################################################
@@ -423,7 +414,6 @@ class WP_Table_Reloaded_Frontend {
         // load css filename from options, if option doesnt exist, use default
         $css = ( isset( $this->options['custom_css'] ) ) ? $this->options['custom_css'] : '';
         $css = stripslashes( $css );
-
         $css = apply_filters( 'wp_table_reloaded_custom_css', $css );
 
         if ( !empty( $css ) ) {
