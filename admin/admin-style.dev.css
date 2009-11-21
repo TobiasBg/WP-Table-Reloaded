@@ -156,11 +156,6 @@ div.postbox .expand_link { display: none; }
 div.closed .expand_link { display: inline!important; }
 div.closed .hide_link { display: none; }
 
-/* OVERRIDE EXISTING WordPress STYLES */
-
-/* overwrite 980px max-width in WP < 2.7 */
-div.wrap { max-width:100%!important; }
-
 /* table styles for the table preview */
 
 /* Inner content div of thickbox needs to grow with outer div */

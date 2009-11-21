@@ -192,8 +192,7 @@ class WP_Table_Reloaded_Admin {
         }
 
         // after get_action, because needs action parameter
-        if ( function_exists( 'add_contextual_help' ) ) // then WP version is >= 2.7
-            add_contextual_help( $this->hook, $this->get_contextual_help_string( $this->action ) );
+        add_contextual_help( $this->hook, $this->get_contextual_help_string( $this->action ) );
     }
 
     // ###################################################################################################################
@@ -2711,10 +2710,8 @@ CSS;
     function output_tablesorter_js() {
         if ( 0 < count( $this->tables ) ) {
         
-            $wpList = '';
-            if ( version_compare( $GLOBALS['wp_version'], '2.7alpha', '>=') ) {
-                wp_print_scripts( 'wp-lists' ); // for AJAX on list of tables
-                $wpList = <<<WPLIST
+            wp_print_scripts( 'wp-lists' ); // for AJAX on list of tables
+            $wpList = <<<WPLIST
 
 var delBefore;
 delBefore = function(s) {
@@ -2724,8 +2721,7 @@ $('#the-list').wpList( { alt: 'even', delBefore: delBefore } );
 $('.delete a[class^="delete"]').click(function(){return false;});
 
 WPLIST;
-            }
-            
+
             wp_register_script( 'wp-table-reloaded-tablesorter-js', plugins_url( 'js/jquery.datatables.min.js', __FILE__ ), array( 'jquery' ) );
             wp_print_scripts( 'wp-table-reloaded-tablesorter-js' );
 
