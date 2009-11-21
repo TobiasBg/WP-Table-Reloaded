@@ -41,7 +41,7 @@ class WP_Table_Reloaded_Frontend {
 		$this->tables = get_option( $this->optionname['tables'], false );
 
 		if ( false === $this->options || false === $this->tables )
-            return '';
+            return;
 
         // make shortcode name filterable
         $this->shortcode_table = apply_filters( 'wp_table_reloaded_shortcode_table', $this->shortcode_table );
