@@ -291,6 +291,17 @@ class WP_Table_Reloaded_Frontend {
         
             $output .= "<table id=\"{$output_options['html_id']}\" class=\"{$cssclasses}\" cellspacing=\"{$output_options['cellspacing']}\" cellpadding=\"{$output_options['cellpadding']}\" border=\"{$output_options['border']}\">\n";
 
+            $print_colgroup_tag = apply_filters( 'wp_table_reloaded_print_colgroup_tag', false, $table['id'] );
+            if ( $print_colgroup_tag ) {
+                $output .= '<colgroup>';
+                for ( $col = 1; $col <= $cols; $col++ ) {
+                    $attributes = "class=\"colgroup-col-{$col}\" ";
+                    $attributes = apply_filters( 'wp_table_reloaded_colgroup_tag_attributes', $attributes, $table['id'], $col );
+                    $output .= "<col {$attributes}/>";
+                }
+                $output .= "</colgroup>\n";
+            }
+
             $last_row_idx = $rows - 1; // index of the last row, needed for table footer
             foreach( $table['data'] as $row_idx => $row ) {
 
