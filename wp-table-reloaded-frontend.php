@@ -27,9 +27,14 @@ class WP_Table_Reloaded_Frontend {
     
     var $shown_tables = array();
     var $tablesorter_tables = array();
+    
+    // class instances
+    var $helper;
 
     // ###################################################################################################################
     function WP_Table_Reloaded_Frontend() {
+        // load common functions, stored in separate file for better overview and maintenance
+        $this->helper = $this->create_class_instance( 'WP_Table_Reloaded_Helper', 'wp-table-reloaded-helper.class.php' );
     
         // load options and table information from database, if not available: default
 		$this->options = get_option( $this->optionname['options'], false );
@@ -91,10 +96,10 @@ class WP_Table_Reloaded_Frontend {
                 $output = $table[ $field ];
                 break;
             case 'last_modified':
-                $output = ( 'raw' == $format ) ?  $table['last_modified'] : $this->format_datetime( $table['last_modified'] );
+                $output = ( 'raw' == $format ) ?  $table['last_modified'] : $this->helper->format_datetime( $table['last_modified'] );
                 break;
             case 'last_editor':
-                $output = $this->get_last_editor( $table['last_editor_id'] );
+                $output = $this->helper->get_last_editor( $table['last_editor_id'] );
                 break;
             default:
                 if ( isset( $table['custom_fields'][ $field ] ) ) {
@@ -407,17 +412,6 @@ class WP_Table_Reloaded_Frontend {
     }
 
     // ###################################################################################################################
-    function format_datetime( $last_modified ) {
-        return mysql2date( get_option('date_format'), $last_modified ) . ' ' . mysql2date( get_option('time_format'), $last_modified );
-    }
-
-    // ###################################################################################################################
-    function get_last_editor( $last_editor_id ) {
-        $user = get_userdata( $last_editor_id );
-        return $user->nickname;
-    }
-
-    // ###################################################################################################################
     // enqueue jquery-js-file
     function add_head_jquery_js() {
         wp_enqueue_script( 'jquery' );
@@ -518,6 +512,13 @@ jQuery(document).ready(function($){
 JSSCRIPT;
             }
         }
+    }
+    
+    // ###################################################################################################################
+    function create_class_instance( $class, $file, $folder = 'php' ) {
+        if ( !class_exists( $class ) )
+            include_once ( WP_TABLE_RELOADED_ABSPATH . $folder . '/' . $file );
+        return new $class;
     }
 
 } // class WP_Table_Reloaded_Frontend
