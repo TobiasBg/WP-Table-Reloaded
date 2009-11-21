@@ -125,6 +125,11 @@ class WP_Table_Reloaded_Frontend {
                 'print_name' => -1,
                 'print_description' => -1,
                 'use_tablesorter' => -1,
+                'datatables_sort' => -1,
+                'datatables_paginate' => -1,
+                'datatables_lengthchange' => -1,
+                'datatables_filter' => -1,
+                'datatables_info' => -1,
                 'row_offset' => 1, // ATTENTION: MIGHT BE DROPPED IN FUTURE VERSIONS!
                 'row_count' => null, // ATTENTION: MIGHT BE DROPPED IN FUTURE VERSIONS!
                 'show_rows' => '',
@@ -388,11 +393,16 @@ class WP_Table_Reloaded_Frontend {
 
             // js options like alternating row colors
             $js_options = array (
-                    'alternating_row_colors' => $output_options['alternating_row_colors']
+                    'alternating_row_colors' => $output_options['alternating_row_colors'],
+                    'datatables_sort' => $output_options['datatables_sort'],
+                    'datatables_paginate' => $output_options['datatables_paginate'],
+                    'datatables_lengthchange' => $output_options['datatables_lengthchange'],
+                    'datatables_filter' => $output_options['datatables_filter'],
+                    'datatables_info' => $output_options['datatables_info']
             );
 
             // eventually add this table to list of tables which will be tablesorted and thus be included in the script call in wp_footer
-            if ( true == $output_options['use_tablesorter'] && true == $output_options['first_row_th'] ) {
+            if ( true == $output_options['use_tablesorter'] && ( true == $output_options['first_row_th'] || 'datatables' == $this->options['tablesorter_script'] ) ) {
                 // check if tablesorter is generally enabled already done
                 $this->tablesorter_tables[] = array (
                     'table_id' => $table['id'],
@@ -479,6 +489,12 @@ CSSSTYLE;
                         $parameters[] = '"aaSorting": []';
                         // alt row colors is default, so remove them if not wanted with []
                         $parameters[] = ( $js_options['alternating_row_colors'] ) ? "\"asStripClasses\":['even','odd']" : '"asStripClasses":[]';
+                        $parameters[] = ( $js_options['datatables_sort'] ) ? '"bSort": true' : '"bSort": false';
+                        $parameters[] = ( $js_options['datatables_paginate'] ) ? '"bPaginate": true' : '"bPaginate": false';
+                        $parameters[] = ( $js_options['datatables_lengthchange'] ) ? '"bLengthChange": true' : '"bLengthChange": false';
+                        $parameters[] = ( $js_options['datatables_filter'] ) ? '"bFilter": true' : '"bFilter": false';
+                        $parameters[] = ( $js_options['datatables_info'] ) ? '"bInfo": true' : '"bInfo": false';
+                        $parameters[] = '"bSortClasses": false'; // don't add additional classes, hopefully speeds up things
                         break;
                     case 'tablesorter':
                     case 'tablesorter_extended':

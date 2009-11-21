@@ -330,6 +330,7 @@ jQuery(document).ready( function( $ ) {
         };
 
         $("#wp_table_reloaded_edit_table input[name='submit[update]'], #wp_table_reloaded_edit_table input[name='submit[save_back]']").click(function(){
+            $( '#wp_table_reloaded_edit_table .wp-table-reloaded-options :checkbox' ).removeAttr( 'disabled' );
             window.onbeforeunload = null;
         } );
 
