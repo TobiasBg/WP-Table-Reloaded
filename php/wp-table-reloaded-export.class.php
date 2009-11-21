@@ -3,7 +3,7 @@
 File Name: WP-Table Reloaded - Export Class (see main file wp-table-reloaded.php)
 Plugin URI: http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/
 Description: This plugin allows you to create and manage tables in the admin-area of WordPress. You can then show them in your posts or on your pages by using a shortcode. The plugin is greatly influenced by the plugin "wp-Table" by Alex Rabe, but was completely rewritten and uses the state-of-the-art WordPress techniques which makes it faster and lighter than the original plugin.
-Version: 1.4.2
+Version: 1.5
 Author: Tobias B&auml;thge
 Author URI: http://tobias.baethge.com/
 */
@@ -12,7 +12,7 @@ Author URI: http://tobias.baethge.com/
 class WP_Table_Reloaded_Export {
 
     // ###################################################################################################################
-    var $export_class_version = '1.4.2';
+    var $export_class_version = '1.5';
 
     var $export_formats = array();
     var $delimiters = array();

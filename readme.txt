@@ -2,7 +2,7 @@
 Contributors: TobiasBg 
 Donate link: http://tobias.baethge.com/donate/
 Tags: html,table,data,editor,csv,import,export,excel,widget,admin,sidebar
-Requires at least: 2.6
+Requires at least: 2.7
 Tested up to: 2.8.6
 Stable tag: 1.4.2a
 
@@ -69,7 +69,7 @@ You may also make feature requests using this method! Don't be shy!
 
 = Requirements? =
 
-In short: WordPress 2.6 or higher
+In short: WordPress 2.7 or higher
 
 = Languages and Localization? =
 
@@ -98,8 +98,9 @@ You may also add certain features (like table-sorting, alternating row colors, p
 == Acknowledgements ==
 
 Thanks go to [Alex Rabe](http://alexrabe.boelinger.com/) for the initial wp-Table plugin!
-Thanks go to [Christian Bach](http://tablesorter.com/docs/) for the TableSorter-jQuery-plugin.
 Thanks go to [Allan Jardine](http://www.datatables.net/) for the DataTables-jQuery-plugin.
+Thanks go to [Christian Bach](http://tablesorter.com/docs/) for the TableSorter-jQuery-plugin.
+Thanks go to [Sören Krings](http://tablesorter.openwerk.de/) for the TableSorter-Extended-jQuery-plugin.
 Thanks to all language file translators!
 Thanks to every donor, supporter and bug reporter!
 
@@ -111,6 +112,9 @@ I kindly ask you for link somewhere on your website to http://tobias.baethge.com
 I'm also happy about [donations](http://tobias.baethge.com/donate/) or something from [my wishlist](http://tobias.baethge.com/wishlist)! Thanks!
 
 == Changelog ==
+
+= Version 1.5 =
+* to be written...
 
 = Version 1.4.2a =
 * fixed bug: JavaScript errors in IE6 and 7 on Import screen

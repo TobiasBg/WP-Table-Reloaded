@@ -1,3 +1,8 @@
+/******************************************
+* This JS file belongs to the Admin part *
+* of WP-Table Reloaded 1.5! PLEASE DO NOT *
+* make any changes here! Thank you!       *
+******************************************/
 jQuery(document).ready(function($){
 
     var editor_toolbar = $("#ed_toolbar");

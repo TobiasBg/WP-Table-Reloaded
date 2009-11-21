@@ -1,3 +1,8 @@
+/******************************************
+* This JS file belongs to the Admin part *
+* of WP-Table Reloaded 1.5! PLEASE DO NOT *
+* make any changes here! Thank you!       *
+******************************************/
 jQuery(document).ready( function( $ ) {
 
     // WP_Table_Reloaded_Admin object will contain all localized strings and options that influence JavaScript
