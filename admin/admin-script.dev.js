@@ -129,10 +129,29 @@ jQuery(document).ready( function( $ ) {
 
     // enable/disable "use tableheadline" according to state of checkbox
     $( '#table_options_first_row_th' ).change( function () {
-        if( $(this).attr('checked') && $( '#tablesorter_enabled' ).val() ) {
-            $( '#table_options_use_tablesorter' ).removeAttr( 'disabled' );
+        if( WP_Table_Reloaded_Admin.option_datatables_active ) {
+            if( $(this).attr('checked') && $( '#table_options_use_tablesorter' ).attr('checked') ) {
+                $( '#table_options_datatables_sort' ).removeAttr( 'disabled' );
+            } else {
+                $( '#table_options_datatables_sort' ).attr( 'disabled', 'disabled' );
+            }
+        } else if( WP_Table_Reloaded_Admin.option_tablesorter_enabled ) {
+            if( $(this).attr('checked') ) {
+                $( '#table_options_use_tablesorter' ).removeAttr( 'disabled' );
+            } else {
+                $( '#table_options_use_tablesorter' ).attr( 'disabled', 'disabled' );
+            }
+        }
+    } );
+
+    // enable/disable DataTables options according to checkbox state
+    $( '#table_options_use_tablesorter' ).change( function () {
+        if( WP_Table_Reloaded_Admin.option_datatables_active && $(this).attr('checked') ) {
+            $( '.wp-table-reloaded-datatables-options :checkbox' ).removeAttr( 'disabled' );
+            if ( !$( '#table_options_first_row_th' ).attr('checked') )
+                $( '#table_options_datatables_sort' ).attr( 'disabled', 'disabled' );
         } else {
-            $( '#table_options_use_tablesorter' ).attr( 'disabled', 'disabled' );
+            $( '.wp-table-reloaded-datatables-options :checkbox' ).attr( 'disabled', 'disabled' );
         }
     } );
 
