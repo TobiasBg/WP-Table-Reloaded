@@ -141,6 +141,14 @@ TEXT;
         $content .= ' | ' . __( 'Thank you for using <a href="http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/">WP-Table Reloaded</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ) . ' ' . sprintf( __( 'Support the plugin with your <a href="%s">donation</a>!', WP_TABLE_RELOADED_TEXTDOMAIN ), 'http://tobias.baethge.com/donate-message/' );
         return $content;
     }
+
+    // ###################################################################################################################
+    // state of the postbox, can be filtered
+    function postbox_closed( $postbox_name, $postbox_closed ) {
+        $postbox_closed = apply_filters( 'wp_table_reloaded_admin_postbox_closed', $postbox_closed, $postbox_name );
+        $output = ( $postbox_closed ) ? ' closed' : '';
+        return $output;
+    }
     
 } // class WP_Table_Reloaded_Helper
 

@@ -1285,8 +1285,8 @@ class WP_Table_Reloaded_Admin {
         <?php wp_nonce_field( $this->get_nonce( 'edit' ) ); ?>
         <input type="hidden" name="table[id]" value="<?php echo $table['id']; ?>" />
 
-        <div class="postbox">
-        <h3 class="hndle"><span><?php _e( 'Table Information', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span></h3>
+        <div class="postbox<?php echo $this->helper->postbox_closed( 'table-information', false ); ?>">
+        <h3 class="hndle"><span><?php _e( 'Table Information', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
         <table class="wp-table-reloaded-table-information">
         <tr valign="top">
@@ -1321,7 +1321,7 @@ class WP_Table_Reloaded_Admin {
         </p>
 
         <?php if ( 0 < $cols && 0 < $rows ) { ?>
-            <div class="postbox">
+            <div class="postbox<?php echo $this->helper->postbox_closed( 'table-contents', false ); ?>">
             <h3 class="hndle"><span><?php _e( 'Table Contents', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
             <div class="inside">
             <table class="widefat" style="width:auto;" id="table_contents">
@@ -1374,7 +1374,7 @@ class WP_Table_Reloaded_Admin {
         </div>
         <?php } //endif 0 < $rows/$cols ?>
 
-        <div class="postbox">
+        <div class="postbox<?php echo $this->helper->postbox_closed( 'table-data-manipulation', false ); ?>">
         <h3 class="hndle"><span><?php _e( 'Data Manipulation', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
     <table class="wp-table-reloaded-data-manipulation widefat">
@@ -1527,7 +1527,7 @@ class WP_Table_Reloaded_Admin {
         ?>
         </p>
 
-        <div class="postbox">
+        <div class="postbox<?php echo $this->helper->postbox_closed( 'table-settings', false ); ?>">
         <h3 class="hndle"><span><?php _e( 'Table Settings', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
         <p><?php _e( 'These settings will only be used for this table.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
@@ -1581,7 +1581,7 @@ class WP_Table_Reloaded_Admin {
         </div>
         
         <?php $datatables_enabled = $this->options['enable_tablesorter'] && ( 'datatables' == $this->options['tablesorter_script'] ); ?>
-        <div class="postbox closed">
+        <div class="postbox<?php echo $this->helper->postbox_closed( 'datatables-features', true ); ?>">
         <h3 class="hndle"><span><?php _e( 'DataTables JavaScript Features', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
         <p><?php _e( 'You can enable certain features for the "DataTables" JavaScript library here.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'More information on its features can be found on the <a href="http://www.datatables.net/">DataTables website</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
@@ -1622,7 +1622,7 @@ class WP_Table_Reloaded_Admin {
         ?>
         </p>
 
-        <div class="postbox">
+        <div class="postbox<?php echo $this->helper->postbox_closed( 'custom-data-fields', true ); ?>">
         <h3 class="hndle"><span><?php _e( 'Custom Data Fields', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
         <?php _e( 'Custom Data Fields can be used to add extra metadata to a table.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'For example, this could be information about the source or the creator of the data.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
@@ -1943,8 +1943,8 @@ class WP_Table_Reloaded_Admin {
         <div style="clear:both;">
         <form method="post" action="<?php echo $this->get_action_url(); ?>">
         <?php wp_nonce_field( $this->get_nonce( 'options' ) ); ?>
-        <div class="postbox">
-<h3 class="hndle"><span><?php _e( 'Frontend Options', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span></h3>
+        <div class="postbox<?php echo $this->helper->postbox_closed( 'frontend-plugin-options', false ); ?>">
+<h3 class="hndle"><span><?php _e( 'Frontend Options', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
 <div class="inside">
         <table class="wp-table-reloaded-options">
         <tr valign="top">
@@ -1985,7 +1985,7 @@ class WP_Table_Reloaded_Admin {
         </div>
         </div>
         
-        <div class="postbox closed">
+        <div class="postbox<?php echo $this->helper->postbox_closed( 'advanced-plugin-options', true ); ?>">
         <h3 class="hndle"><span><?php _e( 'Advanced Options', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
         <table class="wp-table-reloaded-options">
@@ -2140,7 +2140,7 @@ class WP_Table_Reloaded_Admin {
         </div>
         </div>
         
-        <div class="postbox closed">
+        <div class="postbox<?php echo $this->helper->postbox_closed( 'debug-version-information', true ); ?>">
         <h3 class="hndle"><span><?php _e( 'Debug and Version Information', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
         <p>
