@@ -1943,6 +1943,7 @@ class WP_Table_Reloaded_Admin {
         <div style="clear:both;">
         <form method="post" action="<?php echo $this->get_action_url(); ?>">
         <?php wp_nonce_field( $this->get_nonce( 'options' ) ); ?>
+        
         <div class="postbox<?php echo $this->helper->postbox_closed( 'frontend-plugin-options', false ); ?>">
 <h3 class="hndle"><span><?php _e( 'Frontend Options', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
 <div class="inside">
@@ -1991,11 +1992,11 @@ class WP_Table_Reloaded_Admin {
         <table class="wp-table-reloaded-options">
         <tr valign="top">
             <th scope="row"><?php _e( 'Show Exit Warning?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="options[show_exit_warning]" id="options_show_exit_warning"<?php echo ( true == $this->options['show_exit_warning'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_show_exit_warning"><small><?php _e( 'Yes, show a warning message, if I leave the "Edit Table" screen and the current changes were not saved yet.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></label></td>
+            <td><input type="checkbox" name="options[show_exit_warning]" id="options_show_exit_warning"<?php echo ( true == $this->options['show_exit_warning'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_show_exit_warning"><?php _e( 'Yes, show a warning message, if I leave the "Edit Table" screen and the current changes were not saved yet.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Enable growing textareas?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="options[growing_textareas]" id="options_growing_textareas"<?php echo ( true == $this->options['growing_textareas'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_growing_textareas"><small><?php _e( 'Yes, the textareas on the "Edit Table" screen shall be enlarged when focussed for input.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></label></td>
+            <td><input type="checkbox" name="options[growing_textareas]" id="options_growing_textareas"<?php echo ( true == $this->options['growing_textareas'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_growing_textareas"><?php _e( 'Yes, the textareas on the "Edit Table" screen shall be enlarged when focussed for input.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
         <?php
             // only show this setting, if user is administrator
@@ -2018,11 +2019,11 @@ class WP_Table_Reloaded_Admin {
         ?>
         <tr valign="top">
             <th scope="row"><?php _e( 'Uninstall Plugin upon Deactivation?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="options[uninstall_upon_deactivation]" id="options_uninstall_upon_deactivation"<?php echo ( true == $this->options['uninstall_upon_deactivation'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_uninstall_upon_deactivation"><small><?php _e( 'Yes, uninstall everything when the plugin is deactivated. Attention: You should only enable this checkbox directly before deactivating the plugin from the WordPress plugins page!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php _e( '(This setting does not influence the "Manually Uninstall Plugin" button below!)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></label></td>
+            <td><input type="checkbox" name="options[uninstall_upon_deactivation]" id="options_uninstall_upon_deactivation"<?php echo ( true == $this->options['uninstall_upon_deactivation'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_uninstall_upon_deactivation"><?php _e( 'Yes, uninstall everything when the plugin is deactivated. Attention: You should only enable this checkbox directly before deactivating the plugin from the WordPress plugins page!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Allow donation message?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="options[show_donate_nag]" id="options_show_donate_nag"<?php echo ( true == $this->options['show_donate_nag'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_show_donate_nag"><small><?php _e( 'Yes, show a donation message after 30 days of using the plugin.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></label></td>
+            <td><input type="checkbox" name="options[show_donate_nag]" id="options_show_donate_nag"<?php echo ( true == $this->options['show_donate_nag'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_show_donate_nag"><?php _e( 'Yes, show a donation message after 30 days of using the plugin.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
         </table>
         </div>
@@ -2038,20 +2039,21 @@ class WP_Table_Reloaded_Admin {
         </div>
         
         <h2><?php _e( 'WP-Table Reloaded Data Export and Backup', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></h2>
-        <table style="margin:0;padding:0;">
-        <tr>
 
-        <td style="width:50%;padding-right:10px;vertical-align:top;">
-        <strong><?php _e( 'Export a dump file', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></strong><br/><br/>
-        <?php _e( 'To export all Tables and their settings, click the "Export all Tables" button.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'The created file can be used as a backup or to move all Tables to another WordPress installation.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( '<strong>Warning</strong>: Do <strong>not</strong> edit the content of that file under any circumstances!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'Editing this file will most certainly break it!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/><br/>
+        <div class="postbox<?php echo $this->helper->postbox_closed( 'dump-file-export', false ); ?>">
+        <h3 class="hndle"><span><?php _e( 'Export a dump file', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+        <div class="inside">
+        <?php _e( 'To export all Tables and their settings, click the "Export all Tables" button.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'The created file can be used as a backup or to move all Tables to another WordPress installation.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/><?php _e( '<strong>Warning</strong>: Do <strong>not</strong> edit the content of that file under any circumstances!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'Editing this file will most certainly break it!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/><br/>
         <form method="post" action="<?php echo $this->get_action_url(); ?>">
         <?php wp_nonce_field( $this->get_nonce( 'export_all' ) ); ?>
-        <input type="submit" name="export_all" class="button-primary" value="<?php _e( 'Export all Tables', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
+        <input type="submit" name="export_all" class="button-primary" value="<?php _e( 'Create and Download Dump File', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
         </form>
-        </td>
-        
-        <td style="width:50%;padding-left:10px;vertical-align:top;">
-        <strong><?php _e( 'Import a dump file', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></strong><br/><br/>
+        </div>
+        </div>
+
+        <div class="postbox<?php echo $this->helper->postbox_closed( 'dump-file-import', true ); ?>">
+        <h3 class="hndle"><span><?php _e( 'Import a dump file', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+        <div class="inside">
         <?php _e( 'To import a WP-Table Reloaded dump file, upload the file from your computer.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( '<strong>Warning:</strong> You can only import dump files created with WP-Table Reloaded!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'All current data of this WP-Table Reloaded installation (Tables, Options, Settings) <strong>WILL BE OVERWRITTEN</strong> with the data from the file!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'Do not proceed, if you don\'t understand this!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'It is recommended to export and backup the data of this installation before importing another dump file.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/><br/>
         <form method="post" enctype="multipart/form-data" action="<?php echo $this->get_action_url(); ?>">
         <?php wp_nonce_field( $this->get_nonce( 'import_dump' ) ); ?>
@@ -2059,12 +2061,9 @@ class WP_Table_Reloaded_Admin {
         <input type="hidden" name="action" value="import" />
         <input id="import_wp_table_reloaded_dump_file" type="submit" name="import_wp_table_reloaded_dump_file" class="button-primary" value="<?php _e( 'Import Dump File', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
         </form>
-        </td>
+        </div>
+        </div>
 
-        </tr>
-        </table>
-        <br style="clear:both;"/>
-        
         <h2><?php _e( 'Manually Uninstall Plugin', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></h2>
         <div style="clear:both;">
             <p><?php _e( 'You may uninstall the plugin here. This <strong>will delete</strong> all tables, data, options, etc., that belong to the plugin, including all tables you added or imported.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/><?php _e( 'Be very careful with this and only click the button if you know what you are doing!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
