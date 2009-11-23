@@ -61,8 +61,8 @@ class WP_Table_Reloaded_Frontend {
         }
 
         // if global css shall be used
-		if ( true == $this->options['use_custom_css'] )
-            add_action( 'wp_head', array( &$this, 'add_custom_css' ) );
+		if ( true == $this->options['use_default_css'] || true == $this->options['use_custom_css'] )
+            add_action( 'wp_head', array( &$this, 'add_frontend_css' ) );
     }
 
     // ###################################################################################################################
@@ -435,20 +435,47 @@ class WP_Table_Reloaded_Frontend {
 
     // ###################################################################################################################
     // load and print css-style, (only called if enabled, by wp_head-action)
-    function add_custom_css() {
-        // load css filename from options, if option doesnt exist, use default
-        $css = ( isset( $this->options['custom_css'] ) ) ? $this->options['custom_css'] : '';
-        $css = stripslashes( $css );
-        $css = apply_filters( 'wp_table_reloaded_custom_css', $css );
+    function add_frontend_css() {
+    
+        // creathe @import commands for the default styles
+        $default_css = '';
+        if ( true == $this->options['use_default_css'] ) {
+            $plugin_path = plugins_url( '', __FILE__ );
+            $default_css = "@import url(\"{$plugin_path}/css/plugin.css\");\n";
+            switch ( $this->options['tablesorter_script'] ) {
+                case 'datatables-tabletools':
+                    $default_css .= "@import url(\"{$plugin_path}/js/tabletools/tabletools.css\");\n";
+                case 'datatables': // this also applies to the above, because of the missing "break;"
+                    $default_css .= "@import url(\"{$plugin_path}/css/datatables.css\");\n";
+                    break;
+                case 'tablesorter':
+                case 'tablesorter_extended':
+                    $default_css .= "@import url(\"{$plugin_path}/css/tablesorter.css\");\n";
+                    break;
+                default:
+            }
+        }
+        $default_css = apply_filters( 'wp_table_reloaded_default_css', $default_css, $this->options['use_default_css'], $this->options['tablesorter_script'] );
 
-        if ( !empty( $css ) ) {
-            echo <<<CSSSTYLE
+        // load css filename from options, if option doesn't exist, use default
+        $custom_css = '';
+        if ( true == $this->options['use_custom_css'] ) {
+            $custom_css = ( isset( $this->options['custom_css'] ) ) ? $this->options['custom_css'] : '';
+            $custom_css = stripslashes( $custom_css );
+        }
+        $custom_css = apply_filters( 'wp_table_reloaded_custom_css', $custom_css, $this->options['use_custom_css'] );
+
+        if ( !empty( $default_css ) && !empty( $custom_css ) ) {
+            $css = <<<CSSSTYLE
 <style type="text/css" media="all">
 /* <![CDATA[ */
-{$css}
+{$default_css}
+{$custom_css}
 /* ]]> */
 </style>
 CSSSTYLE;
+        $css = apply_filters( 'wp_table_reloaded_frontend_css', $css );
+        echo $css;
         }
     }
 

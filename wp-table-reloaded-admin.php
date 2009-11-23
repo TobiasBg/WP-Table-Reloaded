@@ -43,6 +43,7 @@ class WP_Table_Reloaded_Admin {
         'add_target_blank_to_links' => false,
         'enable_tablesorter' => true,
         'tablesorter_script' => 'datatables', // others are datatables-tabletools, tablesorter and tablesorter_extended
+        'use_default_css' => true,
         'use_custom_css' => true,
         'custom_css' => '',
         'admin_menu_parent_page' => 'tools.php',
@@ -941,6 +942,7 @@ class WP_Table_Reloaded_Admin {
             $this->options['growing_textareas'] = isset( $new_options['growing_textareas'] );
             $this->options['enable_tablesorter'] = isset( $new_options['enable_tablesorter'] );
             $this->options['show_donate_nag'] = isset( $new_options['show_donate_nag'] );
+            $this->options['use_default_css'] = isset( $new_options['use_default_css'] );
             $this->options['use_custom_css'] = isset( $new_options['use_custom_css'] );
             $this->options['add_target_blank_to_links'] = isset( $new_options['add_target_blank_to_links'] );
             $this->options['tablesorter_script'] = $new_options['tablesorter_script'];
@@ -1971,17 +1973,23 @@ class WP_Table_Reloaded_Admin {
 <div class="inside">
         <table class="wp-table-reloaded-options">
         <tr valign="top">
-            <th scope="row"><?php _e( 'Enable table sorting JavaScript?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
+            <th scope="row"><?php _e( 'Enable Table Sorting JavaScript?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
             <td><input type="checkbox" name="options[enable_tablesorter]" id="options_enable_tablesorter"<?php echo ( true == $this->options['enable_tablesorter'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_enable_tablesorter"><?php _e( 'Yes, enable the table sorting with a JavaScript library. This can be used to make tables sortable (can be activated for each table separately in its options).', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
         <tr valign="top">
-            <th scope="row"><?php _e( 'table sorting JavaScript', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
+            <th scope="row"><?php _e( 'Table Sorting JavaScript', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
             <td><?php _e( 'Select script to use:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <select id="options_tablesorter_script" name="options[tablesorter_script]"<?php echo ( false == $this->options['enable_tablesorter'] ) ? ' disabled="disabled"': '' ; ?>>
                 <option<?php echo ( 'datatables' == $this->options['tablesorter_script'] ) ? ' selected="selected"': ''; ?> value="datatables">DataTables (<?php _e( 'recommended', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>)</option>
                 <option<?php echo ( 'datatables-tabletools' == $this->options['tablesorter_script'] ) ? ' selected="selected"': ''; ?> value="datatables-tabletools">DataTables+TableTools</option>
                 <option<?php echo ( 'tablesorter' == $this->options['tablesorter_script'] ) ? ' selected="selected"': ''; ?> value="tablesorter">Tablesorter</option>
                 <option<?php echo ( 'tablesorter_extended' == $this->options['tablesorter_script'] ) ? ' selected="selected"': ''; ?> value="tablesorter_extended">Tablesorter Extended</option>
         </select></td>
+        </tr>
+        <tr valign="top">
+            <th scope="row"><?php _e( 'Load default CSS?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
+            <td><input type="checkbox" name="options[use_default_css]" id="options_use_default_css"<?php echo ( true == $this->options['use_default_css'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_use_default_css">
+            <?php _e( 'Yes, include and load the plugin\'s default style sheet. This is highly recommend, if you use one of the Table Sorting JavaScripts!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
+             </label></td>
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Add custom CSS?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
@@ -2405,7 +2413,6 @@ class WP_Table_Reloaded_Admin {
 }
 
 /* New since WP-Table Reloaded 1.5 */
-@import "{$plugin_path}/js/tabletools/tabletools.css";
 
 .dataTables_wrapper {
 	position: relative;
