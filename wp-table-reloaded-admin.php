@@ -2580,7 +2580,6 @@ WPLIST;
             $sInfoFiltered = __( '(filtered from _MAX_ Tables)', WP_TABLE_RELOADED_TEXTDOMAIN );
             $sInfoPostFix = __( '', WP_TABLE_RELOADED_TEXTDOMAIN );
             $sSearch = __( 'Filter:', WP_TABLE_RELOADED_TEXTDOMAIN );
-            $sUrl = __( '', WP_TABLE_RELOADED_TEXTDOMAIN );
             $sFirst = __( 'First', WP_TABLE_RELOADED_TEXTDOMAIN );
             $sPrevious = __( 'Back', WP_TABLE_RELOADED_TEXTDOMAIN );
             $sNext = __( 'Next', WP_TABLE_RELOADED_TEXTDOMAIN );
@@ -2591,8 +2590,6 @@ var tablelist = $('#wp-table-reloaded-list').dataTable({
     "bSortClasses": false,
     "aaSorting": [],
     "bProcessing": true,
-    "iDisplayLength": 10,
-    "iDisplayStart": 0,
     "sPaginationType": "full_numbers",
     "asStripClasses": ['even','odd'],
     "aoColumns": [
@@ -2612,7 +2609,6 @@ var tablelist = $('#wp-table-reloaded-list').dataTable({
 	   "sInfoFiltered": "{$sInfoFiltered}",
 	   "sInfoPostFix": "{$sInfoPostFix}",
 	   "sSearch": "{$sSearch}",
-	   "sUrl": "{$sUrl}",
 	   "oPaginate": {
             "sFirst": "{$sFirst}",
             "sPrevious": "{$sPrevious}",
