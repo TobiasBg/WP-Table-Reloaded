@@ -42,7 +42,7 @@ class WP_Table_Reloaded_Admin {
         'growing_textareas' => true,
         'add_target_blank_to_links' => false,
         'enable_tablesorter' => true,
-        'tablesorter_script' => 'datatables', // others are tablesorter or tablesorter_extended
+        'tablesorter_script' => 'datatables', // others are datatables-tabletools, tablesorter and tablesorter_extended
         'use_custom_css' => true,
         'custom_css' => '',
         'admin_menu_parent_page' => 'tools.php',
@@ -74,7 +74,9 @@ class WP_Table_Reloaded_Admin {
             'datatables_paginate' => true,
             'datatables_lengthchange' => true,
             'datatables_filter' => true,
-            'datatables_info' => true
+            'datatables_info' => true,
+            'datatables_tabletools' => false,
+            'datatables_customcommands' => ''
         ),
         'custom_fields' => array()
     );
@@ -301,6 +303,8 @@ class WP_Table_Reloaded_Admin {
                 $table['options']['datatables_lengthchange'] = isset( $_POST['table']['options']['datatables_lengthchange'] );
                 $table['options']['datatables_filter'] = isset( $_POST['table']['options']['datatables_filter'] );
                 $table['options']['datatables_info'] = isset( $_POST['table']['options']['datatables_info'] );
+                $table['options']['datatables_tabletools'] = isset( $_POST['table']['options']['datatables_tabletools'] );
+                // $table['options']['datatables_customcommands'] is an input type=text field that is always submitted
 
                 // save visibility settings (checkboxes!)
                 foreach ( $table['data'] as $row_idx => $row )
@@ -1561,6 +1565,10 @@ class WP_Table_Reloaded_Admin {
                     $js_library = 'DataTables';
                     $js_library_text = __( 'You can change further settings for this library below.' , WP_TABLE_RELOADED_TEXTDOMAIN );
                     break;
+                case 'datatables-tabletools':
+                    $js_library = 'DataTables+TableTools';
+                    $js_library_text = __( 'You can change further settings for this library below.' , WP_TABLE_RELOADED_TEXTDOMAIN );
+                    break;
                 case 'tablesorter':
                     $js_library = 'Tablesorter';
                     $js_library_text = __( 'The table will then be sortable by the visitor.' , WP_TABLE_RELOADED_TEXTDOMAIN );
@@ -1574,19 +1582,22 @@ class WP_Table_Reloaded_Admin {
                     $js_library_text = __( 'You can change further settings for this library below.' , WP_TABLE_RELOADED_TEXTDOMAIN );
             }
             ?>
-            <input type="checkbox" name="table[options][use_tablesorter]" id="table_options_use_tablesorter"<?php echo ( true == $table['options']['use_tablesorter'] ) ? ' checked="checked"': '' ; ?><?php echo ( false == $this->options['enable_tablesorter'] || ( false == $table['options']['first_row_th'] && 'datatables' != $this->options['tablesorter_script'] ) ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="table_options_use_tablesorter"><?php echo sprintf( __( 'Yes, use the "%s" JavaScript library with this table.', WP_TABLE_RELOADED_TEXTDOMAIN ), $js_library ); ?> <?php echo $js_library_text; ?><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php _e( '<small>You must have enabled the use of a JavaScript library on the "Plugin Options" screen.</small>', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <input type="checkbox" name="table[options][use_tablesorter]" id="table_options_use_tablesorter"<?php echo ( true == $table['options']['use_tablesorter'] ) ? ' checked="checked"': '' ; ?><?php echo ( false == $this->options['enable_tablesorter'] || ( false == $table['options']['first_row_th'] && 'datatables' != $this->options['tablesorter_script'] && 'datatables-tabletools' != $this->options['tablesorter_script'] ) ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="table_options_use_tablesorter"><?php echo sprintf( __( 'Yes, use the "%s" JavaScript library with this table.', WP_TABLE_RELOADED_TEXTDOMAIN ), $js_library ); ?> <?php echo $js_library_text; ?><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php _e( '<small>You must have enabled the use of a JavaScript library on the "Plugin Options" screen.</small>', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
         </table>
         </div>
         </div>
         
-        <?php $datatables_enabled = $this->options['enable_tablesorter'] && ( 'datatables' == $this->options['tablesorter_script'] ); ?>
+        <?php
+        $datatables_enabled = $this->options['enable_tablesorter'] && ( 'datatables' == $this->options['tablesorter_script'] || 'datatables-tabletools' == $this->options['tablesorter_script'] );
+        $tabletools_enabled = $this->options['enable_tablesorter'] && ( 'datatables-tabletools' == $this->options['tablesorter_script'] );
+        ?>
         <div class="postbox<?php echo $this->helper->postbox_closed( 'datatables-features', true ); ?>">
         <h3 class="hndle"><span><?php _e( 'DataTables JavaScript Features', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
         <p><?php _e( 'You can enable certain features for the "DataTables" JavaScript library here.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'More information on its features can be found on the <a href="http://www.datatables.net/">DataTables website</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
         <?php if ( !$datatables_enabled ) { ?>
-        <p><strong><?php _e( 'You can currently not change these options, because you have not enabled the "DataTables" JavaScript library on the "Plugin Options" screen.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/><?php _e( 'These settings do not affect the "Tablesorter" or "Tablesorter Extended" libraries.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></strong></p>
+        <p><strong><?php _e( 'You can currently not change these options, because you have not enabled the "DataTables" or the "DataTables+TableTools" JavaScript library on the "Plugin Options" screen.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/><?php _e( 'These settings do not affect the "Tablesorter" or "Tablesorter Extended" libraries.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></strong></p>
         <?php } ?>
         <table class="wp-table-reloaded-options wp-table-reloaded-datatables-options">
         <tr valign="top">
@@ -1606,8 +1617,19 @@ class WP_Table_Reloaded_Admin {
             <td><input type="checkbox" name="table[options][datatables_filter]" id="table_options_datatables_filter"<?php echo ( true == $table['options']['datatables_filter'] ) ? ' checked="checked"': '' ; ?><?php echo ( !$datatables_enabled || false == $table['options']['use_tablesorter'] ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="table_options_datatables_filter"><?php _e( 'Yes, enable the visitor to filter or search the table. Only rows with the search word in them are shown.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
         <tr valign="top">
-            <th scope="row"><?php _e( 'Info', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
+            <th scope="row"><?php _e( 'Info Bar', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
             <td><input type="checkbox" name="table[options][datatables_info]" id="table_options_datatables_info"<?php echo ( true == $table['options']['datatables_info'] ) ? ' checked="checked"': '' ; ?><?php echo ( !$datatables_enabled || false == $table['options']['use_tablesorter'] ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="table_options_datatables_info"><?php _e( 'Yes, show the table information display. This shows information about the currently visible data, including filtering.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+        </tr>
+        <tr valign="top">
+            <th scope="row"><?php _e( 'TableTools', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
+            <td><input type="checkbox" name="table[options][datatables_tabletools]" id="table_options_datatables_tabletools"<?php echo ( true == $table['options']['datatables_tabletools'] ) ? ' checked="checked"': '' ; ?><?php echo ( !$tabletools_enabled || false == $table['options']['use_tablesorter'] ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="table_options_datatables_tabletools">
+            <?php _e( 'Yes, activate the TableTools functions (Copy to Clipboard, Save to CSV, Save to XLS, Print Table) for this table.', WP_TABLE_RELOADED_TEXTDOMAIN );
+            if ( !$tabletools_enabled ) { echo '<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>('; _e( 'This option can only be used with the "DataTables+TableTools" JavaScript library.', WP_TABLE_RELOADED_TEXTDOMAIN ); echo ')</small>';}
+            ?></label></td>
+        </tr>
+        <tr valign="top">
+            <th scope="row"><?php _e( 'Custom Commands', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
+            <td><input type="text" name="table[options][datatables_customcommands]" id="table_options_datatables_customcommands"<?php echo ( !$tabletools_enabled || false == $table['options']['use_tablesorter'] ) ? ' disabled="disabled"': '' ; ?> value="<?php echo $this->helper->safe_output( $table['options']['datatables_customcommands'] ); ?>" style="width:100%" /> <label for="table_options_datatables_customcommands"><small><br/><?php _e( 'You can enter additional DataTables parameters (JavaScript commands) here, that will be included with the DataTables script call.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> (<?php _e( 'For advanced use only, as mistakes will cause script errors.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>)</small></label></td>
         </tr>
         </table>
         </div>
@@ -1956,6 +1978,7 @@ class WP_Table_Reloaded_Admin {
             <th scope="row"><?php _e( 'table sorting JavaScript', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
             <td><?php _e( 'Select script to use:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <select id="options_tablesorter_script" name="options[tablesorter_script]"<?php echo ( false == $this->options['enable_tablesorter'] ) ? ' disabled="disabled"': '' ; ?>>
                 <option<?php echo ( 'datatables' == $this->options['tablesorter_script'] ) ? ' selected="selected"': ''; ?> value="datatables">DataTables (<?php _e( 'recommended', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>)</option>
+                <option<?php echo ( 'datatables-tabletools' == $this->options['tablesorter_script'] ) ? ' selected="selected"': ''; ?> value="datatables-tabletools">DataTables+TableTools</option>
                 <option<?php echo ( 'tablesorter' == $this->options['tablesorter_script'] ) ? ' selected="selected"': ''; ?> value="tablesorter">Tablesorter</option>
                 <option<?php echo ( 'tablesorter_extended' == $this->options['tablesorter_script'] ) ? ' selected="selected"': ''; ?> value="tablesorter_extended">Tablesorter Extended</option>
         </select></td>
@@ -2343,7 +2366,7 @@ class WP_Table_Reloaded_Admin {
         $this->options = $this->default_options;
         $this->options['installed_version'] = $this->plugin_version;
         $this->options['install_time'] = time();
-        $image_path = plugins_url( 'img', __FILE__ );
+        $plugin_path = plugins_url( '', __FILE__ );
         $this->options['custom_css'] = <<<CSS
 .wp-table-reloaded {
 	background-color: #CDCDCD;
@@ -2370,18 +2393,19 @@ class WP_Table_Reloaded_Admin {
 	background-color: #F0F0F6;
 }
 .wp-table-reloaded .header, .wp-table-reloaded .sorting {
-	background: #E6EEEE url({$image_path}/bg.gif) no-repeat center right;
+	background: #E6EEEE url({$plugin_path}/img/bg.gif) no-repeat center right;
 	cursor: pointer;
 }
 .wp-table-reloaded .headerSortUp, .wp-table-reloaded .sorting_asc {
-	background: #8DBDD8 url({$image_path}/asc.gif) no-repeat center right;
+	background: #8DBDD8 url({$plugin_path}/img/asc.gif) no-repeat center right;
 }
 
 .wp-table-reloaded .headerSortDown, .wp-table-reloaded .sorting_desc {
-	background: #8DBDD8 url({$image_path}/desc.gif) no-repeat center right;
+	background: #8DBDD8 url({$plugin_path}/img/desc.gif) no-repeat center right;
 }
 
 /* New since WP-Table Reloaded 1.5 */
+@import "{$plugin_path}/js/tabletools/tabletools.css";
 
 .dataTables_wrapper {
 	position: relative;
@@ -2608,7 +2632,8 @@ CSS;
                 'option_growing_textareas' => $this->options['growing_textareas'],
                 'option_add_target_blank_to_links' => $this->options['add_target_blank_to_links'],
                 'option_tablesorter_enabled' => $this->options['enable_tablesorter'],
-                'option_datatables_active' => $this->options['enable_tablesorter'] && ( 'datatables' == $this->options['tablesorter_script'] ),
+                'option_datatables_active' => $this->options['enable_tablesorter'] && ( 'datatables' == $this->options['tablesorter_script'] || 'datatables-tabletools' == $this->options['tablesorter_script'] ),
+                'option_tabletools_active' => $this->options['enable_tablesorter'] && ( 'datatables-tabletools' == $this->options['tablesorter_script'] ),
                 'l10n_print_after' => 'try{convertEntities(WP_Table_Reloaded_Admin);}catch(e){};'
         ) );
         wp_print_scripts( 'wp-table-reloaded-admin-js' );

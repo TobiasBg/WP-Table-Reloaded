@@ -152,11 +152,14 @@ jQuery(document).ready( function( $ ) {
     // enable/disable DataTables options according to checkbox state
     $( '#table_options_use_tablesorter' ).change( function () {
         if( WP_Table_Reloaded_Admin.option_datatables_active && $(this).attr('checked') ) {
-            $( '.wp-table-reloaded-datatables-options :checkbox' ).removeAttr( 'disabled' );
+            $( '.wp-table-reloaded-datatables-options input' ).removeAttr( 'disabled' );
             if ( !$( '#table_options_first_row_th' ).attr('checked') )
                 $( '#table_options_datatables_sort' ).attr( 'disabled', 'disabled' );
+            if ( !WP_Table_Reloaded_Admin.option_tabletools_active )
+                $( '#table_options_datatables_tabletools' ).attr( 'disabled', 'disabled' );
+
         } else {
-            $( '.wp-table-reloaded-datatables-options :checkbox' ).attr( 'disabled', 'disabled' );
+            $( '.wp-table-reloaded-datatables-options input' ).attr( 'disabled', 'disabled' );
         }
     } );
 

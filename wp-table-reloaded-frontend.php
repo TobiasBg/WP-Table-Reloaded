@@ -130,6 +130,8 @@ class WP_Table_Reloaded_Frontend {
                 'datatables_lengthchange' => -1,
                 'datatables_filter' => -1,
                 'datatables_info' => -1,
+                'datatables_tabletools' => -1,
+                'datatables_customcommands' => -1,
                 'row_offset' => 1, // ATTENTION: MIGHT BE DROPPED IN FUTURE VERSIONS!
                 'row_count' => null, // ATTENTION: MIGHT BE DROPPED IN FUTURE VERSIONS!
                 'show_rows' => '',
@@ -327,7 +329,7 @@ class WP_Table_Reloaded_Frontend {
                             $width_style = ( !empty( $output_options['column_widths'][$col_idx] ) ) ? " style=\"width:{$output_options['column_widths'][$col_idx]};\"" : '';
                             $cell_content = do_shortcode( $this->safe_output( $cell_content ) );
                             $cell_content = apply_filters( 'wp_table_reloaded_cell_content', $cell_content, $table['id'], $row_idx + 1, $col_idx + 1 );
-                            $output .= "<th class=\"{$col_class}\"{$width_style}>" . "{$cell_content}" . "</th>";
+                            $output .= "<th class=\"{$col_class}\"{$width_style}>{$cell_content}</th>";
                         }
                         $output .= "\n\t</tr>\n";
                         $output .= "</thead>\n";
@@ -341,7 +343,7 @@ class WP_Table_Reloaded_Frontend {
                             $width_style = ( !empty( $output_options['column_widths'][$col_idx] ) ) ? " style=\"width:{$output_options['column_widths'][$col_idx]};\"" : '';
                             $cell_content = do_shortcode( $this->safe_output( $cell_content ) );
                             $cell_content = apply_filters( 'wp_table_reloaded_cell_content', $cell_content, $table['id'], $row_idx + 1, $col_idx + 1 );
-                            $output .= "<td class=\"{$col_class}\"{$width_style}>" . "{$cell_content}" . "</td>";
+                            $output .= "<td class=\"{$col_class}\"{$width_style}>{$cell_content}</td>";
                         }
                         $output .= "\n\t</tr>\n";
                     }
@@ -355,7 +357,7 @@ class WP_Table_Reloaded_Frontend {
                             $col_class = apply_filters( 'wp_table_reloaded_cell_css_class', $col_class, $table['id'], $row_idx + 1, $col_idx + 1 );
                             $cell_content = do_shortcode( $this->safe_output( $cell_content ) );
                             $cell_content = apply_filters( 'wp_table_reloaded_cell_content', $cell_content, $table['id'], $row_idx + 1, $col_idx + 1 );
-                            $output .= "<th class=\"{$col_class}\">" . "{$cell_content}" . "</th>";
+                            $output .= "<th class=\"{$col_class}\">{$cell_content}</th>";
                         }
                         $output .= "\n\t</tr>\n";
                         $output .= "</tfoot>\n";
@@ -366,7 +368,7 @@ class WP_Table_Reloaded_Frontend {
                             $col_class = apply_filters( 'wp_table_reloaded_cell_css_class', $col_class, $table['id'], $row_idx + 1, $col_idx + 1 );
                             $cell_content = do_shortcode( $this->safe_output( $cell_content ) );
                             $cell_content = apply_filters( 'wp_table_reloaded_cell_content', $cell_content, $table['id'], $row_idx + 1, $col_idx + 1 );
-                            $output .= "<td class=\"{$col_class}\">" . "{$cell_content}" . "</td>";
+                            $output .= "<td class=\"{$col_class}\">{$cell_content}</td>";
                         }
                         $output .= "\n\t</tr>\n";
                         $output .= "</tbody>\n";
@@ -378,7 +380,7 @@ class WP_Table_Reloaded_Frontend {
                         $col_class = apply_filters( 'wp_table_reloaded_cell_css_class', $col_class, $table['id'], $row_idx + 1, $col_idx + 1 );
                         $cell_content = do_shortcode( $this->safe_output( $cell_content ) );
                         $cell_content = apply_filters( 'wp_table_reloaded_cell_content', $cell_content, $table['id'], $row_idx + 1, $col_idx + 1 );
-                        $output .= "<td class=\"{$col_class}\">" . "{$cell_content}" . "</td>";
+                        $output .= "<td class=\"{$col_class}\">{$cell_content}</td>";
                     }
                     $output .= "\n\t</tr>\n";
                 }
@@ -398,7 +400,9 @@ class WP_Table_Reloaded_Frontend {
                     'datatables_paginate' => $output_options['datatables_paginate'],
                     'datatables_lengthchange' => $output_options['datatables_lengthchange'],
                     'datatables_filter' => $output_options['datatables_filter'],
-                    'datatables_info' => $output_options['datatables_info']
+                    'datatables_info' => $output_options['datatables_info'],
+                    'datatables_tabletools' => $output_options['datatables_tabletools'],
+                    'datatables_customcommands' => $output_options['datatables_customcommands']
             );
 
             // eventually add this table to list of tables which will be tablesorted and thus be included in the script call in wp_footer
@@ -453,7 +457,9 @@ CSSSTYLE;
     function output_tablesorter_js() {
     
         switch ( $this->options['tablesorter_script'] ) {
-            case 'datatables':
+            case 'datatables-tabletools':
+                $include_tabletools = true;
+            case 'datatables': // this also applies to datatables-tabletools, because there is no "break;" above
                 $jsfile =  'jquery.datatables.min.js';
                 $js_command = 'dataTable';
                 break;
@@ -473,8 +479,21 @@ CSSSTYLE;
         if ( 0 < count( $this->tablesorter_tables ) && file_exists( WP_TABLE_RELOADED_ABSPATH . 'js/' . $jsfile ) ) {
         
             // we have tables that shall be sortable, so we load the js
-            wp_register_script( 'wp-table-reloaded-tablesorter-js', plugins_url( 'js/' . $jsfile, __FILE__ ), array( 'jquery' ) );
-            wp_print_scripts( 'wp-table-reloaded-tablesorter-js' );
+            wp_register_script( 'wp-table-reloaded-frontend-js', plugins_url( 'js/' . $jsfile, __FILE__ ), array( 'jquery' ) );
+            wp_print_scripts( 'wp-table-reloaded-frontend-js' );
+
+            if ( isset( $include_tabletools ) && $include_tabletools ) {
+                // no need to explicitely check for dependencies ( 'wp-table-reloaded-frontend-js' and 'jquery' )
+                wp_register_script( 'wp-table-reloaded-tabletools1-js', plugins_url( 'js/tabletools/zeroclipboard.js', __FILE__ ) );
+                wp_print_scripts( 'wp-table-reloaded-tabletools1-js' );
+
+                wp_register_script( 'wp-table-reloaded-tabletools2-js', plugins_url( 'js/tabletools/tabletools.js', __FILE__ ) );
+                wp_localize_script( 'wp-table-reloaded-tabletools2-js', 'WP_Table_Reloaded_TableTools', array(
+    	  	        'swf_path' => plugins_url( 'js/tabletools/zeroclipboard.swf', __FILE__ ),
+                    'l10n_print_after' => 'try{convertEntities(WP_Table_Reloaded_TableTools);}catch(e){};'
+                ) );
+                wp_print_scripts( 'wp-table-reloaded-tabletools2-js' );
+            }
 
             // generate the commands to make them sortable
             $commands = array();
@@ -485,16 +504,20 @@ CSSSTYLE;
 
                 $parameters = array();
                 switch ( $this->options['tablesorter_script'] ) {
+                    case 'datatables-tabletools':
+                        if ( $js_options['datatables_tabletools'] )
+                            $parameters[] = "\"sDom\": 'T<\"clear\">lfrtip'";
                     case 'datatables':
-                        $parameters[] = '"aaSorting": []';
-                        // alt row colors is default, so remove them if not wanted with []
-                        $parameters[] = ( $js_options['alternating_row_colors'] ) ? "\"asStripClasses\":['even','odd']" : '"asStripClasses":[]';
+                        $parameters[] = '"aaSorting": []'; // no initial sort
+                        $parameters[] = ( $js_options['alternating_row_colors'] ) ? "\"asStripClasses\":['even','odd']" : '"asStripClasses":[]'; // alt row colors is default, so remove them if not wanted with []
                         $parameters[] = ( $js_options['datatables_sort'] ) ? '"bSort": true' : '"bSort": false';
                         $parameters[] = ( $js_options['datatables_paginate'] ) ? '"bPaginate": true' : '"bPaginate": false';
                         $parameters[] = ( $js_options['datatables_lengthchange'] ) ? '"bLengthChange": true' : '"bLengthChange": false';
                         $parameters[] = ( $js_options['datatables_filter'] ) ? '"bFilter": true' : '"bFilter": false';
                         $parameters[] = ( $js_options['datatables_info'] ) ? '"bInfo": true' : '"bInfo": false';
                         $parameters[] = '"bSortClasses": false'; // don't add additional classes, hopefully speeds up things
+                        if ( !empty( $js_options['datatables_customcommands'] ) ) // custom commands added, if not empty
+                            $parameters[] = stripslashes( $js_options['datatables_customcommands'] ); // stripslashes is necessary!
                         break;
                     case 'tablesorter':
                     case 'tablesorter_extended':
