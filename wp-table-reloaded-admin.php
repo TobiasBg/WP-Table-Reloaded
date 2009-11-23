@@ -1631,7 +1631,7 @@ class WP_Table_Reloaded_Admin {
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Custom Commands', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="text" name="table[options][datatables_customcommands]" id="table_options_datatables_customcommands"<?php echo ( !$tabletools_enabled || false == $table['options']['use_tablesorter'] ) ? ' disabled="disabled"': '' ; ?> value="<?php echo $this->helper->safe_output( $table['options']['datatables_customcommands'] ); ?>" style="width:100%" /> <label for="table_options_datatables_customcommands"><small><br/><?php _e( 'You can enter additional DataTables parameters (JavaScript commands) here, that will be included with the DataTables script call.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> (<?php _e( 'For advanced use only, as mistakes will cause script errors.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>)</small></label></td>
+            <td><input type="text" name="table[options][datatables_customcommands]" id="table_options_datatables_customcommands"<?php echo ( !$datatables_enabled || false == $table['options']['use_tablesorter'] ) ? ' disabled="disabled"': '' ; ?> value="<?php echo $this->helper->safe_output( $table['options']['datatables_customcommands'] ); ?>" style="width:100%" /> <label for="table_options_datatables_customcommands"><small><br/><?php _e( 'You can enter additional DataTables parameters (JavaScript commands) here, that will be included with the DataTables script call.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> (<?php _e( 'For advanced use only, as mistakes will cause script errors.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>)</small></label></td>
         </tr>
         </table>
         </div>
@@ -2000,7 +2000,7 @@ class WP_Table_Reloaded_Admin {
         <tr valign="top">
             <th scope="row">&nbsp;</th>
             <td><label for="options_custom_css"><?php _e( 'Enter custom CSS', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label><br/>
-            <textarea name="options[custom_css]" id="options_custom_css" rows="15" cols="40" style="width:600px;height:300px;"<?php echo ( false == $this->options['use_custom_css'] ) ? ' disabled="disabled"': '' ; ?>><?php echo $this->helper->safe_output( $this->options['custom_css'] ); ?></textarea><br/><br/>
+            <textarea name="options[custom_css]" id="options_custom_css" rows="10" cols="40" style="width:600px;height:100px;"<?php echo ( false == $this->options['use_custom_css'] ) ? ' disabled="disabled"': '' ; ?>><?php echo $this->helper->safe_output( $this->options['custom_css'] ); ?></textarea><br/><br/>
             <?php
             $stylesheet = '/themes/' . get_stylesheet() . '/style.css';
             $editor_uri = admin_url( 'theme-editor.php' ) . '?file=' . $stylesheet;
@@ -2374,144 +2374,7 @@ class WP_Table_Reloaded_Admin {
         $this->options = $this->default_options;
         $this->options['installed_version'] = $this->plugin_version;
         $this->options['install_time'] = time();
-        $plugin_path = plugins_url( '', __FILE__ );
-        $this->options['custom_css'] = <<<CSS
-.wp-table-reloaded {
-	background-color: #CDCDCD;
-	margin: 10px 0px 15px 0px;
-	font-size: 8pt;
-	width: 100%;
-	text-align: left;
-}
-.wp-table-reloaded th {
-	background-color: #E6EEEE;
-	border: 1px solid #FFFFFF;
-	padding: 4px;
-}
-.wp-table-reloaded td {
-	color: #3D3D3D;
-	padding: 4px;
-	background-color: #FFFFFF;
-	vertical-align: top;
-}
-.wp-table-reloaded .even td {
-	background-color: #FFFFFF;
-}
-.wp-table-reloaded .odd td{
-	background-color: #F0F0F6;
-}
-.wp-table-reloaded .header, .wp-table-reloaded .sorting {
-	background: #E6EEEE url({$plugin_path}/img/bg.gif) no-repeat center right;
-	cursor: pointer;
-}
-.wp-table-reloaded .headerSortUp, .wp-table-reloaded .sorting_asc {
-	background: #8DBDD8 url({$plugin_path}/img/asc.gif) no-repeat center right;
-}
-
-.wp-table-reloaded .headerSortDown, .wp-table-reloaded .sorting_desc {
-	background: #8DBDD8 url({$plugin_path}/img/desc.gif) no-repeat center right;
-}
-
-/* New since WP-Table Reloaded 1.5 */
-
-.dataTables_wrapper {
-	position: relative;
-	min-height: 302px;
-	_height: 302px;
-	clear: both;
-}
-
-.dataTables_wrapper .wp-table-reloaded {
-    clear: both;
-}
-
-.dataTables_processing {
-	position: absolute;
-	top: 0px;
-	left: 50%;
-	width: 250px;
-	margin-left: -125px;
-	border: 1px solid #ddd;
-	text-align: center;
-	color: #999;
-	font-size: 11px;
-	padding: 2px 0;
-}
-
-.dataTables_length {
-	width: 50%;
-	float: left;
-}
-
-.dataTables_filter {
-	width: 45%;
-	float: right;
-	text-align: right;
-}
-
-.dataTables_info {
-	width: 60%;
-	float: left;
-}
-
-.dataTables_paginate {
-	width: 44px;
-	* width: 50px;
-	float: right;
-	text-align: right;
-}
-
-.paginate_disabled_previous, .paginate_enabled_previous, .paginate_disabled_next, .paginate_enabled_next {
-	height: 19px;
-	width: 19px;
-	margin-left: 3px;
-	float: left;
-}
-
-.paginate_disabled_previous {
-	background-image: url({$image_path}/back_disabled.jpg);
-}
-
-.paginate_enabled_previous {
-	background-image: url({$image_path}/back_enabled.jpg);
-}
-
-.paginate_disabled_next {
-	background-image: url({$image_path}/forward_disabled.jpg);
-}
-
-.paginate_enabled_next {
-	background-image: url({$image_path}/forward_enabled.jpg);
-}
-
-.paging_full_numbers {
-	width: 400px;
-	height: 22px;
-	line-height: 22px;
-}
-
-.paging_full_numbers span.paginate_button, .paging_full_numbers span.paginate_active {
-	border: 1px solid #aaa;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	padding: 2px 5px;
-	margin: 0 3px;
-	cursor: pointer;
-	*cursor: hand;
-}
-
-.paging_full_numbers span.paginate_button {
-	background-color: #ddd;
-}
-
-.paging_full_numbers span.paginate_button:hover {
-	background-color: #ccc;
-}
-
-.paging_full_numbers span.paginate_active {
-	background-color: #99B3FF;
-}
-CSS;
+        $this->options['custom_css'] = ''; // we could add initial CSS here, for demonstration
         $this->update_options();
         $this->tables = $this->default_tables;
         $this->update_tables();

@@ -57,7 +57,7 @@ class WP_Table_Reloaded_Frontend {
         // if tablesorter enabled (globally) include javascript
 		if ( true == $this->options['enable_tablesorter'] ) {
     		wp_enqueue_script( 'jquery' ); // jquery needed in any case (it's too late to do this, when shortcode is executed
-            add_action( 'wp_footer', array( &$this, 'output_tablesorter_js' ) ); // but if we actually need the tablesorter script can be determined in the footer
+            add_action( 'wp_footer', array( &$this, 'add_frontend_js' ) ); // but if we actually need the tablesorter script can be determined in the footer
         }
 
         // if global css shall be used
@@ -434,28 +434,28 @@ class WP_Table_Reloaded_Frontend {
     }
 
     // ###################################################################################################################
-    // load and print css-style, (only called if enabled, by wp_head-action)
+    // load and print CSS styles (only called if enabled as a wp_head action)
     function add_frontend_css() {
-    
-        // creathe @import commands for the default styles
-        $default_css = '';
+        // create @import commands for the default styles
+        $default_css = array();
         if ( true == $this->options['use_default_css'] ) {
             $plugin_path = plugins_url( '', __FILE__ );
-            $default_css = "@import url(\"{$plugin_path}/css/plugin.css\");\n";
+            $default_css[] = "@import url(\"{$plugin_path}/css/plugin.css\");";
             switch ( $this->options['tablesorter_script'] ) {
                 case 'datatables-tabletools':
-                    $default_css .= "@import url(\"{$plugin_path}/js/tabletools/tabletools.css\");\n";
+                    $default_css[] = "@import url(\"{$plugin_path}/js/tabletools/tabletools.css\");";
                 case 'datatables': // this also applies to the above, because of the missing "break;"
-                    $default_css .= "@import url(\"{$plugin_path}/css/datatables.css\");\n";
+                    $default_css[] = "@import url(\"{$plugin_path}/css/datatables.css\");";
                     break;
                 case 'tablesorter':
                 case 'tablesorter_extended':
-                    $default_css .= "@import url(\"{$plugin_path}/css/tablesorter.css\");\n";
+                    $default_css[] = "@import url(\"{$plugin_path}/css/tablesorter.css\");";
                     break;
                 default:
             }
         }
         $default_css = apply_filters( 'wp_table_reloaded_default_css', $default_css, $this->options['use_default_css'], $this->options['tablesorter_script'] );
+        $default_css = implode( "\n", $default_css );
 
         // load css filename from options, if option doesn't exist, use default
         $custom_css = '';
@@ -465,12 +465,13 @@ class WP_Table_Reloaded_Frontend {
         }
         $custom_css = apply_filters( 'wp_table_reloaded_custom_css', $custom_css, $this->options['use_custom_css'] );
 
-        if ( !empty( $default_css ) && !empty( $custom_css ) ) {
+        if ( !empty( $default_css ) || !empty( $custom_css ) ) {
+            $divider = ( !empty( $default_css ) && !empty( $custom_css ) ) ? "\n" : '';
+            // $default_css needs to stand above $custom_css, so that $custom_css commands can overwrite $default_css commands
             $css = <<<CSSSTYLE
 <style type="text/css" media="all">
 /* <![CDATA[ */
-{$default_css}
-{$custom_css}
+{$default_css}{$divider}{$custom_css}
 /* ]]> */
 </style>
 CSSSTYLE;
@@ -481,7 +482,7 @@ CSSSTYLE;
 
     // ###################################################################################################################
     // output tablesorter execution js for all tables in wp_footer
-    function output_tablesorter_js() {
+    function add_frontend_js() {
     
         switch ( $this->options['tablesorter_script'] ) {
             case 'datatables-tabletools':
