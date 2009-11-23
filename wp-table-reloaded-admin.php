@@ -2545,7 +2545,8 @@ CSS;
     function plugin_update_message( $current, $new ) {
         if ( !isset( $this->options['update_message'][$new->new_version] ) || empty( $this->options['update_message'][$new->new_version] ) ) {
             $message_text = '';
-            $update_message = wp_remote_fopen( "http://tobias.baethge.com/dev/plugin/update/wp-table-reloaded/{$current['Version']}/{$new->new_version}/" );
+            $wp_locale = get_locale();
+            $update_message = wp_remote_fopen( "http://dev.tobias.baethge.com/plugin/update/wp-table-reloaded/{$current['Version']}/{$new->new_version}/{$wp_locale}/" );
             if ( false !== $update_message ) {
                 if ( 1 == preg_match( '/<info>(.*?)<\/info>/is', $update_message, $matches ) )
                     $message_text = $matches[1];
