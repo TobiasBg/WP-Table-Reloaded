@@ -2627,7 +2627,6 @@ TSSCRIPT;
 <script type="text/javascript">
 /* <![CDATA[ */
 jQuery(document).ready(function($){
-
 {$tsscript}{$wpList}
 });
 /* ]]> */

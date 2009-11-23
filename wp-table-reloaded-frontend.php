@@ -536,6 +536,14 @@ CSSSTYLE;
                         if ( $js_options['datatables_tabletools'] )
                             $parameters[] = "\"sDom\": 'T<\"clear\">lfrtip'";
                     case 'datatables':
+                        $datatables_locale = get_locale();
+                        $datatables_locale = apply_filters( 'wp_table_reloaded_datatables_locale', $datatable_locale );
+                        $language_file = "languages/datatables/lang-{$datatables_locale}.txt";
+                        $language_file = ( file_exists( WP_TABLE_RELOADED_ABSPATH . $language_file ) ) ? '/' . $language_file : '/languages/datatables/lang-default.txt';
+                        $language_file_url = plugins_url( $language_file, __FILE__ );
+                        $language_file_url = apply_filters( 'wp_table_reloaded_datatables_language_file_url', $language_file_url );
+                        if ( !empty( $language_file_url ) )
+                            $parameters[] = "\"oLanguage\":{\"sUrl\": \"{$language_file_url}\"}"; // URL with language file
                         $parameters[] = '"aaSorting": []'; // no initial sort
                         $parameters[] = ( $js_options['alternating_row_colors'] ) ? "\"asStripClasses\":['even','odd']" : '"asStripClasses":[]'; // alt row colors is default, so remove them if not wanted with []
                         $parameters[] = ( $js_options['datatables_sort'] ) ? '"bSort": true' : '"bSort": false';
