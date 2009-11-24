@@ -140,8 +140,16 @@ class WP_Table_Reloaded_Admin {
             foreach ( $pages_with_editor_button as $page )
                 add_action( 'load-' . $page, array( &$this, 'add_editor_button' ) );
 
-            // add remote message, if update available
-            add_action( 'in_plugin_update_message-' . WP_TABLE_RELOADED_BASENAME, array( &$this, 'plugin_update_message' ), 10, 2 );
+            // add remote message, if update available / add additional links on Plugins page, but only if page is plugins.php
+            if ( 'plugins.php' == $GLOBALS['pagenow'] ) {
+                if ( version_compare( $GLOBALS['wp_version'], '2.8', '>=') ) { // this is for WP 2.8 and later
+                    add_action( 'in_plugin_update_message-' . WP_TABLE_RELOADED_BASENAME, array( &$this, 'add_plugin_update_message' ), 10, 2 );
+                    add_filter( 'plugin_row_meta', array( &$this, 'add_plugin_row_meta_28' ), 10, 2);
+                } else { // this is for WP 2.7
+                    add_action( 'after_plugin_row_' . WP_TABLE_RELOADED_BASENAME, array( &$this, 'add_plugin_update_message_row' ), 10, 2 );
+                    add_filter( 'plugin_action_links', array( &$this, 'add_plugin_row_meta_27' ), 10, 2);
+                }
+            }
         }
     }
 
@@ -2436,7 +2444,7 @@ class WP_Table_Reloaded_Admin {
     // ###################################################################################################################
     // get remote plugin update message and show it right under the "upgrade automatically" message
     // $current and $new are passed by the do_action call and contain respective plugin version information
-    function plugin_update_message( $current, $new ) {
+    function get_plugin_update_message( $current, $new ) {
         if ( !isset( $this->options['update_message'][$new->new_version] ) || empty( $this->options['update_message'][$new->new_version] ) ) {
             $message_text = '';
             $wp_locale = get_locale();
@@ -2448,11 +2456,59 @@ class WP_Table_Reloaded_Admin {
             $this->options['update_message'][$new->new_version] = $message_text;
             $this->update_options();
         }
-
         $message = $this->options['update_message'][$new->new_version];
-        if ( !empty( $message ) )
-            echo '<br />' . $this->helper->safe_output( $message );
+        return $this->helper->safe_output( $message );
     }
+
+    // ###################################################################################################################
+    // wrapper for above function for WP >= 2.8 where filter "in_plugin_update-..." exists
+    function add_plugin_update_message( $current, $new ) {
+        $message = $this->get_plugin_update_message( $current, $new );
+        if ( !empty( $message ) )
+            echo "<br />{$message}";
+    }
+
+    // ###################################################################################################################
+    // wrapper for above function for WP < 2.8, because filter "in_plugin_update-..." does not yet exist there
+    function add_plugin_update_message_row( $file, $plugin_data ) {
+        $current = get_option( 'update_plugins' );
+        if ( !isset( $current->response[ $file ] ) )
+            return false;
+        $r = $current->response[ $file ];
+        $message = $this->get_plugin_update_message( $plugin_data, $r );
+        if ( !empty( $message ) )
+            echo "<tr><td colspan=\"5\" class=\"plugin-update\">{$message}</td></tr>";
+    }
+
+    // ###################################################################################################################
+    // add links to plugin's entry on Plugins page (WP >= 2.8)
+	function add_plugin_row_meta_28( $links, $file ) {
+		if ( WP_TABLE_RELOADED_BASENAME == $file ) {
+			$links[] = '<a href="' . $this->get_action_url() . '" title="' . __('WP-Table Reloaded Plugin Page') . '">' . __('Plugin Page') . '</a>';
+			$links[] = '<a href="http://tobias.baethge.com/redirect/wp-table-reloaded/faq/" title="' . __('Frequently Asked Questions') . '">' . __('FAQ') . '</a>';
+			$links[] = '<a href="http://tobias.baethge.com/redirect/wp-table-reloaded/support/" title="' . __('Support') . '">' . __('Support') . '</a>';
+			$links[] = '<a href="http://tobias.baethge.com/redirect/wp-table-reloaded/documentation/" title="' . __('Plugin Documentation') . '">' . __('Documentation') . '</a>';
+			$links[] = '<a href="http://tobias.baethge.com/redirect/wp-table-reloaded/donate/" title="' . __('Support WP-Table Reloaded with your donation!') . '"><strong>' . __('Donate') . '</strong></a>';
+		}
+		return $links;
+	}
+
+    // ###################################################################################################################
+    // add links to plugin's entry on Plugins page (WP < 2.8)
+	function add_plugin_row_meta_27( $links, $file ) {
+		if ( WP_TABLE_RELOADED_BASENAME == $file ) {
+			// two links are combined in one entry. That way, the added divider will not be the automatically added "|", but the <br/>
+			$faq_link = '<a href="http://tobias.baethge.com/redirect/wp-table-reloaded/faq/" title="' . __('Frequently Asked Questions') . '">' . __('FAQ') . '</a>';
+			$docs_donate_link = '<a href="http://tobias.baethge.com/redirect/wp-table-reloaded/documentation/" title="' . __('Plugin Documentation') . '">' . __('Documentation') . '</a>' .
+    '<br/>' . '<a href="http://tobias.baethge.com/redirect/wp-table-reloaded/donate/" title="' . __('Support WP-Table Reloaded with your donation!') . '"><strong>' . __('Donate') . '</strong></a>';
+            $support_link = '<a href="http://tobias.baethge.com/redirect/wp-table-reloaded/support/" title="' . __('Support') . '">' . __('Support') . '</a>';
+            // $support_link is prepended to existing link, because we want <br/> instead | between them. a little bit hacky, but it works :-)
+            $links[0]= $support_link . '<br/>' . $links[0];
+            array_unshift( $links, $faq_link, $docs_donate_link );
+		}
+		return $links;
+	}
+
 
     // ###################################################################################################################
     // initialize i18n support, load textdomain
@@ -2484,7 +2540,7 @@ class WP_Table_Reloaded_Admin {
 	  	        'str_DeleteColsConfirm' => __( 'Do you really want to delete the selected columns?', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_DeleteRowsFailedNoSelection' => __( 'You have not selected any rows.', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_DeleteColsFailedNoSelection' => __( 'You have not selected any columns.', WP_TABLE_RELOADED_TEXTDOMAIN ),
-	  	        'str_DeleteRowsFailedNotAll' => __( 'You can not delete all rows of the table at once!', WP_TABLE_RELOADED_TEXTDOMAIN ),
+                'str_DeleteRowsFailedNotAll' => __( 'You can not delete all rows of the table at once!', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_DeleteColsFailedNotAll' => __( 'You can not delete all columns of the table at once!', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_UnHideRowsNoSelection' => __( 'You have not selected any rows.', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_UnHideColsNoSelection' => __( 'You have not selected any columns.', WP_TABLE_RELOADED_TEXTDOMAIN ),
