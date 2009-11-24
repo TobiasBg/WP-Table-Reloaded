@@ -70,13 +70,22 @@ jQuery(document).ready( function( $ ) {
         }
 	});
 
-    // functions to make focussed textareas bigger  (if backend option is enabled)
+    // functions to make focussed textareas bigger (if backend option is enabled)
+    var focussed = null;
     if ( WP_Table_Reloaded_Admin.option_growing_textareas ) {
         $( '#table_contents textarea' ).focus( function() {
-            $( '#table_contents .focus' ).removeClass('focus');
-            $(this).parents('tr').find('textarea').addClass('focus');
+            $(focussed).removeClass('focus');
+            focussed = $(this).parents('tr').find('textarea');
+            $(focussed).addClass('focus');
         } );
     }
+
+    // custom css textarea grows on focus
+    function css_textarea_focus() {
+        $( '#options_custom_css' ).addClass('focus')
+        .unbind( 'focus', css_textarea_focus );
+    }
+    $( '#options_custom_css' ).bind( 'focus', css_textarea_focus );
 
     // show export delimiter dropdown box only if export format is csv
     $( '#export_format' ).change( function () {

@@ -52,8 +52,17 @@
     background-color:#FFE0E0;
 }
 
-textarea.focus {
+#table_contents .focus {
     height:84px;
+}
+
+#options_custom_css {
+    width:600px;
+    height:100px;
+}
+
+#options_custom_css.focus {
+    height:300px;
 }
 
 .wp-table-reloaded-table-information td {

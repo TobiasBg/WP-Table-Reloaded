@@ -2008,7 +2008,7 @@ class WP_Table_Reloaded_Admin {
         <tr valign="top">
             <th scope="row">&nbsp;</th>
             <td><label for="options_custom_css"><?php _e( 'Enter custom CSS', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label><br/>
-            <textarea name="options[custom_css]" id="options_custom_css" rows="10" cols="40" style="width:600px;height:100px;"<?php echo ( false == $this->options['use_custom_css'] ) ? ' disabled="disabled"': '' ; ?>><?php echo $this->helper->safe_output( $this->options['custom_css'] ); ?></textarea><br/><br/>
+            <textarea name="options[custom_css]" id="options_custom_css" rows="10" cols="40"<?php echo ( false == $this->options['use_custom_css'] ) ? ' disabled="disabled"': '' ; ?>><?php echo $this->helper->safe_output( $this->options['custom_css'] ); ?></textarea><br/><br/>
             <?php
             $stylesheet = '/themes/' . get_stylesheet() . '/style.css';
             $editor_uri = admin_url( 'theme-editor.php' ) . '?file=' . $stylesheet;
