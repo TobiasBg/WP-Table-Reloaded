@@ -151,6 +151,19 @@ TEXT;
     }
 
     // ###################################################################################################################
+    // retrieve the update message from the development server to notify user of what changes there are in this update, in his language
+    function retrieve_plugin_update_message( $current_version, $new_version ) {
+        $message = '';
+        $wp_locale = get_locale();
+        $update_message = wp_remote_fopen( "http://dev.tobias.baethge.com/plugin/update/wp-table-reloaded/{$current_version}/{$new_version}/{$wp_locale}/" );
+        if ( false !== $update_message ) {
+            if ( 1 == preg_match( '/<info>(.*?)<\/info>/is', $update_message, $matches ) )
+                $message = $matches[1];
+        }
+        return $message;
+    }
+
+    // ###################################################################################################################
     // this function is equivalent to WP's plugins_url, but we need it for WP 2.7, as that has a different output
     function plugins_url( $path, $plugin ) {
         if ( version_compare( $GLOBALS['wp_version'], '2.8', '>=') ) {

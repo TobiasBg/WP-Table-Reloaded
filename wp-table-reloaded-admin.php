@@ -2446,26 +2446,21 @@ class WP_Table_Reloaded_Admin {
     // $current and $new are passed by the do_action call and contain respective plugin version information
     function get_plugin_update_message( $current, $new ) {
         if ( !isset( $this->options['update_message'][$new->new_version] ) || empty( $this->options['update_message'][$new->new_version] ) ) {
-            $message_text = '';
-            $wp_locale = get_locale();
-            $update_message = wp_remote_fopen( "http://dev.tobias.baethge.com/plugin/update/wp-table-reloaded/{$current['Version']}/{$new->new_version}/{$wp_locale}/" );
-            if ( false !== $update_message ) {
-                if ( 1 == preg_match( '/<info>(.*?)<\/info>/is', $update_message, $matches ) )
-                    $message_text = $matches[1];
-            }
-            $this->options['update_message'][$new->new_version] = $message_text;
+            $message = $this->helper->retrieve_plugin_update_message( $current['Version'], $new->new_version );
+            $this->options['update_message'][$new->new_version] = $message;
             $this->update_options();
         }
-        $message = $this->options['update_message'][$new->new_version];
-        return $this->helper->safe_output( $message );
+        return $this->options['update_message'][$new->new_version];
     }
 
     // ###################################################################################################################
     // wrapper for above function for WP >= 2.8 where filter "in_plugin_update-..." exists
     function add_plugin_update_message( $current, $new ) {
         $message = $this->get_plugin_update_message( $current, $new );
-        if ( !empty( $message ) )
+        if ( !empty( $message ) ) {
+            $message = $this->helper->safe_output( $message );
             echo "<br />{$message}";
+        }
     }
 
     // ###################################################################################################################
@@ -2476,8 +2471,10 @@ class WP_Table_Reloaded_Admin {
             return false;
         $r = $current->response[ $file ];
         $message = $this->get_plugin_update_message( $plugin_data, $r );
-        if ( !empty( $message ) )
+        if ( !empty( $message ) ) {
+            $message = $this->helper->safe_output( $message );
             echo "<tr><td colspan=\"5\" class=\"plugin-update\">{$message}</td></tr>";
+        }
     }
 
     // ###################################################################################################################
