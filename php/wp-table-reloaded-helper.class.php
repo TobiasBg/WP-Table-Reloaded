@@ -149,6 +149,21 @@ TEXT;
         $output = ( $postbox_closed ) ? ' closed' : '';
         return $output;
     }
+
+    // ###################################################################################################################
+    // this function is equivalent to WP's plugins_url, but we need it for WP 2.7, as that has a different output
+    function plugins_url( $path, $plugin ) {
+        if ( version_compare( $GLOBALS['wp_version'], '2.8', '>=') ) {
+            return plugins_url( $path, $plugin );
+        } else {
+            $folder = dirname( plugin_basename( $plugin ) );
+            if ( '.' != $folder )
+                $folder = '/' . ltrim( $folder, '/' );
+            $path = '/' . ltrim( $path, '/' );
+            $path = $folder . $path;
+            return plugins_url( $path );
+        }
+    }
     
 } // class WP_Table_Reloaded_Helper
 

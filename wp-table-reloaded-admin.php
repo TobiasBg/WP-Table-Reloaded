@@ -2523,7 +2523,7 @@ class WP_Table_Reloaded_Admin {
         $suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.dev' : '';
         $jsfile = "admin-script{$suffix}.js";
 
-        wp_register_script( 'wp-table-reloaded-admin-js', plugins_url( 'admin/' . $jsfile, __FILE__ ), array( 'jquery' ), $this->plugin_version );
+        wp_register_script( 'wp-table-reloaded-admin-js', $this->helper->plugins_url( 'admin/' . $jsfile, __FILE__ ), array( 'jquery' ), $this->plugin_version );
         // add all strings to translate here
         wp_localize_script( 'wp-table-reloaded-admin-js', 'WP_Table_Reloaded_Admin', array(
 	  	        'str_UninstallCheckboxActivation' => __( 'Do you really want to activate this? You should only do that right before uninstallation!', WP_TABLE_RELOADED_TEXTDOMAIN ),
@@ -2570,7 +2570,7 @@ class WP_Table_Reloaded_Admin {
     function add_manage_page_css() {
         $suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.dev' : '';
         $cssfile = "admin-style{$suffix}.css";
-        wp_enqueue_style( 'wp-table-reloaded-admin-css', plugins_url( 'admin/' . $cssfile, __FILE__ ), array(), $this->plugin_version );
+        wp_enqueue_style( 'wp-table-reloaded-admin-css', $this->helper->plugins_url( 'admin/' . $cssfile, __FILE__ ), array(), $this->plugin_version );
     }
 
     // ###################################################################################################################
@@ -2598,7 +2598,7 @@ class WP_Table_Reloaded_Admin {
         // currently doing this by hand in the footer, as footer-scripts are only available since WP 2.8
         $suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.dev' : '';
         $jsfile = "admin-editor-buttons-script{$suffix}.js";
-        wp_register_script( 'wp-table-reloaded-admin-editor-buttons-js', plugins_url( 'admin/' . $jsfile, __FILE__ ), array( 'jquery', 'thickbox' ), $this->plugin_version );
+        wp_register_script( 'wp-table-reloaded-admin-editor-buttons-js', $this->helper->plugins_url( 'admin/' . $jsfile, __FILE__ ), array( 'jquery', 'thickbox' ), $this->plugin_version );
         // add all strings to translate here
         wp_localize_script( 'wp-table-reloaded-admin-editor-buttons-js', 'WP_Table_Reloaded_Admin', array(
 	  	        'str_EditorButtonCaption' => __( 'Table', WP_TABLE_RELOADED_TEXTDOMAIN ),
@@ -2625,7 +2625,7 @@ $('.delete a[class^="delete"]').click(function(){return false;});
 
 WPLIST;
 
-            wp_register_script( 'wp-table-reloaded-tablesorter-js', plugins_url( 'js/jquery.datatables.min.js', __FILE__ ), array( 'jquery' ) );
+            wp_register_script( 'wp-table-reloaded-tablesorter-js', $this->helper->plugins_url( 'js/jquery.datatables.min.js', __FILE__ ), array( 'jquery' ) );
             wp_print_scripts( 'wp-table-reloaded-tablesorter-js' );
 
             $sProcessing = __( 'Please wait...', WP_TABLE_RELOADED_TEXTDOMAIN );
