@@ -172,7 +172,8 @@ TEXT;
             $folder = dirname( plugin_basename( $plugin ) );
             if ( '.' != $folder )
                 $folder = '/' . ltrim( $folder, '/' );
-            $path = '/' . ltrim( $path, '/' );
+            if ( '' != $path )
+                $path = '/' . ltrim( $path, '/' );
             $path = $folder . $path;
             return plugins_url( $path );
         }
