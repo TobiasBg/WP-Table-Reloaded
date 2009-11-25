@@ -51,8 +51,7 @@ class WP_Table_Reloaded_Frontend {
         add_shortcode( $this->shortcode_table_info, array( &$this, 'handle_content_shortcode_table_info' ) );
         add_shortcode( $this->shortcode_table, array( &$this, 'handle_content_shortcode_table' ) );
 
-        add_filter( 'widget_text', array( &$this, 'handle_widget_filter_table_info' ) );
-        add_filter( 'widget_text', array( &$this, 'handle_widget_filter_table' ) );
+        add_filter( 'widget_text', array( &$this, 'handle_widget_text_filter' ) );
 
         // if tablesorter enabled (globally) include javascript
 		if ( true == $this->options['enable_tablesorter'] ) {
@@ -204,26 +203,21 @@ class WP_Table_Reloaded_Frontend {
     }
 
     // ###################################################################################################################
-    // handle [table-info id=<the_table_id> field="name" /] in widget texts
-    function handle_widget_filter_table_info( $text ) {
-        return widget_filter_replace( $this->shortcode_table_info, $text );
-    }
-
-    // handle [table id=<the_table_id> /] in widget texts
-    function handle_widget_filter_table( $text ) {
-        return widget_filter_replace( $this->shortcode_table, $text );
-    }
-
-    // actual replacement of above two functions, they are the same, besides the shortcode
-    function widget_filter_replace( $shortcode, $text ) {
-        // pattern to search for in widget text (only our plugin's shortcode!)
-        if ( version_compare( $GLOBALS['wp_version'], '2.8alpha', '>=') ) {
-            $pattern = '(.?)\[(' . preg_quote( $this->shortcode_table_info ) . ')\b(.*?)(?:(\/))?\](?:(.+?)\[\/\2\])?(.?)';
-        } else {
-            $pattern = '\[(' . preg_quote( $this->shortcode_table_info ) . ')\b(.*?)(?:(\/))?\](?:(.+?)\[\/\1\])?';
-        }
-        // search for it, if found, handle as if it were a shortcode
-        return preg_replace_callback( '/'.$pattern.'/s', 'do_shortcode_tag', $text );
+    // handle plugin's shortcodes in widget texts, this is done by temporarily removing all shortcodes, registering only our two,
+    // and running WP's shortcode routines, then restore old behavior
+    function handle_widget_text_filter( $content ) {
+        global $shortcode_tags;
+        // backup the currently registered shortcodes and clear the array
+        $orig_shortcode_tags = $shortcode_tags;
+        $shortcode_tags = array();
+        // register plugin's shortcodes
+        add_shortcode( $this->shortcode_table_info, array( &$this, 'handle_content_shortcode_table_info' ) );
+        add_shortcode( $this->shortcode_table, array( &$this, 'handle_content_shortcode_table' ) );
+        // do the shortcode routines (only the two above are registered)
+        $content = do_shortcode( $content );
+        // restore the original shortcodes
+        $shortcode_tags = $orig_shortcode_tags;
+        return $content;
     }
 
     // ###################################################################################################################
