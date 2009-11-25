@@ -433,7 +433,7 @@ class WP_Table_Reloaded_Frontend {
         // create @import commands for the default styles
         $default_css = array();
         if ( true == $this->options['use_default_css'] ) {
-            $plugin_path = plugins_url( '', __FILE__ );
+            $plugin_path = $this->helper->plugins_url( '', __FILE__ );
             $default_css[] = "@import url(\"{$plugin_path}/css/plugin.css\");";
             switch ( $this->options['tablesorter_script'] ) {
                 case 'datatables-tabletools':
@@ -501,17 +501,17 @@ CSSSTYLE;
         if ( 0 < count( $this->tablesorter_tables ) && file_exists( WP_TABLE_RELOADED_ABSPATH . 'js/' . $jsfile ) ) {
         
             // we have tables that shall be sortable, so we load the js
-            wp_register_script( 'wp-table-reloaded-frontend-js', plugins_url( 'js/' . $jsfile, __FILE__ ), array( 'jquery' ) );
+            wp_register_script( 'wp-table-reloaded-frontend-js', $this->helper->plugins_url( 'js/' . $jsfile, __FILE__ ), array( 'jquery' ) );
             wp_print_scripts( 'wp-table-reloaded-frontend-js' );
 
             if ( isset( $include_tabletools ) && $include_tabletools ) {
                 // no need to explicitely check for dependencies ( 'wp-table-reloaded-frontend-js' and 'jquery' )
-                wp_register_script( 'wp-table-reloaded-tabletools1-js', plugins_url( 'js/tabletools/zeroclipboard.js', __FILE__ ) );
+                wp_register_script( 'wp-table-reloaded-tabletools1-js', $this->helper->plugins_url( 'js/tabletools/zeroclipboard.js', __FILE__ ) );
                 wp_print_scripts( 'wp-table-reloaded-tabletools1-js' );
 
-                wp_register_script( 'wp-table-reloaded-tabletools2-js', plugins_url( 'js/tabletools/tabletools.js', __FILE__ ) );
+                wp_register_script( 'wp-table-reloaded-tabletools2-js', $this->helper->plugins_url( 'js/tabletools/tabletools.js', __FILE__ ) );
                 wp_localize_script( 'wp-table-reloaded-tabletools2-js', 'WP_Table_Reloaded_TableTools', array(
-    	  	        'swf_path' => plugins_url( 'js/tabletools/zeroclipboard.swf', __FILE__ ),
+    	  	        'swf_path' => $this->helper->plugins_url( 'js/tabletools/zeroclipboard.swf', __FILE__ ),
                     'l10n_print_after' => 'try{convertEntities(WP_Table_Reloaded_TableTools);}catch(e){};'
                 ) );
                 wp_print_scripts( 'wp-table-reloaded-tabletools2-js' );
@@ -534,7 +534,7 @@ CSSSTYLE;
                         $datatables_locale = apply_filters( 'wp_table_reloaded_datatables_locale', $datatable_locale );
                         $language_file = "languages/datatables/lang-{$datatables_locale}.txt";
                         $language_file = ( file_exists( WP_TABLE_RELOADED_ABSPATH . $language_file ) ) ? '/' . $language_file : '/languages/datatables/lang-default.txt';
-                        $language_file_url = plugins_url( $language_file, __FILE__ );
+                        $language_file_url = $this->helper->plugins_url( $language_file, __FILE__ );
                         $language_file_url = apply_filters( 'wp_table_reloaded_datatables_language_file_url', $language_file_url );
                         if ( !empty( $language_file_url ) )
                             $parameters[] = "\"oLanguage\":{\"sUrl\": \"{$language_file_url}\"}"; // URL with language file
