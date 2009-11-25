@@ -2676,7 +2676,7 @@ var tablelist = $('#wp-table-reloaded-list').dataTable({
 .find('.sorting').append('&nbsp;<span>&nbsp;&nbsp;&nbsp;</span>');\n
 TSSCRIPT;
 
-            if ( 2 < count( $this->tables ) )
+            if ( 2 > count( $this->tables ) )
                 $tsscript = '';
 
             echo <<<JSSCRIPT
