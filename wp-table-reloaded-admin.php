@@ -450,7 +450,7 @@ class WP_Table_Reloaded_Admin {
                 $table = $this->load_table( $table_id );
                 $rows = count( $table['data'] );
                 $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
-                $message = __ngettext( 'Row could not be deleted.', 'Rows could not be deleted.', count( $delete_rows ), WP_TABLE_RELOADED_TEXTDOMAIN ); // only used if deletion fails below
+                $message = _n( 'Row could not be deleted.', 'Rows could not be deleted.', count( $delete_rows ), WP_TABLE_RELOADED_TEXTDOMAIN ); // only used if deletion fails below
                 if ( ( 1 < $rows ) && ( 0 < count( $delete_rows ) ) && ( count( $delete_rows ) < $rows ) ) {
                     // remove rows and re-index
                     foreach( $delete_rows as $row_idx => $value) {
@@ -459,7 +459,7 @@ class WP_Table_Reloaded_Admin {
                     }
                     $table['data'] = array_merge( $table['data'] );
                     $table['visibility']['rows'] = array_merge( $table['visibility']['rows'] );
-                    $message = __ngettext( 'Row deleted successfully.', 'Rows deleted successfully.', count( $delete_rows ), WP_TABLE_RELOADED_TEXTDOMAIN );
+                    $message = _n( 'Row deleted successfully.', 'Rows deleted successfully.', count( $delete_rows ), WP_TABLE_RELOADED_TEXTDOMAIN );
                 }
                 $this->save_table( $table );
                 break;
@@ -469,7 +469,7 @@ class WP_Table_Reloaded_Admin {
                 $table = $this->load_table( $table_id );
                 $rows = count( $table['data'] );
                 $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
-                $message = __ngettext( 'Column could not be deleted.', 'Columns could not be deleted.', count( $delete_columns ), WP_TABLE_RELOADED_TEXTDOMAIN ); // only used if deletion fails below
+                $message = _n( 'Column could not be deleted.', 'Columns could not be deleted.', count( $delete_columns ), WP_TABLE_RELOADED_TEXTDOMAIN ); // only used if deletion fails below
                 if ( ( 1 < $cols ) && ( 0 < count( $delete_columns ) ) && ( count( $delete_columns ) < $cols ) ) {
                     foreach ( $table['data'] as $row_idx => $row ) {
                         // remove columns and re-index
@@ -482,7 +482,7 @@ class WP_Table_Reloaded_Admin {
                         unset( $table['visibility']['columns'][$col_idx] );
                     }
                     $table['visibility']['columns'] = array_merge( $table['visibility']['columns'] );
-                    $message = __ngettext( 'Column deleted successfully.', 'Columns deleted successfully.', count( $delete_columns ), WP_TABLE_RELOADED_TEXTDOMAIN );
+                    $message = _n( 'Column deleted successfully.', 'Columns deleted successfully.', count( $delete_columns ), WP_TABLE_RELOADED_TEXTDOMAIN );
                 }
                 $this->save_table( $table );
                 break;
@@ -505,7 +505,7 @@ class WP_Table_Reloaded_Admin {
                 }
                 
                 $this->save_table( $table );
-                $message = __ngettext( 'Row inserted successfully.', 'Rows inserted successfully.', count( $insert_rows ), WP_TABLE_RELOADED_TEXTDOMAIN );
+                $message = _n( 'Row inserted successfully.', 'Rows inserted successfully.', count( $insert_rows ), WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
             case 'insert_cols': // insert column before each selected column
                 $table_id = $_POST['table']['id'];
@@ -532,7 +532,7 @@ class WP_Table_Reloaded_Admin {
                 }
 
                 $this->save_table( $table );
-                $message = __ngettext( 'Column inserted successfully.', 'Columns inserted successfully.', count( $insert_columns ), WP_TABLE_RELOADED_TEXTDOMAIN );
+                $message = _n( 'Column inserted successfully.', 'Columns inserted successfully.', count( $insert_columns ), WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
             case 'append_rows':
                 $table_id = $_POST['table']['id'];
@@ -547,7 +547,7 @@ class WP_Table_Reloaded_Admin {
                 array_splice( $table['data'], $row_id, 0, $new_rows );
                 array_splice( $table['visibility']['rows'], $row_id, 0, $new_rows_visibility );
                 $this->save_table( $table );
-                $message = __ngettext( 'Row added successfully.', 'Rows added successfully.', $number, WP_TABLE_RELOADED_TEXTDOMAIN );
+                $message = _n( 'Row added successfully.', 'Rows added successfully.', $number, WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
             case 'append_cols':
                 $table_id = $_POST['table']['id'];
@@ -561,7 +561,7 @@ class WP_Table_Reloaded_Admin {
                     array_splice( $table['data'][$row_idx], $col_id, 0, $new_cols );
                 array_splice( $table['visibility']['columns'], $col_id, 0, $new_cols_visibility );
                 $this->save_table( $table );
-                $message = __ngettext( 'Column added successfully.', 'Columns added successfully.', $number, WP_TABLE_RELOADED_TEXTDOMAIN );
+                $message = _n( 'Column added successfully.', 'Columns added successfully.', $number, WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
             case 'insert_cf':
                 $table_id = $_POST['table']['id'];
@@ -629,13 +629,13 @@ class WP_Table_Reloaded_Admin {
                         unset( $table_to_copy );
                         $this->save_table( $new_table );
                     }
-                    $message = __ngettext( 'Table copied successfully.', 'Tables copied successfully.', count( $_POST['tables'] ), WP_TABLE_RELOADED_TEXTDOMAIN );
+                    $message = _n( 'Table copied successfully.', 'Tables copied successfully.', count( $_POST['tables'] ), WP_TABLE_RELOADED_TEXTDOMAIN );
                     break;
                 case 'delete': // see do_action_delete for explanations
                     foreach ( $_POST['tables'] as $table_id ) {
                         $this->delete_table( $table_id );
                     }
-                    $message = __ngettext( 'Table deleted successfully.', 'Tables deleted successfully.', count( $_POST['tables'] ), WP_TABLE_RELOADED_TEXTDOMAIN );
+                    $message = _n( 'Table deleted successfully.', 'Tables deleted successfully.', count( $_POST['tables'] ), WP_TABLE_RELOADED_TEXTDOMAIN );
                     break;
                 case 'wp_table_import': // see do_action_import for explanations
                     $this->import_instance = $this->create_class_instance( 'WP_Table_Reloaded_Import', 'wp-table-reloaded-import.class.php' );
@@ -656,7 +656,7 @@ class WP_Table_Reloaded_Admin {
                         $table['id'] = $this->get_new_table_id();
                         $this->save_table( $table );
                     }
-                    $message = __ngettext( 'Table imported successfully.', 'Tables imported successfully.', count( $_POST['tables'] ), WP_TABLE_RELOADED_TEXTDOMAIN );
+                    $message = _n( 'Table imported successfully.', 'Tables imported successfully.', count( $_POST['tables'] ), WP_TABLE_RELOADED_TEXTDOMAIN );
                     break;
                 default:
                     break;
@@ -1300,7 +1300,7 @@ class WP_Table_Reloaded_Admin {
         <input type="hidden" name="table[id]" value="<?php echo $table['id']; ?>" />
 
         <div class="postbox<?php echo $this->helper->postbox_closed( 'table-information', false ); ?>">
-        <h3 class="hndle"><span><?php _e( 'Table Information', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+        <h3 class="hndle"><span><?php _e( 'Table Information', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo translate_with_context( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
         <table class="wp-table-reloaded-table-information">
         <tr valign="top">
@@ -1336,7 +1336,7 @@ class WP_Table_Reloaded_Admin {
 
         <?php if ( 0 < $cols && 0 < $rows ) { ?>
             <div class="postbox<?php echo $this->helper->postbox_closed( 'table-contents', false ); ?>">
-            <h3 class="hndle"><span><?php _e( 'Table Contents', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+            <h3 class="hndle"><span><?php _e( 'Table Contents', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo translate_with_context( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
             <div class="inside">
             <table class="widefat" style="width:auto;" id="table_contents">
                 <tbody>
@@ -1389,7 +1389,7 @@ class WP_Table_Reloaded_Admin {
         <?php } //endif 0 < $rows/$cols ?>
 
         <div class="postbox<?php echo $this->helper->postbox_closed( 'table-data-manipulation', false ); ?>">
-        <h3 class="hndle"><span><?php _e( 'Data Manipulation', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+        <h3 class="hndle"><span><?php _e( 'Data Manipulation', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo translate_with_context( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
     <table class="wp-table-reloaded-data-manipulation widefat">
 
@@ -1417,12 +1417,12 @@ class WP_Table_Reloaded_Admin {
 
         <tr><td>
             <?php _e( 'Selected rows:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
-            <a id="a-hide-rows" class="button-primary" href="javascript:void(0);"><?php echo _c( 'Hide|item', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
-            <a id="a-unhide-rows" class="button-primary" href="javascript:void(0);"><?php echo _c( 'Unhide|item', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
+            <a id="a-hide-rows" class="button-primary" href="javascript:void(0);"><?php echo translate_with_context( 'Hide|item', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
+            <a id="a-unhide-rows" class="button-primary" href="javascript:void(0);"><?php echo translate_with_context( 'Unhide|item', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
         </td><td>
             <?php _e( 'Selected columns:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
-            <a id="a-hide-columns" class="button-primary" href="javascript:void(0);"><?php echo _c( 'Hide|item', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
-            <a id="a-unhide-columns" class="button-primary" href="javascript:void(0);"><?php echo _c( 'Unhide|item', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
+            <a id="a-hide-columns" class="button-primary" href="javascript:void(0);"><?php echo translate_with_context( 'Hide|item', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
+            <a id="a-unhide-columns" class="button-primary" href="javascript:void(0);"><?php echo translate_with_context( 'Unhide|item', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
         </td></tr>
 
         <tr><td>
@@ -1542,7 +1542,7 @@ class WP_Table_Reloaded_Admin {
         </p>
 
         <div class="postbox<?php echo $this->helper->postbox_closed( 'table-settings', false ); ?>">
-        <h3 class="hndle"><span><?php _e( 'Table Settings', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+        <h3 class="hndle"><span><?php _e( 'Table Settings', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo translate_with_context( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
         <p><?php _e( 'These settings will only be used for this table.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
         <table class="wp-table-reloaded-options">
@@ -1603,7 +1603,7 @@ class WP_Table_Reloaded_Admin {
         $tabletools_enabled = $this->options['enable_tablesorter'] && ( 'datatables-tabletools' == $this->options['tablesorter_script'] );
         ?>
         <div class="postbox<?php echo $this->helper->postbox_closed( 'datatables-features', true ); ?>">
-        <h3 class="hndle"><span><?php _e( 'DataTables JavaScript Features', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+        <h3 class="hndle"><span><?php _e( 'DataTables JavaScript Features', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo translate_with_context( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
         <p><?php _e( 'You can enable certain features for the "DataTables" JavaScript library here.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'More information on its features can be found on the <a href="http://www.datatables.net/">DataTables website</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
         <?php if ( !$datatables_enabled ) { ?>
@@ -1655,7 +1655,7 @@ class WP_Table_Reloaded_Admin {
         </p>
 
         <div class="postbox<?php echo $this->helper->postbox_closed( 'custom-data-fields', true ); ?>">
-        <h3 class="hndle"><span><?php _e( 'Custom Data Fields', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+        <h3 class="hndle"><span><?php _e( 'Custom Data Fields', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo translate_with_context( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
         <?php _e( 'Custom Data Fields can be used to add extra metadata to a table.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'For example, this could be information about the source or the creator of the data.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
         <br/>
@@ -1977,7 +1977,7 @@ class WP_Table_Reloaded_Admin {
         <?php wp_nonce_field( $this->get_nonce( 'options' ) ); ?>
         
         <div class="postbox<?php echo $this->helper->postbox_closed( 'frontend-plugin-options', false ); ?>">
-<h3 class="hndle"><span><?php _e( 'Frontend Options', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+<h3 class="hndle"><span><?php _e( 'Frontend Options', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo translate_with_context( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
 <div class="inside">
         <table class="wp-table-reloaded-options">
         <tr valign="top">
@@ -2026,7 +2026,7 @@ class WP_Table_Reloaded_Admin {
         </div>
         
         <div class="postbox<?php echo $this->helper->postbox_closed( 'advanced-plugin-options', true ); ?>">
-        <h3 class="hndle"><span><?php _e( 'Advanced Options', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+        <h3 class="hndle"><span><?php _e( 'Advanced Options', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo translate_with_context( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
         <table class="wp-table-reloaded-options">
         <tr valign="top">
@@ -2080,7 +2080,7 @@ class WP_Table_Reloaded_Admin {
         <h2><?php _e( 'WP-Table Reloaded Data Export and Backup', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></h2>
 
         <div class="postbox<?php echo $this->helper->postbox_closed( 'dump-file-export', false ); ?>">
-        <h3 class="hndle"><span><?php _e( 'Export a dump file', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+        <h3 class="hndle"><span><?php _e( 'Export a dump file', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo translate_with_context( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
         <?php _e( 'To export all Tables and their settings, click the "Export all Tables" button.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'The created file can be used as a backup or to move all Tables to another WordPress installation.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/><?php _e( '<strong>Warning</strong>: Do <strong>not</strong> edit the content of that file under any circumstances!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'Editing this file will most certainly break it!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/><br/>
         <form method="post" action="<?php echo $this->get_action_url(); ?>">
@@ -2091,7 +2091,7 @@ class WP_Table_Reloaded_Admin {
         </div>
 
         <div class="postbox<?php echo $this->helper->postbox_closed( 'dump-file-import', true ); ?>">
-        <h3 class="hndle"><span><?php _e( 'Import a dump file', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+        <h3 class="hndle"><span><?php _e( 'Import a dump file', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo translate_with_context( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
         <?php _e( 'To import a WP-Table Reloaded dump file, upload the file from your computer.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( '<strong>Warning:</strong> You can only import dump files created with WP-Table Reloaded!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'All current data of this WP-Table Reloaded installation (Tables, Options, Settings) <strong>WILL BE OVERWRITTEN</strong> with the data from the file!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'Do not proceed, if you don\'t understand this!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'It is recommended to export and backup the data of this installation before importing another dump file.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/><br/>
         <form method="post" enctype="multipart/form-data" action="<?php echo $this->get_action_url(); ?>">
@@ -2179,7 +2179,7 @@ class WP_Table_Reloaded_Admin {
         </div>
         
         <div class="postbox<?php echo $this->helper->postbox_closed( 'debug-version-information', true ); ?>">
-        <h3 class="hndle"><span><?php _e( 'Debug and Version Information', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+        <h3 class="hndle"><span><?php _e( 'Debug and Version Information', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo translate_with_context( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
         <p>
             <?php _e( 'You are using the following versions of the software. <strong>Please provide this information in bug reports.</strong>', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/>
