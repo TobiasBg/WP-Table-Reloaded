@@ -2482,10 +2482,10 @@ class WP_Table_Reloaded_Admin {
 	function add_plugin_row_meta_28( $links, $file ) {
 		if ( WP_TABLE_RELOADED_BASENAME == $file ) {
 			$links[] = '<a href="' . $this->get_action_url() . '" title="' . __('WP-Table Reloaded Plugin Page') . '">' . __('Plugin Page') . '</a>';
-			$links[] = '<a href="http://tobias.baethge.com/redirect/wp-table-reloaded/faq/" title="' . __('Frequently Asked Questions') . '">' . __('FAQ') . '</a>';
-			$links[] = '<a href="http://tobias.baethge.com/redirect/wp-table-reloaded/support/" title="' . __('Support') . '">' . __('Support') . '</a>';
-			$links[] = '<a href="http://tobias.baethge.com/redirect/wp-table-reloaded/documentation/" title="' . __('Plugin Documentation') . '">' . __('Documentation') . '</a>';
-			$links[] = '<a href="http://tobias.baethge.com/redirect/wp-table-reloaded/donate/" title="' . __('Support WP-Table Reloaded with your donation!') . '"><strong>' . __('Donate') . '</strong></a>';
+			$links[] = '<a href="http://tobias.baethge.com/go/wp-table-reloaded/faq/" title="' . __('Frequently Asked Questions') . '">' . __('FAQ') . '</a>';
+			$links[] = '<a href="http://tobias.baethge.com/go/wp-table-reloaded/support/" title="' . __('Support') . '">' . __('Support') . '</a>';
+			$links[] = '<a href="http://tobias.baethge.com/go/wp-table-reloaded/documentation/" title="' . __('Plugin Documentation') . '">' . __('Documentation') . '</a>';
+			$links[] = '<a href="http://tobias.baethge.com/go/wp-table-reloaded/donate/" title="' . __('Support WP-Table Reloaded with your donation!') . '"><strong>' . __('Donate') . '</strong></a>';
 		}
 		return $links;
 	}
@@ -2495,10 +2495,10 @@ class WP_Table_Reloaded_Admin {
 	function add_plugin_row_meta_27( $links, $file ) {
 		if ( WP_TABLE_RELOADED_BASENAME == $file ) {
 			// two links are combined in one entry. That way, the added divider will not be the automatically added "|", but the <br/>
-			$faq_link = '<a href="http://tobias.baethge.com/redirect/wp-table-reloaded/faq/" title="' . __('Frequently Asked Questions') . '">' . __('FAQ') . '</a>';
-			$docs_donate_link = '<a href="http://tobias.baethge.com/redirect/wp-table-reloaded/documentation/" title="' . __('Plugin Documentation') . '">' . __('Documentation') . '</a>' .
-    '<br/>' . '<a href="http://tobias.baethge.com/redirect/wp-table-reloaded/donate/" title="' . __('Support WP-Table Reloaded with your donation!') . '"><strong>' . __('Donate') . '</strong></a>';
-            $support_link = '<a href="http://tobias.baethge.com/redirect/wp-table-reloaded/support/" title="' . __('Support') . '">' . __('Support') . '</a>';
+			$faq_link = '<a href="http://tobias.baethge.com/go/wp-table-reloaded/faq/" title="' . __('Frequently Asked Questions') . '">' . __('FAQ') . '</a>';
+			$docs_donate_link = '<a href="http://tobias.baethge.com/go/wp-table-reloaded/documentation/" title="' . __('Plugin Documentation') . '">' . __('Documentation') . '</a>' .
+    '<br/>' . '<a href="http://tobias.baethge.com/go/wp-table-reloaded/donate/" title="' . __('Support WP-Table Reloaded with your donation!') . '"><strong>' . __('Donate') . '</strong></a>';
+            $support_link = '<a href="http://tobias.baethge.com/go/wp-table-reloaded/support/" title="' . __('Support') . '">' . __('Support') . '</a>';
             // $support_link is prepended to existing link, because we want <br/> instead | between them. a little bit hacky, but it works :-)
             $links[0]= $support_link . '<br/>' . $links[0];
             array_unshift( $links, $faq_link, $docs_donate_link );
