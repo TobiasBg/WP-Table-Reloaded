@@ -2310,22 +2310,39 @@ class WP_Table_Reloaded_Admin {
 
     // ###################################################################################################################
     function update_options() {
+        // possibility to overwrite option updating (i.e. to update them in own DB table)
+        $options_updated = apply_filters( 'wp_table_reloaded_update_options', false, $this->options );
+        if ( $options_updated )
+            return;
+    
         update_option( $this->optionname['options'], $this->options );
     }
 
     // ###################################################################################################################
     function update_tables() {
         ksort( $this->tables, SORT_NUMERIC ); // sort for table IDs, as one with a small ID might have been appended
+        
+        // possibility to overwrite tables updating (i.e. to update them in own DB table)
+        $tables_updated = apply_filters( 'wp_table_reloaded_update_tables', false, $this->tables );
+        if ( $tables_updated )
+            return;
+            
         update_option( $this->optionname['tables'], $this->tables );
     }
 
     // ###################################################################################################################
     function save_table( $table ) {
         if ( 0 < $table['id'] ) {
+
             // update last changes data
-            $table['last_modified'] = current_time('mysql');
+            $table['last_modified'] = current_time( 'mysql' );
             $user = wp_get_current_user();
             $table['last_editor_id'] = $user->ID;
+
+            // possibility to overwrite table saving (i.e. to store it in own DB table)
+            $table_saved = apply_filters( 'wp_table_reloaded_save_table', false, $table );
+            if ( $table_saved )
+                return;
             
             $this->tables[ $table['id'] ] = ( isset( $this->tables[ $table['id'] ] ) ) ? $this->tables[ $table['id'] ] : $this->optionname['table'] . '_' . $table['id'];
             update_option( $this->tables[ $table['id'] ], $table );
@@ -2335,6 +2352,11 @@ class WP_Table_Reloaded_Admin {
 
     // ###################################################################################################################
     function load_table( $table_id ) {
+        // possibility to overwrite table loading (i.e. to get it from own DB table)
+        $table_loaded = apply_filters( 'wp_table_reloaded_load_table', false, $table_id );
+        if ( $table_loaded )
+            return $table_loaded;
+    
         if ( 0 < $table_id ) {
             $this->tables[ $table_id ] = ( isset( $this->tables[ $table_id ] ) ) ? $this->tables[ $table_id ] : $this->optionname['table'] . '_' . $table_id;
             $table = get_option( $this->tables[ $table_id ], $this->default_table);
@@ -2346,10 +2368,34 @@ class WP_Table_Reloaded_Admin {
     
     // ###################################################################################################################
     function delete_table( $table_id ) {
-        $this->tables[ $table_id ] = ( isset( $this->tables[ $table_id ] ) ) ? $this->tables[ $table_id ] : $this->optionname['table'] . '_' . $table_id;
-        delete_option( $this->tables[ $table_id ] );
+        // possibility to overwrite table deleting (i.e. to delete it in own DB table)
+        $table_deleted = apply_filters( 'wp_table_reloaded_delete_table', false, $table_id );
+        if ( !$table_deleted ) {
+            $this->tables[ $table_id ] = ( isset( $this->tables[ $table_id ] ) ) ? $this->tables[ $table_id ] : $this->optionname['table'] . '_' . $table_id;
+            delete_option( $this->tables[ $table_id ] );
+        }
         unset( $this->tables[ $table_id ] );
         $this->update_tables();
+    }
+    
+    // ###################################################################################################################
+    function load_tables() {
+        // possibility to overwrite tables loading (i.e. to get list from own DB table)
+        $tables_loaded = apply_filters( 'wp_table_reloaded_load_tables_list', false );
+        if ( $tables_loaded )
+            return $tables_loaded;
+
+        return get_option( $this->optionname['tables'], false );
+    }
+
+    // ###################################################################################################################
+    function load_options() {
+        // possibility to overwrite options loading (i.e. to get list from own DB table)
+        $options_loaded = apply_filters( 'wp_table_reloaded_load_options', false );
+        if ( $options_loaded )
+            return $options_loaded;
+
+        return get_option( $this->optionname['options'], false );
     }
 
     // ###################################################################################################################
@@ -2394,15 +2440,15 @@ class WP_Table_Reloaded_Admin {
     // ###################################################################################################################
     function init_plugin() {
         // load options and table information from database, if not available: default
-		$this->options = get_option( $this->optionname['options'] );
-		$this->tables = get_option( $this->optionname['tables'] );
+		$this->options = $this->load_options();
+		$this->tables = $this->load_tables();
         if ( false === $this->options || false === $this->tables )
             $this->plugin_install();
     }
 
     // ###################################################################################################################
     function plugin_activation_hook() {
-        $this->options = get_option( $this->optionname['options'] );
+        $this->options = $this->load_options();
         if ( false !== $this->options && isset( $this->options['installed_version'] ) ) {
             // check if update needed, or just reactivated the latest version of it
             if ( version_compare( $this->options['installed_version'], $this->plugin_version, '<') ) {
@@ -2418,8 +2464,8 @@ class WP_Table_Reloaded_Admin {
 
     // ###################################################################################################################
     function plugin_deactivation_hook() {
-        $this->options = get_option( $this->optionname['options'] );
-   		$this->tables = get_option( $this->optionname['tables'] );
+        $this->options = $this->load_options();
+   		$this->tables = $this->load_tables();
         if ( false !== $this->options && isset( $this->options['uninstall_upon_deactivation'] ) ) {
             if ( true == $this->options['uninstall_upon_deactivation'] ) {
                 // delete all options and tables
@@ -2446,7 +2492,7 @@ class WP_Table_Reloaded_Admin {
     function plugin_update() {
         // update general plugin options
         // 1. step: by adding/overwriting existing options
-		$this->options = get_option( $this->optionname['options'] );
+		$this->options = $this->load_options();
 		$new_options = array();
 
         // 1b. step: update new default options before possibly adding them
@@ -2474,7 +2520,7 @@ class WP_Table_Reloaded_Admin {
         $this->update_options();
 
         // update individual tables and their options
-		$this->tables = get_option( $this->optionname['tables'] );
+		$this->tables = $this->load_tables();
         foreach ( $this->tables as $id => $tableoptionname ) {
             $table = $this->load_table( $id );
             

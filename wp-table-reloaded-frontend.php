@@ -37,9 +37,8 @@ class WP_Table_Reloaded_Frontend {
         $this->helper = $this->create_class_instance( 'WP_Table_Reloaded_Helper', 'wp-table-reloaded-helper.class.php' );
     
         // load options and table information from database, if not available: default
-		$this->options = get_option( $this->optionname['options'], false );
-		$this->tables = get_option( $this->optionname['tables'], false );
-
+		$this->options = $this->load_options();
+		$this->tables = $this->load_tables();
 		if ( false === $this->options || false === $this->tables )
             return;
 
@@ -239,9 +238,34 @@ class WP_Table_Reloaded_Frontend {
 
     // ###################################################################################################################
     function load_table( $table_id ) {
+        // possibility to overwrite table loading (i.e. to get it from own DB table)
+        $table_loaded = apply_filters( 'wp_table_reloaded_load_table', false, $table_id );
+        if ( $table_loaded )
+            return $table_loaded;
+
         $this->tables[ $table_id ] = ( isset( $this->tables[ $table_id ] ) ) ? $this->tables[ $table_id ] : $this->optionname['table'] . '_' . $table_id;
         $table = get_option( $this->tables[ $table_id ], array() );
         return $table;
+    }
+    
+    // ###################################################################################################################
+    function load_tables() {
+        // possibility to overwrite tables loading (i.e. to get list from own DB table)
+        $tables_loaded = apply_filters( 'wp_table_reloaded_load_tables_list', false );
+        if ( $tables_loaded )
+            return $tables_loaded;
+
+        return get_option( $this->optionname['tables'], false );
+    }
+    
+    // ###################################################################################################################
+    function load_options() {
+        // possibility to overwrite options loading (i.e. to get list from own DB table)
+        $options_loaded = apply_filters( 'wp_table_reloaded_load_options', false );
+        if ( $options_loaded )
+            return $options_loaded;
+
+        return get_option( $this->optionname['options'], false );
     }
 
     // ###################################################################################################################
