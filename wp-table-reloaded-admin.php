@@ -25,7 +25,7 @@ class WP_Table_Reloaded_Admin {
         'table' => 'wp_table_reloaded_data'
     );
     // allowed actions in this class
-    var $allowed_actions = array( 'list', 'add', 'edit', 'bulk_edit', 'copy', 'delete', 'import', 'export', 'options', 'uninstall', 'info', 'hide_donate_nag' ); // 'ajax_list', 'ajax_preview', but handled separatly
+    var $allowed_actions = array( 'list', 'add', 'edit', 'bulk_edit', 'copy', 'delete', 'import', 'export', 'options', 'uninstall', 'info', 'hide_donate_nag', 'hide_update_message' ); // 'ajax_list', 'ajax_preview', but handled separatly
     // current action, populated in load_manage_page
     var $action = 'list';
     // allowed actions in this class
@@ -49,6 +49,7 @@ class WP_Table_Reloaded_Admin {
         'admin_menu_parent_page' => 'tools.php',
         'install_time' => 0,
         'show_donate_nag' => true,
+        'show_15_update_message' => false,
         'update_message' => array(),
         'last_id' => 0
     );
@@ -231,6 +232,15 @@ class WP_Table_Reloaded_Admin {
     // ###################################################################################################################
     // list all tables
     function do_action_list() {
+        if ( true == $this->options['show_15_update_message'] ) {
+            $plugin_options_url = $this->get_action_url( array( 'action' => 'options' ), false );
+            $hide_15_update_message_url = $this->get_action_url( array( 'action' => 'hide_update_message' ), true );
+            $this->helper->print_header_message(
+                sprintf( __( 'Thank you for upgrading to WP-Table Reloaded 1.5. There were changes in the CSS and JavaScript handling, so please check the <a href="%s">%s</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ), $plugin_options_url, __( 'Plugin Options', WP_TABLE_RELOADED_TEXTDOMAIN ) ) . '<br/><br/>' .
+                sprintf( '<a href="%s" style="font-weight:normal;">%s</a>', $hide_15_update_message_url, __( 'Hide this message', WP_TABLE_RELOADED_TEXTDOMAIN ) )
+            );
+        }
+
         if ( true == $this->may_print_donate_nag() ) {
             $donate_url = 'http://tobias.baethge.com/go/wp-table-reloaded/donate/message/';
             $donated_true_url = $this->get_action_url( array( 'action' => 'hide_donate_nag', 'user_donated' => true ), true );
@@ -243,6 +253,7 @@ class WP_Table_Reloaded_Admin {
                 sprintf( '<a href="%s" style="font-weight:normal;">%s</a>', $donated_false_url, __( 'No, thanks. Don\'t ask again.', WP_TABLE_RELOADED_TEXTDOMAIN ) )
             );
         }
+
         $this->print_list_tables_form();
     }
     
@@ -1116,6 +1127,17 @@ class WP_Table_Reloaded_Admin {
         $this->delete_table( $table_id );
         die('1');
     }
+
+    // ###################################################################################################################
+    // hide 1.5 update notification
+    function do_action_hide_update_message() {
+        check_admin_referer( $this->get_nonce( 'hide_update_message' ) );
+
+        $this->options['show_15_update_message'] = false;
+        $this->update_options();
+
+        $this->do_action_list();
+    }
     
     // ###################################################################################################################
     // user donated
@@ -1131,7 +1153,7 @@ class WP_Table_Reloaded_Admin {
             $this->helper->print_header_message( sprintf( __( 'No problem! I still hope you enjoy the benefits that WP-Table Reloaded brings to you. If you should want to change your mind, you\'ll always find the "Donate" button on the <a href="%s">WP-Table Reloaded website</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ), 'http://tobias.baethge.com/go/wp-table-reloaded/website/' ) );
         }
         
-        $this->print_list_tables_form();
+        $this->do_action_list();
     }
     
     // ###################################################################################################################
@@ -2415,6 +2437,7 @@ class WP_Table_Reloaded_Admin {
         // 3. step: update installed version number/empty update message cache
         $new_options['installed_version'] = $this->plugin_version;
         $new_options['update_message'] = array();
+        $new_options['show_15_update_message'] = true;
         
         // 4. step: save the new options
         $this->options = $new_options;
