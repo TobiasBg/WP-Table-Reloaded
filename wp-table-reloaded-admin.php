@@ -200,6 +200,7 @@ class WP_Table_Reloaded_Admin {
         // get and check action parameter from passed variables
         $default_action = 'list';
         $default_action = apply_filters( 'wp_table_reloaded_default_action', $default_action );
+        $this->allowed_actions = apply_filters( 'wp_table_reloaded_allowed_actions', $this->allowed_actions );
         $action = ( isset( $_REQUEST['action'] ) && !empty( $_REQUEST['action'] ) ) ? $_REQUEST['action'] : $default_action;
         // check if action is in allowed actions and if method is callable, if yes, call it
         if ( in_array( $action, $this->allowed_actions ) )
@@ -218,6 +219,12 @@ class WP_Table_Reloaded_Admin {
 
     // ###################################################################################################################
     function show_manage_page() {
+    
+        // do WP plugin action (before action is fired) -> can stop further plugin execution by returning true
+        $overwrite = apply_filters( 'wp_table_reloaded_action_pre_' . $this->action, false );
+        if ( $overwrite )
+            return;
+    
         // call appropriate action, $this->action is populated in load_manage_page
         if( is_callable( array( &$this, 'do_action_' . $this->action ) ) )
             call_user_func( array( &$this, 'do_action_' . $this->action ) );
@@ -2230,16 +2237,39 @@ class WP_Table_Reloaded_Admin {
     // ###################################################################################################################
 
     // ###################################################################################################################
-    function print_submenu_navigation( $action ) {
+    function print_submenu_navigation( $the_action ) {
+        $table_actions = array(
+            'list' =>  __( 'List Tables', WP_TABLE_RELOADED_TEXTDOMAIN ),
+            'add' =>  __( 'Add new Table', WP_TABLE_RELOADED_TEXTDOMAIN ),
+            'import' => __( 'Import a Table', WP_TABLE_RELOADED_TEXTDOMAIN ),
+            'export' => __( 'Export a Table', WP_TABLE_RELOADED_TEXTDOMAIN )
+        );
+        $table_actions = apply_filters( 'wp_table_reloaded_backend_table_actions', $table_actions );
+        $last_table_action = array_pop( array_keys( $table_actions ) );
+        
+        $plugin_actions = array(
+            'options' => __( 'Plugin Options', WP_TABLE_RELOADED_TEXTDOMAIN ),
+            'info' => __( 'About the plugin', WP_TABLE_RELOADED_TEXTDOMAIN )
+        );
+        $plugin_actions = apply_filters( 'wp_table_reloaded_backend_plugin_actions', $plugin_actions );
+        $last_plugin_action = array_pop( array_keys( $plugin_actions ) );
         ?>
         <ul class="subsubsub">
-            <li><a <?php if ( 'list' == $action ) echo 'class="current" '; ?>href="<?php echo $this->get_action_url( array( 'action' => 'list' ), false ); ?>"><?php _e( 'List Tables', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a> | </li>
-            <li><a <?php if ( 'add' == $action ) echo 'class="current" '; ?>href="<?php echo $this->get_action_url( array( 'action' => 'add' ), false ); ?>"><?php _e( 'Add new Table', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a> | </li>
-            <li><a <?php if ( 'import' == $action ) echo 'class="current" '; ?>href="<?php echo $this->get_action_url( array( 'action' => 'import' ), false ); ?>"><?php _e( 'Import a Table', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a> | </li>
-            <li><a <?php if ( 'export' == $action ) echo 'class="current" '; ?>href="<?php echo $this->get_action_url( array( 'action' => 'export' ), false ); ?>"><?php _e( 'Export a Table', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a></li>
-            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-            <li><a <?php if ( 'options' == $action ) echo 'class="current" '; ?>href="<?php echo $this->get_action_url( array( 'action' => 'options' ), false ); ?>"><?php _e( 'Plugin Options', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a> | </li>
-            <li><a <?php if ( 'info' == $action ) echo 'class="current" '; ?>href="<?php echo $this->get_action_url( array( 'action' => 'info' ), false ); ?>"><?php _e( 'About the Plugin', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a></li>
+            <?php
+            foreach ( $table_actions as $action => $name ) {
+                $action_url = $this->get_action_url( array( 'action' => $action ), false );
+                $class = ( $action == $the_action ) ? 'class="current" ' : '';
+                $bar = ( $last_table_action != $action ) ? ' | ' : '';
+                echo "<li><a {$class}href=\"{$action_url}\">{$name}</a>{$bar}</li>";
+            }
+            echo '<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>';
+            foreach ( $plugin_actions as $action => $name ) {
+                $action_url = $this->get_action_url( array( 'action' => $action ), false );
+                $class = ( $action == $the_action ) ? 'class="current" ' : '';
+                $bar = ( $last_plugin_action != $action ) ? ' | ' : '';
+                echo "<li><a {$class}href=\"{$action_url}\">{$name}</a>{$bar}</li>";
+            }
+            ?>
         </ul>
         <br class="clear" />
         <?php
