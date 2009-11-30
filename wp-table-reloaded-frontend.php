@@ -43,9 +43,10 @@ class WP_Table_Reloaded_Frontend {
 		if ( false === $this->options || false === $this->tables )
             return;
 
-        // make shortcode name filterable
+        // make shortcode names filterable
+        $this->shortcode_table_info = apply_filters( 'wp_table_reloaded_shortcode_table_info', $this->shortcode_table_info );
         $this->shortcode_table = apply_filters( 'wp_table_reloaded_shortcode_table', $this->shortcode_table );
-        
+
 		// front-end function, shortcode for the_content, manual filter for widget_text
 		// shortcode "table-info" needs to be declared before "table"! Otherwise it will not be recognized!
         add_shortcode( $this->shortcode_table_info, array( &$this, 'handle_content_shortcode_table_info' ) );
@@ -74,6 +75,11 @@ class WP_Table_Reloaded_Frontend {
                 'format' => ''
         );
       	$atts = shortcode_atts( $default_atts, $atts );
+
+        // allow a filter to determine behavior of this function, by overwriting its behavior, just need to return something other than false
+        $overwrite = apply_filters( 'wp_table_reloaded_table_shortcode_table_info_overwrite', false, $atts );
+        if ( $overwrite )
+            return $overwrite;
 
         // check if table exists
         $table_id = $atts['id'];
@@ -143,6 +149,11 @@ class WP_Table_Reloaded_Frontend {
         );
       	$atts = shortcode_atts( $default_atts, $atts );
 
+        // allow a filter to determine behavior of this function, by overwriting its behavior, just need to return something other than false
+        $overwrite = apply_filters( 'wp_table_reloaded_table_shortcode_table_overwrite', false, $atts );
+        if ( $overwrite )
+            return $overwrite;
+
         // check if table exists
         $table_id = $atts['id'];
         if ( !is_numeric( $table_id ) || 1 > $table_id || false == $this->table_exists( $table_id ) ) {
@@ -196,7 +207,7 @@ class WP_Table_Reloaded_Frontend {
         $count = $count + 1;
         $this->shown_tables[ $table_id ] = $count;
         $output_options['html_id'] = "wp-table-reloaded-id-{$table_id}-no-{$count}";
-        
+
         $output = $this->render_table( $table, $output_options );
 
         return $output;
@@ -289,6 +300,8 @@ class WP_Table_Reloaded_Frontend {
                 $print_name_css_class = apply_filters( 'wp_table_reloaded_print_name_css_class', 'wp-table-reloaded-table-name', $table['id'] );
                 $output .= "<{$print_name_html_tag} class=\"{$print_name_css_class}\">" . $this->safe_output( $table['name'] ) . "</{$print_name_html_tag}>\n";
             }
+
+            do_action( 'wp_table_reloaded_action_pre_table_output', $table['id'] );
         
             $output .= "<table id=\"{$output_options['html_id']}\" class=\"{$cssclasses}\" cellspacing=\"{$output_options['cellspacing']}\" cellpadding=\"{$output_options['cellpadding']}\" border=\"{$output_options['border']}\">\n";
 
@@ -381,6 +394,8 @@ class WP_Table_Reloaded_Frontend {
             }
             $output .= "</table>\n";
 
+            do_action( 'wp_table_reloaded_action_post_table_output', $table['id'] );
+
             if ( true == $output_options['print_description'] ) {
                 $print_description_html_tag = apply_filters( 'wp_table_reloaded_print_description_html_tag', 'span', $table['id'] );
                 $print_description_css_class = apply_filters( 'wp_table_reloaded_print_description_css_class', 'wp-table-reloaded-table-description', $table['id'] );
@@ -398,6 +413,7 @@ class WP_Table_Reloaded_Frontend {
                     'datatables_tabletools' => $output_options['datatables_tabletools'],
                     'datatables_customcommands' => $output_options['datatables_customcommands']
             );
+            $js_options = apply_filters( 'wp_table_reloaded_table_js_options', $js_options, $table['id'] );
 
             // eventually add this table to list of tables which will be tablesorted and thus be included in the script call in wp_footer
             if ( true == $output_options['use_tablesorter'] && ( true == $output_options['first_row_th'] || 'datatables' == $this->options['tablesorter_script'] ) ) {
@@ -434,16 +450,31 @@ class WP_Table_Reloaded_Frontend {
         $default_css = array();
         if ( true == $this->options['use_default_css'] ) {
             $plugin_path = $this->helper->plugins_url( '', __FILE__ );
-            $default_css[] = "@import url(\"{$plugin_path}/css/plugin.css\");";
+            $plugin_path = apply_filters( 'wp_table_reloaded_plugin_path', $plugin_path );
+
+            $url_css_plugin = $plugin_path . '/css/plugin.css';
+            $url_css_plugin = apply_filters( 'wp_table_reloaded_url_css_plugin', $url_css_plugin );
+            if ( !empty( $url_css_plugin ) )
+                $default_css[] = "@import url(\"{$url_css_plugin}\");";
+
             switch ( $this->options['tablesorter_script'] ) {
                 case 'datatables-tabletools':
-                    $default_css[] = "@import url(\"{$plugin_path}/js/tabletools/tabletools.css\");";
+                    $url_css_tabletools = $plugin_path . '/js/tabletools/tabletools.css';
+                    $url_css_tabletools = apply_filters( 'wp_table_reloaded_url_css_tabletools', $url_css_tabletools );
+                    if ( !empty( $url_css_tabletools ) )
+                        $default_css[] = "@import url(\"{$url_css_tabletools}\");";
                 case 'datatables': // this also applies to the above, because of the missing "break;"
-                    $default_css[] = "@import url(\"{$plugin_path}/css/datatables.css\");";
+                    $url_css_datatables = $plugin_path . '/css/datatables.css';
+                    $url_css_datatables = apply_filters( 'wp_table_reloaded_url_css_datatables', $url_css_datatables );
+                    if ( !empty( $url_css_datatables ) )
+                        $default_css[] = "@import url(\"{$url_css_datatables}\");";
                     break;
                 case 'tablesorter':
                 case 'tablesorter_extended':
-                    $default_css[] = "@import url(\"{$plugin_path}/css/tablesorter.css\");";
+                    $url_css_tablesorter = $plugin_path . '/css/tablesorter.css';
+                    $url_css_tablesorter = apply_filters( 'wp_table_reloaded_url_css_tablesorter', $url_css_tablesorter );
+                    if ( !empty( $url_css_tablesorter ) )
+                        $default_css[] = "@import url(\"{$url_css_tablesorter}\");";
                     break;
                 default:
             }
@@ -498,23 +529,31 @@ CSSSTYLE;
                 $js_command = 'tablesorter';
         }
 
-        if ( 0 < count( $this->tablesorter_tables ) && file_exists( WP_TABLE_RELOADED_ABSPATH . 'js/' . $jsfile ) ) {
+        if ( 0 < count( $this->tablesorter_tables ) ) {
         
+            $js_script_url = $this->helper->plugins_url( 'js/' . $jsfile, __FILE__ );
+            $js_script_url = apply_filters( 'wp_table_reloaded_url_js_script', $js_script_url, $jsfile );
             // we have tables that shall be sortable, so we load the js
-            wp_register_script( 'wp-table-reloaded-frontend-js', $this->helper->plugins_url( 'js/' . $jsfile, __FILE__ ), array( 'jquery' ) );
+            wp_register_script( 'wp-table-reloaded-frontend-js', $js_script_url, array( 'jquery' ) );
             wp_print_scripts( 'wp-table-reloaded-frontend-js' );
 
             if ( isset( $include_tabletools ) && $include_tabletools ) {
+                $js_zeroclipboard_url = $this->helper->plugins_url( 'js/tabletools/zeroclipboard.js', __FILE__ );
+                $js_zeroclipboard_url = apply_filters( 'wp_table_reloaded_url_js_zeroclipboard', $js_zeroclipboard_url );
                 // no need to explicitely check for dependencies ( 'wp-table-reloaded-frontend-js' and 'jquery' )
-                wp_register_script( 'wp-table-reloaded-tabletools1-js', $this->helper->plugins_url( 'js/tabletools/zeroclipboard.js', __FILE__ ) );
-                wp_print_scripts( 'wp-table-reloaded-tabletools1-js' );
+                wp_register_script( 'wp-table-reloaded-zeroclipboard-js', $js_zeroclipboard_url );
+                wp_print_scripts( 'wp-table-reloaded-zeroclipboard-js' );
 
-                wp_register_script( 'wp-table-reloaded-tabletools2-js', $this->helper->plugins_url( 'js/tabletools/tabletools.js', __FILE__ ) );
-                wp_localize_script( 'wp-table-reloaded-tabletools2-js', 'WP_Table_Reloaded_TableTools', array(
-    	  	        'swf_path' => $this->helper->plugins_url( 'js/tabletools/zeroclipboard.swf', __FILE__ ),
+                $js_tabletools_url = $this->helper->plugins_url( 'js/tabletools/tabletools.js', __FILE__ );
+                $js_tabletools_url = apply_filters( 'wp_table_reloaded_url_js_tabletools', $js_tabletools_url );
+                wp_register_script( 'wp-table-reloaded-tabletools-js', $js_tabletools_url );
+                $swf_zeroclipboard_url = $this->helper->plugins_url( 'js/tabletools/zeroclipboard.swf', __FILE__ );
+                $swf_zeroclipboard_url = apply_filters( 'wp_table_reloaded_url_swf_zeroclipboard', $swf_zeroclipboard_url );
+                wp_localize_script( 'wp-table-reloaded-tabletools-js', 'WP_Table_Reloaded_TableTools', array(
+    	  	        'swf_path' => $swf_zeroclipboard_url,
                     'l10n_print_after' => 'try{convertEntities(WP_Table_Reloaded_TableTools);}catch(e){};'
                 ) );
-                wp_print_scripts( 'wp-table-reloaded-tabletools2-js' );
+                wp_print_scripts( 'wp-table-reloaded-tabletools-js' );
             }
 
             // generate the commands to make them sortable
@@ -561,13 +600,14 @@ CSSSTYLE;
 
                 $command = "$(\"#{$html_id}\").{$js_command}({$parameters});";
 
-                $command = apply_filters( 'wp_table_reloaded_tablesorter_command', $command, $table_id, $html_id, $this->options['tablesorter_script'], $js_command, $parameters );
-                $commands[] = "\t{$command}";
+                $command = apply_filters( 'wp_table_reloaded_js_frontend_command', $command, $table_id, $html_id, $this->options['tablesorter_script'], $js_command, $parameters, $js_options );
+                if ( !empty( $command ) )
+                    $commands[] = "\t{$command}";
             }
 
             $commands = implode( "\n", $commands );
             // filter all commands
-            $commands = apply_filters( 'wp_table_reloaded_tablesorter_all_commands', $commands );
+            $commands = apply_filters( 'wp_table_reloaded_js_frontend_all_commands', $commands );
 
             // and echo the commands
             if ( !empty( $commands ) ) {
