@@ -65,19 +65,19 @@
 }
 
 .paginate_disabled_previous {
-	background-image: url({$image_path}/back_disabled.jpg);
+	background-image: url(../img/back_disabled.jpg);
 }
 
 .paginate_enabled_previous {
-	background-image: url({$image_path}/back_enabled.jpg);
+	background-image: url(../img/back_enabled.jpg);
 }
 
 .paginate_disabled_next {
-	background-image: url({$image_path}/forward_disabled.jpg);
+	background-image: url(../img/forward_disabled.jpg);
 }
 
 .paginate_enabled_next {
-	background-image: url({$image_path}/forward_enabled.jpg);
+	background-image: url(../img/forward_enabled.jpg);
 }
 
 .paging_full_numbers {
