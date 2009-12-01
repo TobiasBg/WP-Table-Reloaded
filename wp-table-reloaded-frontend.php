@@ -594,34 +594,42 @@ CSSSTYLE;
                 switch ( $this->options['tablesorter_script'] ) {
                     case 'datatables-tabletools':
                         if ( $js_options['datatables_tabletools'] )
-                            $parameters[] = "\"sDom\": 'T<\"clear\">lfrtip'";
+                            $parameters['sDom'] = "\"sDom\": 'T<\"clear\">lfrtip'";
                     case 'datatables':
                         $datatables_locale = get_locale();
-                        $datatables_locale = apply_filters( 'wp_table_reloaded_datatables_locale', $datatable_locale );
+                        $datatables_locale = apply_filters( 'wp_table_reloaded_datatables_locale', $datatables_locale );
                         $language_file = "languages/datatables/lang-{$datatables_locale}.txt";
                         $language_file = ( file_exists( WP_TABLE_RELOADED_ABSPATH . $language_file ) ) ? '/' . $language_file : '/languages/datatables/lang-default.txt';
                         $language_file_url = $this->helper->plugins_url( $language_file, __FILE__ );
-                        $language_file_url = apply_filters( 'wp_table_reloaded_datatables_language_file_url', $language_file_url );
+                        $language_file_url = apply_filters( 'wp_table_reloaded_url_datatables_language_file', $language_file_url );
                         if ( !empty( $language_file_url ) )
-                            $parameters[] = "\"oLanguage\":{\"sUrl\": \"{$language_file_url}\"}"; // URL with language file
-                        $parameters[] = '"aaSorting": []'; // no initial sort
-                        $parameters[] = ( $js_options['alternating_row_colors'] ) ? "\"asStripClasses\":['even','odd']" : '"asStripClasses":[]'; // alt row colors is default, so remove them if not wanted with []
-                        $parameters[] = ( $js_options['datatables_sort'] ) ? '"bSort": true' : '"bSort": false';
-                        $parameters[] = ( $js_options['datatables_paginate'] ) ? '"bPaginate": true' : '"bPaginate": false';
-                        $parameters[] = ( $js_options['datatables_lengthchange'] ) ? '"bLengthChange": true' : '"bLengthChange": false';
-                        $parameters[] = ( $js_options['datatables_filter'] ) ? '"bFilter": true' : '"bFilter": false';
-                        $parameters[] = ( $js_options['datatables_info'] ) ? '"bInfo": true' : '"bInfo": false';
-                        $parameters[] = '"bSortClasses": false'; // don't add additional classes, hopefully speeds up things
+                            $parameters['oLanguage'] = "\"oLanguage\":{\"sUrl\": \"{$language_file_url}\"}"; // URL with language file
+                        // these parameters need to be added i.e. for performance
+                        $parameters['aaSorting'] = '"aaSorting": []'; // no initial sort
+                        $parameters['bSortClasses'] = '"bSortClasses": false'; // don't add additional classes, hopefully speeds up things
+                        $parameters['asStripClasses'] = ( $js_options['alternating_row_colors'] ) ? "\"asStripClasses\":['even','odd']" : '"asStripClasses":[]'; // alt row colors is default, so remove them if not wanted with []
+                        // the following options are activated by default, so we only need to "false" them if we don't want them, but don't need to "true" them if we do
+                        if ( !$js_options['datatables_sort'] )
+                            $parameters['bSort'] = '"bSort": false';
+                        if ( !$js_options['datatables_paginate'] )
+                            $parameters['bPaginate'] = '"bPaginate": false';
+                        if ( !$js_options['datatables_lengthchange'] )
+                            $parameters['bLengthChange'] = '"bLengthChange": false';
+                        if ( !$js_options['datatables_filter'] )
+                            $parameters['bFilter'] = '"bFilter": false';
+                        if ( !$js_options['datatables_info'] )
+                            $parameters['bInfo'] = '"bInfo": false';
                         if ( !empty( $js_options['datatables_customcommands'] ) ) // custom commands added, if not empty
-                            $parameters[] = stripslashes( $js_options['datatables_customcommands'] ); // stripslashes is necessary!
+                            $parameters['custom_commands'] = stripslashes( $js_options['datatables_customcommands'] ); // stripslashes is necessary!
                         break;
                     case 'tablesorter':
-                    case 'tablesorter_extended':
-                        $parameters[] = ( $js_options['alternating_row_colors'] ) ? "widgets: ['zebra']" : '';
+                    case 'tablesorter_extended': // this is for both tablesorters
+                        if ( $js_options['alternating_row_colors'] )
+                            $parameters['widgets'] = "widgets: ['zebra']";
                         break;
                     default:
-                        $parameters[] = ( $js_options['alternating_row_colors'] ) ? "widgets: ['zebra']" : '';
                 }
+                $parameters = apply_filters( 'wp_table_reloaded_js_frontend_parameters', $parameters, $table_id, $html_id, $this->options['tablesorter_script'], $js_command, $js_options );
                 $parameters = implode( ", ", $parameters );
                 $parameters = ( !empty( $parameters ) ) ? "{{$parameters}}" : '';
 
