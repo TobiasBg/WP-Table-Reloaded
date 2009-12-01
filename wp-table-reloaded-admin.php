@@ -2343,6 +2343,8 @@ class WP_Table_Reloaded_Admin {
             $table_saved = apply_filters( 'wp_table_reloaded_save_table', false, $table );
             if ( $table_saved )
                 return;
+
+            $table = apply_filters( 'wp_table_reloaded_pre_save_table', $table );
             
             $this->tables[ $table['id'] ] = ( isset( $this->tables[ $table['id'] ] ) ) ? $this->tables[ $table['id'] ] : $this->optionname['table'] . '_' . $table['id'];
             update_option( $this->tables[ $table['id'] ], $table );
@@ -2360,10 +2362,13 @@ class WP_Table_Reloaded_Admin {
         if ( 0 < $table_id ) {
             $this->tables[ $table_id ] = ( isset( $this->tables[ $table_id ] ) ) ? $this->tables[ $table_id ] : $this->optionname['table'] . '_' . $table_id;
             $table = get_option( $this->tables[ $table_id ], $this->default_table);
-            return $table;
+            $return_table = $table;
         } else {
-            return $this->default_table;
+            $return_table = $this->default_table;
         }
+        
+        $return_table = apply_filters( 'wp_table_reloaded_post_load_table', $return_table, $table_id );
+        return $return_table;
     }
     
     // ###################################################################################################################

@@ -243,8 +243,11 @@ class WP_Table_Reloaded_Frontend {
         if ( $table_loaded )
             return $table_loaded;
 
+
+
         $this->tables[ $table_id ] = ( isset( $this->tables[ $table_id ] ) ) ? $this->tables[ $table_id ] : $this->optionname['table'] . '_' . $table_id;
         $table = get_option( $this->tables[ $table_id ], array() );
+        $table = apply_filters( 'wp_table_reloaded_post_load_table', $table, $table_id );
         return $table;
     }
     
