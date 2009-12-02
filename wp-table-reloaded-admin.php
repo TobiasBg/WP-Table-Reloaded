@@ -25,7 +25,7 @@ class WP_Table_Reloaded_Admin {
         'table' => 'wp_table_reloaded_data'
     );
     // allowed actions in this class
-    var $allowed_actions = array( 'list', 'add', 'edit', 'bulk_edit', 'copy', 'delete', 'import', 'export', 'options', 'uninstall', 'info', 'hide_donate_nag', 'hide_update_message' ); // 'ajax_list', 'ajax_preview', but handled separatly
+    var $allowed_actions = array( 'list', 'add', 'edit', 'bulk_edit', 'copy', 'delete', 'import', 'export', 'options', 'uninstall', 'info', 'hide_donate_nag', 'hide_welcome_message' ); // 'ajax_list', 'ajax_preview', but handled separatly
     // current action, populated in load_manage_page
     var $action = 'list';
     // allowed actions in this class
@@ -49,7 +49,7 @@ class WP_Table_Reloaded_Admin {
         'admin_menu_parent_page' => 'tools.php',
         'install_time' => 0,
         'show_donate_nag' => true,
-        'show_15_update_message' => false,
+        'show_welcome_message' => 0, // 0 = no message, 1 = install message, 2 = update message
         'update_message' => array(),
         'last_id' => 0
     );
@@ -239,13 +239,24 @@ class WP_Table_Reloaded_Admin {
     // ###################################################################################################################
     // list all tables
     function do_action_list() {
-        if ( true == $this->options['show_15_update_message'] ) {
-            $plugin_options_url = $this->get_action_url( array( 'action' => 'options' ), false );
-            $hide_15_update_message_url = $this->get_action_url( array( 'action' => 'hide_update_message' ), true );
-            $this->helper->print_header_message(
-                sprintf( __( 'Thank you for upgrading to WP-Table Reloaded 1.5. There were changes in the CSS and JavaScript handling, so please check the <a href="%s">%s</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ), $plugin_options_url, __( 'Plugin Options', WP_TABLE_RELOADED_TEXTDOMAIN ) ) . '<br/><br/>' .
-                sprintf( '<a href="%s" style="font-weight:normal;">%s</a>', $hide_15_update_message_url, __( 'Hide this message', WP_TABLE_RELOADED_TEXTDOMAIN ) )
-            );
+
+        switch( $this->options['show_welcome_message'] ) {
+            case 0:
+                $message = false;
+                break;
+            case 1:
+                $message = sprintf( __( 'Welcome to WP-Table Reloaded %s. If you have any questions, please refer to the <a href="%s">support</a> section and the <a href="%s">documentation</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->options['installed_version'], 'http://tobias.baethge.com/go/wp-table-reloaded/support/', 'http://tobias.baethge.com/go/wp-table-reloaded/documentation/' );
+                break;
+            case 2:
+                $plugin_options_url = $this->get_action_url( array( 'action' => 'options' ), false );
+                $message = sprintf( __( 'Thank you for upgrading to WP-Table Reloaded %s.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->options['installed_version'] ) . ' ' . sprintf( __( 'There were changes in the CSS and JavaScript handling, so please check the <a href="%s">%s</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ), $plugin_options_url, __( 'Plugin Options', WP_TABLE_RELOADED_TEXTDOMAIN ) );
+                break;
+            default:
+                $message = false;
+        }
+        if ( $message ) {
+            $hide_welcome_message_url = $this->get_action_url( array( 'action' => 'hide_welcome_message' ), true );
+            $this->helper->print_header_message( $message . '<br/><br/>' . sprintf( '<a href="%s" style="font-weight:normal;">%s</a>', $hide_welcome_message_url, __( 'Hide this message', WP_TABLE_RELOADED_TEXTDOMAIN ) ) );
         }
 
         if ( true == $this->may_print_donate_nag() ) {
@@ -1137,10 +1148,10 @@ class WP_Table_Reloaded_Admin {
 
     // ###################################################################################################################
     // hide 1.5 update notification
-    function do_action_hide_update_message() {
-        check_admin_referer( $this->get_nonce( 'hide_update_message' ) );
+    function do_action_hide_welcome_message() {
+        check_admin_referer( $this->get_nonce( 'hide_welcome_message' ) );
 
-        $this->options['show_15_update_message'] = false;
+        $this->options['show_welcome_message'] = 0;
         $this->update_options();
 
         $this->do_action_list();
@@ -2490,6 +2501,7 @@ class WP_Table_Reloaded_Admin {
         $this->options['installed_version'] = $this->plugin_version;
         $this->options['install_time'] = time();
         $this->options['custom_css'] = ''; // we could add initial CSS here, for demonstration
+        $this->options['show_welcome_message'] = 1;
         $this->update_options();
         $this->tables = $this->default_tables;
         $this->update_tables();
@@ -2520,7 +2532,7 @@ class WP_Table_Reloaded_Admin {
         // 3. step: update installed version number/empty update message cache
         $new_options['installed_version'] = $this->plugin_version;
         $new_options['update_message'] = array();
-        $new_options['show_15_update_message'] = true;
+        $new_options['show_welcome_message'] = 2;
         
         // 4. step: save the new options
         $this->options = $new_options;
