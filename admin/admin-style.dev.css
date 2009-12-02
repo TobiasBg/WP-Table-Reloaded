@@ -157,6 +157,10 @@
     padding:0px!important;
 }
 
+#uninstall_plugin_link {
+    color: #BC0B0B;
+}
+
 .postbox h3.hndle {
     cursor:pointer!important;
 }
