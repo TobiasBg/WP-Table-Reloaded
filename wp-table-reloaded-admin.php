@@ -2345,6 +2345,7 @@ class WP_Table_Reloaded_Admin {
                 return;
 
             $table = apply_filters( 'wp_table_reloaded_pre_save_table', $table );
+            $table = apply_filters( 'wp_table_reloaded_pre_save_table_id-' . $table['id'], $table );
             
             $this->tables[ $table['id'] ] = ( isset( $this->tables[ $table['id'] ] ) ) ? $this->tables[ $table['id'] ] : $this->optionname['table'] . '_' . $table['id'];
             update_option( $this->tables[ $table['id'] ], $table );
@@ -2368,6 +2369,7 @@ class WP_Table_Reloaded_Admin {
         }
         
         $return_table = apply_filters( 'wp_table_reloaded_post_load_table', $return_table, $table_id );
+        $return_table = apply_filters( 'wp_table_reloaded_post_load_table_id-' . $table_id, $return_table );
         return $return_table;
     }
     

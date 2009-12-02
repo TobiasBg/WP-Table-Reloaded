@@ -76,7 +76,7 @@ class WP_Table_Reloaded_Frontend {
       	$atts = shortcode_atts( $default_atts, $atts );
 
         // allow a filter to determine behavior of this function, by overwriting its behavior, just need to return something other than false
-        $overwrite = apply_filters( 'wp_table_reloaded_table_shortcode_table_info_overwrite', false, $atts );
+        $overwrite = apply_filters( 'wp_table_reloaded_shortcode_table_info_overwrite', false, $atts );
         if ( $overwrite )
             return $overwrite;
 
@@ -149,7 +149,7 @@ class WP_Table_Reloaded_Frontend {
       	$atts = shortcode_atts( $default_atts, $atts );
 
         // allow a filter to determine behavior of this function, by overwriting its behavior, just need to return something other than false
-        $overwrite = apply_filters( 'wp_table_reloaded_table_shortcode_table_overwrite', false, $atts );
+        $overwrite = apply_filters( 'wp_table_reloaded_shortcode_table_overwrite', false, $atts );
         if ( $overwrite )
             return $overwrite;
 
@@ -243,11 +243,11 @@ class WP_Table_Reloaded_Frontend {
         if ( $table_loaded )
             return $table_loaded;
 
-
-
         $this->tables[ $table_id ] = ( isset( $this->tables[ $table_id ] ) ) ? $this->tables[ $table_id ] : $this->optionname['table'] . '_' . $table_id;
         $table = get_option( $this->tables[ $table_id ], array() );
+        
         $table = apply_filters( 'wp_table_reloaded_post_load_table', $table, $table_id );
+        $table = apply_filters( 'wp_table_reloaded_post_load_table_id-' . $table_id, $table );
         return $table;
     }
     
@@ -328,7 +328,8 @@ class WP_Table_Reloaded_Frontend {
                 $output .= "<{$print_name_html_tag} class=\"{$print_name_css_class}\">" . $this->safe_output( $table['name'] ) . "</{$print_name_html_tag}>\n";
             }
 
-            do_action( 'wp_table_reloaded_action_pre_table_output', $table['id'] );
+            $output = apply_filters( 'wp_table_reloaded_pre_output_table', $output, $table['id'] );
+            $output = apply_filters( 'wp_table_reloaded_pre_output_table_id-' . $table['id'], $output );
         
             $output .= "<table id=\"{$output_options['html_id']}\" class=\"{$cssclasses}\" cellspacing=\"{$output_options['cellspacing']}\" cellpadding=\"{$output_options['cellpadding']}\" border=\"{$output_options['border']}\">\n";
 
@@ -421,7 +422,8 @@ class WP_Table_Reloaded_Frontend {
             }
             $output .= "</table>\n";
 
-            do_action( 'wp_table_reloaded_action_post_table_output', $table['id'] );
+            $output = apply_filters( 'wp_table_reloaded_post_output_table', $output, $table['id'] );
+            $output = apply_filters( 'wp_table_reloaded_post_output_table_id-' . $table['id'], $output );
 
             if ( true == $output_options['print_description'] ) {
                 $print_description_html_tag = apply_filters( 'wp_table_reloaded_print_description_html_tag', 'span', $table['id'] );
@@ -453,6 +455,9 @@ class WP_Table_Reloaded_Frontend {
             }
             
         } // endif rows and cols exist
+
+        $output = apply_filters( 'wp_table_reloaded_output_table', $output , $table['id'] );
+        $output = apply_filters( 'wp_table_reloaded_output_table_id-' . $table['id'], $output );
         
         return $output;
     }
@@ -482,26 +487,26 @@ class WP_Table_Reloaded_Frontend {
             $url_css_plugin = $plugin_path . '/css/plugin.css';
             $url_css_plugin = apply_filters( 'wp_table_reloaded_url_css_plugin', $url_css_plugin );
             if ( !empty( $url_css_plugin ) )
-                $default_css[] = "@import url(\"{$url_css_plugin}\");";
+                $default_css['plugin.css'] = "@import url(\"{$url_css_plugin}\");";
 
             switch ( $this->options['tablesorter_script'] ) {
                 case 'datatables-tabletools':
                     $url_css_tabletools = $plugin_path . '/js/tabletools/tabletools.css';
                     $url_css_tabletools = apply_filters( 'wp_table_reloaded_url_css_tabletools', $url_css_tabletools );
                     if ( !empty( $url_css_tabletools ) )
-                        $default_css[] = "@import url(\"{$url_css_tabletools}\");";
+                        $default_css['tabletools.css'] = "@import url(\"{$url_css_tabletools}\");";
                 case 'datatables': // this also applies to the above, because of the missing "break;"
                     $url_css_datatables = $plugin_path . '/css/datatables.css';
                     $url_css_datatables = apply_filters( 'wp_table_reloaded_url_css_datatables', $url_css_datatables );
                     if ( !empty( $url_css_datatables ) )
-                        $default_css[] = "@import url(\"{$url_css_datatables}\");";
+                        $default_css['datatables.css'] = "@import url(\"{$url_css_datatables}\");";
                     break;
                 case 'tablesorter':
                 case 'tablesorter_extended':
                     $url_css_tablesorter = $plugin_path . '/css/tablesorter.css';
                     $url_css_tablesorter = apply_filters( 'wp_table_reloaded_url_css_tablesorter', $url_css_tablesorter );
                     if ( !empty( $url_css_tablesorter ) )
-                        $default_css[] = "@import url(\"{$url_css_tablesorter}\");";
+                        $default_css['tablesorter.css'] = "@import url(\"{$url_css_tablesorter}\");";
                     break;
                 default:
             }
