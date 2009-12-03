@@ -22,7 +22,7 @@ class WP_Table_Reloaded_Helper {
 
     // ###################################################################################################################
     function print_header_message( $text ) {
-        echo "<div id='message' class='updated fade'><p><strong>{$text}</strong></p></div>";
+        echo "<div id='message' class='updated fade'><p style='line-height:1.2;'><strong>{$text}</strong></p></div>";
     }
 
     // ###################################################################################################################

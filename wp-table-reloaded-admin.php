@@ -245,11 +245,11 @@ class WP_Table_Reloaded_Admin {
                 $message = false;
                 break;
             case 1:
-                $message = sprintf( __( 'Welcome to WP-Table Reloaded %s. If you have any questions, please refer to the <a href="%s">support</a> section and the <a href="%s">documentation</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->options['installed_version'], 'http://tobias.baethge.com/go/wp-table-reloaded/support/', 'http://tobias.baethge.com/go/wp-table-reloaded/documentation/' );
+                $message = sprintf( __( 'Welcome to WP-Table Reloaded %s. If you encounter any questions or problems, please refer to the <a href="%s">FAQ</a>, the <a href="%s">documentation</a>, and the <a href="%s">support</a> section.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->options['installed_version'], 'http://tobias.baethge.com/go/wp-table-reloaded/faq/', 'http://tobias.baethge.com/go/wp-table-reloaded/documentation/', 'http://tobias.baethge.com/go/wp-table-reloaded/support/' );
                 break;
             case 2:
                 $plugin_options_url = $this->get_action_url( array( 'action' => 'options' ), false );
-                $message = sprintf( __( 'Thank you for upgrading to WP-Table Reloaded %s.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->options['installed_version'] ) . ' ' . sprintf( __( 'There were changes in the CSS and JavaScript handling, so please check the <a href="%s">%s</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ), $plugin_options_url, __( 'Plugin Options', WP_TABLE_RELOADED_TEXTDOMAIN ) );
+                $message = sprintf( __( 'Thank you for upgrading to WP-Table Reloaded %s.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->options['installed_version'] ) . ' ' . __( 'This version adds support for the DataTables JavaScript library (with features like sorting, pagination, and filtering) and includes a lot more enhancements.', WP_TABLE_RELOADED_TEXTDOMAIN ) . '<br/>' . sprintf( __( 'Please read the <a href="%s">release announcement</a> for more information and check your settings in the <a href="%s">%s</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ), 'http://tobias.baethge.com/go/wp-table-reloaded/release-announcement/', $plugin_options_url, __( 'Plugin Options', WP_TABLE_RELOADED_TEXTDOMAIN ) );
                 break;
             default:
                 $message = false;
@@ -259,7 +259,7 @@ class WP_Table_Reloaded_Admin {
             $this->helper->print_header_message( $message . '<br/><br/>' . sprintf( '<a href="%s" style="font-weight:normal;">%s</a>', $hide_welcome_message_url, __( 'Hide this message', WP_TABLE_RELOADED_TEXTDOMAIN ) ) );
         }
 
-        if ( true == $this->may_print_donate_nag() ) {
+        if ( $this->may_print_donate_nag() ) {
             $donate_url = 'http://tobias.baethge.com/go/wp-table-reloaded/donate/message/';
             $donated_true_url = $this->get_action_url( array( 'action' => 'hide_donate_nag', 'user_donated' => true ), true );
             $donated_false_url = $this->get_action_url( array( 'action' => 'hide_donate_nag', 'user_donated' => false ), true );
