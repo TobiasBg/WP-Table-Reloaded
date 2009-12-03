@@ -1677,7 +1677,7 @@ class WP_Table_Reloaded_Admin {
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Custom Commands', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="text" name="table[options][datatables_customcommands]" id="table_options_datatables_customcommands"<?php echo ( !$datatables_enabled || false == $table['options']['use_tablesorter'] ) ? ' disabled="disabled"': '' ; ?> value="<?php echo $this->helper->safe_output( $table['options']['datatables_customcommands'] ); ?>" style="width:100%" /> <label for="table_options_datatables_customcommands"><small><br/><?php _e( 'Enter additional DataTables JavaScript parameters that will be included with the script call here.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> (<?php _e( 'For advanced use only. Read the  <a href="http://www.datatables.net/">DataTables documenation</a> before.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>)</small></label></td>
+            <td><input type="text" name="table[options][datatables_customcommands]" id="table_options_datatables_customcommands"<?php echo ( !$datatables_enabled || false == $table['options']['use_tablesorter'] ) ? ' disabled="disabled"': '' ; ?> value="<?php echo $this->helper->safe_output( $table['options']['datatables_customcommands'] ); ?>" style="width:100%" /> <label for="table_options_datatables_customcommands"><small><br/><?php _e( 'Enter additional DataTables JavaScript parameters that will be included with the script call here.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> (<?php _e( 'For advanced use only. Read the <a href="http://www.datatables.net/">DataTables documentation</a> before.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>)</small></label></td>
         </tr>
         </table>
         </div>
@@ -2003,7 +2003,7 @@ class WP_Table_Reloaded_Admin {
         $this->print_submenu_navigation( 'options' );
         ?>
         <div style="clear:both;">
-        <p><?php _e( 'The plugin has several options which either affect the plugin behavior in different areas.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/>
+        <p><?php _e( 'The plugin has several options which affect the plugin behavior in different areas.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/>
         <?php _e( 'Frontend Options influence the output of tables in pages, posts or text-widgets.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'The Backend Options control the plugin\'s admin area, e.g. the "Edit Table" screen.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
         </div>
 
