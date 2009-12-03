@@ -1990,7 +1990,7 @@ class WP_Table_Reloaded_Admin {
         } else { // end if $tables
             $add_url = $this->get_action_url( array( 'action' => 'add' ), false );
             $import_url = $this->get_action_url( array( 'action' => 'import' ), false );
-            echo "<div style=\"clear:both;\"><p>" . __( 'No tables found.', WP_TABLE_RELOADED_TEXTDOMAIN ) . '<br/>' . sprintf( __( 'You might <a href="%s">add</a> or <a href="%s">import</a> one!', WP_TABLE_RELOADED_TEXTDOMAIN ), $add_url, $import_url ) . "</p></div>";
+            echo "<div style=\"clear:both;\"><p>" . __( 'No tables were found.', WP_TABLE_RELOADED_TEXTDOMAIN ) . '<br/>' . sprintf( __( 'You should <a href="%s">add</a> or <a href="%s">import</a> a table to get started!', WP_TABLE_RELOADED_TEXTDOMAIN ), $add_url, $import_url ) . "</p></div>";
         }
 
         $this->helper->print_page_footer();
@@ -2743,11 +2743,11 @@ WPLIST;
 
             $sProcessing = __( 'Please wait...', WP_TABLE_RELOADED_TEXTDOMAIN );
             $sLengthMenu = __( 'Show _MENU_ Tables', WP_TABLE_RELOADED_TEXTDOMAIN );
-            $sZeroRecords = __( 'No Tables found.', WP_TABLE_RELOADED_TEXTDOMAIN );
+            $sZeroRecords = __( 'No tables were found.', WP_TABLE_RELOADED_TEXTDOMAIN );
             $sInfo = __( '_START_ to _END_ of _TOTAL_ Tables', WP_TABLE_RELOADED_TEXTDOMAIN );
-            $sInfoEmpty = __( '0 to 0 of 0 Tables', WP_TABLE_RELOADED_TEXTDOMAIN );
+            $sInfoEmpty = '';
             $sInfoFiltered = __( '(filtered from _MAX_ Tables)', WP_TABLE_RELOADED_TEXTDOMAIN );
-            $sInfoPostFix = __( '', WP_TABLE_RELOADED_TEXTDOMAIN );
+            $sInfoPostFix = '';
             $sSearch = __( 'Filter:', WP_TABLE_RELOADED_TEXTDOMAIN );
             $sFirst = __( 'First', WP_TABLE_RELOADED_TEXTDOMAIN );
             $sPrevious = __( 'Back', WP_TABLE_RELOADED_TEXTDOMAIN );
