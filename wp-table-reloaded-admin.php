@@ -1630,7 +1630,7 @@ class WP_Table_Reloaded_Admin {
                     $js_library_text = __( 'You can change further settings for this library below.' , WP_TABLE_RELOADED_TEXTDOMAIN );
             }
             ?>
-            <input type="checkbox" name="table[options][use_tablesorter]" id="table_options_use_tablesorter"<?php echo ( true == $table['options']['use_tablesorter'] ) ? ' checked="checked"': '' ; ?><?php echo ( false == $this->options['enable_tablesorter'] || ( false == $table['options']['first_row_th'] && 'datatables' != $this->options['tablesorter_script'] && 'datatables-tabletools' != $this->options['tablesorter_script'] ) ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="table_options_use_tablesorter"><?php printf( __( 'Yes, use the "%s" JavaScript library with this table.', WP_TABLE_RELOADED_TEXTDOMAIN ), $js_library ); ?> <?php echo $js_library_text; ?><?php if ( !$this->options['enable_tablesorter'] ) { ?><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small><?php _e( 'You must enable the use of a JavaScript library on the "Plugin Options" screen first.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small><?php } ?></label></td>
+            <input type="checkbox" name="table[options][use_tablesorter]" id="table_options_use_tablesorter"<?php echo ( true == $table['options']['use_tablesorter'] ) ? ' checked="checked"': '' ; ?><?php echo ( false == $this->options['enable_tablesorter'] || ( false == $table['options']['first_row_th'] && 'datatables' != $this->options['tablesorter_script'] && 'datatables-tabletools' != $this->options['tablesorter_script'] ) ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="table_options_use_tablesorter"><?php printf( __( 'Yes, use the "%s" JavaScript library with this table.', WP_TABLE_RELOADED_TEXTDOMAIN ), $js_library ); ?> <?php echo $js_library_text; ?><?php if ( !$this->options['enable_tablesorter'] ) { ?><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small><?php printf( __( 'You must enable the use of a JavaScript library on the "%s" screen first.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Plugin Options', WP_TABLE_RELOADED_TEXTDOMAIN ) ); ?></small><?php } ?></label></td>
         </tr>
         </table>
         </div>
@@ -1645,7 +1645,7 @@ class WP_Table_Reloaded_Admin {
         <div class="inside">
         <p><?php _e( 'You can enable certain features for the "DataTables" JavaScript library here.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'More information on these features can be found on the <a href="http://www.datatables.net/">DataTables website</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
         <?php if ( !$datatables_enabled ) { ?>
-        <p><strong><?php _e( 'You can currently not change these options, because you have not enabled the "DataTables" or the "DataTables+TableTools" JavaScript library on the "Plugin Options" screen.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/><?php _e( 'It is not possible to use these features with the "Tablesorter" or "Tablesorter Extended" libraries.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></strong></p>
+        <p><strong><?php printf( __( 'You can currently not change these options, because you have not enabled the "DataTables" or the "DataTables+TableTools" JavaScript library on the "%s" screen.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Plugin Options', WP_TABLE_RELOADED_TEXTDOMAIN ) ); ?><br/><?php _e( 'It is not possible to use these features with the "Tablesorter" or "Tablesorter Extended" libraries.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></strong></p>
         <?php } ?>
         <table class="wp-table-reloaded-options wp-table-reloaded-datatables-options">
         <tr valign="top">
@@ -1929,7 +1929,7 @@ class WP_Table_Reloaded_Admin {
         $this->print_submenu_navigation( 'export' );
         ?>
         <div style="clear:both;">
-        <p><?php _e( 'It is recommended to export and backup the data of important tables regularly.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'Just select the table, your desired export format and (for CSV only) a delimiter.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/><?php _e( 'You may choose to download the export file. Otherwise it will be shown on this page.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'Be aware that only the table data, but no options or settings are exported.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/><?php _e( 'To backup all tables, including their settings, at once use the "Export all Tables" button in the "Plugin Options".', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
+        <p><?php _e( 'It is recommended to export and backup the data of important tables regularly.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'Select the table, the desired export format and (for CSV only) a delimiter.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'You may choose to download the export file. Otherwise it will be shown on this page.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/><?php _e( 'Be aware that only the table data, but no options or settings are exported.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/><?php printf( __( 'To backup all tables, including their settings, at once use the "%s" button in the "%s".', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Create and Download Dump File', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Plugin Options', WP_TABLE_RELOADED_TEXTDOMAIN ) ); ?></p>
         </div>
         <?php if( 0 < count( $this->tables ) ) { ?>
         <div style="clear:both;">
@@ -2110,7 +2110,7 @@ class WP_Table_Reloaded_Admin {
         <div class="postbox<?php echo $this->helper->postbox_closed( 'dump-file-export', true ); ?>">
         <h3 class="hndle"><span><?php _e( 'Export a dump file', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo translate_with_context( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
-        <p><?php _e( 'To export all Tables and their settings, click the "Export all Tables" button to generate and download a dump file.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/><?php _e( '<strong>Warning</strong>: Do <strong>not</strong> edit the content of that file under any circumstances as you will destroy the file!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
+        <p><?php _e( 'To export all Tables and their settings, click the button below to generate and download a dump file.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/><?php _e( '<strong>Warning</strong>: Do <strong>not</strong> edit the content of that file under any circumstances as you will destroy the file!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
         <form method="post" action="<?php echo $this->get_action_url(); ?>">
         <?php wp_nonce_field( $this->get_nonce( 'export_all' ) ); ?>
         <input type="submit" name="export_all" class="button-primary" value="<?php _e( 'Create and Download Dump File', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
