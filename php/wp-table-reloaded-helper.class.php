@@ -66,7 +66,7 @@ TEXT;
                 $help = sprintf( __( 'This is the &quot;%s&quot; screen.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'List Tables', WP_TABLE_RELOADED_TEXTDOMAIN ) );
                 break;
             case 'edit':
-                $help = sprintf( __( 'This is the &quot;%s&quot; screen.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Edit table', WP_TABLE_RELOADED_TEXTDOMAIN ) );
+                $help = sprintf( __( 'This is the &quot;%s&quot; screen.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Edit Table', WP_TABLE_RELOADED_TEXTDOMAIN ) );
                 break;
             case 'add':
                 $help = sprintf( __( 'This is the &quot;%s&quot; screen.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Add new Table', WP_TABLE_RELOADED_TEXTDOMAIN ) );
