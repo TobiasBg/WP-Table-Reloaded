@@ -294,7 +294,7 @@ class WP_Table_Reloaded_Admin {
 
             $this->save_table( $table );
 
-            $this->helper->print_header_message( sprintf( __( 'Table "%s" added successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->helper->safe_output( $table['name'] ) ) );
+            $this->helper->print_header_message( sprintf( __( 'Table &quot;%s&quot; added successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->helper->safe_output( $table['name'] ) ) );
             $this->print_edit_table_form( $table['id'] );
         } else {
             $this->print_add_table_form();
@@ -714,7 +714,7 @@ class WP_Table_Reloaded_Admin {
 
             $this->save_table( $new_table );
 
-            $this->helper->print_header_message( sprintf( __( 'Table "%s" copied successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->helper->safe_output( $new_table['name'] ) ) );
+            $this->helper->print_header_message( sprintf( __( 'Table &quot;%s&quot; copied successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->helper->safe_output( $new_table['name'] ) ) );
         }
         $this->do_action_list();
     }
@@ -730,7 +730,7 @@ class WP_Table_Reloaded_Admin {
             switch( $_GET['item'] ) {
             case 'table':
                 $this->delete_table( $table_id );
-                $this->helper->print_header_message( sprintf( __( 'Table "%s" deleted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->helper->safe_output( $table['name'] ) ) );
+                $this->helper->print_header_message( sprintf( __( 'Table &quot;%s&quot; deleted successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->helper->safe_output( $table['name'] ) ) );
                 $this->do_action_list();
                 break;
             case 'custom_field':
@@ -924,12 +924,12 @@ class WP_Table_Reloaded_Admin {
             $exported_table = $this->export_instance->exported_table;
 
             if ( isset( $_POST['download_export_file'] ) && 'true' == $_POST['download_export_file'] ) {
-                $filename = $table_to_export['id'] . '-' . $table_to_export['name'] . '-' . date('Y-m-d') . '.' . $_POST['export_format'];
+                $filename = $table_to_export['id'] . '-' . $table_to_export['name'] . '-' . date( 'Y-m-d' ) . '.' . $_POST['export_format'];
                 $this->helper->prepare_download( $filename, strlen( $exported_table ), 'text/' . $_POST['export_format'] );
                 echo $exported_table;
                 exit;
             } else {
-                $this->helper->print_header_message( sprintf( __( 'Table "%s" exported successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->helper->safe_output( $table_to_export['name'] ) ) );
+                $this->helper->print_header_message( sprintf( __( 'Table &quot;%s&quot; exported successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->helper->safe_output( $table_to_export['name'] ) ) );
                 $this->print_export_table_form( $_POST['table_id'], $exported_table );
             }
         } else {
@@ -955,7 +955,7 @@ class WP_Table_Reloaded_Admin {
             // serialize the export array to a string
             $export_dump = serialize( $export );
 
-            $filename = 'wp-table-reloaded-export-' . date('Y-m-d') . '.data';
+            $filename = 'wp-table-reloaded-export-' . date( 'Y-m-d' ) . '.dump';
             $this->helper->prepare_download( $filename, strlen( $export_dump ), 'text/data' );
             echo $export_dump;
             exit;
@@ -1111,12 +1111,12 @@ class WP_Table_Reloaded_Admin {
         if ( $this->table_exists( $table_id ) ) {
             $table = $this->load_table( $_GET['table_id'] );
 
-            $this->helper->print_page_header( sprintf( __( 'Preview of Table "%s" (ID %s)', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->helper->safe_output( $table['name'] ), $this->helper->safe_output( $table['id'] ) ) );
+            $this->helper->print_page_header( sprintf( __( 'Preview of Table &quot;%s&quot; (ID %s)', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->helper->safe_output( $table['name'] ), $this->helper->safe_output( $table['id'] ) ) );
             ?>
             <div style="clear:both;"><p>
             <?php _e( 'This is a preview of your table.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/>
             <?php _e( 'Because of CSS styling, the table might look different on your page!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'The JavaScript libraries are also not available in this preview.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/>
-            <?php printf( __( 'To insert the table into a page, post or text-widget, use the shortcode <strong>[table id=%s /]</strong>.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->helper->safe_output( $table['id'] ) ); ?>
+            <?php printf( __( 'To insert the table into a page, post or text-widget, copy the shortcode <strong>[table id=%s /]</strong> and paste it into the corresponding place in the editor.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->helper->safe_output( $table['id'] ) ); ?>
             </p></div>
             <div style="clear:both;">
             <?php
@@ -1142,7 +1142,7 @@ class WP_Table_Reloaded_Admin {
         check_ajax_referer( $this->get_nonce( 'delete', 'table' ) );
         $table_id = isset( $_POST['id'] ) ? (int) $_POST['id'] : 0;
         $this->delete_table( $table_id );
-        die('1');
+        die( '1' );
     }
 
     // ###################################################################################################################
@@ -1185,7 +1185,7 @@ class WP_Table_Reloaded_Admin {
         $this->helper->print_page_header( __( 'List of Tables', WP_TABLE_RELOADED_TEXTDOMAIN ) . ' &lsaquo; ' . __( 'WP-Table Reloaded', WP_TABLE_RELOADED_TEXTDOMAIN ) );
         $this->print_submenu_navigation( 'list' );
         ?>
-        <div style="clear:both;"><p><?php _e( 'This is a list of all available tables.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'You may add, edit, copy, delete or preview tables here.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br /><br/><?php _e( 'To insert a table into a page, post or text-widget, copy the shortcode <strong>[table id=&lt;ID&gt; /]</strong> and paste it into the editor.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'Each table has a unique ID that needs to be adjusted in that shortcode.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'You can also click the button "Table" in the editor toolbar to select and insert a table.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p></div>
+        <div style="clear:both;"><p><?php _e( 'This is a list of all available tables.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'You may add, edit, copy, delete or preview tables here.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br /><br/><?php printf( __( 'To insert the table into a page, post or text-widget, copy the shortcode <strong>[table id=%s /]</strong> and paste it into the corresponding place in the editor.', WP_TABLE_RELOADED_TEXTDOMAIN ), '&lt;ID&gt;' ); ?> <?php _e( 'Each table has a unique ID that needs to be adjusted in that shortcode.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'You can also click the button "Table" in the editor toolbar to select and insert a table.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p></div>
 		<?php
         if ( 0 < count( $this->tables ) ) {
             ?>
@@ -1328,11 +1328,11 @@ class WP_Table_Reloaded_Admin {
         $rows = count( $table['data'] );
         $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
 
-        $this->helper->print_page_header( sprintf( __( 'Edit Table "%s" (ID %s)', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->helper->safe_output( $table['name'] ), $this->helper->safe_output( $table['id'] ) ) );
+        $this->helper->print_page_header( sprintf( __( 'Edit Table &quot;%s&quot; (ID %s)', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->helper->safe_output( $table['name'] ), $this->helper->safe_output( $table['id'] ) ) );
         $this->print_submenu_navigation( 'edit' );
         ?>
         <div style="clear:both;"><p><?php _e( 'On this page, you can edit the content of the table.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'It is also possible to change the table structure by inserting, deleting, moving, and swapping columns and rows.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br />
-		<?php printf( __( 'To show this table in your pages, posts or text-widgets, use the shortcode <strong>[table id=%s /]</strong> and paste it into the editor.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->helper->safe_output( $table_id ) ); ?></p></div>
+		<?php printf( __( 'To insert the table into a page, post or text-widget, copy the shortcode <strong>[table id=%s /]</strong> and paste it into the corresponding place in the editor.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->helper->safe_output( $table_id ) ); ?></p></div>
         <form id="wp_table_reloaded_edit_table" method="post" action="<?php echo $this->get_action_url( array( 'action' => 'edit', 'table_id' => $table_id ), false ); ?>">
         <?php wp_nonce_field( $this->get_nonce( 'edit' ) ); ?>
         <input type="hidden" name="table[id]" value="<?php echo $table['id']; ?>" />
@@ -1630,7 +1630,7 @@ class WP_Table_Reloaded_Admin {
                     $js_library_text = __( 'You can change further settings for this library below.' , WP_TABLE_RELOADED_TEXTDOMAIN );
             }
             ?>
-            <input type="checkbox" name="table[options][use_tablesorter]" id="table_options_use_tablesorter"<?php echo ( true == $table['options']['use_tablesorter'] ) ? ' checked="checked"': '' ; ?><?php echo ( false == $this->options['enable_tablesorter'] || ( false == $table['options']['first_row_th'] && 'datatables' != $this->options['tablesorter_script'] && 'datatables-tabletools' != $this->options['tablesorter_script'] ) ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="table_options_use_tablesorter"><?php printf( __( 'Yes, use the "%s" JavaScript library with this table.', WP_TABLE_RELOADED_TEXTDOMAIN ), $js_library ); ?> <?php echo $js_library_text; ?><?php if ( !$this->options['enable_tablesorter'] ) { ?><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small><?php printf( __( 'You must enable the use of a JavaScript library on the "%s" screen first.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Plugin Options', WP_TABLE_RELOADED_TEXTDOMAIN ) ); ?></small><?php } ?></label></td>
+            <input type="checkbox" name="table[options][use_tablesorter]" id="table_options_use_tablesorter"<?php echo ( true == $table['options']['use_tablesorter'] ) ? ' checked="checked"': '' ; ?><?php echo ( false == $this->options['enable_tablesorter'] || ( false == $table['options']['first_row_th'] && 'datatables' != $this->options['tablesorter_script'] && 'datatables-tabletools' != $this->options['tablesorter_script'] ) ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="table_options_use_tablesorter"><?php printf( __( 'Yes, use the &quot;%s&quot; JavaScript library with this table.', WP_TABLE_RELOADED_TEXTDOMAIN ), $js_library ); ?> <?php echo $js_library_text; ?><?php if ( !$this->options['enable_tablesorter'] ) { ?><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small><?php printf( __( 'You must enable the use of a JavaScript library on the &quot;%s&quot; screen first.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Plugin Options', WP_TABLE_RELOADED_TEXTDOMAIN ) ); ?></small><?php } ?></label></td>
         </tr>
         </table>
         </div>
@@ -1645,7 +1645,7 @@ class WP_Table_Reloaded_Admin {
         <div class="inside">
         <p><?php _e( 'You can enable certain features for the "DataTables" JavaScript library here.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'More information on these features can be found on the <a href="http://www.datatables.net/">DataTables website</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
         <?php if ( !$datatables_enabled ) { ?>
-        <p><strong><?php printf( __( 'You can currently not change these options, because you have not enabled the "DataTables" or the "DataTables+TableTools" JavaScript library on the "%s" screen.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Plugin Options', WP_TABLE_RELOADED_TEXTDOMAIN ) ); ?><br/><?php _e( 'It is not possible to use these features with the "Tablesorter" or "Tablesorter Extended" libraries.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></strong></p>
+        <p><strong><?php printf( __( 'You can currently not change these options, because you have not enabled the "DataTables" or the "DataTables+TableTools" JavaScript library on the &quot;%s&quot; screen.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Plugin Options', WP_TABLE_RELOADED_TEXTDOMAIN ) ); ?><br/><?php _e( 'It is not possible to use these features with the "Tablesorter" or "Tablesorter Extended" libraries.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></strong></p>
         <?php } ?>
         <table class="wp-table-reloaded-options wp-table-reloaded-datatables-options">
         <tr valign="top">
@@ -1929,7 +1929,7 @@ class WP_Table_Reloaded_Admin {
         $this->print_submenu_navigation( 'export' );
         ?>
         <div style="clear:both;">
-        <p><?php _e( 'It is recommended to export and backup the data of important tables regularly.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'Select the table, the desired export format and (for CSV only) a delimiter.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'You may choose to download the export file. Otherwise it will be shown on this page.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/><?php _e( 'Be aware that only the table data, but no options or settings are exported.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/><?php printf( __( 'To backup all tables, including their settings, at once use the "%s" button in the "%s".', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Create and Download Dump File', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Plugin Options', WP_TABLE_RELOADED_TEXTDOMAIN ) ); ?></p>
+        <p><?php _e( 'It is recommended to export and backup the data of important tables regularly.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'Select the table, the desired export format and (for CSV only) a delimiter.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'You may choose to download the export file. Otherwise it will be shown on this page.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/><?php _e( 'Be aware that only the table data, but no options or settings are exported.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/><?php printf( __( 'To backup all tables, including their settings, at once use the &quot;%s&quot; button in the &quot;%s&quot;.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Create and Download Dump File', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Plugin Options', WP_TABLE_RELOADED_TEXTDOMAIN ) ); ?></p>
         </div>
         <?php if( 0 < count( $this->tables ) ) { ?>
         <div style="clear:both;">
@@ -2162,7 +2162,7 @@ class WP_Table_Reloaded_Admin {
         <div class="postbox">
         <h3 class="hndle"><span><?php _e( 'Usage', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span></h3>
         <div class="inside">
-        <p><?php _e( 'At first you should add or import a table.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'This means that you either let the plugin create an empty table for you or that you load an existing table from either a CSV, XML or HTML file.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p><p><?php _e( 'Then you can edit your data or change the structure of your table (e.g. by inserting or deleting rows or columns, swaping rows or columns or sorting them) and select specific table options like alternating row colors or whether to print the name or description, if you want.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'To easily add a link or an image to a cell, use the provided buttons. Those will ask you for the URL and a title. Then you can click into a cell and the corresponding HTML will be added to it for you.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p><p><?php _e( 'To include the table into your posts, pages or text-widgets, insert the shortcode [table id=&lt;table-id&gt;] at those places in the editor, where you later want the table to appear.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'You can also select the desired table from a list (after clicking the button "Table" in the editor toolbar) and the corresponding shortcode will be added for you.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p><p><?php _e( 'Tables can be styled by changing and adding CSS commands.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'The plugin ships with default CSS Stylesheets, which can be customized with own code or replaced with other Stylesheets.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php __( 'For this, each table is given certain CSS classes that can be used as CSS selectors.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php printf ( __( 'Please see the <a href="%s">documentation</a> for a list of these selectors and for styling examples.', WP_TABLE_RELOADED_TEXTDOMAIN ), 'http://tobias.baethge.com/go/wp-table-reloaded/documentation/' ); ?>
+        <p><?php _e( 'At first you should add or import a table.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'This means that you either let the plugin create an empty table for you or that you load an existing table from either a CSV, XML or HTML file.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p><p><?php _e( 'Then you can edit your data or change the structure of your table (e.g. by inserting or deleting rows or columns, swaping rows or columns or sorting them) and select specific table options like alternating row colors or whether to print the name or description, if you want.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'To easily add a link or an image to a cell, use the provided buttons. Those will ask you for the URL and a title. Then you can click into a cell and the corresponding HTML will be added to it for you.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p><p><?php printf( __( 'To insert the table into a page, post or text-widget, copy the shortcode <strong>[table id=%s /]</strong> and paste it into the corresponding place in the editor.', WP_TABLE_RELOADED_TEXTDOMAIN ), '&lt;ID&gt;' ); ?> <?php _e( 'You can also select the desired table from a list (after clicking the button "Table" in the editor toolbar) and the corresponding shortcode will be added for you.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p><p><?php _e( 'Tables can be styled by changing and adding CSS commands.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'The plugin ships with default CSS Stylesheets, which can be customized with own code or replaced with other Stylesheets.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php __( 'For this, each table is given certain CSS classes that can be used as CSS selectors.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php printf ( __( 'Please see the <a href="%s">documentation</a> for a list of these selectors and for styling examples.', WP_TABLE_RELOADED_TEXTDOMAIN ), 'http://tobias.baethge.com/go/wp-table-reloaded/documentation/' ); ?>
         </p>
         </div>
         </div>
@@ -2597,11 +2597,11 @@ class WP_Table_Reloaded_Admin {
     // add links to plugin's entry on Plugins page (WP >= 2.8)
 	function add_plugin_row_meta_28( $links, $file ) {
 		if ( WP_TABLE_RELOADED_BASENAME == $file ) {
-			$links[] = '<a href="' . $this->get_action_url() . '" title="' . __('WP-Table Reloaded Plugin Page') . '">' . __('Plugin Page') . '</a>';
-			$links[] = '<a href="http://tobias.baethge.com/go/wp-table-reloaded/faq/" title="' . __('Frequently Asked Questions') . '">' . __('FAQ') . '</a>';
-			$links[] = '<a href="http://tobias.baethge.com/go/wp-table-reloaded/support/" title="' . __('Support') . '">' . __('Support') . '</a>';
-			$links[] = '<a href="http://tobias.baethge.com/go/wp-table-reloaded/documentation/" title="' . __('Plugin Documentation') . '">' . __('Documentation') . '</a>';
-			$links[] = '<a href="http://tobias.baethge.com/go/wp-table-reloaded/donate/" title="' . __('Support WP-Table Reloaded with your donation!') . '"><strong>' . __('Donate') . '</strong></a>';
+			$links[] = '<a href="' . $this->get_action_url() . '" title="' . __( 'WP-Table Reloaded Plugin Page', WP_TABLE_RELOADED_TEXTDOMAIN ) . '">' . __( 'Plugin Page', WP_TABLE_RELOADED_TEXTDOMAIN ) . '</a>';
+			$links[] = '<a href="http://tobias.baethge.com/go/wp-table-reloaded/faq/" title="' . __( 'Frequently Asked Questions', WP_TABLE_RELOADED_TEXTDOMAIN ) . '">' . __( 'FAQ', WP_TABLE_RELOADED_TEXTDOMAIN ) . '</a>';
+			$links[] = '<a href="http://tobias.baethge.com/go/wp-table-reloaded/support/" title="' . __( 'Support', WP_TABLE_RELOADED_TEXTDOMAIN ) . '">' . __( 'Support', WP_TABLE_RELOADED_TEXTDOMAIN ) . '</a>';
+			$links[] = '<a href="http://tobias.baethge.com/go/wp-table-reloaded/documentation/" title="' . __( 'Plugin Documentation', WP_TABLE_RELOADED_TEXTDOMAIN ) . '">' . __( 'Documentation', WP_TABLE_RELOADED_TEXTDOMAIN ) . '</a>';
+			$links[] = '<a href="http://tobias.baethge.com/go/wp-table-reloaded/donate/" title="' . __( 'Support WP-Table Reloaded with your donation!', WP_TABLE_RELOADED_TEXTDOMAIN ) . '"><strong>' . __( 'Donate', WP_TABLE_RELOADED_TEXTDOMAIN ) . '</strong></a>';
 		}
 		return $links;
 	}
@@ -2611,10 +2611,10 @@ class WP_Table_Reloaded_Admin {
 	function add_plugin_row_meta_27( $links, $file ) {
 		if ( WP_TABLE_RELOADED_BASENAME == $file ) {
 			// two links are combined in one entry. That way, the added divider will not be the automatically added "|", but the <br/>
-			$faq_link = '<a href="http://tobias.baethge.com/go/wp-table-reloaded/faq/" title="' . __('Frequently Asked Questions') . '">' . __('FAQ') . '</a>';
-			$docs_donate_link = '<a href="http://tobias.baethge.com/go/wp-table-reloaded/documentation/" title="' . __('Plugin Documentation') . '">' . __('Documentation') . '</a>' .
-    '<br/>' . '<a href="http://tobias.baethge.com/go/wp-table-reloaded/donate/" title="' . __('Support WP-Table Reloaded with your donation!') . '"><strong>' . __('Donate') . '</strong></a>';
-            $support_link = '<a href="http://tobias.baethge.com/go/wp-table-reloaded/support/" title="' . __('Support') . '">' . __('Support') . '</a>';
+			$faq_link = '<a href="http://tobias.baethge.com/go/wp-table-reloaded/faq/" title="' . __( 'Frequently Asked Questions', WP_TABLE_RELOADED_TEXTDOMAIN ) . '">' . __( 'FAQ', WP_TABLE_RELOADED_TEXTDOMAIN ) . '</a>';
+			$docs_donate_link = '<a href="http://tobias.baethge.com/go/wp-table-reloaded/documentation/" title="' . __( 'Plugin Documentation', WP_TABLE_RELOADED_TEXTDOMAIN ) . '">' . __( 'Documentation', WP_TABLE_RELOADED_TEXTDOMAIN ) . '</a>' .
+    '<br/>' . '<a href="http://tobias.baethge.com/go/wp-table-reloaded/donate/" title="' . __( 'Support WP-Table Reloaded with your donation!', WP_TABLE_RELOADED_TEXTDOMAIN ) . '"><strong>' . __( 'Donate', WP_TABLE_RELOADED_TEXTDOMAIN ) . '</strong></a>';
+            $support_link = '<a href="http://tobias.baethge.com/go/wp-table-reloaded/support/" title="' . __( 'Support', WP_TABLE_RELOADED_TEXTDOMAIN ) . '">' . __( 'Support', WP_TABLE_RELOADED_TEXTDOMAIN ) . '</a>';
             // $support_link is prepended to existing link, because we want <br/> instead | between them. a little bit hacky, but it works :-)
             $links[0]= $support_link . '<br/>' . $links[0];
             array_unshift( $links, $faq_link, $docs_donate_link );
@@ -2643,7 +2643,7 @@ class WP_Table_Reloaded_Admin {
 	  	        'str_DataManipulationLinkInsertURL' => __( 'URL of link to insert', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_DataManipulationLinkInsertText' => __( 'Text of link', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_DataManipulationLinkInsertExplain' => __( 'To insert the following HTML code for a link into a cell, just click the cell after closing this dialog.', WP_TABLE_RELOADED_TEXTDOMAIN ),
-	  	        'str_DataManipulationImageInsertThickbox' => __( 'To insert an image, click the cell into which you want to insert the image.', WP_TABLE_RELOADED_TEXTDOMAIN ) . "\n" . __( 'The Media Library will open, from which you can select the desired image or insert the image URL.', WP_TABLE_RELOADED_TEXTDOMAIN ) . "\n" . sprintf( __( 'Click the "%s" button to insert the image.', WP_TABLE_RELOADED_TEXTDOMAIN ), attribute_escape( __('Insert into Post') ) ),
+	  	        'str_DataManipulationImageInsertThickbox' => __( 'To insert an image, click the cell into which you want to insert the image.', WP_TABLE_RELOADED_TEXTDOMAIN ) . "\n" . __( 'The Media Library will open, from which you can select the desired image or insert the image URL.', WP_TABLE_RELOADED_TEXTDOMAIN ) . "\n" . sprintf( __( 'Click the &quot;%s&quot; button to insert the image.', WP_TABLE_RELOADED_TEXTDOMAIN ), attribute_escape( __( 'Insert into Post' ) ) ),
 	  	        'str_BulkCopyTablesLink' => __( 'Do you want to copy the selected tables?', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_BulkDeleteTablesLink' => __( 'The selected tables and all content will be erased. Do you really want to delete them?', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_BulkImportwpTableTablesLink' => __( 'Do you really want to import the selected tables from the wp-Table plugin?', WP_TABLE_RELOADED_TEXTDOMAIN ),
@@ -2666,7 +2666,7 @@ class WP_Table_Reloaded_Admin {
 	  	        'str_CFShortcodeMessage' => __( 'To show this Custom Data Field, use this shortcode:', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	        'str_TableShortcodeMessage' => __( 'To show this table, use this shortcode:', WP_TABLE_RELOADED_TEXTDOMAIN ),
                 'str_ImportDumpFile' => __( 'Warning: You will lose all current Tables and Settings! You should create a backup first. Be warned!', WP_TABLE_RELOADED_TEXTDOMAIN ),
-                'str_saveAlert' => __( 'You have made changes to the content of this table and not yet saved them.', WP_TABLE_RELOADED_TEXTDOMAIN ) . ' ' . __('You should first click "Update Changes" or they will be lost if you navigate away from this page.', WP_TABLE_RELOADED_TEXTDOMAIN ),
+                'str_saveAlert' => __( 'You have made changes to the content of this table and not yet saved them.', WP_TABLE_RELOADED_TEXTDOMAIN ) . ' ' . sprintf( __( 'You should first click &quot;%s&quot; or they will be lost if you navigate away from this page.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Update Changes', WP_TABLE_RELOADED_TEXTDOMAIN ) ),
                 'option_show_exit_warning' => $this->options['show_exit_warning'],
                 'option_growing_textareas' => $this->options['growing_textareas'],
                 'option_add_target_blank_to_links' => $this->options['add_target_blank_to_links'],
