@@ -63,28 +63,28 @@ TEXT;
             case 'bulk_edit':
             case 'hide_donate_nag':
             case 'list':
-                $help = __( 'This is the "List Tables" screen.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                $help = __( 'This is the &quot;List Tables&quot; screen.', WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
             case 'edit':
-                $help = __( 'This is the "Edit Table" screen.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                $help = __( 'This is the &quot;Edit Table&quot; screen.', WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
             case 'add':
-                $help = __( 'This is the "Add new Table" screen.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                $help = __( 'This is the &quot;Add new Table&quot; screen.', WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
             case 'import':
-                $help = __( 'This is the "Import a Table" screen.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                $help = __( 'This is the &quot;Import a Table&quot; screen.', WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
             case 'export':
-                $help = __( 'This is the "Export a Table" screen.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                $help = __( 'This is the &quot;Export a Table&quot; screen.', WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
             case 'options':
-                $help = __( 'This is the "Plugin Options" screen.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                $help = __( 'This is the &quot;Plugin Options&quot; screen.', WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
             case 'uninstall':
                 $help = __( 'Plugin deactivated successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ) . ' ' . __( 'All tables, data and options were deleted. You may now remove the plugin\'s subfolder from your WordPress plugin folder.', WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
             case 'info':
-                $help = __( 'This is the "About the plugin" screen.', WP_TABLE_RELOADED_TEXTDOMAIN );
+                $help = __( 'This is the &quot;About the plugin&quot; screen.', WP_TABLE_RELOADED_TEXTDOMAIN );
                 break;
             // case 'ajax_list': // not needed, no contextual_help here
             // case 'ajax_preview': // not needed, no contextual_help here
