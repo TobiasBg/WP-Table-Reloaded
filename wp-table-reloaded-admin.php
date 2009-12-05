@@ -25,7 +25,7 @@ class WP_Table_Reloaded_Admin {
         'table' => 'wp_table_reloaded_data'
     );
     // allowed actions in this class
-    var $allowed_actions = array( 'list', 'add', 'edit', 'bulk_edit', 'copy', 'delete', 'import', 'export', 'options', 'uninstall', 'info', 'hide_donate_nag', 'hide_welcome_message' ); // 'ajax_list', 'ajax_preview', but handled separatly
+    var $allowed_actions = array( 'list', 'add', 'edit', 'bulk_edit', 'copy', 'delete', 'import', 'export', 'options', 'uninstall', 'info', 'hide_donate_nag', 'hide_welcome_message' ); // 'ajax_list', 'ajax_preview', 'ajax_delete_table', but handled separatly
     // current action, populated in load_manage_page
     var $action = 'list';
     // allowed actions in this class
@@ -47,6 +47,7 @@ class WP_Table_Reloaded_Admin {
         'use_custom_css' => true,
         'custom_css' => '',
         'admin_menu_parent_page' => 'tools.php',
+        'user_access_plugin' => 'author', // others are contributor, editor and admin
         'user_access_plugin_options' => 'author', // others are editor and admin
         'install_time' => 0,
         'show_donate_nag' => true,
@@ -158,7 +159,24 @@ class WP_Table_Reloaded_Admin {
     // ###################################################################################################################
     // add page, and what happens when page is loaded or shown
     function add_manage_page() {
-        $min_needed_capability = 'publish_posts'; // user needs at least this capability to view WP-Table Reloaded config page
+        // user needs at least this capability to view WP-Table Reloaded config page
+        // capabilities from http://codex.wordpress.org/Roles_and_Capabilities
+        switch ( $this->options['user_access_plugin'] ) {
+            case 'admin':
+                $min_needed_capability = 'manage_options';
+                break;
+            case 'editor':
+                $min_needed_capability = 'publish_pages';
+                break;
+            case 'author':
+                $min_needed_capability = 'publish_posts';
+                break;
+            case 'contributor':
+                $min_needed_capability = 'edit_posts';
+                break;
+            default:
+                $min_needed_capability = 'manage_options';
+        }
         $min_needed_capability = apply_filters( 'wp_table_reloaded_min_needed_capability', $min_needed_capability ); // plugins may filter/change this though
         
         $display_name = 'WP-Table Reloaded'; // the name that is displayed in the admin menu on the left
@@ -1003,11 +1021,16 @@ class WP_Table_Reloaded_Admin {
                     $this->options['admin_menu_parent_page'] = $new_options['admin_menu_parent_page'];
                 else
                     $this->options['admin_menu_parent_page'] = 'tools.php';
+                // user access to plugin
+                if ( in_array( $new_options['user_access_plugin'], array( 'admin', 'editor', 'author', 'contributor' ) ) )
+                    $this->options['user_access_plugin'] = $new_options['user_access_plugin'];
+                else
+                    $this->options['user_access_plugin'] = 'admin'; // better set it high, if something is wrong
                 // user access to plugin options
                 if ( in_array( $new_options['user_access_plugin_options'], array( 'admin', 'editor', 'author' ) ) )
                     $this->options['user_access_plugin_options'] = $new_options['user_access_plugin_options'];
                 else
-                    $this->options['user_access_plugin_options'] = 'admin';
+                    $this->options['user_access_plugin_options'] = 'admin'; // better set it high, if something is wrong
             }
             // adjust $this->page_url, so that next page load will work
             $this->page_url = ( 'top-level' == $this->options['admin_menu_parent_page'] ) ? 'admin.php' : $this->options['admin_menu_parent_page'] ;
@@ -2109,6 +2132,28 @@ class WP_Table_Reloaded_Admin {
         <div class="inside">
         <p><?php _e( 'This area are only available to site administrators!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><?php if ( !$is_admin ) echo ' ' . __( 'You can therefore not change these options.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
         <table class="wp-table-reloaded-options">
+
+        <?php // the strings don't have a textdomain, because they shall be the same as in the original WP admin menu (and those strings are in WP's textdomain) ?>
+        <tr valign="top">
+            <th scope="row"><?php _e( 'Plugin Access', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
+            <td><?php _e( 'To access WP-Table Reloaded, a user needs to be:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <select id="options_user_access_plugin" name="options[user_access_plugin]"<?php echo ( !$is_admin ) ? ' disabled="disabled"': '' ; ?>>
+                <option<?php echo ( 'admin' == $this->options['user_access_plugin'] ) ? ' selected="selected"': ''; ?> value="admin"><?php _e( 'Administrator' ); ?></option>
+                <option<?php echo ( 'editor' == $this->options['user_access_plugin'] ) ? ' selected="selected"': ''; ?> value="editor"><?php _e( 'Editor' ); ?></option>
+                <option<?php echo ( 'author' == $this->options['user_access_plugin'] ) ? ' selected="selected"': ''; ?> value="author"><?php _e( 'Author' ); ?></option>
+                <option<?php echo ( 'contributor' == $this->options['user_access_plugin'] ) ? ' selected="selected"': ''; ?> value="author"><?php _e( 'Contributor' ); ?></option>
+        </select></td>
+        </tr>
+
+        <?php // the strings don't have a textdomain, because they shall be the same as in the original WP admin menu (and those strings are in WP's textdomain) ?>
+        <tr valign="top">
+            <th scope="row"><?php _e( 'Plugin Options Access', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
+            <td><?php _e( 'To access the Plugin Options of WP-Table Reloaded, a user needs to be:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <select id="options_user_access_plugin_options" name="options[user_access_plugin_options]"<?php echo ( !$is_admin ) ? ' disabled="disabled"': '' ; ?>>
+                <option<?php echo ( 'admin' == $this->options['user_access_plugin_options'] ) ? ' selected="selected"': ''; ?> value="admin"><?php _e( 'Administrator' ); ?></option>
+                <option<?php echo ( 'editor' == $this->options['user_access_plugin_options'] ) ? ' selected="selected"': ''; ?> value="editor"><?php _e( 'Editor' ); ?></option>
+                <option<?php echo ( 'author' == $this->options['user_access_plugin_options'] ) ? ' selected="selected"': ''; ?> value="author"><?php _e( 'Author' ); ?></option>
+        </select><br/><small>(<?php _e( 'Admin Options, Dump file Import, and Manual Plugin Uninstall are always accessible by Administrators only, regardless of this setting.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>)</small></td>
+        </tr>
+
         <?php // the strings don't have a textdomain, because they shall be the same as in the original WP admin menu (and those strings are in WP's textdomain) ?>
         <tr valign="top">
             <th scope="row"><?php _e( 'Admin menu entry', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
@@ -2123,16 +2168,6 @@ class WP_Table_Reloaded_Admin {
         </select><br/><small>(<?php _e( 'Change will take effect after another page load after saving.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>)</small></td>
         </tr>
 
-        <?php // the strings don't have a textdomain, because they shall be the same as in the original WP admin menu (and those strings are in WP's textdomain) ?>
-        <tr valign="top">
-            <th scope="row"><?php _e( 'Plugin Options Access', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><?php _e( 'To access the WP-Table Reloaded Plugin Options, a user needs to be:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <select id="options_user_access_plugin_options" name="options[user_access_plugin_options]"<?php echo ( !$is_admin ) ? ' disabled="disabled"': '' ; ?>>
-                <option<?php echo ( 'admin' == $this->options['user_access_plugin_options'] ) ? ' selected="selected"': ''; ?> value="admin"><?php _e( 'Administrator' ); ?></option>
-                <option<?php echo ( 'editor' == $this->options['user_access_plugin_options'] ) ? ' selected="selected"': ''; ?> value="editor"><?php _e( 'Editor' ); ?></option>
-                <option<?php echo ( 'author' == $this->options['user_access_plugin_options'] ) ? ' selected="selected"': ''; ?> value="author"><?php _e( 'Author' ); ?></option>
-        </select><br/><small>(<?php _e( 'Admin Options, Dump file Import, and Manual Plugin Uninstall are always accessible by Administrators only, regardless of this setting.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>)</small></td>
-        </tr>
-        
         <tr valign="top">
             <th scope="row"><?php _e( 'Remove upon Deactivation', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
             <td><input type="checkbox" name="options[uninstall_upon_deactivation]" id="options_uninstall_upon_deactivation"<?php echo ( true == $this->options['uninstall_upon_deactivation'] ) ? ' checked="checked"': '' ; ?><?php echo ( !$is_admin ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="options_uninstall_upon_deactivation"><?php _e( 'Yes, remove all plugin related data from the database when the plugin is deactivated.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <small>(<?php _e( 'Should be activated directly before deactivation only!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>)</small></label></td>
