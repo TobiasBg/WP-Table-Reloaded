@@ -2048,12 +2048,12 @@ class WP_Table_Reloaded_Admin {
     // ###################################################################################################################
     function print_plugin_options_form() {
         // Begin Add Table Form
-        $this->helper->print_page_header( __( 'General Plugin Options', WP_TABLE_RELOADED_TEXTDOMAIN ) );
+        $this->helper->print_page_header( __( 'Plugin Options', WP_TABLE_RELOADED_TEXTDOMAIN ) . ' &lsaquo; ' . __( 'WP-Table Reloaded', WP_TABLE_RELOADED_TEXTDOMAIN ) );
         $this->print_submenu_navigation( 'options' );
         ?>
         <div style="clear:both;">
-        <p><?php _e( 'The plugin has several options which affect the plugin behavior in different areas.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/>
-        <?php _e( 'Frontend Options influence the output of tables in pages, posts or text-widgets.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php printf( __( 'The Backend Options control the plugin\'s admin area, e.g. the &quot;%s&quot; screen.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Edit Table', WP_TABLE_RELOADED_TEXTDOMAIN ) ); ?> <?php _e( 'Administrators have access to further Admin Options.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
+        <p><?php _e( 'WP-Table Reloaded has several options which affect the plugin behavior in different areas.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/>
+        <?php _e( 'Frontend Options influence the output and used features of tables in pages, posts or text-widgets.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php printf( __( 'The Backend Options control the plugin\'s admin area, e.g. the &quot;%s&quot; screen.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Edit Table', WP_TABLE_RELOADED_TEXTDOMAIN ) ); ?> <?php _e( 'Administrators have access to further Admin Options.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
         </div>
 
         <?php
@@ -2181,6 +2181,10 @@ class WP_Table_Reloaded_Admin {
         <input type="hidden" name="action" value="options" />
         <p class="submit">
         <input type="submit" name="submit[form]" class="button-primary" value="<?php _e( 'Save Options', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
+        <?php
+        $list_url = $this->get_action_url( array( 'action' => 'list' ) );
+        echo " <a class=\"button-primary\" href=\"{$list_url}\">" . __( 'Cancel', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>";
+        ?>
         </p>
 
         </form>
