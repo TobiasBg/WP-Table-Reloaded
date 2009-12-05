@@ -93,10 +93,14 @@ class WP_Table_Reloaded_Admin {
     // temporary variables
     var $hook = '';
     var $page_url = '';
+    var $wp27 = false;
 
     // ###################################################################################################################
     // add admin-page to sidebar navigation, function called by PHP when class is constructed
     function WP_Table_Reloaded_Admin() {
+        // needed for different calls to context translation (WP 27: _c, WP 28+: _x), soon to be removed
+        $this->wp27 = version_compare( $GLOBALS['wp_version'], '2.8', '<');
+    
         // load common functions, stored in separate file for better overview and maintenance
         $this->helper = $this->create_class_instance( 'WP_Table_Reloaded_Helper', 'wp-table-reloaded-helper.class.php' );
     
@@ -145,7 +149,7 @@ class WP_Table_Reloaded_Admin {
 
             // add remote message, if update available / add additional links on Plugins page, but only if page is plugins.php
             if ( 'plugins.php' == $GLOBALS['pagenow'] ) {
-                if ( version_compare( $GLOBALS['wp_version'], '2.8', '>=') ) { // this is for WP 2.8 and later
+                if ( !$this->wp27 ) { // this is for WP 2.8 and later
                     add_action( 'in_plugin_update_message-' . WP_TABLE_RELOADED_BASENAME, array( &$this, 'add_plugin_update_message' ), 10, 2 );
                     add_filter( 'plugin_row_meta', array( &$this, 'add_plugin_row_meta_28' ), 10, 2);
                 } else { // this is for WP 2.7
@@ -1387,7 +1391,7 @@ class WP_Table_Reloaded_Admin {
         <input type="hidden" name="table[id]" value="<?php echo $table['id']; ?>" />
 
         <div class="postbox<?php echo $this->helper->postbox_closed( 'table-information', false ); ?>">
-        <h3 class="hndle"><span><?php _e( 'Table Information', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo translate_with_context( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+        <h3 class="hndle"><span><?php _e( 'Table Information', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo ( $this->wp27 ) ? _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ) : _x( 'Hide', 'expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
         <table class="wp-table-reloaded-table-information">
         <tr valign="top">
@@ -1423,7 +1427,7 @@ class WP_Table_Reloaded_Admin {
 
         <?php if ( 0 < $cols && 0 < $rows ) { ?>
             <div class="postbox<?php echo $this->helper->postbox_closed( 'table-contents', false ); ?>">
-            <h3 class="hndle"><span><?php _e( 'Table Contents', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo translate_with_context( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+            <h3 class="hndle"><span><?php _e( 'Table Contents', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo ( $this->wp27 ) ? _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ) : _x( 'Hide', 'expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
             <div class="inside">
             <table class="widefat" style="width:auto;" id="table_contents">
                 <tbody>
@@ -1476,7 +1480,7 @@ class WP_Table_Reloaded_Admin {
         <?php } //endif 0 < $rows/$cols ?>
 
         <div class="postbox<?php echo $this->helper->postbox_closed( 'table-data-manipulation', false ); ?>">
-        <h3 class="hndle"><span><?php _e( 'Data Manipulation', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo translate_with_context( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+        <h3 class="hndle"><span><?php _e( 'Data Manipulation', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo ( $this->wp27 ) ? _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ) : _x( 'Hide', 'expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
     <table class="wp-table-reloaded-data-manipulation widefat">
 
@@ -1504,12 +1508,12 @@ class WP_Table_Reloaded_Admin {
 
         <tr><td>
             <?php _e( 'Selected rows:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
-            <a id="a-hide-rows" class="button-primary" href="javascript:void(0);"><?php echo translate_with_context( 'Hide|item', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
-            <a id="a-unhide-rows" class="button-primary" href="javascript:void(0);"><?php echo translate_with_context( 'Unhide|item', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
+            <a id="a-hide-rows" class="button-primary" href="javascript:void(0);"><?php echo ( $this->wp27 ) ? _c( 'Hide|item', WP_TABLE_RELOADED_TEXTDOMAIN ) : _x( 'Hide', 'item', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
+            <a id="a-unhide-rows" class="button-primary" href="javascript:void(0);"><?php echo ( $this->wp27 ) ? _c( 'Unhide|item', WP_TABLE_RELOADED_TEXTDOMAIN ) : _x( 'Unhide', 'item', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
         </td><td>
             <?php _e( 'Selected columns:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
-            <a id="a-hide-columns" class="button-primary" href="javascript:void(0);"><?php echo translate_with_context( 'Hide|item', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
-            <a id="a-unhide-columns" class="button-primary" href="javascript:void(0);"><?php echo translate_with_context( 'Unhide|item', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
+            <a id="a-hide-columns" class="button-primary" href="javascript:void(0);"><?php echo ( $this->wp27 ) ? _c( 'Hide|item', WP_TABLE_RELOADED_TEXTDOMAIN ) : _x( 'Hide', 'item', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
+            <a id="a-unhide-columns" class="button-primary" href="javascript:void(0);"><?php echo ( $this->wp27 ) ? _c( 'Unhide|item', WP_TABLE_RELOADED_TEXTDOMAIN ) : _x( 'Unhide', 'item', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
         </td></tr>
 
         <tr><td>
@@ -1629,7 +1633,7 @@ class WP_Table_Reloaded_Admin {
         </p>
 
         <div class="postbox<?php echo $this->helper->postbox_closed( 'table-styling-options', false ); ?>">
-        <h3 class="hndle"><span><?php _e( 'Table Styling Options', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo translate_with_context( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+        <h3 class="hndle"><span><?php _e( 'Table Styling Options', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo ( $this->wp27 ) ? _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ) : _x( 'Hide', 'expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
         <p><?php _e( 'These settings will only be used for this table.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
         <table class="wp-table-reloaded-options">
@@ -1690,7 +1694,7 @@ class WP_Table_Reloaded_Admin {
         $tabletools_enabled = $this->options['enable_tablesorter'] && ( 'datatables-tabletools' == $this->options['tablesorter_script'] );
         ?>
         <div class="postbox<?php echo $this->helper->postbox_closed( 'datatables-features', true ); ?>">
-        <h3 class="hndle"><span><?php _e( 'DataTables JavaScript Features', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo translate_with_context( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+        <h3 class="hndle"><span><?php _e( 'DataTables JavaScript Features', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo ( $this->wp27 ) ? _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ) : _x( 'Hide', 'expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
         <p><?php _e( 'You can enable certain features for the DataTables JavaScript library here.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'More information on these features can be found on the <a href="http://www.datatables.net/">DataTables website</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
         <?php if ( !$datatables_enabled ) { ?>
@@ -1742,7 +1746,7 @@ class WP_Table_Reloaded_Admin {
         </p>
 
         <div class="postbox<?php echo $this->helper->postbox_closed( 'custom-data-fields', true ); ?>">
-        <h3 class="hndle"><span><?php _e( 'Custom Data Fields', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo translate_with_context( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+        <h3 class="hndle"><span><?php _e( 'Custom Data Fields', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo ( $this->wp27 ) ? _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ) : _x( 'Hide', 'expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
         <?php _e( 'Custom Data Fields can be used to add extra metadata to a table.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'For example, this could be information about the source or the creator of the data.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
         <br/>
@@ -2068,7 +2072,7 @@ class WP_Table_Reloaded_Admin {
         <?php wp_nonce_field( $this->get_nonce( 'options' ) ); ?>
         
         <div class="postbox<?php echo $this->helper->postbox_closed( 'frontend-plugin-options', false ); ?>">
-<h3 class="hndle"><span><?php _e( 'Frontend Options', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo translate_with_context( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+<h3 class="hndle"><span><?php _e( 'Frontend Options', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo ( $this->wp27 ) ? _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ) : _x( 'Hide', 'expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
 <div class="inside">
         <table class="wp-table-reloaded-options">
         <tr valign="top">
@@ -2111,7 +2115,7 @@ class WP_Table_Reloaded_Admin {
         </div>
         
         <div class="postbox<?php echo $this->helper->postbox_closed( 'backend-plugin-options', false ); ?>">
-        <h3 class="hndle"><span><?php _e( 'Backend Options', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo translate_with_context( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+        <h3 class="hndle"><span><?php _e( 'Backend Options', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo ( $this->wp27 ) ? _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ) : _x( 'Hide', 'expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
         <table class="wp-table-reloaded-options">
         <tr valign="top">
@@ -2128,7 +2132,7 @@ class WP_Table_Reloaded_Admin {
         </div>
         
         <div class="postbox<?php echo $this->helper->postbox_closed( 'admin-plugin-options', ( $is_admin) ? false : true ); ?>">
-        <h3 class="hndle"><span><?php _e( 'Admin Options', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo translate_with_context( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+        <h3 class="hndle"><span><?php _e( 'Admin Options', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo ( $this->wp27 ) ? _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ) : _x( 'Hide', 'expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
         <p><?php _e( 'This area are only available to site administrators!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><?php if ( !$is_admin ) echo ' ' . __( 'You can therefore not change these options.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
         <table class="wp-table-reloaded-options">
@@ -2137,10 +2141,10 @@ class WP_Table_Reloaded_Admin {
         <tr valign="top">
             <th scope="row"><?php _e( 'Plugin Access', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
             <td><?php _e( 'To access WP-Table Reloaded, a user needs to be:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <select id="options_user_access_plugin" name="options[user_access_plugin]"<?php echo ( !$is_admin ) ? ' disabled="disabled"': '' ; ?>>
-                <option<?php echo ( 'admin' == $this->options['user_access_plugin'] ) ? ' selected="selected"': ''; ?> value="admin"><?php _e( 'Administrator' ); ?></option>
-                <option<?php echo ( 'editor' == $this->options['user_access_plugin'] ) ? ' selected="selected"': ''; ?> value="editor"><?php _e( 'Editor' ); ?></option>
-                <option<?php echo ( 'author' == $this->options['user_access_plugin'] ) ? ' selected="selected"': ''; ?> value="author"><?php _e( 'Author' ); ?></option>
-                <option<?php echo ( 'contributor' == $this->options['user_access_plugin'] ) ? ' selected="selected"': ''; ?> value="author"><?php _e( 'Contributor' ); ?></option>
+                <option<?php echo ( 'admin' == $this->options['user_access_plugin'] ) ? ' selected="selected"': ''; ?> value="admin"><?php echo ( $this->wp27 ) ? _c( 'Administrator|User role' ) : _x( 'Administrator', 'User role' ); ?></option>
+                <option<?php echo ( 'editor' == $this->options['user_access_plugin'] ) ? ' selected="selected"': ''; ?> value="editor"><?php echo ( $this->wp27 ) ? _c( 'Editor|User role' ) : _x( 'Editor', 'User role' ); ?></option>
+                <option<?php echo ( 'author' == $this->options['user_access_plugin'] ) ? ' selected="selected"': ''; ?> value="author"><?php echo ( $this->wp27 ) ? _c( 'Author|User role' ) : _x( 'Author', 'User role' ); ?></option>
+                <option<?php echo ( 'contributor' == $this->options['user_access_plugin'] ) ? ' selected="selected"': ''; ?> value="author"><?php echo ( $this->wp27 ) ? _c( 'Contributor|User role' ) : _x( 'Contributor', 'User role' ); ?></option>
         </select></td>
         </tr>
 
@@ -2148,9 +2152,9 @@ class WP_Table_Reloaded_Admin {
         <tr valign="top">
             <th scope="row"><?php _e( 'Plugin Options Access', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
             <td><?php _e( 'To access the Plugin Options of WP-Table Reloaded, a user needs to be:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <select id="options_user_access_plugin_options" name="options[user_access_plugin_options]"<?php echo ( !$is_admin ) ? ' disabled="disabled"': '' ; ?>>
-                <option<?php echo ( 'admin' == $this->options['user_access_plugin_options'] ) ? ' selected="selected"': ''; ?> value="admin"><?php _e( 'Administrator' ); ?></option>
-                <option<?php echo ( 'editor' == $this->options['user_access_plugin_options'] ) ? ' selected="selected"': ''; ?> value="editor"><?php _e( 'Editor' ); ?></option>
-                <option<?php echo ( 'author' == $this->options['user_access_plugin_options'] ) ? ' selected="selected"': ''; ?> value="author"><?php _e( 'Author' ); ?></option>
+                <option<?php echo ( 'admin' == $this->options['user_access_plugin_options'] ) ? ' selected="selected"': ''; ?> value="admin"><?php echo ( $this->wp27 ) ? _c( 'Administrator|User role' ) : _x( 'Administrator', 'User role' ); ?></option>
+                <option<?php echo ( 'editor' == $this->options['user_access_plugin_options'] ) ? ' selected="selected"': ''; ?> value="editor"><?php echo ( $this->wp27 ) ? _c( 'Editor|User role' ) : _x( 'Editor', 'User role' ); ?></option>
+                <option<?php echo ( 'author' == $this->options['user_access_plugin_options'] ) ? ' selected="selected"': ''; ?> value="author"><?php echo ( $this->wp27 ) ? _c( 'Author|User role' ) : _x( 'Author', 'User role' ); ?></option>
         </select><br/><small>(<?php _e( 'Admin Options, Dump file Import, and Manual Plugin Uninstall are always accessible by Administrators only, regardless of this setting.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>)</small></td>
         </tr>
 
@@ -2196,7 +2200,7 @@ class WP_Table_Reloaded_Admin {
         <p style="margin-bottom:20px;"><?php _e( 'WP-Table Reloaded can export and import a so-called dump file that contains all tables, their settings and the plugin\'s options.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'This file can be used as a backup or to move all data to another WordPress site.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
         </div>
         <div class="postbox<?php echo $this->helper->postbox_closed( 'dump-file-export', true ); ?>">
-        <h3 class="hndle"><span><?php _e( 'Export a dump file', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo translate_with_context( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+        <h3 class="hndle"><span><?php _e( 'Export a dump file', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo ( $this->wp27 ) ? _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ) : _x( 'Hide', 'expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
         <p><?php _e( 'To export all Tables and their settings, click the button below to generate and download a dump file.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/><?php _e( '<strong>Warning</strong>: Do <strong>not</strong> edit the content of that file under any circumstances as you will destroy the file!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
         <form method="post" action="<?php echo $this->get_action_url(); ?>">
@@ -2207,7 +2211,7 @@ class WP_Table_Reloaded_Admin {
         </div>
 
         <div class="postbox<?php echo $this->helper->postbox_closed( 'dump-file-import', true ); ?>">
-        <h3 class="hndle"><span><?php _e( 'Import a dump file', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo translate_with_context( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+        <h3 class="hndle"><span><?php _e( 'Import a dump file', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo ( $this->wp27 ) ? _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ) : _x( 'Hide', 'expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
         <p><?php _e( 'To import a WP-Table Reloaded dump file and restore the included data, upload the file from your computer.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/><?php _e( 'All current data of this WP-Table Reloaded installation (Tables, Options, Settings) <strong>WILL BE OVERWRITTEN</strong> with the data from the file!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'Do not proceed, if you do not understand this!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/><?php _e( 'It is highly recommended to export and backup the data of this installation before importing another dump file (see above).', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
         <?php
@@ -2325,7 +2329,7 @@ class WP_Table_Reloaded_Admin {
         </div>
         
         <div class="postbox<?php echo $this->helper->postbox_closed( 'debug-version-information', true ); ?>">
-        <h3 class="hndle"><span><?php _e( 'Debug and Version Information', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo translate_with_context( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
+        <h3 class="hndle"><span><?php _e( 'Debug and Version Information', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo ( $this->wp27 ) ? _c( 'Hide|expand', WP_TABLE_RELOADED_TEXTDOMAIN ) : _x( 'Hide', 'expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
         <p>
             <?php _e( 'You are using the following versions of the software.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <strong><?php _e( 'Please provide this information in bug reports.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></strong><br/>
