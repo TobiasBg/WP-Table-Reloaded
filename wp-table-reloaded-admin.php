@@ -2938,12 +2938,16 @@ WPLIST;
             $sNext = __( 'Next', WP_TABLE_RELOADED_TEXTDOMAIN );
             $sLast = __( 'Last', WP_TABLE_RELOADED_TEXTDOMAIN );
 
+            $pagination = '';
+            if ( 11 > count( $this->tables ) )
+                $pagination = '"bPaginate": false, "sPaginationType": "full_numbers", "bLengthChange": false,';
+
             $tsscript = <<<TSSCRIPT
 var tablelist = $('#wp-table-reloaded-list').dataTable({
     "bSortClasses": false,
+    {$pagination}
     "aaSorting": [],
     "bProcessing": true,
-    "sPaginationType": "full_numbers",
     "asStripClasses": ['even','odd'],
     "aoColumns": [
         { "sWidth": "24px", "bSortable": false, "bSearchable": false },
