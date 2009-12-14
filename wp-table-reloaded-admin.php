@@ -1552,7 +1552,7 @@ class WP_Table_Reloaded_Admin {
                 if ( $this->wp27 ) {
                     printf( _c( 'Selected rows: %s %s|insert_delete', WP_TABLE_RELOADED_TEXTDOMAIN ), $a_rows_insert, $a_rows_delete );
                 } else {
-                    printf( _x( 'Selected rows: %s', 'insert_delete', WP_TABLE_RELOADED_TEXTDOMAIN ), $a_rows_insert, $a_rows_delete );
+                    printf( _x( 'Selected rows: %s %s', 'insert_delete', WP_TABLE_RELOADED_TEXTDOMAIN ), $a_rows_insert, $a_rows_delete );
                 }
             } else {
                 _e( 'Selected rows:', WP_TABLE_RELOADED_TEXTDOMAIN );
