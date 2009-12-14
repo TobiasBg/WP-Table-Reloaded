@@ -23,19 +23,19 @@ msgstr ""
 #: php/wp-table-reloaded-import.class.php:38
 #@ wp-table-reloaded
 msgid "CSV - Character-Separated Values"
-msgstr "CSV - Character-Separated Values (Hodnoty oddelené čiarkou)"
+msgstr "CSV - Character-Separated Values (Hodnoty oddelené znakom)"
 
 #: php/wp-table-reloaded-export.class.php:31
 #: php/wp-table-reloaded-import.class.php:39
 #@ wp-table-reloaded
 msgid "HTML - Hypertext Markup Language"
-msgstr "HTML - Hypertext Markup Language (Hypertextový značkový jazyk)"
+msgstr "HTML - Hypertext Markup Language (Hypertextový značkovací jazyk)"
 
 #: php/wp-table-reloaded-export.class.php:32
 #: php/wp-table-reloaded-import.class.php:40
 #@ wp-table-reloaded
 msgid "XML - eXtended Markup Language"
-msgstr "XML - eXtended Markup Language (rozšíriteľný značkovací jazyk)"
+msgstr "XML - eXtended Markup Language (rozšíriteľný značkový jazyk)"
 
 #: php/wp-table-reloaded-export.class.php:35
 #@ wp-table-reloaded
@@ -62,72 +62,66 @@ msgstr ". (bodka)"
 msgid "| (pipe)"
 msgstr "| (zvislá čiara)"
 
-#: wp-table-reloaded-admin.php:184
+#: wp-table-reloaded-admin.php:290
 #, php-format
 #@ wp-table-reloaded
 msgid "Thanks for using this plugin! You've installed WP-Table Reloaded over a month ago. If it works and you are satisfied with the results of managing your %s tables, isn't it worth at least one dollar or euro?"
-msgstr "Ďakujem, že používate tento plugin.  WP-Table Reloaded ste si nainštalovali pred mesiacom. Ak funguje a ste spokojný s výsledkom manažmenu Vašich %s tabuliek, nebolo by vhodné prispieť aspoň jedným eurom alebo dolárom na jeho ďalší vývoj?"
+msgstr "Ďakujem, že používate tento plugin!  WP-Table Reloaded ste si nainštalovali pred mesiacom. Ak funguje a ste spokojný s výsledkom manažmentu Vašich %s tabuliek, nebolo by vhodné prispieť aspoň jedným eurom alebo dolárom na jeho ďalší vývoj?"
 
-#: wp-table-reloaded-admin.php:185
+#: wp-table-reloaded-admin.php:291
 #, php-format
 #@ wp-table-reloaded
 msgid "<a href=\"%s\">Donations</a> help me to continue support and development of this <i>free</i> software - things for which I spend countless hours of my free time! Thank you!"
 msgstr "<a href=\"%s\">Darovaním</a> menšieho obnosu mi pômožete pokračovať v podpore a vývoji tohoto <i>voľne</i> dostupného softwéru."
 
-#: wp-table-reloaded-admin.php:186
+#: wp-table-reloaded-admin.php:292
 #@ wp-table-reloaded
 msgid "Sure, no problem!"
 msgstr "Jasné, bez problémov!"
 
-#: wp-table-reloaded-admin.php:187
+#: wp-table-reloaded-admin.php:293
 #@ wp-table-reloaded
 msgid "I already donated."
 msgstr "Už som prispel."
 
-#: wp-table-reloaded-admin.php:188
+#: wp-table-reloaded-admin.php:294
 #@ wp-table-reloaded
 msgid "No, thanks. Don't ask again."
 msgstr "Nie, ďakujem. A už sa nepýtaj."
 
-#: wp-table-reloaded-admin.php:213
-#, php-format
-#@ wp-table-reloaded
-msgid "Table \"%s\" added successfully."
-msgstr "Tabuľka \"%s\" bola úspešne pridaná."
-
-#: wp-table-reloaded-admin.php:241
+#: wp-table-reloaded-admin.php:348
 #, php-format
 #@ wp-table-reloaded
 msgid "Table edited successfully. This Table now has the ID %s. You'll need to adjust existing shortcodes accordingly."
 msgstr "Tabuľka bola zmenená. Aktuálne má ID %s. Zmeňte podľa toho aj existujúce skrátené zápisy tabuliek v článkoch."
 
-#: wp-table-reloaded-admin.php:243
+#: wp-table-reloaded-admin.php:350
 #, php-format
 #@ wp-table-reloaded
 msgid "The ID could not be changed from %s to %s, because there already is a Table with that ID."
-msgstr "ID tabuľky nemôže byť zmenené, pretože už existuje tabuľka s týmto ID:"
+msgstr "ID tabuľky nemôže byť zmenené, pretože už existuje tabuľka s týmto ID."
 
-#: wp-table-reloaded-admin.php:246
+#: wp-table-reloaded-admin.php:353
 #@ wp-table-reloaded
 msgid "Table edited successfully."
 msgstr "Tabuľka bola úspešne upravená."
 
-#: wp-table-reloaded-admin.php:284
+#: wp-table-reloaded-admin.php:399
 #@ wp-table-reloaded
 msgid "Rows swapped successfully."
 msgstr "Riadky boli úspešne prehodené."
 
-#: wp-table-reloaded-admin.php:305
+#: wp-table-reloaded-admin.php:420
 #@ wp-table-reloaded
 msgid "Columns swapped successfully."
 msgstr "Stĺpce boli úspešne prehodené."
 
-#: wp-table-reloaded-admin.php:336
+#: wp-table-reloaded-admin.php:451
 #@ wp-table-reloaded
 msgid "Table sorted successfully."
 msgstr "Tabuľka bola úspešne zoradená."
 
-#: wp-table-reloaded-admin.php:351
+#: wp-table-reloaded-admin.php:602
 #@ wp-table-reloaded
 msgid "Row added successfully."
 msgid_plural "Rows added successfully."
@@ -135,7 +129,7 @@ msgstr[0] "Riadok bol úspešne pridaný."
 msgstr[1] "Riadky boli úspešne pridané."
 msgstr[2] "Riadky boli úspešne pridané."
 
-#: wp-table-reloaded-admin.php:365
+#: wp-table-reloaded-admin.php:616
 #@ wp-table-reloaded
 msgid "Column added successfully."
 msgid_plural "Columns added successfully."
@@ -143,48 +137,48 @@ msgstr[0] "Stĺpec bol úspešne pridaný."
 msgstr[1] "Stĺpce boli úspešne pridané."
 msgstr[2] "Stĺpce boli úspešne pridané."
 
-#: wp-table-reloaded-admin.php:386
+#: wp-table-reloaded-admin.php:472
 #@ wp-table-reloaded
 msgid "Row moved successfully."
 msgstr "Riadok bol úspešne presunutý."
 
-#: wp-table-reloaded-admin.php:411
+#: wp-table-reloaded-admin.php:497
 #@ wp-table-reloaded
 msgid "Column moved successfully."
 msgstr "Stĺpec bol úspešne presunutý."
 
-#: wp-table-reloaded-admin.php:418
+#: wp-table-reloaded-admin.php:623
 #@ wp-table-reloaded
 msgid "Could not add Custom Data Field, because you did not enter a name."
-msgstr "Nemôžem vložiť užívateľské pole, pretože ste nezadali názov."
+msgstr "Nemôžem vložiť užívateľské pole, pretože ste nezadali jeho názov."
 
-#: wp-table-reloaded-admin.php:423
+#: wp-table-reloaded-admin.php:628
 #@ wp-table-reloaded
 msgid "Could not add Custom Data Field, because the name you entered is reserved for other table data."
-msgstr "Nemôžem vložiť užívateľské pole, pretože názov je už rezervovaný pre údaje v inej tabuľke."
+msgstr "Nemôžem vložiť užívateľské pole, pretože názov je už rezervovaný pre údaje inej tabuľky."
 
-#: wp-table-reloaded-admin.php:429
+#: wp-table-reloaded-admin.php:634
 #@ wp-table-reloaded
 msgid "Could not add Custom Data Field, because the name contained illegal characters."
 msgstr "Nemôžem vložiť užívateľské pole, pretože názov obsahuje nepovolené znaky."
 
-#: wp-table-reloaded-admin.php:433
+#: wp-table-reloaded-admin.php:638
 #@ wp-table-reloaded
 msgid "Could not add Custom Data Field, because a Field with that name already exists."
 msgstr "Nemôžem vložiť užívateľské pole, pretože pole s týmto názvom už existuje."
 
-#: wp-table-reloaded-admin.php:439
+#: wp-table-reloaded-admin.php:644
 #@ wp-table-reloaded
 msgid "Custom Data Field added successfully."
 msgstr "Užívateľské pole bolo úspešne vložené."
 
-#: wp-table-reloaded-admin.php:475
-#: wp-table-reloaded-admin.php:530
+#: wp-table-reloaded-admin.php:680
+#: wp-table-reloaded-admin.php:735
 #@ wp-table-reloaded
 msgid "Copy of"
 msgstr "Kópia"
 
-#: wp-table-reloaded-admin.php:479
+#: wp-table-reloaded-admin.php:684
 #@ wp-table-reloaded
 msgid "Table copied successfully."
 msgid_plural "Tables copied successfully."
@@ -192,7 +186,7 @@ msgstr[0] "Tabuľka bola úspešne skopírovaná."
 msgstr[1] "Tabuľky boli úspešne skopírované."
 msgstr[2] "Tabuľky boli úspešne skopírované."
 
-#: wp-table-reloaded-admin.php:485
+#: wp-table-reloaded-admin.php:690
 #@ wp-table-reloaded
 msgid "Table deleted successfully."
 msgid_plural "Tables deleted successfully."
@@ -200,7 +194,7 @@ msgstr[0] "Tabuľka bola úspešne zmazaná."
 msgstr[1] "Tabuľky boli úspešne zmazané."
 msgstr[2] "Tabuľky boli úspešne zmazané."
 
-#: wp-table-reloaded-admin.php:506
+#: wp-table-reloaded-admin.php:711
 #@ wp-table-reloaded
 msgid "Table imported successfully."
 msgid_plural "Tables imported successfully."
@@ -208,1398 +202,2160 @@ msgstr[0] "Tabuľka bola úspešne importovaná."
 msgstr[1] "Tabuľky boli úspešne importované."
 msgstr[2] "Tabuľky boli úspešne importované."
 
-#: wp-table-reloaded-admin.php:513
+#: wp-table-reloaded-admin.php:718
 #@ wp-table-reloaded
 msgid "You did not select any tables!"
 msgstr "Neoznačili ste žiadnu tabuľku!"
 
-#: wp-table-reloaded-admin.php:535
-#, php-format
-#@ wp-table-reloaded
-msgid "Table \"%s\" copied successfully."
-msgstr "Tabuľka \"%s\" bola úspešne skopírovaná."
-
-#: wp-table-reloaded-admin.php:551
-#, php-format
-#@ wp-table-reloaded
-msgid "Table \"%s\" deleted successfully."
-msgstr "Tabuľka \"%s\" bola úspešne zmazaná."
-
-#: wp-table-reloaded-admin.php:562
-#@ wp-table-reloaded
-msgid "Row deleted successfully."
-msgstr "Riadok bol úspešne zmazaný."
-
-#: wp-table-reloaded-admin.php:576
-#@ wp-table-reloaded
-msgid "Column deleted successfully."
-msgstr "Stĺpec bol úspešne zmazaný."
-
-#: wp-table-reloaded-admin.php:585
+#: wp-table-reloaded-admin.php:764
 #@ wp-table-reloaded
 msgid "Custom Data Field deleted successfully."
 msgstr "Užívateľské pole bolo úspešne zmazané."
 
-#: wp-table-reloaded-admin.php:587
+#: wp-table-reloaded-admin.php:766
 #@ wp-table-reloaded
 msgid "Custom Data Field could not be deleted."
 msgstr "Užívateľské pole sa nedá zmazať."
 
-#: wp-table-reloaded-admin.php:593
+#: wp-table-reloaded-admin.php:772
 #@ wp-table-reloaded
 msgid "Delete failed."
 msgstr "Zmazanie zlyhalo."
 
-#: wp-table-reloaded-admin.php:619
-#@ wp-table-reloaded
-msgid "Row inserted successfully."
-msgstr "Riadok bol úspešne vložený-"
-
-#: wp-table-reloaded-admin.php:629
-#@ wp-table-reloaded
-msgid "Column inserted successfully."
-msgstr "Stĺpec bol úspešne vložený-"
-
-#: wp-table-reloaded-admin.php:632
-#@ wp-table-reloaded
-msgid "Insert failed."
-msgstr "Vkladanie zlyhalo."
-
-#: wp-table-reloaded-admin.php:660
-#: wp-table-reloaded-admin.php:669
-#: wp-table-reloaded-admin.php:679
+#: wp-table-reloaded-admin.php:799
+#: wp-table-reloaded-admin.php:808
+#: wp-table-reloaded-admin.php:818
 #@ wp-table-reloaded
 msgid "Imported Table"
-msgstr "Importovaná tabuľka."
+msgstr "Importovaná tabuľka"
 
-#: wp-table-reloaded-admin.php:661
-#: wp-table-reloaded-admin.php:680
+#: wp-table-reloaded-admin.php:800
+#: wp-table-reloaded-admin.php:819
 #, php-format
 #@ wp-table-reloaded
 msgid "from %s"
 msgstr "z %s"
 
-#: wp-table-reloaded-admin.php:670
+#: wp-table-reloaded-admin.php:809
 #@ wp-table-reloaded
 msgid "via form"
 msgstr "cez formulár"
 
-#: wp-table-reloaded-admin.php:690
-#: wp-table-reloaded-admin.php:721
+#: wp-table-reloaded-admin.php:829
+#: wp-table-reloaded-admin.php:860
 #@ wp-table-reloaded
 msgid "Table could not be imported."
 msgstr "Tabuľka sa nedá importovať."
 
-#: wp-table-reloaded-admin.php:702
+#: wp-table-reloaded-admin.php:841
 #, php-format
 #@ wp-table-reloaded
 msgid "Table %s (%s) replaced successfully."
 msgstr "Tabuľka %s (%s) bola úspešne nahradená."
 
-#: wp-table-reloaded-admin.php:706
-#: wp-table-reloaded-admin.php:744
+#: wp-table-reloaded-admin.php:845
+#: wp-table-reloaded-admin.php:883
 #@ wp-table-reloaded
 msgid "Table imported successfully."
 msgstr "Import tabuľky bol úspešný."
 
-#: wp-table-reloaded-admin.php:771
-#, php-format
-#@ wp-table-reloaded
-msgid "Table \"%s\" exported successfully."
-msgstr "Tabuľka \"%s\" bola úspešne exportovaná."
-
-#: wp-table-reloaded-admin.php:802
+#: wp-table-reloaded-admin.php:1051
 #@ wp-table-reloaded
 msgid "Options saved successfully."
-msgstr "Nastavenia boli uložené."
+msgstr "Nastavenia boli úspešne uložené."
 
-#: wp-table-reloaded-admin.php:820
-#: wp-table-reloaded-admin.php:971
+#: wp-table-reloaded-admin.php:1076
+#: wp-table-reloaded-admin.php:1238
+#: wp-table-reloaded-admin.php:2055
 #@ wp-table-reloaded
 msgid "WP-Table Reloaded"
 msgstr "WP-Table Reloaded"
 
-#: wp-table-reloaded-admin.php:821
-#: wp-table-reloaded-admin.php:1982
+#: php/wp-table-reloaded-helper.class.php:87
+#: wp-table-reloaded-admin.php:1077
 #@ wp-table-reloaded
 msgid "Plugin deactivated successfully."
 msgstr "Plugin bol úspešne deaktivovaný."
 
-#: wp-table-reloaded-admin.php:822
-#: wp-table-reloaded-admin.php:1982
+#: php/wp-table-reloaded-helper.class.php:87
+#: wp-table-reloaded-admin.php:1078
 #@ wp-table-reloaded
 msgid "All tables, data and options were deleted. You may now remove the plugin's subfolder from your WordPress plugin folder."
-msgstr "Všetky tabuľky, dáta a nastavenia boli zmazané. Teraz môžete zmazať aj priečinok plugin-u z Vášho adresára plugin-ov vo Wordpress-e."
+msgstr "Všetky tabuľky, dáta a nastavenia boli zmazané. Teraz môžete zmazať aj priečinok modulu z Vášho adresára modulov vo WordPresse."
 
-#: wp-table-reloaded-admin.php:838
-#: wp-table-reloaded-admin.php:971
+#: wp-table-reloaded-admin.php:1094
+#: wp-table-reloaded-admin.php:1238
 #@ wp-table-reloaded
 msgid "List of Tables"
 msgstr "Zoznam tabuliek"
 
-#: wp-table-reloaded-admin.php:841
-#: wp-table-reloaded-admin.php:974
+#: wp-table-reloaded-admin.php:1097
+#: wp-table-reloaded-admin.php:1241
 #@ wp-table-reloaded
 msgid "This is a list of all available tables."
 msgstr "Toto je zoznam všetkých dostupných tabuliek."
 
-#: wp-table-reloaded-admin.php:841
+#: wp-table-reloaded-admin.php:1097
 #@ wp-table-reloaded
 msgid "You may insert a table into a post or page here."
 msgstr "Tu môžete vložiť  tabuľku do článku alebo stránky."
 
-#: wp-table-reloaded-admin.php:842
-#@ wp-table-reloaded
-msgid "Click the \"Insert\" link after the desired table and the corresponding shortcode will be inserted into the editor (<strong>[table id=&lt;the_table_ID&gt; /]</strong>)."
-msgstr "Kliknite na odkaz \"Insert\" pod požadovanou tabuľkou a zodpovedajúci skrátený kód bude vložený do editora (<strong>[table id=&lt;the_table_ID&gt; /]</strong>)."
-
-#: wp-table-reloaded-admin.php:851
-#: wp-table-reloaded-admin.php:859
-#: wp-table-reloaded-admin.php:986
-#: wp-table-reloaded-admin.php:995
-#: wp-table-reloaded-admin.php:1582
-#: wp-table-reloaded-admin.php:1591
+#: wp-table-reloaded-admin.php:1107
+#: wp-table-reloaded-admin.php:1115
+#: wp-table-reloaded-admin.php:1252
+#: wp-table-reloaded-admin.php:1262
+#: wp-table-reloaded-admin.php:1915
+#: wp-table-reloaded-admin.php:1924
 #@ wp-table-reloaded
 msgid "ID"
 msgstr "ID"
 
-#: wp-table-reloaded-admin.php:852
-#: wp-table-reloaded-admin.php:860
-#: wp-table-reloaded-admin.php:987
-#: wp-table-reloaded-admin.php:996
-#: wp-table-reloaded-admin.php:1080
-#: wp-table-reloaded-admin.php:1134
-#: wp-table-reloaded-admin.php:1583
-#: wp-table-reloaded-admin.php:1592
+#: wp-table-reloaded-admin.php:1108
+#: wp-table-reloaded-admin.php:1116
+#: wp-table-reloaded-admin.php:1254
+#: wp-table-reloaded-admin.php:1264
+#: wp-table-reloaded-admin.php:1349
+#: wp-table-reloaded-admin.php:1402
+#: wp-table-reloaded-admin.php:1653
+#: wp-table-reloaded-admin.php:1916
+#: wp-table-reloaded-admin.php:1925
 #@ wp-table-reloaded
 msgid "Table Name"
 msgstr "Názov tabuľky"
 
-#: wp-table-reloaded-admin.php:853
-#: wp-table-reloaded-admin.php:861
-#: wp-table-reloaded-admin.php:988
-#: wp-table-reloaded-admin.php:997
-#: wp-table-reloaded-admin.php:1084
-#: wp-table-reloaded-admin.php:1138
-#: wp-table-reloaded-admin.php:1584
-#: wp-table-reloaded-admin.php:1593
+#: wp-table-reloaded-admin.php:1109
+#: wp-table-reloaded-admin.php:1117
+#: wp-table-reloaded-admin.php:1255
+#: wp-table-reloaded-admin.php:1265
+#: wp-table-reloaded-admin.php:1353
+#: wp-table-reloaded-admin.php:1406
+#: wp-table-reloaded-admin.php:1917
+#: wp-table-reloaded-admin.php:1926
 #@ wp-table-reloaded
 msgid "Description"
 msgstr "Popis"
 
-#: wp-table-reloaded-admin.php:854
-#: wp-table-reloaded-admin.php:862
-#: wp-table-reloaded-admin.php:1429
-#: wp-table-reloaded-admin.php:1585
-#: wp-table-reloaded-admin.php:1594
+#: wp-table-reloaded-admin.php:1110
+#: wp-table-reloaded-admin.php:1118
+#: wp-table-reloaded-admin.php:1761
+#: wp-table-reloaded-admin.php:1918
+#: wp-table-reloaded-admin.php:1927
 #@ wp-table-reloaded
 msgid "Action"
 msgstr "Akcia"
 
-#: wp-table-reloaded-admin.php:882
+#: wp-table-reloaded-admin.php:1098
+#: wp-table-reloaded-admin.php:1138
 #@ wp-table-reloaded
 msgid "Insert"
 msgstr "Vložiť"
 
-#: wp-table-reloaded-admin.php:891
-#: wp-table-reloaded-admin.php:1058
-#: wp-table-reloaded-admin.php:1714
-#@ wp-table-reloaded
-msgid "No tables found."
-msgstr "Neboli nájdené tabuľky."
-
-#: wp-table-reloaded-admin.php:911
-#, php-format
-#@ wp-table-reloaded
-msgid "Preview of Table \"%s\" (ID %s)"
-msgstr "Náhľad tabuľky \"%s\" (ID %s)"
-
-#: wp-table-reloaded-admin.php:914
-#@ wp-table-reloaded
-msgid "This is a preview of the table data."
-msgstr "Toto je náhľad údajov z tabuľky."
-
-#: wp-table-reloaded-admin.php:915
+#: wp-table-reloaded-admin.php:1171
 #@ wp-table-reloaded
 msgid "Because of CSS styling, the table might look different on your page!"
-msgstr "Vzhľadom na CSS štýly na Vašej stránke, tabuľka môže v článku vyzerať ináč."
+msgstr "Vzhľadom na CSS štýly Vašej stránky, tabuľka môže v článku vyzerať ináč."
 
-#: wp-table-reloaded-admin.php:916
-#: wp-table-reloaded-admin.php:1119
-#, php-format
-#@ wp-table-reloaded
-msgid "To show this table in your pages, posts or text-widgets, use the shortcode <strong>[table id=%s /]</strong>."
-msgstr "Pre zobrazenie tabuľky vo Vašom článku alebo stránke, použite skrátený zápis <strong>[table id=%s /]</strong>."
-
-#: wp-table-reloaded-admin.php:929
+#: wp-table-reloaded-admin.php:1185
 #@ wp-table-reloaded
 msgid "There is no table with this ID!"
-msgstr "Neexistuje tabuľka  s týmto ID."
+msgstr "Neexistuje tabuľka  s týmto ID!"
 
-#: wp-table-reloaded-admin.php:954
+#: wp-table-reloaded-admin.php:1221
 #@ wp-table-reloaded
 msgid "Thank you very much! Your donation is highly appreciated. You just contributed to the further development of WP-Table Reloaded!"
-msgstr "Veľmi Vám ďakujem. Váš príspevok si veľmi cením. Prispeli ste na budúci vývoj plugin-u WP-Table Reloaded."
+msgstr "Veľmi pekne Vám ďakujem. Váš príspevok si veľmi cením. Prispeli ste na budúci vývoj modulu WP-Table Reloaded."
 
-#: wp-table-reloaded-admin.php:956
-#, php-format
-#@ wp-table-reloaded
-msgid "No problem! I still hope you enjoy the benefits that WP-Table Reloaded brings to you. If you should want to change your mind, you'll always find the \"Donate\" button on the <a href=\"%s\">WP-Table Reloaded website</a>."
-msgstr "Bez problémov. Využívajte aj naďalej výhody, ktoré Vám prináša plug-in WP-Table Reloaded. Ak by ste v budúsnosti zmenili názor, možnosti, ako pomôcť nájdete na <a href=\"%s\">stránke projektu WP-Table Reloaded</a>."
-
-#: wp-table-reloaded-admin.php:974
-#@ wp-table-reloaded
-msgid "You may add, edit, copy or delete tables here."
-msgstr "Tu môžete tabuľky pridávať, upravovať, kopírovať, alebo mazať."
-
-#: wp-table-reloaded-admin.php:975
-#@ wp-table-reloaded
-msgid "If you want to show a table in your pages, posts or text-widgets, use the shortcode <strong>[table id=&lt;the_table_ID&gt; /]</strong> or click the button \"Table\" in the editor toolbar."
-msgstr "Ak chcete zobraziť tabuľku vo Vašich stránkach, článkoch alebo widget-och, použite skrátený zápis <strong>[table id=&lt;the_table_ID&gt; /]</strong> alebo kliknite na tlačitko \"Tabuľka\" v nástrojoch Vášho editora."
-
-#: wp-table-reloaded-admin.php:989
-#: wp-table-reloaded-admin.php:998
-#: wp-table-reloaded-admin.php:1143
+#: wp-table-reloaded-admin.php:1256
+#: wp-table-reloaded-admin.php:1266
+#: wp-table-reloaded-admin.php:1411
 #@ wp-table-reloaded
 msgid "Last Modified"
 msgstr "Naposledy zmenené"
 
-#: wp-table-reloaded-admin.php:1010
+#: wp-table-reloaded-admin.php:1278
 #@ wp-table-reloaded
 msgid "(no name)"
 msgstr "(bez názvu)"
 
-#: wp-table-reloaded-admin.php:1011
+#: wp-table-reloaded-admin.php:1279
 #@ wp-table-reloaded
 msgid "(no description)"
 msgstr "(bez popisu)"
 
-#: wp-table-reloaded-admin.php:1015
-#: wp-table-reloaded-admin.php:1144
+#: wp-table-reloaded-admin.php:1283
+#: wp-table-reloaded-admin.php:1412
 #@ wp-table-reloaded
 msgid "by"
 msgstr "od"
 
-#: wp-table-reloaded-admin.php:1028
+#: wp-table-reloaded-admin.php:1297
 #, php-format
 #@ wp-table-reloaded
 msgid "Edit %s"
 msgstr "Upraviť %s"
 
-#: wp-table-reloaded-admin.php:1030
+#: wp-table-reloaded-admin.php:1299
 #@ wp-table-reloaded
 msgid "Edit"
 msgstr "Upraviť"
 
-#: wp-table-reloaded-admin.php:1032
+#: wp-table-reloaded-admin.php:1301
 #@ wp-table-reloaded
 msgid "Shortcode"
-msgstr "skrátený zápis"
+msgstr "Skrátený zápis"
 
-#: wp-table-reloaded-admin.php:1033
+#: wp-table-reloaded-admin.php:1302
 #@ wp-table-reloaded
 msgid "Copy"
 msgstr "Kópia"
 
-#: wp-table-reloaded-admin.php:1034
+#: wp-table-reloaded-admin.php:1303
 #@ wp-table-reloaded
 msgid "Export"
 msgstr "Exportovať"
 
-#: wp-table-reloaded-admin.php:1035
+#: wp-table-reloaded-admin.php:1304
+#: wp-table-reloaded-admin.php:1526
+#: wp-table-reloaded-admin.php:1530
 #@ wp-table-reloaded
 msgid "Delete"
 msgstr "Zmazať"
 
-#: wp-table-reloaded-admin.php:1036
+#: wp-table-reloaded-admin.php:1305
 #, php-format
 #@ wp-table-reloaded
 msgid "Preview of Table %s"
 msgstr "Náhľad tabuľky %s"
 
-#: wp-table-reloaded-admin.php:1037
+#: wp-table-reloaded-admin.php:1306
 #@ wp-table-reloaded
 msgid "Preview"
 msgstr "Náhľad"
 
-#: wp-table-reloaded-admin.php:1049
-#: wp-table-reloaded-admin.php:1623
+#: wp-table-reloaded-admin.php:1318
+#: wp-table-reloaded-admin.php:1956
 #@ wp-table-reloaded
 msgid "Bulk actions:"
 msgstr "Hromadné akcie:"
 
-#: wp-table-reloaded-admin.php:1049
+#: wp-table-reloaded-admin.php:1318
 #@ wp-table-reloaded
 msgid "Copy Tables"
 msgstr "Kopírovať tabuľky"
 
-#: wp-table-reloaded-admin.php:1049
+#: wp-table-reloaded-admin.php:1318
 #@ wp-table-reloaded
 msgid "Delete Tables"
 msgstr "Zmazať tabuľky"
 
-#: wp-table-reloaded-admin.php:1058
-#: wp-table-reloaded-admin.php:1714
-#, php-format
-#@ wp-table-reloaded
-msgid "You might <a href=\"%s\">add</a> or <a href=\"%s\">import</a> one!"
-msgstr "Tabuľku môžete <a href=\"%s\">pridať</a> alebo <a href=\"%s\">importovať</a>!"
-
-#: wp-table-reloaded-admin.php:1068
-#: wp-table-reloaded-admin.php:1917
+#: php/wp-table-reloaded-helper.class.php:72
+#: wp-table-reloaded-admin.php:1337
+#: wp-table-reloaded-admin.php:2362
 #@ wp-table-reloaded
 msgid "Add new Table"
 msgstr "Pridať novú tabuľku"
 
-#: wp-table-reloaded-admin.php:1072
-#@ wp-table-reloaded
-msgid "You can add a new table here. Just enter its name, a description (optional) and the number of rows and columns."
-msgstr "Tu môžete vložiť novú tabuľku- Stačí vložiť jej názov, popis (môže, ale nemusí byť), počet riadkov a stĺpcov."
-
-#: wp-table-reloaded-admin.php:1072
-#@ wp-table-reloaded
-msgid "You may add, insert or delete rows and columns later."
-msgstr "Riadky môžete pridávať a mazať aj neskôr."
-
-#: wp-table-reloaded-admin.php:1081
+#: wp-table-reloaded-admin.php:1350
 #@ wp-table-reloaded
 msgid "Enter Table Name"
 msgstr "Vložte názov tabuľky"
 
-#: wp-table-reloaded-admin.php:1085
+#: wp-table-reloaded-admin.php:1354
 #@ wp-table-reloaded
 msgid "Enter Description"
 msgstr "Vložte popis"
 
-#: wp-table-reloaded-admin.php:1088
+#: wp-table-reloaded-admin.php:1357
 #@ wp-table-reloaded
 msgid "Number of Rows"
 msgstr "Počet riadkov"
 
-#: wp-table-reloaded-admin.php:1092
+#: wp-table-reloaded-admin.php:1361
 #@ wp-table-reloaded
 msgid "Number of Columns"
 msgstr "Počet stĺpcov"
 
-#: wp-table-reloaded-admin.php:1099
+#: wp-table-reloaded-admin.php:1368
 #@ wp-table-reloaded
 msgid "Add Table"
 msgstr "Pridať tabuľku"
 
-#: wp-table-reloaded-admin.php:1115
-#, php-format
-#@ wp-table-reloaded
-msgid "Edit Table \"%s\" (ID %s)"
-msgstr "Upraviť tabuľku \"%s\" (ID %s)"
-
-#: wp-table-reloaded-admin.php:1118
-#@ wp-table-reloaded
-msgid "You may edit the content of the table here. It is also possible to add or delete columns and rows."
-msgstr "Tu možete upraviť obsah tabuľky. Taktiež môžete pridať alebo ubrať stĺpce a riadky."
-
-#: wp-table-reloaded-admin.php:1126
+#: wp-table-reloaded-admin.php:1394
 #@ wp-table-reloaded
 msgid "Table Information"
 msgstr "Informácie o tabuľke"
 
-#: wp-table-reloaded-admin.php:1130
+#: wp-table-reloaded-admin.php:1398
 #@ wp-table-reloaded
 msgid "Table ID"
 msgstr "ID tabuľky"
 
-#: wp-table-reloaded-admin.php:1152
-#: wp-table-reloaded-admin.php:1368
-#: wp-table-reloaded-admin.php:1408
-#: wp-table-reloaded-admin.php:1459
+#: wp-table-reloaded-admin.php:1420
+#: wp-table-reloaded-admin.php:1627
+#: wp-table-reloaded-admin.php:1740
+#: wp-table-reloaded-admin.php:1791
+#: wp-table-reloaded-admin.php:2805
 #@ wp-table-reloaded
 msgid "Update Changes"
 msgstr "Ulož zmeny"
 
-#: wp-table-reloaded-admin.php:1153
-#: wp-table-reloaded-admin.php:1369
-#: wp-table-reloaded-admin.php:1409
-#: wp-table-reloaded-admin.php:1460
+#: wp-table-reloaded-admin.php:1421
+#: wp-table-reloaded-admin.php:1628
+#: wp-table-reloaded-admin.php:1741
+#: wp-table-reloaded-admin.php:1792
 #@ wp-table-reloaded
 msgid "Save and go back"
 msgstr "Uložiť a vrátiť sa späť"
 
-#: wp-table-reloaded-admin.php:1156
-#: wp-table-reloaded-admin.php:1372
-#: wp-table-reloaded-admin.php:1412
-#: wp-table-reloaded-admin.php:1463
+#: wp-table-reloaded-admin.php:1424
+#: wp-table-reloaded-admin.php:1631
+#: wp-table-reloaded-admin.php:1744
+#: wp-table-reloaded-admin.php:1795
+#: wp-table-reloaded-admin.php:2190
 #@ wp-table-reloaded
 msgid "Cancel"
 msgstr "Zrušiť"
 
-#: wp-table-reloaded-admin.php:1162
+#: wp-table-reloaded-admin.php:1430
 #@ wp-table-reloaded
 msgid "Table Contents"
 msgstr "Obsah tabuľky"
 
-#: wp-table-reloaded-admin.php:1162
-#: wp-table-reloaded-admin.php:1261
-#: wp-table-reloaded-admin.php:1377
-#: wp-table-reloaded-admin.php:1417
-#: wp-table-reloaded-admin.php:1765
-#: wp-table-reloaded-admin.php:1867
-#@ wp-table-reloaded
-msgid "Hide"
-msgstr "Skryť"
-
-#: wp-table-reloaded-admin.php:1162
-#: wp-table-reloaded-admin.php:1261
-#: wp-table-reloaded-admin.php:1377
-#: wp-table-reloaded-admin.php:1417
-#: wp-table-reloaded-admin.php:1765
-#: wp-table-reloaded-admin.php:1867
+#: wp-table-reloaded-admin.php:1394
+#: wp-table-reloaded-admin.php:1430
+#: wp-table-reloaded-admin.php:1483
+#: wp-table-reloaded-admin.php:1636
+#: wp-table-reloaded-admin.php:1697
+#: wp-table-reloaded-admin.php:1749
+#: wp-table-reloaded-admin.php:2075
+#: wp-table-reloaded-admin.php:2118
+#: wp-table-reloaded-admin.php:2135
+#: wp-table-reloaded-admin.php:2203
+#: wp-table-reloaded-admin.php:2214
+#: wp-table-reloaded-admin.php:2332
 #@ wp-table-reloaded
 msgid "Expand"
 msgstr "Rozšíriť"
 
-#: wp-table-reloaded-admin.php:1205
-#@ wp-table-reloaded
-msgid "Insert Row"
-msgstr "Vložiť riadok"
-
-#: wp-table-reloaded-admin.php:1207
-#@ wp-table-reloaded
-msgid "Delete Row"
-msgstr "Zmazať riadok"
-
-#: wp-table-reloaded-admin.php:1210
-#@ wp-table-reloaded
-msgid "Row hidden"
-msgstr "Skrytý riadok"
-
-#: wp-table-reloaded-admin.php:1221
-#@ wp-table-reloaded
-msgid "Insert Column"
-msgstr "Vložiť stĺpec"
-
-#: wp-table-reloaded-admin.php:1223
-#@ wp-table-reloaded
-msgid "Delete Column"
-msgstr "Zmazať stĺpec"
-
-#: wp-table-reloaded-admin.php:1233
+#: wp-table-reloaded-admin.php:1539
 #, php-format
 #@ wp-table-reloaded
 msgid "Add %s row(s)"
 msgstr "Pridať %s riadok(dkov)"
 
-#: wp-table-reloaded-admin.php:1234
-#: wp-table-reloaded-admin.php:1236
-#: wp-table-reloaded-admin.php:1454
+#: wp-table-reloaded-admin.php:1540
+#: wp-table-reloaded-admin.php:1543
+#: wp-table-reloaded-admin.php:1786
 #@ wp-table-reloaded
 msgid "Add"
 msgstr "Pridať"
 
-#: wp-table-reloaded-admin.php:1235
+#: wp-table-reloaded-admin.php:1542
 #, php-format
 #@ wp-table-reloaded
 msgid "Add %s column(s)"
 msgstr "Pridať %s stĺpec(cov)"
 
-#: wp-table-reloaded-admin.php:1247
-#@ wp-table-reloaded
-msgid "Column hidden"
-msgstr "Skrytý stĺpec"
-
-#: wp-table-reloaded-admin.php:1261
+#: wp-table-reloaded-admin.php:1483
 #@ wp-table-reloaded
 msgid "Data Manipulation"
-msgstr "Manipulácia s dátmi"
+msgstr "Manipulácia s dátami"
 
-#: wp-table-reloaded-admin.php:1275
+#: wp-table-reloaded-admin.php:1557
 #, php-format
 #@ wp-table-reloaded
 msgid "Swap rows %s and %s"
 msgstr "Vymeň riadky %s a %s"
 
-#: wp-table-reloaded-admin.php:1277
-#: wp-table-reloaded-admin.php:1295
+#: wp-table-reloaded-admin.php:1559
+#: wp-table-reloaded-admin.php:1576
 #@ wp-table-reloaded
 msgid "Swap"
 msgstr "Zameň"
 
-#: wp-table-reloaded-admin.php:1293
+#: wp-table-reloaded-admin.php:1574
 #, php-format
 #@ wp-table-reloaded
 msgid "Swap columns %s and %s"
 msgstr "Vymeň stĺpce %s a %s"
 
-#: wp-table-reloaded-admin.php:1309
-#: wp-table-reloaded-admin.php:1332
+#: wp-table-reloaded-admin.php:1590
+#: wp-table-reloaded-admin.php:1612
 #@ wp-table-reloaded
 msgid "before"
 msgstr "pred"
 
-#: wp-table-reloaded-admin.php:1310
-#: wp-table-reloaded-admin.php:1333
+#: wp-table-reloaded-admin.php:1591
+#: wp-table-reloaded-admin.php:1613
 #@ wp-table-reloaded
 msgid "after"
 msgstr "za"
 
-#: wp-table-reloaded-admin.php:1313
+#: wp-table-reloaded-admin.php:1594
 #, php-format
 #@ wp-table-reloaded
 msgid "Move row %s %s row %s"
 msgstr "Posuň riadok %s %s riadok %s "
 
-#: wp-table-reloaded-admin.php:1315
-#: wp-table-reloaded-admin.php:1338
+#: wp-table-reloaded-admin.php:1596
+#: wp-table-reloaded-admin.php:1618
 #@ wp-table-reloaded
 msgid "Move"
 msgstr "Posuň"
 
-#: wp-table-reloaded-admin.php:1336
+#: wp-table-reloaded-admin.php:1616
 #, php-format
 #@ wp-table-reloaded
 msgid "Move column %s %s column %s"
 msgstr "Posuň stĺpec %s %s stĺpec %s"
 
-#: wp-table-reloaded-admin.php:1342
+#: wp-table-reloaded-admin.php:1488
+#: wp-table-reloaded-admin.php:2111
 #@ wp-table-reloaded
 msgid "Insert Link"
 msgstr "Vložiť odkaz"
 
-#: wp-table-reloaded-admin.php:1343
+#: wp-table-reloaded-admin.php:1489
 #@ wp-table-reloaded
 msgid "Insert Image"
 msgstr "Vložiť obrázok"
 
-#: wp-table-reloaded-admin.php:1353
+#: wp-table-reloaded-admin.php:1499
 #@ wp-table-reloaded
 msgid "ascending"
 msgstr "vzostupne"
 
-#: wp-table-reloaded-admin.php:1354
+#: wp-table-reloaded-admin.php:1500
 #@ wp-table-reloaded
 msgid "descending"
 msgstr "zostupne"
 
-#: wp-table-reloaded-admin.php:1357
+#: wp-table-reloaded-admin.php:1503
 #, php-format
 #@ wp-table-reloaded
 msgid "Sort table by column %s in %s order"
 msgstr "Zoraď tabuľku podľa stĺpca %s v %s poradí"
 
-#: wp-table-reloaded-admin.php:1360
+#: wp-table-reloaded-admin.php:1505
 #@ wp-table-reloaded
 msgid "Sort"
 msgstr "Zoraď"
 
-#: wp-table-reloaded-admin.php:1377
-#@ wp-table-reloaded
-msgid "Table Settings"
-msgstr "Nastavenia tabuľky"
-
-#: wp-table-reloaded-admin.php:1379
+#: wp-table-reloaded-admin.php:1638
 #@ wp-table-reloaded
 msgid "These settings will only be used for this table."
 msgstr "Tieto nastavenia budú použité len pre túto tabuľku."
 
-#: wp-table-reloaded-admin.php:1382
+#: wp-table-reloaded-admin.php:1641
 #@ wp-table-reloaded
 msgid "Alternating row colors"
 msgstr "Striedať farby riadkov"
 
-#: wp-table-reloaded-admin.php:1383
-#@ wp-table-reloaded
-msgid "Every second row will have an alternating background color."
-msgstr "Každý druhý riadok má inú farbu pozadia."
-
-#: wp-table-reloaded-admin.php:1386
-#@ wp-table-reloaded
-msgid "Use Table Headline"
-msgstr "Použi hlavičku tabuľky"
-
-#: wp-table-reloaded-admin.php:1387
-#@ wp-table-reloaded
-msgid "The first row of your table will use the &lt;th&gt; tag."
-msgstr "Prvý riadok tabuľky použije &lt;th&gt; tag."
-
-#: wp-table-reloaded-admin.php:1390
-#@ wp-table-reloaded
-msgid "Print Table Name"
-msgstr "Zobraz názov tabuľky"
-
-#: wp-table-reloaded-admin.php:1391
-#@ wp-table-reloaded
-msgid "The Table Name will be written above the table in a &lt;h2&gt; tag."
-msgstr "Názov tabuľky bude napísaný nad tabuľkou v &lt;h2&gt; tagu."
-
-#: wp-table-reloaded-admin.php:1394
-#@ wp-table-reloaded
-msgid "Print Table Description"
-msgstr "Zobraz popis tabuľky."
-
-#: wp-table-reloaded-admin.php:1395
+#: wp-table-reloaded-admin.php:1658
 #@ wp-table-reloaded
 msgid "The Table Description will be written under the table."
 msgstr "Popis tabuľky bude napísaný pod tabuľkou."
 
-#: wp-table-reloaded-admin.php:1398
-#@ wp-table-reloaded
-msgid "Use Tablesorter"
-msgstr "Použi Tablesorter."
-
-#: wp-table-reloaded-admin.php:1401
-#@ wp-table-reloaded
-msgid "You may sort a table using the <a href=\"http://www.tablesorter.com/\">Tablesorter-jQuery-Plugin</a>."
-msgstr "Tabuľku môžete zotriediť použitím plugin-u <a href=\"http://www.tablesorter.com/\">Tablesorter-jQuery-Plugin</a>."
-
-#: wp-table-reloaded-admin.php:1401
-#@ wp-table-reloaded
-msgid "<small>Attention: You must have Tablesorter enabled on the \"Plugin Options\" screen and the option \"Use Table Headline\" has to be enabled above for this to work!</small>"
-msgstr "<small>Upozornenie: Plugin Tablesorter musíte mať povolený v \"Nastaveniach plugin-ov\" a možnosť \"Použi nadpis tabuľky\" musí byť povolená, aby to fungovalo!</small>"
-
-#: wp-table-reloaded-admin.php:1417
+#: wp-table-reloaded-admin.php:1749
 #@ wp-table-reloaded
 msgid "Custom Data Fields"
 msgstr "Užívateľské polia"
 
-#: wp-table-reloaded-admin.php:1419
+#: wp-table-reloaded-admin.php:1751
 #@ wp-table-reloaded
 msgid "Custom Data Fields can be used to add extra metadata to a table."
 msgstr "Užívateľské polia môžu byť použité k pridaniu rôznych údajov k tabuľke."
 
-#: wp-table-reloaded-admin.php:1419
+#: wp-table-reloaded-admin.php:1751
 #@ wp-table-reloaded
 msgid "For example, this could be information about the source or the creator of the data."
 msgstr "Napríklad, môžu to byť informácie o zdroji dát alebo autorovi tabuľky."
 
-#: wp-table-reloaded-admin.php:1421
+#: wp-table-reloaded-admin.php:1753
 #, php-format
 #@ wp-table-reloaded
 msgid "You can show this data in the same way as tables by using the shortcode <strong>[table-info id=%s field=\"&lt;field-name&gt;\" /]</strong>."
 msgstr "Tieto polia môžete zobraziť spolu s tabuľkou, stačí použiť skrátený zápis <strong>[table-info id=%s field=\"&lt;field-name&gt;\" /]</strong>."
 
-#: wp-table-reloaded-admin.php:1427
+#: wp-table-reloaded-admin.php:1759
 #@ wp-table-reloaded
 msgid "Field Name"
 msgstr "Názov užívateľského poľa"
 
-#: wp-table-reloaded-admin.php:1428
+#: wp-table-reloaded-admin.php:1760
 #@ wp-table-reloaded
 msgid "Value"
 msgstr "Hodnota"
 
-#: wp-table-reloaded-admin.php:1442
+#: wp-table-reloaded-admin.php:1774
 #@ wp-table-reloaded
 msgid "Delete Field"
 msgstr "Zmazať pole"
 
-#: wp-table-reloaded-admin.php:1444
+#: wp-table-reloaded-admin.php:1776
 #@ wp-table-reloaded
 msgid "View shortcode"
 msgstr "Zobraziť skrátený zápis"
 
-#: wp-table-reloaded-admin.php:1453
+#: wp-table-reloaded-admin.php:1785
 #@ wp-table-reloaded
 msgid "To add a new Custom Data Field, enter its name (only lowercase letters, numbers, _ and -)."
-msgstr "Ak chcete pridať nové užívateľské pole, vložte jeho názov (len malé písmená, čísla, _ a - )."
+msgstr "Ak chcete pridať nové užívateľské pole, vložte jeho názov (len malé písmená, čísla, znaky _ a - )."
 
-#: wp-table-reloaded-admin.php:1454
+#: wp-table-reloaded-admin.php:1786
 #@ wp-table-reloaded
 msgid "Custom Data Field Name"
 msgstr "Názov užívateľskeho poľa"
 
-#: wp-table-reloaded-admin.php:1468
+#: wp-table-reloaded-admin.php:1800
 #@ wp-table-reloaded
 msgid "Other actions"
 msgstr "Iné akcie"
 
-#: wp-table-reloaded-admin.php:1471
+#: wp-table-reloaded-admin.php:1803
 #@ wp-table-reloaded
 msgid "Delete Table"
 msgstr "Zmazať tabuľku"
 
-#: wp-table-reloaded-admin.php:1472
-#: wp-table-reloaded-admin.php:1703
+#: wp-table-reloaded-admin.php:1804
+#: wp-table-reloaded-admin.php:2034
 #@ wp-table-reloaded
 msgid "Export Table"
 msgstr "Exportovať tabuľku"
 
-#: wp-table-reloaded-admin.php:1484
-#: wp-table-reloaded-admin.php:1918
+#: php/wp-table-reloaded-helper.class.php:75
+#: wp-table-reloaded-admin.php:1816
+#: wp-table-reloaded-admin.php:2363
 #@ wp-table-reloaded
 msgid "Import a Table"
 msgstr "Importovať tabuľku"
 
-#: wp-table-reloaded-admin.php:1488
-#@ wp-table-reloaded
-msgid "You may import a table from existing data here."
-msgstr "Tu môžete importovať tabuľku z existujúcich údajov."
-
-#: wp-table-reloaded-admin.php:1488
-#@ wp-table-reloaded
-msgid "This may be a CSV, XML or HTML file, which need a certain structure though. Please consult the documentation."
-msgstr "To môže byť CSV, XML alebo HTML súbor, ktorý musí obsahovať príslušnú štruktúru. Pozrite si prosím dokumentáciu."
-
-#: wp-table-reloaded-admin.php:1488
-#@ wp-table-reloaded
-msgid "You may also select the import source."
-msgstr "Teraz môžete vybrať zdroj dát pre importovanie."
-
-#: wp-table-reloaded-admin.php:1495
+#: wp-table-reloaded-admin.php:1827
 #@ wp-table-reloaded
 msgid "Select Import Format"
-msgstr "Zvoľte importovaný formát."
+msgstr "Zvoľte importovaný formát"
 
-#: wp-table-reloaded-admin.php:1506
+#: wp-table-reloaded-admin.php:1838
 #@ wp-table-reloaded
 msgid "Add or Replace Table?"
 msgstr "Pridať alebo nahradiť tabuľku?"
 
-#: wp-table-reloaded-admin.php:1508
+#: wp-table-reloaded-admin.php:1840
 #@ wp-table-reloaded
 msgid "Add as new Table"
 msgstr "Pridať ako novú tabuľku"
 
-#: wp-table-reloaded-admin.php:1509
+#: wp-table-reloaded-admin.php:1841
 #@ wp-table-reloaded
 msgid "Replace existing Table"
 msgstr "Nahradiť existujúcu tabuľku"
 
-#: wp-table-reloaded-admin.php:1513
+#: wp-table-reloaded-admin.php:1845
 #@ wp-table-reloaded
 msgid "Select existing Table to Replace"
 msgstr "Zvoľte existujúcu tabuľku, ktorú nahradiť"
 
-#: wp-table-reloaded-admin.php:1529
-#@ wp-table-reloaded
-msgid "Select source for import"
-msgstr "Zvoľte zdroj pre importovanie"
-
-#: wp-table-reloaded-admin.php:1531
+#: wp-table-reloaded-admin.php:1863
 #@ wp-table-reloaded
 msgid "File upload"
 msgstr "Nahrať súbor"
 
-#: wp-table-reloaded-admin.php:1532
+#: wp-table-reloaded-admin.php:1864
 #@ wp-table-reloaded
 msgid "URL"
 msgstr "Odkaz"
 
-#: wp-table-reloaded-admin.php:1533
+#: wp-table-reloaded-admin.php:1865
 #@ wp-table-reloaded
 msgid "Manual input"
 msgstr "Ručne vložiť"
 
-#: wp-table-reloaded-admin.php:1534
+#: wp-table-reloaded-admin.php:1866
 #@ wp-table-reloaded
 msgid "File on server"
 msgstr "Súbor na serveri"
 
-#: wp-table-reloaded-admin.php:1538
+#: wp-table-reloaded-admin.php:1870
 #@ wp-table-reloaded
 msgid "Select File with Table to Import"
 msgstr "Zvoľte súbor s tabuľkou na importovanie"
 
-#: wp-table-reloaded-admin.php:1542
-#@ wp-table-reloaded
-msgid "URL to import table from"
-msgstr "Odkaz na importovanie tabuľky"
-
-#: wp-table-reloaded-admin.php:1546
+#: wp-table-reloaded-admin.php:1878
 #@ wp-table-reloaded
 msgid "Path to file on server"
 msgstr "Cesta k súboru na serveri"
 
-#: wp-table-reloaded-admin.php:1550
+#: wp-table-reloaded-admin.php:1882
 #@ wp-table-reloaded
 msgid "Paste data with Table to Import"
-msgstr "Zvoľte dáta s tabuľkou na importovanie"
+msgstr "Vložte dáta s tabuľkou na importovanie"
 
-#: wp-table-reloaded-admin.php:1556
+#: wp-table-reloaded-admin.php:1888
 #@ wp-table-reloaded
 msgid "Import Table"
 msgstr "Importovať tabuľku"
 
-#: wp-table-reloaded-admin.php:1569
+#: wp-table-reloaded-admin.php:1902
 #@ wp-table-reloaded
 msgid "Import from original wp-Table plugin"
-msgstr "Importovať z originálneho wp-Table plugin-u."
+msgstr "Importovať z originálneho wp-Table modulu"
 
-#: wp-table-reloaded-admin.php:1615
+#: wp-table-reloaded-admin.php:1948
 #@ wp-table-reloaded
 msgid "Import"
 msgstr "Importovať"
 
-#: wp-table-reloaded-admin.php:1623
+#: wp-table-reloaded-admin.php:1956
 #@ wp-table-reloaded
 msgid "Import Tables"
 msgstr "Importovať tabuľky"
 
-#: wp-table-reloaded-admin.php:1629
+#: wp-table-reloaded-admin.php:1962
 #@ wp-table-reloaded
 msgid "wp-Table by Alex Rabe seems to be installed, but no tables were found."
 msgstr "wp-Table od Alex-a Rabe je nainštalovaný, ale nenašli sa žiadne tabuľky."
 
-#: wp-table-reloaded-admin.php:1648
-#: wp-table-reloaded-admin.php:1919
+#: php/wp-table-reloaded-helper.class.php:78
+#: wp-table-reloaded-admin.php:1981
+#: wp-table-reloaded-admin.php:2364
 #@ wp-table-reloaded
 msgid "Export a Table"
 msgstr "Exportovať tabuľku"
 
-#: wp-table-reloaded-admin.php:1652
-#@ wp-table-reloaded
-msgid "You may export a table here. Just select the table, your desired export format and (for CSV only) a delimiter."
-msgstr "Tu môžete exportovať tabuľku. Len zvoľte tabuľku, formát a (len pre CSV) oddeľovací znak."
-
-#: wp-table-reloaded-admin.php:1653
-#@ wp-table-reloaded
-msgid "You may opt to download the export file. Otherwise it will be shown on this page."
-msgstr "Môžete sa rozhodnúť, exportovaný súbor stiahnuť. Ináč bude zobrazený na tejto stránke."
-
-#: wp-table-reloaded-admin.php:1654
+#: wp-table-reloaded-admin.php:1985
 #@ wp-table-reloaded
 msgid "Be aware that only the table data, but no options or settings are exported."
 msgstr "Nezabudnite, že bude exportovaný len obsah tabuľky, nie jej nastavenia a možnosti."
 
-#: wp-table-reloaded-admin.php:1662
+#: wp-table-reloaded-admin.php:1993
 #@ wp-table-reloaded
 msgid "Select Table to Export"
-msgstr "Zvoľte tabuľky, ktoré budú exportované."
+msgstr "Zvoľte tabuľky, ktoré budú exportované"
 
-#: wp-table-reloaded-admin.php:1677
+#: wp-table-reloaded-admin.php:2008
 #@ wp-table-reloaded
 msgid "Select Export Format"
-msgstr "Zvoľte formát pre export."
+msgstr "Zvoľte formát pre export"
 
-#: wp-table-reloaded-admin.php:1687
+#: wp-table-reloaded-admin.php:2018
 #@ wp-table-reloaded
 msgid "Select Delimiter to use"
-msgstr "Zvoľte použitý oddeľovací znak."
+msgstr "Zvoľte použitý oddeľovací znak"
 
-#: wp-table-reloaded-admin.php:1694
-#@ wp-table-reloaded
-msgid "<small>(Only needed for CSV export.)</small>"
-msgstr "<small>(Potrebný len pre export v CSV formáte.)</small>"
-
-#: wp-table-reloaded-admin.php:1697
+#: wp-table-reloaded-admin.php:2028
 #@ wp-table-reloaded
 msgid "Download file"
 msgstr "Stiahnuť súbor"
 
-#: wp-table-reloaded-admin.php:1698
+#: wp-table-reloaded-admin.php:2029
 #@ wp-table-reloaded
 msgid "Yes, I want to download the export file."
 msgstr "Áno, chcem stiahnuť exportovaný súbor."
 
-#: wp-table-reloaded-admin.php:1723
-#@ wp-table-reloaded
-msgid "General Plugin Options"
-msgstr "Hlavné nastavenia plugin-u"
-
-#: wp-table-reloaded-admin.php:1727
-#@ wp-table-reloaded
-msgid "You may change these global options."
-msgstr "Tu môžete zmeniť všeobecné nastavenia."
-
-#: wp-table-reloaded-admin.php:1728
-#@ wp-table-reloaded
-msgid "They will effect all tables or the general plugin behavior."
-msgstr "Tieto nastavenia budú aplikované na všetky tabuľky a ich správanie."
-
-#: wp-table-reloaded-admin.php:1735
+#: wp-table-reloaded-admin.php:2075
 #@ wp-table-reloaded
 msgid "Frontend Options"
 msgstr "Nastavenia rozhrania"
 
-#: wp-table-reloaded-admin.php:1739
-#@ wp-table-reloaded
-msgid "Enable Tablesorter-JavaScript?"
-msgstr "Povoliť Tablesorter-JavaScript?"
-
-#: wp-table-reloaded-admin.php:1740
-#@ wp-table-reloaded
-msgid "Yes, enable the <a href=\"http://www.tablesorter.com/\">Tablesorter jQuery plugin</a>. This can be used to make tables sortable (can be activated for each table separately in its options)."
-msgstr "Áno, povoliť <a href=\"http://www.tablesorter.com/\">Tablesorter jQuery plugin</a>. Tento plugin môže byť použitý k tomu, aby sa dáta v tabuľke dali usporiadať (Môže byť aktivovaný pre každú tabuľku zvlášť)."
-
-#: wp-table-reloaded-admin.php:1743
-#@ wp-table-reloaded
-msgid "Add custom CSS?"
-msgstr "Pridať vlastný CSS štýl?"
-
-#: wp-table-reloaded-admin.php:1745
-#@ wp-table-reloaded
-msgid "Yes, include and load the following CSS-snippet on my site inside a &lt;style&gt;-HTML-tag."
-msgstr "Áno, pridať a spustiť nasledujúci CSS štýl na mojej stránke vo vnútri &lt;style&gt;-HTML-tagu."
-
-#: wp-table-reloaded-admin.php:1750
-#@ wp-table-reloaded
-msgid "Enter custom CSS"
-msgstr "Vložte vlastný CSS štýl."
-
-#: wp-table-reloaded-admin.php:1755
-#, php-format
-#@ wp-table-reloaded
-msgid "You might get a better website performance, if you add the CSS styling to your theme's \"style.css\" (located at <a href=\"%s\">%s</a>) instead."
-msgstr "Lepší výkon Vašej stránky dosiahnete, keď CSS štýly pridáte k súboru \"style.css\"  Vašej témy (Nachádzajúcom sa v <a href=\"%s\">%s</a>). "
-
-#: wp-table-reloaded-admin.php:1756
-#, php-format
-#@ wp-table-reloaded
-msgid "See the <a href=\"%s\">plugin website</a> for styling examples or use one of the following: <a href=\"%s\">Example Style 1</a> <a href=\"%s\">Example Style 2</a>"
-msgstr "Pozrite si <a href=\"%s\">stránku plugin-u</a>, kde nájdete príklady štýlov, ktoré môžete použiť. Napríklad tieto: <a href=\"%s\">Štýl 1</a> <a href=\"%s\">Štýl 2</a>"
-
-#: wp-table-reloaded-admin.php:1756
-#@ wp-table-reloaded
-msgid "Just copy the contents of a file into the textarea."
-msgstr "Stačí skopírovať obsah súboru do políčka."
-
-#: wp-table-reloaded-admin.php:1757
-#, php-format
-#@ wp-table-reloaded
-msgid "Another possibility is, to include a CSS file (e.g. from your theme folder) with the CSS @import command: %s"
-msgstr "Iná možnosť je, vložiť CSS štýl ako súbor (napríklad z Vášho priečinka témy) pomocou CSS @import príkazu %s."
-
-#: wp-table-reloaded-admin.php:1765
-#@ wp-table-reloaded
-msgid "Advanced Options"
-msgstr "Rozšírené nastavenia"
-
-#: wp-table-reloaded-admin.php:1769
-#@ wp-table-reloaded
-msgid "Use Tablesorter Extended?"
-msgstr "Použiť Tablesorter Extended?"
-
-#: wp-table-reloaded-admin.php:1770
-#@ wp-table-reloaded
-msgid "Yes, use Extended Tablesorter from <a href=\"http://tablesorter.openwerk.de\">S&ouml;ren Krings</a> instead of original Tablesorter script (EXPERIMENTAL FEATURE!)."
-msgstr "Áno, použi Extended Tablesorter od <a href=\"http://tablesorter.openwerk.de\">S&ouml;ren Krings</a>, namiesto originálneho Tablesorter skriptu (Experimentálna vlastnosť!)."
-
-#: wp-table-reloaded-admin.php:1773
-#@ wp-table-reloaded
-msgid "Uninstall Plugin upon Deactivation?"
-msgstr "Odinštalovať plugin po deaktivácii?"
-
-#: wp-table-reloaded-admin.php:1774
-#@ wp-table-reloaded
-msgid "Yes, uninstall everything when the plugin is deactivated. Attention: You should only enable this checkbox directly before deactivating the plugin from the WordPress plugins page!"
-msgstr "Áno, odinštaluj všetko po deaktivácii plugin-u. Upozornenie: Mali by ste tento checkbox zaškrtnúť predtým, ako deaktivujete plugin z hlavnej stránky plugin-u."
-
-#: wp-table-reloaded-admin.php:1774
-#@ wp-table-reloaded
-msgid "(This setting does not influence the \"Manually Uninstall Plugin\" button below!)"
-msgstr "(Tieto nastavenia neovplyvnia možnosť \"Manuálne odinštalovať plugin\" (tlačítko nižšie)."
-
-#: wp-table-reloaded-admin.php:1777
-#@ wp-table-reloaded
-msgid "Allow donation message?"
-msgstr "Povoliť správu s príspevkom?"
-
-#: wp-table-reloaded-admin.php:1778
-#@ wp-table-reloaded
-msgid "Yes, show a donation message after 30 days of using the plugin."
-msgstr "Áno, zobraz správu s možnosťami ako prispieť, po 30 dňoch používania."
-
-#: wp-table-reloaded-admin.php:1787
+#: wp-table-reloaded-admin.php:2187
 #@ wp-table-reloaded
 msgid "Save Options"
 msgstr "Ulož nastavenia"
 
-#: wp-table-reloaded-admin.php:1793
-#@ wp-table-reloaded
-msgid "Manually Uninstall Plugin"
-msgstr "Manuálne odinštalovať plugin"
-
-#: wp-table-reloaded-admin.php:1795
-#@ wp-table-reloaded
-msgid "You may uninstall the plugin here. This <strong>will delete</strong> all tables, data, options, etc., that belong to the plugin, including all tables you added or imported."
-msgstr "Tu môžete odinštalovať plugin. To <strong>zmaže</strong> všetky tabuľky, údaje, nastavenia, ktoré súvisia s plugin-om, vrátane všetkých tabuliek, ktoré ste importovali, alebo pridali."
-
-#: wp-table-reloaded-admin.php:1795
+#: wp-table-reloaded-admin.php:2236
 #@ wp-table-reloaded
 msgid "Be very careful with this and only click the button if you know what you are doing!"
 msgstr "Buďte veľmi opatrný a kliknite na to tlačidlo len vtedy, keď viete čo robíte."
 
-#: wp-table-reloaded-admin.php:1798
+#: wp-table-reloaded-admin.php:2240
 #@ wp-table-reloaded
 msgid "Uninstall Plugin WP-Table Reloaded"
-msgstr "Odinštalovať plugin WP-Table Reloaded."
+msgstr "Odinštalovať plugin WP-Table Reloaded"
 
-#: wp-table-reloaded-admin.php:1809
+#: wp-table-reloaded-admin.php:2262
 #@ wp-table-reloaded
 msgid "About WP-Table Reloaded"
-msgstr "O plugin-e WP-Table Reloaded."
+msgstr "O plugin-e WP-Table Reloaded"
 
-#: wp-table-reloaded-admin.php:1815
+#: wp-table-reloaded-admin.php:2268
 #@ wp-table-reloaded
 msgid "Plugin Purpose"
-msgstr "Cieľ pluginu."
+msgstr "Cieľ pluginu"
 
-#: wp-table-reloaded-admin.php:1817
-#@ wp-table-reloaded
-msgid "This plugin allows you to create and manage tables in the admin-area of WordPress."
-msgstr "Tento plugin Vám umožňuje vytvárať a upravovať tabuľky v administrátorskom priestore WordPress-u."
-
-#: wp-table-reloaded-admin.php:1817
+#: wp-table-reloaded-admin.php:2270
 #@ wp-table-reloaded
 msgid "Those tables may contain strings, numbers and even HTML (e.g. to include images or links)."
 msgstr "Tieto tabuľky môžu obsahovať slová, čísla a dokonca HTML tagy (Pre vkladanie obrázkov alebo odkazov)."
 
-#: wp-table-reloaded-admin.php:1817
-#@ wp-table-reloaded
-msgid "You can then show the tables in your posts, on your pages or in text widgets by using a shortcode."
-msgstr "Tabuľky môžete zobraziť vo Vašich článkoch, stránkach alebo textových widgetoch použitím skráteného zápisu."
-
-#: wp-table-reloaded-admin.php:1817
+#: wp-table-reloaded-admin.php:2270
 #@ wp-table-reloaded
 msgid "If you want to show your tables anywhere else in your theme, you can use a template tag function."
 msgstr "Ak chcete použiť tabuľku niekde vo Vašej téme, môžete použiť tag-funkciu Vašej témy."
 
-#: wp-table-reloaded-admin.php:1822
+#: wp-table-reloaded-admin.php:2275
 #@ wp-table-reloaded
 msgid "Usage"
 msgstr "Použitie"
 
-#: wp-table-reloaded-admin.php:1824
+#: wp-table-reloaded-admin.php:2277
 #@ wp-table-reloaded
 msgid "At first you should add or import a table."
 msgstr "Ako prvé by ste mali pridať alebo importovať tabuľku."
 
-#: wp-table-reloaded-admin.php:1824
+#: wp-table-reloaded-admin.php:2277
 #@ wp-table-reloaded
 msgid "This means that you either let the plugin create an empty table for you or that you load an existing table from either a CSV, XML or HTML file."
 msgstr "To znamená, buď nechajte plugin vytvoriť pre Vás prázdnu tabuľku alebo vložte existujúcu tabuľku zo súboru, napríklad CSV, XML alebo HTML súboru."
 
-#: wp-table-reloaded-admin.php:1824
+#: wp-table-reloaded-admin.php:2277
 #@ wp-table-reloaded
 msgid "Then you can edit your data or change the structure of your table (e.g. by inserting or deleting rows or columns, swaping rows or columns or sorting them) and select specific table options like alternating row colors or whether to print the name or description, if you want."
 msgstr "Potom môžete Vašu tabuľku editovať alebo zmeniť jej štruktúru (vkladaním alebo mazaním riadkov a stĺpcov), nastaviť jej vlastnosti (striedavá farba riadkov), zobrazenie nápisov a popisov. "
 
-#: wp-table-reloaded-admin.php:1824
+#: wp-table-reloaded-admin.php:2277
 #@ wp-table-reloaded
 msgid "To easily add a link or an image to a cell, use the provided buttons. Those will ask you for the URL and a title. Then you can click into a cell and the corresponding HTML will be added to it for you."
 msgstr "Pre jednoduché pridanie obrázkov alebo odkazov, použite príslušné tlačitko. Potom kliknite na bunku tabuľku a príslušný HTML kód bude automaticky vložený."
 
-#: wp-table-reloaded-admin.php:1824
-#@ wp-table-reloaded
-msgid "To include the table into your posts, pages or text widgets, write the shortcode [table id=&lt;table-id&gt;] into them."
-msgstr "Aby ste vložili tabuľku do Vaších článkov, stránok alebo textových widgetov, napíšte tam skrátený kód [table id=&lt;table-id&gt;]."
-
-#: wp-table-reloaded-admin.php:1824
-#@ wp-table-reloaded
-msgid "You can also select the desired table from a list (after clicking the button \"Table\" in the editor toolbar) and the corresponding shortcode will be added for you."
-msgstr "Požadovanú tabuľku stačí označiť v zozname (Po kliknutí na tlačilo \"Table\" v paneli nástrojov a zodpovedajúci skrátený zápis bude pre Vás pridaný.)"
-
-#: wp-table-reloaded-admin.php:1824
-#@ wp-table-reloaded
-msgid "You may also style your table via CSS. Example files are provided on the plugin website. Every table has the CSS class \"wp-table-reloaded\". Each table also has the class \"wp-table-reloaded-&lt;table-id&gt;\"."
-msgstr "Vzhľad Vašej tabuľky môžete zmeniť pomocou CSS štýlov. Súbory s ukážkami sú na stránke plugin-u. Každá tabuľka obsahuje CSS triedu \"wp-table-reloaded\". Každá tabuľka má triedu \"wp-table-reloaded-&lt;table-id&gt;\"."
-
-#: wp-table-reloaded-admin.php:1824
-#@ wp-table-reloaded
-msgid "You can also use the classes \"column-&lt;number&gt;\" and \"row-&lt;number&gt;\" to style rows and columns individually. Use this to style columns width and text alignment for example."
-msgstr "Taktiež môžete použiť triedy \"column-&lt;number&gt;\" a \"row-&lt;number&gt;\" aby ste zmenili štýl každého riadku alebo stĺpca zvlášť. Môžete napríklad zmeniť šírku stĺpcov alebo zarovnanie obsahu."
-
-#: wp-table-reloaded-admin.php:1829
+#: wp-table-reloaded-admin.php:2283
 #@ wp-table-reloaded
 msgid "More Information and Documentation"
-msgstr "Viac informácií a dokumentácia."
+msgstr "Viac informácií a dokumentácia"
 
-#: wp-table-reloaded-admin.php:1831
-#@ wp-table-reloaded
-msgid "More information can be found on the <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/\">plugin's website</a> or on its page in the <a href=\"http://wordpress.org/extend/plugins/wp-table-reloaded/\">WordPress Plugin Directory</a>."
-msgstr "Viac informácii môžete nájsť na <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/\">stránke plugin-u</a>, alebo na príslušnej stránke <a href=\"http://wordpress.org/extend/plugins/wp-table-reloaded/\">v adresári plugin-ov WordPress-u</a>."
-
-#: wp-table-reloaded-admin.php:1831
-#: wp-table-reloaded-admin.php:1995
-#@ wp-table-reloaded
-msgid "See the <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/documentation/\">documentation</a> or find out how to get <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/support/\">support</a>."
-msgstr "Pozrite si <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/documentation/\">dokumentáciu</a>, alebo využite <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/support/\">podporu.</a>."
-
-#: wp-table-reloaded-admin.php:1836
-#@ wp-table-reloaded
-msgid "Author and Licence"
-msgstr "Autor a licencia"
-
-#: wp-table-reloaded-admin.php:1838
-#@ wp-table-reloaded
-msgid "This plugin was written by <a href=\"http://tobias.baethge.com/\">Tobias B&auml;thge</a>. It is licensed as Free Software under GPL 2."
-msgstr "Plugin napísal <a href=\"http://tobias.baethge.com/\">Tobias B&auml;thge</a>. Šírený je ako slobodný softvér pod licenciou GPL 2."
-
-#: wp-table-reloaded-admin.php:1838
-#: wp-table-reloaded-admin.php:1996
-#@ wp-table-reloaded
-msgid "If you like the plugin, please consider <a href=\"http://tobias.baethge.com/donate/\"><strong>a donation</strong></a> and rate the plugin in the <a href=\"http://wordpress.org/extend/plugins/wp-table-reloaded/\">WordPress Plugin Directory</a>."
-msgstr "Ak sa Vám tento plugin páči, zvážte <a href=\"http://tobias.baethge.com/donate/\"><strong>príspevok</strong></a> a ohodnotenie pluginu v <a href=\"http://wordpress.org/extend/plugins/wp-table-reloaded/\">adresári plugin-ov WordPress-u</a>."
-
-#: wp-table-reloaded-admin.php:1838
+#: wp-table-reloaded-admin.php:2299
 #@ wp-table-reloaded
 msgid "Donations and good ratings encourage me to further develop the plugin and to provide countless hours of support. Any amount is appreciated! Thanks!"
 msgstr "Príspevky a dobré hodnotenia ma povzbudzujú v ďalšom vývoji plugin-u a nespočítateľného množstva hodín podpory. Každý príspevok je vítaný. Ďakujem."
 
-#: wp-table-reloaded-admin.php:1843
+#: wp-table-reloaded-admin.php:2304
 #@ wp-table-reloaded
 msgid "Credits and Thanks"
 msgstr "Titulky a poďakovanie"
 
-#: wp-table-reloaded-admin.php:1846
+#: wp-table-reloaded-admin.php:2307
 #@ wp-table-reloaded
 msgid "Thanks go to <a href=\"http://alexrabe.boelinger.com/\">Alex Rabe</a> for the original wp-Table plugin,"
 msgstr "Poďakovanie patrí <a href=\"http://alexrabe.boelinger.com/\">Alex-ovi Rabe</a> za originálny wp-Table plugin."
 
-#: wp-table-reloaded-admin.php:1847
+#: wp-table-reloaded-admin.php:2309
 #@ wp-table-reloaded
 msgid "Christian Bach for the <a href=\"http://www.tablesorter.com/\">Tablesorter jQuery plugin</a>,"
 msgstr "Christian Bach za <a href=\"http://www.tablesorter.com/\">Tablesorter jQuery plugin</a>,"
 
-#: wp-table-reloaded-admin.php:1848
+#: wp-table-reloaded-admin.php:2311
 #@ wp-table-reloaded
 msgid "the submitters of translations:"
 msgstr "Preklad do iných jazykov:"
 
-#: wp-table-reloaded-admin.php:1849
+#: wp-table-reloaded-admin.php:2312
 #@ wp-table-reloaded
 msgid "Albanian (thanks to <a href=\"http://www.romeolab.com/\">Romeo</a>)"
 msgstr "Albánsky (poďakovanie patrí <a href=\"http://www.romeolab.com/\">Romeo</a>)"
 
-#: wp-table-reloaded-admin.php:1850
+#: wp-table-reloaded-admin.php:2313
 #@ wp-table-reloaded
 msgid "Belorussian (thanks to <a href=\"http://www.fatcow.com/\">Marcis Gasuns</a>)"
 msgstr "Bielorusky (poďakovanie patrí <a href=\"http://www.fatcow.com/\">Marcis Gasuns</a>)"
 
-#: wp-table-reloaded-admin.php:1851
+#: wp-table-reloaded-admin.php:2314
 #@ wp-table-reloaded
 msgid "Brazilian Portugues (thanks to <a href=\"http://www.pensarics.com/\">Rics</a>)"
 msgstr "Brazílska portugalština (poďakovanie patrí <a href=\"http://www.pensarics.com/\">Rics</a>)"
 
-#: wp-table-reloaded-admin.php:1852
+#: wp-table-reloaded-admin.php:2315
 #@ wp-table-reloaded
 msgid "Czech (thanks to <a href=\"http://separatista.net/\">Separatista</a>)"
 msgstr "Česky (poďakovanie patrí (thanks to <a href=\"http://www.pensarics.com/\">Rics</a>)"
 
-#: wp-table-reloaded-admin.php:1853
+#: wp-table-reloaded-admin.php:2317
 #@ wp-table-reloaded
 msgid "French (thanks to <a href=\"http://ultratrailer.net/\">Yin-Yin</a>)"
 msgstr "Francúzsky (poďakovanie patrí <a href=\"http://ultratrailer.net/\">Yin-Yin</a>)"
 
-#: wp-table-reloaded-admin.php:1854
+#: wp-table-reloaded-admin.php:2318
 #@ wp-table-reloaded
 msgid "Italian (thanks to <a href=\"http://www.scrical.it/\">Gabriella Mazzon</a>)"
 msgstr "Taliansky (poďakovanie patrí <a href=\"http://www.scrical.it/\">Gabriella Mazzon</a>)"
 
-#: wp-table-reloaded-admin.php:1855
+#: wp-table-reloaded-admin.php:2319
 #@ wp-table-reloaded
 msgid "Japanese (thanks to <a href=\"http://www.u-1.net/\">Yuuichi</a>)"
 msgstr "Japonsky (poďakovanie patrí <a href=\"http://www.u-1.net/\">Yuuichi</a>)"
 
-#: wp-table-reloaded-admin.php:1856
+#: wp-table-reloaded-admin.php:2320
 #@ wp-table-reloaded
 msgid "Polish (thanks to Alex Kortan)"
 msgstr "Poľsky (poďakovanie patrí Alex Kortan)"
 
-#: wp-table-reloaded-admin.php:1857
+#: wp-table-reloaded-admin.php:2321
 #@ wp-table-reloaded
 msgid "Russian (thanks to <a href=\"http://wp-skins.info/\">Truper</a>)"
 msgstr "Rusky (poďakovanie patrí <a href=\"http://wp-skins.info/\">Truper</a>)"
 
-#: wp-table-reloaded-admin.php:1858
+#: wp-table-reloaded-admin.php:2323
 #@ wp-table-reloaded
 msgid "Spanish (thanks to <a href=\"http://theindependentproject.com/\">Alejandro Urrutia</a> and <a href=\"http://halles.cl/\">Matias Halles</a>)"
 msgstr "Španielsky (poďakovanie patrí <a href=\"http://theindependentproject.com/\">Alejandro Urrutia</a> a <a href=\"http://halles.cl/\">Matias Halles</a>)"
 
-#: wp-table-reloaded-admin.php:1859
+#: wp-table-reloaded-admin.php:2324
 #@ wp-table-reloaded
 msgid "Swedish (thanks to <a href=\"http://www.zuperzed.se/\">ZuperZed</a>)"
 msgstr "Švédsky (poďakovanie patrí <a href=\"http://www.zuperzed.se/\">ZuperZed</a>)"
 
-#: wp-table-reloaded-admin.php:1860
+#: wp-table-reloaded-admin.php:2325
 #@ wp-table-reloaded
 msgid "Turkish (thanks to <a href=\"http://www.wpuzmani.com/\">Semih</a>)"
 msgstr "Turecky (poďakovanie patrí <a href=\"http://www.wpuzmani.com/\">Semih</a>)"
 
-#: wp-table-reloaded-admin.php:1861
+#: wp-table-reloaded-admin.php:2326
 #@ wp-table-reloaded
 msgid "and to all donors, contributors, supporters, reviewers and users of the plugin!"
-msgstr "a všetkým darcom, pomocníkom, podporovateľom, recenzentom a používateľom tohoto plugin-u."
+msgstr "a všetkým darcom, pomocníkom, podporovateľom, recenzentom a používateľom tohoto modulu!"
 
-#: wp-table-reloaded-admin.php:1867
+#: wp-table-reloaded-admin.php:2332
 #@ wp-table-reloaded
 msgid "Debug and Version Information"
 msgstr "Testovacie informácie a informácie o verzii"
 
-#: wp-table-reloaded-admin.php:1870
-#@ wp-table-reloaded
-msgid "You are using the following versions of the software. <strong>Please provide this information in bug reports.</strong>"
-msgstr "Používate nasledujúcu verziu softvéru. <strong>Uveďte tieto informácie v zápise o chybách.</strong>"
-
-#: wp-table-reloaded-admin.php:1873
+#: wp-table-reloaded-admin.php:2338
 #@ wp-table-reloaded
 msgid "Plugin installed"
 msgstr "Plugin je nainštalovaný"
 
-#: wp-table-reloaded-admin.php:1916
+#: php/wp-table-reloaded-helper.class.php:66
+#: wp-table-reloaded-admin.php:2361
 #@ wp-table-reloaded
 msgid "List Tables"
 msgstr "Zoznam tabuliek"
 
-#: wp-table-reloaded-admin.php:1921
+#: php/wp-table-reloaded-helper.class.php:81
+#: wp-table-reloaded-admin.php:275
+#: wp-table-reloaded-admin.php:1686
+#: wp-table-reloaded-admin.php:1701
+#: wp-table-reloaded-admin.php:1985
+#: wp-table-reloaded-admin.php:2055
+#: wp-table-reloaded-admin.php:2370
 #@ wp-table-reloaded
 msgid "Plugin Options"
-msgstr "Nastavenia plugin-u"
+msgstr "Nastavenia modulu"
 
-#: wp-table-reloaded-admin.php:1922
-#@ wp-table-reloaded
-msgid "About the Plugin"
-msgstr "O plugin-e"
-
-#: wp-table-reloaded-admin.php:1963
-#@ wp-table-reloaded
-msgid "This is the \"List Tables\" screen."
-msgstr "Toto je okno \"Zoznam tabuliek\"."
-
-#: wp-table-reloaded-admin.php:1967
-#@ wp-table-reloaded
-msgid "This is the \"Edit Table\" screen."
-msgstr "Toto je okno \"Editovať tabuľku\"."
-
-#: wp-table-reloaded-admin.php:1970
-#@ wp-table-reloaded
-msgid "This is the \"Add new Table\" screen."
-msgstr "Toto je okno \"Pridať novú tabuľku\"."
-
-#: wp-table-reloaded-admin.php:1973
-#@ wp-table-reloaded
-msgid "This is the \"Import a Table\" screen."
-msgstr "Toto je okno \"Importovať tabuľku\"."
-
-#: wp-table-reloaded-admin.php:1976
-#@ wp-table-reloaded
-msgid "This is the \"Export a Table\" screen."
-msgstr "Toto je okno \"Exportovať tabuľku\"."
-
-#: wp-table-reloaded-admin.php:1979
-#@ wp-table-reloaded
-msgid "This is the \"Plugin Options\" screen."
-msgstr "Toto je okno \"Nastavenia plugin-u\"."
-
-#: wp-table-reloaded-admin.php:1985
-#@ wp-table-reloaded
-msgid "This is the \"About WP-Table Reloaded\" screen."
-msgstr "Toto je okno \"O WP-Table Reloaded\"."
-
-#: wp-table-reloaded-admin.php:1994
-#@ wp-table-reloaded
-msgid "More information can be found on the <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/\">plugin's website</a>."
-msgstr "Viac informácii sa dá nájsť na <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/\">stránke plugin-u</a>."
-
-#: wp-table-reloaded-admin.php:2317
+#: wp-table-reloaded-admin.php:2778
 #@ wp-table-reloaded
 msgid "Do you really want to activate this? You should only do that right before uninstallation!"
 msgstr "Vážne to chcete aktivovať? Správne by ste to mali urobiť pred odinštalovaním!"
 
-#: wp-table-reloaded-admin.php:2318
+#: wp-table-reloaded-admin.php:2779
 #@ wp-table-reloaded
 msgid "URL of link to insert"
 msgstr "URL odkazu, ktorý chcete vložiť"
 
-#: wp-table-reloaded-admin.php:2319
+#: wp-table-reloaded-admin.php:2780
 #@ wp-table-reloaded
 msgid "Text of link"
 msgstr "Text odkazu"
 
-#: wp-table-reloaded-admin.php:2320
-#@ wp-table-reloaded
-msgid "To insert the following link into a cell, just click the cell after closing this dialog."
-msgstr "Aby ste vložili tento odkaz do bunky, len kliknite na správnu bunku po zavretí tohoto odkazu."
-
-#: wp-table-reloaded-admin.php:2321
+#: wp-table-reloaded-admin.php:2782
 #@ wp-table-reloaded
 msgid "To insert an image, click the cell into which you want to insert the image."
 msgstr "Pre vloženie obrázku, kliknite na bunku, kde má byť vložený."
 
-#: wp-table-reloaded-admin.php:2321
+#: wp-table-reloaded-admin.php:2782
 #@ wp-table-reloaded
 msgid "The Media Library will open, from which you can select the desired image or insert the image URL."
 msgstr "Knižnica súborov sa otvorí a Vy môžete vložiť požadovaný obrázok, alebo odkaz na neho."
 
-#: wp-table-reloaded-admin.php:2321
-#, php-format
-#@ wp-table-reloaded
-msgid "Click the \"%s\" button to insert the image."
-msgstr "Aby ste vložili obrázok, kliknite na \"%s\" tlačitko."
-
-#: wp-table-reloaded-admin.php:2321
+#: wp-table-reloaded-admin.php:2782
 msgid "Insert into Post"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2322
+#: wp-table-reloaded-admin.php:2783
 #@ wp-table-reloaded
 msgid "Do you want to copy the selected tables?"
 msgstr "Chcete skopírovať označené tabuľky?"
 
-#: wp-table-reloaded-admin.php:2323
+#: wp-table-reloaded-admin.php:2784
 #@ wp-table-reloaded
 msgid "The selected tables and all content will be erased. Do you really want to delete them?"
 msgstr "Označené tabuľky a ich obsah bude vymazaný. Chcete ich skutočne vymazať?"
 
-#: wp-table-reloaded-admin.php:2324
+#: wp-table-reloaded-admin.php:2785
 #@ wp-table-reloaded
 msgid "Do you really want to import the selected tables from the wp-Table plugin?"
-msgstr "Skutočne chcete vložiť vyznačené tabuľky z wp-Table plugin-u?"
+msgstr "Skutočne chcete vložiť vyznačené tabuľky z wp-Table modulu?"
 
-#: wp-table-reloaded-admin.php:2325
+#: wp-table-reloaded-admin.php:2786
 #@ wp-table-reloaded
 msgid "Do you want to copy this table?"
 msgstr "Chcete skopírovať túto tabuľku?"
 
-#: wp-table-reloaded-admin.php:2326
+#: wp-table-reloaded-admin.php:2787
 #@ wp-table-reloaded
 msgid "The complete table and all content will be erased. Do you really want to delete it?"
 msgstr "Celá tabuľka a jej obsah budú zmazané. Skutočne ich chcete vymazať?"
 
-#: wp-table-reloaded-admin.php:2327
-#@ wp-table-reloaded
-msgid "Do you really want to delete this row?"
-msgstr "Skutočne chcete vymazať tento riadok?"
-
-#: wp-table-reloaded-admin.php:2328
-#@ wp-table-reloaded
-msgid "Do you really want to delete this column?"
-msgstr "Chcete skutočne vymazať tento stĺpec?"
-
-#: wp-table-reloaded-admin.php:2329
+#: wp-table-reloaded-admin.php:2798
 #@ wp-table-reloaded
 msgid "Do you really want to import this table from the wp-Table plugin?"
-msgstr "Skutočne chcete importovať túto tabuľku z plugin-u wp-Table?"
+msgstr "Skutočne chcete importovať túto tabuľku z modulu wp-Table?"
 
-#: wp-table-reloaded-admin.php:2330
+#: wp-table-reloaded-admin.php:2799
 #@ wp-table-reloaded
 msgid "Do you really want to uninstall the plugin and delete ALL data?"
 msgstr "Skutočne chcete odinštalovať plugin a zmazať všetky dáta?"
 
-#: wp-table-reloaded-admin.php:2331
+#: wp-table-reloaded-admin.php:2800
 #@ wp-table-reloaded
 msgid "Are you really sure?"
 msgstr "Ste si naozaj istý?"
 
-#: wp-table-reloaded-admin.php:2332
+#: wp-table-reloaded-admin.php:2801
 #@ wp-table-reloaded
 msgid "Do you really want to change the ID of the table?"
 msgstr "Skutočne chcete zmeniť ID tabuľky?"
 
-#: wp-table-reloaded-admin.php:2333
+#: wp-table-reloaded-admin.php:2802
 #@ wp-table-reloaded
 msgid "To show this Custom Data Field, use this shortcode:"
 msgstr "Pre zobrazenie tohoto užívateľského poľa použite tento skrátený zápis: "
 
-#: wp-table-reloaded-admin.php:2334
+#: wp-table-reloaded-admin.php:2803
 #@ wp-table-reloaded
 msgid "To show this table, use this shortcode:"
 msgstr "Pre zobrazenie tabuľky, použite tento skrátený zápis:"
 
-#: wp-table-reloaded-admin.php:2375
+#: wp-table-reloaded-admin.php:1241
+#: wp-table-reloaded-admin.php:2277
+#: wp-table-reloaded-admin.php:2853
 #@ wp-table-reloaded
 msgid "Table"
 msgstr "Tabuľka"
 
-#: wp-table-reloaded-admin.php:2423
+#: php/wp-table-reloaded-helper.class.php:143
 #@ wp-table-reloaded
 msgid "Thank you for using <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/\">WP-Table Reloaded</a>."
-msgstr "Ďakujem, že používate plugin <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/\">WP-Table Reloaded</a>."
+msgstr "Ďakujem, že používate modul <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/\">WP-Table Reloaded</a>."
+
+#: php/wp-table-reloaded-helper.class.php:66
+#: php/wp-table-reloaded-helper.class.php:69
+#: php/wp-table-reloaded-helper.class.php:72
+#: php/wp-table-reloaded-helper.class.php:75
+#: php/wp-table-reloaded-helper.class.php:78
+#: php/wp-table-reloaded-helper.class.php:81
+#: php/wp-table-reloaded-helper.class.php:84
+#, php-format
+#@ wp-table-reloaded
+msgid "This is the &quot;%s&quot; screen."
+msgstr "Toto je &quot;%s&quot; obrazovka."
+
+#: php/wp-table-reloaded-helper.class.php:69
+#: wp-table-reloaded-admin.php:2060
+#: wp-table-reloaded-admin.php:2111
+#: wp-table-reloaded-admin.php:2123
+#: wp-table-reloaded-admin.php:2127
+#@ wp-table-reloaded
+msgid "Edit Table"
+msgstr "Editovať tabuľku"
+
+#: php/wp-table-reloaded-helper.class.php:84
+#: wp-table-reloaded-admin.php:2371
+#@ wp-table-reloaded
+msgid "About the plugin"
+msgstr "O module"
+
+#: php/wp-table-reloaded-helper.class.php:96
+#: wp-table-reloaded-admin.php:2285
+#, php-format
+#@ wp-table-reloaded
+msgid "More information about WP-Table Reloaded can be found on the <a href=\"%s\">plugin's website</a> or on its page in the <a href=\"%s\">WordPress Plugin Directory</a>."
+msgstr "Viac informácií o WP-Table Reloaded nájdete na <a href=\"%s\">stránke modulu</a> alebo na jeho stránke v <a href=\"%s\">adresári modulov WordPress-u</a>."
+
+#: php/wp-table-reloaded-helper.class.php:97
+#: wp-table-reloaded-admin.php:2285
+#, php-format
+#@ wp-table-reloaded
+msgid "For technical information, see the <a href=\"%s\">documentation</a>."
+msgstr "Pre technické informácie si pozrite <a href=\"%s\">dokumentáciu</a>."
+
+#: php/wp-table-reloaded-helper.class.php:98
+#: wp-table-reloaded-admin.php:2292
+#, php-format
+#@ wp-table-reloaded
+msgid "<a href=\"%s\">Support</a> is provided through the <a href=\"%s\">WordPress Support Forums</a>."
+msgstr "<a href=\"%s\">Podpora</a> je poskytovaná cez <a href=\"%s\">fórum podpory WordPressu</a>."
+
+#: php/wp-table-reloaded-helper.class.php:99
+#: wp-table-reloaded-admin.php:2292
+#, php-format
+#@ wp-table-reloaded
+msgid "Before asking for support, please carefully read the <a href=\"%s\">Frequently Asked Questions</a> where you will find answered to the most common questions, and search through the forums."
+msgstr "Predtým, ako požiadate o podporu, prečítajte si prosím pozorne <a href=\"%s\">často kladené otázky</a>, kde nájdete odpovede na najčastejšie otázky a prehľadajte fóra."
+
+#: php/wp-table-reloaded-helper.class.php:100
+#: wp-table-reloaded-admin.php:2299
+#, php-format
+#@ wp-table-reloaded
+msgid "If you like the plugin, <a href=\"%s\"><strong>a donation</strong></a> is recommended."
+msgstr "Ak sa Vám tento modul páči, odporúčam Vám <a href=\"%s\"><strong>príspieť</strong></a>."
+
+#: php/wp-table-reloaded-helper.class.php:143
+#, php-format
+#@ wp-table-reloaded
+msgid "Support the plugin with your <a href=\"%s\">donation</a>!"
+msgstr "Podporte plugin Vašim <a href=\"%s\">príspevkom</a>!"
+
+#: wp-table-reloaded-admin.php:271
+#, php-format
+#@ wp-table-reloaded
+msgid "Welcome to WP-Table Reloaded %s. If you encounter any questions or problems, please refer to the <a href=\"%s\">FAQ</a>, the <a href=\"%s\">documentation</a>, and the <a href=\"%s\">support</a> section."
+msgstr "Vitajte vo WP-Table Reloaded %s. Ak narazíte na nejaké otázky alebo problémy, pozrite si prosím <a href=\"%s\">FAQ</a>, <a href=\"%s\">dokumentáciu</a>, a sekciu <a href=\"%s\">podpora</a>."
+
+#: wp-table-reloaded-admin.php:275
+#, php-format
+#@ wp-table-reloaded
+msgid "Thank you for upgrading to WP-Table Reloaded %s."
+msgstr "Ďakujem, že ste upgradli do verzie %s modulu WP-Table Reloaded."
+
+#: wp-table-reloaded-admin.php:275
+#@ wp-table-reloaded
+msgid "This version adds support for the DataTables JavaScript library (with features like sorting, pagination, and filtering) and includes a lot more enhancements."
+msgstr "Táto verzia pridáva podporu pre DataTables Javascript knižnicu ( s možnosťami ako sú usporiadavanie, číslovanie, filtrovanie ) a obsahuje mnoho ďalších vylepšení. "
+
+#: wp-table-reloaded-admin.php:275
+#, php-format
+#@ wp-table-reloaded
+msgid "Please read the <a href=\"%s\">release announcement</a> for more information and check your settings in the <a href=\"%s\">%s</a>."
+msgstr "Prečítajte si prosím <a href=\"%s\">poznámky k vydaniu</a> pre viac informácií a skontrolujte Vaše nastavenia v <a href=\"%s\">%s</a>."
+
+#: wp-table-reloaded-admin.php:275
+#, php-format
+#@ wp-table-reloaded
+msgid "If you like the new features and enhancements, I would appreciate a small <a href=\"%s\">donation</a>. Thank you."
+msgstr "Ak sa Vám páčia nové možnosti a vylepšenia, budem si ceniť malý <a href=\"%s\">príspevok</a>. Ďakujem Vám."
+
+#: wp-table-reloaded-admin.php:282
+#@ wp-table-reloaded
+msgid "Hide this message"
+msgstr "Skryť túto správu."
+
+#: wp-table-reloaded-admin.php:320
+#, php-format
+#@ wp-table-reloaded
+msgid "Table &quot;%s&quot; added successfully."
+msgstr "Tabuľka &quot;%s&quot; bola v poriadku pridaná."
+
+#: wp-table-reloaded-admin.php:505
+#@ wp-table-reloaded
+msgid "Row could not be deleted."
+msgid_plural "Rows could not be deleted."
+msgstr[0] "Riadok nemôže byť odstránený."
+msgstr[1] "Riadky nemôžu byť odstránené."
+msgstr[2] "Riadky nemôžu byť odstránené."
+
+#: wp-table-reloaded-admin.php:514
+#@ wp-table-reloaded
+msgid "Row deleted successfully."
+msgid_plural "Rows deleted successfully."
+msgstr[0] "Riadok bol v poriadku odstránený."
+msgstr[1] "Riadky boli v poriadku odstránené."
+msgstr[2] "Riadky boli v poriadku odstránené."
+
+#: wp-table-reloaded-admin.php:524
+#@ wp-table-reloaded
+msgid "Column could not be deleted."
+msgid_plural "Columns could not be deleted."
+msgstr[0] "Stĺpec nemôže byť odstránený."
+msgstr[1] "Stĺpce nemôžu byť odstránené."
+msgstr[2] "Stĺpce nemôžu byť odstránené."
+
+#: wp-table-reloaded-admin.php:537
+#@ wp-table-reloaded
+msgid "Column deleted successfully."
+msgid_plural "Columns deleted successfully."
+msgstr[0] "Stĺpec bol v poriadku odstránený."
+msgstr[1] "Stĺpce boli v poriadku odstránené."
+msgstr[2] "Stĺpce boli v poriadku odstránené."
+
+#: wp-table-reloaded-admin.php:560
+#@ wp-table-reloaded
+msgid "Row inserted successfully."
+msgid_plural "Rows inserted successfully."
+msgstr[0] "Riadok bol v poriadku vložený."
+msgstr[1] "Riadky boli v poriadku vložené."
+msgstr[2] "Riadky boli v poriadku vložené."
+
+#: wp-table-reloaded-admin.php:587
+#@ wp-table-reloaded
+msgid "Column inserted successfully."
+msgid_plural "Columns inserted successfully."
+msgstr[0] "Stĺpec bol v poriadku vložený."
+msgstr[1] "Stĺpce boli v poriadku vložené."
+msgstr[2] "Stĺpce boli v poriadku vložené."
+
+#: wp-table-reloaded-admin.php:740
+#, php-format
+#@ wp-table-reloaded
+msgid "Table &quot;%s&quot; copied successfully."
+msgstr "Tabuľka &quot;%s&quot; bola úspešne skopírovaná."
+
+#: wp-table-reloaded-admin.php:756
+#, php-format
+#@ wp-table-reloaded
+msgid "Table &quot;%s&quot; deleted successfully."
+msgstr "Tabuľka &quot;%s&quot; bola úspešne vymazaná."
+
+#: wp-table-reloaded-admin.php:890
+#: wp-table-reloaded-admin.php:1062
+#@ wp-table-reloaded
+msgid "You do not have sufficient rights to perform this action."
+msgstr "Nemáte dostatočné oprávnenia na vykonanie tejto akcie."
+
+#: wp-table-reloaded-admin.php:897
+#@ wp-table-reloaded
+msgid "You did not upload a WP-Table Reloaded dump file."
+msgstr "Nenahrali ste dump súbor pluginu WP-Table Reloaded."
+
+#: wp-table-reloaded-admin.php:906
+#@ wp-table-reloaded
+msgid "The uploaded dump file is empty. Please upload a valid dump file."
+msgstr "Nahratý dump súbor je prázdny. Nahrajte prosím správny dump súbor."
+
+#: wp-table-reloaded-admin.php:935
+#@ wp-table-reloaded
+msgid "All Tables, Settings and Options were successfully imported."
+msgstr "Všetky tabuľky, nastavenia a možnosti boli úspešne importované."
+
+#: wp-table-reloaded-admin.php:962
+#, php-format
+#@ wp-table-reloaded
+msgid "Table &quot;%s&quot; exported successfully."
+msgstr "Tabuľka &quot;%s&quot; bola úspešne exportovaná."
+
+#: wp-table-reloaded-admin.php:1003
+#: wp-table-reloaded-admin.php:2251
+#@ wp-table-reloaded
+msgid "You do not have sufficient rights to access the Plugin Options."
+msgstr "Nemáte dostatočné oprávnenia na prístup k nastaveniam modulu."
+
+#: wp-table-reloaded-admin.php:1098
+#, php-format
+#@ wp-table-reloaded
+msgid "Click the &quot;%s&quot; link after the desired table and the corresponding shortcode will be inserted into the editor (<strong>[table id=&lt;ID&gt; /]</strong>)."
+msgstr "Kliknite na &quot;%s&quot; odkaz, potom bude požadovaná tabuľka a zodpovedajúci skrátený kód vložený do editora (<strong>[table id=&lt;ID&gt; /]</strong>)."
+
+#: wp-table-reloaded-admin.php:1147
+#: wp-table-reloaded-admin.php:1327
+#: wp-table-reloaded-admin.php:2046
+#: wp-table-reloaded-admin.php:2882
+#@ wp-table-reloaded
+msgid "No tables were found."
+msgstr "Neboli nájdené žiadne tabuľky."
+
+#: wp-table-reloaded-admin.php:1167
+#, php-format
+#@ wp-table-reloaded
+msgid "Preview of Table &quot;%s&quot; (ID %s)"
+msgstr "Náhľad tabuľky &quot;%s&quot; (ID %s)"
+
+#: wp-table-reloaded-admin.php:1170
+#@ wp-table-reloaded
+msgid "This is a preview of your table."
+msgstr "Toto je náhľad Vašej tabuľky."
+
+#: wp-table-reloaded-admin.php:1171
+#@ wp-table-reloaded
+msgid "The JavaScript libraries are also not available in this preview."
+msgstr "Javascriptové knižnice nie sú dostupné v tomto náhľade."
+
+#: wp-table-reloaded-admin.php:1172
+#: wp-table-reloaded-admin.php:1241
+#: wp-table-reloaded-admin.php:1388
+#: wp-table-reloaded-admin.php:2277
+#, php-format
+#@ wp-table-reloaded
+msgid "To insert the table into a page, post or text-widget, copy the shortcode <strong>[table id=%s /]</strong> and paste it into the corresponding place in the editor."
+msgstr "Aby ste vložili tabuľku do stránky, článku alebo textového widgetu, skopírujte skrátený zápis <strong>[table id=%s /]</strong> a vložte ho na správne miesto v editore."
+
+#: wp-table-reloaded-admin.php:1223
+#, php-format
+#@ wp-table-reloaded
+msgid "No problem! I still hope you enjoy the benefits that WP-Table Reloaded brings to you. If you should want to change your mind, you'll always find the &quot;%s&quot; button on the <a href=\"%s\">WP-Table Reloaded website</a>."
+msgstr "Bez problémov. Ja stále verím, že úžitok, ktorý Vám prináša modul WP-Table Reloaded Vás teší. Ak by ste zmenili názor, vždy nájdete tlačidlo &quot;%s&quot; na stránke modulu <a href=\"%s\">WP-Table Reloaded</a>."
+
+#: wp-table-reloaded-admin.php:1223
+#: wp-table-reloaded-admin.php:2740
+#: wp-table-reloaded-admin.php:2752
+#@ wp-table-reloaded
+msgid "Donate"
+msgstr "Prispieť"
+
+#: wp-table-reloaded-admin.php:1241
+#@ wp-table-reloaded
+msgid "You may add, edit, copy, delete or preview tables here."
+msgstr "Tu môžete pridávať, editovať, kopírovať, zmazať Vaše tabuľky, alebo si pozrieť ich náhľady."
+
+#: wp-table-reloaded-admin.php:1241
+#@ wp-table-reloaded
+msgid "Each table has a unique ID that needs to be adjusted in that shortcode."
+msgstr "Každá tabuľka má unikátne ID, ktoré musí byť zapísané v skrátenom zápise."
+
+#: wp-table-reloaded-admin.php:1241
+#, php-format
+#@ wp-table-reloaded
+msgid "You can also click the button &quot;%s&quot; in the editor toolbar to select and insert a table."
+msgstr "Môžete klinúť na tlačidlo &quot;%s&quot; v paneli nástrojov editora, aby ste vybrali a vložili tabuľku."
+
+#: wp-table-reloaded-admin.php:1327
+#: wp-table-reloaded-admin.php:2046
+#, php-format
+#@ wp-table-reloaded
+msgid "You should <a href=\"%s\">add</a> or <a href=\"%s\">import</a> a table to get started!"
+msgstr "Aby ste začali, mali by ste <a href=\"%s\">pridať</a> alebo <a href=\"%s\">importovať</a> tabuľku."
+
+#: wp-table-reloaded-admin.php:1341
+#@ wp-table-reloaded
+msgid "To add a new table, enter its name, a description (optional) and the number of rows and columns."
+msgstr "Aby ste pridali novú tabuľku, vložte jej názov, popis ( voliteľné ), počet riadkov a stĺpcov."
+
+#: wp-table-reloaded-admin.php:1341
+#@ wp-table-reloaded
+msgid "You may also add, insert or delete rows and columns later."
+msgstr "Riadky a stĺpce môžete pridávať, vkladať alebo zmazať aj neskôr. "
+
+#: wp-table-reloaded-admin.php:1384
+#, php-format
+#@ wp-table-reloaded
+msgid "Edit Table &quot;%s&quot; (ID %s)"
+msgstr "Editovať tabuľku &quot;%s&quot; (ID %s)"
+
+#: wp-table-reloaded-admin.php:1387
+#@ wp-table-reloaded
+msgid "On this page, you can edit the content of the table."
+msgstr "Na tejto stránke môžete meniť obsah tabuľky."
+
+#: wp-table-reloaded-admin.php:1387
+#@ wp-table-reloaded
+msgid "It is also possible to change the table structure by inserting, deleting, moving, and swapping columns and rows."
+msgstr "Štruktúru tabuľky je možné meniť vkladaním, mazaním, posúvaním a vymieňaním stĺpcov a riadkov."
+
+#: wp-table-reloaded-admin.php:1394
+#: wp-table-reloaded-admin.php:1430
+#: wp-table-reloaded-admin.php:1483
+#: wp-table-reloaded-admin.php:1636
+#: wp-table-reloaded-admin.php:1697
+#: wp-table-reloaded-admin.php:1749
+#: wp-table-reloaded-admin.php:2075
+#: wp-table-reloaded-admin.php:2118
+#: wp-table-reloaded-admin.php:2135
+#: wp-table-reloaded-admin.php:2203
+#: wp-table-reloaded-admin.php:2214
+#: wp-table-reloaded-admin.php:2332
+#@ wp-table-reloaded
+msgid "Hide|expand"
+msgstr "Skryť|expand"
+
+#: wp-table-reloaded-admin.php:1394
+#: wp-table-reloaded-admin.php:1430
+#: wp-table-reloaded-admin.php:1483
+#: wp-table-reloaded-admin.php:1636
+#: wp-table-reloaded-admin.php:1697
+#: wp-table-reloaded-admin.php:1749
+#: wp-table-reloaded-admin.php:2075
+#: wp-table-reloaded-admin.php:2118
+#: wp-table-reloaded-admin.php:2135
+#: wp-table-reloaded-admin.php:2203
+#: wp-table-reloaded-admin.php:2214
+#: wp-table-reloaded-admin.php:2332
+#@ wp-table-reloaded
+msgctxt "expand"
+msgid "Hide"
+msgstr "Skryť"
+
+#: wp-table-reloaded-admin.php:1510
+#: wp-table-reloaded-admin.php:1524
+#@ wp-table-reloaded
+msgid "Selected rows:"
+msgstr "Označené riadky:"
+
+#: wp-table-reloaded-admin.php:1511
+#: wp-table-reloaded-admin.php:1515
+#@ wp-table-reloaded
+msgid "Hide|item"
+msgstr "Skryť|item"
+
+#: wp-table-reloaded-admin.php:1511
+#: wp-table-reloaded-admin.php:1515
+#@ wp-table-reloaded
+msgctxt "item"
+msgid "Hide"
+msgstr "Skryť"
+
+#: wp-table-reloaded-admin.php:1512
+#: wp-table-reloaded-admin.php:1516
+#@ wp-table-reloaded
+msgid "Unhide|item"
+msgstr "Odkryť|item"
+
+#: wp-table-reloaded-admin.php:1512
+#: wp-table-reloaded-admin.php:1516
+#@ wp-table-reloaded
+msgctxt "item"
+msgid "Unhide"
+msgstr "Odkryť"
+
+#: wp-table-reloaded-admin.php:1514
+#: wp-table-reloaded-admin.php:1528
+#@ wp-table-reloaded
+msgid "Selected columns:"
+msgstr "Označené stĺpce:"
+
+#: wp-table-reloaded-admin.php:1525
+#@ wp-table-reloaded
+msgid "Insert row"
+msgstr "Vložiť riadok"
+
+#: wp-table-reloaded-admin.php:1529
+#@ wp-table-reloaded
+msgid "Insert column"
+msgstr "Vložiť stĺpec"
+
+#: wp-table-reloaded-admin.php:1636
+#@ wp-table-reloaded
+msgid "Table Styling Options"
+msgstr "Môžnosti štýlovania tabuľky"
+
+#: wp-table-reloaded-admin.php:1642
+#@ wp-table-reloaded
+msgid "Every second row has an alternating background color."
+msgstr "Každú druhý riadok má inú farbu pozadia."
+
+#: wp-table-reloaded-admin.php:1645
+#@ wp-table-reloaded
+msgid "Table head"
+msgstr "Hlavička tabuľky"
+
+#: wp-table-reloaded-admin.php:1646
+#@ wp-table-reloaded
+msgid "The first row of your table is the table head (HTML tag &lt;th&gt;)."
+msgstr "Prvý riadok Vašej tabuľky je hlavička tabuľky (HTML tag &lt;th&gt;)."
+
+#: wp-table-reloaded-admin.php:1649
+#@ wp-table-reloaded
+msgid "Table footer"
+msgstr "Päta tabuľky"
+
+#: wp-table-reloaded-admin.php:1650
+#@ wp-table-reloaded
+msgid "The last row of your table is the table footer (HTML tag &lt;th&gt;)."
+msgstr "Posledný riadok tabuľky je päta tabuľky (HTML tag &lt;th&gt;)."
+
+#: wp-table-reloaded-admin.php:1654
+#@ wp-table-reloaded
+msgid "The Table Name will be written above the table (HTML tag &lt;h2&gt;)."
+msgstr "Názov tabuľky bude napísaný nad tabuľkou (HTML tag &lt;h2&gt;)."
+
+#: wp-table-reloaded-admin.php:1657
+#@ wp-table-reloaded
+msgid "Table Description"
+msgstr "Popis tabuľky"
+
+#: wp-table-reloaded-admin.php:1661
+#@ wp-table-reloaded
+msgid "Use JavaScript library"
+msgstr "Použi knižnicu JavaScriptu"
+
+#: wp-table-reloaded-admin.php:1667
+#: wp-table-reloaded-admin.php:1671
+#: wp-table-reloaded-admin.php:1683
+#@ wp-table-reloaded
+msgid "You can change further settings for this library below."
+msgstr "Neskôr možete dole zmeniť nastavenia pre túto knižnicu."
+
+#: wp-table-reloaded-admin.php:1675
+#: wp-table-reloaded-admin.php:1679
+#@ wp-table-reloaded
+msgid "The table will then be sortable by the visitor."
+msgstr "Návštevníci si môžu potom tabuľku usporiadať."
+
+#: wp-table-reloaded-admin.php:1686
+#, php-format
+#@ wp-table-reloaded
+msgid "Yes, use the &quot;%s&quot; JavaScript library with this table."
+msgstr "Áno, použi &quot;%s&quot; JavaScript knižnicu pre túto tabuľku."
+
+#: wp-table-reloaded-admin.php:1686
+#, php-format
+#@ wp-table-reloaded
+msgid "You must enable the use of a JavaScript library on the &quot;%s&quot; screen first."
+msgstr "Musíte najprv povoliť používanie JavaScript knižnice na &quot;%s&quot; obrazovke."
+
+#: wp-table-reloaded-admin.php:1697
+#@ wp-table-reloaded
+msgid "DataTables JavaScript Features"
+msgstr "DataTables JavaScript možnosti"
+
+#: wp-table-reloaded-admin.php:1699
+#@ wp-table-reloaded
+msgid "You can enable certain features for the DataTables JavaScript library here."
+msgstr "Tu môžete povoliť rôzne možnosti pre JavaScriptovú knižnicu DataTables."
+
+#: wp-table-reloaded-admin.php:1699
+#@ wp-table-reloaded
+msgid "More information on these features can be found on the <a href=\"http://www.datatables.net/\">DataTables website</a>."
+msgstr "Viac informácií o týchto možnostiach nájdete na <a href=\"http://www.datatables.net/\">DataTables stránke</a>."
+
+#: wp-table-reloaded-admin.php:1701
+#, php-format
+#@ wp-table-reloaded
+msgid "You can currently not change these options, because you have not enabled the &quot;DataTables&quot; or the &quot;DataTables+TableTools&quot; JavaScript library on the &quot;%s&quot; screen."
+msgstr "Aktuálne nemôžete meniť tieto nastavenia, pretože nemáte povolené &quot;DataTables&quot; alebo &quot;DataTables+TableTools&quot; Javascript knižnicu na &quot;%s&quot; obrazovke."
+
+#: wp-table-reloaded-admin.php:1701
+#@ wp-table-reloaded
+msgid "It is not possible to use these features with the &quot;Tablesorter&quot; or &quot;Tablesorter Extended&quot; libraries."
+msgstr "Nie je možné použiť tieto nastavenia spolu s &quot;Tablesorter&quot;  alebo &quot;Tablesorter Extended&quot;  knižnicami."
+
+#: wp-table-reloaded-admin.php:1705
+#@ wp-table-reloaded
+msgid "Sorting"
+msgstr "Usporiadanie"
+
+#: wp-table-reloaded-admin.php:1706
+#@ wp-table-reloaded
+msgid "Yes, enable sorting of table data by the visitor."
+msgstr "Áno, povoľ usporiadanie tabuľky pre návštevníkov."
+
+#: wp-table-reloaded-admin.php:1709
+#@ wp-table-reloaded
+msgid "Pagination"
+msgstr "Číslovanie"
+
+#: wp-table-reloaded-admin.php:1710
+#@ wp-table-reloaded
+msgid "Yes, enable pagination of the table (showing only a certain number of rows) by the visitor."
+msgstr "Áno, povoľ číslovanie tabuľky ( zobrazuje len čísla v riadkoch ) pre návštevníkov."
+
+#: wp-table-reloaded-admin.php:1713
+#@ wp-table-reloaded
+msgid "Length Change"
+msgstr "Zmena dĺžky"
+
+#: wp-table-reloaded-admin.php:1714
+#@ wp-table-reloaded
+msgid "Yes, allow visitor to change the number of rows shown when using pagination."
+msgstr "Áno, povoľ návštevníkom zmeniť počet riadkov, keď používajú číslovanie."
+
+#: wp-table-reloaded-admin.php:1717
+#@ wp-table-reloaded
+msgid "Filtering"
+msgstr "Filtrovanie"
+
+#: wp-table-reloaded-admin.php:1718
+#@ wp-table-reloaded
+msgid "Yes, enable the visitor to filter or search the table. Only rows with the search word in them are shown."
+msgstr "Áno, povoľ návštevníkom filtrovanie alebo vyhľadávanie v tabuľke. Zobrazené budú len riadky, ktoré obsahujú vyhľadávané slovo."
+
+#: wp-table-reloaded-admin.php:1721
+#@ wp-table-reloaded
+msgid "Info Bar"
+msgstr "Informačný pás"
+
+#: wp-table-reloaded-admin.php:1722
+#@ wp-table-reloaded
+msgid "Yes, show the table information display. This shows information and statistics about the currently visible data, including filtering."
+msgstr "Áno, zobraz informačný pás tabuľky. Tento zobrazuje informácie a štatistiky ohľadom aktuálne zobrazených dát vrátane filtrovania."
+
+#: wp-table-reloaded-admin.php:1725
+#@ wp-table-reloaded
+msgid "TableTools"
+msgstr "Nástroje tabuľky"
+
+#: wp-table-reloaded-admin.php:1727
+#@ wp-table-reloaded
+msgid "Yes, activate the TableTools functions (Copy to Clipboard, Save to CSV, Save to XLS, Print Table) for this table."
+msgstr "Áno, aktivuj nástroje tabuľky ( Kopírovať do schránky, uložiť ako CSV, uložiť ako XLS, tlačiť tabuľku ) pre túto tabuľku."
+
+#: wp-table-reloaded-admin.php:1728
+#@ wp-table-reloaded
+msgid "This option can only be used with the &quot;DataTables+TableTools&quot; JavaScript library."
+msgstr "Táto možnosť môže byť použitá len s Javascript knižnicou &quot;DataTables+TableTools&quot;."
+
+#: wp-table-reloaded-admin.php:1732
+#@ wp-table-reloaded
+msgid "Custom Commands"
+msgstr "Vlastné príkazy"
+
+#: wp-table-reloaded-admin.php:1733
+#@ wp-table-reloaded
+msgid "Enter additional DataTables JavaScript parameters that will be included with the script call here."
+msgstr "Pridajte tu ďalšie parametre DataTables, ktoré budú pridané do volaného skriptu."
+
+#: wp-table-reloaded-admin.php:1733
+#@ wp-table-reloaded
+msgid "For advanced use only. Read the <a href=\"http://www.datatables.net/\">DataTables documentation</a> before."
+msgstr "Len pre pokročilých užívateľov. Prečítajte si najprv <a href=\"http://www.datatables.net/\">DataTables dokumentáciu</a>."
+
+#: wp-table-reloaded-admin.php:1820
+#@ wp-table-reloaded
+msgid "WP-Table Reloaded can import tables from existing data."
+msgstr "WP-Table Reloaded môže importovať dáta z existujúcich tabuliek."
+
+#: wp-table-reloaded-admin.php:1820
+#@ wp-table-reloaded
+msgid "This may be a CSV, XML or HTML file, each with a certain structure."
+msgstr "To môže byť napríklad s CSV, XML alebo HTML súbor so správnou štruktúrou."
+
+#: wp-table-reloaded-admin.php:1820
+#@ wp-table-reloaded
+msgid "To import an existing table, please select its format and the source for the import."
+msgstr "Pre importovanie tabuľky, zvoľte jej formát a zdroj odkiaľ bude importovaná."
+
+#: wp-table-reloaded-admin.php:1820
+#@ wp-table-reloaded
+msgid "You can also decide, if you want to import it as a new table or replace an existing table."
+msgstr "Môžete sa rozhodnúť, či bude importovaná ako nová tabuľka, alebo bude nahradená existujúca tabuľka."
+
+#: wp-table-reloaded-admin.php:1861
+#@ wp-table-reloaded
+msgid "Select source for Import"
+msgstr "Zvoĺte zdroj pre importovanie."
+
+#: wp-table-reloaded-admin.php:1874
+#@ wp-table-reloaded
+msgid "URL to Import Table from"
+msgstr "URL odkiaľ bude tabuľka importovaná"
+
+#: wp-table-reloaded-admin.php:1985
+#@ wp-table-reloaded
+msgid "It is recommended to export and backup the data of important tables regularly."
+msgstr "Doporučuje sa pravidelne exportovať a zálohovať údaje dôležitých tabuliek."
+
+#: wp-table-reloaded-admin.php:1985
+#@ wp-table-reloaded
+msgid "Select the table, the desired export format and (for CSV only) a delimiter."
+msgstr "Zvoľte tabuľku, požadovaný formát v ktorom bude exportovaná a (len pre CSV formát ) oddeľovač."
+
+#: wp-table-reloaded-admin.php:1985
+#@ wp-table-reloaded
+msgid "You may choose to download the export file. Otherwise it will be shown on this page."
+msgstr "Môžete si vybrať, či chcete exportovanú tabuľku uložiť. Ináč bude zobrazená na tejto stránke nižšie."
+
+#: wp-table-reloaded-admin.php:1985
+#, php-format
+#@ wp-table-reloaded
+msgid "To backup all tables, including their settings, at once use the &quot;%s&quot; button in the &quot;%s&quot;."
+msgstr "Aby ste naraz zálohovali všetky tabuľky spolu s ich nastaveniami, použite tlačidlo &quot;%s&quot; v &quot;%s&quot;."
+
+#: wp-table-reloaded-admin.php:1985
+#: wp-table-reloaded-admin.php:2208
+#@ wp-table-reloaded
+msgid "Create and Download Dump File"
+msgstr "Vytvoriť a staihnuť Dump súbor."
+
+#: wp-table-reloaded-admin.php:2025
+#@ wp-table-reloaded
+msgid "Only needed for CSV export."
+msgstr "Potrebné len pre CSV export."
+
+#: wp-table-reloaded-admin.php:2059
+#@ wp-table-reloaded
+msgid "WP-Table Reloaded has several options which affect the plugin behavior in different areas."
+msgstr "WP-Table Reloaded má rôzne nastavenia, ktoré ovplyvňujú správanie modulu v rôznych prostrediach."
+
+#: wp-table-reloaded-admin.php:2060
+#@ wp-table-reloaded
+msgid "Frontend Options influence the output and used features of tables in pages, posts or text-widgets."
+msgstr "Nastavenia užívateľskeho rozhrania Frontend ovplyvňujú výstup a použité nastavenia tabuľky v stránkach, článkoch alebo textových widgetoch."
+
+#: wp-table-reloaded-admin.php:2060
+#, php-format
+#@ wp-table-reloaded
+msgid "The Backend Options control the plugin's admin area, e.g. the &quot;%s&quot; screen."
+msgstr "Nastavenia užívateľskeho rozhrania Backend ovplyvňujú nastavenia v admin móde a &quot;%s&quot; obrazovke."
+
+#: wp-table-reloaded-admin.php:2060
+#@ wp-table-reloaded
+msgid "Administrators have access to further Admin Options."
+msgstr "Administrátori majú prístup k ďalším administrátorskym nastaveniam."
+
+#: wp-table-reloaded-admin.php:2079
+#@ wp-table-reloaded
+msgid "JavaScript library"
+msgstr "JavaScriptová knižnica"
+
+#: wp-table-reloaded-admin.php:2080
+#@ wp-table-reloaded
+msgid "Yes, enable the use of a JavaScript library."
+msgstr "Áno, povoľ použitie JavaScriptovej knižnice."
+
+#: wp-table-reloaded-admin.php:2080
+#@ wp-table-reloaded
+msgid "WP-Table Reloaded includes three JavaScript libraries that can add useful features, like sorting, pagination, and filtering, to a table."
+msgstr "WP-Table Reloaded obsahuje tri JavaScriptové knižnice, ktoré môžu pridať do tabuliek ďalšie vhodné možnosti, ako sú usporiadávanie, číslovanie, filtrovanie."
+
+#: wp-table-reloaded-admin.php:2084
+#@ wp-table-reloaded
+msgid "Select the library to use:"
+msgstr "Zvoľte, ktorú knižnicu použiť:"
+
+#: wp-table-reloaded-admin.php:2085
+#: wp-table-reloaded-admin.php:2165
+#@ wp-table-reloaded
+msgid "recommended"
+msgstr "doporučené"
+
+#: wp-table-reloaded-admin.php:2089
+#, php-format
+#@ wp-table-reloaded
+msgid "(You can read more about each library's features on the <a href=\"%s\">plugin's website</a>.)"
+msgstr "( O každej knižnici sa môžete dočítať viac na <a href=\"%s\">stránke modulu</a>.)"
+
+#: wp-table-reloaded-admin.php:2092
+#@ wp-table-reloaded
+msgid "Default CSS"
+msgstr "Základné CSS"
+
+#: wp-table-reloaded-admin.php:2094
+#@ wp-table-reloaded
+msgid "Yes, include and load the plugin's default CSS Stylesheets. This is highly recommended, if you use one of the JavaScript libraries!"
+msgstr "Áno, použi a načítaj základný CSS Stylesheet modulu. Je to veľmi odporučané, keď používate niektorú z JavaScriptových knižníc."
+
+#: wp-table-reloaded-admin.php:2098
+#@ wp-table-reloaded
+msgid "Custom CSS"
+msgstr "Vlastné CSS"
+
+#: wp-table-reloaded-admin.php:2100
+#@ wp-table-reloaded
+msgid "Yes, include and load the following custom CSS commands."
+msgstr "Áno, použi a načítaj tieto vlastné CSS príkazy."
+
+#: wp-table-reloaded-admin.php:2100
+#@ wp-table-reloaded
+msgid "This should be used to change the table layout and styling."
+msgstr "Tie môžu byť použité na zmenu rozloženia a vzhľadu tabuľky."
+
+#: wp-table-reloaded-admin.php:2106
+#, php-format
+#@ wp-table-reloaded
+msgid "You can get styling examples from the <a href=\"%s\">plugin's website</a>."
+msgstr "Príklady štýlov si môžete pozrieť na <a href=\"%s\">webstránke modulu</a>."
+
+#: wp-table-reloaded-admin.php:2106
+#, php-format
+#@ wp-table-reloaded
+msgid "Information on available CSS selectors can be found in the <a href=\"%s\">documentation</a>."
+msgstr "Informácie k dostupným CSS selektorom môžete nájsť v <a href=\"%s\">dokumentácii</a>."
+
+#: wp-table-reloaded-admin.php:2110
+#@ wp-table-reloaded
+msgid "Links in new window"
+msgstr "Odkazy v novom okne"
+
+#: wp-table-reloaded-admin.php:2111
+#, php-format
+#@ wp-table-reloaded
+msgid "Yes, open links that are inserted with the &quot;%s&quot; button on the &quot;%s&quot; screen in a new browser window <strong>from now on</strong>."
+msgstr "Áno, <strong>odteraz</strong> otvor odkazy, ktoré sú vložené s &quot;%s&quot; tlačidlom na &quot;%s&quot;  v novom okne prehliadača."
+
+#: wp-table-reloaded-admin.php:2118
+#@ wp-table-reloaded
+msgid "Backend Options"
+msgstr "Možnosti Backend"
+
+#: wp-table-reloaded-admin.php:2122
+#@ wp-table-reloaded
+msgid "Exit warning"
+msgstr "Varovanie pri odchode"
+
+#: wp-table-reloaded-admin.php:2123
+#, php-format
+#@ wp-table-reloaded
+msgid "Yes, show a warning message, if I leave the &quot;%s&quot; screen and have not yet saved my changes."
+msgstr "Áno, zobraz varovnú správu, keď opúšťam &quot;%s&quot; obrazovku a neuložil som zmeny v nastaveniach."
+
+#: wp-table-reloaded-admin.php:2126
+#@ wp-table-reloaded
+msgid "Growing textareas"
+msgstr "Rastúce polia s textom"
+
+#: wp-table-reloaded-admin.php:2127
+#, php-format
+#@ wp-table-reloaded
+msgid "Yes, enlarge the textareas on the &quot;%s&quot; screen when they are focussed."
+msgstr "Áno, zväčši textové políčka na &quot;%s&quot; obrazovke, keď sú vybraté."
+
+#: wp-table-reloaded-admin.php:2135
+#@ wp-table-reloaded
+msgid "Admin Options"
+msgstr "Administrátorske nastavenia"
+
+#: wp-table-reloaded-admin.php:2137
+#: wp-table-reloaded-admin.php:2228
+#: wp-table-reloaded-admin.php:2242
+#@ wp-table-reloaded
+msgid "This area are only available to site administrators!"
+msgstr "Tieto sú dostupné len pre administrátorov stránky!"
+
+#: wp-table-reloaded-admin.php:2137
+#@ wp-table-reloaded
+msgid "You can therefore not change these options."
+msgstr "Preto nemôžete zmeniť tieto nastavenia."
+
+#: wp-table-reloaded-admin.php:2142
+#@ wp-table-reloaded
+msgid "Plugin Access"
+msgstr "Prístupnosť modulu"
+
+#: wp-table-reloaded-admin.php:2143
+#@ wp-table-reloaded
+msgid "To access WP-Table Reloaded, a user needs to be:"
+msgstr "K prístupu na WP-Table Reloaded, užívateľ musí byť:"
+
+#: wp-table-reloaded-admin.php:2144
+#: wp-table-reloaded-admin.php:2155
+msgid "Administrator|User role"
+msgstr ""
+
+#: wp-table-reloaded-admin.php:2144
+#: wp-table-reloaded-admin.php:2155
+msgctxt "User role"
+msgid "Administrator"
+msgstr ""
+
+#: wp-table-reloaded-admin.php:2145
+#: wp-table-reloaded-admin.php:2156
+msgid "Editor|User role"
+msgstr ""
+
+#: wp-table-reloaded-admin.php:2145
+#: wp-table-reloaded-admin.php:2156
+msgctxt "User role"
+msgid "Editor"
+msgstr ""
+
+#: wp-table-reloaded-admin.php:2146
+#: wp-table-reloaded-admin.php:2157
+msgid "Author|User role"
+msgstr ""
+
+#: wp-table-reloaded-admin.php:2146
+#: wp-table-reloaded-admin.php:2157
+msgctxt "User role"
+msgid "Author"
+msgstr ""
+
+#: wp-table-reloaded-admin.php:2147
+msgid "Contributor|User role"
+msgstr ""
+
+#: wp-table-reloaded-admin.php:2147
+msgctxt "User role"
+msgid "Contributor"
+msgstr ""
+
+#: wp-table-reloaded-admin.php:2153
+#@ wp-table-reloaded
+msgid "Plugin Options Access"
+msgstr "Prístup k nastaveniam modulu"
+
+#: wp-table-reloaded-admin.php:2154
+#@ wp-table-reloaded
+msgid "To access the Plugin Options of WP-Table Reloaded, a user needs to be:"
+msgstr "Na prístup k modulu WP-Table Reloaded, užívateľ musí byť:"
+
+#: wp-table-reloaded-admin.php:2158
+#@ wp-table-reloaded
+msgid "Admin Options, Dump file Import, and Manual Plugin Uninstall are always accessible by Administrators only, regardless of this setting."
+msgstr "Administrátorske nastavenia, Import dump súboru a manuálne odinštalovanie modulu je prístupné len pre administrátorov, bez ohľadu na tieto nastavenia."
+
+#: wp-table-reloaded-admin.php:2163
+#@ wp-table-reloaded
+msgid "Admin menu entry"
+msgstr "Vstup do administrátorského menu"
+
+#: wp-table-reloaded-admin.php:2164
+#@ wp-table-reloaded
+msgid "WP-Table Reloaded shall be shown in this section of the admin menu:"
+msgstr "WP-Table Reloaded bude zobrazené v tejto časti administrátorskeho menu:"
+
+#: wp-table-reloaded-admin.php:2165
+msgid "Tools"
+msgstr ""
+
+#: wp-table-reloaded-admin.php:2166
+msgid "Posts"
+msgstr ""
+
+#: wp-table-reloaded-admin.php:2167
+msgid "Pages"
+msgstr ""
+
+#: wp-table-reloaded-admin.php:2168
+msgid "Plugins"
+msgstr ""
+
+#: wp-table-reloaded-admin.php:2169
+msgid "Settings"
+msgstr ""
+
+#: wp-table-reloaded-admin.php:2170
+msgid "Dashboard"
+msgstr ""
+
+#: wp-table-reloaded-admin.php:2171
+#@ wp-table-reloaded
+msgid "Top-Level"
+msgstr "Top-Level"
+
+#: wp-table-reloaded-admin.php:2172
+#@ wp-table-reloaded
+msgid "Change will take effect after another page load after saving."
+msgstr "Zmena sa prejaví, až keď sa otvorí nová stránka po uložení."
+
+#: wp-table-reloaded-admin.php:2176
+#@ wp-table-reloaded
+msgid "Remove upon Deactivation"
+msgstr "Odstráň po deaktivácii"
+
+#: wp-table-reloaded-admin.php:2177
+#@ wp-table-reloaded
+msgid "Yes, remove all plugin related data from the database when the plugin is deactivated."
+msgstr "Áno, odstrán všetky údaje súvisiace s modulom po jeho deaktivácii."
+
+#: wp-table-reloaded-admin.php:2177
+#@ wp-table-reloaded
+msgid "Should be activated directly before deactivation only!"
+msgstr "Musí byť aktivované pred deaktivováciou modulu!"
+
+#: wp-table-reloaded-admin.php:2197
+#@ wp-table-reloaded
+msgid "WP-Table Reloaded Data Export and Backup"
+msgstr "Exportovanie a zálohovanie údajov modulu WP-Table Reloaded"
+
+#: wp-table-reloaded-admin.php:2200
+#@ wp-table-reloaded
+msgid "WP-Table Reloaded can export and import a so-called dump file that contains all tables, their settings and the plugin's options."
+msgstr "Modul WP-Table Reloaded môže exportovať a importovať  dump súbory, ktoré obsahujú všetky tabuľky spolu s ich nastaveniami a s nastaveniami modulu."
+
+#: wp-table-reloaded-admin.php:2200
+#@ wp-table-reloaded
+msgid "This file can be used as a backup or to move all data to another WordPress site."
+msgstr "Tento súbor môže byť použitý ako záloha alebo na prenos údajov na inú WordPress stránku."
+
+#: wp-table-reloaded-admin.php:2203
+#@ wp-table-reloaded
+msgid "Export a dump file"
+msgstr "Exportovať dump súbor"
+
+#: wp-table-reloaded-admin.php:2205
+#@ wp-table-reloaded
+msgid "To export all Tables and their settings, click the button below to generate and download a dump file."
+msgstr "Aby ste exportovali všetky tabuľky spolu s ich nastaveniami, kliknite na tlačidlo nižšie, bude vygenerovaný a ponúknutý dump súbor na stiahnutie."
+
+#: wp-table-reloaded-admin.php:2205
+#@ wp-table-reloaded
+msgid "<strong>Warning</strong>: Do <strong>not</strong> edit the content of that file under any circumstances as you will destroy the file!"
+msgstr "<strong>Varovanie</strong>: <strong>Needitujte</strong> obsah toho súboru za žiadnych okolností, pretože ho môžete zničiť!"
+
+#: wp-table-reloaded-admin.php:2214
+#@ wp-table-reloaded
+msgid "Import a dump file"
+msgstr "Importovať dump súbor"
+
+#: wp-table-reloaded-admin.php:2216
+#@ wp-table-reloaded
+msgid "To import a WP-Table Reloaded dump file and restore the included data, upload the file from your computer."
+msgstr "Aby ste importovali dump súbor modulu WP-Table Reloaded a obnovili všetky nastavenia, nahrajte ho najprv z Vášho počítača."
+
+#: wp-table-reloaded-admin.php:2216
+#@ wp-table-reloaded
+msgid "All current data of this WP-Table Reloaded installation (Tables, Options, Settings) <strong>WILL BE OVERWRITTEN</strong> with the data from the file!"
+msgstr "Všetky Vaše údaje z nainštalovaného modulu WP-Table Reloaded <strong>BUDÚ PREPÍSANÉ</strong> údajmi zo súboru!"
+
+#: wp-table-reloaded-admin.php:2216
+#@ wp-table-reloaded
+msgid "Do not proceed, if you do not understand this!"
+msgstr "Nepokračujte, ak tomu nerozumiete!"
+
+#: wp-table-reloaded-admin.php:2216
+#@ wp-table-reloaded
+msgid "It is highly recommended to export and backup the data of this installation before importing another dump file (see above)."
+msgstr "Je veľmi doporučené exportovať a zálohovať všetky údaje predtým, ako naimportujete iný Dump súbor ( pozri vyššie )."
+
+#: wp-table-reloaded-admin.php:2222
+#@ wp-table-reloaded
+msgid "Select Dump File"
+msgstr "Zvoľte Dump súbor"
+
+#: wp-table-reloaded-admin.php:2224
+#@ wp-table-reloaded
+msgid "Import Dump File"
+msgstr "Importovať Dump súbor"
+
+#: wp-table-reloaded-admin.php:2234
+#@ wp-table-reloaded
+msgid "Manually Uninstall WP-Table Reloaded"
+msgstr "Manuálne odinštalovať WP-Table Reloaded"
+
+#: wp-table-reloaded-admin.php:2236
+#@ wp-table-reloaded
+msgid "Uninstalling <strong>will permanently delete</strong> all tables, data, and options, that belong to WP-Table Reloaded from the database, including all tables you added or imported."
+msgstr "Odinštalovanie <strong>natrvalo odstráni</strong> všetky tabuľky, údaje a nastavenia, patriace modulu WP-Table Reloaded z databázy, vrátane všetkých tabuliek, ktoré ste pridali alebo importovali."
+
+#: wp-table-reloaded-admin.php:2236
+#@ wp-table-reloaded
+msgid "You will manually need to remove the plugin's files from the plugin folder afterwards."
+msgstr "Niektoré súbory budete musieť potom manuálne odstrániť z priečinka modulu."
+
+#: wp-table-reloaded-admin.php:2270
+#@ wp-table-reloaded
+msgid "WP-Table Reloaded allows you to create and manage tables in the admin-area of WordPress."
+msgstr "WP-Table Reloaded Vám umožňuje vytvárať a spravovať tabuľky v administrátorskej zóne Wordpressu."
+
+#: wp-table-reloaded-admin.php:2270
+#@ wp-table-reloaded
+msgid "You can then show the tables in your posts, on your pages or in text-widgets by using a shortcode."
+msgstr "Potom môžete tabuľky zobraziť vo Vašich článkoch, stránkach alebo textových widgetoch použitím skráteného zápisu."
+
+#: wp-table-reloaded-admin.php:2277
+#, php-format
+#@ wp-table-reloaded
+msgid "You can also select the desired table from a list (after clicking the button &quot;%s&quot; in the editor toolbar) and the corresponding shortcode will be added for you."
+msgstr "Požadovanú tabuľku môžete vybrať zo zoznamu ( kliknutím na tlačidlo &quot;%s&quot; v paneli nástrojov editora ) a zodpovedajúci skrátený zápis bude vložený."
+
+#: wp-table-reloaded-admin.php:2277
+#@ wp-table-reloaded
+msgid "Tables can be styled by changing and adding CSS commands."
+msgstr "Tabuľky môžu byť zmenené a upravené pridaním CSS príkazov."
+
+#: wp-table-reloaded-admin.php:2277
+#@ wp-table-reloaded
+msgid "The plugin ships with default CSS Stylesheets, which can be customized with own code or replaced with other Stylesheets."
+msgstr "Modul je distribuovaný so základným CSS Stylesheetom, ktorý môže byť upravený Vašim vlastným kódom alebo nahradený iným Stylesheetom."
+
+#: wp-table-reloaded-admin.php:2277
+#@ wp-table-reloaded
+msgid "For this, each table is given certain CSS classes that can be used as CSS selectors."
+msgstr "Preto má každá tabuľka isté CSS triedy, ktoré môžu byť použité ako CSS selektory."
+
+#: wp-table-reloaded-admin.php:2277
+#, php-format
+#@ wp-table-reloaded
+msgid "Please see the <a href=\"%s\">documentation</a> for a list of these selectors and for styling examples."
+msgstr "Prezrite si prosím <a href=\"%s\">dokumentáciu</a>, kde nájdete zoznam týchto selektorov a príklady štýlovania."
+
+#: wp-table-reloaded-admin.php:2290
+#@ wp-table-reloaded
+msgid "Help and Support"
+msgstr "Pomoc a podpora"
+
+#: wp-table-reloaded-admin.php:2292
+#, php-format
+#@ wp-table-reloaded
+msgid "If you do not find an answer there, please <a href=\"%s\">open a new thread</a> in the WordPress Support Forums with the tag &quot;wp-table-reloaded&quot;."
+msgstr "Ak tam nenájdete odpoveď, prosím <a href=\"%s\">otvorte nové vlákno</a>  vo fórach podpory WordPressu so značkou &quot;wp-table-reloaded&quot;."
+
+#: wp-table-reloaded-admin.php:2297
+#@ wp-table-reloaded
+msgid "Author and License"
+msgstr "Autor a licencia"
+
+#: wp-table-reloaded-admin.php:2299
+#, php-format
+#@ wp-table-reloaded
+msgid "This plugin was written by <a href=\"%s\">Tobias B&auml;thge</a>."
+msgstr "Autorom tohoto modulu je <a href=\"%s\">Tobias B&auml;thge</a>."
+
+#: wp-table-reloaded-admin.php:2299
+#@ wp-table-reloaded
+msgid "It is licensed as Free Software under GPL 2."
+msgstr "Je licencovaný ako Free Software pod GPL 2."
+
+#: wp-table-reloaded-admin.php:2299
+#, php-format
+#@ wp-table-reloaded
+msgid "Please rate the plugin in the <a href=\"%s\">WordPress Plugin Directory</a>."
+msgstr "Prosím ohodnoťte modul v katalógu <a href=\"%s\">modulov WordPressu</a>."
+
+#: wp-table-reloaded-admin.php:2308
+#@ wp-table-reloaded
+msgid "Allan Jardine for the <a href=\"http://www.datatables.net/\">DataTables jQuery plugin</a>,"
+msgstr "Allan Jardine za <a href=\"http://www.datatables.net/\">DataTables jQuery plugin</a>,"
+
+#: wp-table-reloaded-admin.php:2310
+#@ wp-table-reloaded
+msgid "Soeren Krings for its extension <a href=\"http://tablesorter.openwerk.de/\">Tablesorter Extended</a>,"
+msgstr "Soeren Krings za jeho rozšírenie <a href=\"http://tablesorter.openwerk.de/\">Tablesorter Extended</a>,"
+
+#: wp-table-reloaded-admin.php:2316
+#@ wp-table-reloaded
+msgid "Finnish (thanks to Jaakko)"
+msgstr "Fínsky (poďakovanie patrí Jaakko)"
+
+#: wp-table-reloaded-admin.php:2322
+#@ wp-table-reloaded
+msgid "Slovak (thanks to <a href=\"http://lukas.cerro.sk/\">55.lukas</a>)"
+msgstr "Slovenský (poďakovanie patrí <a href=\"http://lukas.cerro.sk/\">55.lukas</a>)"
+
+#: wp-table-reloaded-admin.php:2335
+#@ wp-table-reloaded
+msgid "You are using the following versions of the software."
+msgstr "Používate nasledujúce verzie softvéru."
+
+#: wp-table-reloaded-admin.php:2335
+#@ wp-table-reloaded
+msgid "Please provide this information in bug reports."
+msgstr "Prosím poskytnyte tieto informácie v zázname o chybe."
+
+#: wp-table-reloaded-admin.php:2736
+#@ wp-table-reloaded
+msgid "WP-Table Reloaded Plugin Page"
+msgstr "Stránka modulu WP-Table Reloaded"
+
+#: wp-table-reloaded-admin.php:2736
+#@ wp-table-reloaded
+msgid "Plugin Page"
+msgstr "Stránka modulu"
+
+#: wp-table-reloaded-admin.php:2737
+#: wp-table-reloaded-admin.php:2750
+#@ wp-table-reloaded
+msgid "Frequently Asked Questions"
+msgstr "Často kladené otázky"
+
+#: wp-table-reloaded-admin.php:2737
+#: wp-table-reloaded-admin.php:2750
+#@ wp-table-reloaded
+msgid "FAQ"
+msgstr "FAQ"
+
+#: wp-table-reloaded-admin.php:2738
+#: wp-table-reloaded-admin.php:2753
+#@ wp-table-reloaded
+msgid "Support"
+msgstr "Podpora"
+
+#: wp-table-reloaded-admin.php:2739
+#: wp-table-reloaded-admin.php:2751
+#@ wp-table-reloaded
+msgid "Plugin Documentation"
+msgstr "Dokumentácia modulu"
+
+#: wp-table-reloaded-admin.php:2739
+#: wp-table-reloaded-admin.php:2751
+#@ wp-table-reloaded
+msgid "Documentation"
+msgstr "Dokumentácia"
+
+#: wp-table-reloaded-admin.php:2740
+#: wp-table-reloaded-admin.php:2752
+#@ wp-table-reloaded
+msgid "Support WP-Table Reloaded with your donation!"
+msgstr "Podporte WP-Table Reloaded Vašim príspevkom!"
+
+#: wp-table-reloaded-admin.php:2781
+#@ wp-table-reloaded
+msgid "To insert the following HTML code for a link into a cell, just click the cell after closing this dialog."
+msgstr "Aby ste vložili nasledovný kód odkazu do bunky, len kliknite na bunku po zatvorení tohoto dialógu."
+
+#: wp-table-reloaded-admin.php:2782
+#, php-format
+#@ wp-table-reloaded
+msgid "Click the &quot;%s&quot; button to insert the image."
+msgstr "Kliknite na tlačidlo &quot;%s&quot; pre vloženie obrázku."
+
+#: wp-table-reloaded-admin.php:2788
+#@ wp-table-reloaded
+msgid "Do you really want to delete the selected rows?"
+msgstr "Naozaj chcete vymazať označené riadky?"
+
+#: wp-table-reloaded-admin.php:2789
+#@ wp-table-reloaded
+msgid "Do you really want to delete the selected columns?"
+msgstr "Naozaj chcete vymazať označené stĺpce?"
+
+#: wp-table-reloaded-admin.php:2790
+#: wp-table-reloaded-admin.php:2794
+#: wp-table-reloaded-admin.php:2796
+#@ wp-table-reloaded
+msgid "You have not selected any rows."
+msgstr "Neoznačili ste žiadny riadok."
+
+#: wp-table-reloaded-admin.php:2791
+#: wp-table-reloaded-admin.php:2795
+#: wp-table-reloaded-admin.php:2797
+#@ wp-table-reloaded
+msgid "You have not selected any columns."
+msgstr "Neoznačili ste žiadny stĺpec."
+
+#: wp-table-reloaded-admin.php:2792
+#@ wp-table-reloaded
+msgid "You can not delete all rows of the table at once!"
+msgstr "Nemôžete naraz vymazať všetky riadky tabuľky!"
+
+#: wp-table-reloaded-admin.php:2793
+#@ wp-table-reloaded
+msgid "You can not delete all columns of the table at once!"
+msgstr "Nemôžte naraz vymazať všetky stĺpce tabuľky!"
+
+#: wp-table-reloaded-admin.php:2804
+#@ wp-table-reloaded
+msgid "Warning: You will lose all current Tables and Settings! You should create a backup first. Be warned!"
+msgstr "Varovanie: Stratíte všetky nastavenia tabuliek! Najprv by ste si mali vytvoriť zálohu. Dajte si povedať!"
+
+#: wp-table-reloaded-admin.php:2805
+#@ wp-table-reloaded
+msgid "You have made changes to the content of this table and not yet saved them."
+msgstr "Zmenili ste obsah tejto tabuľky, ale neuložili ste to."
+
+#: wp-table-reloaded-admin.php:2805
+#, php-format
+#@ wp-table-reloaded
+msgid "You should first click &quot;%s&quot; or they will be lost if you navigate away from this page."
+msgstr "Najprv by ste mali klinúť na &quot;%s&quot;, lebo všetko bude stratené, ak odídete z tejto stránky."
+
+#: wp-table-reloaded-admin.php:2880
+#@ wp-table-reloaded
+msgid "Please wait..."
+msgstr "Prosím čakajte..."
+
+#: wp-table-reloaded-admin.php:2881
+#@ wp-table-reloaded
+msgid "Show _MENU_ Tables"
+msgstr ""
+
+#: wp-table-reloaded-admin.php:2883
+#@ wp-table-reloaded
+msgid "_START_ to _END_ of _TOTAL_ Tables"
+msgstr ""
+
+#: wp-table-reloaded-admin.php:2885
+#@ wp-table-reloaded
+msgid "(filtered from _MAX_ Tables)"
+msgstr "(odfiltrované z _MAX_  tabuliek)"
+
+#: wp-table-reloaded-admin.php:2887
+#@ wp-table-reloaded
+msgid "Filter:"
+msgstr "Filter:"
+
+#: wp-table-reloaded-admin.php:2888
+#@ wp-table-reloaded
+msgid "First"
+msgstr "Prvá"
+
+#: wp-table-reloaded-admin.php:2889
+#@ wp-table-reloaded
+msgid "Back"
+msgstr "Späť"
+
+#: wp-table-reloaded-admin.php:2890
+#@ wp-table-reloaded
+msgid "Next"
+msgstr "Nasledujúca"
+
+#: wp-table-reloaded-admin.php:2891
+#@ wp-table-reloaded
+msgid "Last"
+msgstr "Posledná"
 
