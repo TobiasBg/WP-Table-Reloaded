@@ -1507,27 +1507,75 @@ class WP_Table_Reloaded_Admin {
         </td></tr>
 
         <tr><td>
-            <?php _e( 'Selected rows:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
-            <a id="a-hide-rows" class="button-primary" href="javascript:void(0);"><?php echo ( $this->wp27 ) ? _c( 'Hide|item', WP_TABLE_RELOADED_TEXTDOMAIN ) : _x( 'Hide', 'item', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
-            <a id="a-unhide-rows" class="button-primary" href="javascript:void(0);"><?php echo ( $this->wp27 ) ? _c( 'Unhide|item', WP_TABLE_RELOADED_TEXTDOMAIN ) : _x( 'Unhide', 'item', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
+            <?php
+            $a_rows_hide = '<a id="a-hide-rows" class="button-primary" href="javascript:void(0);">' . ( ( $this->wp27 ) ? _c( 'Hide|item', WP_TABLE_RELOADED_TEXTDOMAIN ) : _x( 'Hide', 'item', WP_TABLE_RELOADED_TEXTDOMAIN ) ) . '</a>';
+            $a_rows_unhide = '<a id="a-unhide-rows" class="button-primary" href="javascript:void(0);">' . ( ( $this->wp27 ) ? _c( 'Unhide|item', WP_TABLE_RELOADED_TEXTDOMAIN ) : _x( 'Unhide', 'item', WP_TABLE_RELOADED_TEXTDOMAIN ) ) . '</a>';
+            if ( 'cs_CZ' == get_locale() ) {
+                if ( $this->wp27 ) {
+                    printf( _c( 'Selected rows: %s %s|hide_unhide', WP_TABLE_RELOADED_TEXTDOMAIN ), $a_rows_hide, $a_rows_unhide );
+                } else {
+                    printf( _x( 'Selected rows: %s %s', 'hide_unhide', WP_TABLE_RELOADED_TEXTDOMAIN ), $a_rows_hide, $a_rows_unhide );
+                }
+            } else {
+                _e( 'Selected rows:', WP_TABLE_RELOADED_TEXTDOMAIN );
+                echo $a_rows_hide;
+                echo $a_rows_unhide;
+            }
+            ?>
         </td><td>
-            <?php _e( 'Selected columns:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
-            <a id="a-hide-columns" class="button-primary" href="javascript:void(0);"><?php echo ( $this->wp27 ) ? _c( 'Hide|item', WP_TABLE_RELOADED_TEXTDOMAIN ) : _x( 'Hide', 'item', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
-            <a id="a-unhide-columns" class="button-primary" href="javascript:void(0);"><?php echo ( $this->wp27 ) ? _c( 'Unhide|item', WP_TABLE_RELOADED_TEXTDOMAIN ) : _x( 'Unhide', 'item', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
+            <?php
+            $a_cols_hide = '<a id="a-hide-columns" class="button-primary" href="javascript:void(0);">' . ( ( $this->wp27 ) ? _c( 'Hide|item', WP_TABLE_RELOADED_TEXTDOMAIN ) : _x( 'Hide', 'item', WP_TABLE_RELOADED_TEXTDOMAIN ) ) . '</a>';
+            $a_cols_unhide = '<a id="a-unhide-columns" class="button-primary" href="javascript:void(0);">' . ( ( $this->wp27 ) ? _c( 'Unhide|item', WP_TABLE_RELOADED_TEXTDOMAIN ) : _x( 'Unhide', 'item', WP_TABLE_RELOADED_TEXTDOMAIN ) ) . '</a>';
+            if ( 'cs_CZ' == get_locale() ) {
+                if ( $this->wp27 ) {
+                    printf( _c( 'Selected columns: %s %s|hide_unhide', WP_TABLE_RELOADED_TEXTDOMAIN ), $a_cols_hide, $a_cols_unhide );
+                } else {
+                    printf( _x( 'Selected columns: %s %s', 'hide_unhide', WP_TABLE_RELOADED_TEXTDOMAIN ), $a_cols_hide, $a_cols_unhide );
+                }
+            } else {
+                _e( 'Selected columns:', WP_TABLE_RELOADED_TEXTDOMAIN );
+                echo $a_cols_hide;
+                echo $a_cols_unhide;
+            }
+            ?>
         </td></tr>
 
         <tr><td>
-            <?php // don't show delete link for last and only row
-                $row_disabled = ( 1 < $rows ) ? '' : 'disabled="disabled" ';
-                $col_disabled = ( 1 < $cols ) ? '' : 'disabled="disabled" ';
+            <?php
+            // don't show delete link for last and only row
+            $row_disabled = ( 1 < $rows ) ? '' : 'disabled="disabled" ';
+            $col_disabled = ( 1 < $cols ) ? '' : 'disabled="disabled" ';
+
+            $a_rows_insert = '<input id="button-insert-rows" type="submit" name="submit[insert_rows]" class="button-primary" value="' . __( 'Insert row', WP_TABLE_RELOADED_TEXTDOMAIN ) . '" />';
+            $a_rows_delete = '<input id="button-delete-rows" type="submit" name="submit[delete_rows]" class="button-primary" value="' . __( 'Delete', WP_TABLE_RELOADED_TEXTDOMAIN ) . '" ' . $row_disabled . '/>';
+            if ( 'cs_CZ' == get_locale() ) {
+                if ( $this->wp27 ) {
+                    printf( _c( 'Selected rows: %s %s|insert_delete', WP_TABLE_RELOADED_TEXTDOMAIN ), $a_rows_insert, $a_rows_delete );
+                } else {
+                    printf( _x( 'Selected rows: %s', 'insert_delete', WP_TABLE_RELOADED_TEXTDOMAIN ), $a_rows_insert, $a_rows_delete );
+                }
+            } else {
+                _e( 'Selected rows:', WP_TABLE_RELOADED_TEXTDOMAIN );
+                echo $a_rows_insert;
+                echo $a_rows_delete;
+            }
+
+            echo '<br />';
+
+            $a_cols_insert = '<input id="button-insert-columns" type="submit" name="submit[insert_cols]" class="button-primary" value="' . __( 'Insert column', WP_TABLE_RELOADED_TEXTDOMAIN ) . '" />';
+            $a_cols_delete = '<input id="button-delete-columns" type="submit" name="submit[delete_cols]" class="button-primary" value="' . __( 'Delete', WP_TABLE_RELOADED_TEXTDOMAIN ) . '" ' . $col_disabled . '/>';
+            if ( 'cs_CZ' == get_locale() ) {
+                if ( $this->wp27 ) {
+                    printf( _c( 'Selected columns: %s %s|insert_delete', WP_TABLE_RELOADED_TEXTDOMAIN ), $a_cols_insert, $a_cols_delete );
+                } else {
+                    printf( _x( 'Selected columns: %s %s', 'insert_delete', WP_TABLE_RELOADED_TEXTDOMAIN ), $a_cols_insert, $a_cols_delete );
+                }
+            } else {
+                _e( 'Selected columns:', WP_TABLE_RELOADED_TEXTDOMAIN );
+                echo $a_cols_insert;
+                echo $a_cols_delete;
+            }
             ?>
-            <?php _e( 'Selected rows:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
-            <input id="button-insert-rows" type="submit" name="submit[insert_rows]" class="button-primary" value="<?php _e( 'Insert row', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
-            <input id="button-delete-rows" type="submit" name="submit[delete_rows]" class="button-primary" value="<?php _e( 'Delete', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" <?php echo $row_disabled; ?>/>
-            <br/>
-            <?php _e( 'Selected columns:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
-            <input id="button-insert-columns" type="submit" name="submit[insert_cols]" class="button-primary" value="<?php _e( 'Insert column', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
-            <input id="button-delete-columns" type="submit" name="submit[delete_cols]" class="button-primary" value="<?php _e( 'Delete', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" <?php echo $col_disabled; ?>/>
         </td><td>
         <?php
             // add rows/columns buttons
