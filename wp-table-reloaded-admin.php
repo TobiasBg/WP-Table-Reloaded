@@ -2913,9 +2913,14 @@ $('#the-list').wpList( { alt: 'even', delBefore: delBefore } );
 $('.delete a[class^="delete"]').click(function(){return false;});
 
 WPLIST;
+            // filter to false, to prevent using DataTables in the List of Tables (seems to cause problems with IE 7)
+            $use_datatables = true;
+            $use_datatables = apply_filters( 'wp_table_reloaded_admin_use_datatables', $use_datatables );
 
-            wp_register_script( 'wp-table-reloaded-tablesorter-js', $this->helper->plugins_url( 'js/jquery.datatables.min.js', __FILE__ ), array( 'jquery' ) );
-            wp_print_scripts( 'wp-table-reloaded-tablesorter-js' );
+            if ( $use_datatables ) {
+                wp_register_script( 'wp-table-reloaded-tablesorter-js', $this->helper->plugins_url( 'js/jquery.datatables.min.js', __FILE__ ), array( 'jquery' ) );
+                wp_print_scripts( 'wp-table-reloaded-tablesorter-js' );
+            }
 
             $sProcessing = __( 'Please wait...', WP_TABLE_RELOADED_TEXTDOMAIN );
             $sLengthMenu = __( 'Show _MENU_ Tables', WP_TABLE_RELOADED_TEXTDOMAIN );
@@ -2969,7 +2974,7 @@ var tablelist = $('#wp-table-reloaded-list').dataTable({
 .find('.sorting').append('&nbsp;<span>&nbsp;&nbsp;&nbsp;</span>');\n
 TSSCRIPT;
 
-            if ( 2 > count( $this->tables ) )
+            if ( !$use_datatables || 2 > count( $this->tables ) )
                 $tsscript = '';
 
             echo <<<JSSCRIPT
