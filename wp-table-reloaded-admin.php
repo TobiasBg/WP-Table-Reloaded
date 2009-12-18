@@ -3,7 +3,7 @@
 File Name: WP-Table Reloaded - Admin Class (see main file wp-table-reloaded.php)
 Plugin URI: http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/
 Description: Description: This plugin allows you to create and easily manage tables in the admin-area of WordPress. A comfortable backend allows an easy manipulation of table data. You can then include the tables into your posts, on your pages or in text-widgets by using a shortcode or a template tag function. Tables can be imported and exported from/to CSV, XML and HTML.
-Version: 1.5-beta4
+Version: 1.5
 Author: Tobias B&auml;thge
 Author URI: http://tobias.baethge.com/
 Donate URI: http://tobias.baethge.com/donate/
@@ -14,7 +14,7 @@ define( 'WP_TABLE_RELOADED_TEXTDOMAIN', 'wp-table-reloaded' );
 class WP_Table_Reloaded_Admin {
 
     // ###################################################################################################################
-    var $plugin_version = '1.5-beta4';
+    var $plugin_version = '1.5';
     // nonce for security of links/forms, try to prevent "CSRF"
     var $nonce_base = 'wp-table-reloaded-nonce';
     var $page_slug = 'wp_table_reloaded';
@@ -272,7 +272,7 @@ class WP_Table_Reloaded_Admin {
                 break;
             case 2:
                 $plugin_options_url = $this->get_action_url( array( 'action' => 'options' ), false );
-                $message = sprintf( __( 'Thank you for upgrading to WP-Table Reloaded %s.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->options['installed_version'] ) . ' ' . __( 'This version adds support for the DataTables JavaScript library (with features like sorting, pagination, and filtering) and includes a lot more enhancements.', WP_TABLE_RELOADED_TEXTDOMAIN ) . ' ' . sprintf( __( 'Please read the <a href="%s">release announcement</a> for more information and check your settings in the <a href="%s">%s</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ), 'http://tobias.baethge.com/go/wp-table-reloaded/release-announcement/', $plugin_options_url, __( 'Plugin Options', WP_TABLE_RELOADED_TEXTDOMAIN ) ) . '<br/>' . sprintf( __( 'If you like the new features and enhancements, I would appreciate a small <a href="%s">donation</a>. Thank you.', WP_TABLE_RELOADED_TEXTDOMAIN ), 'http://tobias.baethge.com/go/wp-table-reloaded/donate/' );
+                $message = sprintf( __( 'Thank you for upgrading to WP-Table Reloaded %s.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->options['installed_version'] ) . ' ' . __( 'This version adds support for the DataTables JavaScript library (with features like sorting, pagination, and filtering) and includes a lot more enhancements.', WP_TABLE_RELOADED_TEXTDOMAIN ) . ' ' . sprintf( __( 'Please read the <a href="%s">release announcement</a> for more information and check your settings in the <a href="%s">%s</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ), "http://tobias.baethge.com/go/wp-table-reloaded/release-announcement/{$this->options['installed_version']}/", $plugin_options_url, __( 'Plugin Options', WP_TABLE_RELOADED_TEXTDOMAIN ) ) . '<br/>' . sprintf( __( 'If you like the new features and enhancements, I would appreciate a small <a href="%s">donation</a>. Thank you.', WP_TABLE_RELOADED_TEXTDOMAIN ), 'http://tobias.baethge.com/go/wp-table-reloaded/donate/' );
                 break;
             default:
                 $message = false;
@@ -2358,19 +2358,11 @@ class WP_Table_Reloaded_Admin {
             <?php _e( 'Soeren Krings for its extension <a href="http://tablesorter.openwerk.de/">Tablesorter Extended</a>,', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/>
             <?php _e( 'the submitters of translations:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'Albanian (thanks to <a href="http://www.romeolab.com/">Romeo</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
-            <br/>&middot; <?php _e( 'Belorussian (thanks to <a href="http://www.fatcow.com/">Marcis Gasuns</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'Brazilian Portugues (thanks to <a href="http://www.pensarics.com/">Rics</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'Czech (thanks to <a href="http://separatista.net/">Separatista</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
-            <br/>&middot; <?php _e( 'Finnish (thanks to Jaakko)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
-            <br/>&middot; <?php _e( 'French (thanks to <a href="http://ultratrailer.net/">Yin-Yin</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
-            <br/>&middot; <?php _e( 'Italian (thanks to <a href="http://www.scrical.it/">Gabriella Mazzon</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
-            <br/>&middot; <?php _e( 'Japanese (thanks to <a href="http://www.u-1.net/">Yuuichi</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
-            <br/>&middot; <?php _e( 'Polish (thanks to Alex Kortan)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
-            <br/>&middot; <?php _e( 'Russian (thanks to <a href="http://wp-skins.info/">Truper</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'Slovak (thanks to <a href="http://lukas.cerro.sk/">55.lukas</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'Spanish (thanks to <a href="http://theindependentproject.com/">Alejandro Urrutia</a> and <a href="http://halles.cl/">Matias Halles</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'Swedish (thanks to <a href="http://www.zuperzed.se/">ZuperZed</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
-            <br/>&middot; <?php _e( 'Turkish (thanks to <a href="http://www.wpuzmani.com/">Semih</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/><?php _e( 'and to all donors, contributors, supporters, reviewers and users of the plugin!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
         </p>
         </div>

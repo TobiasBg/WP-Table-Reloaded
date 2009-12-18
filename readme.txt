@@ -3,8 +3,8 @@ Contributors: TobiasBg
 Donate link: http://tobias.baethge.com/donate/
 Tags: html,table,data,editor,csv,import,export,excel,widget,admin,sidebar
 Requires at least: 2.7
-Tested up to: 2.9-beta-2
-Stable tag: 1.4.2a
+Tested up to: 2.9
+Stable tag: 1.5
 
 WP-Table Reloaded enables you to create and manage tables in your WP's admin area. No HTML knowledge is needed. A comfortable backend allows to easily edit table data. You can include the tables into your posts, on your pages or in text widgets by using a shortcode or a template tag function. Tables can be imported and exported from/to CSV, XML and HTML.
 
@@ -28,16 +28,11 @@ Wenn dir das Plugin gef&auml;llt, bewerte es bitte hier im WordPress Plugin Dire
 
 == Screenshots ==
 
-1. "List tables" screen
-2. "Add table" screen
-3. "Edit table" screen
-4. "Import table" screen
-5. "Export table" screen
-6. "Plugin Options" screen
+Screenshots are available on http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/ .
 
 == Installation ==
 
-The easiest way is through your WordPress Admin area. Go to the plugin section and search for "WP-Table Reloaded" in the WordPress Plugin Directory. Then you can click "Install" and the following steps will be done for you automatically. You just have to activate the plugin (step 5).
+The easiest way is through your WordPress admin area. Go to the plugin section and search for "WP-Table Reloaded" in the WordPress Plugin Directory. Then you can click "Install" and the following steps will be done for you automatically. You just have to activate the plugin (step 5).
 
 Manual Installation works just as for most other WordPress plugins:
 
@@ -74,7 +69,7 @@ In short: WordPress 2.7 or higher
 = Languages and Localization? =
 
 The plugin currently includes the following languages:
-Albanian, Belorussian, Brazilian Portuguese, Czech, English, Finnish, French, German, Italian, Japanese, Polish, Russian, Slovak, Spanish, Swedish and Turkish.
+Albanian, Brazilian Portuguese, Czech, English, German, Slovak, and Swedish.
 
 I'd really appreciate it, if you would translate the plugin into your language! Using Heiko Rabe's WordPress plugin [Codestyling Localization](http://www.code-styling.de/english/development/wordpress-plugin-codestyling-localization-en/) that really is as easy as pie. Just install the plugin, add your language, create the .po-file, translate the strings in the comfortable editor and create the .mo-file. It will automatically be saved in WP-Table Reloaded's plugin folder. If you send me the .mo- and .po-file, I will gladly include them into future plugin releases.
 There is also a .pot-file available to use in the "languages" subfolder.
@@ -92,7 +87,7 @@ Everything should be self-explaining there.
 
 To show one of your tables in a post, on a page or in a text widget, just include the shortcode [table id=&lt;the-id&gt; /] to your post/page/text-widget, where &lt;the-id&gt is the ID of your table (can be found on the left side of the "List tables" screen.)
 
-After that you might want to change the style of the table. You can do this either by adding CSS to your theme's CSS stylesheet (probably style.css) or by entering it into the box on the "Plugin Options" screen. There are two example styles available on the [plugin website](http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/#usage)
+After that you might want to change the style of the table. You can do this by adding CSS to the "Custom CSS" textarea on the "Plugin Options" screen.
 You may also add certain features (like table-sorting, alternating row colors, print name and/or description, ...) by checking the appropriate options in the "Edit table" screen.
 
 == Acknowledgements ==
@@ -114,7 +109,14 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 == Changelog ==
 
 = Version 1.5 =
-* to be written...
+* added the DataTables JavaScript library with these features: sorting, pagination, filtering, TableTools
+* heavily redesigned the "Edit Table" screen: Bulk operations for inserting, deleting, ...
+* Warning message if changes not yet saved
+* added features to the "Plugin Options": set access requirements (user roles) to the plugin and the Options, Change position of the plugin in the admin menu, better loading/inclusion of CSS
+* many, many plugin filters and actions for plugin customization
+* export/import a dump file (with ALL tables/options/settings at once)
+* fixed some minor bugs, errors and glitches
+* dropped support for outdated WordPress 2.6
 
 = Version 1.4.2a =
 * fixed bug: JavaScript errors in IE6 and 7 on Import screen
