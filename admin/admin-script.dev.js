@@ -16,6 +16,7 @@ jQuery(document).ready( function( $ ) {
             $( '#table_contents tr:not(".table-foot") :checked' ).removeAttr( 'checked' ).next().val( true ).parents('tr').addClass('row-hidden');
             set_table_data_changed();
         }
+        return false;
 	});
     $( '#a-unhide-rows' ).click( function() {
         var rows_selected = $( '#table_contents tr:not(".table-foot") :checked' ).length;
@@ -25,6 +26,7 @@ jQuery(document).ready( function( $ ) {
             $( '#table_contents tr:not(".table-foot") :checked' ).removeAttr( 'checked' ).next().val( false ).parents('tr').removeClass('row-hidden');
             set_table_data_changed();
         }
+        return false;
 	});
 	
     $( '#a-hide-columns' ).click( function() {
@@ -37,6 +39,7 @@ jQuery(document).ready( function( $ ) {
             } );
             set_table_data_changed();
         }
+        return false;
 	});
     $( '#a-unhide-columns' ).click( function() {
         var cols_selected = $( '#table_contents .table-foot :checked' ).length;
@@ -48,6 +51,7 @@ jQuery(document).ready( function( $ ) {
             } );
             set_table_data_changed();
         }
+        return false;
 	});
 	
 	$( '#button-insert-rows' ).click( function() {
@@ -221,6 +225,7 @@ jQuery(document).ready( function( $ ) {
         $(this).bind('click', add_image);
         if ( true == confirm( WP_Table_Reloaded_Admin.str_DataManipulationImageInsertThickbox ) )
             $("#table_contents textarea").bind( 'click', call_media_library_thickbox );
+        return false;
     }
     $( '#a-insert-image' ).unbind( 'click' ).bind('click', add_image); // this unbind is for WP < 2.8, where our script is added after thickbox.js
 
