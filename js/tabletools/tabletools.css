@@ -6,6 +6,10 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * TableTools styles
  */
+.dataTables_wrapper .clear {
+	clear: both!important;
+}
+
 .TableTools {
 	padding: 3px 0 3px 3px;
 	border: 1px solid #d0d0d0;
