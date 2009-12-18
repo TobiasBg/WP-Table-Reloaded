@@ -2937,12 +2937,13 @@ WPLIST;
 
             $pagination = '';
             if ( 11 > count( $this->tables ) )
-                $pagination = '"bPaginate": false, "sPaginationType": "full_numbers", "bLengthChange": false,';
+                $pagination = '"bPaginate": false, "bLengthChange": false,';
 
             $tsscript = <<<TSSCRIPT
 var tablelist = $('#wp-table-reloaded-list').dataTable({
     "bSortClasses": false,
     {$pagination}
+    "sPaginationType": "full_numbers",
     "aaSorting": [],
     "bProcessing": true,
     "asStripClasses": ['even','odd'],
