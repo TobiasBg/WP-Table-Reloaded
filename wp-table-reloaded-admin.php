@@ -842,7 +842,7 @@ class WP_Table_Reloaded_Admin {
                 unset( $existing_table );
             } else {
                 $table['id'] = $this->get_new_table_id();
-                $success_message = sprintf( __( 'Table imported successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
+                $success_message = _n( 'Table imported successfully.', 'Tables imported successfully.', 1 , WP_TABLE_RELOADED_TEXTDOMAIN );
             }
 
             $rows = count( $table['data'] );
@@ -880,7 +880,7 @@ class WP_Table_Reloaded_Admin {
 
             $this->save_table( $table );
 
-            $this->helper->print_header_message( __( 'Table imported successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
+            $this->helper->print_header_message( _n( 'Table imported successfully.', 'Tables imported successfully.', 1 , WP_TABLE_RELOADED_TEXTDOMAIN ) );
             $this->print_edit_table_form( $table['id'] );
         } elseif ( isset( $_POST['import_wp_table_reloaded_dump_file'] ) ) {
             check_admin_referer( $this->get_nonce( 'import_dump' ) );
@@ -2357,11 +2357,10 @@ class WP_Table_Reloaded_Admin {
             <?php _e( 'Christian Bach for the <a href="http://www.tablesorter.com/">Tablesorter jQuery plugin</a>,', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/>
             <?php _e( 'Soeren Krings for its extension <a href="http://tablesorter.openwerk.de/">Tablesorter Extended</a>,', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/>
             <?php _e( 'the submitters of translations:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
-            <br/>&middot; <?php _e( 'Albanian (thanks to <a href="http://www.romeolab.com/">Romeo</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'Brazilian Portugues (thanks to <a href="http://www.pensarics.com/">Rics</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'Czech (thanks to <a href="http://separatista.net/">Separatista</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
+            <br/>&middot; <?php _e( 'Japanese (thanks to <a href="http://www.u-1.net/">Yuuichi</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'Slovak (thanks to <a href="http://lukas.cerro.sk/">55.lukas</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
-            <br/>&middot; <?php _e( 'Spanish (thanks to <a href="http://theindependentproject.com/">Alejandro Urrutia</a> and <a href="http://halles.cl/">Matias Halles</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'Swedish (thanks to <a href="http://www.zuperzed.se/">ZuperZed</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/><?php _e( 'and to all donors, contributors, supporters, reviewers and users of the plugin!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
         </p>
