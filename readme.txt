@@ -55,7 +55,7 @@ If WP-Table Reloaded finds the wp-Table database tables, it can import the found
 
 = Support? =
 
-If you find a bug or have a feature request, please don’t hesitate to tell me about it.
+If you find a bug or have a feature request, please don't hesitate to tell me about it.
 You would help a lot if you could add an issue ticket in the [issue tracker on Google Code](http://code.google.com/p/wp-table-reloaded/).
 Feature requests may also posted in the comments on the plugin website.
 
