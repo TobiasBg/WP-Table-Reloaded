@@ -385,29 +385,31 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
             if ( !empty( $url_css_plugin ) )
                 $default_css['plugin.css'] = "@import url(\"{$url_css_plugin}\");";
 
-            switch ( $this->options['tablesorter_script'] ) {
-                case 'datatables-tabletools':
-                    $url_css_tabletools = $plugin_path . 'js/tabletools/tabletools.css';
-                    $url_css_tabletools = apply_filters( 'wp_table_reloaded_url_css_tabletools', $url_css_tabletools );
-                    if ( !empty( $url_css_tabletools ) )
-                        $default_css['tabletools.css'] = "@import url(\"{$url_css_tabletools}\");";
-                case 'datatables': // this also applies to the above, because there is no "break;" above
-                    $url_css_datatables = $plugin_path . 'css/datatables.css';
-                    $url_css_datatables = apply_filters( 'wp_table_reloaded_url_css_datatables', $url_css_datatables );
-                    if ( !empty( $url_css_datatables ) )
-                        $default_css['datatables.css'] = "@import url(\"{$url_css_datatables}\");";
-                    break;
-                case 'tablesorter':
-                case 'tablesorter_extended':
-                    $url_css_tablesorter = $plugin_path . 'css/tablesorter.css';
-                    $url_css_tablesorter = apply_filters( 'wp_table_reloaded_url_css_tablesorter', $url_css_tablesorter );
-                    if ( !empty( $url_css_tablesorter ) )
-                        $default_css['tablesorter.css'] = "@import url(\"{$url_css_tablesorter}\");";
-                    break;
-                default:
+            if ( $this->options['enable_tablesorter'] ) {
+                switch ( $this->options['tablesorter_script'] ) {
+                    case 'datatables-tabletools':
+                        $url_css_tabletools = $plugin_path . 'js/tabletools/tabletools.css';
+                        $url_css_tabletools = apply_filters( 'wp_table_reloaded_url_css_tabletools', $url_css_tabletools );
+                        if ( !empty( $url_css_tabletools ) )
+                            $default_css['tabletools.css'] = "@import url(\"{$url_css_tabletools}\");";
+                    case 'datatables': // this also applies to the above, because there is no "break;" above
+                        $url_css_datatables = $plugin_path . 'css/datatables.css';
+                        $url_css_datatables = apply_filters( 'wp_table_reloaded_url_css_datatables', $url_css_datatables );
+                        if ( !empty( $url_css_datatables ) )
+                            $default_css['datatables.css'] = "@import url(\"{$url_css_datatables}\");";
+                        break;
+                    case 'tablesorter':
+                    case 'tablesorter_extended':
+                        $url_css_tablesorter = $plugin_path . 'css/tablesorter.css';
+                        $url_css_tablesorter = apply_filters( 'wp_table_reloaded_url_css_tablesorter', $url_css_tablesorter );
+                        if ( !empty( $url_css_tablesorter ) )
+                            $default_css['tablesorter.css'] = "@import url(\"{$url_css_tablesorter}\");";
+                        break;
+                    default:
+                }
             }
         }
-        $default_css = apply_filters( 'wp_table_reloaded_default_css', $default_css, $this->options['use_default_css'], $this->options['tablesorter_script'] );
+        $default_css = apply_filters( 'wp_table_reloaded_default_css', $default_css, $this->options['use_default_css'], $this->options['tablesorter_script'], $this->options['enable_tablesorter'] );
         $default_css = implode( "\n", $default_css );
 
         $custom_css = '';
