@@ -113,6 +113,7 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 * feature: Support for "colspan" and "colspan" in tables
 * feature: WP Search will now also search in tables
 * feature: Highlight row (background-color change when hovering)
+* feature: Possibility to select the plugin language
 * internal plugin restructuring
 * dropped support for outdated WordPress 2.7
 

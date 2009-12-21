@@ -47,7 +47,13 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
      * @var string
      */
     var $action = 'list';
-    
+
+    /**
+     * List of available translations of WP-Table Reloaded, init in __construct, because of the translations
+     * @var array
+     */
+    var $available_plugin_languages = array();
+
     /**
      * List of allowed places for the menu item of WP-Table Reloaded in the WP admin menu
      * @var array
@@ -60,6 +66,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
      */
     var $default_options = array(
         'installed_version' => '0',
+        'plugin_language' => 'auto',
         'uninstall_upon_deactivation' => false,
         'show_exit_warning' => true,
         'growing_textareas' => true,
@@ -293,6 +300,17 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
      * responsible for calling the appropriate action handler, output of WP admin menu and header is already done here
      */
     function show_manage_page() {
+        $this->available_plugin_languages = array(
+            'de_DE' => __( 'German', WP_TABLE_RELOADED_TEXTDOMAIN ),
+            'en_US' => __( 'English', WP_TABLE_RELOADED_TEXTDOMAIN ),
+            'cs_CZ' => __( 'Czech', WP_TABLE_RELOADED_TEXTDOMAIN ),
+            'ja'    => __( 'Japanese', WP_TABLE_RELOADED_TEXTDOMAIN ),
+            'pt_BR' => __( 'Brazilian Portuguese', WP_TABLE_RELOADED_TEXTDOMAIN ),
+            'sk_SK' => __( 'Slovak', WP_TABLE_RELOADED_TEXTDOMAIN ),
+            'sv_SE' => __( 'Swedish', WP_TABLE_RELOADED_TEXTDOMAIN )
+        );
+        ksort( $this->available_plugin_languages );
+
         // do WP plugin action (before action is fired) -> can stop further plugin execution by returning true
         $overwrite = apply_filters( 'wp_table_reloaded_action_pre_' . $this->action, false );
         if ( $overwrite )
@@ -1079,6 +1097,11 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
             if ( current_user_can( 'manage_options' ) ) {
                 $this->options['uninstall_upon_deactivation'] = isset( $new_options['uninstall_upon_deactivation'] );
                 $this->options['enable_search'] = isset( $new_options['enable_search'] );
+                // plugin language
+                if ( isset( $this->available_plugin_languages[ $new_options['plugin_language'] ] ) )
+                    $this->options['plugin_language'] = $new_options['plugin_language'];
+                else
+                    $this->options['plugin_language'] = 'auto';
                 // admin menu parent page
                 if ( in_array( $new_options['admin_menu_parent_page'], $this->possible_admin_menu_parent_pages ) )
                     $this->options['admin_menu_parent_page'] = $new_options['admin_menu_parent_page'];
@@ -1636,8 +1659,25 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
      * Initialize i18n support, load plugin's textdomain, to retrieve correct translations
      */
     function init_language_support() {
+    	add_filter( 'locale', array( &$this, 'get_plugin_locale' ) ); // allow changing the plugin language
         $language_directory = basename( dirname( WP_TABLE_RELOADED__FILE__ ) ) . '/languages';
         load_plugin_textdomain( WP_TABLE_RELOADED_TEXTDOMAIN, false, $language_directory );
+        remove_filter( 'locale', array( &$this, 'get_plugin_locale' ) );
+    }
+    
+    /**
+     * Retrieve the locale the plugin shall be shown in, applied as a filter in get_locale()
+     */
+    function get_plugin_locale( $locale ) {
+        if ( isset( $_POST['options']['plugin_language'] ) ) {
+            if ( 'auto' != $_POST['options']['plugin_language'] )
+                return $_POST['options']['plugin_language'];
+            else
+                return $locale;
+        }
+        
+        $locale = ( !empty( $this->options['plugin_language'] ) && 'auto' != $this->options['plugin_language'] ) ? $this->options['plugin_language'] : $locale;
+        return $locale;
     }
 
     /**
