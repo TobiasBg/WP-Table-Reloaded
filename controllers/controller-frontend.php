@@ -257,7 +257,8 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
         $js_options = apply_filters( 'wp_table_reloaded_table_js_options', $js_options, $table_id );
 
         // eventually add this table to list of tables which have a JS library enabled and thus are to be included in the script's call in the footer
-        if ( $output_options['use_tablesorter'] && $output_options['first_row_th'] )
+        $rows = count( $table['data'] );
+        if ( $output_options['use_tablesorter'] && $output_options['first_row_th'] && 1 < $rows )
             $this->tablesorter_tables[] = array (
                 'table_id' => $table_id,
                 'html_id' => $output_options['html_id'],
