@@ -106,8 +106,13 @@
     <table class="wp-table-reloaded-data-manipulation widefat">
 
         <tr><td>
-            <a id="a-add-colspan" class="button-primary" href="javascript:void(0);" title="<?php _e( 'Add colspan', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>"><?php _e( 'Add colspan', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
-            <a id="a-add-rowspan" class="button-primary" href="javascript:void(0);" title="<?php _e( 'Add rowspan', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>"><?php _e( 'Add rowspan', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
+            <?php
+            // don't show certain buttons
+            $row_disabled = ( 1 < $rows ) ? '' : 'disabled="disabled" ';
+            $col_disabled = ( 1 < $cols ) ? '' : 'disabled="disabled" ';
+            ?>
+            <a<?php echo ( 1 < $cols ) ? ' id="a-add-colspan"' : '' ?> class="button-primary" href="javascript:void(0);" title="<?php _e( 'Add colspan', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>"<?php echo $col_disabled; ?>><?php _e( 'Add colspan', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
+            <a<?php echo ( 1 < $rows ) ? ' id="a-add-rowspan"' : '' ?> class="button-primary" href="javascript:void(0);" title="<?php _e( 'Add rowspan', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>"<?php echo $row_disabled; ?>><?php _e( 'Add rowspan', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
         </td><td>
         </td></tr>
 
@@ -115,22 +120,20 @@
             <a id="a-insert-link" class="button-primary" href="javascript:void(0);"><?php _e( 'Insert Link', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
             <a id="a-insert-image" href="<?php echo admin_url( 'media-upload.php' ); ?>?type=image&amp;tab=library&amp;TB_iframe=true" class="thickbox button-primary" title="<?php _e( 'Insert Image', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" onclick="javascript:return false;"><?php _e( 'Insert Image', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
         </td><td>
-        <?php if ( 1 < $rows ) { // sort form ?>
             <?php
-            $col_select = '<select name="sort[col]">';
+            $col_select = '<select ' . $row_disabled . 'name="sort[col]">';
             foreach ( $table['data'][0] as $col_idx => $cell_content )
                 $col_select .= "<option value=\"{$col_idx}\">" . ( chr( ord( 'A' ) + $col_idx ) ) . "</option>";
             $col_select .= '</select>';
 
-            $sort_order_select = '<select name="sort[order]">';
+            $sort_order_select = '<select ' . $row_disabled . 'name="sort[order]">';
             $sort_order_select .= "<option value=\"ASC\">" . __( 'ascending', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</option>";
             $sort_order_select .= "<option value=\"DESC\">" . __( 'descending', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</option>";
             $sort_order_select .= '</select>';
 
             printf( __( 'Sort table by column %s in %s order', WP_TABLE_RELOADED_TEXTDOMAIN ), $col_select, $sort_order_select );
         ?>
-            <input type="submit" name="submit[sort]" class="button-primary" value="<?php _e( 'Sort', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
-        <?php } // end if sort form ?>
+            <input type="submit" name="submit[sort]" class="button-primary" value="<?php _e( 'Sort', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" <?php echo $row_disabled; ?>/>
         </td></tr>
 
         <tr><td>
@@ -149,10 +152,6 @@
 
         <tr><td>
             <?php
-            // don't show delete link for last and only row
-            $row_disabled = ( 1 < $rows ) ? '' : 'disabled="disabled" ';
-            $col_disabled = ( 1 < $cols ) ? '' : 'disabled="disabled" ';
-
             $a_rows_insert = '<input id="button-insert-rows" type="submit" name="submit[insert_rows]" class="button-primary" value="' . __( 'Insert row', WP_TABLE_RELOADED_TEXTDOMAIN ) . '" />';
             $a_rows_delete = '<input id="button-delete-rows" type="submit" name="submit[delete_rows]" class="button-primary" value="' . __( 'Delete', WP_TABLE_RELOADED_TEXTDOMAIN ) . '" ' . $row_disabled . '/>';
             printf( _x( 'Selected rows: %s %s', 'insert_delete', WP_TABLE_RELOADED_TEXTDOMAIN ), $a_rows_insert, $a_rows_delete );
@@ -179,9 +178,9 @@
         </td></tr>
 
         <tr><td>
-        <?php if ( 1 < $rows ) { // swap rows form
-            $row1_select = '<select name="swap[row][1]">';
-            $row2_select = '<select name="swap[row][2]">';
+            <?php
+            $row1_select = '<select ' . $row_disabled . 'name="swap[row][1]">';
+            $row2_select = '<select ' . $row_disabled . 'name="swap[row][2]">';
             foreach ( $table['data'] as $row_idx => $table_row ) {
                 $row1_select .= "<option value=\"{$row_idx}\">" . ( $row_idx + 1 ) . "</option>";
                 $row2_select .= "<option value=\"{$row_idx}\">" . ( $row_idx + 1 ) . "</option>";
@@ -191,13 +190,11 @@
 
             printf( __( 'Swap rows %s and %s', WP_TABLE_RELOADED_TEXTDOMAIN ), $row1_select, $row2_select );
             ?>
-            <input type="submit" name="submit[swap_rows]" class="button-primary" value="<?php _e( 'Swap', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
-        <?php } // end if form swap rows ?>
-        <?php if ( 1 < $cols ) { // swap cols form ?>
+            <input type="submit" name="submit[swap_rows]" class="button-primary" value="<?php _e( 'Swap', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" <?php echo $row_disabled; ?>/>
             <br/>
             <?php
-            $col1_select = '<select name="swap[col][1]">';
-            $col2_select = '<select name="swap[col][2]">';
+            $col1_select = '<select ' . $col_disabled . 'name="swap[col][1]">';
+            $col2_select = '<select ' . $col_disabled . 'name="swap[col][2]">';
             foreach ( $table['data'][0] as $col_idx => $cell_content ) {
                 $col_letter = chr( ord( 'A' ) + $col_idx );
                 $col1_select .= "<option value=\"{$col_idx}\">{$col_letter}</option>";
@@ -208,12 +205,11 @@
 
             printf( __( 'Swap columns %s and %s', WP_TABLE_RELOADED_TEXTDOMAIN ), $col1_select, $col2_select );
             ?>
-            <input type="submit" name="submit[swap_cols]" class="button-primary" value="<?php _e( 'Swap', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
-        <?php } // end if form swap cols ?>
+            <input type="submit" name="submit[swap_cols]" class="button-primary" value="<?php _e( 'Swap', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" <?php echo $col_disabled; ?>/>
         </td><td>
-        <?php if ( 1 < $rows ) { // move row form
-            $row1_select = '<select name="move[row][1]">';
-            $row2_select = '<select name="move[row][2]">';
+            <?php
+            $row1_select = '<select ' . $row_disabled . 'name="move[row][1]">';
+            $row2_select = '<select ' . $row_disabled . 'name="move[row][2]">';
             foreach ( $table['data'] as $row_idx => $table_row ) {
                 $row1_select .= "<option value=\"{$row_idx}\">" . ( $row_idx + 1 ) . "</option>";
                 $row2_select .= "<option value=\"{$row_idx}\">" . ( $row_idx + 1 ) . "</option>";
@@ -221,20 +217,18 @@
             $row1_select .= '</select>';
             $row2_select .= '</select>';
 
-            $move_where_select = '<select name="move[where]">';
+            $move_where_select = '<select ' . $row_disabled . 'name="move[where]">';
             $move_where_select .= "<option value=\"before\">" . __( 'before', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</option>";
             $move_where_select .= "<option value=\"after\">" . __( 'after', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</option>";
             $move_where_select .= '</select>';
 
             printf( __( 'Move row %s %s row %s', WP_TABLE_RELOADED_TEXTDOMAIN ), $row1_select, $move_where_select, $row2_select );
             ?>
-            <input type="submit" name="submit[move_row]" class="button-primary" value="<?php _e( 'Move', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
-        <?php } // end if form move row ?>
-        <?php if ( 1 < $cols ) { // move col form ?>
+            <input type="submit" name="submit[move_row]" class="button-primary" value="<?php _e( 'Move', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" <?php echo $row_disabled; ?>/>
             <br/>
             <?php
-            $col1_select = '<select name="move[col][1]">';
-            $col2_select = '<select name="move[col][2]">';
+            $col1_select = '<select ' . $col_disabled . 'name="move[col][1]">';
+            $col2_select = '<select ' . $col_disabled . 'name="move[col][2]">';
             foreach ( $table['data'][0] as $col_idx => $cell_content ) {
                 $col_letter = chr( ord( 'A' ) + $col_idx );
                 $col1_select .= "<option value=\"{$col_idx}\">{$col_letter}</option>";
@@ -243,15 +237,14 @@
             $col1_select .= '</select>';
             $col2_select .= '</select>';
 
-            $move_where_select = '<select name="move[where]">';
+            $move_where_select = '<select ' . $col_disabled . 'name="move[where]">';
             $move_where_select .= "<option value=\"before\">" . __( 'before', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</option>";
             $move_where_select .= "<option value=\"after\">" . __( 'after', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</option>";
             $move_where_select .= '</select>';
 
             printf( __( 'Move column %s %s column %s', WP_TABLE_RELOADED_TEXTDOMAIN ), $col1_select, $move_where_select, $col2_select );
             ?>
-            <input type="submit" name="submit[move_col]" class="button-primary" value="<?php _e( 'Move', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
-        <?php } // end if form move col ?>
+            <input type="submit" name="submit[move_col]" class="button-primary" value="<?php _e( 'Move', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" <?php echo $col_disabled; ?>/>
         </td></tr>
 
     </table>
