@@ -69,21 +69,25 @@ class WP_Table_Reloaded_Render {
         $output = '';
 
         if ( 0 < $rows && 0 < $cols ) {
-        
-            if ( true == $this->output_options['print_name'] ) {
+
+            if ( $this->output_options['print_name'] ) {
                 $print_name_html_tag = apply_filters( 'wp_table_reloaded_print_name_html_tag', 'h2', $table['id'] );
                 $print_name_css_class = apply_filters( 'wp_table_reloaded_print_name_css_class', 'wp-table-reloaded-table-name', $table['id'] );
                 $name_html = "<{$print_name_html_tag} class=\"{$print_name_css_class}\">" . $this->safe_output( $table['name'] ) . "</{$print_name_html_tag}>\n";
-                $print_name_position = apply_filters( 'wp_table_reloaded_print_name_position', 'above', $table['id'] );
+                $print_name_position = $this->output_options['print_name_position'];
+                $print_name_position = apply_filters( 'wp_table_reloaded_print_name_position', $print_name_position, $table['id'] );
+                
                 if ( 'above' == $print_name_position )
                     $output .= $name_html;
             }
 
-            if ( true == $this->output_options['print_description'] ) {
+            if ( $this->output_options['print_description'] ) {
                 $print_description_html_tag = apply_filters( 'wp_table_reloaded_print_description_html_tag', 'span', $table['id'] );
                 $print_description_css_class = apply_filters( 'wp_table_reloaded_print_description_css_class', 'wp-table-reloaded-table-description', $table['id'] );
                 $description_html = "<{$print_description_html_tag} class=\"{$print_description_css_class}\">" . $this->safe_output( $table['description'] ) . "</{$print_description_html_tag}>\n";
-                $print_description_position = apply_filters( 'wp_table_reloaded_print_description_position', 'below', $table['id'] );
+                $print_description_position = $this->output_options['print_description_position'];
+                $print_description_position = apply_filters( 'wp_table_reloaded_print_description_position', $print_description_position, $table['id'] );
+                
                 if ( 'above' == $print_description_position )
                     $output .= $description_html;
             }

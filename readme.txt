@@ -114,6 +114,7 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 * feature: WP Search will now also search in tables
 * feature: Highlight row (background-color change when hovering)
 * feature: Possibility to select the plugin language
+* enhancement: select fields for position of name and description
 * internal plugin restructuring
 * dropped support for outdated WordPress 2.7
 

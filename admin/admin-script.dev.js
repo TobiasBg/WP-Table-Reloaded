@@ -201,6 +201,19 @@ jQuery(document).ready( function( $ ) {
         } );
     }
 
+    $( '#table_options_print_name' ).change( function () {
+        if( $(this).attr('checked') )
+            $( '#table_options_print_name_position' ).removeAttr( 'disabled' );
+        else
+            $( '#table_options_print_name_position' ).attr( 'disabled', 'disabled' );
+    } );
+
+    $( '#table_options_print_description' ).change( function () {
+        if( $(this).attr('checked') )
+            $( '#table_options_print_description_position' ).removeAttr( 'disabled' );
+        else
+            $( '#table_options_print_description_position' ).attr( 'disabled', 'disabled' );
+    } );
 
     // confirm uninstall setting
     $( '#options_uninstall_upon_deactivation').click( function () {
@@ -376,13 +389,13 @@ jQuery(document).ready( function( $ ) {
         };
 
         $("#wp_table_reloaded_edit_table input[name='submit[update]'], #wp_table_reloaded_edit_table input[name='submit[save_back]']").click(function(){
-            $( '#wp_table_reloaded_edit_table .wp-table-reloaded-options input' ).removeAttr( 'disabled' );
+            $( '#wp_table_reloaded_edit_table .wp-table-reloaded-options input, #wp_table_reloaded_edit_table .wp-table-reloaded-options select' ).removeAttr( 'disabled' );
             window.onbeforeunload = null;
         } );
 
         $( '#wp_table_reloaded_edit_table' ).find( '#table_name, textarea' ).bind( 'change', set_table_data_changed ); // see also ID change function above
         
-        $( '#wp_table_reloaded_edit_table .wp-table-reloaded-options :checkbox' ).bind( 'change', set_table_data_changed );
+        $( '#wp_table_reloaded_edit_table .wp-table-reloaded-options :checkbox, #wp_table_reloaded_edit_table .wp-table-reloaded-options select' ).bind( 'change', set_table_data_changed );
     }
 
 } );

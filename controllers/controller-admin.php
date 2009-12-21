@@ -114,7 +114,9 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
             'first_row_th' => true,
             'table_footer' => false,
             'print_name' => false,
+            'print_name_position' => 'above',
             'print_description' => false,
+            'print_description_position' => 'below',
             'use_tablesorter' => true,
             'datatables_sort' => true,
             'datatables_paginate' => true,
@@ -435,6 +437,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
                 $table['options']['datatables_info'] = isset( $_POST['table']['options']['datatables_info'] );
                 $table['options']['datatables_tabletools'] = isset( $_POST['table']['options']['datatables_tabletools'] );
                 // $table['options']['datatables_customcommands'] is an input type=text field that is always submitted
+                // $table['options']['print_name|description_position'] are select fields that are always submitted
 
                 // save visibility settings (checkboxes!)
                 foreach ( $table['data'] as $row_idx => $row )

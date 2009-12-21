@@ -283,11 +283,33 @@
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="table[options][print_name]" id="table_options_print_name"<?php echo ( $table['options']['print_name'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="table_options_print_name"><?php _e( 'The Table Name will be written above the table (HTML tag &lt;h2&gt;).', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <td><input type="checkbox" name="table[options][print_name]" id="table_options_print_name"<?php echo ( $table['options']['print_name'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="table_options_print_name"></label>
+            <?php
+            $disabled = ( $table['options']['print_name'] ) ? '' : ' disabled="disabled"' ;
+            $position_select = '<select' . $disabled . ' id="table_options_print_name_position" name="table[options][print_name_position]">';
+            $selected = ( 'above' == $table['options']['print_name_position'] ) ? ' selected="selected"': '';
+            $position_select .= '<option' . $selected . ' value="above">' . __( 'above', WP_TABLE_RELOADED_TEXTDOMAIN ) . '</option>';
+            $selected = ( 'below' == $table['options']['print_name_position'] ) ? ' selected="selected"': '';
+            $position_select .= '<option' . $selected . ' value="below">' . __( 'below', WP_TABLE_RELOADED_TEXTDOMAIN ) . '</option>';
+            $position_select .= '</select>';
+            printf( __( 'The Table Name shall be written %s the table (HTML tag &lt;h2&gt;).', WP_TABLE_RELOADED_TEXTDOMAIN ), $position_select );
+            ?>
+        </td>
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Table Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="table[options][print_description]" id="table_options_print_description"<?php echo ( $table['options']['print_description'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="table_options_print_description"><?php _e( 'The Table Description will be written under the table.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <td><input type="checkbox" name="table[options][print_description]" id="table_options_print_description"<?php echo ( $table['options']['print_description'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="table_options_print_description"></label>
+            <?php
+            $disabled = ( $table['options']['print_description'] ) ? '' : ' disabled="disabled"' ;
+            $position_select = '<select' . $disabled . ' id="table_options_print_description_position" name="table[options][print_description_position]">';
+            $selected = ( 'above' == $table['options']['print_description_position'] ) ? ' selected="selected"': '';
+            $position_select .= '<option' . $selected . ' value="above">' . __( 'above', WP_TABLE_RELOADED_TEXTDOMAIN ) . '</option>';
+            $selected = ( 'below' == $table['options']['print_description_position'] ) ? ' selected="selected"': '';
+            $position_select .= '<option' . $selected . ' value="below">' . __( 'below', WP_TABLE_RELOADED_TEXTDOMAIN ) . '</option>';
+            $position_select .= '</select>';
+            printf( __( 'The Table Description shall be written %s the table (HTML tag &lt;h2&gt;).', WP_TABLE_RELOADED_TEXTDOMAIN ), $position_select );
+            ?>
+        </td>
         </tr>
         <tr valign="top" id="options_use_tablesorter">
             <th scope="row"><?php _e( 'Use JavaScript library', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
