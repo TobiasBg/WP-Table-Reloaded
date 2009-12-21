@@ -1242,7 +1242,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
             'import' => __( 'Import a Table', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'export' => __( 'Export a Table', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'options' => __( 'Plugin Options', WP_TABLE_RELOADED_TEXTDOMAIN ) . ' &lsaquo; ' . __( 'WP-Table Reloaded', WP_TABLE_RELOADED_TEXTDOMAIN ),
-            'about' => _( 'About WP-Table Reloaded', WP_TABLE_RELOADED_TEXTDOMAIN ),
+            'about' => __( 'About WP-Table Reloaded', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'uninstall' => __( 'WP-Table Reloaded', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'ajax_list' => __( 'List of Tables', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'ajax_preview' => sprintf( __( 'Preview of Table &quot;%s&quot; (ID %s)', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->helper->safe_output( $table['name'] ), $this->helper->safe_output( $table['id'] ) )
