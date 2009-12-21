@@ -244,7 +244,10 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
         $display_name = 'WP-Table Reloaded'; // the name that is displayed in the admin menu on the left
         $display_name = apply_filters( 'wp_table_reloaded_plugin_display_name', $display_name ); // can be filtered to something shorter maybe
 
-        $admin_menu_page = $this->options['admin_menu_parent_page'];
+        if ( isset( $_POST['options']['admin_menu_parent_page'] ) )
+            $admin_menu_page = $_POST['options']['admin_menu_parent_page'];
+        else
+            $admin_menu_page = $this->options['admin_menu_parent_page'];
         $admin_menu_page = apply_filters( 'wp_table_reloaded_admin_menu_parent_page', $admin_menu_page ); // plugins may filter/change this though
         if ( !in_array( $admin_menu_page, $this->possible_admin_menu_parent_pages ) )
             $admin_menu_page = 'tools.php';

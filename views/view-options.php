@@ -123,7 +123,7 @@
                 <option<?php echo ( 'options-general.php' == $this->options['admin_menu_parent_page'] ) ? ' selected="selected"': ''; ?> value="options-general.php"><?php _e( 'Settings' ); ?></option>
                 <option<?php echo ( 'index.php' == $this->options['admin_menu_parent_page'] ) ? ' selected="selected"': ''; ?> value="index.php"><?php _e( 'Dashboard' ); ?></option>
                 <option<?php echo ( 'top-level' == $this->options['admin_menu_parent_page'] ) ? ' selected="selected"': ''; ?> value="top-level"><?php _e( 'Top-Level', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></option>
-        </select><br/><small>(<?php _e( 'Change will take effect after another page load after saving.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>)</small></td>
+        </select></td>
         </tr>
 
         <tr valign="top">
