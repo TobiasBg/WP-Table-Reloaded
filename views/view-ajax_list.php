@@ -39,9 +39,9 @@
 
                 echo "<tr{$bg_style}>\n";
                 echo "\t<th scope=\"row\">{$id}</th>";
-                echo "<td style=\"vertical-align:baseline;\">{$name}</td>";
-                echo "<td style=\"vertical-align:baseline;\">{$description}</td>";
-                echo "<td style=\"vertical-align:baseline;\"><a class=\"send_table_to_editor\" title=\"{$id}\" href=\"#\" style=\"color:#21759B;\">" . __( 'Insert', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a></td>\n";
+                echo "<td style=\"vertical-align:inherit;\">{$name}</td>";
+                echo "<td style=\"vertical-align:inherit;\">{$description}</td>";
+                echo "<td style=\"vertical-align:inherit;\"><a class=\"send_table_to_editor\" title=\"{$id}\" href=\"#\" style=\"color:#21759B;\">" . __( 'Insert', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a></td>\n";
                 echo "</tr>\n";
             }
             ?>
