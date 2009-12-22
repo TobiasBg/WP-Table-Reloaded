@@ -104,6 +104,7 @@
 .wp-table-reloaded-data-manipulation td {
     padding-top:7px!important;
     padding-bottom:7px!important;
+    line-height: 2.2em;
 }
 
 .widefat td {

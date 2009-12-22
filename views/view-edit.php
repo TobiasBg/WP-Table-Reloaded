@@ -103,18 +103,12 @@
         <div class="postbox<?php echo $this->helper->postbox_closed( 'table-data-manipulation', false ); ?>">
         <h3 class="hndle"><span><?php _e( 'Data Manipulation', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _x( 'Hide', 'expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
-    <table class="wp-table-reloaded-data-manipulation widefat">
-
-        <tr><td>
             <?php
             // don't show certain buttons
             $row_disabled = ( 1 < $rows ) ? '' : 'disabled="disabled" ';
             $col_disabled = ( 1 < $cols ) ? '' : 'disabled="disabled" ';
             ?>
-            <a<?php echo ( 1 < $cols ) ? ' id="a-add-colspan"' : '' ?> class="button-primary" href="javascript:void(0);" title="<?php _e( 'Add colspan', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>"<?php echo $col_disabled; ?>><?php _e( 'Add colspan', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
-            <a<?php echo ( 1 < $rows ) ? ' id="a-add-rowspan"' : '' ?> class="button-primary" href="javascript:void(0);" title="<?php _e( 'Add rowspan', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>"<?php echo $row_disabled; ?>><?php _e( 'Add rowspan', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
-        </td><td>
-        </td></tr>
+    <table class="wp-table-reloaded-data-manipulation widefat">
 
         <tr><td>
             <a id="a-insert-link" class="button-primary" href="javascript:void(0);"><?php _e( 'Insert Link', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
@@ -141,13 +135,17 @@
             $a_rows_hide = '<a id="a-hide-rows" class="button-primary" href="javascript:void(0);">' . _x( 'Hide', 'item', WP_TABLE_RELOADED_TEXTDOMAIN ) . '</a>';
             $a_rows_unhide = '<a id="a-unhide-rows" class="button-primary" href="javascript:void(0);">' . _x( 'Unhide', 'item', WP_TABLE_RELOADED_TEXTDOMAIN ) . '</a>';
             printf( _x( 'Selected rows: %s %s', 'hide_unhide', WP_TABLE_RELOADED_TEXTDOMAIN ), $a_rows_hide, $a_rows_unhide );
-            ?>
-        </td><td>
-            <?php
+            echo '<br />';
             $a_cols_hide = '<a id="a-hide-columns" class="button-primary" href="javascript:void(0);">' . _x( 'Hide', 'item', WP_TABLE_RELOADED_TEXTDOMAIN ) . '</a>';
             $a_cols_unhide = '<a id="a-unhide-columns" class="button-primary" href="javascript:void(0);">' . _x( 'Unhide', 'item', WP_TABLE_RELOADED_TEXTDOMAIN ) . '</a>';
             printf( _x( 'Selected columns: %s %s', 'hide_unhide', WP_TABLE_RELOADED_TEXTDOMAIN ), $a_cols_hide, $a_cols_unhide );
             ?>
+        </td><td>
+            <?php _e( 'Combine cells in a row:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
+            <a<?php echo ( 1 < $cols ) ? ' id="a-add-colspan"' : '' ?> class="button-primary" href="javascript:void(0);" title="<?php _e( 'Add colspan', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>"<?php echo $col_disabled; ?>><?php _e( 'Add colspan', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
+            <br/>
+            <?php _e( 'Combine cells in a column:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
+            <a<?php echo ( 1 < $rows ) ? ' id="a-add-rowspan"' : '' ?> class="button-primary" href="javascript:void(0);" title="<?php _e( 'Add rowspan', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>"<?php echo $row_disabled; ?>><?php _e( 'Add rowspan', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
         </td></tr>
 
         <tr><td>
@@ -155,9 +153,7 @@
             $a_rows_insert = '<input id="button-insert-rows" type="submit" name="submit[insert_rows]" class="button-primary" value="' . __( 'Insert row', WP_TABLE_RELOADED_TEXTDOMAIN ) . '" />';
             $a_rows_delete = '<input id="button-delete-rows" type="submit" name="submit[delete_rows]" class="button-primary" value="' . __( 'Delete', WP_TABLE_RELOADED_TEXTDOMAIN ) . '" ' . $row_disabled . '/>';
             printf( _x( 'Selected rows: %s %s', 'insert_delete', WP_TABLE_RELOADED_TEXTDOMAIN ), $a_rows_insert, $a_rows_delete );
-
             echo '<br />';
-
             $a_cols_insert = '<input id="button-insert-columns" type="submit" name="submit[insert_cols]" class="button-primary" value="' . __( 'Insert column', WP_TABLE_RELOADED_TEXTDOMAIN ) . '" />';
             $a_cols_delete = '<input id="button-delete-columns" type="submit" name="submit[delete_cols]" class="button-primary" value="' . __( 'Delete', WP_TABLE_RELOADED_TEXTDOMAIN ) . '" ' . $col_disabled . '/>';
             printf( _x( 'Selected columns: %s %s', 'insert_delete', WP_TABLE_RELOADED_TEXTDOMAIN ), $a_cols_insert, $a_cols_delete );
