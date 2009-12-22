@@ -160,6 +160,7 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
             'alternating_row_colors' => -1,
             'row_hover' => -1,
             'first_row_th' => -1,
+            'first_column_th' => false,
             'table_footer' => -1,
             'print_name' => -1,
             'print_name_position' => -1,

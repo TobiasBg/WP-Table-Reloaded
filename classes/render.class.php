@@ -217,6 +217,9 @@ class WP_Table_Reloaded_Render {
             $class_attr = ( !empty( $col_class ) ) ? " class=\"{$col_class}\"" : '';
             $style_attr = ( ( 0 == $row_idx ) && !empty( $this->output_options['column_widths'][$col_idx] ) ) ? " style=\"width:{$this->output_options['column_widths'][$col_idx]};\"" : '';
 
+            if ( $this->output_options['first_column_th'] && 0 == $col_idx )
+                $tag = 'th';
+
             $row_cells[] = "<{$tag}{$span_attr}{$class_attr}{$style_attr}>{$cell_content}</${tag}>";
             $this->colspan[ $row_idx ] = 1; // reset
             $this->rowspan[ $col_idx ] = 1; // reset
