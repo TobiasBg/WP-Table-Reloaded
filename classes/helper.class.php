@@ -95,6 +95,32 @@ TEXT;
         }
         return $message;
     }
+    
+    // ###################################################################################################################
+    // help buttons
+    function help_button( $id ) {
+        $help = array(
+            'colspan' => array(
+                    'text' => __( 'This is the colspan help message.', WP_TABLE_RELOADED_TEXTDOMAIN ),
+                    'height' => 200,
+                    'width' => 300
+                ),
+            'rowspan' => array(
+                    'text' => __( 'This is the rowspan help message.', WP_TABLE_RELOADED_TEXTDOMAIN ),
+                    'height' => 200,
+                    'width' => 300
+                )
+        );
+
+        if ( !isset( $help[ $id ] ) )
+            return '';
+
+        $title = __( 'Help', WP_TABLE_RELOADED_TEXTDOMAIN );
+        $text = $help[ $id ]['text'];
+        $height = $help[ $id ]['height'];
+        $width = $help[ $id ]['width'];
+        return "<a href=\"#TB_inline?height={$height}&width={$width}&inlineId=help-{$id}\" class=\"help-link button-secondary\" title=\"{$title}\">?</a><div id=\"help-{$id}\" style=\"display:none;\"><p>{$text}</p></div>";
+    }
 
 } // class WP_Table_Reloaded_Helper
 

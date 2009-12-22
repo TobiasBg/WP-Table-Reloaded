@@ -112,7 +112,7 @@
 
         <tr><td>
             <a id="a-insert-link" class="button-primary" href="javascript:void(0);"><?php _e( 'Insert Link', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
-            <a id="a-insert-image" href="<?php echo admin_url( 'media-upload.php' ); ?>?type=image&amp;tab=library&amp;TB_iframe=true" class="button-primary" title="<?php _e( 'Insert Image', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" onclick="javascript:return false;"><?php _e( 'Insert Image', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
+            <a id="a-insert-image" href="<?php echo admin_url( 'media-upload.php' ); ?>?type=image&amp;tab=library&amp;TB_iframe=true" class="button-primary" onclick="javascript:return false;"><?php _e( 'Insert Image', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
         </td><td>
             <?php
             $col_select = '<select ' . $row_disabled . 'name="sort[col]">';
@@ -142,10 +142,12 @@
             ?>
         </td><td>
             <?php _e( 'Combine cells in a row:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
-            <a<?php echo ( 1 < $cols ) ? ' id="a-add-colspan"' : '' ?> class="button-primary" href="javascript:void(0);" title="<?php _e( 'Add colspan', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>"<?php echo $col_disabled; ?>><?php _e( 'Add colspan', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
+            <a<?php echo ( 1 < $cols ) ? ' id="a-add-colspan"' : '' ?> class="button-primary" href="javascript:void(0);" <?php echo $col_disabled; ?>><?php _e( 'Add colspan', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
+            <?php echo $this->helper->help_button( 'colspan' ); ?>
             <br/>
             <?php _e( 'Combine cells in a column:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
-            <a<?php echo ( 1 < $rows ) ? ' id="a-add-rowspan"' : '' ?> class="button-primary" href="javascript:void(0);" title="<?php _e( 'Add rowspan', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>"<?php echo $row_disabled; ?>><?php _e( 'Add rowspan', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
+            <a<?php echo ( 1 < $rows ) ? ' id="a-add-rowspan"' : '' ?> class="button-primary" href="javascript:void(0);" <?php echo $row_disabled; ?>><?php _e( 'Add rowspan', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
+            <?php echo $this->helper->help_button( 'rowspan' ); ?>
         </td></tr>
 
         <tr><td>
