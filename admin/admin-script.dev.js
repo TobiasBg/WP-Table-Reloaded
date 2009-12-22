@@ -255,6 +255,7 @@ jQuery(document).ready( function( $ ) {
         $( '#table_contents textarea' ).unbind( 'click', call_media_library_thickbox );
         var link = $( '#a-insert-image' );
         tb_show( link.attr('title'), link.attr('href'), link.attr('rel') );
+        tb_my_position();
         $(this).blur();
         set_table_data_changed();
     }
@@ -264,7 +265,7 @@ jQuery(document).ready( function( $ ) {
             $("#table_contents textarea").bind( 'click', call_media_library_thickbox );
         return false;
     }
-    $( '#a-insert-image' ).unbind( 'click' ).bind('click', add_image);
+    $( '#a-insert-image' ).bind('click', add_image);
 
     // not all characters allowed for name of Custom Data Field
     $( '#insert_custom_field_name' ).keyup( function () {
@@ -397,5 +398,46 @@ jQuery(document).ready( function( $ ) {
         
         $( '#wp_table_reloaded_edit_table .wp-table-reloaded-options :checkbox, #wp_table_reloaded_edit_table .wp-table-reloaded-options select' ).bind( 'change', set_table_data_changed );
     }
+    
+    tb_init( 'a.help-link' );
+    tb_init( 'a.preview-link' );
+    tb_my_position();
 
 } );
+
+/**
+ * Add contents of media-upload.js here, but modified so that not all windows get resized
+ */
+
+// send html to the post editor
+function send_to_editor(h) {
+	jQuery( edCanvas ).val( jQuery( edCanvas ).val() + h );
+	tb_remove();
+}
+
+// thickbox settings
+var tb_my_position;
+(function($) {
+	tb_my_position = function() {
+		var tbWindow = $('#TB_window'), width = $(window).width(), H = $(window).height(), W = ( 720 < width ) ? 720 : width;
+
+		if ( tbWindow.size() ) {
+			tbWindow.width( W - 50 ).height( H - 45 );
+			$('#TB_iframeContent').width( W - 50 ).height( H - 75 );
+			tbWindow.css({'margin-left': '-' + parseInt((( W - 50 ) / 2),10) + 'px'});
+			if ( typeof document.body.style.maxWidth != 'undefined' )
+				tbWindow.css({'top':'20px','margin-top':'0'});
+		};
+
+		return $('a.preview-link').each( function() {
+			var href = $(this).attr('href');
+			if ( ! href ) return;
+			href = href.replace(/&width=[0-9]+/g, '');
+			href = href.replace(/&height=[0-9]+/g, '');
+			$(this).attr( 'href', href + '&width=' + ( W - 80 ) + '&height=' + ( H - 85 ) );
+		});
+	};
+
+	$(window).resize(function(){ tb_my_position(); });
+
+})(jQuery);

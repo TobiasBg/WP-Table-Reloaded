@@ -285,14 +285,8 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
         if ( in_array( $action, $this->allowed_actions ) )
             $this->action = $action;
 
-        // need thickbox to be able to show table in iframe on certain action pages (but not all)
-        $thickbox_actions = array ( 'list', 'edit', 'copy', 'delete', 'bulk_edit', 'hide_donate_nag', 'hide_welcome_message', 'import' ); // those all might show the "List of tables"
-        if ( in_array( $action, $thickbox_actions ) ) {
-            add_thickbox();
-            wp_enqueue_script( 'media-upload' ); // needed for automatic resizing of the thickbox
-        }
-
-        // load js and css for admin, needs to stand below eventual thickbox/media-upload scripts
+        add_thickbox();
+        // load js and css for admin, needs to stand below thickbox script
         $this->add_manage_page_js(); // will add script to footer
         $this->add_manage_page_css(); // needs to be added to the header
 

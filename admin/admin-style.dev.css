@@ -170,16 +170,6 @@ div.closed .hide_link { display: none; }
 
 /* table styles for the table preview */
 
-/* Inner content div of thickbox needs to grow with outer div */
-#TB_ajaxContent {
-    width:auto!important;
-    height:94.5%!important;
-}
-
-#TB_ajaxContent .wrap {
-    margin:0 7px 0 5px;
-}
-
 #TB_ajaxContent .wp-table-reloaded {
 	background-color:#CDCDCD;
 	width:100%;
