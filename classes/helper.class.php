@@ -35,67 +35,13 @@ TEXT;
     function print_page_footer() {
         echo "</div></div>";
     }
-
     // ###################################################################################################################
-    // for each $action an approriate message will be shown
-    function get_contextual_help_string( $action ) {
-        // certain $actions need different help string, because different screen is actually shown
-
-        // problem: delete -> edit/list     'table' == $_GET['item'] -> list
-        if ( 'delete' == $action && 'table' == $_GET['item'] )
-            $action = 'list';
-        // problem: edit+save -> list       'table' == $_GET['item'] -> list
-        if ( 'edit' == $action && isset( $_POST['submit']['save_back'] ) )
-            $action = 'list';
-        // problem: import -> edit          $_REQUEST['import_format'] -> edit
-        if ( 'import' == $action && isset( $_REQUEST['import_format'] ) )
-            $action = 'edit';
-        // problem: add -> edit             $_POST['table'] ) -> edit
-        if ( 'add' == $action && isset( $_POST['table'] ) )
-            $action = 'edit';
-        // a few problems remain: import fails will show edit
-
-        switch( $action ) {
-            case 'copy':
-            case 'bulk_edit':
-            case 'hide_donate_nag':
-            case 'list':
-                $help = sprintf( __( 'This is the &quot;%s&quot; screen.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'List Tables', WP_TABLE_RELOADED_TEXTDOMAIN ) );
-                break;
-            case 'edit':
-                $help = sprintf( __( 'This is the &quot;%s&quot; screen.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Edit Table', WP_TABLE_RELOADED_TEXTDOMAIN ) );
-                break;
-            case 'add':
-                $help = sprintf( __( 'This is the &quot;%s&quot; screen.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Add new Table', WP_TABLE_RELOADED_TEXTDOMAIN ) );
-                break;
-            case 'import':
-                $help = sprintf( __( 'This is the &quot;%s&quot; screen.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Import a Table', WP_TABLE_RELOADED_TEXTDOMAIN ) );
-                break;
-            case 'export':
-                $help = sprintf( __( 'This is the &quot;%s&quot; screen.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Export a Table', WP_TABLE_RELOADED_TEXTDOMAIN ) );
-                break;
-            case 'options':
-                $help = sprintf( __( 'This is the &quot;%s&quot; screen.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Plugin Options', WP_TABLE_RELOADED_TEXTDOMAIN ) );
-                break;
-            case 'info':
-                $help = sprintf( __( 'This is the &quot;%s&quot; screen.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'About the plugin', WP_TABLE_RELOADED_TEXTDOMAIN ) );
-                break;
-            case 'uninstall':
-                $help = __( 'Plugin deactivated successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ) . ' ' . __( 'All tables, data and options were deleted. You may now remove the plugin\'s subfolder from your WordPress plugin folder.', WP_TABLE_RELOADED_TEXTDOMAIN );
-                break;
-            // case 'ajax_list': // not needed, no contextual_help here
-            // case 'ajax_preview': // not needed, no contextual_help here
-            default:
-                $help = '';
-                break;
-        }
-
-        $help .= '<br/><br/>' . sprintf( __( 'More information about WP-Table Reloaded can be found on the <a href="%s">plugin\'s website</a> or on its page in the <a href="%s">WordPress Plugin Directory</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ), 'http://tobias.baethge.com/go/wp-table-reloaded/website/', 'http://wordpress.org/extend/plugins/wp-table-reloaded/' );
+    function get_contextual_help_string() {
+        $help = sprintf( __( 'More information about WP-Table Reloaded can be found on the <a href="%s">plugin\'s website</a> or on its page in the <a href="%s">WordPress Plugin Directory</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ), 'http://tobias.baethge.com/go/wp-table-reloaded/website/', 'http://wordpress.org/extend/plugins/wp-table-reloaded/' );
         $help .= ' ' . sprintf( __( 'For technical information, see the <a href="%s">documentation</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ), 'http://tobias.baethge.com/go/wp-table-reloaded/documentation/' );
         $help .= '<br/>' . sprintf( __( '<a href="%s">Support</a> is provided through the <a href="%s">WordPress Support Forums</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ), 'http://tobias.baethge.com/go/wp-table-reloaded/support/', 'http://www.wordpress.org/support/' );
         $help .= ' ' . sprintf( __( 'Before asking for support, please carefully read the <a href="%s">Frequently Asked Questions</a> where you will find answered to the most common questions, and search through the forums.', WP_TABLE_RELOADED_TEXTDOMAIN ), 'http://tobias.baethge.com/go/wp-table-reloaded/faq/' );
         $help .= '<br/>' . sprintf( __( 'If you like the plugin, <a href="%s"><strong>a donation</strong></a> is recommended.', WP_TABLE_RELOADED_TEXTDOMAIN ), 'http://tobias.baethge.com/go/wp-table-reloaded/donate/' );
-
         return $help;
     }
 

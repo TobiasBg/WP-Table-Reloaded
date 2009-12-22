@@ -291,7 +291,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
         $this->add_manage_page_css(); // needs to be added to the header
 
         // done after determining the action, because needs action parameter to load correct help string
-        add_contextual_help( $this->hook, $this->helper->get_contextual_help_string( $this->action ) );
+        add_contextual_help( $this->hook, $this->helper->get_contextual_help_string() );
     }
 
     /**
