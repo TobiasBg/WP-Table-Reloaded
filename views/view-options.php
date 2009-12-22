@@ -88,7 +88,7 @@
                 <option<?php echo ( 'admin' == $this->options['user_access_plugin'] ) ? ' selected="selected"': ''; ?> value="admin"><?php echo _x( 'Administrator', 'User role' ); ?></option>
                 <option<?php echo ( 'editor' == $this->options['user_access_plugin'] ) ? ' selected="selected"': ''; ?> value="editor"><?php echo _x( 'Editor', 'User role' ); ?></option>
                 <option<?php echo ( 'author' == $this->options['user_access_plugin'] ) ? ' selected="selected"': ''; ?> value="author"><?php echo _x( 'Author', 'User role' ); ?></option>
-                <option<?php echo ( 'contributor' == $this->options['user_access_plugin'] ) ? ' selected="selected"': ''; ?> value="author"><?php echo _x( 'Contributor', 'User role' ); ?></option>
+                <option<?php echo ( 'contributor' == $this->options['user_access_plugin'] ) ? ' selected="selected"': ''; ?> value="contributor"><?php echo _x( 'Contributor', 'User role' ); ?></option>
         </select></td>
         </tr>
 
@@ -105,9 +105,9 @@
         <tr valign="top">
             <th scope="row"><?php _e( 'Plugin Language', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
             <td><?php _e( 'WP-Table Reloaded shall be shown in this language:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <select id="options_plugin_language" name="options[plugin_language]"<?php echo ( !$is_admin ) ? ' disabled="disabled"': '' ; ?>>
-                    <option<?php echo ( 'auto' == $this->options['plugin_language'] ) ? ' selected="selected"': ''; ?> value="auto"><?php printf( __( 'WordPress Default (currently %s)', WP_TABLE_RELOADED_TEXTDOMAIN ), get_locale() ); ?></option>
-                    <?php foreach ( $this->available_plugin_languages as $lang_abbr => $language ) { ?>
-                    <option<?php echo ( $lang_abbr == $this->options['plugin_language'] ) ? ' selected="selected"': ''; ?> value="<?php echo $lang_abbr; ?>"><?php echo "{$language} ({$lang_abbr})"; ?></option>
+                <option<?php echo ( 'auto' == $this->options['plugin_language'] ) ? ' selected="selected"': ''; ?> value="auto"><?php printf( __( 'WordPress Default (currently %s)', WP_TABLE_RELOADED_TEXTDOMAIN ), get_locale() ); ?></option>
+                <?php foreach ( $this->available_plugin_languages as $lang_abbr => $language ) { ?>
+                <option<?php echo ( $lang_abbr == $this->options['plugin_language'] ) ? ' selected="selected"': ''; ?> value="<?php echo $lang_abbr; ?>"><?php echo "{$language} ({$lang_abbr})"; ?></option>
                 <?php } ?>
         </select></td>
         </tr>
