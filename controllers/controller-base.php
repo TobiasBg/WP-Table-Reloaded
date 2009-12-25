@@ -36,6 +36,18 @@ class WP_Table_Reloaded_Controller_Base {
     );
 
     /**
+     * Slug that will be appended to the URL of the plugin by WordPress, e.g. http://example.com/wp-admin/tools.php?page=wp-table-reloaded
+     * @var string
+     */
+    var $page_slug = 'wp-table-reloaded';
+
+    /**
+     * List of allowed places for the menu item of WP-Table Reloaded in the WP admin menu
+     * @var array
+     */
+    var $possible_admin_menu_parent_pages = array( 'tools.php', 'top-level', 'edit.php', 'edit-pages.php', 'plugins.php', 'index.php', 'options-general.php' );
+
+    /**
      * PHP4 class constructor, calls the PHP5 class constructor __construct()
      */
     function WP_Table_Reloaded_Controller_Base() {

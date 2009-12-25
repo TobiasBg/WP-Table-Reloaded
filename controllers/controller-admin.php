@@ -30,12 +30,6 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
     var $nonce_base = 'wp-table-reloaded-nonce';
 
     /**
-     * Slug that will be appended to the URL of the plugin by WordPress, e.g. http://example.com/wp-admin/tools.php?page=wp-table-reloaded
-     * @var string
-     */
-    var $page_slug = 'wp-table-reloaded';
-
-    /**
      * List of allowed actions that a user can perform with tables or the plugin
      * @var array
      */
@@ -53,12 +47,6 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
      * @var array
      */
     var $available_plugin_languages = array();
-
-    /**
-     * List of allowed places for the menu item of WP-Table Reloaded in the WP admin menu
-     * @var array
-     */
-    var $possible_admin_menu_parent_pages = array( 'tools.php', 'top-level', 'edit.php', 'edit-pages.php', 'plugins.php', 'index.php', 'options-general.php' );
 
     /**
      * Default plugin options and their default values, fresh installs use those, updated installs update their options accordingly

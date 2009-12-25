@@ -68,6 +68,35 @@ class WP_Table_Reloaded_Render {
 
         $output = '';
 
+        if ( is_user_logged_in() ) {
+            $user_group = $this->output_options['user_access_plugin'];
+            $capabilities = array(
+                'admin' => 'manage_options',
+                'editor' => 'publish_pages',
+                'author' => 'publish_posts',
+                'contributor' => 'edit_posts'
+            );
+            $min_capability = isset( $capabilities[ $user_group ] ) ? $capabilities[ $user_group ] : 'manage_options';
+            $min_capability = apply_filters( 'wp_table_reloaded_min_needed_capability', $min_capability );
+
+            if ( current_user_can( $min_capability ) ) {
+                $admin_menu_page = $this->output_options['admin_menu_parent_page'];
+                $admin_menu_page = apply_filters( 'wp_table_reloaded_admin_menu_parent_page', $admin_menu_page );
+                if ( !in_array( $admin_menu_page, $this->output_options['possible_admin_menu_parent_pages'] ) )
+                    $admin_menu_page = 'tools.php';
+                $admin_menu_page = ( 'top-level' == $admin_menu_page ) ? 'admin.php' : $admin_menu_page;
+                $url_params = array(
+                        'page' => $this->output_options['page_slug'],
+                        'action' => 'edit',
+                        'table_id' => $table['id']
+                );
+                $edit_url = add_query_arg( $url_params, admin_url( $admin_menu_page ) );
+                $edit_url = clean_url( $edit_url );
+                $edit_table_link = "<a href=\"{$edit_url}\" title=\"" . __( 'Edit' ) . "\">" . __( 'Edit' ) . "</a>";
+                $output .= $edit_table_link;
+            }
+        }
+
         if ( 0 < $rows && 0 < $cols ) {
 
             if ( $this->output_options['print_name'] ) {

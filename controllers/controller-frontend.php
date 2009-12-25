@@ -268,6 +268,12 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
                 'js_options' => $js_options
             );
 
+        // for the "Edit Table" link
+        $output_options['user_access_plugin'] = $this->options['user_access_plugin'];
+        $output_options['admin_menu_parent_page'] = $this->options['admin_menu_parent_page'];
+        $output_options['possible_admin_menu_parent_pages'] = $this->possible_admin_menu_parent_pages;
+        $output_options['page_slug'] = $this->page_slug;
+
         // render/generate the table HTML
         $render = $this->create_class_instance( 'WP_Table_Reloaded_Render', 'render.class.php' );
         $render->output_options = $output_options;
