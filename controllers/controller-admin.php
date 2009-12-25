@@ -1686,7 +1686,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
     function add_manage_page_js() {
         $suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.dev' : '';
         $jsfile = "admin/admin-script{$suffix}.js";
-        wp_enqueue_script( 'wp-table-reloaded-admin-js', plugins_url( $jsfile, WP_TABLE_RELOADED__FILE__ ), array( 'jquery' ), WP_TABLE_RELOADED_PLUGIN_VERSION, true );
+        wp_enqueue_script( 'wp-table-reloaded-admin-js', plugins_url( $jsfile, WP_TABLE_RELOADED__FILE__ ), array( 'jquery', 'thickbox' ), WP_TABLE_RELOADED_PLUGIN_VERSION, true );
         wp_localize_script( 'wp-table-reloaded-admin-js', 'WP_Table_Reloaded_Admin', array(
 	  	    'str_UninstallCheckboxActivation' => __( 'Do you really want to activate this? You should only do that right before uninstallation!', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	    'str_DataManipulationLinkInsertURL' => __( 'URL of link to insert', WP_TABLE_RELOADED_TEXTDOMAIN ),
@@ -1776,7 +1776,7 @@ delBefore = function(s) {
     return confirm( WP_Table_Reloaded_Admin.str_DeleteTableLink ) ? s : false;
 }
 $('#the-list').wpList( { alt: 'even', delBefore: delBefore } );
-$('.delete a[class^="delete"]').click(function(){return false;});
+$('.delete a[class^="delete"]').click(function(){return false;});\n
 WPLIST;
 
         $datatables = '';
@@ -1785,7 +1785,7 @@ WPLIST;
         $use_datatables = apply_filters( 'wp_table_reloaded_admin_use_datatables', $use_datatables );
         // sorting doesn't make sense, if there is only one table in the list
         if ( $use_datatables && 1 < count( $this->tables ) ) {
-            wp_register_script( 'wp-table-reloaded-tablesorter-js', plugins_url( 'js/jquery.datatables.min.js', WP_TABLE_RELOADED__FILE__ ), array( 'jquery' ) );
+            wp_register_script( 'wp-table-reloaded-tablesorter-js', plugins_url( 'js/jquery.datatables.min.js', WP_TABLE_RELOADED__FILE__ ), array( 'wp-table-reloaded-admin-js' ) );
             wp_print_scripts( 'wp-table-reloaded-tablesorter-js' );
 
             $sProcessing = __( 'Please wait...', WP_TABLE_RELOADED_TEXTDOMAIN );
@@ -1804,7 +1804,7 @@ WPLIST;
                 $pagination = '"bPaginate": false, "bLengthChange": false,';
 
             $datatables = <<<DATATABLES
-var tablelist = $('#wp-table-reloaded-list').dataTable({
+\nvar tablelist = $('#wp-table-reloaded-list').dataTable({
     "bSortClasses": false,
     {$pagination}
     "aaSorting": [],
@@ -1834,15 +1834,15 @@ var tablelist = $('#wp-table-reloaded-list').dataTable({
         }
     }
 })
-.find('.sorting').append('&nbsp;<span>&nbsp;&nbsp;&nbsp;</span>');\n\n
+.find('.sorting').append('&nbsp;<span>&nbsp;&nbsp;&nbsp;</span>');\n
 DATATABLES;
-            }
+        }
 
-            echo <<<JSSCRIPT
+        echo <<<JSSCRIPT
 <script type="text/javascript">
 /* <![CDATA[ */
 jQuery(document).ready(function($){
-{$datatables}{$wpList}
+{$wpList}{$datatables}
 });
 /* ]]> */
 </script>
