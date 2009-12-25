@@ -68,7 +68,7 @@ class WP_Table_Reloaded_Render {
 
         $output = '';
 
-        if ( is_user_logged_in() ) {
+        if ( is_user_logged_in() && $this->output_options['frontend_edit_table_link'] ) {
             $user_group = $this->output_options['user_access_plugin'];
             $capabilities = array(
                 'admin' => 'manage_options',

@@ -269,6 +269,7 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
             );
 
         // for the "Edit Table" link
+        $output_options['frontend_edit_table_link'] = $this->options['frontend_edit_table_link'];
         $output_options['user_access_plugin'] = $this->options['user_access_plugin'];
         $output_options['admin_menu_parent_page'] = $this->options['admin_menu_parent_page'];
         $output_options['possible_admin_menu_parent_pages'] = $this->possible_admin_menu_parent_pages;

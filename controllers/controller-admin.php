@@ -68,6 +68,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
         'admin_menu_parent_page' => 'tools.php',
         'user_access_plugin' => 'author', // others are 'contributor', 'editor', and 'admin'
         'user_access_plugin_options' => 'author', // others are 'editor', and 'admin'
+        'frontend_edit_table_link' => true,
         'install_time' => 0,
         'show_donate_nag' => true,
         'show_welcome_message' => 0, // 0 = no message, 1 = install message, 2 = update message
@@ -1085,6 +1086,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
             if ( current_user_can( 'manage_options' ) ) {
                 $this->options['uninstall_upon_deactivation'] = isset( $new_options['uninstall_upon_deactivation'] );
                 $this->options['enable_search'] = isset( $new_options['enable_search'] );
+                $this->options['frontend_edit_table_link'] = isset( $new_options['frontend_edit_table_link'] );
                 // plugin language
                 if ( isset( $this->available_plugin_languages[ $new_options['plugin_language'] ] ) )
                     $this->options['plugin_language'] = $new_options['plugin_language'];
