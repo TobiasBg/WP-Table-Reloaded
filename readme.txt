@@ -3,7 +3,7 @@ Contributors: TobiasBg
 Donate link: http://tobias.baethge.com/donate/
 Tags: html,table,data,editor,csv,import,export,excel,widget,admin,sidebar
 Requires at least: 2.8
-Tested up to: 2.9
+Tested up to: 2.9.1
 Stable tag: 1.5
 
 WP-Table Reloaded enables you to create and manage tables in your WP's admin area. No HTML knowledge is needed. A comfortable backend allows to easily edit table data. You can include the tables into your posts, on your pages or in text widgets by using a shortcode or a template tag function. Tables can be imported and exported from/to CSV, XML and HTML.
@@ -109,11 +109,11 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 == Changelog ==
 
 = Version 1.6 =
-* to be completed...
 * feature: Support for "colspan" and "colspan" in tables
 * feature: WP Search will now also search in tables
-* feature: Highlight row (background-color change when hovering)
 * feature: Possibility to select the plugin language
+* feature: Highlight row (background-color change when hovering)
+* feature: Option to show an "Edit Table" link on the frontend
 * enhancement: select fields for position of name and description
 * internal plugin restructuring
 * dropped support for outdated WordPress 2.7
