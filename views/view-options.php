@@ -127,8 +127,8 @@
         </tr>
 
         <tr valign="top">
-            <th scope="row"><?php _e( 'Edit Table Link', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="options[frontend_edit_table_link]" id="options_frontend_edit_table_link"<?php echo ( $this->options['frontend_edit_table_link'] ) ? ' checked="checked"': '' ; ?><?php echo ( !$is_admin ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="options_frontend_edit_table_link"><?php _e( 'Yes, show an "Edit Table" link to users with sufficient rights near every table on the frontend.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <th scope="row"><?php _e( 'Frontend Edit Link', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
+            <td><input type="checkbox" name="options[frontend_edit_table_link]" id="options_frontend_edit_table_link"<?php echo ( $this->options['frontend_edit_table_link'] ) ? ' checked="checked"': '' ; ?><?php echo ( !$is_admin ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="options_frontend_edit_table_link"><?php _e( 'Yes, show an "Edit" link to users with sufficient rights near every table on the frontend.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
 
         <tr valign="top">

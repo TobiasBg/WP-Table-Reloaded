@@ -268,12 +268,35 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
                 'js_options' => $js_options
             );
 
-        // for the "Edit Table" link
-        $output_options['frontend_edit_table_link'] = $this->options['frontend_edit_table_link'];
-        $output_options['user_access_plugin'] = $this->options['user_access_plugin'];
-        $output_options['admin_menu_parent_page'] = $this->options['admin_menu_parent_page'];
-        $output_options['possible_admin_menu_parent_pages'] = $this->possible_admin_menu_parent_pages;
-        $output_options['page_slug'] = $this->page_slug;
+        // generate "Edit Table" link
+        $edit_url = '';
+        if ( is_user_logged_in() && $this->options['frontend_edit_table_link'] ) {
+            $user_group = $this->options['user_access_plugin'];
+            $capabilities = array(
+                'admin' => 'manage_options',
+                'editor' => 'publish_pages',
+                'author' => 'publish_posts',
+                'contributor' => 'edit_posts'
+            );
+            $min_capability = isset( $capabilities[ $user_group ] ) ? $capabilities[ $user_group ] : 'manage_options';
+            $min_capability = apply_filters( 'wp_table_reloaded_min_needed_capability', $min_capability );
+
+            if ( current_user_can( $min_capability ) ) {
+                $admin_menu_page = $this->options['admin_menu_parent_page'];
+                $admin_menu_page = apply_filters( 'wp_table_reloaded_admin_menu_parent_page', $admin_menu_page );
+                if ( !in_array( $admin_menu_page, $this->possible_admin_menu_parent_pages ) )
+                    $admin_menu_page = 'tools.php';
+                $admin_menu_page = ( 'top-level' == $admin_menu_page ) ? 'admin.php' : $admin_menu_page;
+                $url_params = array(
+                        'page' => $this->page_slug,
+                        'action' => 'edit',
+                        'table_id' => $table['id']
+                );
+                $edit_url = add_query_arg( $url_params, admin_url( $admin_menu_page ) );
+                $edit_url = clean_url( $edit_url );
+            }
+        }
+        $output_options['edit_table_url'] = $edit_url;
 
         // render/generate the table HTML
         $render = $this->create_class_instance( 'WP_Table_Reloaded_Render', 'render.class.php' );
