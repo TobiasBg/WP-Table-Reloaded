@@ -10,9 +10,7 @@ WP-Table Reloaded enables you to create and manage tables in your WP's admin are
 
 == Description ==
 
-WP-Table Reloaded enables you to create and manage tables in your WP's admin area. No HTML knowledge is needed. A comfortable backend allows to easily edit table data. You can include the tables into your posts, on your pages or in text widgets by using a shortcode or a template tag function. Tables can be imported and exported from/to CSV, XML and HTML.
-
-The plugin is a completely rewritten and extended version of Alex Rabe's "wp-Table" and uses the state-of-the-art WordPress techniques which makes it faster and lighter than the original plugin. You may also have both plugins installed at the same time and you can also import your tables from the wp-Table plugin!
+WP-Table Reloaded enables you to create and manage tables in your WP's admin area. No HTML knowledge is needed. A comfortable backend allows to easily edit table data. Tables can contain any type of data and additional JavaScript libraries can be used to extend it with features like sorting, pagination, filtering, and more. You can include the tables into your posts, on your pages or in text widgets by using a shortcode or a template tag function. Tables can be imported and exported from/to CSV, XML and HTML.
 
 = More information =
 Please see the English plugin website http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/ .
@@ -20,7 +18,7 @@ Please see the English plugin website http://tobias.baethge.com/wordpress-plugin
 If you like this plugin, please rate it here in the WordPress Plugin Directory or make a [donation](http://tobias.baethge.com/donate/). Thank you!
 
 = Informationen auf Deutsch =
-Dieses Plugin erlaubt die Verwaltung von Tabellen in WordPress.
+Dieses Plugin erlaubt die komfortable Verwaltung von Tabellen in WordPress. Daf&uuml;r werden keine HTML-Kenntnisse ben&ouml;tigt. Die Daten werden in einer Eingabemaske eingegeben und mittels eines Shortcodes in Artikel, Seiten oder Text-Widgets eingebunden. Zus&auml;tzlich k&ouml;nnen einer Tabelle mit einer JavaScript-Bibliothek weitere F&auml;higkeiten, wie Sortieren, Paginierung und Filterung hinzugef&uuml;gt werden.
 
 Weitere Informationen auf Deutsch: http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-deutsch/
 
@@ -44,7 +42,7 @@ Manual Installation works just as for most other WordPress plugins:
 
 1. Include a table by adding the shortcode [table id=&lt;your-table's-id&gt; /] to your post, page or text widget.
 
-1. You might want to add styling features via your blog's theme's CSS file (probably style.css) or via the option in the "Plugin Options" screen, where you can enter your CSS directly.
+1. You might want to add styling features via the option in the "Plugin Options" screen, where you can enter your CSS directly.
 
 == Frequently Asked Questions ==
 
@@ -87,8 +85,8 @@ Everything should be self-explaining there.
 
 To show one of your tables in a post, on a page or in a text widget, just include the shortcode [table id=&lt;the-id&gt; /] to your post/page/text-widget, where &lt;the-id&gt is the ID of your table (can be found on the left side of the "List tables" screen.)
 
-After that you might want to change the style of the table. You can do this either by adding CSS to your theme's CSS stylesheet (probably style.css) or by entering it into the box on the "Plugin Options" screen. There are two example styles available on the [plugin website](http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/#usage)
-You may also add certain features (like table-sorting, alternating row colors, print name and/or description, ...) by checking the appropriate options in the "Edit table" screen.
+After that you might want to change the style of the table. You can do this by entering CSS commands into the "Custom CSS" textarea on the "Plugin Options" screen.
+You may also add certain features (like sorting, pagination, filtering, alternating row colors, row highlighting, print name and/or description, ...) by checking the appropriate options on the "Edit table" screen.
 
 == Acknowledgements ==
 
