@@ -305,7 +305,7 @@
             $selected = ( 'below' == $table['options']['print_description_position'] ) ? ' selected="selected"': '';
             $position_select .= '<option' . $selected . ' value="below">' . __( 'below', WP_TABLE_RELOADED_TEXTDOMAIN ) . '</option>';
             $position_select .= '</select>';
-            printf( __( 'The Table Description shall be written %s the table (HTML tag &lt;h2&gt;).', WP_TABLE_RELOADED_TEXTDOMAIN ), $position_select );
+            printf( __( 'The Table Description shall be written %s the table.', WP_TABLE_RELOADED_TEXTDOMAIN ), $position_select );
             ?>
         </td>
         </tr>
