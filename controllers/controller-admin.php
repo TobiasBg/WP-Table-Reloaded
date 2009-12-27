@@ -298,7 +298,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
             'sk_SK' => __( 'Slovak', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'sv_SE' => __( 'Swedish', WP_TABLE_RELOADED_TEXTDOMAIN )
         );
-        ksort( $this->available_plugin_languages );
+        asort( $this->available_plugin_languages );
 
         // do WP plugin action (before action is fired) -> can stop further plugin execution by returning true
         $overwrite = apply_filters( 'wp_table_reloaded_action_pre_' . $this->action, false );
