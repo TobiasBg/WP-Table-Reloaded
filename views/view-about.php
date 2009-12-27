@@ -52,6 +52,7 @@
             <br/>&middot; <?php _e( 'Czech (thanks to <a href="http://separatista.net/">Separatista</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'Finnish (thanks to Jaakko)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'French (thanks to <a href="http://ultratrailer.net/">Yin-Yin</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
+            <br/>&middot; <?php _e( 'Hindi (thanks to <a href="http://outshinesolutions.com/">Outshine Solutions</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'Italian (thanks to <a href="http://www.scrical.it/">Gabriella Mazzon</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'Japanese (thanks to <a href="http://www.u-1.net/">Yuuichi</a>)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <br/>&middot; <?php _e( 'Polish (thanks to Alex Kortan)', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
