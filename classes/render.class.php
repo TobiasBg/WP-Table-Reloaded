@@ -68,11 +68,6 @@ class WP_Table_Reloaded_Render {
 
         $output = '';
 
-        if ( !empty( $this->output_options['edit_table_url'] ) ) {
-            $edit_table_link = "<a href=\"{$this->output_options['edit_table_url']}\" title=\"" . __( 'Edit' ) . "\">" . __( 'Edit' ) . "</a>";
-            $output .= $edit_table_link;
-        }
-
         if ( 0 < $rows && 0 < $cols ) {
 
             if ( $this->output_options['print_name'] ) {
@@ -95,6 +90,11 @@ class WP_Table_Reloaded_Render {
                 
                 if ( 'above' == $print_description_position )
                     $output .= $description_html;
+            }
+
+            if ( !empty( $this->output_options['edit_table_url'] ) ) {
+                $edit_table_link = "<a href=\"{$this->output_options['edit_table_url']}\" title=\"" . __( 'Edit' ) . "\" style=\"display: block;\">" . __( 'Edit' ) . "</a>";
+                $output .= $edit_table_link;
             }
 
             $output = apply_filters( 'wp_table_reloaded_pre_output_table', $output, $table['id'] );
