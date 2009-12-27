@@ -95,18 +95,18 @@ TEXT;
         }
         return $message;
     }
-    
+
     // ###################################################################################################################
     // help buttons
     function help_button( $id ) {
         $help = array(
             'colspan' => array(
-                    'text' => __( 'This is the colspan help message.', WP_TABLE_RELOADED_TEXTDOMAIN ),
+                    'text' => __( 'To combine cells within a row, click into the cell to the right of the cell that has the content the combined cells shall have.', WP_TABLE_RELOADED_TEXTDOMAIN ),
                     'height' => 200,
                     'width' => 300
                 ),
             'rowspan' => array(
-                    'text' => __( 'This is the rowspan help message.', WP_TABLE_RELOADED_TEXTDOMAIN ),
+                    'text' => __( 'To combine cells within a column, click into the cell below the cell that has the content the combined cells shall have.', WP_TABLE_RELOADED_TEXTDOMAIN ),
                     'height' => 200,
                     'width' => 300
                 )
