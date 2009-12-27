@@ -47,40 +47,25 @@
             <?php _e( 'Soeren Krings for its extension <a href="http://tablesorter.openwerk.de/">Tablesorter Extended</a>,', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/>
             <?php _e( 'the submitters of translations:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <?php
-                // list of languages and their credits line, $_languages are inactive languages, that are not up-to-date but shall be kept to remain translatable
-                $_languages['sq_AL']     = __( 'Albanian', WP_TABLE_RELOADED_TEXTDOMAIN );
-                $credits_links['sq_AL'] = '<a href="http://www.romeolab.com/">Romeo</a>';
-                $_languages['by_BY']     = __( 'Belorussian', WP_TABLE_RELOADED_TEXTDOMAIN );
-                $credits_links['by_BY'] = '<a href="http://www.fatcow.com/">Marcis Gasuns</a>';
-                $languages['pt_BR']     = __( 'Brazilian Portuguese', WP_TABLE_RELOADED_TEXTDOMAIN );
-                $credits_links['pt_BR'] = '<a href="http://www.pensarics.com/">Rics</a>';
-                $languages['cs_CZ']     = __( 'Czech', WP_TABLE_RELOADED_TEXTDOMAIN );
-                $credits_links['cs_CZ'] = '<a href="http://separatista.net/">Separatista</a>';
-                $_languages['fi_FI']     = __( 'Finnish', WP_TABLE_RELOADED_TEXTDOMAIN );
-                $credits_links['fi_FI'] = 'Jaakko';
-                $_languages['fr_FR']     = __( 'French', WP_TABLE_RELOADED_TEXTDOMAIN );
-                $credits_links['fr_FR'] = '<a href="http://ultratrailer.net/">Yin-Yin</a>';
-                $languages['hi_IN']     = __( 'Hindi', WP_TABLE_RELOADED_TEXTDOMAIN );
-                $credits_links['hi_IN'] = '<a href="http://outshinesolutions.com/">Outshine Solutions</a>';
-                $_languages['it_IT']     = __( 'Italian', WP_TABLE_RELOADED_TEXTDOMAIN );
-                $credits_links['it_IT'] = '<a href="http://www.scrical.it/">Gabriella Mazzon</a>';
-                $languages['ja']        = __( 'Japanese', WP_TABLE_RELOADED_TEXTDOMAIN );
-                $credits_links['ja']    = '<a href="http://www.u-1.net/">Yuuichi</a>';
-                $_languages['pl_PL']     = __( 'Polish', WP_TABLE_RELOADED_TEXTDOMAIN );
-                $credits_links['pl_PL'] = 'Alex Kortan';
-                $_languages['ru_RU']     = __( 'Russian', WP_TABLE_RELOADED_TEXTDOMAIN );
-                $credits_links['ru_RU'] = '<a href="http://wp-skins.info/">Truper</a>';
-                $languages['sk_SK']     = __( 'Slovak', WP_TABLE_RELOADED_TEXTDOMAIN );
-                $credits_links['sk_SK'] = '<a href="http://lukas.cerro.sk/">55.lukas</a>';
-                $_languages['es_ES']     = __( 'Spanish', WP_TABLE_RELOADED_TEXTDOMAIN );
-                $credits_links['es_ES'] = '<a href="http://theindependentproject.com/">Alejandro Urrutia</a> and <a href="http://halles.cl/">Matias Halles</a>';
-                $languages['sv_SE']     = __( 'Swedish', WP_TABLE_RELOADED_TEXTDOMAIN );
-                $credits_links['sv_SE'] = '<a href="http://www.zuperzed.se/">ZuperZed</a>';
-                $_languages['tr_TR']     = __( 'Turkish', WP_TABLE_RELOADED_TEXTDOMAIN );
-                $credits_links['tr_TR'] = '<a href="http://www.wpuzmani.com/">Semih</a>';
-                asort( $languages );
-                
-                foreach ( $languages as $code => $language ) {
+                $credits_links = array(
+                    'sq_AL' => '<a href="http://www.romeolab.com/">Romeo</a>',
+                    'by_BY' => '<a href="http://www.fatcow.com/">Marcis Gasuns</a>',
+                    'pt_BR' => '<a href="http://www.pensarics.com/">Rics</a>',
+                    'cs_CZ' => '<a href="http://separatista.net/">Separatista</a>',
+                    'fi_FI' => 'Jaakko',
+                    'fr_FR' => '<a href="http://ultratrailer.net/">Yin-Yin</a>',
+                    'hi_IN' => '<a href="http://outshinesolutions.com/">Outshine Solutions</a>',
+                    'it_IT' => '<a href="http://www.scrical.it/">Gabriella Mazzon</a>',
+                    'ja'    => '<a href="http://www.u-1.net/">Yuuichi</a>',
+                    'pl_PL' => 'Alex Kortan',
+                    'ru_RU' => '<a href="http://wp-skins.info/">Truper</a>',
+                    'sk_SK' => '<a href="http://lukas.cerro.sk/">55.lukas</a>',
+                    'es_ES' => '<a href="http://theindependentproject.com/">Alejandro Urrutia</a> and <a href="http://halles.cl/">Matias Halles</a>',
+                    'sv_SE' => '<a href="http://www.zuperzed.se/">ZuperZed</a>',
+                    'tr_TR' => '<a href="http://www.wpuzmani.com/">Semih</a>'
+                );
+
+                foreach ( $this->available_plugin_languages as $code => $language ) {
                     echo "<br/>&middot; " . sprintf( __( '%s (thanks to %s)', WP_TABLE_RELOADED_TEXTDOMAIN ), $language, $credits_links[ $code ] ) . "\n";
                 }
             ?>

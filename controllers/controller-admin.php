@@ -297,7 +297,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
             'pt_BR' => __( 'Brazilian Portuguese', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'sk_SK' => __( 'Slovak', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'sv_SE' => __( 'Swedish', WP_TABLE_RELOADED_TEXTDOMAIN ),
-            // the following are inactive because they are not up-to-date
+            // the following will (as of currently) be made inactive because they are not up-to-date
             'sq_AL' => __( 'Albanian', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'by_BY' => __( 'Belorussian', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'fi_FI' => __( 'Finnish', WP_TABLE_RELOADED_TEXTDOMAIN ),
