@@ -147,7 +147,11 @@ class WP_Table_Reloaded_Render {
             $tbody = "<tbody{$tbody_class}>\n" . implode( '', $tbody ) . "</tbody>\n";
             $tfoot = ( !empty( $tfoot ) ) ? "<tfoot>\n{$tfoot}</tfoot>\n" : '';
 
-            $output .= "<table id=\"{$this->output_options['html_id']}\" class=\"{$cssclasses}\" cellspacing=\"{$this->output_options['cellspacing']}\" cellpadding=\"{$this->output_options['cellpadding']}\" border=\"{$this->output_options['border']}\">\n";
+            $cellspacing = ( false !== $this->output_options['cellspacing'] ) ? " cellspacing=\"{$this->output_options['cellspacing']}\"" : '';
+            $cellpadding = ( false !== $this->output_options['cellpadding'] ) ? " cellpadding=\"{$this->output_options['cellpadding']}\"" : '';
+            $border = ( false !== $this->output_options['border'] ) ? " border=\"{$this->output_options['border']}\"" : '';
+
+            $output .= "\n<table id=\"{$this->output_options['html_id']}\" class=\"{$cssclasses}\"{$cellspacing}{$cellpadding}{$border}>\n";
             $output .= $colgroup . $thead . $tfoot . $tbody;
             $output .= "</table>\n";
 

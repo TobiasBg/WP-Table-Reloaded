@@ -180,9 +180,9 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
             'show_columns' => '',
             'hide_rows' => '',
             'hide_columns' => '',
-            'cellspacing' => 1,
-            'cellpadding' => 0,
-            'border' => 0
+            'cellspacing' => false,
+            'cellpadding' => false,
+            'border' => false
         );
         $atts = shortcode_atts( $default_atts, $atts );
 
