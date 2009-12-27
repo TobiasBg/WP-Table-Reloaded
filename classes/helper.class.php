@@ -101,12 +101,12 @@ TEXT;
     function help_button( $id ) {
         $help = array(
             'colspan' => array(
-                    'text' => __( 'To combine cells within a row, click into the cell to the right of the cell that has the content the combined cells shall have.', WP_TABLE_RELOADED_TEXTDOMAIN ),
+                    'text' => __( 'Table cells can span across more than one column or row.', WP_TABLE_RELOADED_TEXTDOMAIN ) . '<br/><br/>' . __( 'Combining consecutive cells within the same row is called "colspanning".', WP_TABLE_RELOADED_TEXTDOMAIN ) . '<br/><br/>' . __( 'To combine cells, add the keyword #colspan# to the cell to the right of the one with the content for the combined cell by using the corresponding button.', WP_TABLE_RELOADED_TEXTDOMAIN ) . '<br/><br/>' . __( 'Repeat this to add the keyword to all cells that shall be connected.', WP_TABLE_RELOADED_TEXTDOMAIN ),
                     'height' => 200,
                     'width' => 300
                 ),
             'rowspan' => array(
-                    'text' => __( 'To combine cells within a column, click into the cell below the cell that has the content the combined cells shall have.', WP_TABLE_RELOADED_TEXTDOMAIN ),
+                    'text' => __( 'Table cells can span across more than one column or row.', WP_TABLE_RELOADED_TEXTDOMAIN ) . '<br/><br/>' . __( 'Combining consecutive cells within the same column is called "rowspanning".', WP_TABLE_RELOADED_TEXTDOMAIN ) . '<br/><br/>' . __( 'To combine cells, add the keyword #rowspan# to the cell below the one with the content for the combined cell by using the corresponding button.', WP_TABLE_RELOADED_TEXTDOMAIN ) . '<br/><br/>' . __( 'Repeat this to add the keyword to all cells that shall be connected.', WP_TABLE_RELOADED_TEXTDOMAIN ),
                     'height' => 200,
                     'width' => 300
                 )
