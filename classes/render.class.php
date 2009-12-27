@@ -287,9 +287,9 @@ class WP_Table_Reloaded_Render {
      * @return string The escaped string
      */
     function safe_output( $string ) {
-        // replace any & with &amp; that is not already an encoded entity
-        // htmlspecialchars() would encode <HTML> tags, which we don't want
-        $string = htmlentities2( $string );
+        // replace any & with &amp; that is not already an encoded entity (from function htmlentities2 in WP 2.8)
+        // complete htmlentities2() or htmlspecialchars() would encode <HTML> tags, which we don't want
+        $string = preg_replace( "/&(?![A-Za-z]{0,4}\w{2,3};|#[0-9]{2,4};)/", "&amp;", $string );
         // remove slashes, as strings are stored with slashes in DB
         $string = stripslashes( $string );
         // change line breaks, nl2br can be overwritten to false, if not wanted
