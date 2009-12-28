@@ -172,28 +172,39 @@ div.closed .hide_link { display: none; }
 /* table styles for the table preview */
 
 #TB_ajaxContent .wp-table-reloaded {
-	background-color:#CDCDCD;
-	width:100%;
+	border-collapse: separate;
+	border-spacing: 1px;
+	background-color: #CDCDCD;
+	margin: 10px 0px 15px 0px;
+	font-size: 8pt;
+	width: 100%;
+	text-align: left;
 }
 
 /* Styles for the tablehead (<th>) (if enabled) */
 #TB_ajaxContent .wp-table-reloaded th {
-	border:1px solid #FFF;
-	padding:4px;
+	background-color: #E6EEEE;
+	border: 1px solid #FFFFFF;
+	padding: 4px;
 }
 
 #TB_ajaxContent .wp-table-reloaded td {
-	padding:4px;
-	background-color:#FFF;
-	vertical-align:top;
+	color: #3D3D3D;
+	padding: 4px;
+	background-color: #FFFFFF;
+	vertical-align: top;
 }
 
 /* Styles for alternating row colors (if enabled) */
 #TB_ajaxContent .wp-table-reloaded .even td {
-	background-color:#FFF;
+	background-color: #FFFFFF;
 }
 #TB_ajaxContent .wp-table-reloaded .odd td {
-	background-color:#F0F0F6;
+	background-color: #F0F0F6;
+}
+
+#TB_ajaxContent .wp-table-reloaded .row-hover tr:hover td {
+	background-color: #D0D0D6;
 }
 
 .dataTables_wrapper {
