@@ -67,7 +67,7 @@
 
                     // data rows, with checkboxes to select rows
                 foreach ( $table['data'] as $row_idx => $table_row ) {
-                    $row_hidden = ( isset( $table['visibility']['rows'][$col_idx] ) && $table['visibility']['rows'][$row_idx] ) ? ' row-hidden' : '';
+                    $row_hidden = ( isset( $table['visibility']['rows'][$row_idx] ) && $table['visibility']['rows'][$row_idx] ) ? ' row-hidden' : '';
                     echo "<tr class=\"edit_row_{$row_idx}{$row_hidden}\">\n";
                         $output_idx = $row_idx + 1; // start counting at 1 on output
                         $hidden = ( isset( $table['visibility']['rows'][$row_idx] ) && $table['visibility']['rows'][$row_idx] ) ? 'true': '' ;
