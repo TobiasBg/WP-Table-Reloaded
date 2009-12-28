@@ -1,115 +1,55 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Tobias B&auml;thge
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Translation of the WordPress plugin WP-Table Reloaded 1.6-beta1 by Tobias B&auml;thge.
+# Copyright (C) 2009 Tobias B&auml;thge
+# This file is distributed under the same license as the WP-Table Reloaded package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: WP-Table Reloaded 1.6-beta1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-table-reloaded\n"
-"POT-Creation-Date: 2009-12-05 14:14+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2009-12-28 20:16+0000\n"
+"PO-Revision-Date: 2009-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: php/wp-table-reloaded-export.class.php:30
-#: php/wp-table-reloaded-import.class.php:38
+#: classes/export.class.php:28 classes/import.class.php:36
 msgid "CSV - Character-Separated Values"
 msgstr ""
 
-#: php/wp-table-reloaded-export.class.php:31
-#: php/wp-table-reloaded-import.class.php:39
+#: classes/export.class.php:29 classes/import.class.php:37
 msgid "HTML - Hypertext Markup Language"
 msgstr ""
 
-#: php/wp-table-reloaded-export.class.php:32
-#: php/wp-table-reloaded-import.class.php:40
+#: classes/export.class.php:30 classes/import.class.php:38
 msgid "XML - eXtended Markup Language"
 msgstr ""
 
-#: php/wp-table-reloaded-export.class.php:35
+#: classes/export.class.php:33
 msgid "; (semicolon)"
 msgstr ""
 
-#: php/wp-table-reloaded-export.class.php:36
+#: classes/export.class.php:34
 msgid ", (comma)"
 msgstr ""
 
-#: php/wp-table-reloaded-export.class.php:37
+#: classes/export.class.php:35
 msgid ": (colon)"
 msgstr ""
 
-#: php/wp-table-reloaded-export.class.php:38
+#: classes/export.class.php:36
 msgid ". (dot)"
 msgstr ""
 
-#: php/wp-table-reloaded-export.class.php:39
+#: classes/export.class.php:37
 msgid "| (pipe)"
 msgstr ""
 
-#: php/wp-table-reloaded-helper.class.php:66
-#: php/wp-table-reloaded-helper.class.php:69
-#: php/wp-table-reloaded-helper.class.php:72
-#: php/wp-table-reloaded-helper.class.php:75
-#: php/wp-table-reloaded-helper.class.php:78
-#: php/wp-table-reloaded-helper.class.php:81
-#: php/wp-table-reloaded-helper.class.php:84
-#, php-format
-msgid "This is the &quot;%s&quot; screen."
-msgstr ""
-
-#: php/wp-table-reloaded-helper.class.php:66 wp-table-reloaded-admin.php:2361
-msgid "List Tables"
-msgstr ""
-
-#: php/wp-table-reloaded-helper.class.php:69 wp-table-reloaded-admin.php:2060
-#: wp-table-reloaded-admin.php:2111 wp-table-reloaded-admin.php:2123
-#: wp-table-reloaded-admin.php:2127
-msgid "Edit Table"
-msgstr ""
-
-#: php/wp-table-reloaded-helper.class.php:72 wp-table-reloaded-admin.php:1337
-#: wp-table-reloaded-admin.php:2362
-msgid "Add new Table"
-msgstr ""
-
-#: php/wp-table-reloaded-helper.class.php:75 wp-table-reloaded-admin.php:1816
-#: wp-table-reloaded-admin.php:2363
-msgid "Import a Table"
-msgstr ""
-
-#: php/wp-table-reloaded-helper.class.php:78 wp-table-reloaded-admin.php:1981
-#: wp-table-reloaded-admin.php:2364
-msgid "Export a Table"
-msgstr ""
-
-#: php/wp-table-reloaded-helper.class.php:81 wp-table-reloaded-admin.php:275
-#: wp-table-reloaded-admin.php:1686 wp-table-reloaded-admin.php:1701
-#: wp-table-reloaded-admin.php:1985 wp-table-reloaded-admin.php:2055
-#: wp-table-reloaded-admin.php:2370
-msgid "Plugin Options"
-msgstr ""
-
-#: php/wp-table-reloaded-helper.class.php:84 wp-table-reloaded-admin.php:2371
-msgid "About the plugin"
-msgstr ""
-
-#: php/wp-table-reloaded-helper.class.php:87 wp-table-reloaded-admin.php:1077
-msgid "Plugin deactivated successfully."
-msgstr ""
-
-#: php/wp-table-reloaded-helper.class.php:87 wp-table-reloaded-admin.php:1078
-msgid ""
-"All tables, data and options were deleted. You may now remove the plugin's "
-"subfolder from your WordPress plugin folder."
-msgstr ""
-
-#: php/wp-table-reloaded-helper.class.php:96 wp-table-reloaded-admin.php:2285
+#: classes/helper.class.php:40 views/view-about.php:22
 #, php-format
 msgid ""
 "More information about WP-Table Reloaded can be found on the <a href=\"%s"
@@ -117,19 +57,19 @@ msgid ""
 "Plugin Directory</a>."
 msgstr ""
 
-#: php/wp-table-reloaded-helper.class.php:97 wp-table-reloaded-admin.php:2285
+#: classes/helper.class.php:41 views/view-about.php:22
 #, php-format
 msgid "For technical information, see the <a href=\"%s\">documentation</a>."
 msgstr ""
 
-#: php/wp-table-reloaded-helper.class.php:98 wp-table-reloaded-admin.php:2292
+#: classes/helper.class.php:42 views/view-about.php:29
 #, php-format
 msgid ""
 "<a href=\"%s\">Support</a> is provided through the <a href=\"%s\">WordPress "
 "Support Forums</a>."
 msgstr ""
 
-#: php/wp-table-reloaded-helper.class.php:99 wp-table-reloaded-admin.php:2292
+#: classes/helper.class.php:43 views/view-about.php:29
 #, php-format
 msgid ""
 "Before asking for support, please carefully read the <a href=\"%s"
@@ -137,25 +77,131 @@ msgid ""
 "common questions, and search through the forums."
 msgstr ""
 
-#: php/wp-table-reloaded-helper.class.php:100 wp-table-reloaded-admin.php:2299
+#: classes/helper.class.php:44 views/view-about.php:36
 #, php-format
 msgid ""
 "If you like the plugin, <a href=\"%s\"><strong>a donation</strong></a> is "
 "recommended."
 msgstr ""
 
-#: php/wp-table-reloaded-helper.class.php:143
+#: classes/helper.class.php:74
 msgid ""
 "Thank you for using <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-"
 "table-reloaded-english/\">WP-Table Reloaded</a>."
 msgstr ""
 
-#: php/wp-table-reloaded-helper.class.php:143
+#: classes/helper.class.php:74
 #, php-format
 msgid "Support the plugin with your <a href=\"%s\">donation</a>!"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:271
+#: classes/helper.class.php:104 classes/helper.class.php:109
+msgid "Table cells can span across more than one column or row."
+msgstr ""
+
+#: classes/helper.class.php:104
+msgid ""
+"Combining consecutive cells within the same row is called \"colspanning\"."
+msgstr ""
+
+#: classes/helper.class.php:104
+msgid ""
+"To combine cells, add the keyword #colspan# to the cell to the right of the "
+"one with the content for the combined cell by using the corresponding button."
+msgstr ""
+
+#: classes/helper.class.php:104 classes/helper.class.php:109
+msgid "Repeat this to add the keyword to all cells that shall be connected."
+msgstr ""
+
+#: classes/helper.class.php:109
+msgid ""
+"Combining consecutive cells within the same column is called \"rowspanning\"."
+msgstr ""
+
+#: classes/helper.class.php:109
+msgid ""
+"To combine cells, add the keyword #rowspan# to the cell below the one with "
+"the content for the combined cell by using the corresponding button."
+msgstr ""
+
+#: classes/helper.class.php:118
+msgid "Help"
+msgstr ""
+
+#: classes/render.class.php:96 views/view-list.php:60
+msgid "Edit"
+msgstr ""
+
+#: controllers/controller-admin.php:292
+msgid "Czech"
+msgstr ""
+
+#: controllers/controller-admin.php:293
+msgid "German"
+msgstr ""
+
+#: controllers/controller-admin.php:294
+msgid "English"
+msgstr ""
+
+#: controllers/controller-admin.php:295
+msgid "Hindi"
+msgstr ""
+
+#: controllers/controller-admin.php:296
+msgid "Japanese"
+msgstr ""
+
+#: controllers/controller-admin.php:297
+msgid "Brazilian Portuguese"
+msgstr ""
+
+#: controllers/controller-admin.php:298
+msgid "Slovak"
+msgstr ""
+
+#: controllers/controller-admin.php:299
+msgid "Swedish"
+msgstr ""
+
+#: controllers/controller-admin.php:301
+msgid "Albanian"
+msgstr ""
+
+#: controllers/controller-admin.php:302
+msgid "Belorussian"
+msgstr ""
+
+#: controllers/controller-admin.php:303
+msgid "Finnish"
+msgstr ""
+
+#: controllers/controller-admin.php:304
+msgid "French"
+msgstr ""
+
+#: controllers/controller-admin.php:305
+msgid "Italian"
+msgstr ""
+
+#: controllers/controller-admin.php:306
+msgid "Polish"
+msgstr ""
+
+#: controllers/controller-admin.php:307
+msgid "Russian"
+msgstr ""
+
+#: controllers/controller-admin.php:308
+msgid "Spanish"
+msgstr ""
+
+#: controllers/controller-admin.php:309
+msgid "Turkish"
+msgstr ""
+
+#: controllers/controller-admin.php:335
 #, php-format
 msgid ""
 "Welcome to WP-Table Reloaded %s. If you encounter any questions or problems, "
@@ -163,45 +209,52 @@ msgid ""
 "\">documentation</a>, and the <a href=\"%s\">support</a> section."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:275
+#: controllers/controller-admin.php:336
 #, php-format
 msgid "Thank you for upgrading to WP-Table Reloaded %s."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:275
+#: controllers/controller-admin.php:336
 msgid ""
-"This version adds support for the DataTables JavaScript library (with "
-"features like sorting, pagination, and filtering) and includes a lot more "
-"enhancements."
+"Among other things, this version adds support for \"colspan\" and \"rowspan"
+"\" of table cells and enables the WP Search to search through tables."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:275
+#: controllers/controller-admin.php:336
 #, php-format
 msgid ""
-"Please read the <a href=\"%s\">release announcement</a> for more information "
-"and check your settings in the <a href=\"%s\">%s</a>."
+"Please read the <a href=\"%s\">release announcement</a> for more information."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:275
+#: controllers/controller-admin.php:336
 #, php-format
 msgid ""
 "If you like the new features and enhancements, I would appreciate a small <a "
 "href=\"%s\">donation</a>. Thank you."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:282
+#: controllers/controller-admin.php:341
 msgid "Hide this message"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:290
-#, php-format
+#: controllers/controller-admin.php:349
 msgid ""
 "Thanks for using this plugin! You've installed WP-Table Reloaded over a "
-"month ago. If it works and you are satisfied with the results of managing "
-"your %s tables, isn't it worth at least one dollar or euro?"
+"month ago."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:291
+#: controllers/controller-admin.php:349
+#, php-format
+msgid ""
+"If it works and you are satisfied with the results of managing your %s "
+"table, isn't it worth at least one dollar or euro?"
+msgid_plural ""
+"If it works and you are satisfied with the results of managing your %s "
+"tables, isn't it worth at least one dollar or euro?"
+msgstr[0] ""
+msgstr[1] ""
+
+#: controllers/controller-admin.php:350
 #, php-format
 msgid ""
 "<a href=\"%s\">Donations</a> help me to continue support and development of "
@@ -209,336 +262,247 @@ msgid ""
 "free time! Thank you!"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:292
+#: controllers/controller-admin.php:351
 msgid "Sure, no problem!"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:293
+#: controllers/controller-admin.php:352
 msgid "I already donated."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:294
+#: controllers/controller-admin.php:353
 msgid "No, thanks. Don't ask again."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:320
+#: controllers/controller-admin.php:381
 #, php-format
 msgid "Table &quot;%s&quot; added successfully."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:348
+#: controllers/controller-admin.php:412
 #, php-format
 msgid ""
 "Table edited successfully. This Table now has the ID %s. You'll need to "
 "adjust existing shortcodes accordingly."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:350
+#: controllers/controller-admin.php:414
 #, php-format
 msgid ""
 "The ID could not be changed from %s to %s, because there already is a Table "
 "with that ID."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:353
+#: controllers/controller-admin.php:417
 msgid "Table edited successfully."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:399
+#: controllers/controller-admin.php:463
 msgid "Rows swapped successfully."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:420
+#: controllers/controller-admin.php:484
 msgid "Columns swapped successfully."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:451
+#: controllers/controller-admin.php:513
 msgid "Table sorted successfully."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:472
+#: controllers/controller-admin.php:534
 msgid "Row moved successfully."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:497
+#: controllers/controller-admin.php:559
 msgid "Column moved successfully."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:505
+#: controllers/controller-admin.php:567
 msgid "Row could not be deleted."
 msgid_plural "Rows could not be deleted."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-table-reloaded-admin.php:514
+#: controllers/controller-admin.php:576
 msgid "Row deleted successfully."
 msgid_plural "Rows deleted successfully."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-table-reloaded-admin.php:524
+#: controllers/controller-admin.php:586
 msgid "Column could not be deleted."
 msgid_plural "Columns could not be deleted."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-table-reloaded-admin.php:537
+#: controllers/controller-admin.php:599
 msgid "Column deleted successfully."
 msgid_plural "Columns deleted successfully."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-table-reloaded-admin.php:560
+#: controllers/controller-admin.php:622
 msgid "Row inserted successfully."
 msgid_plural "Rows inserted successfully."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-table-reloaded-admin.php:587
+#: controllers/controller-admin.php:649
 msgid "Column inserted successfully."
 msgid_plural "Columns inserted successfully."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-table-reloaded-admin.php:602
+#: controllers/controller-admin.php:664
 msgid "Row added successfully."
 msgid_plural "Rows added successfully."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-table-reloaded-admin.php:616
+#: controllers/controller-admin.php:678
 msgid "Column added successfully."
 msgid_plural "Columns added successfully."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-table-reloaded-admin.php:623
+#: controllers/controller-admin.php:685
 msgid "Could not add Custom Data Field, because you did not enter a name."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:628
+#: controllers/controller-admin.php:690
 msgid ""
 "Could not add Custom Data Field, because the name you entered is reserved "
 "for other table data."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:634
+#: controllers/controller-admin.php:696
 msgid ""
 "Could not add Custom Data Field, because the name contained illegal "
 "characters."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:638
+#: controllers/controller-admin.php:700
 msgid ""
 "Could not add Custom Data Field, because a Field with that name already "
 "exists."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:644
+#: controllers/controller-admin.php:706
 msgid "Custom Data Field added successfully."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:680 wp-table-reloaded-admin.php:735
+#: controllers/controller-admin.php:746 controllers/controller-admin.php:802
 msgid "Copy of"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:684
+#: controllers/controller-admin.php:750
 msgid "Table copied successfully."
 msgid_plural "Tables copied successfully."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-table-reloaded-admin.php:690
+#: controllers/controller-admin.php:756
 msgid "Table deleted successfully."
 msgid_plural "Tables deleted successfully."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-table-reloaded-admin.php:711 wp-table-reloaded-admin.php:845
-#: wp-table-reloaded-admin.php:883
+#: controllers/controller-admin.php:777 controllers/controller-admin.php:915
+#: controllers/controller-admin.php:953
 msgid "Table imported successfully."
 msgid_plural "Tables imported successfully."
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-table-reloaded-admin.php:718
+#: controllers/controller-admin.php:784
 msgid "You did not select any tables!"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:740
+#: controllers/controller-admin.php:807
 #, php-format
 msgid "Table &quot;%s&quot; copied successfully."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:756
+#: controllers/controller-admin.php:825
 #, php-format
 msgid "Table &quot;%s&quot; deleted successfully."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:764
+#: controllers/controller-admin.php:833
 msgid "Custom Data Field deleted successfully."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:766
+#: controllers/controller-admin.php:835
 msgid "Custom Data Field could not be deleted."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:772
+#: controllers/controller-admin.php:841
 msgid "Delete failed."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:799 wp-table-reloaded-admin.php:808
-#: wp-table-reloaded-admin.php:818
+#: controllers/controller-admin.php:869 controllers/controller-admin.php:878
+#: controllers/controller-admin.php:888
 msgid "Imported Table"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:800 wp-table-reloaded-admin.php:819
+#: controllers/controller-admin.php:870 controllers/controller-admin.php:889
 #, php-format
 msgid "from %s"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:809
+#: controllers/controller-admin.php:879
 msgid "via form"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:829 wp-table-reloaded-admin.php:860
+#: controllers/controller-admin.php:899 controllers/controller-admin.php:931
 msgid "Table could not be imported."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:841
+#: controllers/controller-admin.php:911
 #, php-format
 msgid "Table %s (%s) replaced successfully."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:890 wp-table-reloaded-admin.php:1062
+#: controllers/controller-admin.php:961 controllers/controller-admin.php:1147
 msgid "You do not have sufficient rights to perform this action."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:897
+#: controllers/controller-admin.php:968
 msgid "You did not upload a WP-Table Reloaded dump file."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:906
+#: controllers/controller-admin.php:977
 msgid "The uploaded dump file is empty. Please upload a valid dump file."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:935
+#: controllers/controller-admin.php:1006
 msgid "All Tables, Settings and Options were successfully imported."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:962
+#: controllers/controller-admin.php:1035
 #, php-format
 msgid "Table &quot;%s&quot; exported successfully."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:1003 wp-table-reloaded-admin.php:2251
+#: controllers/controller-admin.php:1080 views/view-options.php:215
 msgid "You do not have sufficient rights to access the Plugin Options."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:1051
+#: controllers/controller-admin.php:1134
 msgid "Options saved successfully."
 msgstr ""
 
-#. #-#-#-#-#  plugin.pot (PACKAGE VERSION)  #-#-#-#-#
-#. Plugin Name of an extension
-#: wp-table-reloaded-admin.php:1076 wp-table-reloaded-admin.php:1238
-#: wp-table-reloaded-admin.php:2055
-msgid "WP-Table Reloaded"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1094 wp-table-reloaded-admin.php:1238
-msgid "List of Tables"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1097 wp-table-reloaded-admin.php:1241
-msgid "This is a list of all available tables."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1097
-msgid "You may insert a table into a post or page here."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1098
-#, php-format
-msgid ""
-"Click the &quot;%s&quot; link after the desired table and the corresponding "
-"shortcode will be inserted into the editor (<strong>[table id=&lt;ID&gt; /]</"
-"strong>)."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1098 wp-table-reloaded-admin.php:1138
-msgid "Insert"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1107 wp-table-reloaded-admin.php:1115
-#: wp-table-reloaded-admin.php:1252 wp-table-reloaded-admin.php:1262
-#: wp-table-reloaded-admin.php:1915 wp-table-reloaded-admin.php:1924
-msgid "ID"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1108 wp-table-reloaded-admin.php:1116
-#: wp-table-reloaded-admin.php:1254 wp-table-reloaded-admin.php:1264
-#: wp-table-reloaded-admin.php:1349 wp-table-reloaded-admin.php:1402
-#: wp-table-reloaded-admin.php:1653 wp-table-reloaded-admin.php:1916
-#: wp-table-reloaded-admin.php:1925
-msgid "Table Name"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1109 wp-table-reloaded-admin.php:1117
-#: wp-table-reloaded-admin.php:1255 wp-table-reloaded-admin.php:1265
-#: wp-table-reloaded-admin.php:1353 wp-table-reloaded-admin.php:1406
-#: wp-table-reloaded-admin.php:1917 wp-table-reloaded-admin.php:1926
-msgid "Description"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1110 wp-table-reloaded-admin.php:1118
-#: wp-table-reloaded-admin.php:1761 wp-table-reloaded-admin.php:1918
-#: wp-table-reloaded-admin.php:1927
-msgid "Action"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1147 wp-table-reloaded-admin.php:1327
-#: wp-table-reloaded-admin.php:2046 wp-table-reloaded-admin.php:2882
-msgid "No tables were found."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1167
-#, php-format
-msgid "Preview of Table &quot;%s&quot; (ID %s)"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1170
-msgid "This is a preview of your table."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1171
-msgid "Because of CSS styling, the table might look different on your page!"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1171
-msgid "The JavaScript libraries are also not available in this preview."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1172 wp-table-reloaded-admin.php:1241
-#: wp-table-reloaded-admin.php:1388 wp-table-reloaded-admin.php:2277
-#, php-format
-msgid ""
-"To insert the table into a page, post or text-widget, copy the shortcode "
-"<strong>[table id=%s /]</strong> and paste it into the corresponding place "
-"in the editor."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1185
+#: controllers/controller-admin.php:1197
 msgid "There is no table with this ID!"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:1221
+#: controllers/controller-admin.php:1234
 msgid ""
 "Thank you very much! Your donation is highly appreciated. You just "
 "contributed to the further development of WP-Table Reloaded!"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:1223
+#: controllers/controller-admin.php:1236
 #, php-format
 msgid ""
 "No problem! I still hope you enjoy the benefits that WP-Table Reloaded "
@@ -547,1104 +511,331 @@ msgid ""
 "a>."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:1223 wp-table-reloaded-admin.php:2740
-#: wp-table-reloaded-admin.php:2752
+#: controllers/controller-admin.php:1236 controllers/controller-admin.php:1654
 msgid "Donate"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:1241
-msgid "You may add, edit, copy, delete or preview tables here."
+#: controllers/controller-admin.php:1263 controllers/controller-admin.php:1271
+msgid "List of Tables"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:1241
-msgid "Each table has a unique ID that needs to be adjusted in that shortcode."
+#. #-#-#-#-#  plugin.pot (WP-Table Reloaded 1.6-beta1)  #-#-#-#-#
+#. Plugin Name of an extension
+#: controllers/controller-admin.php:1263 controllers/controller-admin.php:1268
+#: controllers/controller-admin.php:1270
+msgid "WP-Table Reloaded"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:1241
-#, php-format
-msgid ""
-"You can also click the button &quot;%s&quot; in the editor toolbar to select "
-"and insert a table."
+#: controllers/controller-admin.php:1264 controllers/controller-admin.php:1294
+msgid "Add new Table"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:1241 wp-table-reloaded-admin.php:2277
-#: wp-table-reloaded-admin.php:2853
-msgid "Table"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1256 wp-table-reloaded-admin.php:1266
-#: wp-table-reloaded-admin.php:1411
-msgid "Last Modified"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1278
-msgid "(no name)"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1279
-msgid "(no description)"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1283 wp-table-reloaded-admin.php:1412
-msgid "by"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1297
-#, php-format
-msgid "Edit %s"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1299
-msgid "Edit"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1301
-msgid "Shortcode"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1302
-msgid "Copy"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1303
-msgid "Export"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1304 wp-table-reloaded-admin.php:1526
-#: wp-table-reloaded-admin.php:1530
-msgid "Delete"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1305
-#, php-format
-msgid "Preview of Table %s"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1306
-msgid "Preview"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1318 wp-table-reloaded-admin.php:1956
-msgid "Bulk actions:"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1318
-msgid "Copy Tables"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1318
-msgid "Delete Tables"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1327 wp-table-reloaded-admin.php:2046
-#, php-format
-msgid ""
-"You should <a href=\"%s\">add</a> or <a href=\"%s\">import</a> a table to "
-"get started!"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1341
-msgid ""
-"To add a new table, enter its name, a description (optional) and the number "
-"of rows and columns."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1341
-msgid "You may also add, insert or delete rows and columns later."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1350
-msgid "Enter Table Name"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1354
-msgid "Enter Description"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1357
-msgid "Number of Rows"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1361
-msgid "Number of Columns"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1368
-msgid "Add Table"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1384
+#: controllers/controller-admin.php:1265
 #, php-format
 msgid "Edit Table &quot;%s&quot; (ID %s)"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:1387
-msgid "On this page, you can edit the content of the table."
+#: controllers/controller-admin.php:1266 controllers/controller-admin.php:1295
+msgid "Import a Table"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:1387
-msgid ""
-"It is also possible to change the table structure by inserting, deleting, "
-"moving, and swapping columns and rows."
+#: controllers/controller-admin.php:1267 controllers/controller-admin.php:1296
+msgid "Export a Table"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:1394
-msgid "Table Information"
+#: controllers/controller-admin.php:1268 controllers/controller-admin.php:1302
+#: views/view-edit.php:338 views/view-edit.php:353 views/view-export.php:10
+msgid "Plugin Options"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:1394 wp-table-reloaded-admin.php:1430
-#: wp-table-reloaded-admin.php:1483 wp-table-reloaded-admin.php:1636
-#: wp-table-reloaded-admin.php:1697 wp-table-reloaded-admin.php:1749
-#: wp-table-reloaded-admin.php:2075 wp-table-reloaded-admin.php:2118
-#: wp-table-reloaded-admin.php:2135 wp-table-reloaded-admin.php:2203
-#: wp-table-reloaded-admin.php:2214 wp-table-reloaded-admin.php:2332
-msgid "Hide|expand"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1394 wp-table-reloaded-admin.php:1430
-#: wp-table-reloaded-admin.php:1483 wp-table-reloaded-admin.php:1636
-#: wp-table-reloaded-admin.php:1697 wp-table-reloaded-admin.php:1749
-#: wp-table-reloaded-admin.php:2075 wp-table-reloaded-admin.php:2118
-#: wp-table-reloaded-admin.php:2135 wp-table-reloaded-admin.php:2203
-#: wp-table-reloaded-admin.php:2214 wp-table-reloaded-admin.php:2332
-msgctxt "expand"
-msgid "Hide"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1394 wp-table-reloaded-admin.php:1430
-#: wp-table-reloaded-admin.php:1483 wp-table-reloaded-admin.php:1636
-#: wp-table-reloaded-admin.php:1697 wp-table-reloaded-admin.php:1749
-#: wp-table-reloaded-admin.php:2075 wp-table-reloaded-admin.php:2118
-#: wp-table-reloaded-admin.php:2135 wp-table-reloaded-admin.php:2203
-#: wp-table-reloaded-admin.php:2214 wp-table-reloaded-admin.php:2332
-msgid "Expand"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1398
-msgid "Table ID"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1420 wp-table-reloaded-admin.php:1627
-#: wp-table-reloaded-admin.php:1740 wp-table-reloaded-admin.php:1791
-#: wp-table-reloaded-admin.php:2805
-msgid "Update Changes"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1421 wp-table-reloaded-admin.php:1628
-#: wp-table-reloaded-admin.php:1741 wp-table-reloaded-admin.php:1792
-msgid "Save and go back"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1424 wp-table-reloaded-admin.php:1631
-#: wp-table-reloaded-admin.php:1744 wp-table-reloaded-admin.php:1795
-#: wp-table-reloaded-admin.php:2190
-msgid "Cancel"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1430
-msgid "Table Contents"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1483
-msgid "Data Manipulation"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1488 wp-table-reloaded-admin.php:2111
-msgid "Insert Link"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1489
-msgid "Insert Image"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1499
-msgid "ascending"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1500
-msgid "descending"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1503
-#, php-format
-msgid "Sort table by column %s in %s order"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1505
-msgid "Sort"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1510 wp-table-reloaded-admin.php:1524
-msgid "Selected rows:"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1511 wp-table-reloaded-admin.php:1515
-msgid "Hide|item"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1511 wp-table-reloaded-admin.php:1515
-msgctxt "item"
-msgid "Hide"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1512 wp-table-reloaded-admin.php:1516
-msgid "Unhide|item"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1512 wp-table-reloaded-admin.php:1516
-msgctxt "item"
-msgid "Unhide"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1514 wp-table-reloaded-admin.php:1528
-msgid "Selected columns:"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1525
-msgid "Insert row"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1529
-msgid "Insert column"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1539
-#, php-format
-msgid "Add %s row(s)"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1540 wp-table-reloaded-admin.php:1543
-#: wp-table-reloaded-admin.php:1786
-msgid "Add"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1542
-#, php-format
-msgid "Add %s column(s)"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1557
-#, php-format
-msgid "Swap rows %s and %s"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1559 wp-table-reloaded-admin.php:1576
-msgid "Swap"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1574
-#, php-format
-msgid "Swap columns %s and %s"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1590 wp-table-reloaded-admin.php:1612
-msgid "before"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1591 wp-table-reloaded-admin.php:1613
-msgid "after"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1594
-#, php-format
-msgid "Move row %s %s row %s"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1596 wp-table-reloaded-admin.php:1618
-msgid "Move"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1616
-#, php-format
-msgid "Move column %s %s column %s"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1636
-msgid "Table Styling Options"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1638
-msgid "These settings will only be used for this table."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1641
-msgid "Alternating row colors"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1642
-msgid "Every second row has an alternating background color."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1645
-msgid "Table head"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1646
-msgid "The first row of your table is the table head (HTML tag &lt;th&gt;)."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1649
-msgid "Table footer"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1650
-msgid "The last row of your table is the table footer (HTML tag &lt;th&gt;)."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1654
-msgid "The Table Name will be written above the table (HTML tag &lt;h2&gt;)."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1657
-msgid "Table Description"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1658
-msgid "The Table Description will be written under the table."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1661
-msgid "Use JavaScript library"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1667 wp-table-reloaded-admin.php:1671
-#: wp-table-reloaded-admin.php:1683
-msgid "You can change further settings for this library below."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1675 wp-table-reloaded-admin.php:1679
-msgid "The table will then be sortable by the visitor."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1686
-#, php-format
-msgid "Yes, use the &quot;%s&quot; JavaScript library with this table."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1686
-#, php-format
-msgid ""
-"You must enable the use of a JavaScript library on the &quot;%s&quot; screen "
-"first."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1697
-msgid "DataTables JavaScript Features"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1699
-msgid ""
-"You can enable certain features for the DataTables JavaScript library here."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1699
-msgid ""
-"More information on these features can be found on the <a href=\"http://www."
-"datatables.net/\">DataTables website</a>."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1701
-#, php-format
-msgid ""
-"You can currently not change these options, because you have not enabled the "
-"&quot;DataTables&quot; or the &quot;DataTables+TableTools&quot; JavaScript "
-"library on the &quot;%s&quot; screen."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1701
-msgid ""
-"It is not possible to use these features with the &quot;Tablesorter&quot; or "
-"&quot;Tablesorter Extended&quot; libraries."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1705
-msgid "Sorting"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1706
-msgid "Yes, enable sorting of table data by the visitor."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1709
-msgid "Pagination"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1710
-msgid ""
-"Yes, enable pagination of the table (showing only a certain number of rows) "
-"by the visitor."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1713
-msgid "Length Change"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1714
-msgid ""
-"Yes, allow visitor to change the number of rows shown when using pagination."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1717
-msgid "Filtering"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1718
-msgid ""
-"Yes, enable the visitor to filter or search the table. Only rows with the "
-"search word in them are shown."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1721
-msgid "Info Bar"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1722
-msgid ""
-"Yes, show the table information display. This shows information and "
-"statistics about the currently visible data, including filtering."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1725
-msgid "TableTools"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1727
-msgid ""
-"Yes, activate the TableTools functions (Copy to Clipboard, Save to CSV, Save "
-"to XLS, Print Table) for this table."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1728
-msgid ""
-"This option can only be used with the &quot;DataTables+TableTools&quot; "
-"JavaScript library."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1732
-msgid "Custom Commands"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1733
-msgid ""
-"Enter additional DataTables JavaScript parameters that will be included with "
-"the script call here."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1733
-msgid ""
-"For advanced use only. Read the <a href=\"http://www.datatables.net/"
-"\">DataTables documentation</a> before."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1749
-msgid "Custom Data Fields"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1751
-msgid "Custom Data Fields can be used to add extra metadata to a table."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1751
-msgid ""
-"For example, this could be information about the source or the creator of "
-"the data."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1753
-#, php-format
-msgid ""
-"You can show this data in the same way as tables by using the shortcode "
-"<strong>[table-info id=%s field=\"&lt;field-name&gt;\" /]</strong>."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1759
-msgid "Field Name"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1760
-msgid "Value"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1774
-msgid "Delete Field"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1776
-msgid "View shortcode"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1785
-msgid ""
-"To add a new Custom Data Field, enter its name (only lowercase letters, "
-"numbers, _ and -)."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1786
-msgid "Custom Data Field Name"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1800
-msgid "Other actions"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1803
-msgid "Delete Table"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1804 wp-table-reloaded-admin.php:2034
-msgid "Export Table"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1820
-msgid "WP-Table Reloaded can import tables from existing data."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1820
-msgid "This may be a CSV, XML or HTML file, each with a certain structure."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1820
-msgid ""
-"To import an existing table, please select its format and the source for the "
-"import."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1820
-msgid ""
-"You can also decide, if you want to import it as a new table or replace an "
-"existing table."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1827
-msgid "Select Import Format"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1838
-msgid "Add or Replace Table?"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1840
-msgid "Add as new Table"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1841
-msgid "Replace existing Table"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1845
-msgid "Select existing Table to Replace"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1861
-msgid "Select source for Import"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1863
-msgid "File upload"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1864
-msgid "URL"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1865
-msgid "Manual input"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1866
-msgid "File on server"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1870
-msgid "Select File with Table to Import"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1874
-msgid "URL to Import Table from"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1878
-msgid "Path to file on server"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1882
-msgid "Paste data with Table to Import"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1888
-msgid "Import Table"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1902
-msgid "Import from original wp-Table plugin"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1948
-msgid "Import"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1956
-msgid "Import Tables"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1962
-msgid "wp-Table by Alex Rabe seems to be installed, but no tables were found."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1985
-msgid ""
-"It is recommended to export and backup the data of important tables "
-"regularly."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1985
-msgid ""
-"Select the table, the desired export format and (for CSV only) a delimiter."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1985
-msgid ""
-"You may choose to download the export file. Otherwise it will be shown on "
-"this page."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1985
-msgid ""
-"Be aware that only the table data, but no options or settings are exported."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1985
-#, php-format
-msgid ""
-"To backup all tables, including their settings, at once use the &quot;%"
-"s&quot; button in the &quot;%s&quot;."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1985 wp-table-reloaded-admin.php:2208
-msgid "Create and Download Dump File"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:1993
-msgid "Select Table to Export"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2008
-msgid "Select Export Format"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2018
-msgid "Select Delimiter to use"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2025
-msgid "Only needed for CSV export."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2028
-msgid "Download file"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2029
-msgid "Yes, I want to download the export file."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2059
-msgid ""
-"WP-Table Reloaded has several options which affect the plugin behavior in "
-"different areas."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2060
-msgid ""
-"Frontend Options influence the output and used features of tables in pages, "
-"posts or text-widgets."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2060
-#, php-format
-msgid ""
-"The Backend Options control the plugin's admin area, e.g. the &quot;%s&quot; "
-"screen."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2060
-msgid "Administrators have access to further Admin Options."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2075
-msgid "Frontend Options"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2079
-msgid "JavaScript library"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2080
-msgid "Yes, enable the use of a JavaScript library."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2080
-msgid ""
-"WP-Table Reloaded includes three JavaScript libraries that can add useful "
-"features, like sorting, pagination, and filtering, to a table."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2084
-msgid "Select the library to use:"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2085 wp-table-reloaded-admin.php:2165
-msgid "recommended"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2089
-#, php-format
-msgid ""
-"(You can read more about each library's features on the <a href=\"%s"
-"\">plugin's website</a>.)"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2092
-msgid "Default CSS"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2094
-msgid ""
-"Yes, include and load the plugin's default CSS Stylesheets. This is highly "
-"recommended, if you use one of the JavaScript libraries!"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2098
-msgid "Custom CSS"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2100
-msgid "Yes, include and load the following custom CSS commands."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2100
-msgid "This should be used to change the table layout and styling."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2106
-#, php-format
-msgid ""
-"You can get styling examples from the <a href=\"%s\">plugin's website</a>."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2106
-#, php-format
-msgid ""
-"Information on available CSS selectors can be found in the <a href=\"%s"
-"\">documentation</a>."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2110
-msgid "Links in new window"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2111
-#, php-format
-msgid ""
-"Yes, open links that are inserted with the &quot;%s&quot; button on the "
-"&quot;%s&quot; screen in a new browser window <strong>from now on</strong>."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2118
-msgid "Backend Options"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2122
-msgid "Exit warning"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2123
-#, php-format
-msgid ""
-"Yes, show a warning message, if I leave the &quot;%s&quot; screen and have "
-"not yet saved my changes."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2126
-msgid "Growing textareas"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2127
-#, php-format
-msgid ""
-"Yes, enlarge the textareas on the &quot;%s&quot; screen when they are "
-"focussed."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2135
-msgid "Admin Options"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2137 wp-table-reloaded-admin.php:2228
-#: wp-table-reloaded-admin.php:2242
-msgid "This area are only available to site administrators!"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2137
-msgid "You can therefore not change these options."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2142
-msgid "Plugin Access"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2143
-msgid "To access WP-Table Reloaded, a user needs to be:"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2144 wp-table-reloaded-admin.php:2155
-msgid "Administrator|User role"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2144 wp-table-reloaded-admin.php:2155
-msgctxt "User role"
-msgid "Administrator"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2145 wp-table-reloaded-admin.php:2156
-msgid "Editor|User role"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2145 wp-table-reloaded-admin.php:2156
-msgctxt "User role"
-msgid "Editor"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2146 wp-table-reloaded-admin.php:2157
-msgid "Author|User role"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2146 wp-table-reloaded-admin.php:2157
-msgctxt "User role"
-msgid "Author"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2147
-msgid "Contributor|User role"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2147
-msgctxt "User role"
-msgid "Contributor"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2153
-msgid "Plugin Options Access"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2154
-msgid "To access the Plugin Options of WP-Table Reloaded, a user needs to be:"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2158
-msgid ""
-"Admin Options, Dump file Import, and Manual Plugin Uninstall are always "
-"accessible by Administrators only, regardless of this setting."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2163
-msgid "Admin menu entry"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2164
-msgid "WP-Table Reloaded shall be shown in this section of the admin menu:"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2165
-msgid "Tools"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2166
-msgid "Posts"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2167
-msgid "Pages"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2168
-msgid "Plugins"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2169
-msgid "Settings"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2170
-msgid "Dashboard"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2171
-msgid "Top-Level"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2172
-msgid "Change will take effect after another page load after saving."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2176
-msgid "Remove upon Deactivation"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2177
-msgid ""
-"Yes, remove all plugin related data from the database when the plugin is "
-"deactivated."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2177
-msgid "Should be activated directly before deactivation only!"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2187
-msgid "Save Options"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2197
-msgid "WP-Table Reloaded Data Export and Backup"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2200
-msgid ""
-"WP-Table Reloaded can export and import a so-called dump file that contains "
-"all tables, their settings and the plugin's options."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2200
-msgid ""
-"This file can be used as a backup or to move all data to another WordPress "
-"site."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2203
-msgid "Export a dump file"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2205
-msgid ""
-"To export all Tables and their settings, click the button below to generate "
-"and download a dump file."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2205
-msgid ""
-"<strong>Warning</strong>: Do <strong>not</strong> edit the content of that "
-"file under any circumstances as you will destroy the file!"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2214
-msgid "Import a dump file"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2216
-msgid ""
-"To import a WP-Table Reloaded dump file and restore the included data, "
-"upload the file from your computer."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2216
-msgid ""
-"All current data of this WP-Table Reloaded installation (Tables, Options, "
-"Settings) <strong>WILL BE OVERWRITTEN</strong> with the data from the file!"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2216
-msgid "Do not proceed, if you do not understand this!"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2216
-msgid ""
-"It is highly recommended to export and backup the data of this installation "
-"before importing another dump file (see above)."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2222
-msgid "Select Dump File"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2224
-msgid "Import Dump File"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2234
-msgid "Manually Uninstall WP-Table Reloaded"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2236
-msgid ""
-"Uninstalling <strong>will permanently delete</strong> all tables, data, and "
-"options, that belong to WP-Table Reloaded from the database, including all "
-"tables you added or imported."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2236
-msgid ""
-"You will manually need to remove the plugin's files from the plugin folder "
-"afterwards."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2236
-msgid ""
-"Be very careful with this and only click the button if you know what you are "
-"doing!"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2240
-msgid "Uninstall Plugin WP-Table Reloaded"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2262
+#: controllers/controller-admin.php:1269
 msgid "About WP-Table Reloaded"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2268
+#: controllers/controller-admin.php:1272
+#, php-format
+msgid "Preview of Table &quot;%s&quot; (ID %s)"
+msgstr ""
+
+#: controllers/controller-admin.php:1293
+msgid "List Tables"
+msgstr ""
+
+#: controllers/controller-admin.php:1303
+msgid "About the plugin"
+msgstr ""
+
+#: controllers/controller-admin.php:1650
+msgid "WP-Table Reloaded Plugin Page"
+msgstr ""
+
+#: controllers/controller-admin.php:1650
+msgid "Plugin Page"
+msgstr ""
+
+#: controllers/controller-admin.php:1651
+msgid "Frequently Asked Questions"
+msgstr ""
+
+#: controllers/controller-admin.php:1651
+msgid "FAQ"
+msgstr ""
+
+#: controllers/controller-admin.php:1652
+msgid "Support"
+msgstr ""
+
+#: controllers/controller-admin.php:1653
+msgid "Plugin Documentation"
+msgstr ""
+
+#: controllers/controller-admin.php:1653
+msgid "Documentation"
+msgstr ""
+
+#: controllers/controller-admin.php:1654
+msgid "Support WP-Table Reloaded with your donation!"
+msgstr ""
+
+#: controllers/controller-admin.php:1692
+msgid ""
+"Do you really want to activate this? You should only do that right before "
+"uninstallation!"
+msgstr ""
+
+#: controllers/controller-admin.php:1693
+msgid "URL of link to insert"
+msgstr ""
+
+#: controllers/controller-admin.php:1694
+msgid "Text of link"
+msgstr ""
+
+#: controllers/controller-admin.php:1695
+msgid ""
+"To insert the following HTML code for a link into a cell, just click the "
+"cell after closing this dialog."
+msgstr ""
+
+#: controllers/controller-admin.php:1696
+msgid ""
+"To insert an image, click the cell into which you want to insert the image."
+msgstr ""
+
+#: controllers/controller-admin.php:1696
+msgid ""
+"The Media Library will open, from which you can select the desired image or "
+"insert the image URL."
+msgstr ""
+
+#: controllers/controller-admin.php:1696
+#, php-format
+msgid "Click the &quot;%s&quot; button to insert the image."
+msgstr ""
+
+#: controllers/controller-admin.php:1696
+msgid "Insert into Post"
+msgstr ""
+
+#: controllers/controller-admin.php:1697
+msgid ""
+"To combine cells within a row, click into the cell to the right of the cell "
+"that has the content the combined cells shall have."
+msgstr ""
+
+#: controllers/controller-admin.php:1698
+msgid ""
+"To combine cells within a column, click into the cell below the cell that "
+"has the content the combined cells shall have."
+msgstr ""
+
+#: controllers/controller-admin.php:1699
+msgid "Do you want to copy the selected tables?"
+msgstr ""
+
+#: controllers/controller-admin.php:1700
+msgid ""
+"The selected tables and all content will be erased. Do you really want to "
+"delete them?"
+msgstr ""
+
+#: controllers/controller-admin.php:1701
+msgid ""
+"Do you really want to import the selected tables from the wp-Table plugin?"
+msgstr ""
+
+#: controllers/controller-admin.php:1702
+msgid "Do you want to copy this table?"
+msgstr ""
+
+#: controllers/controller-admin.php:1703
+msgid ""
+"The complete table and all content will be erased. Do you really want to "
+"delete it?"
+msgstr ""
+
+#: controllers/controller-admin.php:1704
+msgid "Do you really want to delete the selected rows?"
+msgstr ""
+
+#: controllers/controller-admin.php:1705
+msgid "Do you really want to delete the selected columns?"
+msgstr ""
+
+#: controllers/controller-admin.php:1706 controllers/controller-admin.php:1710
+#: controllers/controller-admin.php:1712
+msgid "You have not selected any rows."
+msgstr ""
+
+#: controllers/controller-admin.php:1707 controllers/controller-admin.php:1711
+#: controllers/controller-admin.php:1713
+msgid "You have not selected any columns."
+msgstr ""
+
+#: controllers/controller-admin.php:1708
+msgid "You can not delete all rows of the table at once!"
+msgstr ""
+
+#: controllers/controller-admin.php:1709
+msgid "You can not delete all columns of the table at once!"
+msgstr ""
+
+#: controllers/controller-admin.php:1714
+msgid "Do you really want to import this table from the wp-Table plugin?"
+msgstr ""
+
+#: controllers/controller-admin.php:1715
+msgid "Do you really want to uninstall the plugin and delete ALL data?"
+msgstr ""
+
+#: controllers/controller-admin.php:1716
+msgid "Are you really sure?"
+msgstr ""
+
+#: controllers/controller-admin.php:1717
+msgid "Do you really want to change the ID of the table?"
+msgstr ""
+
+#: controllers/controller-admin.php:1718
+msgid "To show this Custom Data Field, use this shortcode:"
+msgstr ""
+
+#: controllers/controller-admin.php:1719
+msgid "To show this table, use this shortcode:"
+msgstr ""
+
+#: controllers/controller-admin.php:1720
+msgid ""
+"Warning: You will lose all current Tables and Settings! You should create a "
+"backup first. Be warned!"
+msgstr ""
+
+#: controllers/controller-admin.php:1721
+msgid ""
+"You have made changes to the content of this table and not yet saved them."
+msgstr ""
+
+#: controllers/controller-admin.php:1721
+#, php-format
+msgid ""
+"You should first click &quot;%s&quot; or they will be lost if you navigate "
+"away from this page."
+msgstr ""
+
+#: controllers/controller-admin.php:1721 views/view-edit.php:41
+#: views/view-edit.php:253 views/view-edit.php:392 views/view-edit.php:443
+msgid "Update Changes"
+msgstr ""
+
+#: controllers/controller-admin.php:1763 views/view-about.php:14
+#: views/view-list.php:2
+msgid "Table"
+msgstr ""
+
+#: controllers/controller-admin.php:1792
+msgid "Please wait..."
+msgstr ""
+
+#: controllers/controller-admin.php:1793
+msgid "Show _MENU_ Tables"
+msgstr ""
+
+#: controllers/controller-admin.php:1794 views/view-ajax_list.php:53
+#: views/view-export.php:71 views/view-list.php:88
+msgid "No tables were found."
+msgstr ""
+
+#: controllers/controller-admin.php:1795
+msgid "_START_ to _END_ of _TOTAL_ Tables"
+msgstr ""
+
+#: controllers/controller-admin.php:1796
+msgid "(filtered from _MAX_ Tables)"
+msgstr ""
+
+#: controllers/controller-admin.php:1797
+msgid "Filter:"
+msgstr ""
+
+#: controllers/controller-admin.php:1798
+msgid "First"
+msgstr ""
+
+#: controllers/controller-admin.php:1799
+msgid "Back"
+msgstr ""
+
+#: controllers/controller-admin.php:1800
+msgid "Next"
+msgstr ""
+
+#: controllers/controller-admin.php:1801
+msgid "Last"
+msgstr ""
+
+#: views/view-about.php:5
 msgid "Plugin Purpose"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2270
+#: views/view-about.php:7
 msgid ""
 "WP-Table Reloaded allows you to create and manage tables in the admin-area "
 "of WordPress."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2270
+#: views/view-about.php:7
 msgid ""
 "Those tables may contain strings, numbers and even HTML (e.g. to include "
 "images or links)."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2270
+#: views/view-about.php:7
 msgid ""
 "You can then show the tables in your posts, on your pages or in text-widgets "
 "by using a shortcode."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2270
+#: views/view-about.php:7
 msgid ""
 "If you want to show your tables anywhere else in your theme, you can use a "
 "template tag function."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2275
+#: views/view-about.php:12
 msgid "Usage"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2277
+#: views/view-about.php:14
 msgid "At first you should add or import a table."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2277
+#: views/view-about.php:14
 msgid ""
 "This means that you either let the plugin create an empty table for you or "
 "that you load an existing table from either a CSV, XML or HTML file."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2277
+#: views/view-about.php:14
 msgid ""
 "Then you can edit your data or change the structure of your table (e.g. by "
 "inserting or deleting rows or columns, swaping rows or columns or sorting "
@@ -1652,14 +843,23 @@ msgid ""
 "whether to print the name or description, if you want."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2277
+#: views/view-about.php:14
 msgid ""
 "To easily add a link or an image to a cell, use the provided buttons. Those "
 "will ask you for the URL and a title. Then you can click into a cell and the "
 "corresponding HTML will be added to it for you."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2277
+#: views/view-about.php:14 views/view-ajax_preview.php:5 views/view-edit.php:9
+#: views/view-list.php:2
+#, php-format
+msgid ""
+"To insert the table into a page, post or text-widget, copy the shortcode "
+"<strong>[table id=%s /]</strong> and paste it into the corresponding place "
+"in the editor."
+msgstr ""
+
+#: views/view-about.php:14
 #, php-format
 msgid ""
 "You can also select the desired table from a list (after clicking the button "
@@ -1667,38 +867,38 @@ msgid ""
 "be added for you."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2277
+#: views/view-about.php:14
 msgid "Tables can be styled by changing and adding CSS commands."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2277
+#: views/view-about.php:14
 msgid ""
 "The plugin ships with default CSS Stylesheets, which can be customized with "
 "own code or replaced with other Stylesheets."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2277
+#: views/view-about.php:14
 msgid ""
 "For this, each table is given certain CSS classes that can be used as CSS "
 "selectors."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2277
+#: views/view-about.php:14
 #, php-format
 msgid ""
 "Please see the <a href=\"%s\">documentation</a> for a list of these "
 "selectors and for styling examples."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2283
+#: views/view-about.php:20
 msgid "More Information and Documentation"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2290
+#: views/view-about.php:27
 msgid "Help and Support"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2292
+#: views/view-about.php:29
 #, php-format
 msgid ""
 "If you do not find an answer there, please <a href=\"%s\">open a new thread</"
@@ -1706,346 +906,1228 @@ msgid ""
 "reloaded&quot;."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2297
+#: views/view-about.php:34
 msgid "Author and License"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2299
+#: views/view-about.php:36
 #, php-format
 msgid "This plugin was written by <a href=\"%s\">Tobias B&auml;thge</a>."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2299
+#: views/view-about.php:36
 msgid "It is licensed as Free Software under GPL 2."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2299
+#: views/view-about.php:36
 #, php-format
 msgid ""
 "Please rate the plugin in the <a href=\"%s\">WordPress Plugin Directory</a>."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2299
+#: views/view-about.php:36
 msgid ""
 "Donations and good ratings encourage me to further develop the plugin and to "
 "provide countless hours of support. Any amount is appreciated! Thanks!"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2304
+#: views/view-about.php:41
 msgid "Credits and Thanks"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2307
+#: views/view-about.php:44
 msgid ""
 "Thanks go to <a href=\"http://alexrabe.boelinger.com/\">Alex Rabe</a> for "
 "the original wp-Table plugin,"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2308
+#: views/view-about.php:45
 msgid ""
 "Allan Jardine for the <a href=\"http://www.datatables.net/\">DataTables "
 "jQuery plugin</a>,"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2309
+#: views/view-about.php:46
 msgid ""
 "Christian Bach for the <a href=\"http://www.tablesorter.com/\">Tablesorter "
 "jQuery plugin</a>,"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2310
+#: views/view-about.php:47
 msgid ""
 "Soeren Krings for its extension <a href=\"http://tablesorter.openwerk.de/"
 "\">Tablesorter Extended</a>,"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2311
+#: views/view-about.php:48
 msgid "the submitters of translations:"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2312
-msgid "Albanian (thanks to <a href=\"http://www.romeolab.com/\">Romeo</a>)"
+#: views/view-about.php:69
+#, php-format
+msgid "%s (thanks to %s)"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2313
-msgid ""
-"Belorussian (thanks to <a href=\"http://www.fatcow.com/\">Marcis Gasuns</a>)"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2314
-msgid ""
-"Brazilian Portugues (thanks to <a href=\"http://www.pensarics.com/\">Rics</"
-"a>)"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2315
-msgid "Czech (thanks to <a href=\"http://separatista.net/\">Separatista</a>)"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2316
-msgid "Finnish (thanks to Jaakko)"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2317
-msgid "French (thanks to <a href=\"http://ultratrailer.net/\">Yin-Yin</a>)"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2318
-msgid ""
-"Italian (thanks to <a href=\"http://www.scrical.it/\">Gabriella Mazzon</a>)"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2319
-msgid "Japanese (thanks to <a href=\"http://www.u-1.net/\">Yuuichi</a>)"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2320
-msgid "Polish (thanks to Alex Kortan)"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2321
-msgid "Russian (thanks to <a href=\"http://wp-skins.info/\">Truper</a>)"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2322
-msgid "Slovak (thanks to <a href=\"http://lukas.cerro.sk/\">55.lukas</a>)"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2323
-msgid ""
-"Spanish (thanks to <a href=\"http://theindependentproject.com/\">Alejandro "
-"Urrutia</a> and <a href=\"http://halles.cl/\">Matias Halles</a>)"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2324
-msgid "Swedish (thanks to <a href=\"http://www.zuperzed.se/\">ZuperZed</a>)"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2325
-msgid "Turkish (thanks to <a href=\"http://www.wpuzmani.com/\">Semih</a>)"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2326
+#: views/view-about.php:72
 msgid ""
 "and to all donors, contributors, supporters, reviewers and users of the "
 "plugin!"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2332
+#: views/view-about.php:78
 msgid "Debug and Version Information"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2335
+#: views/view-about.php:78 views/view-edit.php:15 views/view-edit.php:51
+#: views/view-edit.php:104 views/view-edit.php:262 views/view-edit.php:349
+#: views/view-edit.php:401 views/view-options.php:19 views/view-options.php:62
+#: views/view-options.php:79 views/view-options.php:167
+#: views/view-options.php:178
+msgctxt "expand"
+msgid "Hide"
+msgstr ""
+
+#: views/view-about.php:78 views/view-edit.php:15 views/view-edit.php:51
+#: views/view-edit.php:104 views/view-edit.php:262 views/view-edit.php:349
+#: views/view-edit.php:401 views/view-options.php:19 views/view-options.php:62
+#: views/view-options.php:79 views/view-options.php:167
+#: views/view-options.php:178
+msgid "Expand"
+msgstr ""
+
+#: views/view-about.php:81
 msgid "You are using the following versions of the software."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2335
+#: views/view-about.php:81
 msgid "Please provide this information in bug reports."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2338
+#: views/view-about.php:84
 msgid "Plugin installed"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2736
-msgid "WP-Table Reloaded Plugin Page"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2736
-msgid "Plugin Page"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2737 wp-table-reloaded-admin.php:2750
-msgid "Frequently Asked Questions"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2737 wp-table-reloaded-admin.php:2750
-msgid "FAQ"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2738 wp-table-reloaded-admin.php:2753
-msgid "Support"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2739 wp-table-reloaded-admin.php:2751
-msgid "Plugin Documentation"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2739 wp-table-reloaded-admin.php:2751
-msgid "Documentation"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2740 wp-table-reloaded-admin.php:2752
-msgid "Support WP-Table Reloaded with your donation!"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2778
+#: views/view-add.php:4
 msgid ""
-"Do you really want to activate this? You should only do that right before "
-"uninstallation!"
+"To add a new table, enter its name, a description (optional) and the number "
+"of rows and columns."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2779
-msgid "URL of link to insert"
+#: views/view-add.php:4
+msgid "You may also add, insert or delete rows and columns later."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2780
-msgid "Text of link"
+#: views/view-add.php:13 views/view-ajax_list.php:14
+#: views/view-ajax_list.php:22 views/view-edit.php:23 views/view-edit.php:283
+#: views/view-import.php:99 views/view-import.php:108 views/view-list.php:15
+#: views/view-list.php:25
+msgid "Table Name"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2781
-msgid ""
-"To insert the following HTML code for a link into a cell, just click the "
-"cell after closing this dialog."
+#: views/view-add.php:14
+msgid "Enter Table Name"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2782
-msgid ""
-"To insert an image, click the cell into which you want to insert the image."
+#: views/view-add.php:17 views/view-ajax_list.php:15
+#: views/view-ajax_list.php:23 views/view-edit.php:27
+#: views/view-import.php:100 views/view-import.php:109 views/view-list.php:16
+#: views/view-list.php:26
+msgid "Description"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2782
-msgid ""
-"The Media Library will open, from which you can select the desired image or "
-"insert the image URL."
+#: views/view-add.php:18
+msgid "Enter Description"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2782
-#, php-format
-msgid "Click the &quot;%s&quot; button to insert the image."
+#: views/view-add.php:21
+msgid "Number of Rows"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2782
-msgid "Insert into Post"
+#: views/view-add.php:25
+msgid "Number of Columns"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2783
-msgid "Do you want to copy the selected tables?"
+#: views/view-add.php:32
+msgid "Add Table"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2784
-msgid ""
-"The selected tables and all content will be erased. Do you really want to "
-"delete them?"
+#: views/view-ajax_list.php:3 views/view-list.php:2
+msgid "This is a list of all available tables."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2785
-msgid ""
-"Do you really want to import the selected tables from the wp-Table plugin?"
+#: views/view-ajax_list.php:3
+msgid "You may insert a table into a post or page here."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2786
-msgid "Do you want to copy this table?"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2787
-msgid ""
-"The complete table and all content will be erased. Do you really want to "
-"delete it?"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2788
-msgid "Do you really want to delete the selected rows?"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2789
-msgid "Do you really want to delete the selected columns?"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2790 wp-table-reloaded-admin.php:2794
-#: wp-table-reloaded-admin.php:2796
-msgid "You have not selected any rows."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2791 wp-table-reloaded-admin.php:2795
-#: wp-table-reloaded-admin.php:2797
-msgid "You have not selected any columns."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2792
-msgid "You can not delete all rows of the table at once!"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2793
-msgid "You can not delete all columns of the table at once!"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2798
-msgid "Do you really want to import this table from the wp-Table plugin?"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2799
-msgid "Do you really want to uninstall the plugin and delete ALL data?"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2800
-msgid "Are you really sure?"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2801
-msgid "Do you really want to change the ID of the table?"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2802
-msgid "To show this Custom Data Field, use this shortcode:"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2803
-msgid "To show this table, use this shortcode:"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2804
-msgid ""
-"Warning: You will lose all current Tables and Settings! You should create a "
-"backup first. Be warned!"
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2805
-msgid ""
-"You have made changes to the content of this table and not yet saved them."
-msgstr ""
-
-#: wp-table-reloaded-admin.php:2805
+#: views/view-ajax_list.php:4
 #, php-format
 msgid ""
-"You should first click &quot;%s&quot; or they will be lost if you navigate "
-"away from this page."
+"Click the &quot;%s&quot; link after the desired table and the corresponding "
+"shortcode will be inserted into the editor (<strong>[table id=&lt;ID&gt; /]</"
+"strong>)."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2880
-msgid "Please wait..."
+#: views/view-ajax_list.php:4 views/view-ajax_list.php:44
+msgid "Insert"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2881
-msgid "Show _MENU_ Tables"
+#: views/view-ajax_list.php:13 views/view-ajax_list.php:21
+#: views/view-import.php:98 views/view-import.php:107 views/view-list.php:13
+#: views/view-list.php:23
+msgid "ID"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2883
-msgid "_START_ to _END_ of _TOTAL_ Tables"
+#: views/view-ajax_list.php:16 views/view-ajax_list.php:24
+#: views/view-edit.php:413 views/view-import.php:101 views/view-import.php:110
+msgid "Action"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2885
-msgid "(filtered from _MAX_ Tables)"
+#: views/view-ajax_preview.php:3
+msgid "This is a preview of your table."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2887
-msgid "Filter:"
+#: views/view-ajax_preview.php:4
+msgid "Because of CSS styling, the table might look different on your page!"
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2888
-msgid "First"
+#: views/view-ajax_preview.php:4
+msgid "The JavaScript libraries are also not available in this preview."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2889
-msgid "Back"
+#: views/view-edit.php:8
+msgid "On this page, you can edit the content of the table."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2890
-msgid "Next"
+#: views/view-edit.php:8
+msgid ""
+"It is also possible to change the table structure by inserting, deleting, "
+"moving, and swapping columns and rows."
 msgstr ""
 
-#: wp-table-reloaded-admin.php:2891
-msgid "Last"
+#: views/view-edit.php:15
+msgid "Table Information"
+msgstr ""
+
+#: views/view-edit.php:19
+msgid "Table ID"
+msgstr ""
+
+#: views/view-edit.php:32 views/view-list.php:17 views/view-list.php:27
+msgid "Last Modified"
+msgstr ""
+
+#: views/view-edit.php:33 views/view-list.php:44
+msgid "by"
+msgstr ""
+
+#: views/view-edit.php:42 views/view-edit.php:254 views/view-edit.php:393
+#: views/view-edit.php:444
+msgid "Save and go back"
+msgstr ""
+
+#: views/view-edit.php:45 views/view-edit.php:257 views/view-edit.php:396
+#: views/view-edit.php:447 views/view-options.php:154
+msgid "Cancel"
+msgstr ""
+
+#: views/view-edit.php:51
+msgid "Table Contents"
+msgstr ""
+
+#: views/view-edit.php:104
+msgid "Data Manipulation"
+msgstr ""
+
+#: views/view-edit.php:114 views/view-options.php:55
+msgid "Insert Link"
+msgstr ""
+
+#: views/view-edit.php:115
+msgid "Insert Image"
+msgstr ""
+
+#: views/view-edit.php:124
+msgid "ascending"
+msgstr ""
+
+#: views/view-edit.php:125
+msgid "descending"
+msgstr ""
+
+#: views/view-edit.php:128
+#, php-format
+msgid "Sort table by column %s in %s order"
+msgstr ""
+
+#: views/view-edit.php:130
+msgid "Sort"
+msgstr ""
+
+#: views/view-edit.php:135 views/view-edit.php:139
+msgctxt "item"
+msgid "Hide"
+msgstr ""
+
+#: views/view-edit.php:136 views/view-edit.php:140
+msgctxt "item"
+msgid "Unhide"
+msgstr ""
+
+#: views/view-edit.php:137
+#, php-format
+msgctxt "hide_unhide"
+msgid "Selected rows: %s %s"
+msgstr ""
+
+#: views/view-edit.php:141
+#, php-format
+msgctxt "hide_unhide"
+msgid "Selected columns: %s %s"
+msgstr ""
+
+#: views/view-edit.php:144
+msgid "Combine cells in a row:"
+msgstr ""
+
+#: views/view-edit.php:145
+msgid "Add colspan"
+msgstr ""
+
+#: views/view-edit.php:148
+msgid "Combine cells in a column:"
+msgstr ""
+
+#: views/view-edit.php:149
+msgid "Add rowspan"
+msgstr ""
+
+#: views/view-edit.php:155
+msgid "Insert row"
+msgstr ""
+
+#: views/view-edit.php:156 views/view-edit.php:160 views/view-list.php:65
+msgid "Delete"
+msgstr ""
+
+#: views/view-edit.php:157
+#, php-format
+msgctxt "insert_delete"
+msgid "Selected rows: %s %s"
+msgstr ""
+
+#: views/view-edit.php:159
+msgid "Insert column"
+msgstr ""
+
+#: views/view-edit.php:161
+#, php-format
+msgctxt "insert_delete"
+msgid "Selected columns: %s %s"
+msgstr ""
+
+#: views/view-edit.php:171
+#, php-format
+msgid "Add %s row(s)"
+msgstr ""
+
+#: views/view-edit.php:172 views/view-edit.php:175 views/view-edit.php:438
+msgid "Add"
+msgstr ""
+
+#: views/view-edit.php:174
+#, php-format
+msgid "Add %s column(s)"
+msgstr ""
+
+#: views/view-edit.php:189
+#, php-format
+msgid "Swap rows %s and %s"
+msgstr ""
+
+#: views/view-edit.php:191 views/view-edit.php:206
+msgid "Swap"
+msgstr ""
+
+#: views/view-edit.php:204
+#, php-format
+msgid "Swap columns %s and %s"
+msgstr ""
+
+#: views/view-edit.php:219 views/view-edit.php:239
+msgid "before"
+msgstr ""
+
+#: views/view-edit.php:220 views/view-edit.php:240
+msgid "after"
+msgstr ""
+
+#: views/view-edit.php:223
+#, php-format
+msgid "Move row %s %s row %s"
+msgstr ""
+
+#: views/view-edit.php:225 views/view-edit.php:245
+msgid "Move"
+msgstr ""
+
+#: views/view-edit.php:243
+#, php-format
+msgid "Move column %s %s column %s"
+msgstr ""
+
+#: views/view-edit.php:262
+msgid "Table Styling Options"
+msgstr ""
+
+#: views/view-edit.php:264
+msgid "These settings will only be used for this table."
+msgstr ""
+
+#: views/view-edit.php:267
+msgid "Alternating row colors"
+msgstr ""
+
+#: views/view-edit.php:268
+msgid "Every second row has an alternating background color."
+msgstr ""
+
+#: views/view-edit.php:271
+msgid "Row Highlighting"
+msgstr ""
+
+#: views/view-edit.php:272
+msgid ""
+"Highlight a row by changing its background color while the mouse cursor "
+"hovers above it."
+msgstr ""
+
+#: views/view-edit.php:275
+msgid "Table head"
+msgstr ""
+
+#: views/view-edit.php:276
+msgid "The first row of your table is the table head (HTML tag &lt;th&gt;)."
+msgstr ""
+
+#: views/view-edit.php:279
+msgid "Table footer"
+msgstr ""
+
+#: views/view-edit.php:280
+msgid "The last row of your table is the table footer (HTML tag &lt;th&gt;)."
+msgstr ""
+
+#: views/view-edit.php:289 views/view-edit.php:304
+msgid "above"
+msgstr ""
+
+#: views/view-edit.php:291 views/view-edit.php:306
+msgid "below"
+msgstr ""
+
+#: views/view-edit.php:293
+#, php-format
+msgid "The Table Name shall be written %s the table (HTML tag &lt;h2&gt;)."
+msgstr ""
+
+#: views/view-edit.php:298
+msgid "Table Description"
+msgstr ""
+
+#: views/view-edit.php:308
+#, php-format
+msgid "The Table Description shall be written %s the table."
+msgstr ""
+
+#: views/view-edit.php:313
+msgid "Use JavaScript library"
+msgstr ""
+
+#: views/view-edit.php:319 views/view-edit.php:323 views/view-edit.php:335
+msgid "You can change further settings for this library below."
+msgstr ""
+
+#: views/view-edit.php:327 views/view-edit.php:331
+msgid "The table will then be sortable by the visitor."
+msgstr ""
+
+#: views/view-edit.php:338
+#, php-format
+msgid "Yes, use the &quot;%s&quot; JavaScript library with this table."
+msgstr ""
+
+#: views/view-edit.php:338
+#, php-format
+msgid ""
+"You must enable the use of a JavaScript library on the &quot;%s&quot; screen "
+"first."
+msgstr ""
+
+#: views/view-edit.php:349
+msgid "DataTables JavaScript Features"
+msgstr ""
+
+#: views/view-edit.php:351
+msgid ""
+"You can enable certain features for the DataTables JavaScript library here."
+msgstr ""
+
+#: views/view-edit.php:351
+msgid ""
+"More information on these features can be found on the <a href=\"http://www."
+"datatables.net/\">DataTables website</a>."
+msgstr ""
+
+#: views/view-edit.php:353
+#, php-format
+msgid ""
+"You can currently not change these options, because you have not enabled the "
+"&quot;DataTables&quot; or the &quot;DataTables+TableTools&quot; JavaScript "
+"library on the &quot;%s&quot; screen."
+msgstr ""
+
+#: views/view-edit.php:353
+msgid ""
+"It is not possible to use these features with the &quot;Tablesorter&quot; or "
+"&quot;Tablesorter Extended&quot; libraries."
+msgstr ""
+
+#: views/view-edit.php:357
+msgid "Sorting"
+msgstr ""
+
+#: views/view-edit.php:358
+msgid "Yes, enable sorting of table data by the visitor."
+msgstr ""
+
+#: views/view-edit.php:361
+msgid "Pagination"
+msgstr ""
+
+#: views/view-edit.php:362
+msgid ""
+"Yes, enable pagination of the table (showing only a certain number of rows) "
+"by the visitor."
+msgstr ""
+
+#: views/view-edit.php:365
+msgid "Length Change"
+msgstr ""
+
+#: views/view-edit.php:366
+msgid ""
+"Yes, allow visitor to change the number of rows shown when using pagination."
+msgstr ""
+
+#: views/view-edit.php:369
+msgid "Filtering"
+msgstr ""
+
+#: views/view-edit.php:370
+msgid ""
+"Yes, enable the visitor to filter or search the table. Only rows with the "
+"search word in them are shown."
+msgstr ""
+
+#: views/view-edit.php:373
+msgid "Info Bar"
+msgstr ""
+
+#: views/view-edit.php:374
+msgid ""
+"Yes, show the table information display. This shows information and "
+"statistics about the currently visible data, including filtering."
+msgstr ""
+
+#: views/view-edit.php:377
+msgid "TableTools"
+msgstr ""
+
+#: views/view-edit.php:379
+msgid ""
+"Yes, activate the TableTools functions (Copy to Clipboard, Save to CSV, Save "
+"to XLS, Print Table) for this table."
+msgstr ""
+
+#: views/view-edit.php:380
+msgid ""
+"This option can only be used with the &quot;DataTables+TableTools&quot; "
+"JavaScript library."
+msgstr ""
+
+#: views/view-edit.php:384
+msgid "Custom Commands"
+msgstr ""
+
+#: views/view-edit.php:385
+msgid ""
+"Enter additional DataTables JavaScript parameters that will be included with "
+"the script call here."
+msgstr ""
+
+#: views/view-edit.php:385
+msgid ""
+"For advanced use only. Read the <a href=\"http://www.datatables.net/"
+"\">DataTables documentation</a> before."
+msgstr ""
+
+#: views/view-edit.php:401
+msgid "Custom Data Fields"
+msgstr ""
+
+#: views/view-edit.php:403
+msgid "Custom Data Fields can be used to add extra metadata to a table."
+msgstr ""
+
+#: views/view-edit.php:403
+msgid ""
+"For example, this could be information about the source or the creator of "
+"the data."
+msgstr ""
+
+#: views/view-edit.php:405
+#, php-format
+msgid ""
+"You can show this data in the same way as tables by using the shortcode "
+"<strong>[table-info id=%s field=\"&lt;field-name&gt;\" /]</strong>."
+msgstr ""
+
+#: views/view-edit.php:411
+msgid "Field Name"
+msgstr ""
+
+#: views/view-edit.php:412
+msgid "Value"
+msgstr ""
+
+#: views/view-edit.php:426
+msgid "Delete Field"
+msgstr ""
+
+#: views/view-edit.php:428
+msgid "View shortcode"
+msgstr ""
+
+#: views/view-edit.php:437
+msgid ""
+"To add a new Custom Data Field, enter its name (only lowercase letters, "
+"numbers, _ and -)."
+msgstr ""
+
+#: views/view-edit.php:438
+msgid "Custom Data Field Name"
+msgstr ""
+
+#: views/view-edit.php:452
+msgid "Other actions"
+msgstr ""
+
+#: views/view-edit.php:455
+msgid "Delete Table"
+msgstr ""
+
+#: views/view-edit.php:456 views/view-export.php:59
+msgid "Export Table"
+msgstr ""
+
+#: views/view-export.php:10
+msgid ""
+"It is recommended to export and backup the data of important tables "
+"regularly."
+msgstr ""
+
+#: views/view-export.php:10
+msgid ""
+"Select the table, the desired export format and (for CSV only) a delimiter."
+msgstr ""
+
+#: views/view-export.php:10
+msgid ""
+"You may choose to download the export file. Otherwise it will be shown on "
+"this page."
+msgstr ""
+
+#: views/view-export.php:10
+msgid ""
+"Be aware that only the table data, but no options or settings are exported."
+msgstr ""
+
+#: views/view-export.php:10
+#, php-format
+msgid ""
+"To backup all tables, including their settings, at once use the &quot;%"
+"s&quot; button in the &quot;%s&quot;."
+msgstr ""
+
+#: views/view-export.php:10 views/view-options.php:172
+msgid "Create and Download Dump File"
+msgstr ""
+
+#: views/view-export.php:18
+msgid "Select Table to Export"
+msgstr ""
+
+#: views/view-export.php:33
+msgid "Select Export Format"
+msgstr ""
+
+#: views/view-export.php:43
+msgid "Select Delimiter to use"
+msgstr ""
+
+#: views/view-export.php:50
+msgid "Only needed for CSV export."
+msgstr ""
+
+#: views/view-export.php:53
+msgid "Download file"
+msgstr ""
+
+#: views/view-export.php:54
+msgid "Yes, I want to download the export file."
+msgstr ""
+
+#: views/view-export.php:71 views/view-list.php:88
+#, php-format
+msgid ""
+"You should <a href=\"%s\">add</a> or <a href=\"%s\">import</a> a table to "
+"get started!"
+msgstr ""
+
+#: views/view-import.php:3
+msgid "WP-Table Reloaded can import tables from existing data."
+msgstr ""
+
+#: views/view-import.php:3
+msgid "This may be a CSV, XML or HTML file, each with a certain structure."
+msgstr ""
+
+#: views/view-import.php:3
+msgid ""
+"To import an existing table, please select its format and the source for the "
+"import."
+msgstr ""
+
+#: views/view-import.php:3
+msgid ""
+"You can also decide, if you want to import it as a new table or replace an "
+"existing table."
+msgstr ""
+
+#: views/view-import.php:10
+msgid "Select Import Format"
+msgstr ""
+
+#: views/view-import.php:21
+msgid "Add or Replace Table?"
+msgstr ""
+
+#: views/view-import.php:23
+msgid "Add as new Table"
+msgstr ""
+
+#: views/view-import.php:24
+msgid "Replace existing Table"
+msgstr ""
+
+#: views/view-import.php:28
+msgid "Select existing Table to Replace"
+msgstr ""
+
+#: views/view-import.php:44
+msgid "Select source for Import"
+msgstr ""
+
+#: views/view-import.php:46
+msgid "File upload"
+msgstr ""
+
+#: views/view-import.php:47
+msgid "URL"
+msgstr ""
+
+#: views/view-import.php:48
+msgid "Manual input"
+msgstr ""
+
+#: views/view-import.php:49
+msgid "File on server"
+msgstr ""
+
+#: views/view-import.php:53
+msgid "Select File with Table to Import"
+msgstr ""
+
+#: views/view-import.php:57
+msgid "URL to Import Table from"
+msgstr ""
+
+#: views/view-import.php:61
+msgid "Path to file on server"
+msgstr ""
+
+#: views/view-import.php:65
+msgid "Paste data with Table to Import"
+msgstr ""
+
+#: views/view-import.php:71
+msgid "Import Table"
+msgstr ""
+
+#: views/view-import.php:85
+msgid "Import from original wp-Table plugin"
+msgstr ""
+
+#: views/view-import.php:131
+msgid "Import"
+msgstr ""
+
+#: views/view-import.php:139 views/view-list.php:79
+msgid "Bulk actions:"
+msgstr ""
+
+#: views/view-import.php:139
+msgid "Import Tables"
+msgstr ""
+
+#: views/view-import.php:145
+msgid "wp-Table by Alex Rabe seems to be installed, but no tables were found."
+msgstr ""
+
+#: views/view-list.php:2
+msgid "You may add, edit, copy, delete or preview tables here."
+msgstr ""
+
+#: views/view-list.php:2
+msgid "Each table has a unique ID that needs to be adjusted in that shortcode."
+msgstr ""
+
+#: views/view-list.php:2
+#, php-format
+msgid ""
+"You can also click the button &quot;%s&quot; in the editor toolbar to select "
+"and insert a table."
+msgstr ""
+
+#: views/view-list.php:39
+msgid "(no name)"
+msgstr ""
+
+#: views/view-list.php:40
+msgid "(no description)"
+msgstr ""
+
+#: views/view-list.php:58
+#, php-format
+msgid "Edit %s"
+msgstr ""
+
+#: views/view-list.php:62
+msgid "Shortcode"
+msgstr ""
+
+#: views/view-list.php:63
+msgid "Copy"
+msgstr ""
+
+#: views/view-list.php:64
+msgid "Export"
+msgstr ""
+
+#: views/view-list.php:66
+#, php-format
+msgid "Preview of Table %s"
+msgstr ""
+
+#: views/view-list.php:67
+msgid "Preview"
+msgstr ""
+
+#: views/view-list.php:79
+msgid "Copy Tables"
+msgstr ""
+
+#: views/view-list.php:79
+msgid "Delete Tables"
+msgstr ""
+
+#: views/view-options.php:3
+msgid ""
+"WP-Table Reloaded has several options which affect the plugin behavior in "
+"different areas."
+msgstr ""
+
+#: views/view-options.php:4
+msgid ""
+"Frontend Options influence the output and used features of tables in pages, "
+"posts or text-widgets."
+msgstr ""
+
+#: views/view-options.php:4
+#, php-format
+msgid ""
+"The Backend Options control the plugin's admin area, e.g. the &quot;%s&quot; "
+"screen."
+msgstr ""
+
+#: views/view-options.php:4 views/view-options.php:55
+#: views/view-options.php:67 views/view-options.php:71
+msgid "Edit Table"
+msgstr ""
+
+#: views/view-options.php:4
+msgid "Administrators have access to further Admin Options."
+msgstr ""
+
+#: views/view-options.php:19
+msgid "Frontend Options"
+msgstr ""
+
+#: views/view-options.php:23
+msgid "JavaScript library"
+msgstr ""
+
+#: views/view-options.php:24
+msgid "Yes, enable the use of a JavaScript library."
+msgstr ""
+
+#: views/view-options.php:24
+msgid ""
+"WP-Table Reloaded includes three JavaScript libraries that can add useful "
+"features, like sorting, pagination, and filtering, to a table."
+msgstr ""
+
+#: views/view-options.php:28
+msgid "Select the library to use:"
+msgstr ""
+
+#: views/view-options.php:29 views/view-options.php:119
+msgid "recommended"
+msgstr ""
+
+#: views/view-options.php:33
+#, php-format
+msgid ""
+"(You can read more about each library's features on the <a href=\"%s"
+"\">plugin's website</a>.)"
+msgstr ""
+
+#: views/view-options.php:36
+msgid "Default CSS"
+msgstr ""
+
+#: views/view-options.php:38
+msgid ""
+"Yes, include and load the plugin's default CSS Stylesheets. This is highly "
+"recommended, if you use one of the JavaScript libraries!"
+msgstr ""
+
+#: views/view-options.php:42
+msgid "Custom CSS"
+msgstr ""
+
+#: views/view-options.php:44
+msgid "Yes, include and load the following custom CSS commands."
+msgstr ""
+
+#: views/view-options.php:44
+msgid "This should be used to change the table layout and styling."
+msgstr ""
+
+#: views/view-options.php:50
+#, php-format
+msgid ""
+"You can get styling examples from the <a href=\"%s\">plugin's website</a>."
+msgstr ""
+
+#: views/view-options.php:50
+#, php-format
+msgid ""
+"Information on available CSS selectors can be found in the <a href=\"%s"
+"\">documentation</a>."
+msgstr ""
+
+#: views/view-options.php:54
+msgid "Links in new window"
+msgstr ""
+
+#: views/view-options.php:55
+#, php-format
+msgid ""
+"Yes, open links that are inserted with the &quot;%s&quot; button on the "
+"&quot;%s&quot; screen in a new browser window <strong>from now on</strong>."
+msgstr ""
+
+#: views/view-options.php:62
+msgid "Backend Options"
+msgstr ""
+
+#: views/view-options.php:66
+msgid "Exit warning"
+msgstr ""
+
+#: views/view-options.php:67
+#, php-format
+msgid ""
+"Yes, show a warning message, if I leave the &quot;%s&quot; screen and have "
+"not yet saved my changes."
+msgstr ""
+
+#: views/view-options.php:70
+msgid "Growing textareas"
+msgstr ""
+
+#: views/view-options.php:71
+#, php-format
+msgid ""
+"Yes, enlarge the textareas on the &quot;%s&quot; screen when they are "
+"focussed."
+msgstr ""
+
+#: views/view-options.php:79
+msgid "Admin Options"
+msgstr ""
+
+#: views/view-options.php:81 views/view-options.php:192
+#: views/view-options.php:206
+msgid "This area are only available to site administrators!"
+msgstr ""
+
+#: views/view-options.php:81
+msgid "You can therefore not change these options."
+msgstr ""
+
+#: views/view-options.php:86
+msgid "Plugin Access"
+msgstr ""
+
+#: views/view-options.php:87
+msgid "To access WP-Table Reloaded, a user needs to be:"
+msgstr ""
+
+#: views/view-options.php:88 views/view-options.php:99
+msgctxt "User role"
+msgid "Administrator"
+msgstr ""
+
+#: views/view-options.php:89 views/view-options.php:100
+msgctxt "User role"
+msgid "Editor"
+msgstr ""
+
+#: views/view-options.php:90 views/view-options.php:101
+msgctxt "User role"
+msgid "Author"
+msgstr ""
+
+#: views/view-options.php:91
+msgctxt "User role"
+msgid "Contributor"
+msgstr ""
+
+#: views/view-options.php:97
+msgid "Plugin Options Access"
+msgstr ""
+
+#: views/view-options.php:98
+msgid "To access the Plugin Options of WP-Table Reloaded, a user needs to be:"
+msgstr ""
+
+#: views/view-options.php:102
+msgid ""
+"Admin Options, Dump file Import, and Manual Plugin Uninstall are always "
+"accessible by Administrators only, regardless of this setting."
+msgstr ""
+
+#: views/view-options.php:106
+msgid "Plugin Language"
+msgstr ""
+
+#: views/view-options.php:107
+msgid "WP-Table Reloaded shall be shown in this language:"
+msgstr ""
+
+#: views/view-options.php:108
+#, php-format
+msgid "WordPress Default (currently %s)"
+msgstr ""
+
+#: views/view-options.php:117
+msgid "Admin menu entry"
+msgstr ""
+
+#: views/view-options.php:118
+msgid "WP-Table Reloaded shall be shown in this section of the admin menu:"
+msgstr ""
+
+#: views/view-options.php:119
+msgid "Tools"
+msgstr ""
+
+#: views/view-options.php:120
+msgid "Posts"
+msgstr ""
+
+#: views/view-options.php:121
+msgid "Pages"
+msgstr ""
+
+#: views/view-options.php:122
+msgid "Plugins"
+msgstr ""
+
+#: views/view-options.php:123
+msgid "Settings"
+msgstr ""
+
+#: views/view-options.php:124
+msgid "Dashboard"
+msgstr ""
+
+#: views/view-options.php:125
+msgid "Top-Level"
+msgstr ""
+
+#: views/view-options.php:130
+msgid "Frontend Edit Link"
+msgstr ""
+
+#: views/view-options.php:131
+msgid ""
+"Yes, show an \"Edit\" link to users with sufficient rights near every table "
+"on the frontend."
+msgstr ""
+
+#: views/view-options.php:135
+msgid "WordPress Search"
+msgstr ""
+
+#: views/view-options.php:136
+msgid ""
+"Yes, the WordPress Search shall also find posts and pages that contain the "
+"search term inside a table."
+msgstr ""
+
+#: views/view-options.php:140
+msgid "Remove upon Deactivation"
+msgstr ""
+
+#: views/view-options.php:141
+msgid ""
+"Yes, remove all plugin related data from the database when the plugin is "
+"deactivated."
+msgstr ""
+
+#: views/view-options.php:141
+msgid "Should be activated directly before deactivation only!"
+msgstr ""
+
+#: views/view-options.php:151
+msgid "Save Options"
+msgstr ""
+
+#: views/view-options.php:161
+msgid "WP-Table Reloaded Data Export and Backup"
+msgstr ""
+
+#: views/view-options.php:164
+msgid ""
+"WP-Table Reloaded can export and import a so-called dump file that contains "
+"all tables, their settings and the plugin's options."
+msgstr ""
+
+#: views/view-options.php:164
+msgid ""
+"This file can be used as a backup or to move all data to another WordPress "
+"site."
+msgstr ""
+
+#: views/view-options.php:167
+msgid "Export a dump file"
+msgstr ""
+
+#: views/view-options.php:169
+msgid ""
+"To export all Tables and their settings, click the button below to generate "
+"and download a dump file."
+msgstr ""
+
+#: views/view-options.php:169
+msgid ""
+"<strong>Warning</strong>: Do <strong>not</strong> edit the content of that "
+"file under any circumstances as you will destroy the file!"
+msgstr ""
+
+#: views/view-options.php:178
+msgid "Import a dump file"
+msgstr ""
+
+#: views/view-options.php:180
+msgid ""
+"To import a WP-Table Reloaded dump file and restore the included data, "
+"upload the file from your computer."
+msgstr ""
+
+#: views/view-options.php:180
+msgid ""
+"All current data of this WP-Table Reloaded installation (Tables, Options, "
+"Settings) <strong>WILL BE OVERWRITTEN</strong> with the data from the file!"
+msgstr ""
+
+#: views/view-options.php:180
+msgid "Do not proceed, if you do not understand this!"
+msgstr ""
+
+#: views/view-options.php:180
+msgid ""
+"It is highly recommended to export and backup the data of this installation "
+"before importing another dump file (see above)."
+msgstr ""
+
+#: views/view-options.php:186
+msgid "Select Dump File"
+msgstr ""
+
+#: views/view-options.php:188
+msgid "Import Dump File"
+msgstr ""
+
+#: views/view-options.php:198
+msgid "Manually Uninstall WP-Table Reloaded"
+msgstr ""
+
+#: views/view-options.php:200
+msgid ""
+"Uninstalling <strong>will permanently delete</strong> all tables, data, and "
+"options, that belong to WP-Table Reloaded from the database, including all "
+"tables you added or imported."
+msgstr ""
+
+#: views/view-options.php:200
+msgid ""
+"You will manually need to remove the plugin's files from the plugin folder "
+"afterwards."
+msgstr ""
+
+#: views/view-options.php:200
+msgid ""
+"Be very careful with this and only click the button if you know what you are "
+"doing!"
+msgstr ""
+
+#: views/view-options.php:204
+msgid "Uninstall Plugin WP-Table Reloaded"
+msgstr ""
+
+#: views/view-uninstall.php:3
+msgid "Plugin deactivated successfully."
+msgstr ""
+
+#: views/view-uninstall.php:4
+msgid ""
+"All tables, data and options were deleted. You may now manually remove the "
+"plugin's subfolder from your WordPress plugin folder or use the \"Delete\" "
+"link on the Plugins page."
 msgstr ""
 
 #. Plugin URI of an extension
