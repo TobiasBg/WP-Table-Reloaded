@@ -107,7 +107,7 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 == Changelog ==
 
 = Version 1.6 =
-* feature: Support for "colspan" and "colspan" in tables
+* feature: Support for "rowspan" and "colspan" in tables
 * feature: WP Search will now also search in tables
 * feature: Possibility to select the plugin language
 * feature: Highlight row (background-color change when hovering)
