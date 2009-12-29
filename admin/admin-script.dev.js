@@ -107,10 +107,9 @@ jQuery(document).ready( function( $ ) {
 
     // custom css textarea grows on focus
     function css_textarea_focus() {
-        $( '#options_custom_css' ).addClass('focus')
-        .unbind( 'focus', css_textarea_focus );
+        $( '#options_custom_css' ).addClass('focus');
     }
-    $( '#options_custom_css' ).bind( 'focus', css_textarea_focus );
+    $( '#options_custom_css' ).one( 'focus', css_textarea_focus );
 
     // show export delimiter dropdown box only if export format is csv
     $( '#export_format' ).change( function () {
@@ -225,8 +224,7 @@ jQuery(document).ready( function( $ ) {
     // insert link functions
     var insert_html = '';
     function add_html() {
-        var current_content = $(this).val();
-        $(this).val( current_content + insert_html );
+        $(this).val( $(this).val() + insert_html );
         $( '#table_contents textarea' ).unbind( 'click', add_html );
         set_table_data_changed();
     }
@@ -380,7 +378,8 @@ jQuery(document).ready( function( $ ) {
 
     function set_table_data_changed() {
         table_data_changed = true;
-        $( '#wp_table_reloaded_edit_table' ).find( '#table_id, #table_name, textarea' ).unbind( 'click', set_table_data_changed );
+        $( '#wp_table_reloaded_edit_table' ).find( '#table_name, textarea' ).unbind( 'change', set_table_data_changed );
+        $( '#wp_table_reloaded_edit_table .wp-table-reloaded-options input, #wp_table_reloaded_edit_table .wp-table-reloaded-options select' ).unbind( 'change', set_table_data_changed );
     }
 
     if ( WP_Table_Reloaded_Admin.option_show_exit_warning ) {
@@ -395,8 +394,7 @@ jQuery(document).ready( function( $ ) {
         } );
 
         $( '#wp_table_reloaded_edit_table' ).find( '#table_name, textarea' ).bind( 'change', set_table_data_changed ); // see also ID change function above
-        
-        $( '#wp_table_reloaded_edit_table .wp-table-reloaded-options :checkbox, #wp_table_reloaded_edit_table .wp-table-reloaded-options select' ).bind( 'change', set_table_data_changed );
+        $( '#wp_table_reloaded_edit_table .wp-table-reloaded-options input, #wp_table_reloaded_edit_table .wp-table-reloaded-options select' ).bind( 'change', set_table_data_changed );
     }
     
     tb_init( 'a.help-link' );
