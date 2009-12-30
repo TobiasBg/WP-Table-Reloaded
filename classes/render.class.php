@@ -114,9 +114,9 @@ class WP_Table_Reloaded_Render {
             $tbody = array();
             $tfoot = '';
 
-            // span counters for rows and columns
-            $this->rowspan = array_fill( 0, $rows, 1 );
-            $this->colspan = array_fill( 0, $cols, 1 );
+            // span counters for rows and columns, init to 1 for each row and column
+            $this->rowspan = array_fill( 0, $cols, 1 );
+            $this->colspan = array_fill( 0, $rows, 1 );
 
             $last_row_idx = $rows - 1; // index of the last row
             // go through rows in reversed order, to search for rowspan
