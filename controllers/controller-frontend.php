@@ -413,7 +413,7 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
             $plugin_path = plugin_dir_url( WP_TABLE_RELOADED__FILE__ );
             $plugin_path = apply_filters( 'wp_table_reloaded_plugin_path', $plugin_path );
 
-            $url_css_plugin = $plugin_path . 'css/plugin.css';
+            $url_css_plugin = $plugin_path . 'css/plugin.css' . '?ver=' . $this->options['installed_version'];
             $url_css_plugin = apply_filters( 'wp_table_reloaded_url_css_plugin', $url_css_plugin );
             if ( !empty( $url_css_plugin ) )
                 $default_css['plugin.css'] = "@import url(\"{$url_css_plugin}\");";
@@ -421,19 +421,19 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
             if ( $this->options['enable_tablesorter'] ) {
                 switch ( $this->options['tablesorter_script'] ) {
                     case 'datatables-tabletools':
-                        $url_css_tabletools = $plugin_path . 'js/tabletools/tabletools.css';
+                        $url_css_tabletools = $plugin_path . 'js/tabletools/tabletools.css' . '?ver=' . $this->options['installed_version'];
                         $url_css_tabletools = apply_filters( 'wp_table_reloaded_url_css_tabletools', $url_css_tabletools );
                         if ( !empty( $url_css_tabletools ) )
                             $default_css['tabletools.css'] = "@import url(\"{$url_css_tabletools}\");";
                     case 'datatables': // this also applies to the above, because there is no "break;" above
-                        $url_css_datatables = $plugin_path . 'css/datatables.css';
+                        $url_css_datatables = $plugin_path . 'css/datatables.css' . '?ver=' . $this->options['installed_version'];
                         $url_css_datatables = apply_filters( 'wp_table_reloaded_url_css_datatables', $url_css_datatables );
                         if ( !empty( $url_css_datatables ) )
                             $default_css['datatables.css'] = "@import url(\"{$url_css_datatables}\");";
                         break;
                     case 'tablesorter':
                     case 'tablesorter_extended':
-                        $url_css_tablesorter = $plugin_path . 'css/tablesorter.css';
+                        $url_css_tablesorter = $plugin_path . 'css/tablesorter.css' . '?ver=' . $this->options['installed_version'];
                         $url_css_tablesorter = apply_filters( 'wp_table_reloaded_url_css_tablesorter', $url_css_tablesorter );
                         if ( !empty( $url_css_tablesorter ) )
                             $default_css['tablesorter.css'] = "@import url(\"{$url_css_tablesorter}\");";
@@ -499,19 +499,19 @@ CSSSTYLE;
 
         $js_script_url = plugins_url( 'js/' . $jsfile, WP_TABLE_RELOADED__FILE__ );
         $js_script_url = apply_filters( 'wp_table_reloaded_url_js_script', $js_script_url, $jsfile );
-        wp_register_script( 'wp-table-reloaded-frontend-js', $js_script_url, array( 'jquery' ) );
+        wp_register_script( 'wp-table-reloaded-frontend-js', $js_script_url, array( 'jquery' ), $this->options['installed_version'] );
         wp_print_scripts( 'wp-table-reloaded-frontend-js' );
 
         if ( isset( $include_tabletools ) && $include_tabletools ) {
             $js_zeroclipboard_url = plugins_url( 'js/tabletools/zeroclipboard.js', WP_TABLE_RELOADED__FILE__ );
             $js_zeroclipboard_url = apply_filters( 'wp_table_reloaded_url_js_zeroclipboard', $js_zeroclipboard_url );
             // no need to explicitely check for dependencies ( 'wp-table-reloaded-frontend-js' and 'jquery' ) again
-            wp_register_script( 'wp-table-reloaded-zeroclipboard-js', $js_zeroclipboard_url );
+            wp_register_script( 'wp-table-reloaded-zeroclipboard-js', $js_zeroclipboard_url, array(), $this->options['installed_version'] );
             wp_print_scripts( 'wp-table-reloaded-zeroclipboard-js' );
 
             $js_tabletools_url = plugins_url( 'js/tabletools/tabletools.js', WP_TABLE_RELOADED__FILE__ );
             $js_tabletools_url = apply_filters( 'wp_table_reloaded_url_js_tabletools', $js_tabletools_url );
-            wp_register_script( 'wp-table-reloaded-tabletools-js', $js_tabletools_url );
+            wp_register_script( 'wp-table-reloaded-tabletools-js', $js_tabletools_url, array(), $this->options['installed_version'] );
             $swf_zeroclipboard_url = plugins_url( 'js/tabletools/zeroclipboard.swf', WP_TABLE_RELOADED__FILE__ );
             $swf_zeroclipboard_url = apply_filters( 'wp_table_reloaded_url_swf_zeroclipboard', $swf_zeroclipboard_url );
             wp_localize_script( 'wp-table-reloaded-tabletools-js', 'WP_Table_Reloaded_TableTools', array(

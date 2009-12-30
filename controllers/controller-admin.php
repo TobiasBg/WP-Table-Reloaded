@@ -1687,7 +1687,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
     function add_manage_page_js() {
         $suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.dev' : '';
         $jsfile = "admin/admin-script{$suffix}.js";
-        wp_enqueue_script( 'wp-table-reloaded-admin-js', plugins_url( $jsfile, WP_TABLE_RELOADED__FILE__ ), array( 'jquery', 'thickbox' ), WP_TABLE_RELOADED_PLUGIN_VERSION, true );
+        wp_enqueue_script( 'wp-table-reloaded-admin-js', plugins_url( $jsfile, WP_TABLE_RELOADED__FILE__ ), array( 'jquery', 'thickbox' ), $this->options['installed_version'], true );
         wp_localize_script( 'wp-table-reloaded-admin-js', 'WP_Table_Reloaded_Admin', array(
 	  	    'str_UninstallCheckboxActivation' => __( 'Do you really want to activate this? You should only do that right before uninstallation!', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	    'str_DataManipulationLinkInsertURL' => __( 'URL of link to insert', WP_TABLE_RELOADED_TEXTDOMAIN ),
@@ -1735,7 +1735,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
     function add_manage_page_css() {
         $suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.dev' : '';
         $cssfile = "admin/admin-style{$suffix}.css";
-        wp_enqueue_style( 'wp-table-reloaded-admin-css', plugins_url( $cssfile, WP_TABLE_RELOADED__FILE__ ), array(), WP_TABLE_RELOADED_PLUGIN_VERSION );
+        wp_enqueue_style( 'wp-table-reloaded-admin-css', plugins_url( $cssfile, WP_TABLE_RELOADED__FILE__ ), array(), $this->options['installed_version'] );
     }
 
     /**
@@ -1758,7 +1758,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
         $suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.dev' : '';
         $jsfile = "admin/admin-editor-buttons-script{$suffix}.js";
 
-        wp_enqueue_script( 'wp-table-reloaded-editor-button-js', plugins_url( $jsfile, WP_TABLE_RELOADED__FILE__ ), array( 'jquery', 'thickbox', 'media-upload' ), WP_TABLE_RELOADED_PLUGIN_VERSION, true );
+        wp_enqueue_script( 'wp-table-reloaded-editor-button-js', plugins_url( $jsfile, WP_TABLE_RELOADED__FILE__ ), array( 'jquery', 'thickbox', 'media-upload' ), $this->options['installed_version'], true );
         wp_localize_script( 'wp-table-reloaded-editor-button-js', 'WP_Table_Reloaded_Admin', array(
 	  	    'str_EditorButtonCaption' => __( 'Table', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	    'str_EditorButtonAjaxURL' => $ajax_url,
@@ -1786,7 +1786,7 @@ WPLIST;
         $use_datatables = apply_filters( 'wp_table_reloaded_admin_use_datatables', $use_datatables );
         // sorting doesn't make sense, if there is only one table in the list
         if ( $use_datatables && 1 < count( $this->tables ) ) {
-            wp_register_script( 'wp-table-reloaded-tablesorter-js', plugins_url( 'js/jquery.datatables.min.js', WP_TABLE_RELOADED__FILE__ ), array( 'wp-table-reloaded-admin-js' ) );
+            wp_register_script( 'wp-table-reloaded-tablesorter-js', plugins_url( 'js/jquery.datatables.min.js', WP_TABLE_RELOADED__FILE__ ), array( 'wp-table-reloaded-admin-js' ), $this->options['installed_version'] );
             wp_print_scripts( 'wp-table-reloaded-tablesorter-js' );
 
             $sProcessing = __( 'Please wait...', WP_TABLE_RELOADED_TEXTDOMAIN );
