@@ -92,11 +92,6 @@ class WP_Table_Reloaded_Render {
                     $output .= $description_html;
             }
 
-            if ( !empty( $this->output_options['edit_table_url'] ) ) {
-                $edit_table_link = "<span class=\"wp-table-reloaded-edit-link\" style=\"display: block;\"><a href=\"{$this->output_options['edit_table_url']}\" title=\"" . __( 'Edit' ) . "\">" . __( 'Edit' ) . "</a></span>";
-                $output .= $edit_table_link;
-            }
-
             $output = apply_filters( 'wp_table_reloaded_pre_output_table', $output, $table['id'] );
             $output = apply_filters( 'wp_table_reloaded_pre_output_table_id-' . $table['id'], $output );
 
@@ -141,6 +136,11 @@ class WP_Table_Reloaded_Render {
 
             $tbody_class = ( $this->output_options['row_hover'] ) ? ' class="row-hover"' : '';
 
+            if ( !empty( $this->output_options['edit_table_url'] ) ) {
+                $edit_table_link = "<a href=\"{$this->output_options['edit_table_url']}\" title=\"" . __( 'Edit' ) . "\">" . __( 'Edit' ) . "</a>";
+                $caption = "<caption style=\"caption-side: bottom; text-align: left; margin-top: -16px;\">{$edit_table_link}</caption>";
+            }
+
             $colgroup = ( !empty( $colgroup ) ) ? "<colgroup>\n{$colgroup}</colgroup>\n" : '';
             $thead = ( !empty( $thead ) ) ? "<thead>\n{$thead}</thead>\n" : '';
             $tbody = array_reverse( $tbody ); // because we handle the rows in reversed order
@@ -152,7 +152,7 @@ class WP_Table_Reloaded_Render {
             $border = ( false !== $this->output_options['border'] ) ? " border=\"{$this->output_options['border']}\"" : '';
 
             $output .= "\n<table id=\"{$this->output_options['html_id']}\" class=\"{$cssclasses}\"{$cellspacing}{$cellpadding}{$border}>\n";
-            $output .= $colgroup . $thead . $tfoot . $tbody;
+            $output .= $caption . $colgroup . $thead . $tfoot . $tbody;
             $output .= "</table>\n";
 
             $output = apply_filters( 'wp_table_reloaded_post_output_table', $output, $table['id'] );
