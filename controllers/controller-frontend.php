@@ -543,6 +543,7 @@ CSSSTYLE;
                     if ( !empty( $language_file_url ) )
                         $parameters['oLanguage'] = "\"oLanguage\":{\"sUrl\": \"{$language_file_url}\"}"; // URL with language file
                     // these parameters need to be added for performance gain or to overwrite unwanted default behavior
+                    // $parameters['bAutoWidth'] = '"bAutoWidth": false'; // might need to add this by default
                     $parameters['aaSorting'] = '"aaSorting": []'; // no initial sort
                     $parameters['bSortClasses'] = '"bSortClasses": false'; // don't add additional classes, to speed up sorting
                     $parameters['asStripClasses'] = ( $js_options['alternating_row_colors'] ) ? "\"asStripClasses\":['even','odd']" : '"asStripClasses":[]'; // alternating row colors is default, so remove them if not wanted with []
