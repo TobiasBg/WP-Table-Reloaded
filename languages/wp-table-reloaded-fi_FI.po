@@ -1,8 +1,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP-Table Reloaded\n"
-"PO-Revision-Date: 2009-06-19 15:06+0200\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-table-reloaded\n"
+"POT-Creation-Date: 2009-12-28 20:16+0000\n"
+"PO-Revision-Date: 2009-12-29 23:45+0200\n"
 "Last-Translator: Jaakko Kangosjärvi <jaakko@kangosjarvi.net>\n"
+"Language-Team: Kaljukopla <jaska@kaljukopla.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,959 +14,2253 @@ msgstr ""
 "X-Poedit-Country: FINLAND\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-KeywordsList: __;_e;__ngettext:1,2;__ngettext_noop:1,2;_c\n"
-"X-Poedit-Basepath: .\n"
-"POT-Creation-Date: \n"
-"Language-Team: Kaljukopla <jaska@kaljukopla.net>\n"
+"X-Poedit-Basepath: C:\\D\\Blogit\\plugins\\wp-table-realoaded-beta\\wp-table-reloaded\\\n"
 "X-Poedit-SearchPath-0: .\n"
-
-#: wp-table-reloaded-admin.php:152
-#, php-format
-msgid "Table \"%s\" added successfully."
-msgstr "Taulukko \"%s\" luotu."
-
-#: wp-table-reloaded-admin.php:185
-msgid "Table edited successfully."
-msgstr "Taulukon muutokset tallennettu."
-
-#: wp-table-reloaded-admin.php:208
-msgid "Rows swapped successfully."
-msgstr "Rivit vaihdettu."
-
-#: wp-table-reloaded-admin.php:227
-msgid "Columns swapped successfully."
-msgstr "Sarakkeet vaihdettu."
-
-#: wp-table-reloaded-admin.php:357
-#, php-format
-msgid "Table \"%s\" copied successfully."
-msgstr "Taulukko \"%s\" kopioitu."
-
-#: wp-table-reloaded-admin.php:373
-#, php-format
-msgid "Table \"%s\" deleted successfully."
-msgstr "Taulukko \"%s\" poistettu."
-
-#: wp-table-reloaded-admin.php:383
-msgid "Row deleted successfully."
-msgstr "Rivi poistettu."
-
-#: wp-table-reloaded-admin.php:396
-msgid "Column deleted successfully."
-msgstr "Sarake poistettu."
-
-#: wp-table-reloaded-admin.php:401
-msgid "Delete failed."
-msgstr "Poisto epäonnistui."
-
-#: wp-table-reloaded-admin.php:426
-msgid "Row inserted successfully."
-msgstr "Rivi lisätty."
-
-#: wp-table-reloaded-admin.php:435
-msgid "Column inserted successfully."
-msgstr "Sarake lisätty."
-
-#: wp-table-reloaded-admin.php:438
-msgid "Insert failed."
-msgstr "Lisäys epäonnistui."
-
-#: wp-table-reloaded-admin.php:511
-#: wp-table-reloaded-admin.php:538
-msgid "Table \"%s\" imported successfully."
-msgstr "Taulukko \"%s\" tuotu."
-
-#: wp-table-reloaded-admin.php:565
-#, php-format
-msgid "Table \"%s\" exported successfully."
-msgstr "Taulukko \"%s\" viety."
-
-#: wp-table-reloaded-admin.php:593
-msgid "Options saved successfully."
-msgstr "Asetukset tallennettu."
-
-#: wp-table-reloaded-admin.php:629
-#: wp-table-reloaded-admin.php:689
-msgid "List of Tables"
-msgstr "Taulukkolista"
-
-#: wp-table-reloaded-admin.php:640
-#: wp-table-reloaded-admin.php:704
-#: wp-table-reloaded-admin.php:1135
-msgid "ID"
-msgstr "ID"
-
-#: wp-table-reloaded-admin.php:641
-#: wp-table-reloaded-admin.php:705
-#: wp-table-reloaded-admin.php:773
-#: wp-table-reloaded-admin.php:826
-#: wp-table-reloaded-admin.php:1136
-msgid "Table Name"
-msgstr "Taulukon nimi"
-
-#: wp-table-reloaded-admin.php:642
-#: wp-table-reloaded-admin.php:706
-#: wp-table-reloaded-admin.php:777
-#: wp-table-reloaded-admin.php:830
-#: wp-table-reloaded-admin.php:1137
-msgid "Description"
-msgstr "Kuvaus"
-
-#: wp-table-reloaded-admin.php:643
-#: wp-table-reloaded-admin.php:707
-#: wp-table-reloaded-admin.php:1138
-msgid "Action"
-msgstr "Toiminto"
-
-#: wp-table-reloaded-admin.php:733
-msgid "Edit"
-msgstr "Muokkaa"
-
-#: wp-table-reloaded-admin.php:1692
-msgid "Do you want to copy this table?"
-msgstr "Haluatko kopioida tämän taulukon?"
-
-#: wp-table-reloaded-admin.php:734
-msgid "Copy"
-msgstr "Kopioi"
-
-#: wp-table-reloaded-admin.php:735
-msgid "Export"
-msgstr "Vie"
-
-#: wp-table-reloaded-admin.php:1693
-msgid "The complete table and all content will be erased. Do you really want to delete it?"
-msgstr "Koko taulukko ja sen sisältö tyhjennetään. Haluatko varmasti poistaa?"
-
-#: wp-table-reloaded-admin.php:736
-msgid "Delete"
-msgstr "Poista"
-
-#: wp-table-reloaded-admin.php:672
-#: wp-table-reloaded-admin.php:753
-#: wp-table-reloaded-admin.php:1256
-msgid "No tables found."
-msgstr "Taulukkoja ei löydy."
-
-#: wp-table-reloaded-admin.php:753
-#: wp-table-reloaded-admin.php:1256
-#, php-format
-msgid "You might <a href=\"%s\">add</a> or <a href=\"%s\">import</a> one!"
-msgstr "Haluaisit ehkä <a href=\"%s\">luoda</a> tai <a href=\"%s\">tuoda</a> taulukon!"
-
-#: wp-table-reloaded-admin.php:761
-#: wp-table-reloaded-admin.php:1443
-msgid "Add new Table"
-msgstr "Luo uusi taulukko"
-
-#: wp-table-reloaded-admin.php:765
-msgid "You can add a new table here. Just enter it's name, a description (optional) and the number of rows and columns.<br/>You may add, insert or delete rows and columns later."
-msgstr "Voit luoda uuden taulukon tässä. Anna sille nimi, kuvaus (ei pakollinen) sekä rivien ja sarakkeiden määrä.<br/>Voit myöhemmin lisätä, siirtää tai poistaa rivejä ja sarakkeita. "
-
-#: wp-table-reloaded-admin.php:781
-msgid "Number of Rows"
-msgstr "Rivejä"
-
-#: wp-table-reloaded-admin.php:785
-msgid "Number of Columns"
-msgstr "Sarakkeita"
-
-#: wp-table-reloaded-admin.php:792
-msgid "Add Table"
-msgstr "Luo taulukko"
-
-#: wp-table-reloaded-admin.php:812
-msgid "You may edit the content of the table here. It is also possible to add or delete columns and rows."
-msgstr "Voit muokata taulukon sisältöä tässä. Voit myös lisätä tai poistaa rivejä ja sarakkeita."
-
-#: wp-table-reloaded-admin.php:818
-msgid "Table Information"
-msgstr "Taulukon tiedot"
-
-#: wp-table-reloaded-admin.php:848
-msgid "Table Contents"
-msgstr "Taulukon sisältö"
-
-#: wp-table-reloaded-admin.php:877
-msgid "Insert Row"
-msgstr "Liitä rivi"
-
-#: wp-table-reloaded-admin.php:1694
-msgid "Do you really want to delete this row?"
-msgstr "Haluatko varmasti poistaa rivin?"
-
-#: wp-table-reloaded-admin.php:879
-msgid "Delete Row"
-msgstr "Poista rivi"
-
-#: wp-table-reloaded-admin.php:889
-msgid "Insert Column"
-msgstr "Liitä sarake"
-
-#: wp-table-reloaded-admin.php:1695
-msgid "Do you really want to delete this column?"
-msgstr "Haluatko varmasti poistaa sarakkeen?"
-
-#: wp-table-reloaded-admin.php:891
-msgid "Delete Column"
-msgstr "Poista sarake"
-
-#: wp-table-reloaded-admin.php:932
-#: wp-table-reloaded-admin.php:952
-msgid "Swap"
-msgstr "Vaihda"
-
-#: wp-table-reloaded-admin.php:983
-msgid "Table Settings"
-msgstr "Taulukon asetukset"
-
-#: wp-table-reloaded-admin.php:985
-msgid "These settings will only be used for this table."
-msgstr "Nämä asetukset koskevat vain tätä taulukkoa."
-
-#: wp-table-reloaded-admin.php:988
-msgid "Alternating row colors"
-msgstr "Vaihtoehtoinen taustaväri"
-
-#: wp-table-reloaded-admin.php:989
-msgid "Every second row will have an alternating background color."
-msgstr "Joka toinen rivi näytetään vaihtoehtoisella taustavärillä"
-
-#: wp-table-reloaded-admin.php:992
-msgid "Use Table Headline"
-msgstr "Käytä otsikkoriviä"
-
-#: wp-table-reloaded-admin.php:993
-msgid "The first row of your table will use the [th] tag."
-msgstr "Taulukon ensimmäisellä rivillä käytetään HTML-tunnistetta [th]."
-
-#: wp-table-reloaded-admin.php:996
-msgid "Print Table Name"
-msgstr "Näytä taulukon nimi"
-
-#: wp-table-reloaded-admin.php:997
-msgid "The Table Name will be written above the table in a [h2] tag."
-msgstr "Taulukon nimi näytetään sen yläpuolella HTML-tunnisteella [h2]."
-
-#: wp-table-reloaded-admin.php:1000
-msgid "Print Table Description"
-msgstr "Näytä taulukon kuvaus"
-
-#: wp-table-reloaded-admin.php:1001
-msgid "The Table Description will be written under the table."
-msgstr "Taulukon kuvaus näytetään sen alapuolella."
-
-#: wp-table-reloaded-admin.php:1004
-msgid "Use Tablesorter"
-msgstr "Käytä Tablesorteria"
-
-#: wp-table-reloaded-admin.php:1005
-msgid "You may sort a table using the <a href=\"http://www.tablesorter.com/\">Tablesorter-jQuery-Plugin</a>. <small>Attention: You must have Tablesorter enabled on the \"Plugin Options\" page and the option \"Use Table Headline\" has to be enabled above for this to work!</small>"
-msgstr "Voit käyttää taulukon lajittelussa lisäosaa <a href=\"http://www.tablesorter.com/\">Tablesorter-jQuery-Plugin</a>. <small>Huomaa: Tablesorter täytyy ottaa käyttöön lisäosasivulla ja taulukon asetus \"Käytä otsikkoriviä\" ([th]) valita yläpuolelta!</small>"
-
-#: wp-table-reloaded-admin.php:838
-#: wp-table-reloaded-admin.php:1014
-msgid "Update Changes"
-msgstr "Tallenna muutokset"
-
-#: wp-table-reloaded-admin.php:839
-#: wp-table-reloaded-admin.php:1015
-msgid "Save and go back"
-msgstr "Tallenna ja palaa"
-
-#: wp-table-reloaded-admin.php:842
-#: wp-table-reloaded-admin.php:1018
-msgid "Cancel"
-msgstr "Peru"
-
-#: wp-table-reloaded-admin.php:1020
-msgid "Other actions"
-msgstr "Muut toiminnot"
-
-#: wp-table-reloaded-admin.php:1023
-msgid "Delete Table"
-msgstr "Poista taulukko"
-
-#: wp-table-reloaded-admin.php:1024
-#: wp-table-reloaded-admin.php:1245
-msgid "Export Table"
-msgstr "Vie taulukko"
-
-#: wp-table-reloaded-admin.php:1035
-#: wp-table-reloaded-admin.php:1444
-msgid "Import a Table"
-msgstr "Tuo taulukko"
-
-#: wp-table-reloaded-admin.php:1089
-msgid "Select File with Table to Import"
-msgstr "Valitse taulukkotiedosto tuotavaksi"
-
-#: wp-table-reloaded-admin.php:1109
-msgid "Import Table"
-msgstr "Tuo taulukko"
-
-#: wp-table-reloaded-admin.php:1192
-#: wp-table-reloaded-admin.php:1445
-msgid "Export a Table"
-msgstr "Vie taulukko"
-
-#: wp-table-reloaded-admin.php:1204
-msgid "Select Table to Export"
-msgstr "Valitse taulukko vietäväksi"
-
-#: wp-table-reloaded-admin.php:1219
-msgid "Select Export Format"
-msgstr "Valitse vientimuoto"
-
-#: wp-table-reloaded-admin.php:1229
-msgid "Select Delimiter to use"
-msgstr "Valitse erotin"
-
-#: wp-table-reloaded-admin.php:1265
-msgid "General Plugin Options"
-msgstr "Yleiset asetukset"
-
-#: wp-table-reloaded-admin.php:1269
-msgid "You may change these global options.<br/>They will effect all tables or the general plugin behaviour."
-msgstr "Voit muuttaa näytä yleisiä asetuksia.<br/>Ne vaikuttavat kaikkiin taulukoihin tai lisäosan ominaisuuksiin."
-
-#: wp-table-reloaded-admin.php:1306
-msgid "Uninstall Plugin upon Deactivation?"
-msgstr "Poista lisäosan asennus?"
-
-#: wp-table-reloaded-admin.php:1280
-msgid "Enable Tablesorter-JavaScript?"
-msgstr "Ota käyttöön Tablesorter-JavaScript?"
-
-#: wp-table-reloaded-admin.php:1317
-msgid "Save Options"
-msgstr "Tallenna asetukset"
-
-#: wp-table-reloaded-admin.php:1697
-msgid "Do you really want to uninstall the plugin and delete ALL data?"
-msgstr "Haluatko varmasti poistaa lisäosan asennuksen ja KAIKEN tallennetun tiedon?"
-
-#: wp-table-reloaded-admin.php:1698
-msgid "Are you really sure?"
-msgstr "Oletko aivan varma?"
-
-#: wp-table-reloaded-admin.php:1339
-msgid "Information about the plugin"
-msgstr "Tietoa lisäosasta"
-
-#: wp-table-reloaded-admin.php:1368
-msgid "This plugin was written by <a href=\"http://tobias.baethge.com/\">Tobias B&auml;thge</a>. It is licenced as Free Software under GPL 2."
-msgstr "Tämän lisäosan on tehnyt <a href=\"http://tobias.baethge.com/\">Tobias B&auml;thge</a>. Lisäosa on ilmaisohjelma lisenssillä GPL v2."
-
-#: wp-table-reloaded-admin.php:1442
-msgid "List Tables"
-msgstr "Taulukkolista"
-
-#: wp-table-reloaded-admin.php:1447
-msgid "Plugin Options"
-msgstr "Lisäosan asetukset"
-
-#: wp-table-reloaded-admin.php:1448
-msgid "About the Plugin"
-msgstr "Tietoa lisäosasta"
-
-#: php/wp-table-reloaded-export.class.php:30
-#: php/wp-table-reloaded-import.class.php:38
+"X-Poedit-SearchPath-1: js\n"
+"X-Poedit-SearchPath-2: classes\n"
+"X-Poedit-SearchPath-3: php\n"
+"X-Poedit-SearchPath-4: controllers\n"
+
+#: classes/export.class.php:28
+#: classes/import.class.php:36
 msgid "CSV - Character-Separated Values"
 msgstr "CSV - välimerkein erotetut arvot"
 
-#: php/wp-table-reloaded-export.class.php:32
-#: php/wp-table-reloaded-import.class.php:40
-msgid "XML - eXtended Markup Language"
-msgstr "XML - eXtended Markup Language"
-
-#: php/wp-table-reloaded-export.class.php:35
-msgid "; (semicolon)"
-msgstr "; (puolipiste)"
-
-#: php/wp-table-reloaded-export.class.php:36
-msgid ", (comma)"
-msgstr ", (pilkku)"
-
-#: php/wp-table-reloaded-export.class.php:37
-msgid ": (colon)"
-msgstr ": (kaksoispiste)"
-
-#: wp-table-reloaded-admin.php:1328
-msgid "Uninstall Plugin WP-Table Reloaded"
-msgstr "Poista WP-Table Reloaded -asennus"
-
-#: php/wp-table-reloaded-export.class.php:31
-#: php/wp-table-reloaded-import.class.php:39
+#: classes/export.class.php:29
+#: classes/import.class.php:37
 msgid "HTML - Hypertext Markup Language"
 msgstr "HTML - Hypertext Markup Language"
 
-#: wp-table-reloaded-admin.php:305
-#: wp-table-reloaded-admin.php:352
-msgid "Copy of"
-msgstr "Kopio kohteesta"
+#: classes/export.class.php:30
+#: classes/import.class.php:38
+msgid "XML - eXtended Markup Language"
+msgstr "XML - eXtended Markup Language"
 
-#: wp-table-reloaded-admin.php:466
-#: wp-table-reloaded-admin.php:475
-#: wp-table-reloaded-admin.php:485
-msgid "Imported Table"
-msgstr "Tuotu taulukko"
+#: classes/export.class.php:33
+msgid "; (semicolon)"
+msgstr "; (puolipiste)"
 
-#: wp-table-reloaded-admin.php:476
-msgid "via form"
-msgstr "syöttökentästä"
+#: classes/export.class.php:34
+msgid ", (comma)"
+msgstr ", (pilkku)"
 
-#: wp-table-reloaded-admin.php:495
-#: wp-table-reloaded-admin.php:520
-msgid "Table could not be imported."
-msgstr "Taulukkoa ei voitu tuoda."
+#: classes/export.class.php:35
+msgid ": (colon)"
+msgstr ": (kaksoispiste)"
 
-#: wp-table-reloaded-admin.php:611
-msgid "WP-Table Reloaded"
-msgstr "WP-Table Reloaded"
-
-#: wp-table-reloaded-admin.php:612
-msgid "Plugin deactivated successfully."
-msgstr "Lisäosa poistettu käytöstä."
-
-#: wp-table-reloaded-admin.php:613
-msgid "All tables, data and options were deleted. You may now remove the plugin's subfolder from your WordPress plugin folder."
-msgstr "Kaikki taulukot, tiedot ja asetukset on poistettu. Voit nyt poistaa lisäosan kansion WordPressin lisäosakansiosta."
-
-#: wp-table-reloaded-admin.php:774
-msgid "Enter Table Name"
-msgstr "Kirjoita taulukon nimi"
-
-#: wp-table-reloaded-admin.php:778
-msgid "Enter Description"
-msgstr "Kirjoita kuvaus"
-
-#: wp-table-reloaded-admin.php:1046
-msgid "Select Import Format"
-msgstr "Valitse tuontimuoto"
-
-#: wp-table-reloaded-admin.php:1236
-msgid "<small>(Only needed for CSV export.)</small>"
-msgstr "<small>(Tarvitaan vain CSV-tuontiin.)</small>"
-
-#: wp-table-reloaded-admin.php:1103
-msgid "Paste data with Table to Import"
-msgstr "Liitä tiedot tuotavaan taulukkoon"
-
-#: wp-table-reloaded-admin.php:1159
-msgid "Import"
-msgstr "Tuo"
-
-#: wp-table-reloaded-admin.php:1196
-msgid "You may export a table here. Just select the table, your desired export format and a delimiter (needed for CSV only).<br/>You may opt to download the export file. Otherwise it will be shown on this page."
-msgstr "Voit viedä taulukon tässä. Valitse taulukko, haluamasi vientimuoto ja erotin (jos CSV-vienti). <br/>Voit valita ladataanko tuontitiedosto vai näytetäänkö se tällä sivulla."
-
-#: wp-table-reloaded-admin.php:1239
-msgid "Download file"
-msgstr "Lataa tiedosto"
-
-#: wp-table-reloaded-admin.php:1240
-msgid "Yes, I want to download the export file."
-msgstr "Kyllä, haluan ladata vientitiedoston."
-
-#: wp-table-reloaded-admin.php:1276
-msgid "Frontend Options"
-msgstr "Käyttöliittymän asetukset"
-
-#: wp-table-reloaded-admin.php:1302
-msgid "Admin Options"
-msgstr "Ylläpitoasetukset"
-
-#: wp-table-reloaded-admin.php:1323
-msgid "Manually Uninstall Plugin"
-msgstr "Poista lisäosan asennus käsin"
-
-#: wp-table-reloaded-admin.php:1325
-msgid "You may uninstall the plugin here. This <strong>will delete</strong> all tables, data, options, etc., that belong to the plugin, including all tables you added or imported.<br/> Be very careful with this and only click the button if you know what you are doing!"
-msgstr "Voit poistaa lisäosan asennuksen tässä. Se <strong>poistaa</strong> kaikki taulukot, tiedot ja asetukset. <br/>Ole varovainen ja klikkaa painiketta vain jos todella tiedät mitä olet tekemässä!"
-
-#: wp-table-reloaded-admin.php:1345
-msgid "Plugin Purpose"
-msgstr "Lisäosan käyttötarkoitus"
-
-#: wp-table-reloaded-admin.php:1352
-msgid "Usage"
-msgstr "Käyttö"
-
-#: wp-table-reloaded-admin.php:1359
-msgid "More Information and Documentation"
-msgstr "Lisätietoja ja dokumentointi"
-
-#: wp-table-reloaded-admin.php:1366
-msgid "Author and Licence"
-msgstr "Tekijä ja lisenssi"
-
-#: wp-table-reloaded-admin.php:1373
-msgid "Credits and Thanks"
-msgstr "Avustajat ja kiitokset"
-
-#: wp-table-reloaded-admin.php:929
-#, php-format
-msgid "Swap rows %s and %s"
-msgstr "Vaihdettu rivit %s ja %s"
-
-#: wp-table-reloaded-admin.php:949
-#, php-format
-msgid "Swap columns %s and %s"
-msgstr "Vaihdettu sarakkeet %s ja %s"
-
-#: wp-table-reloaded-admin.php:1122
-msgid "Import from original wp-Table plugin"
-msgstr "Tuo alkuperäisestä WP-Table-lisäosasta"
-
-#: wp-table-reloaded-admin.php:1696
-msgid "Do you really want to import this table from the wp-Table plugin?"
-msgstr "Haluatko varmasti tuoda tämän taulukon WP-Table-lisäosasta?"
-
-#: wp-table-reloaded-admin.php:1173
-msgid "wp-Table by Alex Rabe seems to be installed, but no tables were found."
-msgstr "Alex Raben WP-Table-lisäosa on asennettu, mutta taulukoita ei löytynyt."
-
-#: wp-table-reloaded-admin.php:1682
-msgid "Do you really want to activate this? You should only do that right before uninstallation!"
-msgstr "Haluatko varmasti ottaa tämän käyttöön? Tämä on tarkoitus tehdä vain ennen asennuksen poistoa!"
-
-#: wp-table-reloaded-admin.php:1376
-msgid "Thanks go to <a href=\"http://alexrabe.boelinger.com/\">Alex Rabe</a> for the original wp-Table plugin,"
-msgstr "Kiitokset <a href=\"http://alexrabe.boelinger.com/\">Alex Rabelle</a> lisäosasta WP-Table,"
-
-#: wp-table-reloaded-admin.php:1378
-msgid "the submitters of translations:"
-msgstr "kääntäjille:"
-
-#: wp-table-reloaded-admin.php:1379
-msgid "Albanian (thanks to <a href=\"http://www.romeolab.com/\">Romeo</a>)"
-msgstr "Albanisch (danke an <a href=\"http://www.romeolab.com/\">Romeo</a>)"
-
-#: wp-table-reloaded-admin.php:1382
-msgid "French (thanks to <a href=\"http://ultratrailer.net/\">Yin-Yin</a>)"
-msgstr "Französisch (danke an <a href=\"http://ultratrailer.net/\">Yin-Yin</a>)"
-
-#: wp-table-reloaded-admin.php:1384
-msgid "Russian (thanks to <a href=\"http://wp-skins.info/\">Truper</a>)"
-msgstr "Russisch (danke an <a href=\"http://wp-skins.info/\">Truper</a>)"
-
-#: wp-table-reloaded-admin.php:1386
-msgid "Swedish (thanks to <a href=\"http://www.zuperzed.se/\">ZuperZed</a>)"
-msgstr "Schwedisch (danke an <a href=\"http://www.zuperzed.se/\">ZuperZed</a>)"
-
-#: wp-table-reloaded-admin.php:1387
-msgid "Turkish (thanks to <a href=\"http://www.wpuzmani.com/\">Semih</a>)"
-msgstr "Türkisch (danke an <a href=\"http://www.wpuzmani.com/\">Semih</a>)"
-
-#: wp-table-reloaded-admin.php:1284
-msgid "Add custom CSS?"
-msgstr "Lisää valinnainen CSS?"
-
-#: wp-table-reloaded-admin.php:1291
-msgid "Enter custom CSS"
-msgstr "Kirjoita valinnainen CSS"
-
-#: wp-table-reloaded-admin.php:809
-#, php-format
-msgid "Edit Table \"%s\""
-msgstr "Muokkaa taulukkoa \"%s\""
-
-#: wp-table-reloaded-admin.php:813
-#, php-format
-msgid "If you want to show a table in your pages, posts or text-widgets, use this shortcode: <strong>[table id=%s /]</strong>"
-msgstr "Jos haluat näyttää taulukon sivuilla, merkinnöissä tai tekstivimpaimissa, käytä oikotietä <strong>[table id=%s /]</strong> ."
-
-#: wp-table-reloaded-admin.php:914
-msgid "Data Manipulation"
-msgstr "Tietojen muokkaus"
-
-#: wp-table-reloaded-admin.php:955
-msgid "Insert Link"
-msgstr "Liitä linkki"
-
-#: wp-table-reloaded-admin.php:955
-msgid "Insert Image"
-msgstr "Liitä kuva"
-
-#: wp-table-reloaded-admin.php:1683
-msgid "URL of link to insert"
-msgstr "Liitettävä URl tai linkki"
-
-#: wp-table-reloaded-admin.php:1684
-msgid "Text of link"
-msgstr "Linkin teksti"
-
-#: wp-table-reloaded-admin.php:1685
-msgid "To insert the following link into a cell, just click the cell after closing this dialog."
-msgstr "Liitä linkki soluun klikkaamalla solua suljettuasi tämän ikkunan."
-
-#: wp-table-reloaded-admin.php:1686
-msgid "URL of image to insert"
-msgstr "Liitettävän kuvan URL"
-
-#: wp-table-reloaded-admin.php:1688
-msgid "To insert the following image into a cell, just click the cell after closing this dialog."
-msgstr "Liitä kuva soluun klikkaamalla solua suljettuasi tämän ikkunan."
-
-#: wp-table-reloaded-admin.php:1039
-msgid "You may import a table from existing data here.<br/>It may be a CSV, XML or HTML file. It needs a certain structure though. Please consult the documentation."
-msgstr "Voit tuoda taulukon jo olemassa olevista tiedoista. <br/>Voit valita CSV-, XML- tai HTML-muotoisista tiedoista. Katso lisätiedot dokumentoinnista."
-
-#: php/wp-table-reloaded-export.class.php:38
+#: classes/export.class.php:36
 msgid ". (dot)"
 msgstr ". (piste)"
 
-#: php/wp-table-reloaded-export.class.php:39
+#: classes/export.class.php:37
 msgid "| (pipe)"
 msgstr "| (putki)"
 
-#: wp-table-reloaded-admin.php:245
-msgid "Table sorted successfully."
-msgstr "Taulukko lajiteltu."
-
-#: wp-table-reloaded-admin.php:309
-msgid "Table copied successfully."
-msgid_plural "Tables copied successfully."
-msgstr[0] "Taulukko kopioitu."
-msgstr[1] "Taulukot kopioitu."
-
-#: wp-table-reloaded-admin.php:315
-msgid "Table deleted successfully."
-msgid_plural "Tables deleted successfully."
-msgstr[0] "Taulukko poistettu."
-msgstr[1] "Taulukot poistettu."
-
-#: wp-table-reloaded-admin.php:328
-msgid "Table imported successfully."
-msgid_plural "Tables imported successfully."
-msgstr[0] "Taulukko tuotu."
-msgstr[1] "Taulukot tuotu."
-
-#: wp-table-reloaded-admin.php:335
-msgid "You did not select any tables!"
-msgstr "Et ole valinnut taulukkoa!"
-
-#: wp-table-reloaded-admin.php:631
-#: wp-table-reloaded-admin.php:692
-msgid "This is a list of all available tables."
-msgstr "Tässä listassa ovat kaikki tehdyt taulukot."
-
-#: wp-table-reloaded-admin.php:631
-msgid "You may insert a table into a post or page here."
-msgstr "Voit liittää taulukon merkintään tai sivulle tässä."
-
-#: wp-table-reloaded-admin.php:632
-msgid "Click the \"Insert\" link after the desired table and the corresponding shortcode will be inserted into the editor (<strong>[table id=&lt;the_table_ID&gt; /]</strong>)."
-msgstr "Klikkaa haluamasi taulukon jälkeen linkkiä \"Liitä\", ja vastaava oikotie lisätään muokkaimeen (<strong>[table id=&lt;the_table_ID&gt; /]</strong>)."
-
-#: wp-table-reloaded-admin.php:663
-msgid "Insert"
-msgstr "Liitä"
-
-#: wp-table-reloaded-admin.php:692
-msgid "You may add, edit, copy or delete tables here."
-msgstr "Voit luoda, muokata, kopioita tai poistaa taulukoita tässä."
-
-#: wp-table-reloaded-admin.php:693
-msgid "If you want to show a table in your pages, posts or text-widgets, use the shortcode <strong>[table id=&lt;the_table_ID&gt; /]</strong> or click the button \"Table\" in the editor toolbar."
-msgstr "Jos haluat näyttää taulukon sivuilla, merkinnöissä tai tekstivimpaimissa, käytä oikotietä <strong>[table id=&lt;ID&gt; /]</strong> tai klikkaa muokkaimen työkalupalkin painiketta \"Taulukko\"."
-
-#: wp-table-reloaded-admin.php:744
-#: wp-table-reloaded-admin.php:1167
-msgid "Bulk actions:"
-msgstr "Massatoiminnot:"
-
-#: wp-table-reloaded-admin.php:744
-msgid "Copy Tables"
-msgstr "Kopioi taulukot"
-
-#: wp-table-reloaded-admin.php:744
-msgid "Delete Tables"
-msgstr "Poista taulukot"
-
-#: wp-table-reloaded-admin.php:848
-#: wp-table-reloaded-admin.php:914
-#: wp-table-reloaded-admin.php:983
-#: wp-table-reloaded-admin.php:1394
-msgid "Hide"
-msgstr "Piilota"
-
-#: wp-table-reloaded-admin.php:848
-#: wp-table-reloaded-admin.php:914
-#: wp-table-reloaded-admin.php:983
-#: wp-table-reloaded-admin.php:1394
-msgid "Expand"
-msgstr "Laajenna"
-
-#: wp-table-reloaded-admin.php:966
-msgid "ascending"
-msgstr "nouseva"
-
-#: wp-table-reloaded-admin.php:967
-msgid "descending"
-msgstr "laskeva"
-
-#: wp-table-reloaded-admin.php:970
+#: classes/helper.class.php:40
+#: views/view-about.php:22
 #, php-format
-msgid "Sort table by column %s in %s order"
-msgstr "Lajittele taulukko sarakkeen %s mukaan %s järjestykseen"
+msgid "More information about WP-Table Reloaded can be found on the <a href=\"%s\">plugin's website</a> or on its page in the <a href=\"%s\">WordPress Plugin Directory</a>."
+msgstr "Lisätietoa löydät <a href=\"%s\">lisäosan kotisivulta</a> tai lisäosan sivulta <a href=\"%s\">WordPressin lisäosahakemistosta</a>."
 
-#: wp-table-reloaded-admin.php:973
-msgid "Sort"
-msgstr "Lajittele"
-
-#: wp-table-reloaded-admin.php:1167
-msgid "Import Tables"
-msgstr "Tuo taulukot"
-
-#: wp-table-reloaded-admin.php:1281
-msgid "Yes, enable the <a href=\"http://www.tablesorter.com/\">Tablesorter jQuery plugin</a>. This can be used to make tables sortable (can be activated for each table separately in its options)."
-msgstr "Kyllä, otan käyttöön lisäosan <a href=\"http://www.tablesorter.com/\">Tablesorter-jQuery-Plugin</a>. Sitä käytetään taulukkojen lajitteluun (voidaan ottaa käyttöön erikseen joka taulukon omissa asetuksissa)."
-
-#: wp-table-reloaded-admin.php:1286
-msgid "Yes, include and load the following CSS-snippet on my site inside a [style]-HTML-tag."
-msgstr "Kyllä, sisällytä ja lataa seuraava CSS-koodi sivustoni HTML-tunnisteeseen [style]."
-
-#: wp-table-reloaded-admin.php:1293
+#: classes/helper.class.php:41
+#: views/view-about.php:22
 #, php-format
-msgid "(You might get a better website performance, if you add the CSS styling to your theme's \"style.css\" <small>(located at %s)</small>) instead."
-msgstr "(Sivustosi toimii paremmin, jos lisäät CSS-koodin teemasi tyylitiedostoon \"style.css\" (%s).)"
+msgid "For technical information, see the <a href=\"%s\">documentation</a>."
+msgstr "Tekniset tiedot löytyvät <a href=\"%s\">ohjeista</a>."
 
-#: wp-table-reloaded-admin.php:1294
+#: classes/helper.class.php:42
+#: views/view-about.php:29
 #, php-format
-msgid "See the <a href=\"%s\">plugin website</a> for styling examples or use one of the following: <a href=\"%s\">Example Style 1</a> <a href=\"%s\">Example Style 2</a>"
-msgstr "Vieraile <a href=\"%s\">lisäosan kotisivulla</a> tutustumassa esimerkkeihin taulukoiden ulkoasuvaihtoehdoista: <a href=\"%s\">Esimerkkityyli 1</a> <a href=\"%s\">Esimerkkityylii 2</a>"
+msgid "<a href=\"%s\">Support</a> is provided through the <a href=\"%s\">WordPress Support Forums</a>."
+msgstr "<a href=\"%s\">Käyttäjätukea</a> löydät  <a href=\"%s\">WordPressin tukipalstoilta</a>."
 
-#: wp-table-reloaded-admin.php:1294
-msgid "Just copy the contents of a file into the textarea."
-msgstr "Kopioi tiedoston sisältö tekstialueelle."
+#: classes/helper.class.php:43
+#: views/view-about.php:29
+#, php-format
+msgid "Before asking for support, please carefully read the <a href=\"%s\">Frequently Asked Questions</a> where you will find answered to the most common questions, and search through the forums."
+msgstr "Ennen kuin teet tukipyynnön, lue huolellisesti <a href=\"%s\">Usein kysytyt kysymykset</a>, joista löydät ratkaisuja yleisimpiin ongelmiin, sekä tukipalstat."
 
-#: wp-table-reloaded-admin.php:1307
-msgid "Yes, uninstall everything when the plugin is deactivated. Attention: You should only enable this checkbox directly before deactivating the plugin from the WordPress plugins page!"
-msgstr "Kyllä, poista koko asennus, kun lisäosa on poistettu käytöstä. Huomaa: Tämä on tarkoitettu valittavaksi vain juuri ennen kuin lisäosa poistetaan käytöstä WordPressin lisäosasivulla!"
+#: classes/helper.class.php:44
+#: views/view-about.php:36
+#, php-format
+msgid "If you like the plugin, <a href=\"%s\"><strong>a donation</strong></a> is recommended."
+msgstr "Jos olet tyytyväinen lisäosaan, pieni <a href=\"%s\"><strong>lahjoitus</strong></a> on suositeltavaa."
 
-#: wp-table-reloaded-admin.php:1307
-msgid "<small>(This setting does not influence the \"Manually Uninstall Plugin\" button below!)</small>"
-msgstr "<small>(Tämä asetus ei vaikuta \"Poista lisäosan asennus käsin\" -painikkeeseen alla!)</small>"
+#: classes/helper.class.php:74
+msgid "Thank you for using <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/\">WP-Table Reloaded</a>."
+msgstr "Lisätietoa löytyy <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/\">lisäosan kotisivulta</a>."
 
-#: wp-table-reloaded-admin.php:1347
-msgid "This plugin allows you to create and manage tables in the admin-area of WordPress."
-msgstr "Tämän lisäosan avulla voit luoda ja hallita taulukkoja WordPressin ohjausnäkymässä."
+#: classes/helper.class.php:74
+#, php-format
+msgid "Support the plugin with your <a href=\"%s\">donation</a>!"
+msgstr "Tue lisäosan kehitystyötä <a href=\"%s\">lahjoituksella</a>!"
 
-#: wp-table-reloaded-admin.php:1347
-msgid "Those tables may contain strings, numbers and even HTML (e.g. to include images or links)."
-msgstr "Taulukot voivat sisältää komentosarjoja, numeroita ja jopa HTML-koodia (esim. kuvien ja linkkien sijoituksessa)."
+#: classes/helper.class.php:104
+#: classes/helper.class.php:109
+msgid "Table cells can span across more than one column or row."
+msgstr "Taulukon solut voivat levittäytyä useamman kuin yhden sarakkeen tai rivin alueelle. "
 
-#: wp-table-reloaded-admin.php:1347
-msgid "You can then show the tables in your posts, on your pages or in text widgets by using a shortcode."
-msgstr "Voit näyttää taulukoita merkinnöissäsi, sivuillasi tai tekstivimpaimissa käyttämällä oikotietä. "
+#: classes/helper.class.php:104
+msgid "Combining consecutive cells within the same row is called \"colspanning\"."
+msgstr "Peräkkäisten solujen yhdistämistä samalla rivillä kutsutaan termillä \"colspanning\". "
 
-#: wp-table-reloaded-admin.php:1347
-msgid "If you want to show your tables anywhere else in your theme, you can use a template tag function."
-msgstr "Jos haluat näyttää taulukoita jossain muualla teemassasi, voitkäyttää sivumallitunnisteita."
+#: classes/helper.class.php:104
+msgid "To combine cells, add the keyword #colspan# to the cell to the right of the one with the content for the combined cell by using the corresponding button."
+msgstr "Yhdistä solut lisäämällä avainsana #colspan# samannimisellä painikkeella soluun, joka sijaitsee tietoa sisältävän solun oikealla puolen.  "
 
-#: wp-table-reloaded-admin.php:1354
-msgid "At first you should add or import a table."
-msgstr "Ensiksi sinun täytyy luoda tai tuoda taulukko."
+#: classes/helper.class.php:104
+#: classes/helper.class.php:109
+msgid "Repeat this to add the keyword to all cells that shall be connected."
+msgstr "Toista tämä kaikkien yhdistettävien solujen kohdalla. "
 
-#: wp-table-reloaded-admin.php:1354
-msgid "This means that you either let the plugin create an empty table for you or that you load an existing table from either a CSV, XML or HTML file."
-msgstr "Voit joko antaa lisäosan luoda tyhjän taulukon tai ladata olemassa olevan taulukon CSV-, XML- tai HTML-muotoisena."
+#: classes/helper.class.php:109
+msgid "Combining consecutive cells within the same column is called \"rowspanning\"."
+msgstr "Peräkkäisten soulujen yhdistämistä samalla sarakkeella kutsutaan termillä \"rowspanning\". "
 
-#: wp-table-reloaded-admin.php:1354
-msgid "Then you can edit your data or change the structure of your table (e.g. by inserting or deleting rows or columns, swaping rows or columns or sorting them) and select specific table options like alternating row colors or whether to print the name or description, if you want."
-msgstr "Sen jälkeen voit muokata tietoja tai muutta taulukon rakennetta (esim. lisäämällä tai poistamalla rivejä ja sarakkeita, vaihtamalla rivejä tai sarakkeita tai järjestelemällä niitä) ja valita taulukolle erilaisia ominaisuuksia, kuten rivin taustavärin tai otsikon tai kuvauksen näyttötavan."
+#: classes/helper.class.php:109
+msgid "To combine cells, add the keyword #rowspan# to the cell below the one with the content for the combined cell by using the corresponding button."
+msgstr "Yhdistä solut lisäämällä avainsana #colspan# samannimisellä painikkeella soluun, joka sijaitsee tietoa sisältävän solun alapuolella.  "
 
-#: wp-table-reloaded-admin.php:1354
-msgid "To easily add a link or an image to a cell, use the provided buttons. Those will ask you for the URL and a title. Then you can click into a cell and the corresponding HTML will be added to it for you."
-msgstr "Voit lisätä soluun linkin tai kuvan helposti painikkeiden avulla. Sinulta kysytään URL-osoitetta ja otsikkoa, minkä jälkeen vain klikkaat solua ja vastaava HTML lisätään soluun."
+#: classes/helper.class.php:118
+msgid "Help"
+msgstr "Apua"
 
-#: wp-table-reloaded-admin.php:1354
-msgid "To include the table into your posts, pages or text widgets, write the shortcode [table id=&lt;table-id&gt;] into them."
-msgstr "Voit liittää taulukon merkintään, sivulle tai tekstivimpaimeen kirjoittamalla niihin oikotien [table id=&lt;ID&gt; /]."
+#: classes/render.class.php:96
+#: views/view-list.php:60
+msgid "Edit"
+msgstr "Muokkaa"
 
-#: wp-table-reloaded-admin.php:1354
-msgid "You can also select the desired table from a list (after clicking the button \"Table\" in the editor toolbar) and the corresponding shortcode will be added for you."
-msgstr "Voit myös valita haluamasi taulukon listasta (klikattuasi muokkaimen työkalupalkin painiketta \"Tabelle\") ja vastaava oikotie lisätään automaattisesti. "
+#: controllers/controller-admin.php:292
+msgid "Czech"
+msgstr "Tshekki"
 
-#: wp-table-reloaded-admin.php:1354
-msgid "You may also style your table via CSS. Example files are provided on the plugin website. Every table has the CSS class \"wp-table-reloaded\". Each table also has the class \"wp-table-reloaded-&lt;table-id&gt;\"."
-msgstr "Voit myös muokata taulukkosi ulkoasua CSS-tyylitiedoston avulla. Esimerkkityyleihin voit tutustua lisäosan kotisivulla. Jokaisella taulukolla on CSS-luokat \"wp-table-reloaded\" ja \"wp-table-reloaded-id-&lt;table-id&gt;\"."
+#: controllers/controller-admin.php:293
+msgid "German"
+msgstr "Saksa"
 
-#: wp-table-reloaded-admin.php:1354
-msgid "You can also use the classes \"column-&lt;number&gt;\" and \"row-&lt;number&gt;\" to style rows and columns individually. Use this to style columns width and text alignment for example."
-msgstr "Voit käyttää myös luokkia \"sarake-&lt;numero&gt;\" und \"rivi-&lt;numero&gt;\", jos haluat muotoilla esimerkiksi yksittäisten rivien ja sarakkeiden leveyksiä ja tekstin tasaustapaa. "
+#: controllers/controller-admin.php:294
+msgid "English"
+msgstr "Englanti"
 
-#: wp-table-reloaded-admin.php:1361
-msgid "More information can be found on the <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/\">plugin's website</a> or on its page in the <a href=\"http://wordpress.org/extend/plugins/wp-table-reloaded/\">WordPress Plugin Directory</a>."
-msgstr "Lisätietoa löydät <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-deutsch/\">lisäosan kotisivulta</a> tai lisäosan sivulta <a href=\"http://wordpress.org/extend/plugins/wp-table-reloaded/\">WordPressin lisäosahakemistosta</a>."
+#: controllers/controller-admin.php:295
+msgid "Hindi"
+msgstr "Hindi"
 
-#: wp-table-reloaded-admin.php:1361
-#: wp-table-reloaded-admin.php:1456
-msgid "See the <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/documentation/\">documentation</a> or find out how to get <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/support/\">support</a>."
-msgstr "Tutustu <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/documentation/\">Dokumentointiin</a> tai hae apua <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/support/\">Tuotetuesta</a>."
+#: controllers/controller-admin.php:296
+msgid "Japanese"
+msgstr "Japani"
 
-#: wp-table-reloaded-admin.php:1368
-msgid "If you like the plugin, please consider <a href=\"http://tobias.baethge.com/wordpress-plugins/donate/\"><strong>a donation</strong></a> and rate the plugin in the <a href=\"http://wordpress.org/extend/plugins/wp-table-reloaded/\">WordPress Plugin Directory</a>."
-msgstr "Jos pidät lisäosasta, ole hyvä ja tee <a href=\"http://tobias.baethge.com/wordpress-plugins/donate/\"><strong>lahjoitus</strong></a> ja pisteytä lisäosa <a href=\"http://wordpress.org/extend/plugins/wp-table-reloaded/\">WordPressin lisäosahakemistossa</a>."
+#: controllers/controller-admin.php:297
+msgid "Brazilian Portuguese"
+msgstr "Portugali (Brasilia)"
 
-#: wp-table-reloaded-admin.php:1368
-msgid "Donations and good ratings encourage me to further develop the plugin and to provide countless hours of support. Any amount is appreciated! Thanks!"
-msgstr "Lahjoitukset ja hyvät pisteet rohkaisevat minua jatkamaan lisäosan kehitystyötä ja käyttämään siihen aikaa. Pienetkin summat ovat tervetulleita! Kiitos!"
+#: controllers/controller-admin.php:298
+msgid "Slovak"
+msgstr "Slovakia"
 
-#: wp-table-reloaded-admin.php:1377
-msgid "Christian Bach for the <a href=\"http://www.tablesorter.com/\">Tablesorter jQuery plugin</a>,"
-msgstr "Christian Bach für das <a href=\"http://www.tablesorter.com/\">Tablesorter-jQuery-Plugin</a>,"
+#: controllers/controller-admin.php:299
+msgid "Swedish"
+msgstr "Ruotsi"
 
-#: wp-table-reloaded-admin.php:1385
-msgid "Spanish (thanks to <a href=\"http://theindependentproject.com/\">Alejandro Urrutia</a> and <a href=\"http://halles.cl/\">Matias Halles</a>)"
-msgstr "Spanisch (danke an <a href=\"http://theindependentproject.com/\">Alejandro Urrutia</a> und <a href=\"http://halles.cl/\">Matias Halles</a>)"
+#: controllers/controller-admin.php:301
+msgid "Albanian"
+msgstr "Albania"
 
-#: wp-table-reloaded-admin.php:1388
-msgid "and to all donors, contributors, supporters, reviewers and users of the plugin!"
-msgstr "und an alle Spender, Mitarbeiter, Förderer, Kritiker und Nutzer des Plugins!"
+#: controllers/controller-admin.php:302
+msgid "Belorussian"
+msgstr "Valkovenäjä"
 
-#: wp-table-reloaded-admin.php:1394
-msgid "Debug and Version Information"
-msgstr "Virheenkorjaus- ja versiotiedot"
+#: controllers/controller-admin.php:303
+msgid "Finnish"
+msgstr "Suomi"
 
-#: wp-table-reloaded-admin.php:1397
-msgid "You are using the following versions of the software. <strong>Please provide this information in bug reports.</strong>"
-msgstr "Käytät ohjelmasta seuraavaa versiota. <strong>Ole hyvä ja mainitse tämä tieto virheilmoituksissasi.</strong>"
+#: controllers/controller-admin.php:304
+msgid "French"
+msgstr "Ranska"
 
-#: wp-table-reloaded-admin.php:1456
-msgid "More information can be found on the <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/\">plugin's website</a>."
-msgstr "Lisätietoa löytyy <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-deutsch/\">lisäosan kotisivulta</a>."
+#: controllers/controller-admin.php:305
+msgid "Italian"
+msgstr "Italia"
 
-#: wp-table-reloaded-admin.php:1687
-msgid "''alt'' text of the image"
-msgstr "Kuvan \"alt\"-teksti"
+#: controllers/controller-admin.php:306
+msgid "Polish"
+msgstr "Puola"
 
-#: wp-table-reloaded-admin.php:1689
-msgid "Do you want to copy the selected tables?"
-msgstr "Haluatko kopioida valitut taulukot?"
+#: controllers/controller-admin.php:307
+msgid "Russian"
+msgstr "Venäjä"
 
-#: wp-table-reloaded-admin.php:1690
-msgid "The selected tables and all content will be erased. Do you really want to delete them?"
-msgstr "Valitut taulukot ja niiden sisältö tuhotaan. Haluatko varmasti poistaa ne?"
+#: controllers/controller-admin.php:308
+msgid "Spanish"
+msgstr "Espanja"
 
-#: wp-table-reloaded-admin.php:1691
-msgid "Do you really want to import the selected tables from the wp-Table plugin?"
-msgstr "Haluatko varmasti tuoda valitut taulukot lisäosasta WP-Table?"
+#: controllers/controller-admin.php:309
+msgid "Turkish"
+msgstr "Turkki"
 
-#: wp-table-reloaded-admin.php:1748
-msgid "Table"
-msgstr "Taulukko"
+#: controllers/controller-admin.php:335
+#, php-format
+msgid "Welcome to WP-Table Reloaded %s. If you encounter any questions or problems, please refer to the <a href=\"%s\">FAQ</a>, the <a href=\"%s\">documentation</a>, and the <a href=\"%s\">support</a> section."
+msgstr "Tervetuloa käyttämään lisäosaa WP-Table Reloaded %s. Jos sinulla on kysymyksiä tai ongelmia, katso ensin  <a href=\"%s\">UKK</a> ja <a href=\"%s\">ohjeet</a>, ja käänny vasta sitten <a href=\"%s\">käyttäjätuen</a> puoleen."
 
-#: wp-table-reloaded-admin.php:1381
-msgid "Czech (thanks to <a href=\"http://separatista.net/\">Separatista</a>)"
-msgstr "Tschechisch (danke an <a href=\"http://separatista.net/\">Separatista</a>)"
+#: controllers/controller-admin.php:336
+#, php-format
+msgid "Thank you for upgrading to WP-Table Reloaded %s."
+msgstr "Kiitos, että päivitit versioon WP-Table Reloaded %s."
 
-#: wp-table-reloaded-admin.php:1383
-msgid "Polish (thanks to Alex Kortan)"
-msgstr "Polnisch (danke an Alex Kortan)"
+#: controllers/controller-admin.php:336
+msgid "Among other things, this version adds support for \"colspan\" and \"rowspan\" of table cells and enables the WP Search to search through tables."
+msgstr "Monen muun ohella tämä versio sisältää tuen taulukon solujen yhdistämiselle komennoilla \"colspan\" ja \"rowspan\" sekä sallii WordPress-haun etsiä myös taulukoita. "
 
-#: wp-table-reloaded-admin.php:180
+#: controllers/controller-admin.php:336
+#, php-format
+msgid "Please read the <a href=\"%s\">release announcement</a> for more information."
+msgstr "Ole hyvä ja lue <a href=\"%s\">julkaisutiedote</a> lisätietoja varten. "
+
+#: controllers/controller-admin.php:336
+#, php-format
+msgid "If you like the new features and enhancements, I would appreciate a small <a href=\"%s\">donation</a>. Thank you."
+msgstr "Jos olet tyytyväinen uusiin ominaisuuksiin ja parannuksiin, arvostaisin suuresti pientä <a href=\"%s\">lahjoitusta</a>. Kiitos!"
+
+#: controllers/controller-admin.php:341
+msgid "Hide this message"
+msgstr "Piilota tämä ilmoitus"
+
+#: controllers/controller-admin.php:349
+msgid "Thanks for using this plugin! You've installed WP-Table Reloaded over a month ago."
+msgstr "Kiitos, että käytät tätä lisäosaa! Olet asentanut WP-Table Reloadedin yli kuukausi sitten. "
+
+#: controllers/controller-admin.php:349
+#, php-format
+msgid "If it works and you are satisfied with the results of managing your %s table, isn't it worth at least one dollar or euro?"
+msgid_plural "If it works and you are satisfied with the results of managing your %s tables, isn't it worth at least one dollar or euro?"
+msgstr[0] "Jos olet tyytyväinen lisäosaan ja sen kykyyn järjestää %s taulukkosi, eikö se olilsi vähintään yhden euron arvoista?"
+msgstr[1] "Jos olet tyytyväinen lisäosaan ja sen kykyyn järjestää %s taulukkosi, eikö se olilsi vähintään yhden euron arvoista?"
+
+#: controllers/controller-admin.php:350
+#, php-format
+msgid "<a href=\"%s\">Donations</a> help me to continue support and development of this <i>free</i> software - things for which I spend countless hours of my free time! Thank you!"
+msgstr "<a href=\"%s\">Lahjoitukset</a> auttavat minua jatkamaan tämän <i>ilmaisen</i> ohjelmiston kehitystyötä – johon olen käyttänyt lukemattoman määrän vapaa-aikaani. Kiitos!"
+
+#: controllers/controller-admin.php:351
+msgid "Sure, no problem!"
+msgstr "Varmasti, ei ongelmaa!"
+
+#: controllers/controller-admin.php:352
+msgid "I already donated."
+msgstr "Olen jo lahjoittanut."
+
+#: controllers/controller-admin.php:353
+msgid "No, thanks. Don't ask again."
+msgstr "Kiitos ei. Älä kysy toiste."
+
+#: controllers/controller-admin.php:381
+#, php-format
+msgid "Table &quot;%s&quot; added successfully."
+msgstr "Taulukko &quot;%s&quot;  luotu."
+
+#: controllers/controller-admin.php:412
 #, php-format
 msgid "Table edited successfully. This Table now has the ID %s. You'll need to adjust existing shortcodes accordingly."
-msgstr "Muutokset tallennettu. Taulukon ID-tunnus on nyt %s. Muista muuttaa myös aiemmin luodut linkit taulukkoon."
+msgstr "Muutokset tallennettu. Taulukon ID-tunnus on nyt %s. Muista muuttaa myös vastaavat oikotiet."
 
-#: wp-table-reloaded-admin.php:182
+#: controllers/controller-admin.php:414
 #, php-format
 msgid "The ID could not be changed from %s to %s, because there already is a Table with that ID."
 msgstr "ID-tunnusta %s ei voitu vaihtaa tunnukseksi %s, koska tunnus on toisen taulukon käytössä."
 
-#: wp-table-reloaded-admin.php:258
+#: controllers/controller-admin.php:417
+msgid "Table edited successfully."
+msgstr "Taulukon muutokset tallennettu."
+
+#: controllers/controller-admin.php:463
+msgid "Rows swapped successfully."
+msgstr "Rivit vaihdettu."
+
+#: controllers/controller-admin.php:484
+msgid "Columns swapped successfully."
+msgstr "Sarakkeet vaihdettu."
+
+#: controllers/controller-admin.php:513
+msgid "Table sorted successfully."
+msgstr "Taulukko lajiteltu."
+
+#: controllers/controller-admin.php:534
+msgid "Row moved successfully."
+msgstr "Rivi siirretty."
+
+#: controllers/controller-admin.php:559
+msgid "Column moved successfully."
+msgstr "Sarake siirretty."
+
+#: controllers/controller-admin.php:567
+msgid "Row could not be deleted."
+msgid_plural "Rows could not be deleted."
+msgstr[0] "Riviä ei voitu poistaa."
+msgstr[1] "Rivejä ei voitu poistaa."
+
+#: controllers/controller-admin.php:576
+msgid "Row deleted successfully."
+msgid_plural "Rows deleted successfully."
+msgstr[0] "Rivi poistettu."
+msgstr[1] "Rivit poistettu."
+
+#: controllers/controller-admin.php:586
+msgid "Column could not be deleted."
+msgid_plural "Columns could not be deleted."
+msgstr[0] "Saraketta ei voitu poistaa."
+msgstr[1] "Sarakkeita ei voitu poistaa."
+
+#: controllers/controller-admin.php:599
+msgid "Column deleted successfully."
+msgid_plural "Columns deleted successfully."
+msgstr[0] "Sarake poistettu."
+msgstr[1] "Sarakkeet poistettu."
+
+#: controllers/controller-admin.php:622
+msgid "Row inserted successfully."
+msgid_plural "Rows inserted successfully."
+msgstr[0] "Rivi lisätty."
+msgstr[1] "Rivit lisätty."
+
+#: controllers/controller-admin.php:649
+msgid "Column inserted successfully."
+msgid_plural "Columns inserted successfully."
+msgstr[0] "Sarake lisätty."
+msgstr[1] "Sarakkeet lisätty."
+
+#: controllers/controller-admin.php:664
 msgid "Row added successfully."
 msgid_plural "Rows added successfully."
 msgstr[0] "Rivi lisätty."
 msgstr[1] "Rivit lisätty."
 
-#: wp-table-reloaded-admin.php:270
+#: controllers/controller-admin.php:678
 msgid "Column added successfully."
 msgid_plural "Columns added successfully."
 msgstr[0] "Sarake lisätty."
 msgstr[1] "Sarakkeet lisätty."
 
-#: wp-table-reloaded-admin.php:467
-#: wp-table-reloaded-admin.php:486
+#: controllers/controller-admin.php:685
+msgid "Could not add Custom Data Field, because you did not enter a name."
+msgstr "Lisätietokenttää ei voitu lisätä, koska et antanut nimeä."
+
+#: controllers/controller-admin.php:690
+msgid "Could not add Custom Data Field, because the name you entered is reserved for other table data."
+msgstr "Lisätietokenttää ei voitu lisätä, koska antamasi nimi on jo varattu toisen taulukon tiedoille."
+
+#: controllers/controller-admin.php:696
+msgid "Could not add Custom Data Field, because the name contained illegal characters."
+msgstr "Lisätietokenttää ei voitu lisätä, koska nimessä on virheellisiä merkkejä."
+
+#: controllers/controller-admin.php:700
+msgid "Could not add Custom Data Field, because a Field with that name already exists."
+msgstr "Lisätietokenttää ei voitu lisätä, koska samanniminen kenttä on jo olemassa."
+
+#: controllers/controller-admin.php:706
+msgid "Custom Data Field added successfully."
+msgstr "Lisätietokenttä lisätty."
+
+#: controllers/controller-admin.php:746
+#: controllers/controller-admin.php:802
+msgid "Copy of"
+msgstr "Kopio kohteesta"
+
+#: controllers/controller-admin.php:750
+msgid "Table copied successfully."
+msgid_plural "Tables copied successfully."
+msgstr[0] "Taulukko kopioitu."
+msgstr[1] "Taulukot kopioitu."
+
+#: controllers/controller-admin.php:756
+msgid "Table deleted successfully."
+msgid_plural "Tables deleted successfully."
+msgstr[0] "Taulukko poistettu."
+msgstr[1] "Taulukot poistettu."
+
+#: controllers/controller-admin.php:777
+#: controllers/controller-admin.php:915
+#: controllers/controller-admin.php:953
+msgid "Table imported successfully."
+msgid_plural "Tables imported successfully."
+msgstr[0] "Taulukko tuotu."
+msgstr[1] "Taulukot tuotu."
+
+#: controllers/controller-admin.php:784
+msgid "You did not select any tables!"
+msgstr "Et ole valinnut taulukkoa!"
+
+#: controllers/controller-admin.php:807
+#, php-format
+msgid "Table &quot;%s&quot; copied successfully."
+msgstr "Taulukko &quot;%s&quot; kopioitu."
+
+#: controllers/controller-admin.php:825
+#, php-format
+msgid "Table &quot;%s&quot; deleted successfully."
+msgstr "Taulukko &quot;%s&quot; poistettu."
+
+#: controllers/controller-admin.php:833
+msgid "Custom Data Field deleted successfully."
+msgstr "Lisätietokenttä poistettu."
+
+#: controllers/controller-admin.php:835
+msgid "Custom Data Field could not be deleted."
+msgstr "Lisätietokenttää ei voitu poistaa."
+
+#: controllers/controller-admin.php:841
+msgid "Delete failed."
+msgstr "Poisto epäonnistui."
+
+#: controllers/controller-admin.php:869
+#: controllers/controller-admin.php:878
+#: controllers/controller-admin.php:888
+msgid "Imported Table"
+msgstr "Tuotu taulukko"
+
+#: controllers/controller-admin.php:870
+#: controllers/controller-admin.php:889
 #, php-format
 msgid "from %s"
 msgstr "kohteesta %s"
 
-#: wp-table-reloaded-admin.php:507
+#: controllers/controller-admin.php:879
+msgid "via form"
+msgstr "syöttökentästä"
+
+#: controllers/controller-admin.php:899
+#: controllers/controller-admin.php:931
+msgid "Table could not be imported."
+msgstr "Taulukkoa ei voitu tuoda."
+
+#: controllers/controller-admin.php:911
 #, php-format
 msgid "Table %s (%s) replaced successfully."
 msgstr "Taulukko %s (%s) korvattu."
 
-#: wp-table-reloaded-admin.php:822
+#: controllers/controller-admin.php:961
+#: controllers/controller-admin.php:1147
+msgid "You do not have sufficient rights to perform this action."
+msgstr "Sinulla ei ole tarvittavia oikeuksia tähän toimintoon."
+
+#: controllers/controller-admin.php:968
+msgid "You did not upload a WP-Table Reloaded dump file."
+msgstr "Et ole ladannut WP-Table Reloadedin muistitiedostoa."
+
+#: controllers/controller-admin.php:977
+msgid "The uploaded dump file is empty. Please upload a valid dump file."
+msgstr "Ladattu muistitiedosto on tyhjä. Ole hyvä ja lataa kelvollinen muistitiedosto."
+
+#: controllers/controller-admin.php:1006
+msgid "All Tables, Settings and Options were successfully imported."
+msgstr "Kaikki taulukot, asetukset ja määritykset tuotiin onnistuneesti."
+
+#: controllers/controller-admin.php:1035
+#, php-format
+msgid "Table &quot;%s&quot; exported successfully."
+msgstr "Taulukko &quot;%s&quot; viety."
+
+#: controllers/controller-admin.php:1080
+#: views/view-options.php:215
+msgid "You do not have sufficient rights to access the Plugin Options."
+msgstr "Sinulla ei ole oikeuksia muokata lisäosan asetuksia."
+
+#: controllers/controller-admin.php:1134
+msgid "Options saved successfully."
+msgstr "Asetukset tallennettu."
+
+#: controllers/controller-admin.php:1197
+msgid "There is no table with this ID!"
+msgstr "Tällä ID-tunnuksella ei ole taulukkoa!"
+
+#: controllers/controller-admin.php:1234
+msgid "Thank you very much! Your donation is highly appreciated. You just contributed to the further development of WP-Table Reloaded!"
+msgstr "Suuret kiitokset! Lahjoituksesi on arvokas. Olet juuri osallistunut WP-Table Reloaded -lisäosan jatkokehitykseen!"
+
+#: controllers/controller-admin.php:1236
+#, php-format
+msgid "No problem! I still hope you enjoy the benefits that WP-Table Reloaded brings to you. If you should want to change your mind, you'll always find the &quot;%s&quot; button on the <a href=\"%s\">WP-Table Reloaded website</a>."
+msgstr "Ei hätää! Toivon silti, että nautit WP-Table Reloaded -lisäosasta. Jos muutat mielesi, löydät &quot;%s&quot;-painikkeen <a href=\"%s\">WP-Table Reloaded -sivustolta</a>."
+
+#: controllers/controller-admin.php:1236
+#: controllers/controller-admin.php:1654
+msgid "Donate"
+msgstr "Lahjoita"
+
+#: controllers/controller-admin.php:1263
+#: controllers/controller-admin.php:1271
+msgid "List of Tables"
+msgstr "Taulukkolista"
+
+#. #-#-#-#-#  plugin.pot (WP-Table Reloaded 1.6-beta1)  #-#-#-#-#
+#. Plugin Name of an extension
+#: controllers/controller-admin.php:1263
+#: controllers/controller-admin.php:1268
+#: controllers/controller-admin.php:1270
+msgid "WP-Table Reloaded"
+msgstr "WP-Table Reloaded"
+
+#: controllers/controller-admin.php:1264
+#: controllers/controller-admin.php:1294
+msgid "Add new Table"
+msgstr "Luo uusi taulukko"
+
+#: controllers/controller-admin.php:1265
+#, php-format
+msgid "Edit Table &quot;%s&quot; (ID %s)"
+msgstr "Muokkaa taulukkoa &quot;%s&quot; (ID %s)"
+
+#: controllers/controller-admin.php:1266
+#: controllers/controller-admin.php:1295
+msgid "Import a Table"
+msgstr "Tuo taulukko"
+
+#: controllers/controller-admin.php:1267
+#: controllers/controller-admin.php:1296
+msgid "Export a Table"
+msgstr "Vie taulukko"
+
+#: controllers/controller-admin.php:1268
+#: controllers/controller-admin.php:1302
+#: views/view-edit.php:338
+#: views/view-edit.php:353
+#: views/view-export.php:10
+msgid "Plugin Options"
+msgstr "Lisäosan asetukset"
+
+#: controllers/controller-admin.php:1269
+msgid "About WP-Table Reloaded"
+msgstr "Tietoja WP-Table Reloaded -lisäosasta"
+
+#: controllers/controller-admin.php:1272
+#, php-format
+msgid "Preview of Table &quot;%s&quot; (ID %s)"
+msgstr "Taulukon &quot;%s&quot; (ID %s) esikatselu"
+
+#: controllers/controller-admin.php:1293
+msgid "List Tables"
+msgstr "Taulukkolista"
+
+#: controllers/controller-admin.php:1303
+msgid "About the plugin"
+msgstr "Tietoa lisäosasta"
+
+#: controllers/controller-admin.php:1650
+msgid "WP-Table Reloaded Plugin Page"
+msgstr "WP-Table Reloaded-lisäosan sivu"
+
+#: controllers/controller-admin.php:1650
+msgid "Plugin Page"
+msgstr "Lisäosan sivu"
+
+#: controllers/controller-admin.php:1651
+msgid "Frequently Asked Questions"
+msgstr "Usein kysytyt kysymykset"
+
+#: controllers/controller-admin.php:1651
+msgid "FAQ"
+msgstr "UKK"
+
+#: controllers/controller-admin.php:1652
+msgid "Support"
+msgstr "Käyttäjätuki"
+
+#: controllers/controller-admin.php:1653
+msgid "Plugin Documentation"
+msgstr "Lisäosan ohjeet"
+
+#: controllers/controller-admin.php:1653
+msgid "Documentation"
+msgstr "Ohjeet"
+
+#: controllers/controller-admin.php:1654
+msgid "Support WP-Table Reloaded with your donation!"
+msgstr "Tue WP-Table Reloaded -lisäosaa lahjoituksellasi!"
+
+#: controllers/controller-admin.php:1692
+msgid "Do you really want to activate this? You should only do that right before uninstallation!"
+msgstr "Haluatko varmasti ottaa tämän käyttöön? Tämä on tarkoitus tehdä vain ennen asennuksen poistoa!"
+
+#: controllers/controller-admin.php:1693
+msgid "URL of link to insert"
+msgstr "Liitettävä URl tai linkki"
+
+#: controllers/controller-admin.php:1694
+msgid "Text of link"
+msgstr "Linkin teksti"
+
+#: controllers/controller-admin.php:1695
+msgid "To insert the following HTML code for a link into a cell, just click the cell after closing this dialog."
+msgstr "Lisää HTML-koodi soluun klikkaamalla solua suljettuasi tämän ikkunan."
+
+#: controllers/controller-admin.php:1696
+msgid "To insert an image, click the cell into which you want to insert the image."
+msgstr "Lisää kuva klikkaamalla solua, johon haluat lisätä kuvan. "
+
+#: controllers/controller-admin.php:1696
+msgid "The Media Library will open, from which you can select the desired image or insert the image URL."
+msgstr "Mediakirjasto avautuu, ja voit valita sieltä haluamasi kuvan tai lisätä kuvan URL-osoitteen."
+
+#: controllers/controller-admin.php:1696
+#, php-format
+msgid "Click the &quot;%s&quot; button to insert the image."
+msgstr "Lisää kuva klikkaamalla &quot;%s&quot;-painiketta."
+
+#: controllers/controller-admin.php:1696
+msgid "Insert into Post"
+msgstr "Liitä merkintään"
+
+#: controllers/controller-admin.php:1697
+msgid "To combine cells within a row, click into the cell to the right of the cell that has the content the combined cells shall have."
+msgstr "Yhdistä saman rivin solut klikkaamalla yhdistettävien solujen tiedot sisältävän solun oikealla puolen sijaitsevaa solua. "
+
+#: controllers/controller-admin.php:1698
+msgid "To combine cells within a column, click into the cell below the cell that has the content the combined cells shall have."
+msgstr "Yhdistä saman sarakkeen solut klikkaamalla yhdistettävien solujen tiedot sisältävän solun alapuolella sijaitsevaa solua. "
+
+#: controllers/controller-admin.php:1699
+msgid "Do you want to copy the selected tables?"
+msgstr "Haluatko kopioida valitut taulukot?"
+
+#: controllers/controller-admin.php:1700
+msgid "The selected tables and all content will be erased. Do you really want to delete them?"
+msgstr "Valitut taulukot ja niiden sisältö tuhotaan. Haluatko varmasti poistaa ne?"
+
+#: controllers/controller-admin.php:1701
+msgid "Do you really want to import the selected tables from the wp-Table plugin?"
+msgstr "Haluatko varmasti tuoda valitut taulukot lisäosasta WP-Table?"
+
+#: controllers/controller-admin.php:1702
+msgid "Do you want to copy this table?"
+msgstr "Haluatko kopioida tämän taulukon?"
+
+#: controllers/controller-admin.php:1703
+msgid "The complete table and all content will be erased. Do you really want to delete it?"
+msgstr "Koko taulukko ja sen sisältö tyhjennetään. Haluatko varmasti poistaa?"
+
+#: controllers/controller-admin.php:1704
+msgid "Do you really want to delete the selected rows?"
+msgstr "Haluatko varmasti poistaa valitut rivin?"
+
+#: controllers/controller-admin.php:1705
+msgid "Do you really want to delete the selected columns?"
+msgstr "Haluatko varmasti poistaa valitut sarakkeet?"
+
+#: controllers/controller-admin.php:1706
+#: controllers/controller-admin.php:1710
+#: controllers/controller-admin.php:1712
+msgid "You have not selected any rows."
+msgstr "Et ole valinnut yhtään riviä."
+
+#: controllers/controller-admin.php:1707
+#: controllers/controller-admin.php:1711
+#: controllers/controller-admin.php:1713
+msgid "You have not selected any columns."
+msgstr "Et ole valinnut yhtään saraketta."
+
+#: controllers/controller-admin.php:1708
+msgid "You can not delete all rows of the table at once!"
+msgstr "Et voi poistaa taulukon kaikkia rivejä yhdellä kertaa! "
+
+#: controllers/controller-admin.php:1709
+msgid "You can not delete all columns of the table at once!"
+msgstr "Et voi poistaa taulukon kaikkia sarakkeita yhdellä kertaa! "
+
+#: controllers/controller-admin.php:1714
+msgid "Do you really want to import this table from the wp-Table plugin?"
+msgstr "Haluatko varmasti tuoda tämän taulukon WP-Table-lisäosasta?"
+
+#: controllers/controller-admin.php:1715
+msgid "Do you really want to uninstall the plugin and delete ALL data?"
+msgstr "Haluatko varmasti poistaa lisäosan asennuksen ja KAIKEN tallennetun tiedon?"
+
+#: controllers/controller-admin.php:1716
+msgid "Are you really sure?"
+msgstr "Oletko aivan varma?"
+
+#: controllers/controller-admin.php:1717
+msgid "Do you really want to change the ID of the table?"
+msgstr "Haluatko varmasti vaihtaa taulukon ID-tunnuksen?"
+
+#: controllers/controller-admin.php:1718
+msgid "To show this Custom Data Field, use this shortcode:"
+msgstr "Näytä tämä lisätietokenttä käyttämällä oikotietä: "
+
+#: controllers/controller-admin.php:1719
+msgid "To show this table, use this shortcode:"
+msgstr "Näytä tämä taulukko käyttämällä oikotietä: "
+
+#: controllers/controller-admin.php:1720
+msgid "Warning: You will lose all current Tables and Settings! You should create a backup first. Be warned!"
+msgstr "Varoitus: Menetät kaikki nykyiset taulukot ja asetukset! Luo ensin varmuuskopio! Sinua on varoitettu! "
+
+#: controllers/controller-admin.php:1721
+msgid "You have made changes to the content of this table and not yet saved them."
+msgstr "Olet tehnyt muutoksia tämän taulukon sisältöön tallentamatta niitä. "
+
+#: controllers/controller-admin.php:1721
+#, php-format
+msgid "You should first click &quot;%s&quot; or they will be lost if you navigate away from this page."
+msgstr "Sinun täytyy ensin klikata &quot;%s&quot; tai menetät muutokset poistuessasi tältä sivulta. "
+
+#: controllers/controller-admin.php:1721
+#: views/view-edit.php:41
+#: views/view-edit.php:253
+#: views/view-edit.php:392
+#: views/view-edit.php:443
+msgid "Update Changes"
+msgstr "Tallenna muutokset"
+
+#: controllers/controller-admin.php:1763
+#: views/view-about.php:14
+#: views/view-list.php:2
+msgid "Table"
+msgstr "Taulukko"
+
+#: controllers/controller-admin.php:1792
+msgid "Please wait..."
+msgstr "Ole hyvä ja odota... "
+
+#: controllers/controller-admin.php:1793
+msgid "Show _MENU_ Tables"
+msgstr "Show _MENU_ Tables"
+
+#: controllers/controller-admin.php:1794
+#: views/view-ajax_list.php:53
+#: views/view-export.php:71
+#: views/view-list.php:88
+msgid "No tables were found."
+msgstr "Taulukkoja ei löytynyt."
+
+#: controllers/controller-admin.php:1795
+msgid "_START_ to _END_ of _TOTAL_ Tables"
+msgstr "_START_ to _END_ of _TOTAL_ Tables"
+
+#: controllers/controller-admin.php:1796
+msgid "(filtered from _MAX_ Tables)"
+msgstr "(filtered from _MAX_ Tables)"
+
+#: controllers/controller-admin.php:1797
+msgid "Filter:"
+msgstr "Suodatin:"
+
+#: controllers/controller-admin.php:1798
+msgid "First"
+msgstr "Ensimmäinen"
+
+#: controllers/controller-admin.php:1799
+msgid "Back"
+msgstr "Takaisin"
+
+#: controllers/controller-admin.php:1800
+msgid "Next"
+msgstr "Seuraava"
+
+#: controllers/controller-admin.php:1801
+msgid "Last"
+msgstr "Viimeinen"
+
+#: views/view-about.php:5
+msgid "Plugin Purpose"
+msgstr "Lisäosan käyttötarkoitus"
+
+#: views/view-about.php:7
+msgid "WP-Table Reloaded allows you to create and manage tables in the admin-area of WordPress."
+msgstr "Tämän lisäosan avulla voit luoda ja hallita taulukkoja WordPressin ohjausnäkymässä. "
+
+#: views/view-about.php:7
+msgid "Those tables may contain strings, numbers and even HTML (e.g. to include images or links)."
+msgstr "Taulukot voivat sisältää komentosarjoja, numeroita ja jopa HTML-koodia (esim. kuvien ja linkkien sijoituksessa)."
+
+#: views/view-about.php:7
+msgid "You can then show the tables in your posts, on your pages or in text-widgets by using a shortcode."
+msgstr "Voit näyttää taulukoita merkinnöissäsi, sivuillasi tai tekstivimpaimissa käyttämällä oikotietä."
+
+#: views/view-about.php:7
+msgid "If you want to show your tables anywhere else in your theme, you can use a template tag function."
+msgstr "Jos haluat näyttää taulukoita jossain muualla teemassasi, voitkäyttää sivumallitunnisteita."
+
+#: views/view-about.php:12
+msgid "Usage"
+msgstr "Käyttö"
+
+#: views/view-about.php:14
+msgid "At first you should add or import a table."
+msgstr "Ensiksi sinun täytyy luoda tai tuoda taulukko."
+
+#: views/view-about.php:14
+msgid "This means that you either let the plugin create an empty table for you or that you load an existing table from either a CSV, XML or HTML file."
+msgstr "Voit joko antaa lisäosan luoda tyhjän taulukon tai ladata olemassa olevan taulukon CSV-, XML- tai HTML-muotoisena."
+
+#: views/view-about.php:14
+msgid "Then you can edit your data or change the structure of your table (e.g. by inserting or deleting rows or columns, swaping rows or columns or sorting them) and select specific table options like alternating row colors or whether to print the name or description, if you want."
+msgstr "Sen jälkeen voit muokata tietoja tai muutta taulukon rakennetta (esim. lisäämällä tai poistamalla rivejä ja sarakkeita, vaihtamalla rivejä tai sarakkeita tai järjestelemällä niitä) ja valita taulukolle erilaisia ominaisuuksia, kuten rivin taustavärin tai otsikon tai kuvauksen näyttötavan."
+
+#: views/view-about.php:14
+msgid "To easily add a link or an image to a cell, use the provided buttons. Those will ask you for the URL and a title. Then you can click into a cell and the corresponding HTML will be added to it for you."
+msgstr "Voit lisätä soluun linkin tai kuvan helposti painikkeiden avulla. Sinulta kysytään URL-osoitetta ja otsikkoa, minkä jälkeen vain klikkaat solua ja vastaava HTML lisätään soluun."
+
+#: views/view-about.php:14
+#: views/view-ajax_preview.php:5
+#: views/view-edit.php:9
+#: views/view-list.php:2
+#, php-format
+msgid "To insert the table into a page, post or text-widget, copy the shortcode <strong>[table id=%s /]</strong> and paste it into the corresponding place in the editor."
+msgstr "Jos haluat näyttää taulukon sivulla, merkinnässä tai tekstivimpaimessa, kopioi oikotie <strong>[table id=%s /]</strong> ja sijoita se haluamaasi paikkaan muokkaimessa."
+
+#: views/view-about.php:14
+#, php-format
+msgid "You can also select the desired table from a list (after clicking the button &quot;%s&quot; in the editor toolbar) and the corresponding shortcode will be added for you."
+msgstr "Voit myös valita haluamasi taulukon listasta (klikattuasi muokkaimen työkalupalkin &quot;%s&quot;-painiketta) ja vastaava oikotie lisätään automaattisesti. "
+
+#: views/view-about.php:14
+msgid "Tables can be styled by changing and adding CSS commands."
+msgstr "Taulukkoja voi muotoilla muuttamalla ja lisäämällä CSS-komentoja."
+
+#: views/view-about.php:14
+msgid "The plugin ships with default CSS Stylesheets, which can be customized with own code or replaced with other Stylesheets."
+msgstr "Lisäosan mukana tulee oletustyylitiedostot, joiden koodia voit itse muokata tai korvata ne muilla tyylitiedostoilla."
+
+#: views/view-about.php:14
+msgid "For this, each table is given certain CSS classes that can be used as CSS selectors."
+msgstr "Tämän vuoksi jokaiselle taulukolle annetaan tietyt CSS-luokat, joita voidaan käyttää CSS-valitsimina."
+
+#: views/view-about.php:14
+#, php-format
+msgid "Please see the <a href=\"%s\">documentation</a> for a list of these selectors and for styling examples."
+msgstr "Löydät <a href=\"%s\">ohjeista</a> listan CSS-valitsimista ja esimerkkejä tyylien käytöstä ja muotoiluista."
+
+#: views/view-about.php:20
+msgid "More Information and Documentation"
+msgstr "Lisätietoja ja dokumentointi"
+
+#: views/view-about.php:27
+msgid "Help and Support"
+msgstr "Apu ja tuki"
+
+#: views/view-about.php:29
+#, php-format
+msgid "If you do not find an answer there, please <a href=\"%s\">open a new thread</a> in the WordPress Support Forums with the tag &quot;wp-table-reloaded&quot;."
+msgstr "Jos et löydä sieltä vastausta, ole hyvä ja <a href=\"%s\">aloita uusi ketju</a> WordPressin tukipalstoilla ja liitä siihen tunniste &quot;wp-table-reloaded&quot;."
+
+#: views/view-about.php:34
+msgid "Author and License"
+msgstr "Tekijä ja lisenssi "
+
+#: views/view-about.php:36
+#, php-format
+msgid "This plugin was written by <a href=\"%s\">Tobias B&auml;thge</a>."
+msgstr "Tämän lisäosan on tehnyt <a href=\"%s\">Tobias B&auml;thge</a>."
+
+#: views/view-about.php:36
+msgid "It is licensed as Free Software under GPL 2."
+msgstr "Se on lisensoitu ilmaiseksi ohjelmistotuotteeksi (GPL 2)."
+
+#: views/view-about.php:36
+#, php-format
+msgid "Please rate the plugin in the <a href=\"%s\">WordPress Plugin Directory</a>."
+msgstr "Ole hyvä ja äänestä lisäosaa <a href=\"%s\">WordPressin lisäosahakemistossa</a>."
+
+#: views/view-about.php:36
+msgid "Donations and good ratings encourage me to further develop the plugin and to provide countless hours of support. Any amount is appreciated! Thanks!"
+msgstr "Lahjoitukset ja hyvät pisteet rohkaisevat minua jatkamaan lisäosan kehitystyötä ja käyttämään siihen aikaa. Pienetkin summat ovat tervetulleita! Kiitos!"
+
+#: views/view-about.php:41
+msgid "Credits and Thanks"
+msgstr "Avustajat ja kiitokset"
+
+#: views/view-about.php:44
+msgid "Thanks go to <a href=\"http://alexrabe.boelinger.com/\">Alex Rabe</a> for the original wp-Table plugin,"
+msgstr "Kiitokset <a href=\"http://alexrabe.boelinger.com/\">Alex Rabelle</a> lisäosasta WP-Table,"
+
+#: views/view-about.php:45
+msgid "Allan Jardine for the <a href=\"http://www.datatables.net/\">DataTables jQuery plugin</a>,"
+msgstr "Allan Jardinelle lisäosasta <a href=\"http://www.datatables.net/\">DataTables jQuery</a>,"
+
+#: views/view-about.php:46
+msgid "Christian Bach for the <a href=\"http://www.tablesorter.com/\">Tablesorter jQuery plugin</a>,"
+msgstr "Christian Bachille lisäosasta <a href=\"http://www.tablesorter.com/\">Tablesorter-jQuery</a>,"
+
+#: views/view-about.php:47
+msgid "Soeren Krings for its extension <a href=\"http://tablesorter.openwerk.de/\">Tablesorter Extended</a>,"
+msgstr "Soeren Kringsille laajennuksesta <a href=\"http://tablesorter.openwerk.de/\">Tablesorter Extended</a>,"
+
+#: views/view-about.php:48
+msgid "the submitters of translations:"
+msgstr "kääntäjille:"
+
+#: views/view-about.php:69
+#, php-format
+msgid "%s (thanks to %s)"
+msgstr "%s (kiitos %s)"
+
+#: views/view-about.php:72
+msgid "and to all donors, contributors, supporters, reviewers and users of the plugin!"
+msgstr "ja kaikille lahjoittajille, avustajille, tukijoille, äänestäjille sekä lisäosan käyttäjille!"
+
+#: views/view-about.php:78
+msgid "Debug and Version Information"
+msgstr "Virheenkorjaus- ja versiotiedot"
+
+#: views/view-about.php:78
+#: views/view-edit.php:15
+#: views/view-edit.php:51
+#: views/view-edit.php:104
+#: views/view-edit.php:262
+#: views/view-edit.php:349
+#: views/view-edit.php:401
+#: views/view-options.php:19
+#: views/view-options.php:62
+#: views/view-options.php:79
+#: views/view-options.php:167
+#: views/view-options.php:178
+msgctxt "expand"
+msgid "Hide"
+msgstr "Piilota"
+
+#: views/view-about.php:78
+#: views/view-edit.php:15
+#: views/view-edit.php:51
+#: views/view-edit.php:104
+#: views/view-edit.php:262
+#: views/view-edit.php:349
+#: views/view-edit.php:401
+#: views/view-options.php:19
+#: views/view-options.php:62
+#: views/view-options.php:79
+#: views/view-options.php:167
+#: views/view-options.php:178
+msgid "Expand"
+msgstr "Laajenna"
+
+#: views/view-about.php:81
+msgid "You are using the following versions of the software."
+msgstr "Käytät ohjelmasta seuraavaa versiota. "
+
+#: views/view-about.php:81
+msgid "Please provide this information in bug reports."
+msgstr "Ole hyvä ja liitä nämä tiedot virheilmoituksiin. "
+
+#: views/view-about.php:84
+msgid "Plugin installed"
+msgstr "Lisäosa asennettu"
+
+#: views/view-add.php:4
+msgid "To add a new table, enter its name, a description (optional) and the number of rows and columns."
+msgstr "Luo uusi taulukko antamalla sille nimi, kuvaus (valinnainen) sekä rivien ja sarakkeiden määrä. "
+
+#: views/view-add.php:4
+msgid "You may also add, insert or delete rows and columns later."
+msgstr "Voit myös lisätä tai poistaa rivejä ja sarakkeita myöhemmin. "
+
+#: views/view-add.php:13
+#: views/view-ajax_list.php:14
+#: views/view-ajax_list.php:22
+#: views/view-edit.php:23
+#: views/view-edit.php:283
+#: views/view-import.php:99
+#: views/view-import.php:108
+#: views/view-list.php:15
+#: views/view-list.php:25
+msgid "Table Name"
+msgstr "Taulukon nimi"
+
+#: views/view-add.php:14
+msgid "Enter Table Name"
+msgstr "Kirjoita taulukon nimi"
+
+#: views/view-add.php:17
+#: views/view-ajax_list.php:15
+#: views/view-ajax_list.php:23
+#: views/view-edit.php:27
+#: views/view-import.php:100
+#: views/view-import.php:109
+#: views/view-list.php:16
+#: views/view-list.php:26
+msgid "Description"
+msgstr "Kuvaus"
+
+#: views/view-add.php:18
+msgid "Enter Description"
+msgstr "Kirjoita kuvaus"
+
+#: views/view-add.php:21
+msgid "Number of Rows"
+msgstr "Rivejä"
+
+#: views/view-add.php:25
+msgid "Number of Columns"
+msgstr "Sarakkeita"
+
+#: views/view-add.php:32
+msgid "Add Table"
+msgstr "Luo taulukko"
+
+#: views/view-ajax_list.php:3
+#: views/view-list.php:2
+msgid "This is a list of all available tables."
+msgstr "Tässä listassa ovat kaikki tehdyt taulukot."
+
+#: views/view-ajax_list.php:3
+msgid "You may insert a table into a post or page here."
+msgstr "Voit liittää taulukon merkintään tai sivulle tässä."
+
+#: views/view-ajax_list.php:4
+#, php-format
+msgid "Click the &quot;%s&quot; link after the desired table and the corresponding shortcode will be inserted into the editor (<strong>[table id=&lt;ID&gt; /]</strong>)."
+msgstr "Klikkaa haluamasi taulukon jälkeen linkkiä &quot;%s&quot; \", ja vastaava oikotie lisätään muokkaimeen (<strong>[table id=&lt;ID&gt; /]</strong>)."
+
+#: views/view-ajax_list.php:4
+#: views/view-ajax_list.php:44
+msgid "Insert"
+msgstr "Liitä"
+
+#: views/view-ajax_list.php:13
+#: views/view-ajax_list.php:21
+#: views/view-import.php:98
+#: views/view-import.php:107
+#: views/view-list.php:13
+#: views/view-list.php:23
+msgid "ID"
+msgstr "ID"
+
+#: views/view-ajax_list.php:16
+#: views/view-ajax_list.php:24
+#: views/view-edit.php:413
+#: views/view-import.php:101
+#: views/view-import.php:110
+msgid "Action"
+msgstr "Toiminto"
+
+#: views/view-ajax_preview.php:3
+msgid "This is a preview of your table."
+msgstr "Tämä on taulukkosi esikatselutila."
+
+#: views/view-ajax_preview.php:4
+msgid "Because of CSS styling, the table might look different on your page!"
+msgstr "Tyylitiedoston asetusten vuoksi taulukko voi näyttää sivullasi erilaiselta!"
+
+#: views/view-ajax_preview.php:4
+msgid "The JavaScript libraries are also not available in this preview."
+msgstr "JavaScript-kirjastot eivät ole saatavilla esikatselumuodossa."
+
+#: views/view-edit.php:8
+msgid "On this page, you can edit the content of the table."
+msgstr "Tällä sivulla voit muokata taulukon sisältöä."
+
+#: views/view-edit.php:8
+msgid "It is also possible to change the table structure by inserting, deleting, moving, and swapping columns and rows."
+msgstr "Voit myös muuttaa taulukon rakennetta lisäämällä, poistamalla, siirtämällä ja yhdistelemällä sarakkeita ja rivejä."
+
+#: views/view-edit.php:15
+msgid "Table Information"
+msgstr "Taulukon tiedot"
+
+#: views/view-edit.php:19
 msgid "Table ID"
 msgstr "Taulukon ID"
 
-#: wp-table-reloaded-admin.php:901
+#: views/view-edit.php:32
+#: views/view-list.php:17
+#: views/view-list.php:27
+msgid "Last Modified"
+msgstr "Muokannut viimeksi "
+
+#: views/view-edit.php:33
+#: views/view-list.php:44
+msgid "by"
+msgstr " "
+
+#: views/view-edit.php:42
+#: views/view-edit.php:254
+#: views/view-edit.php:393
+#: views/view-edit.php:444
+msgid "Save and go back"
+msgstr "Tallenna ja palaa"
+
+#: views/view-edit.php:45
+#: views/view-edit.php:257
+#: views/view-edit.php:396
+#: views/view-edit.php:447
+#: views/view-options.php:154
+msgid "Cancel"
+msgstr "Peru"
+
+#: views/view-edit.php:51
+msgid "Table Contents"
+msgstr "Taulukon sisältö"
+
+#: views/view-edit.php:104
+msgid "Data Manipulation"
+msgstr "Tietojen muokkaus"
+
+#: views/view-edit.php:114
+#: views/view-options.php:55
+msgid "Insert Link"
+msgstr "Lisää linkki"
+
+#: views/view-edit.php:115
+msgid "Insert Image"
+msgstr "Lisää kuva"
+
+#: views/view-edit.php:124
+msgid "ascending"
+msgstr "nousevaan"
+
+#: views/view-edit.php:125
+msgid "descending"
+msgstr "laskevaan"
+
+#: views/view-edit.php:128
+#, php-format
+msgid "Sort table by column %s in %s order"
+msgstr "Järjestä taulukko sarakkeen %s mukaan %s järjestykseen"
+
+#: views/view-edit.php:130
+msgid "Sort"
+msgstr "Järjestä"
+
+#: views/view-edit.php:135
+#: views/view-edit.php:139
+msgctxt "item"
+msgid "Hide"
+msgstr "Piilota"
+
+#: views/view-edit.php:136
+#: views/view-edit.php:140
+msgctxt "item"
+msgid "Unhide"
+msgstr "Näytä"
+
+#: views/view-edit.php:137
+#, php-format
+msgctxt "hide_unhide"
+msgid "Selected rows: %s %s"
+msgstr "Valitut rivit: %s %s"
+
+#: views/view-edit.php:141
+#, php-format
+msgctxt "hide_unhide"
+msgid "Selected columns: %s %s"
+msgstr "Valitut sarakkeet: %s %s"
+
+#: views/view-edit.php:144
+msgid "Combine cells in a row:"
+msgstr "Yhdistä solut rivillä: "
+
+#: views/view-edit.php:145
+msgid "Add colspan"
+msgstr "Lisää colspan"
+
+#: views/view-edit.php:148
+msgid "Combine cells in a column:"
+msgstr "Yhdistä solut sarakkeessa:"
+
+#: views/view-edit.php:149
+msgid "Add rowspan"
+msgstr "Lisää rowspan"
+
+#: views/view-edit.php:155
+msgid "Insert row"
+msgstr "Lisää rivi"
+
+#: views/view-edit.php:156
+#: views/view-edit.php:160
+#: views/view-list.php:65
+msgid "Delete"
+msgstr "Poista"
+
+#: views/view-edit.php:157
+#, php-format
+msgctxt "insert_delete"
+msgid "Selected rows: %s %s"
+msgstr "Valitut rivit: %s %s"
+
+#: views/view-edit.php:159
+msgid "Insert column"
+msgstr "Lisää sarake"
+
+#: views/view-edit.php:161
+#, php-format
+msgctxt "insert_delete"
+msgid "Selected columns: %s %s"
+msgstr "Valitut sarakkeet: %s %s"
+
+#: views/view-edit.php:171
 #, php-format
 msgid "Add %s row(s)"
 msgstr "Lisää %s rivi(ä)"
 
-#: wp-table-reloaded-admin.php:902
-#: wp-table-reloaded-admin.php:904
+#: views/view-edit.php:172
+#: views/view-edit.php:175
+#: views/view-edit.php:438
 msgid "Add"
 msgstr "Lisää"
 
-#: wp-table-reloaded-admin.php:903
+#: views/view-edit.php:174
 #, php-format
 msgid "Add %s column(s)"
 msgstr "Lisää %s sarake(tta)"
 
-#: wp-table-reloaded-admin.php:1056
+#: views/view-edit.php:189
+#, php-format
+msgid "Swap rows %s and %s"
+msgstr "Vaihda rivit %s ja %s"
+
+#: views/view-edit.php:191
+#: views/view-edit.php:206
+msgid "Swap"
+msgstr "Vaihda"
+
+#: views/view-edit.php:204
+#, php-format
+msgid "Swap columns %s and %s"
+msgstr "Vaihda sarakkeet %s ja %s"
+
+#: views/view-edit.php:219
+#: views/view-edit.php:239
+msgid "before"
+msgstr "ennen"
+
+#: views/view-edit.php:220
+#: views/view-edit.php:240
+msgid "after"
+msgstr "jälkeen"
+
+#: views/view-edit.php:223
+#, php-format
+msgid "Move row %s %s row %s"
+msgstr "Siirrä rivi %s %s  riviä %s"
+
+#: views/view-edit.php:225
+#: views/view-edit.php:245
+msgid "Move"
+msgstr "Siirrä"
+
+#: views/view-edit.php:243
+#, php-format
+msgid "Move column %s %s column %s"
+msgstr "Siirrä sarake %s %s saraketta %s"
+
+#: views/view-edit.php:262
+msgid "Table Styling Options"
+msgstr "Taulukon tyylimääritykset"
+
+#: views/view-edit.php:264
+msgid "These settings will only be used for this table."
+msgstr "Nämä asetukset koskevat vain tätä taulukkoa."
+
+#: views/view-edit.php:267
+msgid "Alternating row colors"
+msgstr "Vaihtoehtoinen taustaväri"
+
+#: views/view-edit.php:268
+msgid "Every second row has an alternating background color."
+msgstr "Joka toinen rivi näytetään vaihtoehtoisella taustavärillä."
+
+#: views/view-edit.php:271
+msgid "Row Highlighting"
+msgstr "Rivin korostus"
+
+#: views/view-edit.php:272
+msgid "Highlight a row by changing its background color while the mouse cursor hovers above it."
+msgstr "Korosta rivi muuttamalla sen taustaväriä, kun sitä osoitetaan hiirellä. "
+
+#: views/view-edit.php:275
+msgid "Table head"
+msgstr "Taulukon otsikko"
+
+#: views/view-edit.php:276
+msgid "The first row of your table is the table head (HTML tag &lt;th&gt;)."
+msgstr "Taulukon ensimmäisellä rivillä käytetään HTML-tunnistetta &lt;th&gt;. "
+
+#: views/view-edit.php:279
+msgid "Table footer"
+msgstr "Taulukon alapalkki"
+
+#: views/view-edit.php:280
+msgid "The last row of your table is the table footer (HTML tag &lt;th&gt;)."
+msgstr "Taulukon viimeinen rivi on taulukon alapalkki (HTML-tunniste &lt;th&gt;)."
+
+#: views/view-edit.php:289
+#: views/view-edit.php:304
+msgid "above"
+msgstr "yllä"
+
+#: views/view-edit.php:291
+#: views/view-edit.php:306
+msgid "below"
+msgstr "alla"
+
+#: views/view-edit.php:293
+#, php-format
+msgid "The Table Name shall be written %s the table (HTML tag &lt;h2&gt;)."
+msgstr "Taulukon nimi näytetään sen %s HTML-tunnisteella &lt;h2&gt;."
+
+#: views/view-edit.php:298
+msgid "Table Description"
+msgstr "Taulukon kuvaus"
+
+#: views/view-edit.php:308
+#, php-format
+msgid "The Table Description shall be written %s the table."
+msgstr "Taulukon kuvaus näytetään sen %s. "
+
+#: views/view-edit.php:313
+msgid "Use JavaScript library"
+msgstr "Käytä JavaScript-kirjastoa"
+
+#: views/view-edit.php:319
+#: views/view-edit.php:323
+#: views/view-edit.php:335
+msgid "You can change further settings for this library below."
+msgstr "Voit muuttaa kirjaston asetuksia alla."
+
+#: views/view-edit.php:327
+#: views/view-edit.php:331
+msgid "The table will then be sortable by the visitor."
+msgstr "Katsoja voi sen jälkeen lajitella taulukon."
+
+#: views/view-edit.php:338
+#, php-format
+msgid "Yes, use the &quot;%s&quot; JavaScript library with this table."
+msgstr "Kyllä, käytä tässä taulukossa JavaScript-kirjastoa &quot;%s&quot;."
+
+#: views/view-edit.php:338
+#, php-format
+msgid "You must enable the use of a JavaScript library on the &quot;%s&quot; screen first."
+msgstr "Ota ensin käyttöön JavaScript-kirjasto näkymässä &quot;%s&quot;."
+
+#: views/view-edit.php:349
+msgid "DataTables JavaScript Features"
+msgstr "DataTables JavaScript-ominaisuudet"
+
+#: views/view-edit.php:351
+msgid "You can enable certain features for the DataTables JavaScript library here."
+msgstr "Voit ottaa käyttöön tiettyjä DataTables-JavaScript-kirjaston ominaisuuksia täällä."
+
+#: views/view-edit.php:351
+msgid "More information on these features can be found on the <a href=\"http://www.datatables.net/\">DataTables website</a>."
+msgstr "Lisätietoa näistä ominaisuuksista löytyy <a href=\"http://www.datatables.net/\">DataTables-kotisivulta</a>."
+
+#: views/view-edit.php:353
+#, php-format
+msgid "You can currently not change these options, because you have not enabled the &quot;DataTables&quot; or the &quot;DataTables+TableTools&quot; JavaScript library on the &quot;%s&quot; screen."
+msgstr "Et voi muuttaa asetuksia, koska et ole ottanut käyttöön JavaScript-kirjastoa &quot;DataTables&quot; tai &quot;DataTables+TableTools&quot; näkymässä &quot;%s&quot;."
+
+#: views/view-edit.php:353
+msgid "It is not possible to use these features with the &quot;Tablesorter&quot; or &quot;Tablesorter Extended&quot; libraries."
+msgstr "Näitä ominaisuuksia ei voi käyttää yhdessä &quot;Tablesorter&quot; tai &quot;Tablesorter Extended&quot; -kirjaston kanssa."
+
+#: views/view-edit.php:357
+msgid "Sorting"
+msgstr "Järjestely"
+
+#: views/view-edit.php:358
+msgid "Yes, enable sorting of table data by the visitor."
+msgstr "Kyllä, salli katsojan järjestellä taulukkotietoja."
+
+#: views/view-edit.php:361
+msgid "Pagination"
+msgstr "Sivutus"
+
+#: views/view-edit.php:362
+msgid "Yes, enable pagination of the table (showing only a certain number of rows) by the visitor."
+msgstr "Kyllä, salli käyttäjän sivuttaa taulukko (näyttää vain tietty määrä rivejä)."
+
+#: views/view-edit.php:365
+msgid "Length Change"
+msgstr "Pituuden muuttaminen"
+
+#: views/view-edit.php:366
+msgid "Yes, allow visitor to change the number of rows shown when using pagination."
+msgstr "Kyllä, salli katsojan muuttaa rivien numerointia, kun sivutus on käytössä."
+
+#: views/view-edit.php:369
+msgid "Filtering"
+msgstr "Suodatus"
+
+#: views/view-edit.php:370
+msgid "Yes, enable the visitor to filter or search the table. Only rows with the search word in them are shown."
+msgstr "Kyllä, salli käyttäjän suodattaa tai tehdä hakuja taulukkoon. Vain hakuun täsmäävät rivit näytetään."
+
+#: views/view-edit.php:373
+msgid "Info Bar"
+msgstr "Tietopalkki"
+
+#: views/view-edit.php:374
+msgid "Yes, show the table information display. This shows information and statistics about the currently visible data, including filtering."
+msgstr "Kyllä, näytä taulukon tiedot, myös suodatus."
+
+#: views/view-edit.php:377
+msgid "TableTools"
+msgstr "TableTools"
+
+#: views/view-edit.php:379
+msgid "Yes, activate the TableTools functions (Copy to Clipboard, Save to CSV, Save to XLS, Print Table) for this table."
+msgstr "Kyllä, ota käyttöön TableTools-toiminnot (kopioi leikepöydälle, tallenna CSV-tiedosto, tallenna XLS-muodossa, tulosta taulukko) tälle taulukolle."
+
+#: views/view-edit.php:380
+msgid "This option can only be used with the &quot;DataTables+TableTools&quot; JavaScript library."
+msgstr "Tätä määritystä voidaan käyttää vain &quot;DataTables+TableTools&quot; JavaScript-kirjaston kanssa."
+
+#: views/view-edit.php:384
+msgid "Custom Commands"
+msgstr "Lisäkomennot"
+
+#: views/view-edit.php:385
+msgid "Enter additional DataTables JavaScript parameters that will be included with the script call here."
+msgstr "Aseta valinnaiset DataTables JavaScript-muuttujat, jotka sisällytetään tässä kutsuttavaan komentosarjaan."
+
+#: views/view-edit.php:385
+msgid "For advanced use only. Read the <a href=\"http://www.datatables.net/\">DataTables documentation</a> before."
+msgstr "Vain erityiskäyttöön. Lue <a href=\"http://www.datatables.net/\">DataTables-ohjeet</a> ensin."
+
+#: views/view-edit.php:401
+msgid "Custom Data Fields"
+msgstr "Lisätietokentät"
+
+#: views/view-edit.php:403
+msgid "Custom Data Fields can be used to add extra metadata to a table."
+msgstr "Lisätietokenttien avulla taulukkoon voidaan lisätä haluttuja metatietoja."
+
+#: views/view-edit.php:403
+msgid "For example, this could be information about the source or the creator of the data."
+msgstr "Tämä voi sisältää esimerkiksi tiedon lähteen tai tekijän tietoja."
+
+#: views/view-edit.php:405
+#, php-format
+msgid "You can show this data in the same way as tables by using the shortcode <strong>[table-info id=%s field=\"&lt;field-name&gt;\" /]</strong>."
+msgstr "Voit esittää tämän tiedon taulukkojen tapaan käyttämällä oikotietä <strong>[table-info id=%s field=\"&lt;field-name&gt;\" /]</strong>."
+
+#: views/view-edit.php:411
+msgid "Field Name"
+msgstr "Kentän nimi"
+
+#: views/view-edit.php:412
+msgid "Value"
+msgstr "Arvo"
+
+#: views/view-edit.php:426
+msgid "Delete Field"
+msgstr "Poista kenttä"
+
+#: views/view-edit.php:428
+msgid "View shortcode"
+msgstr "Näytä oikotie"
+
+#: views/view-edit.php:437
+msgid "To add a new Custom Data Field, enter its name (only lowercase letters, numbers, _ and -)."
+msgstr "Lisää uusi lisätietokenttä antamalla sille nimi (vain pienaakkoset, numerot, _ ja -)."
+
+#: views/view-edit.php:438
+msgid "Custom Data Field Name"
+msgstr "Lisätietokentän nimi"
+
+#: views/view-edit.php:452
+msgid "Other actions"
+msgstr "Muut toiminnot"
+
+#: views/view-edit.php:455
+msgid "Delete Table"
+msgstr "Poista taulukko"
+
+#: views/view-edit.php:456
+#: views/view-export.php:59
+msgid "Export Table"
+msgstr "Vie taulukko"
+
+#: views/view-export.php:10
+msgid "It is recommended to export and backup the data of important tables regularly."
+msgstr "On suositeltavaa viedä ja varmuuskopioida tärkeät taulukot säännöllisesti."
+
+#: views/view-export.php:10
+msgid "Select the table, the desired export format and (for CSV only) a delimiter."
+msgstr "Valitse taulukko, haluttu vientimuoto ja (vain CSV-muotoa varten) erotin."
+
+#: views/view-export.php:10
+msgid "You may choose to download the export file. Otherwise it will be shown on this page."
+msgstr "Voit halutessasi ladata vientitiedoston. Muuten se näytetään tällä sivulla."
+
+#: views/view-export.php:10
+msgid "Be aware that only the table data, but no options or settings are exported."
+msgstr "Muistathan, että vain taulukkotieto viedään, ei määrityksiä eikä asetuksia."
+
+#: views/view-export.php:10
+#, php-format
+msgid "To backup all tables, including their settings, at once use the &quot;%s&quot; button in the &quot;%s&quot;."
+msgstr "Varmuuskopioi kaikki taulukot asetuksineen kerralla käyttämällä &quot;%s&quot;-painiketta sivulla &quot;%s&quot;."
+
+#: views/view-export.php:10
+#: views/view-options.php:172
+msgid "Create and Download Dump File"
+msgstr "Luo ja lataa muistitiedosto"
+
+#: views/view-export.php:18
+msgid "Select Table to Export"
+msgstr "Valitse taulukko vietäväksi"
+
+#: views/view-export.php:33
+msgid "Select Export Format"
+msgstr "Valitse vientimuoto"
+
+#: views/view-export.php:43
+msgid "Select Delimiter to use"
+msgstr "Valitse erotin"
+
+#: views/view-export.php:50
+msgid "Only needed for CSV export."
+msgstr "Tarvitaan vain CSV-vientiin."
+
+#: views/view-export.php:53
+msgid "Download file"
+msgstr "Lataa tiedosto"
+
+#: views/view-export.php:54
+msgid "Yes, I want to download the export file."
+msgstr "Kyllä, haluan ladata vientitiedoston."
+
+#: views/view-export.php:71
+#: views/view-list.php:88
+#, php-format
+msgid "You should <a href=\"%s\">add</a> or <a href=\"%s\">import</a> a table to get started!"
+msgstr "Sinun täytyy <a href=\"%s\">luoda</a> tai <a href=\"%s\">tuoda</a> taulukko päästäksesi alkuun!"
+
+#: views/view-import.php:3
+msgid "WP-Table Reloaded can import tables from existing data."
+msgstr "WP-Table Reloaded voi tuoda taulukoita jo aiemmin luodusta tiedosta."
+
+#: views/view-import.php:3
+msgid "This may be a CSV, XML or HTML file, each with a certain structure."
+msgstr "Tiedosto voi olla muotoa CSV, XML tai HTML."
+
+#: views/view-import.php:3
+msgid "To import an existing table, please select its format and the source for the import."
+msgstr "Tuo aiemmin luotu taulukko valitsemalla sen muoto ja tiedoston sijaintikohde."
+
+#: views/view-import.php:3
+msgid "You can also decide, if you want to import it as a new table or replace an existing table."
+msgstr "Voi myös valita, haluatko tuoda taulukon uutena taulukkona vai korvata toisen taulukon."
+
+#: views/view-import.php:10
+msgid "Select Import Format"
+msgstr "Valitse tuontimuoto"
+
+#: views/view-import.php:21
 msgid "Add or Replace Table?"
 msgstr "Lisää vai korvaa taulukko?"
 
-#: wp-table-reloaded-admin.php:1058
+#: views/view-import.php:23
 msgid "Add as new Table"
 msgstr "Lisää uutena taulukkona"
 
-#: wp-table-reloaded-admin.php:1059
+#: views/view-import.php:24
 msgid "Replace existing Table"
 msgstr "Korvaa taulukko"
 
-#: wp-table-reloaded-admin.php:1063
+#: views/view-import.php:28
 msgid "Select existing Table to Replace"
 msgstr "Valitse korvattava taulukko"
 
-#: wp-table-reloaded-admin.php:1078
-msgid "Select source for import"
-msgstr "Valitse tiedosto tuotavaksi"
+#: views/view-import.php:44
+msgid "Select source for Import"
+msgstr "Valitse tuontilähde"
 
-#: wp-table-reloaded-admin.php:1080
+#: views/view-import.php:46
 msgid "File upload"
 msgstr "Tiedoston tuonti"
 
-#: wp-table-reloaded-admin.php:1082
+#: views/view-import.php:47
 msgid "URL"
 msgstr "Lataa verkkopolulta (URL)"
 
-#: wp-table-reloaded-admin.php:1084
+#: views/view-import.php:48
 msgid "Manual input"
 msgstr "Käsinsyöttö"
 
-#: wp-table-reloaded-admin.php:1085
+#: views/view-import.php:49
 msgid "File on server"
 msgstr "Tiedosto palvelimella"
 
-#: wp-table-reloaded-admin.php:1094
-msgid "URL to import table from"
-msgstr "Tuotavan taulukon tiedostopolku (URL)"
+#: views/view-import.php:53
+msgid "Select File with Table to Import"
+msgstr "Valitse taulukkotiedosto tuotavaksi"
 
-#: wp-table-reloaded-admin.php:1099
+#: views/view-import.php:57
+msgid "URL to Import Table from"
+msgstr "Tuotavan taulukon tiedostopolku (URL) "
+
+#: views/view-import.php:61
 msgid "Path to file on server"
 msgstr "Tiedostopolku palvelimella"
 
-#: wp-table-reloaded-admin.php:1380
-msgid "Brazilian Portugues (thanks to <a href=\"http://www.pensarics.com/\">Rics</a>)"
-msgstr "Brasilianisch/Portugiesisch (kiitos: <a href=\"http://www.pensarics.com/\">Rics</a>)"
+#: views/view-import.php:65
+msgid "Paste data with Table to Import"
+msgstr "Liitä tiedot tuotavaan taulukkoon"
 
-#: wp-table-reloaded-admin.php:1699
-msgid "Do you really want to change the ID of the table?"
-msgstr "Haluatko varmasti vaihtaa taulukon ID-tunnuksen?"
+#: views/view-import.php:71
+msgid "Import Table"
+msgstr "Tuo taulukko"
+
+#: views/view-import.php:85
+msgid "Import from original wp-Table plugin"
+msgstr "Tuo alkuperäisestä WP-Table-lisäosasta"
+
+#: views/view-import.php:131
+msgid "Import"
+msgstr "Tuo"
+
+#: views/view-import.php:139
+#: views/view-list.php:79
+msgid "Bulk actions:"
+msgstr "Massatoiminnot:"
+
+#: views/view-import.php:139
+msgid "Import Tables"
+msgstr "Tuo taulukot"
+
+#: views/view-import.php:145
+msgid "wp-Table by Alex Rabe seems to be installed, but no tables were found."
+msgstr "Alex Raben WP-Table-lisäosa on asennettu, mutta taulukoita ei löytynyt."
+
+#: views/view-list.php:2
+msgid "You may add, edit, copy, delete or preview tables here."
+msgstr "Voit luoda, muokata, kopioita tai poistaa taulukoita tässä. "
+
+#: views/view-list.php:2
+msgid "Each table has a unique ID that needs to be adjusted in that shortcode."
+msgstr "Jokaisella taulukolla on oma ID-tunnuksensa, joka on ilmoitettava oikotiessä."
+
+#: views/view-list.php:2
+#, php-format
+msgid "You can also click the button &quot;%s&quot; in the editor toolbar to select and insert a table."
+msgstr "Voit valita ja liittää taulukon myös klikkaamalla painiketta &quot;%s&quot; muokkaimen työkalupalkissa."
+
+#: views/view-list.php:39
+msgid "(no name)"
+msgstr "(ei nimeä)"
+
+#: views/view-list.php:40
+msgid "(no description)"
+msgstr "(ei kuvausta)"
+
+#: views/view-list.php:58
+#, php-format
+msgid "Edit %s"
+msgstr "Muokkaa %s "
+
+#: views/view-list.php:62
+msgid "Shortcode"
+msgstr "Oikotie"
+
+#: views/view-list.php:63
+msgid "Copy"
+msgstr "Kopioi"
+
+#: views/view-list.php:64
+msgid "Export"
+msgstr "Vie"
+
+#: views/view-list.php:66
+#, php-format
+msgid "Preview of Table %s"
+msgstr "Taulukon %s esikatselu"
+
+#: views/view-list.php:67
+msgid "Preview"
+msgstr "Esikatselu"
+
+#: views/view-list.php:79
+msgid "Copy Tables"
+msgstr "Kopioi taulukot"
+
+#: views/view-list.php:79
+msgid "Delete Tables"
+msgstr "Poista taulukot"
+
+#: views/view-options.php:3
+msgid "WP-Table Reloaded has several options which affect the plugin behavior in different areas."
+msgstr "WP-Table Reloaded sisältää useita määrityksiä, jotka vaikuttavat lisäosan toimintoihin eri alueilla."
+
+#: views/view-options.php:4
+msgid "Frontend Options influence the output and used features of tables in pages, posts or text-widgets."
+msgstr "Käyttöliittymän määritykset vaikuttavat ulkoasuun ja sivuilla, merkinnöissä ja vimpaimissa näkyvien taulukoiden ominaisuuksiin."
+
+#: views/view-options.php:4
+#, php-format
+msgid "The Backend Options control the plugin's admin area, e.g. the &quot;%s&quot; screen."
+msgstr "Ohjausnäkymän määritykset valvovat lisäosan ylläpitoaluetta, esim. &quot;%s&quot; -näkymää."
+
+#: views/view-options.php:4
+#: views/view-options.php:55
+#: views/view-options.php:67
+#: views/view-options.php:71
+msgid "Edit Table"
+msgstr "Muokkaa taulukkoa"
+
+#: views/view-options.php:4
+msgid "Administrators have access to further Admin Options."
+msgstr "Järjestelmänvalvojilla on oikeus muuttaa myös hallinta-asetuksia."
+
+#: views/view-options.php:19
+msgid "Frontend Options"
+msgstr "Käyttöliittymän asetukset"
+
+#: views/view-options.php:23
+msgid "JavaScript library"
+msgstr "JavaScript-kirjasto"
+
+#: views/view-options.php:24
+msgid "Yes, enable the use of a JavaScript library."
+msgstr "Kyllä, salli JavaScript-kirjaston käyttö."
+
+#: views/view-options.php:24
+msgid "WP-Table Reloaded includes three JavaScript libraries that can add useful features, like sorting, pagination, and filtering, to a table."
+msgstr "WP-Table Reloaded sisältää kolme JavaScript-kirjastoa, joilla taulukkoon voidaan lisätä hyödyllisiä ominaisuuksia, kuten järjestely, sivutus ja suodatus. "
+
+#: views/view-options.php:28
+msgid "Select the library to use:"
+msgstr "Valitse kirjasto:"
+
+#: views/view-options.php:29
+#: views/view-options.php:119
+msgid "recommended"
+msgstr "suositus"
+
+#: views/view-options.php:33
+#, php-format
+msgid "(You can read more about each library's features on the <a href=\"%s\">plugin's website</a>.)"
+msgstr "(Voit lukea lisää kunkin kirjaston ominaisuuksista <a href=\"%s\">lisäosan kotisivulta</a>.)"
+
+#: views/view-options.php:36
+msgid "Default CSS"
+msgstr "Oletus-CSS"
+
+#: views/view-options.php:38
+msgid "Yes, include and load the plugin's default CSS Stylesheets. This is highly recommended, if you use one of the JavaScript libraries!"
+msgstr "Kyllä, lataa lisäosan oletustyylitiedosto (CSS). Tämä on erityisen suositeltavaa, jos käytät jotain JavaScript-kirjastoista!"
+
+#: views/view-options.php:42
+msgid "Custom CSS"
+msgstr "Valinnainen CSS"
+
+#: views/view-options.php:44
+msgid "Yes, include and load the following custom CSS commands."
+msgstr "Kyllä, sisällytä ja lataa seuraavat valinnaiset CSS-komennot."
+
+#: views/view-options.php:44
+msgid "This should be used to change the table layout and styling."
+msgstr "Käytä tätä, jos haluat muuttaa taulukon ulkoasua ja muotoiluja."
+
+#: views/view-options.php:50
+#, php-format
+msgid "You can get styling examples from the <a href=\"%s\">plugin's website</a>."
+msgstr "Löydät esimerkkejä tyyleistä ja muotoiluista <a href=\"%s\">lisäosan kotisivulta</a>."
+
+#: views/view-options.php:50
+#, php-format
+msgid "Information on available CSS selectors can be found in the <a href=\"%s\">documentation</a>."
+msgstr "Saatavana olevista CSS-valitsimista löydät tietoa <a href=\"%s\">ohjeista</a>."
+
+#: views/view-options.php:54
+msgid "Links in new window"
+msgstr "Linkit uudessa ikkunassa"
+
+#: views/view-options.php:55
+#, php-format
+msgid "Yes, open links that are inserted with the &quot;%s&quot; button on the &quot;%s&quot; screen in a new browser window <strong>from now on</strong>."
+msgstr "Kyllä, avaa &quot;%s&quot;-painikkeella lisätyt linkit uuden selainikkunan &quot;%s&quot; -näkymässä <strong>tästä eteenpäin</strong>."
+
+#: views/view-options.php:62
+msgid "Backend Options"
+msgstr "Ohjausnäkymän asetukset"
+
+#: views/view-options.php:66
+msgid "Exit warning"
+msgstr "Poistumisvaroitus"
+
+#: views/view-options.php:67
+#, php-format
+msgid "Yes, show a warning message, if I leave the &quot;%s&quot; screen and have not yet saved my changes."
+msgstr "Kyllä, näytä varoitusviesti, jos olen poistumassa &quot;%s&quot;-näkymästä tallentamatta muutoksia."
+
+#: views/view-options.php:70
+msgid "Growing textareas"
+msgstr "Laajenevat tekstialueet"
+
+#: views/view-options.php:71
+#, php-format
+msgid "Yes, enlarge the textareas on the &quot;%s&quot; screen when they are focussed."
+msgstr "Kyllä, laajenna tekstialueet &quot;%s&quot; -näkymässä, kun niihin kohdistetaaan."
+
+#: views/view-options.php:79
+msgid "Admin Options"
+msgstr "Ylläpitoasetukset"
+
+#: views/view-options.php:81
+#: views/view-options.php:192
+#: views/view-options.php:206
+msgid "This area are only available to site administrators!"
+msgstr "Tälle alueelle pääsevät vain järjestelmänvalvojat!"
+
+#: views/view-options.php:81
+msgid "You can therefore not change these options."
+msgstr "Siksi et voi muuttaa näitä määrityksiä."
+
+#: views/view-options.php:86
+msgid "Plugin Access"
+msgstr "Lisäosan käyttöoikeus"
+
+#: views/view-options.php:87
+msgid "To access WP-Table Reloaded, a user needs to be:"
+msgstr "Voidakseen käyttää WP-Table Reloaded -lisäosaa, käyttäjän tulee olla:"
+
+#: views/view-options.php:88
+#: views/view-options.php:99
+msgctxt "User role"
+msgid "Administrator"
+msgstr "Järjestelmänvalvoja"
+
+#: views/view-options.php:89
+#: views/view-options.php:100
+msgctxt "User role"
+msgid "Editor"
+msgstr "Muokkain"
+
+#: views/view-options.php:90
+#: views/view-options.php:101
+msgctxt "User role"
+msgid "Author"
+msgstr "Kirjoittaja"
+
+#: views/view-options.php:91
+msgctxt "User role"
+msgid "Contributor"
+msgstr "Avustaja"
+
+#: views/view-options.php:97
+msgid "Plugin Options Access"
+msgstr "Pääsy lisäosan asetuksiin"
+
+#: views/view-options.php:98
+msgid "To access the Plugin Options of WP-Table Reloaded, a user needs to be:"
+msgstr "Päästäkseen WP-Table Reloaded -lisäosan asetuksiin, käyttäjän tulee olla:"
+
+#: views/view-options.php:102
+msgid "Admin Options, Dump file Import, and Manual Plugin Uninstall are always accessible by Administrators only, regardless of this setting."
+msgstr "Tästä valinnasta huolimatta hallinta-asetuksiin, muistitiedoston tuontiin ja lisäosan asennuksen manuaaliseen poistoon on aina oikeus vain järjestelmänvalvojilla."
+
+#: views/view-options.php:106
+msgid "Plugin Language"
+msgstr "Lisäosan kieli"
+
+#: views/view-options.php:107
+msgid "WP-Table Reloaded shall be shown in this language:"
+msgstr "WP-Table Reloaded näytetään tällä kielellä: "
+
+#: views/view-options.php:108
+#, php-format
+msgid "WordPress Default (currently %s)"
+msgstr "WordPressin oletus (nykyinen %s)"
+
+#: views/view-options.php:117
+msgid "Admin menu entry"
+msgstr "Hallintavalikon osoite"
+
+#: views/view-options.php:118
+msgid "WP-Table Reloaded shall be shown in this section of the admin menu:"
+msgstr "WP-Table Reloaded näytetään ohjausnäkymän hallintavalikon osiossa: "
+
+#: views/view-options.php:119
+msgid "Tools"
+msgstr "Työkalut"
+
+#: views/view-options.php:120
+msgid "Posts"
+msgstr "Merkinnät"
+
+#: views/view-options.php:121
+msgid "Pages"
+msgstr "Sivut"
+
+#: views/view-options.php:122
+msgid "Plugins"
+msgstr "Lisäosat"
+
+#: views/view-options.php:123
+msgid "Settings"
+msgstr "Asetukset"
+
+#: views/view-options.php:124
+msgid "Dashboard"
+msgstr "Ohjausnäkymä"
+
+#: views/view-options.php:125
+msgid "Top-Level"
+msgstr "Ylimpänä"
+
+#: views/view-options.php:130
+msgid "Frontend Edit Link"
+msgstr "Käyttöliittymän muokkaa-linkki"
+
+#: views/view-options.php:131
+msgid "Yes, show an \"Edit\" link to users with sufficient rights near every table on the frontend."
+msgstr "Kyllä, näytä \"Edit\"-linkki käyttöliittymässä jokaisen taulukon vieressä käyttäjille, joilla on riittävät käyttöoikeudet. "
+
+#: views/view-options.php:135
+msgid "WordPress Search"
+msgstr "WordPress Haku"
+
+#: views/view-options.php:136
+msgid "Yes, the WordPress Search shall also find posts and pages that contain the search term inside a table."
+msgstr "Kyllä, WordPressin haku löytää myös sivuille tai merkintöihin liitettyjen taulukoiden sisältämät termit. "
+
+#: views/view-options.php:140
+msgid "Remove upon Deactivation"
+msgstr "Poista otettaessa käytöstä"
+
+#: views/view-options.php:141
+msgid "Yes, remove all plugin related data from the database when the plugin is deactivated."
+msgstr "Kyllä, poista kaikki lisäosan tiedot tietokannasta, kun lisäosa poistetaan käytöstä."
+
+#: views/view-options.php:141
+msgid "Should be activated directly before deactivation only!"
+msgstr "Ota käyttöön ainoastaan juuri ennen lisäosan poistamista käytöstä!"
+
+#: views/view-options.php:151
+msgid "Save Options"
+msgstr "Tallenna asetukset"
+
+#: views/view-options.php:161
+msgid "WP-Table Reloaded Data Export and Backup"
+msgstr "WP-Table Reloaded – vienti ja varmuuskopiointi"
+
+#: views/view-options.php:164
+msgid "WP-Table Reloaded can export and import a so-called dump file that contains all tables, their settings and the plugin's options."
+msgstr "Wp-Table Reloaded voi viedä ja tuoda niin sanotun muistitiedoston (dump file), joka sisältää kaikki taulukot asetuksineen sekä lisäosan määritykset."
+
+#: views/view-options.php:164
+msgid "This file can be used as a backup or to move all data to another WordPress site."
+msgstr "Tätä tiedostoa voi käyttää varmuuskopiona tai sen avulla voi siirtää tietoja toiselle WordPress-sivustolle."
+
+#: views/view-options.php:167
+msgid "Export a dump file"
+msgstr "Vie muistitiedosto"
+
+#: views/view-options.php:169
+msgid "To export all Tables and their settings, click the button below to generate and download a dump file."
+msgstr "Vie kaikki taulukot asetuksineen klikkaamalla alla olevaa painiketta, joka luo ja lataa muistitiedoston."
+
+#: views/view-options.php:169
+msgid "<strong>Warning</strong>: Do <strong>not</strong> edit the content of that file under any circumstances as you will destroy the file!"
+msgstr "<strong>Varoitus</strong>: <strong>Älä muokkaa</strong> tuon tiedoston sisältöä missään tilanteessa, ellet halua tuhota tiedostoa!"
+
+#: views/view-options.php:178
+msgid "Import a dump file"
+msgstr "Tuo muistitiedosto"
+
+#: views/view-options.php:180
+msgid "To import a WP-Table Reloaded dump file and restore the included data, upload the file from your computer."
+msgstr "Tuo WP-Table Reloaded -muistitiedosto ja palauta sen sisältämät tiedot lataamalla tiedosto tietokoneeltasi."
+
+#: views/view-options.php:180
+msgid "All current data of this WP-Table Reloaded installation (Tables, Options, Settings) <strong>WILL BE OVERWRITTEN</strong> with the data from the file!"
+msgstr "Kaikki tämän WP-Table Reloaded -asennuksen tiedot (taulukot, määritykset, asetukset) <strong>KORVATAAN</strong> muistitiedoston tiedoilla!"
+
+#: views/view-options.php:180
+msgid "Do not proceed, if you do not understand this!"
+msgstr "Älä suorita toimintoa, ellet ymmärrä tätä!"
+
+#: views/view-options.php:180
+msgid "It is highly recommended to export and backup the data of this installation before importing another dump file (see above)."
+msgstr "On erittäin suositeltavaa viedä ja varmuuskopioida tämän asennuksen tiedot ennen toisen muistitiedoston tuontia (katso yllä)."
+
+#: views/view-options.php:186
+msgid "Select Dump File"
+msgstr "Valitse muistitiedosto"
+
+#: views/view-options.php:188
+msgid "Import Dump File"
+msgstr "Tuo muistitiedosto"
+
+#: views/view-options.php:198
+msgid "Manually Uninstall WP-Table Reloaded"
+msgstr "Poista itse WP-Table Reloaded -asennus"
+
+#: views/view-options.php:200
+msgid "Uninstalling <strong>will permanently delete</strong> all tables, data, and options, that belong to WP-Table Reloaded from the database, including all tables you added or imported."
+msgstr "Asennuksen poisto <strong>poistaa pysyvästi</strong> kaikki taulukot, niiden tiedot ja määritykset, jotka kuuluvat tietokannassa WP-Table Reloaded-lisäosalle, myös lisäämäsi ja tuomasi taulukot. "
+
+#: views/view-options.php:200
+msgid "You will manually need to remove the plugin's files from the plugin folder afterwards."
+msgstr "Sinun täytyy jälkeenpäin itse poistaa lisäosan tiedostot lisäosakansiosta. "
+
+#: views/view-options.php:200
+msgid "Be very careful with this and only click the button if you know what you are doing!"
+msgstr "Ole varovainen ja klikkaa painiketta vain, jos todella tiedät mitä olet tekemässä!"
+
+#: views/view-options.php:204
+msgid "Uninstall Plugin WP-Table Reloaded"
+msgstr "Poista WP-Table Reloaded -asennus"
+
+#: views/view-uninstall.php:3
+msgid "Plugin deactivated successfully."
+msgstr "Lisäosa poistettu käytöstä."
+
+#: views/view-uninstall.php:4
+msgid "All tables, data and options were deleted. You may now manually remove the plugin's subfolder from your WordPress plugin folder or use the \"Delete\" link on the Plugins page."
+msgstr "Kaikki taulukot, tiedot ja asetukset on poistettu. Voit nyt poistaa lisäosan kansion WordPressin lisäosakansiosta tai käyttää \"Delete\"-linkkiä lisäosasivulla."
+
+#. Plugin URI of an extension
+msgid "http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/"
+msgstr "http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/"
+
+#. Description of an extension
+msgid "This plugin allows you to create and easily manage tables in the admin-area of WordPress. A comfortable backend allows an easy manipulation of table data. You can then include the tables into your posts, on your pages or in text widgets by using a shortcode or a template tag function. Tables can be imported and exported from/to CSV, XML and HTML."
+msgstr "Tämä lisäosan avulla voit luoda ja helposti hallita taulukoita WordPressin ohjausnäkymässä. Miellyttävällä ylläpitoliittymällä voit kätevästi muokata taulukon tietoja. Voit liittää taulukoita merkintöihisi, sivuillesi tai tekstivimpaimiin käyttämällä oikoteitä tai sivumallin tunnistetoimintoa. Taulukoita voi tuoda ja viedä CSV-, XML- ja HTML-muotoisina."
+
+#. Author of an extension
+msgid "Tobias B&auml;thge"
+msgstr "Tobias B&auml;thge"
+
+#. Author URI of an extension
+msgid "http://tobias.baethge.com/"
+msgstr "http://tobias.baethge.com/"
+
+#~ msgid "This is the &quot;%s&quot; screen."
+#~ msgstr "Tämä on &quot;%s&quot;-näkymä."
+#~ msgid ""
+#~ "This version adds support for the DataTables JavaScript library (with "
+#~ "features like sorting, pagination, and filtering) and includes a lot more "
+#~ "enhancements."
+#~ msgstr ""
+#~ "Tämä versio tuo lisäosaan tuen JavaScript-kirjastoon DataTables "
+#~ "(ominaisuuksia esim. lajittelu, sivutus ja suodatus) ja sisältää paljon "
+#~ "muita parannuksia. "
+#~ msgid "Hide|expand"
+#~ msgstr "Piilota|laajenna"
+#~ msgid "Hide|item"
+#~ msgstr "Piilota|kohde"
+#~ msgid "Unhide|item"
+#~ msgstr "Näytä|kohde"
+#~ msgid "Administrator|User role"
+#~ msgstr "Järjestelmänvalvoja|Käyttäjärooli"
+#~ msgid "Editor|User role"
+#~ msgstr "Peruskäyttäjä|Käyttäjärooli"
+#~ msgid "Author|User role"
+#~ msgstr "Kirjoittaja|Käyttäjärooli"
+#~ msgid "Contributor|User role"
+#~ msgstr "Avustaja|Käyttäjärooli"
+#~ msgid "Change will take effect after another page load after saving."
+#~ msgstr ""
+#~ "Muutokset tulevat voimaan, kun tallennuksen jälkeen ladataan jokin toinen "
+#~ "sivu."
+#~ msgid "Albanian (thanks to <a href=\"http://www.romeolab.com/\">Romeo</a>)"
+#~ msgstr "Albanisch (danke an <a href=\"http://www.romeolab.com/\">Romeo</a>)"
+#~ msgid ""
+#~ "Belorussian (thanks to <a href=\"http://www.fatcow.com/\">Marcis Gasuns</"
+#~ "a>)"
+#~ msgstr ""
+#~ "Valkovenäjä (kiitos <a href=\"http://www.fatcow.com/\">Marcis Gasuns</a>)"
+#~ msgid ""
+#~ "Brazilian Portugues (thanks to <a href=\"http://www.pensarics.com/"
+#~ "\">Rics</a>)"
+#~ msgstr ""
+#~ "Brasilianisch/Portugiesisch (kiitos: <a href=\"http://www.pensarics.com/"
+#~ "\">Rics</a>)"
+#~ msgid ""
+#~ "Czech (thanks to <a href=\"http://separatista.net/\">Separatista</a>)"
+#~ msgstr ""
+#~ "Tschechisch (danke an <a href=\"http://separatista.net/\">Separatista</a>)"
+#~ msgid "French (thanks to <a href=\"http://ultratrailer.net/\">Yin-Yin</a>)"
+#~ msgstr ""
+#~ "Französisch (danke an <a href=\"http://ultratrailer.net/\">Yin-Yin</a>)"
+#~ msgid ""
+#~ "Italian (thanks to <a href=\"http://www.scrical.it/\">Gabriella Mazzon</"
+#~ "a>)"
+#~ msgstr ""
+#~ "Italia (kiitos <a href=\"http://www.scrical.it/\">Gabriella Mazzon</a>)"
+#~ msgid "Japanese (thanks to <a href=\"http://www.u-1.net/\">Yuuichi</a>)"
+#~ msgstr "Japani (kiitos <a href=\"http://www.u-1.net/\">Yuuichi</a>)"
+#~ msgid "Polish (thanks to Alex Kortan)"
+#~ msgstr "Polnisch (danke an Alex Kortan)"
+#~ msgid "Russian (thanks to <a href=\"http://wp-skins.info/\">Truper</a>)"
+#~ msgstr "Russisch (danke an <a href=\"http://wp-skins.info/\">Truper</a>)"
+#~ msgid "Slovak (thanks to <a href=\"http://lukas.cerro.sk/\">55.lukas</a>)"
+#~ msgstr "Slovakia (kiitos <a href=\"http://lukas.cerro.sk/\">55.lukas</a>)"
+#~ msgid ""
+#~ "Spanish (thanks to <a href=\"http://theindependentproject.com/"
+#~ "\">Alejandro Urrutia</a> and <a href=\"http://halles.cl/\">Matias Halles</"
+#~ "a>)"
+#~ msgstr ""
+#~ "Spanisch (danke an <a href=\"http://theindependentproject.com/"
+#~ "\">Alejandro Urrutia</a> und <a href=\"http://halles.cl/\">Matias Halles</"
+#~ "a>)"
+#~ msgid "Swedish (thanks to <a href=\"http://www.zuperzed.se/\">ZuperZed</a>)"
+#~ msgstr ""
+#~ "Schwedisch (danke an <a href=\"http://www.zuperzed.se/\">ZuperZed</a>)"
+#~ msgid "Turkish (thanks to <a href=\"http://www.wpuzmani.com/\">Semih</a>)"
+#~ msgstr "Türkisch (danke an <a href=\"http://www.wpuzmani.com/\">Semih</a>)"
+#~ msgid "Insert failed."
+#~ msgstr "Lisäys epäonnistui."
+#~ msgid "Table \"%s\" imported successfully."
+#~ msgstr "Taulukko \"%s\" tuotu."
+#~ msgid ""
+#~ "You may edit the content of the table here. It is also possible to add or "
+#~ "delete columns and rows."
+#~ msgstr ""
+#~ "Voit muokata taulukon sisältöä tässä. Voit myös lisätä tai poistaa rivejä "
+#~ "ja sarakkeita."
+#~ msgid "Use Table Headline"
+#~ msgstr "Käytä otsikkoriviä"
+#~ msgid "Print Table Name"
+#~ msgstr "Näytä taulukon nimi"
+#~ msgid "Use Tablesorter"
+#~ msgstr "Käytä Tablesorteria"
+#~ msgid ""
+#~ "You may sort a table using the <a href=\"http://www.tablesorter.com/"
+#~ "\">Tablesorter-jQuery-Plugin</a>. <small>Attention: You must have "
+#~ "Tablesorter enabled on the \"Plugin Options\" page and the option \"Use "
+#~ "Table Headline\" has to be enabled above for this to work!</small>"
+#~ msgstr ""
+#~ "Voit käyttää taulukon lajittelussa lisäosaa <a href=\"http://www."
+#~ "tablesorter.com/\">Tablesorter-jQuery-Plugin</a>. <small>Huomaa: "
+#~ "Tablesorter täytyy ottaa käyttöön lisäosasivulla ja taulukon asetus "
+#~ "\"Käytä otsikkoriviä\" ([th]) valita yläpuolelta!</small>"
+#~ msgid "General Plugin Options"
+#~ msgstr "Yleiset asetukset"
+#~ msgid ""
+#~ "You may change these global options.<br/>They will effect all tables or "
+#~ "the general plugin behaviour."
+#~ msgstr ""
+#~ "Voit muuttaa näytä yleisiä asetuksia.<br/>Ne vaikuttavat kaikkiin "
+#~ "taulukoihin tai lisäosan ominaisuuksiin."
+#~ msgid "Enable Tablesorter-JavaScript?"
+#~ msgstr "Ota käyttöön Tablesorter-JavaScript?"
+#~ msgid "Information about the plugin"
+#~ msgstr "Tietoa lisäosasta"
+#~ msgid ""
+#~ "You may export a table here. Just select the table, your desired export "
+#~ "format and a delimiter (needed for CSV only).<br/>You may opt to download "
+#~ "the export file. Otherwise it will be shown on this page."
+#~ msgstr ""
+#~ "Voit viedä taulukon tässä. Valitse taulukko, haluamasi vientimuoto ja "
+#~ "erotin (jos CSV-vienti). <br/>Voit valita ladataanko tuontitiedosto vai "
+#~ "näytetäänkö se tällä sivulla."
+#~ msgid "Manually Uninstall Plugin"
+#~ msgstr "Poista lisäosan asennus käsin"
+#~ msgid ""
+#~ "You may uninstall the plugin here. This <strong>will delete</strong> all "
+#~ "tables, data, options, etc., that belong to the plugin, including all "
+#~ "tables you added or imported.<br/> Be very careful with this and only "
+#~ "click the button if you know what you are doing!"
+#~ msgstr ""
+#~ "Voit poistaa lisäosan asennuksen tässä. Se <strong>poistaa</strong> "
+#~ "kaikki taulukot, tiedot ja asetukset. <br/>Ole varovainen ja klikkaa "
+#~ "painiketta vain jos todella tiedät mitä olet tekemässä!"
+#~ msgid "Enter custom CSS"
+#~ msgstr "Kirjoita valinnainen CSS"
+#~ msgid ""
+#~ "If you want to show a table in your pages, posts or text-widgets, use "
+#~ "this shortcode: <strong>[table id=%s /]</strong>"
+#~ msgstr ""
+#~ "Jos haluat näyttää taulukon sivuilla, merkinnöissä tai tekstivimpaimissa, "
+#~ "käytä oikotietä <strong>[table id=%s /]</strong> ."
+#~ msgid "URL of image to insert"
+#~ msgstr "Liitettävän kuvan URL"
+#~ msgid ""
+#~ "To insert the following image into a cell, just click the cell after "
+#~ "closing this dialog."
+#~ msgstr "Liitä kuva soluun klikkaamalla solua suljettuasi tämän ikkunan."
+#~ msgid ""
+#~ "You may import a table from existing data here.<br/>It may be a CSV, XML "
+#~ "or HTML file. It needs a certain structure though. Please consult the "
+#~ "documentation."
+#~ msgstr ""
+#~ "Voit tuoda taulukon jo olemassa olevista tiedoista. <br/>Voit valita "
+#~ "CSV-, XML- tai HTML-muotoisista tiedoista. Katso lisätiedot "
+#~ "dokumentoinnista."
+#~ msgid ""
+#~ "Yes, enable the <a href=\"http://www.tablesorter.com/\">Tablesorter "
+#~ "jQuery plugin</a>. This can be used to make tables sortable (can be "
+#~ "activated for each table separately in its options)."
+#~ msgstr ""
+#~ "Kyllä, otan käyttöön lisäosan <a href=\"http://www.tablesorter.com/"
+#~ "\">Tablesorter-jQuery-Plugin</a>. Sitä käytetään taulukkojen lajitteluun "
+#~ "(voidaan ottaa käyttöön erikseen joka taulukon omissa asetuksissa)."
+#~ msgid ""
+#~ "(You might get a better website performance, if you add the CSS styling "
+#~ "to your theme's \"style.css\" <small>(located at %s)</small>) instead."
+#~ msgstr ""
+#~ "(Sivustosi toimii paremmin, jos lisäät CSS-koodin teemasi tyylitiedostoon "
+#~ "\"style.css\" (%s).)"
+#~ msgid ""
+#~ "See the <a href=\"%s\">plugin website</a> for styling examples or use one "
+#~ "of the following: <a href=\"%s\">Example Style 1</a> <a href=\"%s"
+#~ "\">Example Style 2</a>"
+#~ msgstr ""
+#~ "Vieraile <a href=\"%s\">lisäosan kotisivulla</a> tutustumassa "
+#~ "esimerkkeihin taulukoiden ulkoasuvaihtoehdoista: <a href=\"%s"
+#~ "\">Esimerkkityyli 1</a> <a href=\"%s\">Esimerkkityylii 2</a>"
+#~ msgid "Just copy the contents of a file into the textarea."
+#~ msgstr "Kopioi tiedoston sisältö tekstialueelle."
+#~ msgid ""
+#~ "Yes, uninstall everything when the plugin is deactivated. Attention: You "
+#~ "should only enable this checkbox directly before deactivating the plugin "
+#~ "from the WordPress plugins page!"
+#~ msgstr ""
+#~ "Kyllä, poista koko asennus, kun lisäosa on poistettu käytöstä. Huomaa: "
+#~ "Tämä on tarkoitettu valittavaksi vain juuri ennen kuin lisäosa poistetaan "
+#~ "käytöstä WordPressin lisäosasivulla!"
+#~ msgid ""
+#~ "<small>(This setting does not influence the \"Manually Uninstall Plugin\" "
+#~ "button below!)</small>"
+#~ msgstr ""
+#~ "<small>(Tämä asetus ei vaikuta \"Poista lisäosan asennus käsin\" -"
+#~ "painikkeeseen alla!)</small>"
+#~ msgid ""
+#~ "To include the table into your posts, pages or text widgets, write the "
+#~ "shortcode [table id=&lt;table-id&gt;] into them."
+#~ msgstr ""
+#~ "Voit liittää taulukon merkintään, sivulle tai tekstivimpaimeen "
+#~ "kirjoittamalla niihin oikotien [table id=&lt;ID&gt; /]."
+#~ msgid ""
+#~ "You may also style your table via CSS. Example files are provided on the "
+#~ "plugin website. Every table has the CSS class \"wp-table-reloaded\". Each "
+#~ "table also has the class \"wp-table-reloaded-&lt;table-id&gt;\"."
+#~ msgstr ""
+#~ "Voit myös muokata taulukkosi ulkoasua CSS-tyylitiedoston avulla. "
+#~ "Esimerkkityyleihin voit tutustua lisäosan kotisivulla. Jokaisella "
+#~ "taulukolla on CSS-luokat \"wp-table-reloaded\" ja \"wp-table-reloaded-id-"
+#~ "&lt;table-id&gt;\"."
+#~ msgid ""
+#~ "You can also use the classes \"column-&lt;number&gt;\" and \"row-&lt;"
+#~ "number&gt;\" to style rows and columns individually. Use this to style "
+#~ "columns width and text alignment for example."
+#~ msgstr ""
+#~ "Voit käyttää myös luokkia \"sarake-&lt;numero&gt;\" und \"rivi-&lt;"
+#~ "numero&gt;\", jos haluat muotoilla esimerkiksi yksittäisten rivien ja "
+#~ "sarakkeiden leveyksiä ja tekstin tasaustapaa. "
+#~ msgid ""
+#~ "See the <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-"
+#~ "reloaded-english/documentation/\">documentation</a> or find out how to "
+#~ "get <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-"
+#~ "reloaded-english/support/\">support</a>."
+#~ msgstr ""
+#~ "Tutustu <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-"
+#~ "reloaded-english/documentation/\">Dokumentointiin</a> tai hae apua <a "
+#~ "href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-"
+#~ "english/support/\">Tuotetuesta</a>."
+#~ msgid ""
+#~ "If you like the plugin, please consider <a href=\"http://tobias.baethge."
+#~ "com/wordpress-plugins/donate/\"><strong>a donation</strong></a> and rate "
+#~ "the plugin in the <a href=\"http://wordpress.org/extend/plugins/wp-table-"
+#~ "reloaded/\">WordPress Plugin Directory</a>."
+#~ msgstr ""
+#~ "Jos pidät lisäosasta, ole hyvä ja tee <a href=\"http://tobias.baethge.com/"
+#~ "wordpress-plugins/donate/\"><strong>lahjoitus</strong></a> ja pisteytä "
+#~ "lisäosa <a href=\"http://wordpress.org/extend/plugins/wp-table-reloaded/"
+#~ "\">WordPressin lisäosahakemistossa</a>."
+#~ msgid "''alt'' text of the image"
+#~ msgstr "Kuvan \"alt\"-teksti"
 
