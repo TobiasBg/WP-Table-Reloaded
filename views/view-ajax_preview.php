@@ -7,6 +7,7 @@
             <div style="clear:both;">
             <?php
                 $WP_Table_Reloaded_Frontend = $this->create_class_instance( 'WP_Table_Reloaded_Controller_Frontend', 'controller-frontend.php', 'controllers' );
+                $WP_Table_Reloaded_Frontend->options['frontend_edit_table_link'] = false; // set this (temporarily and locally) to false -> no link in the preview
                 $atts = array( 'id' => $_GET['table_id'] );
                 echo $WP_Table_Reloaded_Frontend->handle_content_shortcode_table( $atts );
             ?>
