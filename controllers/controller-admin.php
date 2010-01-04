@@ -1786,8 +1786,9 @@ WPLIST;
         $use_datatables = apply_filters( 'wp_table_reloaded_admin_use_datatables', $use_datatables );
         // sorting doesn't make sense, if there is only one table in the list
         if ( $use_datatables && 1 < count( $this->tables ) ) {
-            wp_register_script( 'wp-table-reloaded-tablesorter-js', plugins_url( 'js/jquery.datatables.min.js', WP_TABLE_RELOADED__FILE__ ), array( 'wp-table-reloaded-admin-js' ), $this->options['installed_version'] );
-            wp_print_scripts( 'wp-table-reloaded-tablesorter-js' );
+            $datatables_url = plugins_url( 'js/jquery.datatables.min.js', WP_TABLE_RELOADED__FILE__ );
+            wp_register_script( 'wp-table-reloaded-datatables-js', $datatables_url, array( 'wp-table-reloaded-admin-js' ), $this->options['installed_version'] );
+            wp_print_scripts( 'wp-table-reloaded-datatables-js' );
 
             $sProcessing = __( 'Please wait...', WP_TABLE_RELOADED_TEXTDOMAIN );
             $sLengthMenu = __( 'Show _MENU_ Tables', WP_TABLE_RELOADED_TEXTDOMAIN );
