@@ -1688,7 +1688,8 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
     function add_manage_page_js() {
         $suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.dev' : '';
         $jsfile = "admin/admin-script{$suffix}.js";
-        wp_enqueue_script( 'wp-table-reloaded-admin-js', plugins_url( $jsfile, WP_TABLE_RELOADED__FILE__ ), array( 'jquery', 'thickbox' ), $this->options['installed_version'], true );
+        $js_url = plugins_url( $jsfile, WP_TABLE_RELOADED__FILE__ );
+        wp_enqueue_script( 'wp-table-reloaded-admin-js', $js_url, array( 'jquery', 'thickbox' ), $this->options['installed_version'], true );
         wp_localize_script( 'wp-table-reloaded-admin-js', 'WP_Table_Reloaded_Admin', array(
 	  	    'str_UninstallCheckboxActivation' => __( 'Do you really want to activate this? You should only do that right before uninstallation!', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	    'str_DataManipulationLinkInsertURL' => __( 'URL of link to insert', WP_TABLE_RELOADED_TEXTDOMAIN ),
