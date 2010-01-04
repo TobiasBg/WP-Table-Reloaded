@@ -52,6 +52,7 @@
                     'by_BY' => '<a href="http://www.fatcow.com/">Marcis Gasuns</a>',
                     'pt_BR' => '<a href="http://www.pensarics.com/">Rics</a>',
                     'cs_CZ' => '<a href="http://separatista.net/">Separatista</a>',
+                    'et'    => 'Lembit Kivisik',
                     'fi_FI' => 'Jaakko',
                     'fr_FR' => '<a href="http://ultratrailer.net/">Yin-Yin</a>',
                     'hi_IN' => '<a href="http://outshinesolutions.com/">Outshine Solutions</a>',
