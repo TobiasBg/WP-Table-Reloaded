@@ -81,7 +81,8 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
         // if a JavaScript library is (globally) enabled, include respective files
         if ( $this->options['enable_tablesorter'] ) {
             wp_enqueue_script( 'jquery' ); // jQuery needed in any case (it's too late to do this, when Shortcode is executed)
-            add_action( 'wp_footer', array( &$this, 'add_frontend_js' ) );
+            $priority = apply_filters( 'wp_table_reloaded_frontend_js_priority', 10 );
+            add_action( 'wp_footer', array( &$this, 'add_frontend_js' ), $priority );
         }
 
         // if default CSS or Custom CSS shall be included, include respective files in the header
