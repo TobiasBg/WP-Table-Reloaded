@@ -1,17 +1,17 @@
 ﻿{
-	"sProcessing":   "Processing...",
-	"sLengthMenu":   "Show _MENU_ entries",
-	"sZeroRecords":  "No matching records found",
-	"sInfo":         "Showing _START_ to _END_ of _TOTAL_ entries",
-	"sInfoEmpty":    "Showing 0 to 0 of 0 entries",
-	"sInfoFiltered": "(filtered from _MAX_ total entries)",
+	"sProcessing":   "処理中...",
+	"sLengthMenu":   "_MENU_ エントリを表示",
+	"sZeroRecords":  "合致するレコードがありません",
+	"sInfo":         "全 _TOTAL_ エントリ中 _START_ から _END_ までを表示",
+	"sInfoEmpty":    "表示できる内容がありません",
+	"sInfoFiltered": "(全 _MAX_ エントリからフィルタリング)",
 	"sInfoPostFix":  "",
-	"sSearch":       "Search:",
+	"sSearch":       "検索:",
 	"sUrl":          "",
 	"oPaginate": {
-		"sFirst":    "First",
-		"sPrevious": "Previous",
-		"sNext":     "Next",
-		"sLast":     "Last"
+		"sFirst":    "先頭へ",
+		"sPrevious": "前へ",
+		"sNext":     "次へ",
+		"sLast":     "最後へ"
 	}
 }
