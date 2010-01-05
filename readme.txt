@@ -6,7 +6,7 @@ Requires at least: 2.8
 Tested up to: 2.9.1
 Stable tag: 1.5
 
-WP-Table Reloaded enables you to create and manage tables in your WP's admin area. No HTML knowledge is needed. A comfortable backend allows to easily edit table data. You can include the tables into your posts, on your pages or in text widgets by using a shortcode or a template tag function. Tables can be imported and exported from/to CSV, XML and HTML.
+WP-Table Reloaded lets you manage tables in a comfortable backend in WP's admin area, without any knowledge of HTML, and can add valuable features.
 
 == Description ==
 
@@ -93,7 +93,7 @@ You may also add certain features (like sorting, pagination, filtering, alternat
 Thanks go to [Alex Rabe](http://alexrabe.boelinger.com/) for the initial wp-Table plugin!
 Thanks go to [Allan Jardine](http://www.datatables.net/) for the DataTables-jQuery-plugin.
 Thanks go to [Christian Bach](http://tablesorter.com/docs/) for the TableSorter-jQuery-plugin.
-Thanks go to [Sören Krings](http://tablesorter.openwerk.de/) for the TableSorter-Extended-jQuery-plugin.
+Thanks go to [S&ouml;ren Krings](http://tablesorter.openwerk.de/) for the TableSorter-Extended-jQuery-plugin.
 Thanks to all language file translators!
 Thanks to every donor, supporter and bug reporter!
 
@@ -193,3 +193,11 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 
 = Version 0.9 beta 1 =
 * First release (not everything functional)
+
+== Upgrade Notice ==
+
+= 1.6 =
+This upgrade adds features like "colspan"/"rowspan" support, support for the WP Search, and more. WordPress 2.8 or higher is now required!
+
+= 1.5 =
+This upgrade contains a new JavaScript library for sorting, pagination, and filtering, and many more improvements to the interface.
