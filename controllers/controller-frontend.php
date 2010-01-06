@@ -379,7 +379,7 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
             foreach ( $search_tables as $table_id => $table_data ) {
                 foreach ( $table_data as $table_row ) {
                     foreach ( $table_row as $table_cell ) {
-                        if ( false !== strpos( $table_cell, $search_term ) ){
+                        if ( false !== stripos( $table_cell, $search_term ) ){
                             // we found the $search_term in the cell
                             $query_result[ $search_term ][] = $table_id; // add table ID to result list
                             break 2; // don't need to search through this table any further, "2" means that we leave both foreach loops
