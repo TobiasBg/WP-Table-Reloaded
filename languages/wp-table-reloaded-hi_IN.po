@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wp-table-reloaded\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-table-reloaded\n"
-"POT-Creation-Date: 2009-12-28 20:16+0000\n"
+"POT-Creation-Date: 2010-01-04 18:55+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ashish <ashish@outshinesolutions.com>\n"
 "Language-Team: OutshineSolutions <pratyush.krishna@outshinesolutions.com>\n"
@@ -118,7 +118,7 @@ msgstr "cells को गठबंधन के लिए, इसी बटन �
 msgid "Help"
 msgstr "सहायता"
 
-#: classes/render.class.php:96
+#: classes/render.class.php:140
 #: views/view-list.php:60
 msgid "Edit"
 msgstr "संपादित करें"
@@ -164,66 +164,70 @@ msgid "Belorussian"
 msgstr "Belorussian"
 
 #: controllers/controller-admin.php:303
+msgid "Estonian"
+msgstr "Estonian"
+
+#: controllers/controller-admin.php:304
 msgid "Finnish"
 msgstr "Finnish"
 
-#: controllers/controller-admin.php:304
+#: controllers/controller-admin.php:305
 msgid "French"
 msgstr "French"
 
-#: controllers/controller-admin.php:305
+#: controllers/controller-admin.php:306
 msgid "Italian"
 msgstr "Italian"
 
-#: controllers/controller-admin.php:306
+#: controllers/controller-admin.php:307
 msgid "Polish"
 msgstr "Polish"
 
-#: controllers/controller-admin.php:307
+#: controllers/controller-admin.php:308
 msgid "Russian"
 msgstr "Russian"
 
-#: controllers/controller-admin.php:308
+#: controllers/controller-admin.php:309
 msgid "Spanish"
 msgstr "Spanish"
 
-#: controllers/controller-admin.php:309
+#: controllers/controller-admin.php:310
 msgid "Turkish"
 msgstr "Turkish"
 
-#: controllers/controller-admin.php:335
+#: controllers/controller-admin.php:336
 #, php-format
 msgid "Welcome to WP-Table Reloaded %s. If you encounter any questions or problems, please refer to the <a href=\"%s\">FAQ</a>, the <a href=\"%s\">documentation</a>, and the <a href=\"%s\">support</a> section."
 msgstr "WP में आपका स्वागत है टैबिल रीलोडेड %s.यदि आपके पास कोई प्रश्न या समस्याओं है, कृपया देखे <a href=\"%s\">FAQ</a>, the <a href=\"%s\">documentation</a>, and the <a href=\"%s\">  support</a> section"
 
-#: controllers/controller-admin.php:336
+#: controllers/controller-admin.php:337
 #, php-format
 msgid "Thank you for upgrading to WP-Table Reloaded %s."
 msgstr "तुम WP के उन्नयन टैबिल रीलोडेड के लिए धन्यवाद %s."
 
-#: controllers/controller-admin.php:336
+#: controllers/controller-admin.php:337
 msgid "Among other things, this version adds support for \"colspan\" and \"rowspan\" of table cells and enables the WP Search to search through tables."
 msgstr "अन्य बातों के अलावा, इस संस्करण टेबल के  \"colspan  \" और  \"rowspan\"  के लिए समर्थन और WP खोज को तब्लेस में खोजने की सुविदा के लिए समर्थन करता है ."
 
-#: controllers/controller-admin.php:336
+#: controllers/controller-admin.php:337
 #, php-format
 msgid "Please read the <a href=\"%s\">release announcement</a> for more information."
 msgstr "अधिक जानकारी के लिए कृपया  <a href=\"%s\">जारी घोषणा</a>  पढ़ें."
 
-#: controllers/controller-admin.php:336
+#: controllers/controller-admin.php:337
 #, php-format
 msgid "If you like the new features and enhancements, I would appreciate a small <a href=\"%s\">donation</a>. Thank you."
 msgstr "यदि आपको नई सुविधाओं और वृद्धि पसंद है मुझे अच्छा होगा एक छोटा सा, <a href=\"%s\">donation</a>. धन्यवाद."
 
-#: controllers/controller-admin.php:341
+#: controllers/controller-admin.php:342
 msgid "Hide this message"
 msgstr "इस संदेश को छिपाएँ"
 
-#: controllers/controller-admin.php:349
+#: controllers/controller-admin.php:350
 msgid "Thanks for using this plugin! You've installed WP-Table Reloaded over a month ago."
 msgstr "इस प्लगइन का उपयोग करने के लिए धन्यवाद! आपने WP टैबिल रीलोडेड एक महीने से पहले स्थापितकिया था ."
 
-#: controllers/controller-admin.php:349
+#: controllers/controller-admin.php:350
 #, php-format
 msgid "If it works and you are satisfied with the results of managing your %s table, isn't it worth at least one dollar or euro?"
 msgid_plural "If it works and you are satisfied with the results of managing your %s tables, isn't it worth at least one dollar or euro?"
@@ -231,484 +235,484 @@ msgstr[0] "अगर यह काम करता है और आप अप�
 msgstr[1] "अगर यह काम करता है और आप अपने %s प्रबंध के परिणामों से संतुष्ट  हैं, क्या ये कम से कम एक डॉलर या यूरो के बराबर भी नहीं है? "
 msgstr[2] "अगर यह काम करता है और आप अपने %s प्रबंध के परिणामों से संतुष्ट  हैं, क्या ये कम से कम एक डॉलर या यूरो के बराबर भी नहीं है? "
 
-#: controllers/controller-admin.php:350
+#: controllers/controller-admin.php:351
 #, php-format
 msgid "<a href=\"%s\">Donations</a> help me to continue support and development of this <i>free</i> software - things for which I spend countless hours of my free time! Thank you!"
 msgstr "<a href=\"%s\">Donations</a> मेरी मदद करो समर्थन और इस का विकास जारी रखने के लिए <i>free</i> सॉफ्टवेयर - कुछ है जिसके लिए मैं अपने खाली समय के अनगिनत घंटे खर्च करता हु! धन्यवाद!"
 
-#: controllers/controller-admin.php:351
+#: controllers/controller-admin.php:352
 msgid "Sure, no problem!"
 msgstr "बेशक, कोई समस्या नहीं है!"
 
-#: controllers/controller-admin.php:352
+#: controllers/controller-admin.php:353
 msgid "I already donated."
 msgstr "मैं पहले से ही दान की."
 
-#: controllers/controller-admin.php:353
+#: controllers/controller-admin.php:354
 msgid "No, thanks. Don't ask again."
 msgstr "नहीं, धन्यवाद. फिर मत पूछो."
 
-#: controllers/controller-admin.php:381
+#: controllers/controller-admin.php:382
 #, php-format
 msgid "Table &quot;%s&quot; added successfully."
 msgstr "टेबल &quot; %s &quot;  सफलतापूर्वक जोड़ दिया."
 
-#: controllers/controller-admin.php:412
+#: controllers/controller-admin.php:413
 #, php-format
 msgid "Table edited successfully. This Table now has the ID %s. You'll need to adjust existing shortcodes accordingly."
 msgstr "टेबल सफलतापूर्वक संपादित किया. इस तालिका के पास अब आईडी %s है. आप मौजूदा shortcodes तदनुसार समायोजित करने की आवश्यकता होगी."
 
-#: controllers/controller-admin.php:414
+#: controllers/controller-admin.php:415
 #, php-format
 msgid "The ID could not be changed from %s to %s, because there already is a Table with that ID."
 msgstr "आईडी %s  से %s नहीं बदला जा सकता है , क्योंकि वहाँ पहले से ही है कि पहचान पत्र के साथ एक टेबल है. "
 
-#: controllers/controller-admin.php:417
+#: controllers/controller-admin.php:418
 msgid "Table edited successfully."
 msgstr "टेबल सफलतापूर्वक संपादित किया."
 
-#: controllers/controller-admin.php:463
+#: controllers/controller-admin.php:464
 msgid "Rows swapped successfully."
 msgstr "पंक्तियों को सफलतापूर्वक बदली गयी . "
 
-#: controllers/controller-admin.php:484
+#: controllers/controller-admin.php:485
 msgid "Columns swapped successfully."
 msgstr "कॉलम सफलतापूर्वक बदली गयी ."
 
-#: controllers/controller-admin.php:513
+#: controllers/controller-admin.php:514
 msgid "Table sorted successfully."
 msgstr "टेबल सफलतापूर्वक हल."
 
-#: controllers/controller-admin.php:534
+#: controllers/controller-admin.php:535
 msgid "Row moved successfully."
 msgstr "पंक्ति सफलतापूर्वक चला गया."
 
-#: controllers/controller-admin.php:559
+#: controllers/controller-admin.php:560
 msgid "Column moved successfully."
 msgstr "कॉलम सफलतापूर्वक चला गया."
 
-#: controllers/controller-admin.php:567
+#: controllers/controller-admin.php:568
 msgid "Row could not be deleted."
 msgid_plural "Rows could not be deleted."
 msgstr[0] "पंक्ति को नष्ट नहीं किया जा सका."
 msgstr[1] "पंक्ति को नष्ट नहीं किया जा सका."
 msgstr[2] "पंक्ति को नष्ट नहीं किया जा सका."
 
-#: controllers/controller-admin.php:576
+#: controllers/controller-admin.php:577
 msgid "Row deleted successfully."
 msgid_plural "Rows deleted successfully."
 msgstr[0] "पंक्ति को सफलतापूर्वक नष्ट कर दिया."
 msgstr[1] "पंक्ति को सफलतापूर्वक नष्ट कर दिया."
 msgstr[2] "पंक्ति को सफलतापूर्वक नष्ट कर दिया."
 
-#: controllers/controller-admin.php:586
+#: controllers/controller-admin.php:587
 msgid "Column could not be deleted."
 msgid_plural "Columns could not be deleted."
 msgstr[0] "कॉलम नष्ट नहीं किया जा सका."
 msgstr[1] "कॉलम नष्ट नहीं किया जा सका."
 msgstr[2] "कॉलम नष्ट नहीं किया जा सका."
 
-#: controllers/controller-admin.php:599
+#: controllers/controller-admin.php:600
 msgid "Column deleted successfully."
 msgid_plural "Columns deleted successfully."
 msgstr[0] "कॉलम सफलतापूर्वक नष्ट कर दिया."
 msgstr[1] "कॉलम सफलतापूर्वक नष्ट कर दिया."
 msgstr[2] "कॉलम सफलतापूर्वक नष्ट कर दिया."
 
-#: controllers/controller-admin.php:622
+#: controllers/controller-admin.php:623
 msgid "Row inserted successfully."
 msgid_plural "Rows inserted successfully."
 msgstr[0] "पंक्ति को सफलतापूर्वक डाला."
 msgstr[1] "पंक्ति को सफलतापूर्वक डाला."
 msgstr[2] "पंक्ति को सफलतापूर्वक डाला."
 
-#: controllers/controller-admin.php:649
+#: controllers/controller-admin.php:650
 msgid "Column inserted successfully."
 msgid_plural "Columns inserted successfully."
 msgstr[0] "कॉलम को सफलतापूर्वक डाला."
 msgstr[1] "कॉलम को सफलतापूर्वक डाला."
 msgstr[2] "कॉलम को सफलतापूर्वक डाला."
 
-#: controllers/controller-admin.php:664
+#: controllers/controller-admin.php:665
 msgid "Row added successfully."
 msgid_plural "Rows added successfully."
 msgstr[0] "पंक्ति को सफलतापूर्वक जोड़ दिया."
 msgstr[1] "पंक्ति को सफलतापूर्वक जोड़ दिया."
 msgstr[2] "पंक्ति को सफलतापूर्वक जोड़ दिया."
 
-#: controllers/controller-admin.php:678
+#: controllers/controller-admin.php:679
 msgid "Column added successfully."
 msgid_plural "Columns added successfully."
 msgstr[0] "कॉलम को सफलतापूर्वक जोड़ दिया."
 msgstr[1] "कॉलम को सफलतापूर्वक जोड़ दिया."
 msgstr[2] "कॉलम को सफलतापूर्वक जोड़ दिया."
 
-#: controllers/controller-admin.php:685
+#: controllers/controller-admin.php:686
 msgid "Could not add Custom Data Field, because you did not enter a name."
 msgstr " कस्टम डेटा फील्ड नहीं जोड़ा जा सका, क्योंकि तुमने  एक नाम दर्ज नहीं किया."
 
-#: controllers/controller-admin.php:690
+#: controllers/controller-admin.php:691
 msgid "Could not add Custom Data Field, because the name you entered is reserved for other table data."
 msgstr "कस्टम डेटा फील्ड नहीं जोड़ा जा सका, क्योंकि आपके द्वारा दर्ज नाम अन्य तालिका डेटा के लिए आरक्षित है."
 
-#: controllers/controller-admin.php:696
+#: controllers/controller-admin.php:697
 msgid "Could not add Custom Data Field, because the name contained illegal characters."
 msgstr " कस्टम डेटा फील्ड नहीं जोड़ा जा सका, क्योंकि नाम में अवैध अक्षर शामिल हैं."
 
-#: controllers/controller-admin.php:700
+#: controllers/controller-admin.php:701
 msgid "Could not add Custom Data Field, because a Field with that name already exists."
 msgstr " कस्टम डेटा फील्ड नहीं जोड़ा जा सका, क्योंकि उस नाम के साथ एक फील्ड पहले से ही मौजूद है."
 
-#: controllers/controller-admin.php:706
+#: controllers/controller-admin.php:707
 msgid "Custom Data Field added successfully."
 msgstr "कस्टम डेटा फील्ड सफलतापूर्वक जोड़ दिया."
 
-#: controllers/controller-admin.php:746
-#: controllers/controller-admin.php:802
+#: controllers/controller-admin.php:747
+#: controllers/controller-admin.php:803
 msgid "Copy of"
 msgstr "कॉपी के "
 
-#: controllers/controller-admin.php:750
+#: controllers/controller-admin.php:751
 msgid "Table copied successfully."
 msgid_plural "Tables copied successfully."
 msgstr[0] "टेबल की सफलतापूर्वक  नकल की."
 msgstr[1] "टेबल की सफलतापूर्वक  नकल की."
 msgstr[2] "टेबल की सफलतापूर्वक  नकल की."
 
-#: controllers/controller-admin.php:756
+#: controllers/controller-admin.php:757
 msgid "Table deleted successfully."
 msgid_plural "Tables deleted successfully."
 msgstr[0] "टेबल सफलतापूर्वक नष्ट कर दिया."
 msgstr[1] "टेबल सफलतापूर्वक नष्ट कर दिया."
 msgstr[2] "टेबल सफलतापूर्वक नष्ट कर दिया."
 
-#: controllers/controller-admin.php:777
-#: controllers/controller-admin.php:915
-#: controllers/controller-admin.php:953
+#: controllers/controller-admin.php:778
+#: controllers/controller-admin.php:916
+#: controllers/controller-admin.php:954
 msgid "Table imported successfully."
 msgid_plural "Tables imported successfully."
 msgstr[0] "तालिका आयातित सफलतापूर्वक."
 msgstr[1] "तालिका आयातित सफलतापूर्वक."
 msgstr[2] "तालिका आयातित सफलतापूर्वक."
 
-#: controllers/controller-admin.php:784
+#: controllers/controller-admin.php:785
 msgid "You did not select any tables!"
 msgstr "आप किसी भी तालिका का चयन नहीं किया!"
 
-#: controllers/controller-admin.php:807
+#: controllers/controller-admin.php:808
 #, php-format
 msgid "Table &quot;%s&quot; copied successfully."
 msgstr "तालिका &quot;%s&quot; सफलतापूर्वक नकल हैं."
 
-#: controllers/controller-admin.php:825
+#: controllers/controller-admin.php:826
 #, php-format
 msgid "Table &quot;%s&quot; deleted successfully."
 msgstr "तालिका  &quot;%s&quot;  सफलतापूर्वक नष्ट कर दिया."
 
-#: controllers/controller-admin.php:833
+#: controllers/controller-admin.php:834
 msgid "Custom Data Field deleted successfully."
 msgstr "कस्टम डेटा फील्ड सफलतापूर्वक नष्ट कर दिया."
 
-#: controllers/controller-admin.php:835
+#: controllers/controller-admin.php:836
 msgid "Custom Data Field could not be deleted."
 msgstr "कस्टम डेटा फील्ड नष्ट नहीं किया जा सका."
 
-#: controllers/controller-admin.php:841
+#: controllers/controller-admin.php:842
 msgid "Delete failed."
 msgstr "हटाएँ विफल रहे."
 
-#: controllers/controller-admin.php:869
-#: controllers/controller-admin.php:878
-#: controllers/controller-admin.php:888
+#: controllers/controller-admin.php:870
+#: controllers/controller-admin.php:879
+#: controllers/controller-admin.php:889
 msgid "Imported Table"
 msgstr "आयातित तालिका"
 
-#: controllers/controller-admin.php:870
-#: controllers/controller-admin.php:889
+#: controllers/controller-admin.php:871
+#: controllers/controller-admin.php:890
 #, php-format
 msgid "from %s"
 msgstr "from %s"
 
-#: controllers/controller-admin.php:879
+#: controllers/controller-admin.php:880
 msgid "via form"
 msgstr "फ़ॉर्म के द्वारा"
 
-#: controllers/controller-admin.php:899
-#: controllers/controller-admin.php:931
+#: controllers/controller-admin.php:900
+#: controllers/controller-admin.php:932
 msgid "Table could not be imported."
 msgstr "तालिका का आयात नहीं किया जा सका."
 
-#: controllers/controller-admin.php:911
+#: controllers/controller-admin.php:912
 #, php-format
 msgid "Table %s (%s) replaced successfully."
 msgstr "टेबल %s (%s) को सफलतापूर्वक हटाई गयी. "
 
-#: controllers/controller-admin.php:961
-#: controllers/controller-admin.php:1147
+#: controllers/controller-admin.php:962
+#: controllers/controller-admin.php:1148
 msgid "You do not have sufficient rights to perform this action."
 msgstr "आपके पास यह कार्य करने के लिए पर्याप्त अधिकारों नहीं है."
 
-#: controllers/controller-admin.php:968
+#: controllers/controller-admin.php:969
 msgid "You did not upload a WP-Table Reloaded dump file."
 msgstr "आपने एक WP-तालिका रीलोडेड डंप फाइल अपलोड नहीं किया."
 
-#: controllers/controller-admin.php:977
+#: controllers/controller-admin.php:978
 msgid "The uploaded dump file is empty. Please upload a valid dump file."
 msgstr "अपलोड की गई डंप फाइल खाली है. कृपया एक वैध डंप फाइल अपलोड करें."
 
-#: controllers/controller-admin.php:1006
+#: controllers/controller-admin.php:1007
 msgid "All Tables, Settings and Options were successfully imported."
 msgstr "सभी टेबल्स, सेटिंग्स और विकल्प को सफलतापूर्वक आयात किया गया."
 
-#: controllers/controller-admin.php:1035
+#: controllers/controller-admin.php:1036
 #, php-format
 msgid "Table &quot;%s&quot; exported successfully."
 msgstr "टेबल  &quot;%s&quot;  सफलतापूर्वक निर्यात किया."
 
-#: controllers/controller-admin.php:1080
-#: views/view-options.php:215
+#: controllers/controller-admin.php:1081
+#: views/view-options.php:223
 msgid "You do not have sufficient rights to access the Plugin Options."
 msgstr "आपके पास पर्याप्त प्लगइन विकल्प के उपयोग अधिकार नहीं है."
 
-#: controllers/controller-admin.php:1134
+#: controllers/controller-admin.php:1135
 msgid "Options saved successfully."
 msgstr "विकल्प सफलतापूर्वक बचाया."
 
-#: controllers/controller-admin.php:1197
+#: controllers/controller-admin.php:1198
 msgid "There is no table with this ID!"
 msgstr "इस आईडी के साथ कोई टेबल है!"
 
-#: controllers/controller-admin.php:1234
+#: controllers/controller-admin.php:1235
 msgid "Thank you very much! Your donation is highly appreciated. You just contributed to the further development of WP-Table Reloaded!"
 msgstr "बहुत बहुत धन्यवाद!  आपका दान अत्यधिक सराहनीय  है. तुम बस WP के आगे विकास तालिका रीलोडेड में योगदान करो!"
 
-#: controllers/controller-admin.php:1236
+#: controllers/controller-admin.php:1237
 #, php-format
 msgid "No problem! I still hope you enjoy the benefits that WP-Table Reloaded brings to you. If you should want to change your mind, you'll always find the &quot;%s&quot; button on the <a href=\"%s\">WP-Table Reloaded website</a>."
 msgstr "कोई बात नहीं!  अभी भी आशा है कि आप WP-तालिका रीलोडेड का आनंद लेंगे. यदि आप अपने मन बदलना चाहते हैं,आपको हमेशा मिलेगा &quot;%s&quot; पर बटन <a href=\"%s\">WP-Table रीलोडेड वेबसाइट</a>.     "
 
-#: controllers/controller-admin.php:1236
-#: controllers/controller-admin.php:1654
+#: controllers/controller-admin.php:1237
+#: controllers/controller-admin.php:1655
 msgid "Donate"
 msgstr "दान"
 
-#: controllers/controller-admin.php:1263
-#: controllers/controller-admin.php:1271
+#: controllers/controller-admin.php:1264
+#: controllers/controller-admin.php:1272
 msgid "List of Tables"
 msgstr "सारणी की सूची"
 
-#. #-#-#-#-#  plugin.pot (WP-Table Reloaded 1.6-beta1)  #-#-#-#-#
+#. #-#-#-#-#  plugin.pot (WP-Table Reloaded 1.6-RC1)  #-#-#-#-#
 #. Plugin Name of an extension
-#: controllers/controller-admin.php:1263
-#: controllers/controller-admin.php:1268
-#: controllers/controller-admin.php:1270
+#: controllers/controller-admin.php:1264
+#: controllers/controller-admin.php:1269
+#: controllers/controller-admin.php:1271
 msgid "WP-Table Reloaded"
 msgstr "WP-Table रीलोडेड"
 
-#: controllers/controller-admin.php:1264
-#: controllers/controller-admin.php:1294
+#: controllers/controller-admin.php:1265
+#: controllers/controller-admin.php:1295
 msgid "Add new Table"
 msgstr "नई तालिका जोड़ें"
 
-#: controllers/controller-admin.php:1265
+#: controllers/controller-admin.php:1266
 #, php-format
 msgid "Edit Table &quot;%s&quot; (ID %s)"
 msgstr "संपादित करें तालिका &quot;%s&quot; (ID %s)"
 
-#: controllers/controller-admin.php:1266
-#: controllers/controller-admin.php:1295
+#: controllers/controller-admin.php:1267
+#: controllers/controller-admin.php:1296
 msgid "Import a Table"
 msgstr "आयात एक मेज़"
 
-#: controllers/controller-admin.php:1267
-#: controllers/controller-admin.php:1296
+#: controllers/controller-admin.php:1268
+#: controllers/controller-admin.php:1297
 msgid "Export a Table"
 msgstr "निर्यात एक मेज़"
 
-#: controllers/controller-admin.php:1268
-#: controllers/controller-admin.php:1302
+#: controllers/controller-admin.php:1269
+#: controllers/controller-admin.php:1303
 #: views/view-edit.php:338
 #: views/view-edit.php:353
 #: views/view-export.php:10
 msgid "Plugin Options"
 msgstr "प्लगइन विकल्प"
 
-#: controllers/controller-admin.php:1269
+#: controllers/controller-admin.php:1270
 msgid "About WP-Table Reloaded"
 msgstr "WP टैबिल रीलोडेड के बारे में "
 
-#: controllers/controller-admin.php:1272
+#: controllers/controller-admin.php:1273
 #, php-format
 msgid "Preview of Table &quot;%s&quot; (ID %s)"
 msgstr "तालिका के पूर्वावलोकन &quot;%s&quot; (ID %s)"
 
-#: controllers/controller-admin.php:1293
+#: controllers/controller-admin.php:1294
 msgid "List Tables"
 msgstr "सूची टेबल्स"
 
-#: controllers/controller-admin.php:1303
+#: controllers/controller-admin.php:1304
 msgid "About the plugin"
 msgstr "बारे में प्लगइन"
 
-#: controllers/controller-admin.php:1650
+#: controllers/controller-admin.php:1651
 msgid "WP-Table Reloaded Plugin Page"
 msgstr "WP-Table रीलोडेड प्लगइन पेज"
 
-#: controllers/controller-admin.php:1650
+#: controllers/controller-admin.php:1651
 msgid "Plugin Page"
 msgstr "प्लगइन पेज"
 
-#: controllers/controller-admin.php:1651
+#: controllers/controller-admin.php:1652
 msgid "Frequently Asked Questions"
 msgstr "सवाल जवाब"
 
-#: controllers/controller-admin.php:1651
+#: controllers/controller-admin.php:1652
 msgid "FAQ"
 msgstr "FAQ"
 
-#: controllers/controller-admin.php:1652
+#: controllers/controller-admin.php:1653
 msgid "Support"
 msgstr "सहायता"
 
-#: controllers/controller-admin.php:1653
+#: controllers/controller-admin.php:1654
 msgid "Plugin Documentation"
 msgstr "प्लगइन दस्तावेज़ीकरण"
 
-#: controllers/controller-admin.php:1653
+#: controllers/controller-admin.php:1654
 msgid "Documentation"
 msgstr "प्रलेखन"
 
-#: controllers/controller-admin.php:1654
+#: controllers/controller-admin.php:1655
 msgid "Support WP-Table Reloaded with your donation!"
 msgstr "समर्थन WP टैबिल अपने दान के साथ रीलोडेड!"
 
-#: controllers/controller-admin.php:1692
+#: controllers/controller-admin.php:1694
 msgid "Do you really want to activate this? You should only do that right before uninstallation!"
 msgstr "क्या आप वास्तव में चाहते हैं कि इस सक्रिय? तुम सिर्फ स्थापना रद्द करने से पहले कि ठीक करना चाहिए!"
 
-#: controllers/controller-admin.php:1693
+#: controllers/controller-admin.php:1695
 msgid "URL of link to insert"
 msgstr "कड़ी का यूआरएल डालने के लिए"
 
-#: controllers/controller-admin.php:1694
+#: controllers/controller-admin.php:1696
 msgid "Text of link"
 msgstr "लिंक का पाठ"
 
-#: controllers/controller-admin.php:1695
+#: controllers/controller-admin.php:1697
 msgid "To insert the following HTML code for a link into a cell, just click the cell after closing this dialog."
 msgstr "एक सेल में एक कड़ी के लिए निम्न HTML कोड डालने, बस इस संवाद को बंद करने के बाद सेल क्लिक करें."
 
-#: controllers/controller-admin.php:1696
+#: controllers/controller-admin.php:1698
 msgid "To insert an image, click the cell into which you want to insert the image."
 msgstr "एक छवि डालें,सेल पर क्लिक करें जिसमें आप छवि डालने के चाहता हूँ."
 
-#: controllers/controller-admin.php:1696
+#: controllers/controller-admin.php:1698
 msgid "The Media Library will open, from which you can select the desired image or insert the image URL."
 msgstr "मीडिया लाइब्रेरी खुल जाएगा,जहां से आप इच्छित छवि का चयन करें या छवि यूआरएल डाल सकते."
 
-#: controllers/controller-admin.php:1696
+#: controllers/controller-admin.php:1698
 #, php-format
 msgid "Click the &quot;%s&quot; button to insert the image."
 msgstr "क्लिक करें  &quot;%s&quot; बटन छवि डालने के लिए."
 
-#: controllers/controller-admin.php:1696
+#: controllers/controller-admin.php:1698
 msgid "Insert into Post"
 msgstr "पोस्ट में डालें"
 
-#: controllers/controller-admin.php:1697
+#: controllers/controller-admin.php:1699
 msgid "To combine cells within a row, click into the cell to the right of the cell that has the content the combined cells shall have."
 msgstr "एक पंक्ति के भीतर सेल सेल कि सामग्री संयुक्त कोशिकाओं होगा है के अधिकार के लिए सेल में, क्लिक करें गठबंधन."
 
-#: controllers/controller-admin.php:1698
+#: controllers/controller-admin.php:1700
 msgid "To combine cells within a column, click into the cell below the cell that has the content the combined cells shall have."
 msgstr "एक कॉलम पर क्लिक करें भीतर सेल कि सामग्री संयुक्त कोशिकाओं होगा है नीचे सेल में कोशिकाओं गठबंधन."
 
-#: controllers/controller-admin.php:1699
+#: controllers/controller-admin.php:1701
 msgid "Do you want to copy the selected tables?"
 msgstr "क्या आप चयनित टेबल की नकल करना चाहते हैं?"
 
-#: controllers/controller-admin.php:1700
+#: controllers/controller-admin.php:1702
 msgid "The selected tables and all content will be erased. Do you really want to delete them?"
 msgstr "चयनित मेज और सभी सामग्री मिट जाएगा. क्या तुम सच में उन्हें हटाना चाहते हैं?"
 
-#: controllers/controller-admin.php:1701
+#: controllers/controller-admin.php:1703
 msgid "Do you really want to import the selected tables from the wp-Table plugin?"
 msgstr "क्या तुम सच में WP-प्लगइन तालिका से तालिका चयनित आयात करना चाहते हैं?"
 
-#: controllers/controller-admin.php:1702
+#: controllers/controller-admin.php:1704
 msgid "Do you want to copy this table?"
 msgstr "क्या आप इस मेज की नकल करना चाहते हैं?"
 
-#: controllers/controller-admin.php:1703
+#: controllers/controller-admin.php:1705
 msgid "The complete table and all content will be erased. Do you really want to delete it?"
 msgstr "पूरा मेज और सभी सामग्री मिट जाएगा. पूरा मेज और सभी सामग्री मिट जाएगा."
 
-#: controllers/controller-admin.php:1704
+#: controllers/controller-admin.php:1706
 msgid "Do you really want to delete the selected rows?"
 msgstr "क्या आप वास्तव में चयनित पंक्तियाँ हटाना चाहते हैं?"
 
-#: controllers/controller-admin.php:1705
+#: controllers/controller-admin.php:1707
 msgid "Do you really want to delete the selected columns?"
 msgstr "क्या आप वास्तव में चयनित स्तंभ हटाना चाहते हैं?"
 
-#: controllers/controller-admin.php:1706
-#: controllers/controller-admin.php:1710
+#: controllers/controller-admin.php:1708
 #: controllers/controller-admin.php:1712
+#: controllers/controller-admin.php:1714
 msgid "You have not selected any rows."
 msgstr "आप किसी भी पंक्तियों का चयन नहीं किया है."
 
-#: controllers/controller-admin.php:1707
-#: controllers/controller-admin.php:1711
+#: controllers/controller-admin.php:1709
 #: controllers/controller-admin.php:1713
+#: controllers/controller-admin.php:1715
 msgid "You have not selected any columns."
 msgstr "आप किसी भी स्तंभ का चयन नहीं किया है."
 
-#: controllers/controller-admin.php:1708
+#: controllers/controller-admin.php:1710
 msgid "You can not delete all rows of the table at once!"
 msgstr "आप तालिका की सभी पंक्तियाँ एक बार में नहीं हटा सकते हैं!"
 
-#: controllers/controller-admin.php:1709
+#: controllers/controller-admin.php:1711
 msgid "You can not delete all columns of the table at once!"
 msgstr "तुम टेबल के सभी कॉलम एक बार में नहीं हटा सकते हैं!"
 
-#: controllers/controller-admin.php:1714
+#: controllers/controller-admin.php:1716
 msgid "Do you really want to import this table from the wp-Table plugin?"
 msgstr "क्या तुम सच में WP-प्लगइन तालिका से यह टेबल आयात करना चाहते हैं?"
 
-#: controllers/controller-admin.php:1715
+#: controllers/controller-admin.php:1717
 msgid "Do you really want to uninstall the plugin and delete ALL data?"
 msgstr "क्या तुम सच में प्लगइन स्थापना हटाने और सभी डेटा हटाना चाहते हैं?"
 
-#: controllers/controller-admin.php:1716
+#: controllers/controller-admin.php:1718
 msgid "Are you really sure?"
 msgstr "क्या तुम सच में यकीन है?"
 
-#: controllers/controller-admin.php:1717
+#: controllers/controller-admin.php:1719
 msgid "Do you really want to change the ID of the table?"
 msgstr "क्या तुम सच में तालिका के आईडी बदलना चाहते हैं?"
 
-#: controllers/controller-admin.php:1718
+#: controllers/controller-admin.php:1720
 msgid "To show this Custom Data Field, use this shortcode:"
 msgstr "इस कस्टम डेटा फील्ड, दिखाने के इस shortcode का उपयोग करें:"
 
-#: controllers/controller-admin.php:1719
+#: controllers/controller-admin.php:1721
 msgid "To show this table, use this shortcode:"
 msgstr "इस तालिका दिखाने के लिए, इस shortcode का उपयोग करें:"
 
-#: controllers/controller-admin.php:1720
+#: controllers/controller-admin.php:1722
 msgid "Warning: You will lose all current Tables and Settings! You should create a backup first. Be warned!"
 msgstr "चेतावनी:आप सभी मौजूदा टेबल्स और सेटिंग्स खो देंगे! आप एक बैकअप पहले पैदा करना चाहिए. सावधान!"
 
-#: controllers/controller-admin.php:1721
+#: controllers/controller-admin.php:1723
 msgid "You have made changes to the content of this table and not yet saved them."
 msgstr "आप इस तालिका के सामग्री और उन्हें अभी तक सहेजा नहीं में परिवर्तन कर दिया है."
 
-#: controllers/controller-admin.php:1721
+#: controllers/controller-admin.php:1723
 #, php-format
 msgid "You should first click &quot;%s&quot; or they will be lost if you navigate away from this page."
 msgstr "पहले तुम चाहिए क्लिक करें&quot;%s&quot;या वे खो यदि आप इस पृष्ठ से दूर नेविगेट जाएगा."
 
-#: controllers/controller-admin.php:1721
+#: controllers/controller-admin.php:1723
 #: views/view-edit.php:41
 #: views/view-edit.php:253
 #: views/view-edit.php:392
@@ -716,52 +720,52 @@ msgstr "पहले तुम चाहिए क्लिक करें&quot
 msgid "Update Changes"
 msgstr "अद्यतन परिवर्तन"
 
-#: controllers/controller-admin.php:1763
+#: controllers/controller-admin.php:1765
 #: views/view-about.php:14
 #: views/view-list.php:2
 msgid "Table"
 msgstr "टेबल "
 
-#: controllers/controller-admin.php:1792
+#: controllers/controller-admin.php:1795
 msgid "Please wait..."
 msgstr "कृपया प्रतीक्षा करें ..."
 
-#: controllers/controller-admin.php:1793
+#: controllers/controller-admin.php:1796
 msgid "Show _MENU_ Tables"
 msgstr "दिखाएँ _ MENU _ टेबल्स"
 
-#: controllers/controller-admin.php:1794
+#: controllers/controller-admin.php:1797
 #: views/view-ajax_list.php:53
 #: views/view-export.php:71
 #: views/view-list.php:88
 msgid "No tables were found."
 msgstr "कोई टेबल नहीं  पाए गए."
 
-#: controllers/controller-admin.php:1795
+#: controllers/controller-admin.php:1798
 msgid "_START_ to _END_ of _TOTAL_ Tables"
 msgstr "_TOTAL_ टेबल्स के _END_ को _START_"
 
-#: controllers/controller-admin.php:1796
+#: controllers/controller-admin.php:1799
 msgid "(filtered from _MAX_ Tables)"
 msgstr "(_MAX_ टेबल्स से छान)"
 
-#: controllers/controller-admin.php:1797
+#: controllers/controller-admin.php:1800
 msgid "Filter:"
 msgstr "फ़िल्टर करें:"
 
-#: controllers/controller-admin.php:1798
+#: controllers/controller-admin.php:1801
 msgid "First"
 msgstr "प्रथम"
 
-#: controllers/controller-admin.php:1799
+#: controllers/controller-admin.php:1802
 msgid "Back"
 msgstr "पीछे"
 
-#: controllers/controller-admin.php:1800
+#: controllers/controller-admin.php:1803
 msgid "Next"
 msgstr "अगला"
 
-#: controllers/controller-admin.php:1801
+#: controllers/controller-admin.php:1804
 msgid "Last"
 msgstr "अंतिम"
 
@@ -894,20 +898,20 @@ msgstr " इसके विस्तार के लिए Krings <a href=\"ht
 msgid "the submitters of translations:"
 msgstr "अनुवाद के submitters:"
 
-#: views/view-about.php:69
+#: views/view-about.php:70
 #, php-format
 msgid "%s (thanks to %s)"
 msgstr "% s  (%s  को धन्यवाद)"
 
-#: views/view-about.php:72
+#: views/view-about.php:73
 msgid "and to all donors, contributors, supporters, reviewers and users of the plugin!"
 msgstr "और सब दाताओं के लिए, योगदानकर्ताओं, समर्थकों, समीक्षक और प्लगइन के उपयोगकर्ताओं!"
 
-#: views/view-about.php:78
+#: views/view-about.php:79
 msgid "Debug and Version Information"
 msgstr "डीबग और संस्करणः सूचना"
 
-#: views/view-about.php:78
+#: views/view-about.php:79
 #: views/view-edit.php:15
 #: views/view-edit.php:51
 #: views/view-edit.php:104
@@ -915,15 +919,15 @@ msgstr "डीबग और संस्करणः सूचना"
 #: views/view-edit.php:349
 #: views/view-edit.php:401
 #: views/view-options.php:19
-#: views/view-options.php:62
-#: views/view-options.php:79
-#: views/view-options.php:167
-#: views/view-options.php:178
+#: views/view-options.php:70
+#: views/view-options.php:87
+#: views/view-options.php:175
+#: views/view-options.php:186
 msgctxt "expand"
 msgid "Hide"
 msgstr "छिपना"
 
-#: views/view-about.php:78
+#: views/view-about.php:79
 #: views/view-edit.php:15
 #: views/view-edit.php:51
 #: views/view-edit.php:104
@@ -931,22 +935,22 @@ msgstr "छिपना"
 #: views/view-edit.php:349
 #: views/view-edit.php:401
 #: views/view-options.php:19
-#: views/view-options.php:62
-#: views/view-options.php:79
-#: views/view-options.php:167
-#: views/view-options.php:178
+#: views/view-options.php:70
+#: views/view-options.php:87
+#: views/view-options.php:175
+#: views/view-options.php:186
 msgid "Expand"
 msgstr "विस्तार"
 
-#: views/view-about.php:81
+#: views/view-about.php:82
 msgid "You are using the following versions of the software."
 msgstr "आप सॉफ्टवेयर के निम्नलिखित संस्करणों का उपयोग कर रहे हैं."
 
-#: views/view-about.php:81
+#: views/view-about.php:82
 msgid "Please provide this information in bug reports."
 msgstr "कृपया बग रिपोर्ट में यह जानकारी प्रदान करते हैं."
 
-#: views/view-about.php:84
+#: views/view-about.php:85
 msgid "Plugin installed"
 msgstr "प्लगइन स्थापित"
 
@@ -1087,7 +1091,8 @@ msgstr "सहेजें और वापस जाओ"
 #: views/view-edit.php:257
 #: views/view-edit.php:396
 #: views/view-edit.php:447
-#: views/view-options.php:154
+#: views/view-options.php:65
+#: views/view-options.php:162
 msgid "Cancel"
 msgstr "रद्द करें"
 
@@ -1497,7 +1502,7 @@ msgid "To backup all tables, including their settings, at once use the &quot;%s&
 msgstr "बैकअप करने के लिए अपनी सेटिंग्स सहित सभी टेबल, पर एक बार प्रयोग  &quot;%s&quot;  में बटन  &quot;%s&quot;."
 
 #: views/view-export.php:10
-#: views/view-options.php:172
+#: views/view-options.php:180
 msgid "Create and Download Dump File"
 msgstr "बनाएँ और डाउनलोड करे dump फाइल"
 
@@ -1698,8 +1703,8 @@ msgstr "बैकएण्ड विकल्प है प्लगइन व�
 
 #: views/view-options.php:4
 #: views/view-options.php:55
-#: views/view-options.php:67
-#: views/view-options.php:71
+#: views/view-options.php:75
+#: views/view-options.php:79
 msgid "Edit Table"
 msgstr "संपादित करें तालिका"
 
@@ -1728,7 +1733,7 @@ msgid "Select the library to use:"
 msgstr "चुनें उपयोग पुस्तकालय:"
 
 #: views/view-options.php:29
-#: views/view-options.php:119
+#: views/view-options.php:127
 msgid "recommended"
 msgstr "की सिफारिश की"
 
@@ -1777,234 +1782,235 @@ msgid "Yes, open links that are inserted with the &quot;%s&quot; button on the &
 msgstr "हाँ,  खुला लिंक है कि के साथ डाला है &quot;%s&quot; पर बटन %s&quot; एक नई ब्राउज़र विंडो में स्क्रीन <strong>from now on</strong>."
 
 #: views/view-options.php:62
+#: views/view-options.php:159
+msgid "Save Options"
+msgstr "सहेजें विकल्प"
+
+#: views/view-options.php:70
 msgid "Backend Options"
 msgstr "बैकेंड विकल्प"
 
-#: views/view-options.php:66
+#: views/view-options.php:74
 msgid "Exit warning"
 msgstr "बाहर निकलें चेतावनी"
 
-#: views/view-options.php:67
+#: views/view-options.php:75
 #, php-format
 msgid "Yes, show a warning message, if I leave the &quot;%s&quot; screen and have not yet saved my changes."
 msgstr "हाँ, एक चेतावनी संदेश दिखाने के लिए, अगर मैं छुट्टी  &quot;%s&quot;  स्क्रीन है और अपने परिवर्तनों को अभी तक सहेजा नहीं है."
 
-#: views/view-options.php:70
+#: views/view-options.php:78
 msgid "Growing textareas"
 msgstr "बढ़ती textareas"
 
-#: views/view-options.php:71
+#: views/view-options.php:79
 #, php-format
 msgid "Yes, enlarge the textareas on the &quot;%s&quot; screen when they are focussed."
 msgstr "हाँ, textareas विस्तार पर  &quot;%s&quot;जब वे परदे पर ध्यान केंद्रित कर रहे हैं.  "
 
-#: views/view-options.php:79
+#: views/view-options.php:87
 msgid "Admin Options"
 msgstr "व्यवस्थापक विकल्प"
 
-#: views/view-options.php:81
-#: views/view-options.php:192
-#: views/view-options.php:206
+#: views/view-options.php:89
+#: views/view-options.php:200
+#: views/view-options.php:214
 msgid "This area are only available to site administrators!"
 msgstr "क्षेत्र केवल साइट प्रशासकों के लिए उपलब्ध हैं!"
 
-#: views/view-options.php:81
+#: views/view-options.php:89
 msgid "You can therefore not change these options."
 msgstr "इसलिए आप इन विकल्पों को बदल नहीं सकते."
 
-#: views/view-options.php:86
+#: views/view-options.php:94
 msgid "Plugin Access"
 msgstr "प्लगइन प्रवेश"
 
-#: views/view-options.php:87
+#: views/view-options.php:95
 msgid "To access WP-Table Reloaded, a user needs to be:"
 msgstr "WP का उपयोग करने के लिए, एक उपयोगकर्ता तालिका रीलोडेड के लिए जरूरत है:"
 
-#: views/view-options.php:88
-#: views/view-options.php:99
+#: views/view-options.php:96
+#: views/view-options.php:107
 msgctxt "User role"
 msgid "Administrator"
 msgstr "व्यवस्थापक "
 
-#: views/view-options.php:89
-#: views/view-options.php:100
+#: views/view-options.php:97
+#: views/view-options.php:108
 msgctxt "User role"
 msgid "Editor"
 msgstr "संपादक "
 
-#: views/view-options.php:90
-#: views/view-options.php:101
+#: views/view-options.php:98
+#: views/view-options.php:109
 msgctxt "User role"
 msgid "Author"
 msgstr "लेखक"
 
-#: views/view-options.php:91
+#: views/view-options.php:99
 msgctxt "User role"
 msgid "Contributor"
 msgstr "योगदानकर्ता"
 
-#: views/view-options.php:97
+#: views/view-options.php:105
 msgid "Plugin Options Access"
 msgstr "प्लगइन विकल्प प्रवेश"
 
-#: views/view-options.php:98
+#: views/view-options.php:106
 msgid "To access the Plugin Options of WP-Table Reloaded, a user needs to be:"
 msgstr " WP प्लगइन के लिए  विकल्प टैबिल रीलोडेड का उपयोग, एक उपयोगकर्ता के लिए की जरूरत है:"
 
-#: views/view-options.php:102
+#: views/view-options.php:110
 msgid "Admin Options, Dump file Import, and Manual Plugin Uninstall are always accessible by Administrators only, regardless of this setting."
 msgstr "व्यवस्थापक विकल्प, डाल दो फ़ाइल आयात, और मैनुअल प्लगइन स्थापना प्रशासक के द्वारा रद्द करें  हमेशा उपलब्ध हैं ,चाहे इस सेटिंग के."
 
-#: views/view-options.php:106
+#: views/view-options.php:114
 msgid "Plugin Language"
 msgstr "प्लगइन भाषा"
 
-#: views/view-options.php:107
+#: views/view-options.php:115
 msgid "WP-Table Reloaded shall be shown in this language:"
 msgstr "WP-Table रीलोडेड इस भाषा में प्रदर्शित किया जाएगा:"
 
-#: views/view-options.php:108
+#: views/view-options.php:116
 #, php-format
 msgid "WordPress Default (currently %s)"
 msgstr "WordPress डिफ़ॉल्ट (वर्तमान में% s)"
 
-#: views/view-options.php:117
+#: views/view-options.php:125
 msgid "Admin menu entry"
 msgstr "व्यवस्थापक मेनू प्रविष्टि"
 
-#: views/view-options.php:118
+#: views/view-options.php:126
 msgid "WP-Table Reloaded shall be shown in this section of the admin menu:"
 msgstr "WP-Table रीलोडेड व्यवस्थापक मेनू इस खंड में दिखाया जाएगा:"
 
-#: views/view-options.php:119
+#: views/view-options.php:127
 msgid "Tools"
 msgstr "उपकरण"
 
-#: views/view-options.php:120
+#: views/view-options.php:128
 msgid "Posts"
 msgstr "डाक"
 
-#: views/view-options.php:121
+#: views/view-options.php:129
 msgid "Pages"
 msgstr "पन्ने"
 
-#: views/view-options.php:122
+#: views/view-options.php:130
 msgid "Plugins"
 msgstr "Plugins"
 
-#: views/view-options.php:123
+#: views/view-options.php:131
 msgid "Settings"
 msgstr "सेटिंग्स"
 
-#: views/view-options.php:124
+#: views/view-options.php:132
 msgid "Dashboard"
 msgstr "डैशबोर्ड"
 
-#: views/view-options.php:125
+#: views/view-options.php:133
 msgid "Top-Level"
 msgstr "शीर्ष स्तर"
 
-#: views/view-options.php:130
+#: views/view-options.php:138
 msgid "Frontend Edit Link"
 msgstr "दृश्यपटल संपादित करें लिंक"
 
-#: views/view-options.php:131
+#: views/view-options.php:139
 msgid "Yes, show an \"Edit\" link to users with sufficient rights near every table on the frontend."
 msgstr "शो हाँ, एक \"संपादित करें \"  हर टेबल के पास दृश्यपटल पर पर्याप्त अधिकार के साथ उपयोगकर्ताओं के लिए लिंक."
 
-#: views/view-options.php:135
+#: views/view-options.php:143
 msgid "WordPress Search"
 msgstr "WordPress खोज"
 
-#: views/view-options.php:136
+#: views/view-options.php:144
 msgid "Yes, the WordPress Search shall also find posts and pages that contain the search term inside a table."
 msgstr "हाँ, WordPress खोज पोस्ट और पृष्ठों को भी खोजेगा यदि खोज सब्द टेबल के अंदर है तब भी "
 
-#: views/view-options.php:140
+#: views/view-options.php:148
 msgid "Remove upon Deactivation"
 msgstr "क्रियाशीलता छोड़ना पर निकालें"
 
-#: views/view-options.php:141
+#: views/view-options.php:149
 msgid "Yes, remove all plugin related data from the database when the plugin is deactivated."
 msgstr "हाँ, जब प्लगइन निष्क्रिय है डेटाबेस से सभी संबंधित डेटा प्लगइन हटा दें."
 
-#: views/view-options.php:141
+#: views/view-options.php:149
 msgid "Should be activated directly before deactivation only!"
 msgstr "सीधे क्रियाशीलता छोड़ना के पहले ही सक्रिय होना चाहिए!"
 
-#: views/view-options.php:151
-msgid "Save Options"
-msgstr "सहेजें विकल्प"
-
-#: views/view-options.php:161
+#: views/view-options.php:169
 msgid "WP-Table Reloaded Data Export and Backup"
 msgstr "WP-Table रीलोडेड डेटा निर्यात करें और बैकअप"
 
-#: views/view-options.php:164
+#: views/view-options.php:172
 msgid "WP-Table Reloaded can export and import a so-called dump file that contains all tables, their settings and the plugin's options."
 msgstr "WP-Table रीलोडेड निर्यात और आयात के एक तथाकथित फ़ाइल है कि सभी टेबल शामिल डंप कहा जा सकता, अपनी सेटिंग्स और प्लगइन का विकल्प है."
 
-#: views/view-options.php:164
+#: views/view-options.php:172
 msgid "This file can be used as a backup or to move all data to another WordPress site."
 msgstr "इस फ़ाइल को एक बैकअप के रूप में इस्तेमाल किया जा सकता या सभी डेटा को एक WordPress साइट पर ले जाये "
 
-#: views/view-options.php:167
+#: views/view-options.php:175
 msgid "Export a dump file"
 msgstr "निर्यात एक डंप फाइल"
 
-#: views/view-options.php:169
+#: views/view-options.php:177
 msgid "To export all Tables and their settings, click the button below to generate and download a dump file."
 msgstr "सभी टेबल्स और उनके निर्यात सेटिंग्स, बटन के नीचे क्लिक करें उत्पन्न करने के लिए और एक डंप फाइल डाउनलोड करें."
 
-#: views/view-options.php:169
+#: views/view-options.php:177
 msgid "<strong>Warning</strong>: Do <strong>not</strong> edit the content of that file under any circumstances as you will destroy the file!"
 msgstr "<strong>Warning</strong>: Do <strong>not</strong> किसी भी हालत में फाइल की सामग्री को संपादित करे  की आपने फ़ाइल को नष्ट कर दिया है "
 
-#: views/view-options.php:178
+#: views/view-options.php:186
 msgid "Import a dump file"
 msgstr "आयात एक डंप फाइल"
 
-#: views/view-options.php:180
+#: views/view-options.php:188
 msgid "To import a WP-Table Reloaded dump file and restore the included data, upload the file from your computer."
 msgstr "एक WP आयात टैबिल रीलोडेड डंप फाइल और शामिल डेटा बहाल करने, अपने कंप्यूटर से फ़ाइल अपलोड करे."
 
-#: views/view-options.php:180
+#: views/view-options.php:188
 msgid "All current data of this WP-Table Reloaded installation (Tables, Options, Settings) <strong>WILL BE OVERWRITTEN</strong> with the data from the file!"
 msgstr "इस WP के सभी वर्तमान डाटा टैबिल फ़ाइल से डेटा के साथ रीलोडेड (Tables, Options, Settings) <strong>WILL BE OVERWRITTEN</strong>  अधिष्ठापन!"
 
-#: views/view-options.php:180
+#: views/view-options.php:188
 msgid "Do not proceed, if you do not understand this!"
 msgstr "नहीं आगे क्या,  अगर आपको  यह समझ में नहीं आता!"
 
-#: views/view-options.php:180
+#: views/view-options.php:188
 msgid "It is highly recommended to export and backup the data of this installation before importing another dump file (see above)."
 msgstr "निर्यात  और बैकअप के लिए  अधिष्ठापन  से पहले इस के डेटा डंप फाइल आयात करने की सिफारिश की है(ऊपर देखें)."
 
-#: views/view-options.php:186
+#: views/view-options.php:194
 msgid "Select Dump File"
 msgstr "चुनें डंप फाइल"
 
-#: views/view-options.php:188
+#: views/view-options.php:196
 msgid "Import Dump File"
 msgstr "आयात  डंप फाइल"
 
-#: views/view-options.php:198
+#: views/view-options.php:206
 msgid "Manually Uninstall WP-Table Reloaded"
 msgstr "मैन्युअल रूप से स्थापना रद्द करें WP-तालिका रीलोडेड"
 
-#: views/view-options.php:200
+#: views/view-options.php:208
 msgid "Uninstalling <strong>will permanently delete</strong> all tables, data, and options, that belong to WP-Table Reloaded from the database, including all tables you added or imported."
 msgstr "Uninstalling  <strong> स्थायी रूप से हटा दिए जाएँगे  </strong> सभी तालिकाओं को, और विकल्प, डेटाबेस से तालिका रीलोडेड,सब जोड़ या आयात भी शामिल है"
 
-#: views/view-options.php:200
+#: views/view-options.php:208
 msgid "You will manually need to remove the plugin's files from the plugin folder afterwards."
 msgstr "बाद में आपको मैन्युअल रूप से प्लगइन फ़ोल्डर से प्लगइन फ़ाइलों को हटाने की आवश्यकता होगी."
 
-#: views/view-options.php:200
+#: views/view-options.php:208
 msgid "Be very careful with this and only click the button if you know what you are doing!"
 msgstr " बहुत सावधानी  बरते   और  बटन क्लिक करे अगर तुम्हें पता है कि तुम क्या कर रहे हैं! "
 
-#: views/view-options.php:204
+#: views/view-options.php:212
 msgid "Uninstall Plugin WP-Table Reloaded"
 msgstr "WP-तालिका रीलोडेड प्लगइन   स्थापना रद्द करे "
 
