@@ -273,11 +273,11 @@
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Table head', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="table[options][first_row_th]" id="table_options_first_row_th"<?php echo ( $table['options']['first_row_th'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="table_options_first_row_th"><?php _e( 'The first row of your table is the table head (HTML tag &lt;th&gt;).', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <td><input type="checkbox" name="table[options][first_row_th]" id="table_options_first_row_th"<?php echo ( $table['options']['first_row_th'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="table_options_first_row_th"><?php _e( 'The first row of your table is the table head (HTML tags &lt;thead&gt; and &lt;th&gt;).', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Table footer', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="table[options][table_footer]" id="table_options_table_footer"<?php echo ( $table['options']['table_footer'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="table_options_table_footer"><?php _e( 'The last row of your table is the table footer (HTML tag &lt;th&gt;).', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <td><input type="checkbox" name="table[options][table_footer]" id="table_options_table_footer"<?php echo ( $table['options']['table_footer'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="table_options_table_footer"><?php _e( 'The last row of your table is the table footer (HTML tags &lt;tfoot&gt; and &lt;th&gt;).', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
