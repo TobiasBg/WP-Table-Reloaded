@@ -292,7 +292,10 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
             'cs_CZ' => __( 'Czech', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'de_DE' => __( 'German', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'en_US' => __( 'English', WP_TABLE_RELOADED_TEXTDOMAIN ),
+            'es_ES' => __( 'Spanish', WP_TABLE_RELOADED_TEXTDOMAIN ),
+            'fi_FI' => __( 'Finnish', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'hi_IN' => __( 'Hindi', WP_TABLE_RELOADED_TEXTDOMAIN ),
+            'it_IT' => __( 'Italian', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'ja'    => __( 'Japanese', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'pt_BR' => __( 'Brazilian Portuguese', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'sk_SK' => __( 'Slovak', WP_TABLE_RELOADED_TEXTDOMAIN ),
@@ -301,12 +304,9 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
             'sq_AL' => __( 'Albanian', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'by_BY' => __( 'Belorussian', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'et'    => __( 'Estonian', WP_TABLE_RELOADED_TEXTDOMAIN ),
-            'fi_FI' => __( 'Finnish', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'fr_FR' => __( 'French', WP_TABLE_RELOADED_TEXTDOMAIN ),
-            'it_IT' => __( 'Italian', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'pl_PL' => __( 'Polish', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'ru_RU' => __( 'Russian', WP_TABLE_RELOADED_TEXTDOMAIN ),
-            'es_ES' => __( 'Spanish', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'tr_TR' => __( 'Turkish', WP_TABLE_RELOADED_TEXTDOMAIN )
         );
         asort( $this->available_plugin_languages );
