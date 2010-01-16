@@ -109,6 +109,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
             'use_tablesorter' => true,
             'datatables_sort' => true,
             'datatables_paginate' => true,
+            'datatables_paginate_entries' => 10,
             'datatables_lengthchange' => true,
             'datatables_filter' => true,
             'datatables_info' => true,
@@ -431,6 +432,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
                 $table['options']['datatables_filter'] = isset( $_POST['table']['options']['datatables_filter'] );
                 $table['options']['datatables_info'] = isset( $_POST['table']['options']['datatables_info'] );
                 $table['options']['datatables_tabletools'] = isset( $_POST['table']['options']['datatables_tabletools'] );
+                $table['options']['datatables_paginate_entries'] = ( is_numeric( $table['options']['datatables_paginate_entries'] ) ) ? absint( $table['options']['datatables_paginate_entries'] ) : $this->default_table['options']['datatables_paginate_entries'];
                 // $table['options']['datatables_customcommands'] is an input type=text field that is always submitted
                 // $table['options']['print_name|description_position'] are select fields that are always submitted
 

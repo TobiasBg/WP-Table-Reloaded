@@ -290,7 +290,9 @@
             $selected = ( 'below' == $table['options']['print_name_position'] ) ? ' selected="selected"': '';
             $position_select .= '<option' . $selected . ' value="below">' . __( 'below', WP_TABLE_RELOADED_TEXTDOMAIN ) . '</option>';
             $position_select .= '</select>';
+            echo '<span style="vertical-align: middle;">';
             printf( __( 'The Table Name shall be written %s the table (HTML tag &lt;h2&gt;).', WP_TABLE_RELOADED_TEXTDOMAIN ), $position_select );
+            echo '</span>';
             ?>
         </td>
         </tr>
@@ -305,7 +307,9 @@
             $selected = ( 'below' == $table['options']['print_description_position'] ) ? ' selected="selected"': '';
             $position_select .= '<option' . $selected . ' value="below">' . __( 'below', WP_TABLE_RELOADED_TEXTDOMAIN ) . '</option>';
             $position_select .= '</select>';
+            echo '<span style="vertical-align: middle;">';
             printf( __( 'The Table Description shall be written %s the table.', WP_TABLE_RELOADED_TEXTDOMAIN ), $position_select );
+            echo '</span>';
             ?>
         </td>
         </tr>
@@ -359,11 +363,20 @@
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Pagination', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="table[options][datatables_paginate]" id="table_options_datatables_paginate"<?php echo ( $table['options']['datatables_paginate'] ) ? ' checked="checked"': '' ; ?><?php echo ( !$datatables_enabled || !$table['options']['use_tablesorter'] || !$table['options']['first_row_th'] ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="table_options_datatables_paginate"><?php _e( 'Yes, enable pagination of the table (showing only a certain number of rows) by the visitor.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <td><input type="checkbox" name="table[options][datatables_paginate]" id="table_options_datatables_paginate"<?php echo ( $table['options']['datatables_paginate'] ) ? ' checked="checked"': '' ; ?><?php echo ( !$datatables_enabled || !$table['options']['use_tablesorter'] || !$table['options']['first_row_th'] ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="table_options_datatables_paginate">
+            <?php
+            $disabled = ( !$table['options']['datatables_paginate'] || !$datatables_enabled || !$table['options']['use_tablesorter'] || !$table['options']['first_row_th'] ) ? ' disabled="disabled"' : '' ;
+            $paginate_entries = '<input type="text"' . $disabled . ' id="table_options_datatables_paginate_entries" name="table[options][datatables_paginate_entries]" value="' . $this->helper->safe_output( $table['options']['datatables_paginate_entries'] ) . '" style="width:35px;" />';
+            echo __( 'Yes, enable pagination (showing only a certain number of rows) of the table by the visitor.', WP_TABLE_RELOADED_TEXTDOMAIN );
+            echo '</label> <span style="vertical-align: middle;">';
+            printf( __( 'Show %1$s rows of the table per page.', WP_TABLE_RELOADED_TEXTDOMAIN ), $paginate_entries );
+            echo '</span>';
+            ?>
+            </td>
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Length Change', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="table[options][datatables_lengthchange]" id="table_options_datatables_lengthchange"<?php echo ( $table['options']['datatables_lengthchange'] ) ? ' checked="checked"': '' ; ?><?php echo ( !$datatables_enabled || !$table['options']['use_tablesorter'] || !$table['options']['first_row_th'] ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="table_options_datatables_lengthchange"><?php _e( 'Yes, allow visitor to change the number of rows shown when using pagination.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <td><input type="checkbox" name="table[options][datatables_lengthchange]" id="table_options_datatables_lengthchange"<?php echo ( $table['options']['datatables_lengthchange'] ) ? ' checked="checked"': '' ; ?><?php echo ( !$datatables_enabled || !$table['options']['use_tablesorter'] || !$table['options']['first_row_th'] ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="table_options_datatables_lengthchange"><?php _e( 'Yes, allow the visitor to change the number of rows shown when using pagination.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Filtering', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>

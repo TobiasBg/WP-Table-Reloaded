@@ -171,6 +171,7 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
             'use_tablesorter' => -1,
             'datatables_sort' => -1,
             'datatables_paginate' => -1,
+            'datatables_paginate_entries' => -1,
             'datatables_lengthchange' => -1,
             'datatables_filter' => -1,
             'datatables_info' => -1,
@@ -254,6 +255,7 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
             'alternating_row_colors' => $output_options['alternating_row_colors'],
             'datatables_sort' => $output_options['datatables_sort'],
             'datatables_paginate' => $output_options['datatables_paginate'],
+            'datatables_paginate_entries' => $output_options['datatables_paginate_entries'],
             'datatables_lengthchange' => $output_options['datatables_lengthchange'],
             'datatables_filter' => $output_options['datatables_filter'],
             'datatables_info' => $output_options['datatables_info'],
@@ -568,6 +570,8 @@ CSSSTYLE;
                         $parameters['bSort'] = '"bSort": false';
                     if ( !$js_options['datatables_paginate'] )
                         $parameters['bPaginate'] = '"bPaginate": false';
+                    if ( $js_options['datatables_paginate'] && !empty( $js_options['datatables_paginate_entries'] ) && 10 <> $js_options['datatables_paginate_entries'] )
+                        $parameters['iDisplayLength'] = '"iDisplayLength": '. $js_options['datatables_paginate_entries'];
                     if ( !$js_options['datatables_lengthchange'] )
                         $parameters['bLengthChange'] = '"bLengthChange": false';
                     if ( !$js_options['datatables_filter'] )
