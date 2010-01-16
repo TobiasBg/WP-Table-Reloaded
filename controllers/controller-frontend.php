@@ -103,6 +103,7 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
                 'field' => '',
                 'format' => ''
         );
+        $default_atts = apply_filters( 'wp_table_reloaded_shortcode_table_info_default_atts', $default_atts );
         $atts = shortcode_atts( $default_atts, $atts );
 
         // allow a filter to determine behavior of this function, by overwriting its behavior, just need to return something other than false
@@ -185,6 +186,7 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
             'cellpadding' => false,
             'border' => false
         );
+        $default_atts = apply_filters( 'wp_table_reloaded_shortcode_table_default_atts', $default_atts );
         $atts = shortcode_atts( $default_atts, $atts );
 
         // allow a filter to determine behavior of this function, by overwriting its behavior, just need to return something other than false
@@ -301,7 +303,7 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
 
         // render/generate the table HTML
         $render = $this->create_class_instance( 'WP_Table_Reloaded_Render', 'render.class.php' );
-        $render->output_options = $output_options;
+        $render->output_options = apply_filters( 'wp_table_reloaded_frontend_output_options', $output_options, $table['id'], $table );
         $render->table = $table;
         $output = $render->render_table();
 
