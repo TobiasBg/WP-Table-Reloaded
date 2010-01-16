@@ -210,6 +210,8 @@ div.closed .hide_link { display: none; }
 
 .dataTables_wrapper {
 	clear: both;
+	position: relative;
+	zoom: 1;
 }
 
 .dataTables_processing {
