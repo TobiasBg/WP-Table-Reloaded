@@ -34,6 +34,7 @@ class WP_Table_Reloaded_Controller_Base {
         'options' => 'wp_table_reloaded_options',
         'table' => 'wp_table_reloaded_data'
     );
+
     /**
      * Default structure of a new table (one cell, default table options)
      * @var array
