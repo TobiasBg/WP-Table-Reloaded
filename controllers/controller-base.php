@@ -34,6 +34,42 @@ class WP_Table_Reloaded_Controller_Base {
         'options' => 'wp_table_reloaded_options',
         'table' => 'wp_table_reloaded_data'
     );
+    /**
+     * Default structure of a new table (one cell, default table options)
+     * @var array
+     */
+    var $default_table = array(
+        'id' => 0,
+        'data' => array( 0 => array( 0 => '' ) ),
+        'name' => '',
+        'description' => '',
+        'last_modified' => '0000-00-00 00:00:00',
+        'last_editor_id' => '',
+        'visibility' => array(
+            'rows' => array(),
+            'columns' => array()
+        ),
+        'options' => array(
+            'alternating_row_colors' => true,
+            'row_hover' => false,
+            'first_row_th' => true,
+            'table_footer' => false,
+            'print_name' => false,
+            'print_name_position' => 'above',
+            'print_description' => false,
+            'print_description_position' => 'below',
+            'use_tablesorter' => true,
+            'datatables_sort' => true,
+            'datatables_paginate' => true,
+            'datatables_paginate_entries' => 10,
+            'datatables_lengthchange' => true,
+            'datatables_filter' => true,
+            'datatables_info' => true,
+            'datatables_tabletools' => false,
+            'datatables_customcommands' => ''
+        ),
+        'custom_fields' => array()
+    );
 
     /**
      * Slug that will be appended to the URL of the plugin by WordPress, e.g. http://example.com/wp-admin/tools.php?page=wp-table-reloaded

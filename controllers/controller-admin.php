@@ -81,43 +81,6 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
      * @var array
      */
     var $default_tables = array();
-    
-    /**
-     * Default structure of a new table (one cell, default table options)
-     * @var array
-     */
-    var $default_table = array(
-        'id' => 0,
-        'data' => array( 0 => array( 0 => '' ) ),
-        'name' => '',
-        'description' => '',
-        'last_modified' => '0000-00-00 00:00:00',
-        'last_editor_id' => '',
-        'visibility' => array(
-            'rows' => array(),
-            'columns' => array()
-        ),
-        'options' => array(
-            'alternating_row_colors' => true,
-            'row_hover' => false,
-            'first_row_th' => true,
-            'table_footer' => false,
-            'print_name' => false,
-            'print_name_position' => 'above',
-            'print_description' => false,
-            'print_description_position' => 'below',
-            'use_tablesorter' => true,
-            'datatables_sort' => true,
-            'datatables_paginate' => true,
-            'datatables_paginate_entries' => 10,
-            'datatables_lengthchange' => true,
-            'datatables_filter' => true,
-            'datatables_info' => true,
-            'datatables_tabletools' => false,
-            'datatables_customcommands' => ''
-        ),
-        'custom_fields' => array()
-    );
 
     /**
      * Instance of the WP_Table_Reloaded_Helper class, which has additional functions for frontend and backend, stored in separate file for better overview and maintenance
