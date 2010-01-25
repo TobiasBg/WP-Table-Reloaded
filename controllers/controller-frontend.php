@@ -366,7 +366,7 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
             foreach ( $hidden_rows as $row_idx ) {
                 unset( $table['data'][ $row_idx ] );
             }
-            $table['data'] = ( !isset( $table['data'] ) ? array() : $table['data']; // make sure $table['data'] exists for the next steps
+            $table['data'] = ( !isset( $table['data'] ) ) ? array() : $table['data']; // make sure $table['data'] exists for the next steps
             $table['data'] = array_merge( $table['data'] );
             foreach ( $table['data'] as $row_idx => $row ) {
                 foreach ( $hidden_columns as $col_idx ) {
