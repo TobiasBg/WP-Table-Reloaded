@@ -33,3 +33,7 @@
 .wp-table-reloaded .row-hover tr:hover td {
 	background-color: #D0D0D6;
 }
+.wp-table-reloaded-table-description {
+	clear: both;
+	display: block;
+}
