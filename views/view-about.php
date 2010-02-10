@@ -55,6 +55,7 @@
                     'it_IT' => '<a href="http://www.scrical.it/">Gabriella Mazzon</a>',
                     'ja'    => '<a href="http://www.u-1.net/">Yuuichi</a>',
                     'pt_BR' => '<a href="http://www.pensarics.com/">Rics</a>',
+                    'zh_CN' => '<a href="http://cnzhx.net/">Haoxian Zeng</a>',
                     'sk_SK' => '<a href="http://lukas.cerro.sk/">55.lukas</a>',
                     'sv_SE' => '<a href="http://www.zuperzed.se/">ZuperZed</a>',
                     // probably inactive languages
