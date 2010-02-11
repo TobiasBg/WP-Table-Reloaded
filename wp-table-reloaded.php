@@ -65,13 +65,23 @@ if ( is_admin() ) {
      * which is needed for any region of a theme that can not use Shortcodes.
      * Thus, the function is only available in the frontend part of WordPress.
      *
-     * @uses $WP_Table_Reloaded_Frontend
+     * @see wp_table_reloaded_get_table
      * @param string $table_query Query string like list of parameters for Shortcode "table" rendering
      */
     function wp_table_reloaded_print_table( $table_query ) {
+        echo wp_table_reloaded_get_table( $table_query );
+    }
+
+    /**
+     * Add function to retrieve the table HTML, needed for template tag function wp_table_reloaded_print_table
+     *
+     * @uses $WP_Table_Reloaded_Frontend
+     * @param string $table_query Query string like list of parameters for Shortcode "table" rendering
+     */
+    function wp_table_reloaded_get_table( $table_query ) {
         global $WP_Table_Reloaded_Frontend;
         parse_str( $table_query, $atts );
-        echo $WP_Table_Reloaded_Frontend->handle_content_shortcode_table( $atts );
+        return $WP_Table_Reloaded_Frontend->handle_content_shortcode_table( $atts );
     }
 
     /**
@@ -81,13 +91,23 @@ if ( is_admin() ) {
      * which is needed for any region of a theme that can not use Shortcodes.
      * Thus, the function is only available in the frontend part of WordPress.
      *
-     * @uses $WP_Table_Reloaded_Frontend
+     * @see wp_table_reloaded_get_table_info
      * @param string $table_query Query string like list of parameters for Shortcode "table-info" rendering
      */
     function wp_table_reloaded_print_table_info( $table_query ) {
+        echo wp_table_reloaded_get_table_info( $table_query );
+    }
+
+    /**
+     * Add function to retrieve the table-info HTML, needed for template tag function wp_table_reloaded_print_table_info
+     *
+     * @uses $WP_Table_Reloaded_Frontend
+     * @param string $table_query Query string like list of parameters for Shortcode "table-info" rendering
+     */
+    function wp_table_reloaded_get_table_info( $table_query ) {
         global $WP_Table_Reloaded_Frontend;
         parse_str( $table_query, $atts );
-        echo $WP_Table_Reloaded_Frontend->handle_content_shortcode_table_info( $atts );
+        return $WP_Table_Reloaded_Frontend->handle_content_shortcode_table_info( $atts );
     }
 
 }
