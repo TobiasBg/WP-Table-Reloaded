@@ -203,23 +203,6 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
             return $message;
         }
 
-        // explode from string to array
-        $atts['column_widths'] = ( !empty( $atts['column_widths'] ) ) ? explode( '|', $atts['column_widths'] ) : array();
-
-        // rows/columns are indexed from 0 internally, but from 1 externally, thus substract 1 from each value
-        $atts['show_rows'] = ( !empty( $atts['show_rows'] ) ) ? explode( ',', $atts['show_rows'] ) : array();
-        foreach ( $atts['show_rows'] as $key => $value )
-            $atts['show_rows'][ $key ] = (string) ( $value - 1 );
-        $atts['show_columns'] = ( !empty( $atts['show_columns'] ) ) ? explode( ',', $atts['show_columns'] ) : array();
-        foreach ( $atts['show_columns'] as $key => $value )
-            $atts['show_columns'][ $key ] = (string) ( $value - 1 );
-        $atts['hide_rows'] = ( !empty( $atts['hide_rows'] ) ) ? explode( ',', $atts['hide_rows'] ) : array();
-        foreach ( $atts['hide_rows'] as $key => $value )
-            $atts['hide_rows'][ $key ] = (string) ( $value - 1 );
-        $atts['hide_columns'] = ( !empty( $atts['hide_columns'] ) ) ? explode( ',', $atts['hide_columns'] ) : array();
-        foreach ( $atts['hide_columns'] as $key => $value )
-            $atts['hide_columns'][ $key ] = (string) ( $value - 1 );
-
         $table = $this->load_table( $table_id );
 
         // check for table data
@@ -228,7 +211,32 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
             $message = apply_filters( 'wp_table_reloaded_table_empty_message', $message, $table_id );
             return $message;
         }
+
+        $rows = count( $table['data'] );
+        $columns = count( $table['data'][0] );
         
+        // explode from string to array
+        $atts['column_widths'] = ( !empty( $atts['column_widths'] ) ) ? explode( '|', $atts['column_widths'] ) : array();
+
+        // add all rows/columns to array if "all" value set for one of the four parameters
+        // rows/columns are indexed from 0 internally, but from 1 externally, thus substract 1 from each value
+        $actions = array( 'show', 'hide' );
+        $elements = array( 'rows', 'columns' );
+        foreach ( $actions as $action ) {
+            foreach ( $elements as $element ) {
+                if ( !empty( $atts["{$action}_{$element}"] ) ) {
+                    if ( 'all' == $atts["{$action}_{$element}"] )
+                        $atts["{$action}_{$element}"] = range( 1, ${$element} + 1 ); // because second comment above
+                    else
+                        $atts["{$action}_{$element}"] = explode( ',', $atts["{$action}_{$element}"] );
+                    foreach ( $atts["{$action}_{$element}"] as $key => $value )
+                        $atts["{$action}_{$element}"][ $key ] = (string) ( $value - 1 );
+                } else {
+                        $atts["{$action}_{$element}"] = array();
+                }
+            }
+        }
+
         // determine options to use (if set in Shortcode, use those, otherwise use options from DB, i.e. "Edit Table" screen)
         $output_options = array();
         foreach ( $atts as $key => $value ) {
@@ -265,7 +273,6 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
         $js_options = apply_filters( 'wp_table_reloaded_table_js_options', $js_options, $table_id );
 
         // eventually add this table to list of tables which have a JS library enabled and thus are to be included in the script's call in the footer
-        $rows = count( $table['data'] );
         if ( $output_options['use_tablesorter'] && $output_options['first_row_th'] && 1 < $rows )
             $this->tablesorter_tables[] = array (
                 'table_id' => $table_id,
