@@ -890,22 +890,21 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
                 $this->import_instance->unlink_uploaded_file();
 
             if ( isset( $_POST['import_addreplace'] ) && isset( $_POST['import_addreplace_table'] ) && ( 'replace' == $_POST['import_addreplace'] ) && $this->table_exists( $_POST['import_addreplace_table'] ) ) {
-                $existing_table = $this->load_table( $_POST['import_addreplace_table'] );
-                $table = array_merge( $existing_table, $imported_table );
+                $table = $this->load_table( $_POST['import_addreplace_table'] );
+                $table['data'] = $imported_table['data'];
                 $success_message = sprintf( __( 'Table %s (%s) replaced successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ), $this->helper->safe_output( $table['name'] ), $this->helper->safe_output( $table['id'] ) );
-                unset( $existing_table );
             } else {
                 $table = array_merge( $this->default_table, $imported_table );
                 $table['id'] = $this->get_new_table_id();
                 $success_message = _n( 'Table imported successfully.', 'Tables imported successfully.', 1, WP_TABLE_RELOADED_TEXTDOMAIN );
             }
 
-            $rows = count( $table['data'] );
-            $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
-            $rows = ( 0 < $rows ) ? $rows : 1;
-            $cols = ( 0 < $cols ) ? $cols : 1;
-            $table['visibility']['rows'] = array_fill( 0, $rows, false );
-            $table['visibility']['columns'] = array_fill( 0, $cols, false );
+            unset( $imported_table );
+
+            foreach ( $table['data'] as $row_idx => $row )
+                $table['visibility']['rows'][$row_idx] = isset( $table['visibility']['rows'][$row_idx] ) ? $table['visibility']['rows'][$row_idx] : false;
+            foreach ( $table['data'][0] as $col_idx => $col )
+                $table['visibility']['columns'][$col_idx] = isset( $table['visibility']['columns'][$col_idx] ) ? $table['visibility']['columns'][$col_idx] : false;
 
             if ( !$error ) {
                 $this->save_table( $table );
