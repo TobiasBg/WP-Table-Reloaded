@@ -209,7 +209,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
 
         // top-level menu is created in different function, all others are created with the filename as a parameter
         if ( 'top-level' == $admin_menu_page ) {
-            $this->hook = add_menu_page( 'WP-Table Reloaded', $display_name, $min_capability, $this->page_slug, array( &$this, 'show_manage_page' ) );
+            $this->hook = add_menu_page( 'WP-Table Reloaded', $display_name, $min_capability, $this->page_slug, array( &$this, 'show_manage_page' ), plugins_url( 'admin/plugin-icon-small.png', WP_TABLE_RELOADED__FILE__ ) );
             $this->page_url = 'admin.php';
         } else {
             $this->hook = add_submenu_page( $admin_menu_page, 'WP-Table Reloaded', $display_name, $min_capability, $this->page_slug, array( &$this, 'show_manage_page' ) );

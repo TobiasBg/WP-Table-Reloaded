@@ -3,6 +3,10 @@
 *        PLEASE DO NOT make any changes here! Thank you!        *
 ****************************************************************/
 
+#icon-wp-table-reloaded {
+	background: transparent url('plugin-icon.png') no-repeat;
+}
+
 #wp-table-reloaded-list .table-id {
     font-size:12px;
     font-weight: bold;

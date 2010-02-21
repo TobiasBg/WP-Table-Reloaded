@@ -24,11 +24,10 @@ class WP_Table_Reloaded_Helper {
 
     // ###################################################################################################################
     function print_page_header( $text = 'WP-Table Reloaded' ) {
-        echo <<<TEXT
-<div class="wrap">
-<h2>{$text}</h2>
-<div id="poststuff">
-TEXT;
+        echo '<div class="wrap">';
+        screen_icon( 'wp-table-reloaded' );
+        echo "<h2>{$text}</h2>";
+        echo '<div id="poststuff">';
     }
 
     // ###################################################################################################################
