@@ -270,7 +270,7 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
             'datatables_tabletools' => $output_options['datatables_tabletools'],
             'datatables_customcommands' => $output_options['datatables_customcommands']
         );
-        $js_options = apply_filters( 'wp_table_reloaded_table_js_options', $js_options, $table_id );
+        $js_options = apply_filters( 'wp_table_reloaded_table_js_options', $js_options, $table_id, $output_options );
 
         // eventually add this table to list of tables which have a JS library enabled and thus are to be included in the script's call in the footer
         if ( $output_options['use_tablesorter'] && $output_options['first_row_th'] && 1 < $rows )
