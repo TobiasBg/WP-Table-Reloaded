@@ -263,6 +263,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
             'ja'    => __( 'Japanese', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'pt_BR' => __( 'Brazilian Portuguese', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'zh_CN' => __( 'Chinese (Simplified)', WP_TABLE_RELOADED_TEXTDOMAIN ),
+            'ru_RU' => __( 'Russian', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'sk_SK' => __( 'Slovak', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'sv_SE' => __( 'Swedish', WP_TABLE_RELOADED_TEXTDOMAIN ),
             // the following will (as of currently) be made inactive because they are not up-to-date
@@ -271,7 +272,6 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
             'et'    => __( 'Estonian', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'fr_FR' => __( 'French', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'pl_PL' => __( 'Polish', WP_TABLE_RELOADED_TEXTDOMAIN ),
-            'ru_RU' => __( 'Russian', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'tr_TR' => __( 'Turkish', WP_TABLE_RELOADED_TEXTDOMAIN )
         );
         asort( $this->available_plugin_languages );

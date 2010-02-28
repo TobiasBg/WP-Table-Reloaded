@@ -56,6 +56,7 @@
                     'ja'    => '<a href="http://www.u-1.net/">Yuuichi</a>',
                     'pt_BR' => '<a href="http://www.pensarics.com/">Rics</a>',
                     'zh_CN' => '<a href="http://cnzhx.net/">Haoxian Zeng</a>',
+                    'ru_RU' => '<a href="http://www.wordpress4you.com/">WordPress4You</a>',
                     'sk_SK' => '<a href="http://lukas.cerro.sk/">55.lukas</a>',
                     'sv_SE' => '<a href="http://www.zuperzed.se/">ZuperZed</a>',
                     // probably inactive languages
@@ -63,7 +64,6 @@
                     'et'    => 'Lembit Kivisik',
                     'fr_FR' => '<a href="http://ultratrailer.net/">Yin-Yin</a>',
                     'pl_PL' => 'Alex Kortan',
-                    'ru_RU' => '<a href="http://wp-skins.info/">Truper</a>',
                     'sq_AL' => '<a href="http://www.romeolab.com/">Romeo</a>',
                     'tr_TR' => '<a href="http://www.wpuzmani.com/">Semih</a>'
                 );
