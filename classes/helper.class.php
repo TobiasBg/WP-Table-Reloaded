@@ -25,7 +25,8 @@ class WP_Table_Reloaded_Helper {
     // ###################################################################################################################
     function print_page_header( $text = 'WP-Table Reloaded' ) {
         echo '<div class="wrap">';
-        screen_icon( 'wp-table-reloaded' );
+        if ( function_exists( 'screen_icon' ) ) // it does not for our pseudo-AJAX requests
+            screen_icon( 'wp-table-reloaded' );
         echo "<h2>{$text}</h2>";
         echo '<div id="poststuff">';
     }

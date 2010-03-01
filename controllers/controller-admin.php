@@ -1745,12 +1745,45 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
         $suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.dev' : '';
         $jsfile = "admin/admin-editor-buttons-script{$suffix}.js";
 
+        // HTML editor integration
         wp_enqueue_script( 'wp-table-reloaded-editor-button-js', plugins_url( $jsfile, WP_TABLE_RELOADED__FILE__ ), array( 'jquery', 'thickbox', 'media-upload' ), $this->options['installed_version'], true );
-        wp_localize_script( 'wp-table-reloaded-editor-button-js', 'WP_Table_Reloaded_Admin', array(
+        wp_localize_script( 'wp-table-reloaded-editor-button-js', 'WP_Table_Reloaded_Editor_Button', array(
 	  	    'str_EditorButtonCaption' => __( 'Table', WP_TABLE_RELOADED_TEXTDOMAIN ),
+	  	    'str_EditorButtonTitle' => __( 'Insert a Table', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	    'str_EditorButtonAjaxURL' => $ajax_url,
-            'l10n_print_after' => 'try{convertEntities(WP_Table_Reloaded_Admin);}catch(e){};'
+            'l10n_print_after' => 'try{convertEntities(WP_Table_Reloaded_Editor_Button);}catch(e){};'
         ) );
+
+        // TinyMCE integration
+        if ( user_can_richedit() ) {
+        	add_filter( 'mce_external_plugins', array( &$this, 'add_tinymce_plugin' ) );
+        	add_filter( 'mce_buttons', array( &$this, 'add_tinymce_button' ) );
+        }
+    }
+
+    /**
+     * Add "Table" button and separator to the TinyMCE toolbar
+     *
+     * @param array $buttons Current set of buttons in the TinyMCE toolbar
+     * @return array Current set of buttons in the TinyMCE toolbar, including "Table" button
+     */
+    function add_tinymce_button( $buttons ) {
+    	$buttons[] = '|';
+        $buttons[] = 'table';
+    	return $buttons;
+    }
+
+    /**
+     * Register "Table" button plugin to TinyMCE
+     *
+     * @param array $plugins Current set of registered TinyMCE plugins
+     * @return array Current set of registered TinyMCE plugins, including "Table" button plugin
+     */
+    function add_tinymce_plugin( $plugins ) {
+        $suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.dev' : '';
+        $jsfile = "admin/admin-tinymce-buttons-script{$suffix}.js";
+    	$plugins['table'] = plugins_url( $jsfile, WP_TABLE_RELOADED__FILE__ );
+    	return $plugins;
     }
 
     /**
