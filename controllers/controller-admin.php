@@ -199,11 +199,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
         $display_name = 'WP-Table Reloaded'; // the name that is displayed in the admin menu on the left
         $display_name = apply_filters( 'wp_table_reloaded_plugin_display_name', $display_name ); // can be filtered to something shorter maybe
 
-        if ( isset( $_POST['options']['admin_menu_parent_page'] ) )
-            $admin_menu_page = $_POST['options']['admin_menu_parent_page'];
-        else
-            $admin_menu_page = $this->options['admin_menu_parent_page'];
-        $admin_menu_page = apply_filters( 'wp_table_reloaded_admin_menu_parent_page', $admin_menu_page ); // plugins may filter/change this though
+        $admin_menu_page = apply_filters( 'wp_table_reloaded_admin_menu_parent_page', $this->options['admin_menu_parent_page'] ); // plugins may filter/change this though
         if ( !in_array( $admin_menu_page, $this->possible_admin_menu_parent_pages ) )
             $admin_menu_page = 'tools.php';
 
@@ -1088,6 +1084,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
                 else
                     $this->options['plugin_language'] = 'auto';
                 // admin menu parent page
+                $admin_menu_parent_page_changed = ( $this->options['admin_menu_parent_page'] != $new_options['admin_menu_parent_page'] );
                 if ( in_array( $new_options['admin_menu_parent_page'], $this->possible_admin_menu_parent_pages ) )
                     $this->options['admin_menu_parent_page'] = $new_options['admin_menu_parent_page'];
                 else
@@ -1115,7 +1112,13 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
 
             $this->update_options();
 
-            $this->helper->print_header_message( __( 'Options saved successfully.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
+            $message = __( 'Options saved successfully.', WP_TABLE_RELOADED_TEXTDOMAIN );
+            if ( $admin_menu_parent_page_changed ) {
+                $url = $this->get_action_url( array( 'action' => 'options' ), false );
+                $message .= ' ' . __( sprintf( '<a href="%s">Click here to Proceed.</a>', $url ), WP_TABLE_RELOADED_TEXTDOMAIN );
+            }
+
+            $this->helper->print_header_message( $message );
         }
         $this->load_view( 'options' );
     }
