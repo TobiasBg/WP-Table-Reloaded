@@ -3,7 +3,7 @@
 
 var ZeroClipboard = {
 	
-	version: "1.0.4",
+	version: "1.0.4-mod",
 	clients: {}, // registered upload clients on page, indexed by id
 	moviePath: 'zeroclipboard.swf', // URL to movie
 	nextId: 1, // ID of next movie
@@ -190,20 +190,44 @@ ZeroClipboard.Client.prototype = {
 		}
 	},
 	
+	clearText: function() {
+		// clear the text to be copy / saved
+		this.clipText = '';
+		if (this.ready) this.movie.clearText();
+	},
+	
+	appendText: function(newText) {
+		// append text to that which is to be copied / saved
+		this.clipText += newText;
+		if (this.ready) { this.movie.appendText(newText) ;}
+	},
+	
 	setText: function(newText) {
-		// set text to be copied to clipboard
+		// set text to be copied to be copied / saved
 		this.clipText = newText;
 		if (this.ready) { this.movie.setText(newText) ;}
 	},
 	
+	setCharSet: function(charSet) {
+		// set the character set (UTF16LE or UTF8)
+		this.charSet = charSet;
+		if (this.ready) { this.movie.setCharSet(charSet) ;}
+	},
+	
+	setBomInc: function(bomInc) {
+		// set if the BOM should be included or not
+		this.incBom = bomInc;
+		if (this.ready) { this.movie.setBomInc(bomInc) ;}
+	},
+	
 	setFileName: function(newText) {
-		// set text to be copied to clipboard
+		// set the file name
 		this.fileName = newText;
 		if (this.ready) this.movie.setFileName(newText);
 	},
 	
 	setAction: function(newText) {
-		// set text to be copied to clipboard
+		// set action (save or copy)
 		this.action = newText;
 		if (this.ready) this.movie.setAction(newText);
 	},
@@ -252,9 +276,12 @@ ZeroClipboard.Client.prototype = {
 				}
 				
 				this.ready = true;
-				this.movie.setText( this.clipText );
+				this.movie.clearText();
+				this.movie.appendText( this.clipText );
 				this.movie.setFileName( this.fileName );
 				this.movie.setAction( this.action );
+				this.movie.setCharSet( this.charSet );
+				this.movie.setBomInc( this.incBom );
 				this.movie.setHandCursor( this.handCursorEnabled );
 				break;
 			

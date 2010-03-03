@@ -1,6 +1,6 @@
 /*
  * File:        TableTools.js
- * Version:     1.0.4 dev
+ * Version:     1.1.3
  * CVS:         $Id$
  * Description: Copy, save and print functions for DataTables
  * Author:      Allan Jardine (www.sprymedia.co.uk)
@@ -11,7 +11,7 @@
  * Project:     Just a little bit of fun :-)
  * Contact:     www.sprymedia.co.uk/contact
  * 
- * Copyright 2009 Allan Jardine, all rights reserved.
+ * Copyright 2009-2010 Allan Jardine, all rights reserved.
  *
  */
 
@@ -27,8 +27,15 @@ var TableToolsInit = {
 		"bCopy": true,
 		"bPrint": true
 	},
+	"oBom": {
+		"bCsv": true,
+		"bXls": true,
+	},
+	"bIncFooter": true,
 	"bIncHiddenColumns": false,
-	"sPrintMessage": "",
+	"sPrintMessage": "", /* Message with will print with the table */
+	"sPrintInfo": "<h6>Print view</h6><p>Please use your browser's print function to "+
+		"print this table. Press escape when finished.", /* The 'fading' message */
 	"sTitle": "",
 	"sSwfPath": WP_Table_Reloaded_TableTools.swf_path,
 	"iButtonHeight": 30,
@@ -127,6 +134,8 @@ function TableTools ( oInit )
 		var clip = new ZeroClipboard.Client();
 		clip.setHandCursor( true );
 		clip.setAction( 'save' );
+		clip.setCharSet( 'UTF8' );
+		clip.setBomInc( _oSettings.oBom.bCsv );
 		clip.setFileName( fnGetTitle()+'.csv' );
 		
 		clip.addEventListener('mouseOver', function(client) {
@@ -138,7 +147,7 @@ function TableTools ( oInit )
 		} );
 		
 		clip.addEventListener('mouseDown', function(client) {
-			clip.setText( fnGetDataTablesData(",", TableToolsInit.sCsvBoundary) );
+			fnFlashSetText( clip, fnGetDataTablesData(",", TableToolsInit.sCsvBoundary) );
 		} );
 		
 		fnGlue( clip, nButton, "ToolTables_CSV_"+_iId, "Save as CSV" );
@@ -164,6 +173,8 @@ function TableTools ( oInit )
 		var clip = new ZeroClipboard.Client();
 		clip.setHandCursor( true );
 		clip.setAction( 'save' );
+		clip.setCharSet( 'UTF16LE' );
+		clip.setBomInc( _oSettings.oBom.bXls );
 		clip.setFileName( fnGetTitle()+'.xls' );
 		
 		clip.addEventListener('mouseOver', function(client) {
@@ -175,7 +186,7 @@ function TableTools ( oInit )
 		} );
 		
 		clip.addEventListener('mouseDown', function(client) {
-			clip.setText( fnGetDataTablesData("\t") );
+			fnFlashSetText( clip, fnGetDataTablesData("\t") );
 		} );
 		
 		fnGlue( clip, nButton, "ToolTables_XLS_"+_iId, "Save for Excel" );
@@ -211,12 +222,12 @@ function TableTools ( oInit )
 		} );
 		
 		clip.addEventListener('mouseDown', function(client) {
-			clip.setText( fnGetDataTablesData("\t") );
+			fnFlashSetText( clip, fnGetDataTablesData("\t") );
 		} );
 		
 		clip.addEventListener('complete', function (client, text) {
 			var aData = _sLastData.split('\n');
-			alert( 'Copied '+(aData.length-2)+' rows to the clipboard' );
+			alert( 'Copied '+(aData.length-1)+' rows to the clipboard' );
 		} );
 		
 		fnGlue( clip, nButton, "ToolTables_Copy_"+_iId, "Copy to clipboard" );
@@ -255,7 +266,9 @@ function TableTools ( oInit )
 			fnPrintHideNodes( _DTSettings.nTable );
 			
 			/* Show the whole table */
+			_iPrintSaveStart = _DTSettings._iDisplayStart;
 			_iPrintSaveLength = _DTSettings._iDisplayLength;
+			_DTSettings._iDisplayStart = 0;
 			_DTSettings._iDisplayLength = -1;
 			_DTSettings.oApi._fnCalculateEnd( _DTSettings );
 			_DTSettings.oApi._fnDraw( _DTSettings );
@@ -277,8 +290,7 @@ function TableTools ( oInit )
 			/* Add a node telling the user what is going on */
 			var nInfo = document.createElement( "div" );
 			nInfo.className = "TableTools_PrintInfo";
-			nInfo.innerHTML = "<h6>Print view</h6><p>Please use your browser's print function to "+
-				"print this table. Press escape when finished.";
+			nInfo.innerHTML = _oSettings.sPrintInfo;
 			document.body.appendChild( nInfo );
 			
 			/* Add a message at the top of the page */
@@ -334,6 +346,7 @@ function TableTools ( oInit )
 			}
 			
 			/* Restore the table length */
+			_DTSettings._iDisplayStart = _iPrintSaveStart;
 			_DTSettings._iDisplayLength = _iPrintSaveLength;
 			_DTSettings.oApi._fnCalculateEnd( _DTSettings );
 			_DTSettings.oApi._fnDraw( _DTSettings );
@@ -497,6 +510,102 @@ function TableTools ( oInit )
 	
 	
 	/*
+	 * Function: fnHtmlDecode
+	 * Purpose:  Decode HTML entities
+	 * Returns:  string: - decoded string
+	 * Inputs:   string:sData - encoded string
+	 */
+	function fnHtmlDecode( sData )
+	{
+		var 
+			aData = fnChunkData( sData, 2048 ),
+			n = document.createElement('div'),
+			i, iLen, iIndex,
+			sReturn = "", sInner;
+		
+		/* nodeValue has a limit in browsers - so we chunk the data into smaller segments to build
+		 * up the string. Note that the 'trick' here is to remember than we might have split over
+		 * an HTML entity, so we backtrack a little to make sure this doesn't happen
+		 */
+		for ( i=0, iLen=aData.length ; i<iLen ; i++ )
+		{
+			/* Magic number 8 is because no entity is longer then strlen 8 in ISO 8859-1 */
+			iIndex = aData[i].lastIndexOf( '&' );
+			if ( iIndex != -1 && aData[i].length >= 8 && iIndex > aData[i].length - 8 )
+			{
+				sInner = aData[i].substr( iIndex );
+				aData[i] = aData[i].substr( 0, iIndex );
+			}
+			
+			n.innerHTML = aData[i];
+			sReturn += n.childNodes[0].nodeValue;
+		}
+		
+		return sReturn;
+	}
+	
+	
+	//function fnHtmlDecode( sData )
+	//{
+	//	var n = document.createElement('div');
+	//	n.innerHTML = sData;
+	//	return n.childNodes[0].nodeValue;
+	//}
+	
+	
+	/*
+	 * Function: fnChunkData
+	 * Purpose:  Break a string up into an array of smaller strings
+	 * Returns:  array strings: - string array
+	 * Inputs:   string:sData - data to be broken up
+	 *           int:iSize - chunk size
+	 */
+	function fnChunkData( sData, iSize )
+	{
+		var asReturn = [];
+		var iStrlen = sData.length;
+		
+		for ( var i=0 ; i<iStrlen ; i+=iSize )
+		{
+			if ( i+iSize < iStrlen )
+			{
+				asReturn.push( sData.substring( i, i+iSize ) );
+			}
+			else
+			{
+				asReturn.push( sData.substring( i, iStrlen ) );
+			}
+		}
+		
+		return asReturn;
+	}
+	
+	
+	/*
+	 * Function: fnFlashSetText
+	 * Purpose:  Set the text for the flash clip to deal with
+	 * Returns:  -
+	 * Inputs:   object:clip - the ZeroClipboard object
+	 *           string:sData - the data to be set
+	 * Notes:    This function is required for large information sets. There is a limit on the 
+	 *   amount of data that can be transfered between Javascript and Flash in a single call, so
+	 *   we use this method to build up the text in Flash by sending over chunks. It is estimated
+	 *   that the data limit is around 64k, although it is undocuments, and appears to be different
+	 *   between different flash versions. We chunk at 8KiB.
+	 */
+	function fnFlashSetText( clip, sData )
+	{
+		var asData = fnChunkData( sData, 8192 );
+		
+		clip.clearText();
+		for ( var i=0, iLen=asData.length ; i<iLen ; i++ )
+		{
+			clip.appendText( asData[i] );
+		}
+	}
+	
+	
+	/*
 	 * Function: fnGetDataTablesData
 	 * Purpose:  Get data from DataTables' internals and format it for output
 	 * Returns:  string:sData - concatinated string of data
@@ -523,6 +632,11 @@ function TableTools ( oInit )
 			if ( _oSettings.bIncHiddenColumns === true || _DTSettings.aoColumns[i].bVisible )
 			{
 				sLoopData = _DTSettings.aoColumns[i].sTitle.replace(/\n/g," ").replace( /<.*?>/g, "" );
+				if ( sLoopData.indexOf( '&' ) != -1 )
+				{
+					sLoopData = fnHtmlDecode( sLoopData );
+				}
+				
 				sData += fnBoundData( sLoopData, sBoundary, regex ) + sSeperator;
 			}
 		}
@@ -541,12 +655,24 @@ function TableTools ( oInit )
 					var mTypeData = _DTSettings.aoData[ _DTSettings.aiDisplay[j] ]._aData[ i ];
 					if ( typeof mTypeData == "string" )
 					{
-						sLoopData = mTypeData.replace(/\n/g," ").replace( /<.*?>/g, "" );
+						/* Strip newlines, replace img tags with alt attr. and finally strip html... */
+						sLoopData = mTypeData.replace(/\n/g," ");
+						sLoopData = sLoopData.replace(/<img.*?\s+alt\s*=\s*(?:"([^"]+)"|'([^']+)'|([^\s>]+)).*?>/gi, '$1$2$3')
+						sLoopData = sLoopData.replace( /<.*?>/g, "" );
 					}
 					else
 					{
 						sLoopData = mTypeData+"";
 					}
+					
+					/* Trim and clean the data */
+					sLoopData = sLoopData.replace(/^\s+/, '').replace(/\s+$/, '');
+					if ( sLoopData.indexOf( '&' ) != -1 )
+					{
+						sLoopData = fnHtmlDecode( sLoopData );
+					}
+					
+					/* Bound it and add it to the total data */
 					sData += fnBoundData( sLoopData, sBoundary, regex ) + sSeperator;
 				}
 			}
@@ -557,6 +683,27 @@ function TableTools ( oInit )
 		/* Remove the last new line */
 		sData.slice( 0, -1 );
 		
+		/* Add the footer */
+		if ( _oSettings.bIncFooter )
+		{
+			for ( i=0, iLen=_DTSettings.aoColumns.length ; i<iLen ; i++ )
+			{
+				if ( _DTSettings.aoColumns[i].nTf !== null &&
+					(_oSettings.bIncHiddenColumns === true || _DTSettings.aoColumns[i].bVisible) )
+				{
+					sLoopData = _DTSettings.aoColumns[i].nTf.innerHTML.replace(/\n/g," ").replace( /<.*?>/g, "" );
+					if ( sLoopData.indexOf( '&' ) != -1 )
+					{
+						sLoopData = fnHtmlDecode( sLoopData );
+					}
+					
+					sData += fnBoundData( sLoopData, sBoundary, regex ) + sSeperator;
+				}
+			}
+			sData = sData.slice( 0, sSeperator.length*-1 );
+		}
+		
+		/* No pointers here - this is a string copy :-) */
 		_sLastData = sData;
 		return sData;
 	}
@@ -582,7 +729,7 @@ if ( typeof $.fn.dataTable == "function" && typeof $.fn.dataTableExt.sVersion !=
 }
 else
 {
-	alert( "Warning: TableTools requires DataTables 1.5 beta 9 or greater - "+
+	alert( "Warning: TableTools requires DataTables 1.5 or greater - "+
 		"www.datatables.net/download");
 }
 })(jQuery);
