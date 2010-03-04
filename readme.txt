@@ -3,7 +3,7 @@ Contributors: TobiasBg
 Donate link: http://tobias.baethge.com/donate/
 Tags: html,table,data,editor,csv,import,export,excel,widget,admin,sidebar
 Requires at least: 2.8
-Tested up to: 2.9.1
+Tested up to: 3.0-alpha
 Stable tag: 1.6.1
 
 WP-Table Reloaded lets you manage tables in a comfortable backend in WP's admin area, without any knowledge of HTML, and can add valuable features.
@@ -99,12 +99,21 @@ Thanks to every donor, supporter and bug reporter!
 
 == License ==
 
-This plugin is Free Software, released under the GPL version 2.
+This plugin is Free Software, released under the GPL, version 2.
 You may use it free of charge for any purposes.
 I kindly ask you for link somewhere on your website to http://tobias.baethge.com/. This is not required!
 I'm also happy about [donations](http://tobias.baethge.com/donate/) or something from [my wishlist](http://tobias.baethge.com/wishlist)! Thanks!
 
 == Changelog ==
+
+= Version 1.7 =
+* feature: add "Table" button to the visual editor (TinyMCE)
+* feature: update DataTables JavaScript library to version 1.6.2, including TableTools
+* enhancement: add option for initial number of rows per pagination page
+* enhancement: add value "all" to the four Shortcode parameters show_rows, hide_rows, show_columns, hide_columns
+* enhancement: add WP-Table Reloaded screen icon to all plugin screens and the Top-Level menu entry
+* enhancement: add two template tag functions that return the output instead of echoing it
+* bugfix: fix problem with admin menu parent pages, make them ready for WP 3.0
 
 = Version 1.6.1 =
 * enhancement: let WP Search also search table name and description
@@ -203,8 +212,11 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 
 == Upgrade Notice ==
 
+= 1.7 =
+This upgrade ...[to be written].
+
 = 1.6.1 =
-This upgrade fixed a few minor bugs and enhances the WP Search integration and the import.
+This upgrade fixes a few minor bugs and enhances the WP Search integration and the import.
 
 = 1.6 =
 This upgrade adds features like "colspan"/"rowspan" support, support for the WP Search, and more. WordPress 2.8 or higher is now required!

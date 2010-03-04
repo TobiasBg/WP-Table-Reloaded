@@ -4,27 +4,28 @@
  *
  * @package WP-Table Reloaded
  * @author Tobias B&auml;thge
- * @version 1.6
+ * @version 1.7-beta1
  */
 
 /*
 Plugin Name: WP-Table Reloaded
 Plugin URI: http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/
 Description: This plugin allows you to create and easily manage tables in the admin-area of WordPress. A comfortable backend allows an easy manipulation of table data. You can then include the tables into your posts, on your pages or in text widgets by using a shortcode or a template tag function. Tables can be imported and exported from/to CSV, XML and HTML.
-Version: 1.7-alpha
+Version: 1.7-beta1
 Author: Tobias B&auml;thge
 Author URI: http://tobias.baethge.com/
 Author eMail: wordpress@tobias.baethge.com
 Text Domain: wp-table-reloaded
 Domain Path: /languages
+License: GPL 2
 Donate URI: http://tobias.baethge.com/donate/
 */
 
-/*  Copyright 2009 Tobias B&auml;thge
+/*  Copyright 2009-2010 Tobias B&auml;thge
 
     This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; version 2 of the License (GPL v2) only.
+    it under the terms of the GNU General Public License, version 2, as
+    published by the Free Software Foundation.
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -46,7 +47,7 @@ if ( !defined( 'WP_TABLE_RELOADED_BASENAME' ) )
 if ( !defined( 'WP_TABLE_RELOADED__FILE__' ) )
     define( 'WP_TABLE_RELOADED__FILE__', __FILE__ );
 if ( !defined( 'WP_TABLE_RELOADED_PLUGIN_VERSION' ) )
-    define( 'WP_TABLE_RELOADED_PLUGIN_VERSION', '1.7-alpha' );
+    define( 'WP_TABLE_RELOADED_PLUGIN_VERSION', '1.7-beta1' );
 
 /**
  * Decide whether admin controller or frontend controller is loaded
