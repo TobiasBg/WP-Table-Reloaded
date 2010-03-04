@@ -1,4 +1,4 @@
-# Translation of the WordPress plugin WP-Table Reloaded 1.6-RC1 by Tobias B&auml;thge.
+# Translation of the WordPress plugin WP-Table Reloaded 1.7-beta1 by Tobias B&auml;thge.
 # Copyright (C) 2010 Tobias B&auml;thge
 # This file is distributed under the same license as the WP-Table Reloaded package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: WP-Table Reloaded 1.6-RC1\n"
+"Project-Id-Version: WP-Table Reloaded 1.7-beta1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-table-reloaded\n"
-"POT-Creation-Date: 2010-01-04 18:55+0000\n"
+"POT-Creation-Date: 2010-03-04 21:16+0000\n"
 "PO-Revision-Date: 2010-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -114,6 +114,12 @@ msgstr ""
 msgid "Repeat this to add the keyword to all cells that shall be connected."
 msgstr ""
 
+#: classes/helper.class.php:104 classes/helper.class.php:109
+msgid ""
+"Be aware that the JavaScript libraries will not work on tables which have "
+"combined cells."
+msgstr ""
+
 #: classes/helper.class.php:109
 msgid ""
 "Combining consecutive cells within the same column is called \"rowspanning\"."
@@ -133,79 +139,83 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: controllers/controller-admin.php:292
+#: controllers/controller-admin.php:256
 msgid "Czech"
 msgstr ""
 
-#: controllers/controller-admin.php:293
+#: controllers/controller-admin.php:257
 msgid "German"
 msgstr ""
 
-#: controllers/controller-admin.php:294
+#: controllers/controller-admin.php:258
 msgid "English"
 msgstr ""
 
-#: controllers/controller-admin.php:295
-msgid "Hindi"
-msgstr ""
-
-#: controllers/controller-admin.php:296
-msgid "Japanese"
-msgstr ""
-
-#: controllers/controller-admin.php:297
-msgid "Brazilian Portuguese"
-msgstr ""
-
-#: controllers/controller-admin.php:298
-msgid "Slovak"
-msgstr ""
-
-#: controllers/controller-admin.php:299
-msgid "Swedish"
-msgstr ""
-
-#: controllers/controller-admin.php:301
-msgid "Albanian"
-msgstr ""
-
-#: controllers/controller-admin.php:302
-msgid "Belorussian"
-msgstr ""
-
-#: controllers/controller-admin.php:303
-msgid "Estonian"
-msgstr ""
-
-#: controllers/controller-admin.php:304
-msgid "Finnish"
-msgstr ""
-
-#: controllers/controller-admin.php:305
-msgid "French"
-msgstr ""
-
-#: controllers/controller-admin.php:306
-msgid "Italian"
-msgstr ""
-
-#: controllers/controller-admin.php:307
-msgid "Polish"
-msgstr ""
-
-#: controllers/controller-admin.php:308
-msgid "Russian"
-msgstr ""
-
-#: controllers/controller-admin.php:309
+#: controllers/controller-admin.php:259
 msgid "Spanish"
 msgstr ""
 
-#: controllers/controller-admin.php:310
+#: controllers/controller-admin.php:260
+msgid "Finnish"
+msgstr ""
+
+#: controllers/controller-admin.php:261
+msgid "Hindi"
+msgstr ""
+
+#: controllers/controller-admin.php:262
+msgid "Italian"
+msgstr ""
+
+#: controllers/controller-admin.php:263
+msgid "Japanese"
+msgstr ""
+
+#: controllers/controller-admin.php:264
+msgid "Brazilian Portuguese"
+msgstr ""
+
+#: controllers/controller-admin.php:265
+msgid "Chinese (Simplified)"
+msgstr ""
+
+#: controllers/controller-admin.php:266
+msgid "Russian"
+msgstr ""
+
+#: controllers/controller-admin.php:267
+msgid "Slovak"
+msgstr ""
+
+#: controllers/controller-admin.php:268
+msgid "Swedish"
+msgstr ""
+
+#: controllers/controller-admin.php:270
+msgid "Albanian"
+msgstr ""
+
+#: controllers/controller-admin.php:271
+msgid "Belorussian"
+msgstr ""
+
+#: controllers/controller-admin.php:272
+msgid "Estonian"
+msgstr ""
+
+#: controllers/controller-admin.php:273
+msgid "French"
+msgstr ""
+
+#: controllers/controller-admin.php:274
+msgid "Polish"
+msgstr ""
+
+#: controllers/controller-admin.php:275
 msgid "Turkish"
 msgstr ""
 
-#: controllers/controller-admin.php:336
+#: controllers/controller-admin.php:301
 #, php-format
 msgid ""
 "Welcome to WP-Table Reloaded %s. If you encounter any questions or problems, "
@@ -213,41 +223,42 @@ msgid ""
 "\">documentation</a>, and the <a href=\"%s\">support</a> section."
 msgstr ""
 
-#: controllers/controller-admin.php:337
+#: controllers/controller-admin.php:302
 #, php-format
 msgid "Thank you for upgrading to WP-Table Reloaded %s."
 msgstr ""
 
-#: controllers/controller-admin.php:337
+#: controllers/controller-admin.php:302
 msgid ""
-"Among other things, this version adds support for \"colspan\" and \"rowspan"
-"\" of table cells and enables the WP Search to search through tables."
+"This version includes several enhancements, like an updated DataTables "
+"library, a &quot;Table&quot; button in the toolbar of the visual editor, and "
+"several other things."
 msgstr ""
 
-#: controllers/controller-admin.php:337
+#: controllers/controller-admin.php:302
 #, php-format
 msgid ""
 "Please read the <a href=\"%s\">release announcement</a> for more information."
 msgstr ""
 
-#: controllers/controller-admin.php:337
+#: controllers/controller-admin.php:302
 #, php-format
 msgid ""
 "If you like the new features and enhancements, I would appreciate a small <a "
 "href=\"%s\">donation</a>. Thank you."
 msgstr ""
 
-#: controllers/controller-admin.php:342
+#: controllers/controller-admin.php:307
 msgid "Hide this message"
 msgstr ""
 
-#: controllers/controller-admin.php:350
+#: controllers/controller-admin.php:315
 msgid ""
 "Thanks for using this plugin! You've installed WP-Table Reloaded over a "
 "month ago."
 msgstr ""
 
-#: controllers/controller-admin.php:350
+#: controllers/controller-admin.php:315
 #, php-format
 msgid ""
 "If it works and you are satisfied with the results of managing your %s "
@@ -258,7 +269,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: controllers/controller-admin.php:351
+#: controllers/controller-admin.php:316
 #, php-format
 msgid ""
 "<a href=\"%s\">Donations</a> help me to continue support and development of "
@@ -266,247 +277,252 @@ msgid ""
 "free time! Thank you!"
 msgstr ""
 
-#: controllers/controller-admin.php:352
+#: controllers/controller-admin.php:317
 msgid "Sure, no problem!"
 msgstr ""
 
-#: controllers/controller-admin.php:353
+#: controllers/controller-admin.php:318
 msgid "I already donated."
 msgstr ""
 
-#: controllers/controller-admin.php:354
+#: controllers/controller-admin.php:319
 msgid "No, thanks. Don't ask again."
 msgstr ""
 
-#: controllers/controller-admin.php:382
+#: controllers/controller-admin.php:347
 #, php-format
 msgid "Table &quot;%s&quot; added successfully."
 msgstr ""
 
-#: controllers/controller-admin.php:413
+#: controllers/controller-admin.php:378
 #, php-format
 msgid ""
 "Table edited successfully. This Table now has the ID %s. You'll need to "
 "adjust existing shortcodes accordingly."
 msgstr ""
 
-#: controllers/controller-admin.php:415
+#: controllers/controller-admin.php:380
 #, php-format
 msgid ""
 "The ID could not be changed from %s to %s, because there already is a Table "
 "with that ID."
 msgstr ""
 
-#: controllers/controller-admin.php:418
+#: controllers/controller-admin.php:383
 msgid "Table edited successfully."
 msgstr ""
 
-#: controllers/controller-admin.php:464
+#: controllers/controller-admin.php:430
 msgid "Rows swapped successfully."
 msgstr ""
 
-#: controllers/controller-admin.php:485
+#: controllers/controller-admin.php:451
 msgid "Columns swapped successfully."
 msgstr ""
 
-#: controllers/controller-admin.php:514
+#: controllers/controller-admin.php:480
 msgid "Table sorted successfully."
 msgstr ""
 
-#: controllers/controller-admin.php:535
+#: controllers/controller-admin.php:501
 msgid "Row moved successfully."
 msgstr ""
 
-#: controllers/controller-admin.php:560
+#: controllers/controller-admin.php:526
 msgid "Column moved successfully."
 msgstr ""
 
-#: controllers/controller-admin.php:568
+#: controllers/controller-admin.php:534
 msgid "Row could not be deleted."
 msgid_plural "Rows could not be deleted."
 msgstr[0] ""
 msgstr[1] ""
 
-#: controllers/controller-admin.php:577
+#: controllers/controller-admin.php:543
 msgid "Row deleted successfully."
 msgid_plural "Rows deleted successfully."
 msgstr[0] ""
 msgstr[1] ""
 
-#: controllers/controller-admin.php:587
+#: controllers/controller-admin.php:553
 msgid "Column could not be deleted."
 msgid_plural "Columns could not be deleted."
 msgstr[0] ""
 msgstr[1] ""
 
-#: controllers/controller-admin.php:600
+#: controllers/controller-admin.php:566
 msgid "Column deleted successfully."
 msgid_plural "Columns deleted successfully."
 msgstr[0] ""
 msgstr[1] ""
 
-#: controllers/controller-admin.php:623
+#: controllers/controller-admin.php:589
 msgid "Row inserted successfully."
 msgid_plural "Rows inserted successfully."
 msgstr[0] ""
 msgstr[1] ""
 
-#: controllers/controller-admin.php:650
+#: controllers/controller-admin.php:616
 msgid "Column inserted successfully."
 msgid_plural "Columns inserted successfully."
 msgstr[0] ""
 msgstr[1] ""
 
-#: controllers/controller-admin.php:665
+#: controllers/controller-admin.php:631
 msgid "Row added successfully."
 msgid_plural "Rows added successfully."
 msgstr[0] ""
 msgstr[1] ""
 
-#: controllers/controller-admin.php:679
+#: controllers/controller-admin.php:645
 msgid "Column added successfully."
 msgid_plural "Columns added successfully."
 msgstr[0] ""
 msgstr[1] ""
 
-#: controllers/controller-admin.php:686
+#: controllers/controller-admin.php:652
 msgid "Could not add Custom Data Field, because you did not enter a name."
 msgstr ""
 
-#: controllers/controller-admin.php:691
+#: controllers/controller-admin.php:657
 msgid ""
 "Could not add Custom Data Field, because the name you entered is reserved "
 "for other table data."
 msgstr ""
 
-#: controllers/controller-admin.php:697
+#: controllers/controller-admin.php:663
 msgid ""
 "Could not add Custom Data Field, because the name contained illegal "
 "characters."
 msgstr ""
 
-#: controllers/controller-admin.php:701
+#: controllers/controller-admin.php:667
 msgid ""
 "Could not add Custom Data Field, because a Field with that name already "
 "exists."
 msgstr ""
 
-#: controllers/controller-admin.php:707
+#: controllers/controller-admin.php:673
 msgid "Custom Data Field added successfully."
 msgstr ""
 
-#: controllers/controller-admin.php:747 controllers/controller-admin.php:803
+#: controllers/controller-admin.php:713 controllers/controller-admin.php:769
 msgid "Copy of"
 msgstr ""
 
-#: controllers/controller-admin.php:751
+#: controllers/controller-admin.php:717
 msgid "Table copied successfully."
 msgid_plural "Tables copied successfully."
 msgstr[0] ""
 msgstr[1] ""
 
-#: controllers/controller-admin.php:757
+#: controllers/controller-admin.php:723
 msgid "Table deleted successfully."
 msgid_plural "Tables deleted successfully."
 msgstr[0] ""
 msgstr[1] ""
 
-#: controllers/controller-admin.php:778 controllers/controller-admin.php:916
-#: controllers/controller-admin.php:954
+#: controllers/controller-admin.php:744 controllers/controller-admin.php:899
+#: controllers/controller-admin.php:937
 msgid "Table imported successfully."
 msgid_plural "Tables imported successfully."
 msgstr[0] ""
 msgstr[1] ""
 
-#: controllers/controller-admin.php:785
+#: controllers/controller-admin.php:751
 msgid "You did not select any tables!"
 msgstr ""
 
-#: controllers/controller-admin.php:808
+#: controllers/controller-admin.php:774
 #, php-format
 msgid "Table &quot;%s&quot; copied successfully."
 msgstr ""
 
-#: controllers/controller-admin.php:826
+#: controllers/controller-admin.php:792
 #, php-format
 msgid "Table &quot;%s&quot; deleted successfully."
 msgstr ""
 
-#: controllers/controller-admin.php:834
+#: controllers/controller-admin.php:800
 msgid "Custom Data Field deleted successfully."
 msgstr ""
 
-#: controllers/controller-admin.php:836
+#: controllers/controller-admin.php:802
 msgid "Custom Data Field could not be deleted."
 msgstr ""
 
-#: controllers/controller-admin.php:842
+#: controllers/controller-admin.php:808
 msgid "Delete failed."
 msgstr ""
 
-#: controllers/controller-admin.php:870 controllers/controller-admin.php:879
-#: controllers/controller-admin.php:889
+#: controllers/controller-admin.php:840 controllers/controller-admin.php:850
+#: controllers/controller-admin.php:861
 msgid "Imported Table"
 msgstr ""
 
-#: controllers/controller-admin.php:871 controllers/controller-admin.php:890
+#: controllers/controller-admin.php:841 controllers/controller-admin.php:862
 #, php-format
 msgid "from %s"
 msgstr ""
 
-#: controllers/controller-admin.php:880
+#: controllers/controller-admin.php:851
 msgid "via form"
 msgstr ""
 
-#: controllers/controller-admin.php:900 controllers/controller-admin.php:932
+#: controllers/controller-admin.php:878 controllers/controller-admin.php:915
 msgid "Table could not be imported."
 msgstr ""
 
-#: controllers/controller-admin.php:912
+#: controllers/controller-admin.php:895
 #, php-format
 msgid "Table %s (%s) replaced successfully."
 msgstr ""
 
-#: controllers/controller-admin.php:962 controllers/controller-admin.php:1148
+#: controllers/controller-admin.php:945 controllers/controller-admin.php:1138
 msgid "You do not have sufficient rights to perform this action."
 msgstr ""
 
-#: controllers/controller-admin.php:969
+#: controllers/controller-admin.php:952
 msgid "You did not upload a WP-Table Reloaded dump file."
 msgstr ""
 
-#: controllers/controller-admin.php:978
+#: controllers/controller-admin.php:961
 msgid "The uploaded dump file is empty. Please upload a valid dump file."
 msgstr ""
 
-#: controllers/controller-admin.php:1007
+#: controllers/controller-admin.php:990
 msgid "All Tables, Settings and Options were successfully imported."
 msgstr ""
 
-#: controllers/controller-admin.php:1036
+#: controllers/controller-admin.php:1019
 #, php-format
 msgid "Table &quot;%s&quot; exported successfully."
 msgstr ""
 
-#: controllers/controller-admin.php:1081 views/view-options.php:223
+#: controllers/controller-admin.php:1064 views/view-options.php:232
 msgid "You do not have sufficient rights to access the Plugin Options."
 msgstr ""
 
-#: controllers/controller-admin.php:1135
+#: controllers/controller-admin.php:1119
 msgid "Options saved successfully."
 msgstr ""
 
-#: controllers/controller-admin.php:1198
+#: controllers/controller-admin.php:1122
+#, php-format
+msgid "<a href=\"%s\">Click here to Proceed.</a>"
+msgstr ""
+
+#: controllers/controller-admin.php:1188
 msgid "There is no table with this ID!"
 msgstr ""
 
-#: controllers/controller-admin.php:1235
+#: controllers/controller-admin.php:1225
 msgid ""
 "Thank you very much! Your donation is highly appreciated. You just "
 "contributed to the further development of WP-Table Reloaded!"
 msgstr ""
 
-#: controllers/controller-admin.php:1237
+#: controllers/controller-admin.php:1227
 #, php-format
 msgid ""
 "No problem! I still hope you enjoy the benefits that WP-Table Reloaded "
@@ -515,57 +531,57 @@ msgid ""
 "a>."
 msgstr ""
 
-#: controllers/controller-admin.php:1237 controllers/controller-admin.php:1655
+#: controllers/controller-admin.php:1227 controllers/controller-admin.php:1655
 msgid "Donate"
 msgstr ""
 
-#: controllers/controller-admin.php:1264 controllers/controller-admin.php:1272
+#: controllers/controller-admin.php:1250 controllers/controller-admin.php:1257
 msgid "List of Tables"
 msgstr ""
 
-#. #-#-#-#-#  plugin.pot (WP-Table Reloaded 1.6-RC1)  #-#-#-#-#
+#. #-#-#-#-#  plugin.pot (WP-Table Reloaded 1.7-beta1)  #-#-#-#-#
 #. Plugin Name of an extension
-#: controllers/controller-admin.php:1264 controllers/controller-admin.php:1269
-#: controllers/controller-admin.php:1271
+#: controllers/controller-admin.php:1250 controllers/controller-admin.php:1254
+#: controllers/controller-admin.php:1256
 msgid "WP-Table Reloaded"
 msgstr ""
 
-#: controllers/controller-admin.php:1265 controllers/controller-admin.php:1295
+#: controllers/controller-admin.php:1251 controllers/controller-admin.php:1287
 msgid "Add new Table"
 msgstr ""
 
-#: controllers/controller-admin.php:1266
+#: controllers/controller-admin.php:1252 controllers/controller-admin.php:1288
+msgid "Import a Table"
+msgstr ""
+
+#: controllers/controller-admin.php:1253 controllers/controller-admin.php:1289
+msgid "Export a Table"
+msgstr ""
+
+#: controllers/controller-admin.php:1254 controllers/controller-admin.php:1295
+#: views/view-edit.php:342 views/view-edit.php:357 views/view-export.php:10
+msgid "Plugin Options"
+msgstr ""
+
+#: controllers/controller-admin.php:1255
+msgid "About WP-Table Reloaded"
+msgstr ""
+
+#: controllers/controller-admin.php:1263
 #, php-format
 msgid "Edit Table &quot;%s&quot; (ID %s)"
 msgstr ""
 
-#: controllers/controller-admin.php:1267 controllers/controller-admin.php:1296
-msgid "Import a Table"
-msgstr ""
-
-#: controllers/controller-admin.php:1268 controllers/controller-admin.php:1297
-msgid "Export a Table"
-msgstr ""
-
-#: controllers/controller-admin.php:1269 controllers/controller-admin.php:1303
-#: views/view-edit.php:338 views/view-edit.php:353 views/view-export.php:10
-msgid "Plugin Options"
-msgstr ""
-
-#: controllers/controller-admin.php:1270
-msgid "About WP-Table Reloaded"
-msgstr ""
-
-#: controllers/controller-admin.php:1273
+#: controllers/controller-admin.php:1264
 #, php-format
 msgid "Preview of Table &quot;%s&quot; (ID %s)"
 msgstr ""
 
-#: controllers/controller-admin.php:1294
+#: controllers/controller-admin.php:1286
 msgid "List Tables"
 msgstr ""
 
-#: controllers/controller-admin.php:1304
+#: controllers/controller-admin.php:1296
 msgid "About the plugin"
 msgstr ""
 
@@ -623,7 +639,8 @@ msgstr ""
 
 #: controllers/controller-admin.php:1698
 msgid ""
-"To insert an image, click the cell into which you want to insert the image."
+"To insert an image, click &quot;OK&quot; and then click into the cell into "
+"which you want to insert the image."
 msgstr ""
 
 #: controllers/controller-admin.php:1698
@@ -747,53 +764,57 @@ msgid ""
 msgstr ""
 
 #: controllers/controller-admin.php:1723 views/view-edit.php:41
-#: views/view-edit.php:253 views/view-edit.php:392 views/view-edit.php:443
+#: views/view-edit.php:253 views/view-edit.php:405 views/view-edit.php:456
 msgid "Update Changes"
 msgstr ""
 
-#: controllers/controller-admin.php:1765 views/view-about.php:14
+#: controllers/controller-admin.php:1766 views/view-about.php:14
 #: views/view-list.php:2
 msgid "Table"
 msgstr ""
 
-#: controllers/controller-admin.php:1795
+#: controllers/controller-admin.php:1767
+msgid "Insert a Table"
+msgstr ""
+
+#: controllers/controller-admin.php:1828
 msgid "Please wait..."
 msgstr ""
 
-#: controllers/controller-admin.php:1796
+#: controllers/controller-admin.php:1829
 msgid "Show _MENU_ Tables"
 msgstr ""
 
-#: controllers/controller-admin.php:1797 views/view-ajax_list.php:53
+#: controllers/controller-admin.php:1830 views/view-ajax_list.php:53
 #: views/view-export.php:71 views/view-list.php:88
 msgid "No tables were found."
 msgstr ""
 
-#: controllers/controller-admin.php:1798
+#: controllers/controller-admin.php:1831
 msgid "_START_ to _END_ of _TOTAL_ Tables"
 msgstr ""
 
-#: controllers/controller-admin.php:1799
+#: controllers/controller-admin.php:1832
 msgid "(filtered from _MAX_ Tables)"
 msgstr ""
 
-#: controllers/controller-admin.php:1800
+#: controllers/controller-admin.php:1833
 msgid "Filter:"
 msgstr ""
 
-#: controllers/controller-admin.php:1801
+#: controllers/controller-admin.php:1834
 msgid "First"
 msgstr ""
 
-#: controllers/controller-admin.php:1802
+#: controllers/controller-admin.php:1835
 msgid "Back"
 msgstr ""
 
-#: controllers/controller-admin.php:1803
+#: controllers/controller-admin.php:1836
 msgid "Next"
 msgstr ""
 
-#: controllers/controller-admin.php:1804
+#: controllers/controller-admin.php:1837
 msgid "Last"
 msgstr ""
 
@@ -967,47 +988,47 @@ msgstr ""
 msgid "the submitters of translations:"
 msgstr ""
 
-#: views/view-about.php:70
+#: views/view-about.php:76
 #, php-format
 msgid "%s (thanks to %s)"
 msgstr ""
 
-#: views/view-about.php:73
+#: views/view-about.php:79
 msgid ""
 "and to all donors, contributors, supporters, reviewers and users of the "
 "plugin!"
 msgstr ""
 
-#: views/view-about.php:79
+#: views/view-about.php:85
 msgid "Debug and Version Information"
 msgstr ""
 
-#: views/view-about.php:79 views/view-edit.php:15 views/view-edit.php:51
-#: views/view-edit.php:104 views/view-edit.php:262 views/view-edit.php:349
-#: views/view-edit.php:401 views/view-options.php:19 views/view-options.php:70
-#: views/view-options.php:87 views/view-options.php:175
-#: views/view-options.php:186
+#: views/view-about.php:85 views/view-edit.php:15 views/view-edit.php:51
+#: views/view-edit.php:104 views/view-edit.php:262 views/view-edit.php:353
+#: views/view-edit.php:414 views/view-options.php:19 views/view-options.php:70
+#: views/view-options.php:87 views/view-options.php:184
+#: views/view-options.php:195
 msgctxt "expand"
 msgid "Hide"
 msgstr ""
 
-#: views/view-about.php:79 views/view-edit.php:15 views/view-edit.php:51
-#: views/view-edit.php:104 views/view-edit.php:262 views/view-edit.php:349
-#: views/view-edit.php:401 views/view-options.php:19 views/view-options.php:70
-#: views/view-options.php:87 views/view-options.php:175
-#: views/view-options.php:186
+#: views/view-about.php:85 views/view-edit.php:15 views/view-edit.php:51
+#: views/view-edit.php:104 views/view-edit.php:262 views/view-edit.php:353
+#: views/view-edit.php:414 views/view-options.php:19 views/view-options.php:70
+#: views/view-options.php:87 views/view-options.php:184
+#: views/view-options.php:195
 msgid "Expand"
 msgstr ""
 
-#: views/view-about.php:82
+#: views/view-about.php:88
 msgid "You are using the following versions of the software."
 msgstr ""
 
-#: views/view-about.php:82
+#: views/view-about.php:88
 msgid "Please provide this information in bug reports."
 msgstr ""
 
-#: views/view-about.php:85
+#: views/view-about.php:91
 msgid "Plugin installed"
 msgstr ""
 
@@ -1082,7 +1103,7 @@ msgid "ID"
 msgstr ""
 
 #: views/view-ajax_list.php:16 views/view-ajax_list.php:24
-#: views/view-edit.php:413 views/view-import.php:101 views/view-import.php:110
+#: views/view-edit.php:426 views/view-import.php:101 views/view-import.php:110
 msgid "Action"
 msgstr ""
 
@@ -1124,14 +1145,14 @@ msgstr ""
 msgid "by"
 msgstr ""
 
-#: views/view-edit.php:42 views/view-edit.php:254 views/view-edit.php:393
-#: views/view-edit.php:444
+#: views/view-edit.php:42 views/view-edit.php:254 views/view-edit.php:406
+#: views/view-edit.php:457
 msgid "Save and go back"
 msgstr ""
 
-#: views/view-edit.php:45 views/view-edit.php:257 views/view-edit.php:396
-#: views/view-edit.php:447 views/view-options.php:65
-#: views/view-options.php:162
+#: views/view-edit.php:45 views/view-edit.php:257 views/view-edit.php:409
+#: views/view-edit.php:460 views/view-options.php:65
+#: views/view-options.php:171
 msgid "Cancel"
 msgstr ""
 
@@ -1235,7 +1256,7 @@ msgstr ""
 msgid "Add %s row(s)"
 msgstr ""
 
-#: views/view-edit.php:172 views/view-edit.php:175 views/view-edit.php:438
+#: views/view-edit.php:172 views/view-edit.php:175 views/view-edit.php:451
 msgid "Add"
 msgstr ""
 
@@ -1311,7 +1332,9 @@ msgid "Table head"
 msgstr ""
 
 #: views/view-edit.php:276
-msgid "The first row of your table is the table head (HTML tag &lt;th&gt;)."
+msgid ""
+"The first row of your table is the table head (HTML tags &lt;thead&gt; and "
+"&lt;th&gt;)."
 msgstr ""
 
 #: views/view-edit.php:279
@@ -1319,71 +1342,73 @@ msgid "Table footer"
 msgstr ""
 
 #: views/view-edit.php:280
-msgid "The last row of your table is the table footer (HTML tag &lt;th&gt;)."
+msgid ""
+"The last row of your table is the table footer (HTML tags &lt;tfoot&gt; and "
+"&lt;th&gt;)."
 msgstr ""
 
-#: views/view-edit.php:289 views/view-edit.php:304
+#: views/view-edit.php:289 views/view-edit.php:306
 msgid "above"
 msgstr ""
 
-#: views/view-edit.php:291 views/view-edit.php:306
+#: views/view-edit.php:291 views/view-edit.php:308
 msgid "below"
 msgstr ""
 
-#: views/view-edit.php:293
+#: views/view-edit.php:294
 #, php-format
 msgid "The Table Name shall be written %s the table (HTML tag &lt;h2&gt;)."
 msgstr ""
 
-#: views/view-edit.php:298
+#: views/view-edit.php:300
 msgid "Table Description"
 msgstr ""
 
-#: views/view-edit.php:308
+#: views/view-edit.php:311
 #, php-format
 msgid "The Table Description shall be written %s the table."
 msgstr ""
 
-#: views/view-edit.php:313
+#: views/view-edit.php:317
 msgid "Use JavaScript library"
 msgstr ""
 
-#: views/view-edit.php:319 views/view-edit.php:323 views/view-edit.php:335
+#: views/view-edit.php:323 views/view-edit.php:327 views/view-edit.php:339
 msgid "You can change further settings for this library below."
 msgstr ""
 
-#: views/view-edit.php:327 views/view-edit.php:331
+#: views/view-edit.php:331 views/view-edit.php:335
 msgid "The table will then be sortable by the visitor."
 msgstr ""
 
-#: views/view-edit.php:338
+#: views/view-edit.php:342
 #, php-format
 msgid "Yes, use the &quot;%s&quot; JavaScript library with this table."
 msgstr ""
 
-#: views/view-edit.php:338
+#: views/view-edit.php:342
 #, php-format
 msgid ""
 "You must enable the use of a JavaScript library on the &quot;%s&quot; screen "
 "first."
 msgstr ""
 
-#: views/view-edit.php:349
+#: views/view-edit.php:353
 msgid "DataTables JavaScript Features"
 msgstr ""
 
-#: views/view-edit.php:351
+#: views/view-edit.php:355
 msgid ""
 "You can enable certain features for the DataTables JavaScript library here."
 msgstr ""
 
-#: views/view-edit.php:351
+#: views/view-edit.php:355
 msgid ""
 "More information on these features can be found on the <a href=\"http://www."
 "datatables.net/\">DataTables website</a>."
 msgstr ""
 
-#: views/view-edit.php:353
+#: views/view-edit.php:357
 #, php-format
 msgid ""
 "You can currently not change these options, because you have not enabled the "
@@ -1391,147 +1416,153 @@ msgid ""
 "library on the &quot;%s&quot; screen."
 msgstr ""
 
-#: views/view-edit.php:353
+#: views/view-edit.php:357
 msgid ""
 "It is not possible to use these features with the &quot;Tablesorter&quot; or "
 "&quot;Tablesorter Extended&quot; libraries."
 msgstr ""
 
-#: views/view-edit.php:357
+#: views/view-edit.php:361
 msgid "Sorting"
 msgstr ""
 
-#: views/view-edit.php:358
+#: views/view-edit.php:362
 msgid "Yes, enable sorting of table data by the visitor."
 msgstr ""
 
-#: views/view-edit.php:361
+#: views/view-edit.php:365
 msgid "Pagination"
 msgstr ""
 
-#: views/view-edit.php:362
+#: views/view-edit.php:370
 msgid ""
-"Yes, enable pagination of the table (showing only a certain number of rows) "
+"Yes, enable pagination (showing only a certain number of rows) of the table "
 "by the visitor."
 msgstr ""
 
-#: views/view-edit.php:365
+#: views/view-edit.php:372
+#, php-format
+msgid "Show %1$s rows of the table per page."
+msgstr ""
+
+#: views/view-edit.php:378
 msgid "Length Change"
 msgstr ""
 
-#: views/view-edit.php:366
+#: views/view-edit.php:379
 msgid ""
-"Yes, allow visitor to change the number of rows shown when using pagination."
+"Yes, allow the visitor to change the number of rows shown when using "
+"pagination."
 msgstr ""
 
-#: views/view-edit.php:369
+#: views/view-edit.php:382
 msgid "Filtering"
 msgstr ""
 
-#: views/view-edit.php:370
+#: views/view-edit.php:383
 msgid ""
 "Yes, enable the visitor to filter or search the table. Only rows with the "
 "search word in them are shown."
 msgstr ""
 
-#: views/view-edit.php:373
+#: views/view-edit.php:386
 msgid "Info Bar"
 msgstr ""
 
-#: views/view-edit.php:374
+#: views/view-edit.php:387
 msgid ""
 "Yes, show the table information display. This shows information and "
 "statistics about the currently visible data, including filtering."
 msgstr ""
 
-#: views/view-edit.php:377
+#: views/view-edit.php:390
 msgid "TableTools"
 msgstr ""
 
-#: views/view-edit.php:379
+#: views/view-edit.php:392
 msgid ""
 "Yes, activate the TableTools functions (Copy to Clipboard, Save to CSV, Save "
 "to XLS, Print Table) for this table."
 msgstr ""
 
-#: views/view-edit.php:380
+#: views/view-edit.php:393
 msgid ""
 "This option can only be used with the &quot;DataTables+TableTools&quot; "
 "JavaScript library."
 msgstr ""
 
-#: views/view-edit.php:384
+#: views/view-edit.php:397
 msgid "Custom Commands"
 msgstr ""
 
-#: views/view-edit.php:385
+#: views/view-edit.php:398
 msgid ""
 "Enter additional DataTables JavaScript parameters that will be included with "
 "the script call here."
 msgstr ""
 
-#: views/view-edit.php:385
+#: views/view-edit.php:398
 msgid ""
 "For advanced use only. Read the <a href=\"http://www.datatables.net/"
 "\">DataTables documentation</a> before."
 msgstr ""
 
-#: views/view-edit.php:401
+#: views/view-edit.php:414
 msgid "Custom Data Fields"
 msgstr ""
 
-#: views/view-edit.php:403
+#: views/view-edit.php:416
 msgid "Custom Data Fields can be used to add extra metadata to a table."
 msgstr ""
 
-#: views/view-edit.php:403
+#: views/view-edit.php:416
 msgid ""
 "For example, this could be information about the source or the creator of "
 "the data."
 msgstr ""
 
-#: views/view-edit.php:405
+#: views/view-edit.php:418
 #, php-format
 msgid ""
 "You can show this data in the same way as tables by using the shortcode "
 "<strong>[table-info id=%s field=\"&lt;field-name&gt;\" /]</strong>."
 msgstr ""
 
-#: views/view-edit.php:411
+#: views/view-edit.php:424
 msgid "Field Name"
 msgstr ""
 
-#: views/view-edit.php:412
+#: views/view-edit.php:425
 msgid "Value"
 msgstr ""
 
-#: views/view-edit.php:426
+#: views/view-edit.php:439
 msgid "Delete Field"
 msgstr ""
 
-#: views/view-edit.php:428
+#: views/view-edit.php:441
 msgid "View shortcode"
 msgstr ""
 
-#: views/view-edit.php:437
+#: views/view-edit.php:450
 msgid ""
 "To add a new Custom Data Field, enter its name (only lowercase letters, "
 "numbers, _ and -)."
 msgstr ""
 
-#: views/view-edit.php:438
+#: views/view-edit.php:451
 msgid "Custom Data Field Name"
 msgstr ""
 
-#: views/view-edit.php:452
+#: views/view-edit.php:465
 msgid "Other actions"
 msgstr ""
 
-#: views/view-edit.php:455
+#: views/view-edit.php:468
 msgid "Delete Table"
 msgstr ""
 
-#: views/view-edit.php:456 views/view-export.php:59
+#: views/view-edit.php:469 views/view-export.php:59
 msgid "Export Table"
 msgstr ""
 
@@ -1564,7 +1595,7 @@ msgid ""
 "s&quot; button in the &quot;%s&quot;."
 msgstr ""
 
-#: views/view-export.php:10 views/view-options.php:180
+#: views/view-export.php:10 views/view-options.php:189
 msgid "Create and Download Dump File"
 msgstr ""
 
@@ -1841,8 +1872,7 @@ msgstr ""
 
 #: views/view-options.php:50
 #, php-format
-msgid ""
-"You can get styling examples from the <a href=\"%s\">plugin's website</a>."
+msgid "You can get styling examples from the <a href=\"%s\">FAQ</a>."
 msgstr ""
 
 #: views/view-options.php:50
@@ -1863,7 +1893,7 @@ msgid ""
 "&quot;%s&quot; screen in a new browser window <strong>from now on</strong>."
 msgstr ""
 
-#: views/view-options.php:62 views/view-options.php:159
+#: views/view-options.php:62 views/view-options.php:168
 msgid "Save Options"
 msgstr ""
 
@@ -1897,8 +1927,8 @@ msgstr ""
 msgid "Admin Options"
 msgstr ""
 
-#: views/view-options.php:89 views/view-options.php:200
-#: views/view-options.php:214
+#: views/view-options.php:89 views/view-options.php:209
+#: views/view-options.php:223
 msgid "This area are only available to site administrators!"
 msgstr ""
 
@@ -1977,150 +2007,150 @@ msgstr ""
 msgid "Posts"
 msgstr ""
 
-#: views/view-options.php:129
+#: views/view-options.php:138
 msgid "Pages"
 msgstr ""
 
-#: views/view-options.php:130
+#: views/view-options.php:139
 msgid "Plugins"
 msgstr ""
 
-#: views/view-options.php:131
+#: views/view-options.php:140
 msgid "Settings"
 msgstr ""
 
-#: views/view-options.php:132
+#: views/view-options.php:141
 msgid "Dashboard"
 msgstr ""
 
-#: views/view-options.php:133
+#: views/view-options.php:142
 msgid "Top-Level"
 msgstr ""
 
-#: views/view-options.php:138
+#: views/view-options.php:147
 msgid "Frontend Edit Link"
 msgstr ""
 
-#: views/view-options.php:139
+#: views/view-options.php:148
 msgid ""
 "Yes, show an \"Edit\" link to users with sufficient rights near every table "
 "on the frontend."
 msgstr ""
 
-#: views/view-options.php:143
+#: views/view-options.php:152
 msgid "WordPress Search"
 msgstr ""
 
-#: views/view-options.php:144
+#: views/view-options.php:153
 msgid ""
 "Yes, the WordPress Search shall also find posts and pages that contain the "
 "search term inside a table."
 msgstr ""
 
-#: views/view-options.php:148
+#: views/view-options.php:157
 msgid "Remove upon Deactivation"
 msgstr ""
 
-#: views/view-options.php:149
+#: views/view-options.php:158
 msgid ""
 "Yes, remove all plugin related data from the database when the plugin is "
 "deactivated."
 msgstr ""
 
-#: views/view-options.php:149
+#: views/view-options.php:158
 msgid "Should be activated directly before deactivation only!"
 msgstr ""
 
-#: views/view-options.php:169
+#: views/view-options.php:178
 msgid "WP-Table Reloaded Data Export and Backup"
 msgstr ""
 
-#: views/view-options.php:172
+#: views/view-options.php:181
 msgid ""
 "WP-Table Reloaded can export and import a so-called dump file that contains "
 "all tables, their settings and the plugin's options."
 msgstr ""
 
-#: views/view-options.php:172
+#: views/view-options.php:181
 msgid ""
 "This file can be used as a backup or to move all data to another WordPress "
 "site."
 msgstr ""
 
-#: views/view-options.php:175
+#: views/view-options.php:184
 msgid "Export a dump file"
 msgstr ""
 
-#: views/view-options.php:177
+#: views/view-options.php:186
 msgid ""
 "To export all Tables and their settings, click the button below to generate "
 "and download a dump file."
 msgstr ""
 
-#: views/view-options.php:177
+#: views/view-options.php:186
 msgid ""
 "<strong>Warning</strong>: Do <strong>not</strong> edit the content of that "
 "file under any circumstances as you will destroy the file!"
 msgstr ""
 
-#: views/view-options.php:186
+#: views/view-options.php:195
 msgid "Import a dump file"
 msgstr ""
 
-#: views/view-options.php:188
+#: views/view-options.php:197
 msgid ""
 "To import a WP-Table Reloaded dump file and restore the included data, "
 "upload the file from your computer."
 msgstr ""
 
-#: views/view-options.php:188
+#: views/view-options.php:197
 msgid ""
 "All current data of this WP-Table Reloaded installation (Tables, Options, "
 "Settings) <strong>WILL BE OVERWRITTEN</strong> with the data from the file!"
 msgstr ""
 
-#: views/view-options.php:188
+#: views/view-options.php:197
 msgid "Do not proceed, if you do not understand this!"
 msgstr ""
 
-#: views/view-options.php:188
+#: views/view-options.php:197
 msgid ""
 "It is highly recommended to export and backup the data of this installation "
 "before importing another dump file (see above)."
 msgstr ""
 
-#: views/view-options.php:194
+#: views/view-options.php:203
 msgid "Select Dump File"
 msgstr ""
 
-#: views/view-options.php:196
+#: views/view-options.php:205
 msgid "Import Dump File"
 msgstr ""
 
-#: views/view-options.php:206
+#: views/view-options.php:215
 msgid "Manually Uninstall WP-Table Reloaded"
 msgstr ""
 
-#: views/view-options.php:208
+#: views/view-options.php:217
 msgid ""
 "Uninstalling <strong>will permanently delete</strong> all tables, data, and "
 "options, that belong to WP-Table Reloaded from the database, including all "
 "tables you added or imported."
 msgstr ""
 
-#: views/view-options.php:208
+#: views/view-options.php:217
 msgid ""
 "You will manually need to remove the plugin's files from the plugin folder "
 "afterwards."
 msgstr ""
 
-#: views/view-options.php:208
+#: views/view-options.php:217
 msgid ""
 "Be very careful with this and only click the button if you know what you are "
 "doing!"
 msgstr ""
 
-#: views/view-options.php:212
+#: views/view-options.php:221
 msgid "Uninstall Plugin WP-Table Reloaded"
 msgstr ""
 
