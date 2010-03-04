@@ -199,18 +199,22 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
         $display_name = 'WP-Table Reloaded'; // the name that is displayed in the admin menu on the left
         $display_name = apply_filters( 'wp_table_reloaded_plugin_display_name', $display_name ); // can be filtered to something shorter maybe
 
-        $admin_menu_page = apply_filters( 'wp_table_reloaded_admin_menu_parent_page', $this->options['admin_menu_parent_page'] ); // plugins may filter/change this though
+        $admin_menu_page = apply_filters( 'wp_table_reloaded_admin_menu_parent_page', $this->options['admin_menu_parent_page'] );
+        // backward-compatibility for the filter
+        if ( 'top-level' == $admin_menu_page )
+            $admin_menu_page = 'admin.php';
+        // 'edit-pages.php' was renamed to 'edit.php?post_type=page' in WP 3.0
+        if ( 'edit-pages.php' == $admin_menu_page && version_compare( $GLOBALS['wp_version'] , '2.9.9', '>' ) )
+            $admin_menu_page = 'edit.php?post_type=page';
         if ( !in_array( $admin_menu_page, $this->possible_admin_menu_parent_pages ) )
             $admin_menu_page = 'tools.php';
 
-        // top-level menu is created in different function, all others are created with the filename as a parameter
-        if ( 'top-level' == $admin_menu_page ) {
+        // Top-Level menu is created in different function, all others are created with the filename as a parameter
+        if ( 'admin.php' == $admin_menu_page )
             $this->hook = add_menu_page( 'WP-Table Reloaded', $display_name, $min_capability, $this->page_slug, array( &$this, 'show_manage_page' ), plugins_url( 'admin/plugin-icon-small.png', WP_TABLE_RELOADED__FILE__ ) );
-            $this->page_url = 'admin.php';
-        } else {
+        else
             $this->hook = add_submenu_page( $admin_menu_page, 'WP-Table Reloaded', $display_name, $min_capability, $this->page_slug, array( &$this, 'show_manage_page' ) );
-            $this->page_url = $admin_menu_page;
-        }
+        $this->page_url = $admin_menu_page;
 
         add_action( 'load-' . $this->hook, array( &$this, 'load_manage_page' ) );
     }
@@ -1089,8 +1093,8 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
                     $this->options['admin_menu_parent_page'] = $new_options['admin_menu_parent_page'];
                 else
                     $this->options['admin_menu_parent_page'] = 'tools.php';
-                // adjust $this->page_url, so that next page load will work
-                $this->page_url = ( 'top-level' == $this->options['admin_menu_parent_page'] ) ? 'admin.php' : $this->options['admin_menu_parent_page'] ;
+                // update $this->page_url, so that next page load will work
+                $this->page_url = $this->options['admin_menu_parent_page'] ;
                 // user access to plugin
                 if ( in_array( $new_options['user_access_plugin'], array( 'admin', 'editor', 'author', 'contributor' ) ) )
                     $this->options['user_access_plugin'] = $new_options['user_access_plugin'];
@@ -1543,6 +1547,14 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
         // 2c., take care of Tablesorter script, comparison to 1.4.9 equaly means smaller than anything like 1.5
         if ( version_compare( $this->options['installed_version'] , '1.4.9', '<' ) )
             $new_options['tablesorter_script'] = ( isset( $this->options['use_tablesorter_extended'] ) && $this->options['use_tablesorter_extended'] ) ? 'tablesorter_extended' : 'tablesorter';
+
+        // 2d., 'edit-pages.php' was renamed to 'edit.php?post_type=page' in WP 3.0
+        if ( 'edit-pages.php' == $this->options['admin_menu_parent_page'] && version_compare( $GLOBALS['wp_version'] , '2.9.9', '>' ) )
+            $new_options['admin_menu_parent_page'] = 'edit.php?post_type=page';
+
+        // 2e., 'top-level' was renamed to 'admin.php' (internally)
+        if ( 'top-level' == $this->options['admin_menu_parent_page'] )
+            $new_options['admin_menu_parent_page'] = 'admin.php';
 
         // 3. step: update installed version number, empty update message cache, set welcome message
         $new_options['installed_version'] = WP_TABLE_RELOADED_PLUGIN_VERSION;

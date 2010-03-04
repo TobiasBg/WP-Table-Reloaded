@@ -296,9 +296,14 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
             if ( current_user_can( $min_capability ) ) {
                 $admin_menu_page = $this->options['admin_menu_parent_page'];
                 $admin_menu_page = apply_filters( 'wp_table_reloaded_admin_menu_parent_page', $admin_menu_page );
+                // backward-compatibility for the filter
+                if ( 'top-level' == $admin_menu_page )
+                    $admin_menu_page = 'admin.php';
+                // 'edit-pages.php' was renamed to 'edit.php?post_type=page' in WP 3.0
+                if ( 'edit-pages.php' == $admin_menu_page && version_compare( $GLOBALS['wp_version'] , '2.9.9', '>' ) )
+                    $admin_menu_page = 'edit.php?post_type=page';
                 if ( !in_array( $admin_menu_page, $this->possible_admin_menu_parent_pages ) )
                     $admin_menu_page = 'tools.php';
-                $admin_menu_page = ( 'top-level' == $admin_menu_page ) ? 'admin.php' : $admin_menu_page;
                 $url_params = array(
                         'page' => $this->page_slug,
                         'action' => 'edit',
