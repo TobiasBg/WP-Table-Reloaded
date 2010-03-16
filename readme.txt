@@ -218,7 +218,7 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 == Upgrade Notice ==
 
 = 1.7 =
-This upgrade ...[to be written].
+This upgrade includes an updated DataTables library, adds a "Table" button in the toolbar of the visual editor, and enhances several other things.
 
 = 1.6.1 =
 This upgrade fixes a few minor bugs and enhances the WP Search integration and the import.
