@@ -58,14 +58,13 @@
                     'ru_RU' => '<a href="http://www.wordpress4you.com/">WordPress4You</a>',
                     'sk_SK' => '<a href="http://lukas.cerro.sk/">55.lukas</a>',
                     'sv_SE' => '<a href="http://www.zuperzed.se/">ZuperZed</a>',
-                    'ua_UA' => '<a href="http://antsar.info/">murooch</a>',
                     'zh_CN' => '<a href="http://cnzhx.net/">Haoxian Zeng</a>',
-                    // probably inactive languages
+                    // inactive languages
                     'by_BY' => '<a href="http://www.fatcow.com/">Marcis Gasuns</a>',
-                    'et'    => 'Lembit Kivisik',
                     'pl_PL' => 'Alex Kortan',
                     'sq_AL' => '<a href="http://www.romeolab.com/">Romeo</a>',
-                    'tr_TR' => '<a href="http://www.wpuzmani.com/">Semih</a>'
+                    'tr_TR' => '<a href="http://www.wpuzmani.com/">Semih</a>',
+                    'ua_UA' => '<a href="http://antsar.info/">murooch</a>',
                 );
 
                 // no credits link for English and German, as they are by me :-)

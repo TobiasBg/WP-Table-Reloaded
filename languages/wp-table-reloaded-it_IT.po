@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WP-Table Reloaded v1.2.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2010-03-16 16:30+0100\n"
+"PO-Revision-Date: 2010-03-16 18:14+0100\n"
 "Last-Translator: Tobias Baethge <wordpress@tobias.baethge.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -1207,7 +1207,7 @@ msgstr "Grazie per aver aggiornato WP-Table Reloaded %s."
 #: controllers/controller-admin.php:302
 #, php-format
 msgid "Please read the <a href=\"%s\">release announcement</a> for more information."
-msgstr "Si prega di leggere<a href=\"%s\">informazioni sul rilascio</a> per maggiori informazioni."
+msgstr "Si prega di leggere <a href=\"%s\">informazioni sul rilascio</a> per maggiori informazioni."
 
 #@ wp-table-reloaded
 #: controllers/controller-admin.php:302

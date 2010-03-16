@@ -4,7 +4,7 @@ Donate link: http://tobias.baethge.com/donate/
 Tags: html,table,data,editor,csv,import,export,excel,widget,admin,sidebar
 Requires at least: 2.8
 Tested up to: 3.0-beta1
-Stable tag: 1.6.1
+Stable tag: 1.7
 
 WP-Table Reloaded lets you manage tables in a comfortable backend in WP's admin area, without any knowledge of HTML, and can add valuable features.
 
@@ -46,6 +46,10 @@ Manual Installation works just as for most other WordPress plugins:
 
 == Frequently Asked Questions ==
 
+= Where can I find answers to Frequently Asked Questions? =
+
+A wide group of questions, regarding different features or styling has been answered in the [FAQ section](http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/faq/) on the plugin's website.
+
 = Can I use wp-Table and WP-Table Reloaded together? =
 
 Yes! You can have both wp-Table and WP-Table Reloaded installed in your WordPress! They will not interfere (as they are not using anything together). They are completely independent from each other.
@@ -70,7 +74,7 @@ The plugin currently includes the following languages:
 Albanian, Belorussian, Brazilian Portuguese, Chinese (Simplified), Czech, English, Finnish, French, German, Hindi, Italian, Japanese, Polish, Russian, Slovak, Spanish, Swedish, Turkish, and Ukrainian.
 
 I'd really appreciate it, if you would translate the plugin into your language! Using Heiko Rabe's WordPress plugin [Codestyling Localization](http://www.code-styling.de/english/development/wordpress-plugin-codestyling-localization-en/) that really is as easy as pie. Just install the plugin, add your language, create the .po-file, translate the strings in the comfortable editor and create the .mo-file. It will automatically be saved in WP-Table Reloaded's plugin folder. If you send me the .mo- and .po-file, I will gladly include them into future plugin releases.
-There is also a .pot-file available to use in the "languages" subfolder.
+There is also a .pot-file available to use in the "languages" subfolder. Of course you can also use poEdit as your editor, which also works nicely.
 
 = Where can I get more information? =
 
@@ -114,7 +118,7 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 * enhancement: add WP-Table Reloaded screen icon to all plugin screens and the Top-Level menu entry
 * enhancement: add two template tag functions that return the output instead of echoing it
 * bugfix: fix problem with admin menu parent pages, make them ready for WP 3.0
-* languages: added French, Chinese (Simplified), and Ukrainian
+* languages: added French, Chinese (Simplified), and Russian
 
 = Version 1.6.1 =
 * enhancement: let WP Search also search table name and description
