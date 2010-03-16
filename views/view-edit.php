@@ -349,7 +349,7 @@
         $datatables_enabled = $this->options['enable_tablesorter'] && ( 'datatables' == $this->options['tablesorter_script'] || 'datatables-tabletools' == $this->options['tablesorter_script'] );
         $tabletools_enabled = $this->options['enable_tablesorter'] && ( 'datatables-tabletools' == $this->options['tablesorter_script'] );
         ?>
-        <div class="postbox<?php echo $this->helper->postbox_closed( 'datatables-features', true ); ?>">
+        <div class="postbox<?php echo $this->helper->postbox_closed( 'datatables-features', false ); ?>">
         <h3 class="hndle"><span><?php _e( 'DataTables JavaScript Features', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _x( 'Hide', 'expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
         <div class="inside">
         <p><?php _e( 'You can enable certain features for the DataTables JavaScript library here.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'More information on these features can be found on the <a href="http://www.datatables.net/">DataTables website</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
