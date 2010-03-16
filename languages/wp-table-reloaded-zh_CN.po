@@ -1,12 +1,14 @@
+# Translation of the WordPress plugin WP-Table Reloaded 1.7-beta1 by Tobias B&auml;thge.
+# Copyright (C) 2010 Tobias B&auml;thge
 # This file is distributed under the same license as the WP-Table Reloaded package.
-# lonelicloud <haoxian.zeng@gmail.com>, 2010.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: WP-Table Reloaded 1.6.1\n"
+"Project-Id-Version: WP-Table Reloaded 1.7-beta1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-table-reloaded\n"
-"POT-Creation-Date: 2010-01-30 17:55+0000\n"
-"PO-Revision-Date: 2010-02-07 20:33+0800\n"
+"POT-Creation-Date: 2010-03-04 21:16+0000\n"
+"PO-Revision-Date: 2010-03-07 08:59+0800\n"
 "Last-Translator: lonelicloud <haoxian.zeng@gmail.com>\n"
 "Language-Team: http://cnzhx.net/ <info@cnzhx.net>\n"
 "MIME-Version: 1.0\n"
@@ -15,7 +17,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-Language: Chinese\n"
 "X-Poedit-Country: CHINA\n"
-"X-Poedit-SourceCharset: utf-8\n"
 
 #: classes/export.class.php:28
 #: classes/import.class.php:36
@@ -109,6 +110,11 @@ msgstr "要合并单元格，请使用相应的按钮将代码 #colspan# 插入�
 msgid "Repeat this to add the keyword to all cells that shall be connected."
 msgstr "重复上述操作将代码插入所有需要连接的单元格中。"
 
+#: classes/helper.class.php:104
+#: classes/helper.class.php:109
+msgid "Be aware that the JavaScript libraries will not work on tables which have combined cells."
+msgstr "请注意，在包含有复合表格单元的表格中，JavaScript 库无法正常工作。"
+
 #: classes/helper.class.php:109
 msgid "Combining consecutive cells within the same column is called \"rowspanning\"."
 msgstr "合并同一列里连续的多个单元格叫做 \"跨行合并\"。"
@@ -163,12 +169,44 @@ msgid "Brazilian Portuguese"
 msgstr "巴西葡萄牙语"
 
 #: controllers/controller-admin.php:265
+msgid "Chinese (Simplified)"
+msgstr "中文（简体）"
+
+#: controllers/controller-admin.php:266
+msgid "Russian"
+msgstr "俄语"
+
+#: controllers/controller-admin.php:267
 msgid "Slovak"
 msgstr "斯洛伐克语"
 
-#: controllers/controller-admin.php:266
+#: controllers/controller-admin.php:268
 msgid "Swedish"
 msgstr "瑞典语"
+
+#: controllers/controller-admin.php:270
+msgid "Albanian"
+msgstr "阿尔巴尼亚语"
+
+#: controllers/controller-admin.php:271
+msgid "Belorussian"
+msgstr "白俄罗斯语"
+
+#: controllers/controller-admin.php:272
+msgid "Estonian"
+msgstr "爱沙尼亚语"
+
+#: controllers/controller-admin.php:273
+msgid "French"
+msgstr "法语"
+
+#: controllers/controller-admin.php:274
+msgid "Polish"
+msgstr "波兰语"
+
+#: controllers/controller-admin.php:275
+msgid "Turkish"
+msgstr "土耳其语"
 
 #: controllers/controller-admin.php:301
 #, php-format
@@ -179,6 +217,10 @@ msgstr "欢迎来到 WP-Table Reloaded %s。如果您有任何疑问或问题，
 #, php-format
 msgid "Thank you for upgrading to WP-Table Reloaded %s."
 msgstr "谢谢，您已经升级到 WP-Table Reloaded %s。"
+
+#: controllers/controller-admin.php:302
+msgid "This version includes several enhancements, like an updated DataTables library, a &quot;Table&quot; button in the toolbar of the visual editor, and several other things."
+msgstr "该版本包含数项改进，如更新的数据表库，在可视编辑器的工具条上添加 &quot;表格&quot; 按钮，以及其它几项新特性等。"
 
 #: controllers/controller-admin.php:302
 #, php-format
@@ -241,112 +283,112 @@ msgstr "该ID不能从 %s 更改为 %s，因为新ID已经被另一个表格使�
 msgid "Table edited successfully."
 msgstr "成功编辑表格。"
 
-#: controllers/controller-admin.php:429
+#: controllers/controller-admin.php:430
 msgid "Rows swapped successfully."
 msgstr "成功交换行。"
 
-#: controllers/controller-admin.php:450
+#: controllers/controller-admin.php:451
 msgid "Columns swapped successfully."
 msgstr "成功交换列。"
 
-#: controllers/controller-admin.php:479
+#: controllers/controller-admin.php:480
 msgid "Table sorted successfully."
 msgstr "表格排序成功。"
 
-#: controllers/controller-admin.php:500
+#: controllers/controller-admin.php:501
 msgid "Row moved successfully."
 msgstr "成功移动行。"
 
-#: controllers/controller-admin.php:525
+#: controllers/controller-admin.php:526
 msgid "Column moved successfully."
 msgstr "成功移动列。"
 
-#: controllers/controller-admin.php:533
+#: controllers/controller-admin.php:534
 msgid "Row could not be deleted."
 msgid_plural "Rows could not be deleted."
 msgstr[0] "不能删除该行。"
 msgstr[1] "不能删除这些行。"
 
-#: controllers/controller-admin.php:542
+#: controllers/controller-admin.php:543
 msgid "Row deleted successfully."
 msgid_plural "Rows deleted successfully."
 msgstr[0] "成功删除行。"
 msgstr[1] "成功删除行。"
 
-#: controllers/controller-admin.php:552
+#: controllers/controller-admin.php:553
 msgid "Column could not be deleted."
 msgid_plural "Columns could not be deleted."
 msgstr[0] "不能删除该列。"
 msgstr[1] "不能删除这些行列。"
 
-#: controllers/controller-admin.php:565
+#: controllers/controller-admin.php:566
 msgid "Column deleted successfully."
 msgid_plural "Columns deleted successfully."
 msgstr[0] "成功删除列。"
 msgstr[1] "成功删除列。"
 
-#: controllers/controller-admin.php:588
+#: controllers/controller-admin.php:589
 msgid "Row inserted successfully."
 msgid_plural "Rows inserted successfully."
 msgstr[0] "成功插入行。"
 msgstr[1] "成功插入行。"
 
-#: controllers/controller-admin.php:615
+#: controllers/controller-admin.php:616
 msgid "Column inserted successfully."
 msgid_plural "Columns inserted successfully."
 msgstr[0] "成功插入列。"
 msgstr[1] "成功插入列。"
 
-#: controllers/controller-admin.php:630
+#: controllers/controller-admin.php:631
 msgid "Row added successfully."
 msgid_plural "Rows added successfully."
 msgstr[0] "成功添加行。"
 msgstr[1] "成功添加行。"
 
-#: controllers/controller-admin.php:644
+#: controllers/controller-admin.php:645
 msgid "Column added successfully."
 msgid_plural "Columns added successfully."
 msgstr[0] "成功添加列。"
 msgstr[1] "成功添加列。"
 
-#: controllers/controller-admin.php:651
+#: controllers/controller-admin.php:652
 msgid "Could not add Custom Data Field, because you did not enter a name."
 msgstr "不能加入自定义数据域，因为您还没有输入名称。"
 
-#: controllers/controller-admin.php:656
+#: controllers/controller-admin.php:657
 msgid "Could not add Custom Data Field, because the name you entered is reserved for other table data."
 msgstr "不能加入自定义数据域，因为您输入的名称是其它表格数据的保留名称。"
 
-#: controllers/controller-admin.php:662
+#: controllers/controller-admin.php:663
 msgid "Could not add Custom Data Field, because the name contained illegal characters."
 msgstr "不能加入自定义数据域，因为您输入的名称中包含有非法字符。"
 
-#: controllers/controller-admin.php:666
+#: controllers/controller-admin.php:667
 msgid "Could not add Custom Data Field, because a Field with that name already exists."
 msgstr "不能加入自定义数据域，因为已经有一个同名的域。"
 
-#: controllers/controller-admin.php:672
+#: controllers/controller-admin.php:673
 msgid "Custom Data Field added successfully."
 msgstr "成功添加自定义数据域。"
 
-#: controllers/controller-admin.php:712
-#: controllers/controller-admin.php:768
+#: controllers/controller-admin.php:713
+#: controllers/controller-admin.php:769
 msgid "Copy of"
 msgstr "复制"
 
-#: controllers/controller-admin.php:716
+#: controllers/controller-admin.php:717
 msgid "Table copied successfully."
 msgid_plural "Tables copied successfully."
 msgstr[0] "成功编辑表格。"
 msgstr[1] "成功编辑表格。"
 
-#: controllers/controller-admin.php:722
+#: controllers/controller-admin.php:723
 msgid "Table deleted successfully."
 msgid_plural "Tables deleted successfully."
 msgstr[0] "成功删除表格。"
 msgstr[1] "成功删除表格。"
 
-#: controllers/controller-admin.php:743
+#: controllers/controller-admin.php:744
 #: controllers/controller-admin.php:899
 #: controllers/controller-admin.php:937
 msgid "Table imported successfully."
@@ -354,60 +396,60 @@ msgid_plural "Tables imported successfully."
 msgstr[0] "成功导入表格。"
 msgstr[1] "成功导入表格。"
 
-#: controllers/controller-admin.php:750
+#: controllers/controller-admin.php:751
 msgid "You did not select any tables!"
 msgstr "您没有选中任何表格！"
 
-#: controllers/controller-admin.php:773
+#: controllers/controller-admin.php:774
 #, php-format
 msgid "Table &quot;%s&quot; copied successfully."
 msgstr "成功复制表格 &quot;%s&quot;。"
 
-#: controllers/controller-admin.php:791
+#: controllers/controller-admin.php:792
 #, php-format
 msgid "Table &quot;%s&quot; deleted successfully."
 msgstr "成功删除表格 &quot;%s&quot;。"
 
-#: controllers/controller-admin.php:799
+#: controllers/controller-admin.php:800
 msgid "Custom Data Field deleted successfully."
 msgstr "成功删除自定义数据域。"
 
-#: controllers/controller-admin.php:801
+#: controllers/controller-admin.php:802
 msgid "Custom Data Field could not be deleted."
 msgstr "该自定义数据域无法删除。"
 
-#: controllers/controller-admin.php:807
+#: controllers/controller-admin.php:808
 msgid "Delete failed."
 msgstr "删除失败。"
 
-#: controllers/controller-admin.php:839
-#: controllers/controller-admin.php:849
-#: controllers/controller-admin.php:860
+#: controllers/controller-admin.php:840
+#: controllers/controller-admin.php:850
+#: controllers/controller-admin.php:861
 msgid "Imported Table"
 msgstr "导入表格"
 
-#: controllers/controller-admin.php:840
-#: controllers/controller-admin.php:861
+#: controllers/controller-admin.php:841
+#: controllers/controller-admin.php:862
 #, php-format
 msgid "from %s"
 msgstr "自 %s"
 
-#: controllers/controller-admin.php:850
+#: controllers/controller-admin.php:851
 msgid "via form"
 msgstr "经由形式"
 
-#: controllers/controller-admin.php:877
+#: controllers/controller-admin.php:878
 #: controllers/controller-admin.php:915
 msgid "Table could not be imported."
 msgstr "无法导入该表格。"
 
-#: controllers/controller-admin.php:894
+#: controllers/controller-admin.php:895
 #, php-format
 msgid "Table %s (%s) replaced successfully."
 msgstr "成功替换表格 %s (%s)。"
 
 #: controllers/controller-admin.php:945
-#: controllers/controller-admin.php:1131
+#: controllers/controller-admin.php:1138
 msgid "You do not have sufficient rights to perform this action."
 msgstr "您没有足够的权限来完成此操作。"
 
@@ -429,302 +471,311 @@ msgid "Table &quot;%s&quot; exported successfully."
 msgstr "成功导出表格 &quot;%s&quot;。"
 
 #: controllers/controller-admin.php:1064
-#: views/view-options.php:223
+#: views/view-options.php:232
 msgid "You do not have sufficient rights to access the Plugin Options."
 msgstr "您没有足够的权限来访问插件选项。"
 
-#: controllers/controller-admin.php:1118
+#: controllers/controller-admin.php:1119
 msgid "Options saved successfully."
 msgstr "成功保存选项。"
 
-#: controllers/controller-admin.php:1181
+#: controllers/controller-admin.php:1122
+#, php-format
+msgid "<a href=\"%s\">Click here to Proceed.</a>"
+msgstr "<a href=\"%s\">单击这里执行操作。</a>"
+
+#: controllers/controller-admin.php:1188
 msgid "There is no table with this ID!"
 msgstr "不存在该ID的表格。"
 
-#: controllers/controller-admin.php:1218
+#: controllers/controller-admin.php:1225
 msgid "Thank you very much! Your donation is highly appreciated. You just contributed to the further development of WP-Table Reloaded!"
 msgstr "非常感谢您的捐赠！您为 WP-Table Reloaded 的进一步开发增添了力量！"
 
-#: controllers/controller-admin.php:1220
+#: controllers/controller-admin.php:1227
 #, php-format
 msgid "No problem! I still hope you enjoy the benefits that WP-Table Reloaded brings to you. If you should want to change your mind, you'll always find the &quot;%s&quot; button on the <a href=\"%s\">WP-Table Reloaded website</a>."
 msgstr "没关系！我仍然希望您能够享受 WP-Table Reloaded 带给您的便利。如果您改变了主意，还可以找到 &quot;%s&quot; 按钮，只需访问 <a href=\"%s\">WP-Table Reloaded 网站</a>。"
 
-#: controllers/controller-admin.php:1220
-#: controllers/controller-admin.php:1638
+#: controllers/controller-admin.php:1227
+#: controllers/controller-admin.php:1655
 msgid "Donate"
 msgstr "捐助"
 
-#: controllers/controller-admin.php:1247
-#: controllers/controller-admin.php:1255
+#: controllers/controller-admin.php:1250
+#: controllers/controller-admin.php:1257
 msgid "List of Tables"
 msgstr "表格列表"
 
-#. #-#-#-#-#  plugin.pot (WP-Table Reloaded 1.6.1)  #-#-#-#-#
+#. #-#-#-#-#  plugin.pot (WP-Table Reloaded 1.7-beta1)  #-#-#-#-#
 #. Plugin Name of an extension
-#: controllers/controller-admin.php:1247
-#: controllers/controller-admin.php:1252
+#: controllers/controller-admin.php:1250
 #: controllers/controller-admin.php:1254
+#: controllers/controller-admin.php:1256
 msgid "WP-Table Reloaded"
 msgstr "WP-Table Reloaded"
 
-#: controllers/controller-admin.php:1248
-#: controllers/controller-admin.php:1278
+#: controllers/controller-admin.php:1251
+#: controllers/controller-admin.php:1287
 msgid "Add new Table"
 msgstr "增加表格"
 
-#: controllers/controller-admin.php:1249
-#, php-format
-msgid "Edit Table &quot;%s&quot; (ID %s)"
-msgstr "编辑表格 &quot;%s&quot; (ID %s)"
-
-#: controllers/controller-admin.php:1250
-#: controllers/controller-admin.php:1279
+#: controllers/controller-admin.php:1252
+#: controllers/controller-admin.php:1288
 msgid "Import a Table"
 msgstr "导入表格"
 
-#: controllers/controller-admin.php:1251
-#: controllers/controller-admin.php:1280
+#: controllers/controller-admin.php:1253
+#: controllers/controller-admin.php:1289
 msgid "Export a Table"
 msgstr "导出表格"
 
-#: controllers/controller-admin.php:1252
-#: controllers/controller-admin.php:1286
-#: views/view-edit.php:338
-#: views/view-edit.php:353
+#: controllers/controller-admin.php:1254
+#: controllers/controller-admin.php:1295
+#: views/view-edit.php:342
+#: views/view-edit.php:357
 #: views/view-export.php:10
 msgid "Plugin Options"
 msgstr "插件选项"
 
-#: controllers/controller-admin.php:1253
+#: controllers/controller-admin.php:1255
 msgid "About WP-Table Reloaded"
 msgstr "关于 WP-Table Reloaded"
 
-#: controllers/controller-admin.php:1256
+#: controllers/controller-admin.php:1263
+#, php-format
+msgid "Edit Table &quot;%s&quot; (ID %s)"
+msgstr "编辑表格 &quot;%s&quot; (ID %s)"
+
+#: controllers/controller-admin.php:1264
 #, php-format
 msgid "Preview of Table &quot;%s&quot; (ID %s)"
 msgstr "预览表格 &quot;%s&quot; (ID %s)"
 
-#: controllers/controller-admin.php:1277
+#: controllers/controller-admin.php:1286
 msgid "List Tables"
 msgstr "所有表格"
 
-#: controllers/controller-admin.php:1287
+#: controllers/controller-admin.php:1296
 msgid "About the plugin"
 msgstr "关于该插件"
 
-#: controllers/controller-admin.php:1634
+#: controllers/controller-admin.php:1651
 msgid "WP-Table Reloaded Plugin Page"
 msgstr "WP-Table Reloaded 插件页面"
 
-#: controllers/controller-admin.php:1634
+#: controllers/controller-admin.php:1651
 msgid "Plugin Page"
 msgstr "插件页面"
 
-#: controllers/controller-admin.php:1635
+#: controllers/controller-admin.php:1652
 msgid "Frequently Asked Questions"
 msgstr "常见问题"
 
-#: controllers/controller-admin.php:1635
+#: controllers/controller-admin.php:1652
 msgid "FAQ"
 msgstr "FAQ"
 
-#: controllers/controller-admin.php:1636
+#: controllers/controller-admin.php:1653
 msgid "Support"
 msgstr "支持"
 
-#: controllers/controller-admin.php:1637
+#: controllers/controller-admin.php:1654
 msgid "Plugin Documentation"
 msgstr "插件文档"
 
-#: controllers/controller-admin.php:1637
+#: controllers/controller-admin.php:1654
 msgid "Documentation"
 msgstr "文档"
 
-#: controllers/controller-admin.php:1638
+#: controllers/controller-admin.php:1655
 msgid "Support WP-Table Reloaded with your donation!"
 msgstr "通过您的捐助来支持 WP-Table Reloaded！"
 
-#: controllers/controller-admin.php:1677
+#: controllers/controller-admin.php:1694
 msgid "Do you really want to activate this? You should only do that right before uninstallation!"
 msgstr "您真的想激活这个吗？您应该在卸载之前才进行这个操作！"
 
-#: controllers/controller-admin.php:1678
+#: controllers/controller-admin.php:1695
 msgid "URL of link to insert"
 msgstr "插入的链接地址"
 
-#: controllers/controller-admin.php:1679
+#: controllers/controller-admin.php:1696
 msgid "Text of link"
 msgstr "链接说明"
 
-#: controllers/controller-admin.php:1680
+#: controllers/controller-admin.php:1697
 msgid "To insert the following HTML code for a link into a cell, just click the cell after closing this dialog."
 msgstr "要将下面的HTML链接代码插入一个单元格，只需在关闭该对话框后单击您要插入的表格单元。"
 
-#: controllers/controller-admin.php:1681
-msgid "To insert an image, click the cell into which you want to insert the image."
-msgstr "单击单元格来插入一副图片。"
+#: controllers/controller-admin.php:1698
+msgid "To insert an image, click &quot;OK&quot; and then click into the cell into which you want to insert the image."
+msgstr "要插入一幅图片，单击&quot;OK&quot;，然后点击进入您要插入图片的单元格。"
 
-#: controllers/controller-admin.php:1681
+#: controllers/controller-admin.php:1698
 msgid "The Media Library will open, from which you can select the desired image or insert the image URL."
 msgstr "这将会打开媒体库，您可以从中选择想要插入的图片，或者插入图片URL地址。"
 
-#: controllers/controller-admin.php:1681
+#: controllers/controller-admin.php:1698
 #, php-format
 msgid "Click the &quot;%s&quot; button to insert the image."
 msgstr "单击 &quot;%s&quot; 按钮来插入图片。"
 
-#: controllers/controller-admin.php:1681
+#: controllers/controller-admin.php:1698
 msgid "Insert into Post"
 msgstr "嵌入到文章"
 
-#: controllers/controller-admin.php:1682
+#: controllers/controller-admin.php:1699
 msgid "To combine cells within a row, click into the cell to the right of the cell that has the content the combined cells shall have."
 msgstr "要合并一行里的多个单元格，点击进入紧接其右的那一个单元格。"
 
-#: controllers/controller-admin.php:1683
+#: controllers/controller-admin.php:1700
 msgid "To combine cells within a column, click into the cell below the cell that has the content the combined cells shall have."
 msgstr "要合并一列里的多个单元格，点击进入紧接其下的那一个单元格。"
 
-#: controllers/controller-admin.php:1684
+#: controllers/controller-admin.php:1701
 msgid "Do you want to copy the selected tables?"
 msgstr "您想复制选中的表格吗？"
 
-#: controllers/controller-admin.php:1685
+#: controllers/controller-admin.php:1702
 msgid "The selected tables and all content will be erased. Do you really want to delete them?"
 msgstr "选中表格和其中的所有数据都将被清除。您真的要删除吗？"
 
-#: controllers/controller-admin.php:1686
+#: controllers/controller-admin.php:1703
 msgid "Do you really want to import the selected tables from the wp-Table plugin?"
 msgstr "您真的要从wp-Table插件中导入选定的表格吗？"
 
-#: controllers/controller-admin.php:1687
+#: controllers/controller-admin.php:1704
 msgid "Do you want to copy this table?"
 msgstr "您想复制这个表格吗？"
 
-#: controllers/controller-admin.php:1688
+#: controllers/controller-admin.php:1705
 msgid "The complete table and all content will be erased. Do you really want to delete it?"
 msgstr "整个表格和其中的所有内容都将被清除。您真的要删除吗？"
 
-#: controllers/controller-admin.php:1689
+#: controllers/controller-admin.php:1706
 msgid "Do you really want to delete the selected rows?"
 msgstr "您真的要删除选定的行吗？"
 
-#: controllers/controller-admin.php:1690
+#: controllers/controller-admin.php:1707
 msgid "Do you really want to delete the selected columns?"
 msgstr "您真的要删除选定的列吗？"
 
-#: controllers/controller-admin.php:1691
-#: controllers/controller-admin.php:1695
-#: controllers/controller-admin.php:1697
+#: controllers/controller-admin.php:1708
+#: controllers/controller-admin.php:1712
+#: controllers/controller-admin.php:1714
 msgid "You have not selected any rows."
 msgstr "您还没有选定任何行。"
 
-#: controllers/controller-admin.php:1692
-#: controllers/controller-admin.php:1696
-#: controllers/controller-admin.php:1698
+#: controllers/controller-admin.php:1709
+#: controllers/controller-admin.php:1713
+#: controllers/controller-admin.php:1715
 msgid "You have not selected any columns."
 msgstr "您还没有选定任何列。"
 
-#: controllers/controller-admin.php:1693
+#: controllers/controller-admin.php:1710
 msgid "You can not delete all rows of the table at once!"
 msgstr "您不能一次删除表格中的所有行！"
 
-#: controllers/controller-admin.php:1694
+#: controllers/controller-admin.php:1711
 msgid "You can not delete all columns of the table at once!"
 msgstr "您不能一次删除表格中的所有列！"
 
-#: controllers/controller-admin.php:1699
+#: controllers/controller-admin.php:1716
 msgid "Do you really want to import this table from the wp-Table plugin?"
 msgstr "您真的要从wp-Table插件中导入该表格吗？"
 
-#: controllers/controller-admin.php:1700
+#: controllers/controller-admin.php:1717
 msgid "Do you really want to uninstall the plugin and delete ALL data?"
 msgstr "您真的要卸载该插件并删除<strong>所有</strong>数据吗？"
 
-#: controllers/controller-admin.php:1701
+#: controllers/controller-admin.php:1718
 msgid "Are you really sure?"
 msgstr "您确定吗？"
 
-#: controllers/controller-admin.php:1702
+#: controllers/controller-admin.php:1719
 msgid "Do you really want to change the ID of the table?"
 msgstr "您真的要更改该表格的ID吗？"
 
-#: controllers/controller-admin.php:1703
+#: controllers/controller-admin.php:1720
 msgid "To show this Custom Data Field, use this shortcode:"
 msgstr "要显示该自定义数据域，请使用下面的代码："
 
-#: controllers/controller-admin.php:1704
+#: controllers/controller-admin.php:1721
 msgid "To show this table, use this shortcode:"
 msgstr "要显示该表格，请使用下面的代码："
 
-#: controllers/controller-admin.php:1705
+#: controllers/controller-admin.php:1722
 msgid "Warning: You will lose all current Tables and Settings! You should create a backup first. Be warned!"
 msgstr "警告：您将会丢失当前的所有表格和设置！在操作之前您应该先进行备份。请谨慎操作！"
 
-#: controllers/controller-admin.php:1706
+#: controllers/controller-admin.php:1723
 msgid "You have made changes to the content of this table and not yet saved them."
 msgstr "您更改了当前表格的内容但是还没有保存。"
 
-#: controllers/controller-admin.php:1706
+#: controllers/controller-admin.php:1723
 #, php-format
 msgid "You should first click &quot;%s&quot; or they will be lost if you navigate away from this page."
 msgstr "您应该先单击 &quot;%s&quot; 否则您离开该页面时将丢失所有未保存的数据。"
 
-#: controllers/controller-admin.php:1706
+#: controllers/controller-admin.php:1723
 #: views/view-edit.php:41
 #: views/view-edit.php:253
-#: views/view-edit.php:392
-#: views/view-edit.php:443
+#: views/view-edit.php:405
+#: views/view-edit.php:456
 msgid "Update Changes"
 msgstr "保存更改"
 
-#: controllers/controller-admin.php:1748
+#: controllers/controller-admin.php:1766
 #: views/view-about.php:14
 #: views/view-list.php:2
 msgid "Table"
 msgstr "表格"
 
-#: controllers/controller-admin.php:1778
+#: controllers/controller-admin.php:1767
+msgid "Insert a Table"
+msgstr "插入表格"
+
+#: controllers/controller-admin.php:1828
 msgid "Please wait..."
 msgstr "请稍等……"
 
-#: controllers/controller-admin.php:1779
+#: controllers/controller-admin.php:1829
 msgid "Show _MENU_ Tables"
 msgstr "显示表格_MENU_"
 
-#: controllers/controller-admin.php:1780
+#: controllers/controller-admin.php:1830
 #: views/view-ajax_list.php:53
 #: views/view-export.php:71
 #: views/view-list.php:88
 msgid "No tables were found."
 msgstr "没有找到表格。"
 
-#: controllers/controller-admin.php:1781
+#: controllers/controller-admin.php:1831
 msgid "_START_ to _END_ of _TOTAL_ Tables"
 msgstr "从_START_到_END_一共_TOTAL_个表格"
 
-#: controllers/controller-admin.php:1782
+#: controllers/controller-admin.php:1832
 msgid "(filtered from _MAX_ Tables)"
 msgstr "(从_MAX_个表格中筛选出)"
 
-#: controllers/controller-admin.php:1783
+#: controllers/controller-admin.php:1833
 msgid "Filter:"
 msgstr "筛选："
 
-#: controllers/controller-admin.php:1784
+#: controllers/controller-admin.php:1834
 msgid "First"
 msgstr "第一"
 
-#: controllers/controller-admin.php:1785
+#: controllers/controller-admin.php:1835
 msgid "Back"
 msgstr "后退"
 
-#: controllers/controller-admin.php:1786
+#: controllers/controller-admin.php:1836
 msgid "Next"
 msgstr "下一个"
 
-#: controllers/controller-admin.php:1787
+#: controllers/controller-admin.php:1837
 msgid "Last"
 msgstr "最后一个"
 
@@ -875,13 +926,13 @@ msgstr "调试和版本信息"
 #: views/view-edit.php:51
 #: views/view-edit.php:104
 #: views/view-edit.php:262
-#: views/view-edit.php:349
-#: views/view-edit.php:401
+#: views/view-edit.php:353
+#: views/view-edit.php:414
 #: views/view-options.php:19
 #: views/view-options.php:70
 #: views/view-options.php:87
-#: views/view-options.php:175
-#: views/view-options.php:186
+#: views/view-options.php:184
+#: views/view-options.php:195
 msgctxt "expand"
 msgid "Hide"
 msgstr "隐藏"
@@ -891,13 +942,13 @@ msgstr "隐藏"
 #: views/view-edit.php:51
 #: views/view-edit.php:104
 #: views/view-edit.php:262
-#: views/view-edit.php:349
-#: views/view-edit.php:401
+#: views/view-edit.php:353
+#: views/view-edit.php:414
 #: views/view-options.php:19
 #: views/view-options.php:70
 #: views/view-options.php:87
-#: views/view-options.php:175
-#: views/view-options.php:186
+#: views/view-options.php:184
+#: views/view-options.php:195
 msgid "Expand"
 msgstr "展开"
 
@@ -994,7 +1045,7 @@ msgstr ""
 
 #: views/view-ajax_list.php:16
 #: views/view-ajax_list.php:24
-#: views/view-edit.php:413
+#: views/view-edit.php:426
 #: views/view-import.php:101
 #: views/view-import.php:110
 msgid "Action"
@@ -1041,17 +1092,17 @@ msgstr "由"
 
 #: views/view-edit.php:42
 #: views/view-edit.php:254
-#: views/view-edit.php:393
-#: views/view-edit.php:444
+#: views/view-edit.php:406
+#: views/view-edit.php:457
 msgid "Save and go back"
 msgstr "保存并回到前一页"
 
 #: views/view-edit.php:45
 #: views/view-edit.php:257
-#: views/view-edit.php:396
-#: views/view-edit.php:447
+#: views/view-edit.php:409
+#: views/view-edit.php:460
 #: views/view-options.php:65
-#: views/view-options.php:162
+#: views/view-options.php:171
 msgid "Cancel"
 msgstr "取消"
 
@@ -1162,7 +1213,7 @@ msgstr "增加 %s 行"
 
 #: views/view-edit.php:172
 #: views/view-edit.php:175
-#: views/view-edit.php:438
+#: views/view-edit.php:451
 msgid "Add"
 msgstr "增加"
 
@@ -1240,201 +1291,206 @@ msgid "Table head"
 msgstr "表头"
 
 #: views/view-edit.php:276
-msgid "The first row of your table is the table head (HTML tag &lt;th&gt;)."
-msgstr "表格的第一行作为表头 (HTML 标记 &lt;th&gt;)。"
+msgid "The first row of your table is the table head (HTML tags &lt;thead&gt; and &lt;th&gt;)."
+msgstr "表格的第一行作为表头 (HTML 标记 &lt;thead&gt; 和 &lt;th&gt;)。"
 
 #: views/view-edit.php:279
 msgid "Table footer"
 msgstr "表尾"
 
 #: views/view-edit.php:280
-msgid "The last row of your table is the table footer (HTML tag &lt;th&gt;)."
-msgstr "表格的最后一行作为表尾 (HTML 标记 &lt;th&gt;)。"
+msgid "The last row of your table is the table footer (HTML tags &lt;tfoot&gt; and &lt;th&gt;)."
+msgstr "表格的最后一行作为表尾 (HTML 标记 &lt;tfoot&gt; 和 &lt;th&gt;)。"
 
 #: views/view-edit.php:289
-#: views/view-edit.php:304
+#: views/view-edit.php:306
 msgid "above"
 msgstr "上方"
 
 #: views/view-edit.php:291
-#: views/view-edit.php:306
+#: views/view-edit.php:308
 msgid "below"
 msgstr "下方"
 
-#: views/view-edit.php:293
+#: views/view-edit.php:294
 #, php-format
 msgid "The Table Name shall be written %s the table (HTML tag &lt;h2&gt;)."
 msgstr "表格名称应该放在表格 %s (HTML 标记 &lt;h2&gt;)。"
 
-#: views/view-edit.php:298
+#: views/view-edit.php:300
 msgid "Table Description"
 msgstr "表格描述"
 
-#: views/view-edit.php:308
+#: views/view-edit.php:311
 #, php-format
 msgid "The Table Description shall be written %s the table."
 msgstr "对表格的描述应该放在表格 %s。"
 
-#: views/view-edit.php:313
+#: views/view-edit.php:317
 msgid "Use JavaScript library"
 msgstr "启用 JavaScript 库"
 
-#: views/view-edit.php:319
 #: views/view-edit.php:323
-#: views/view-edit.php:335
+#: views/view-edit.php:327
+#: views/view-edit.php:339
 msgid "You can change further settings for this library below."
 msgstr "您可以在下面改变该库的其它设定。"
 
-#: views/view-edit.php:327
 #: views/view-edit.php:331
+#: views/view-edit.php:335
 msgid "The table will then be sortable by the visitor."
 msgstr "表格将可以由访问者来执行排序。"
 
-#: views/view-edit.php:338
+#: views/view-edit.php:342
 #, php-format
 msgid "Yes, use the &quot;%s&quot; JavaScript library with this table."
 msgstr "是，为该表启用 &quot;%s&quot; JavaScript 库。"
 
-#: views/view-edit.php:338
+#: views/view-edit.php:342
 #, php-format
 msgid "You must enable the use of a JavaScript library on the &quot;%s&quot; screen first."
 msgstr "您必须先在 &quot;%s&quot; 页面上启用 JavaScript 库。"
 
-#: views/view-edit.php:349
+#: views/view-edit.php:353
 msgid "DataTables JavaScript Features"
 msgstr "数据表 JavaScript 特性"
 
-#: views/view-edit.php:351
+#: views/view-edit.php:355
 msgid "You can enable certain features for the DataTables JavaScript library here."
 msgstr "你可以在这里启用数据表的 JavaScript 库特性。"
 
-#: views/view-edit.php:351
+#: views/view-edit.php:355
 msgid "More information on these features can be found on the <a href=\"http://www.datatables.net/\">DataTables website</a>."
 msgstr "欲了解这些特性的更多信息请访问 <a href=\"http://www.datatables.net/\">DataTables website</a>。"
 
-#: views/view-edit.php:353
+#: views/view-edit.php:357
 #, php-format
 msgid "You can currently not change these options, because you have not enabled the &quot;DataTables&quot; or the &quot;DataTables+TableTools&quot; JavaScript library on the &quot;%s&quot; screen."
 msgstr "您现在还不能改变这些设置，因为您还没有启用 &quot;数据表&quot; 或者 &quot;数据表 + 表格工具&quot; JavaScript 库。要启用这些功能请访问 &quot;%s&quot; 页面。"
 
-#: views/view-edit.php:353
+#: views/view-edit.php:357
 msgid "It is not possible to use these features with the &quot;Tablesorter&quot; or &quot;Tablesorter Extended&quot; libraries."
 msgstr "&quot;表格排序&quot; 或者 &quot;表格排序扩展&quot; 库没有这样的特性。"
 
-#: views/view-edit.php:357
+#: views/view-edit.php:361
 msgid "Sorting"
 msgstr "排序"
 
-#: views/view-edit.php:358
+#: views/view-edit.php:362
 msgid "Yes, enable sorting of table data by the visitor."
 msgstr "是，允许访问者对表格数据进行排序。"
 
-#: views/view-edit.php:361
+#: views/view-edit.php:365
 msgid "Pagination"
 msgstr "分页"
 
-#: views/view-edit.php:362
-msgid "Yes, enable pagination of the table (showing only a certain number of rows) by the visitor."
+#: views/view-edit.php:370
+msgid "Yes, enable pagination (showing only a certain number of rows) of the table by the visitor."
 msgstr "是，允许访问者对表格进行分页（只显示一定的行数）。"
 
-#: views/view-edit.php:365
+#: views/view-edit.php:372
+#, php-format
+msgid "Show %1$s rows of the table per page."
+msgstr "每页显示表格中的 %1$s 行。"
+
+#: views/view-edit.php:378
 msgid "Length Change"
 msgstr "长度改变"
 
-#: views/view-edit.php:366
-msgid "Yes, allow visitor to change the number of rows shown when using pagination."
-msgstr "是，允许访问者在使用分页功能时更改每页显示的行数。"
+#: views/view-edit.php:379
+msgid "Yes, allow the visitor to change the number of rows shown when using pagination."
+msgstr "是，允许访问者在使用分页功能时更改每页显示行数。"
 
-#: views/view-edit.php:369
+#: views/view-edit.php:382
 msgid "Filtering"
 msgstr "筛选"
 
-#: views/view-edit.php:370
+#: views/view-edit.php:383
 msgid "Yes, enable the visitor to filter or search the table. Only rows with the search word in them are shown."
 msgstr "是，允许访问者对表格执行筛选或搜索。仅显示包含搜索词的行。"
 
-#: views/view-edit.php:373
+#: views/view-edit.php:386
 msgid "Info Bar"
 msgstr "信息栏"
 
-#: views/view-edit.php:374
+#: views/view-edit.php:387
 msgid "Yes, show the table information display. This shows information and statistics about the currently visible data, including filtering."
 msgstr "是，显示表格信息。这会显示表格信息和当前可视数据的统计信息，包括筛选信息。"
 
-#: views/view-edit.php:377
+#: views/view-edit.php:390
 msgid "TableTools"
 msgstr "表格工具"
 
-#: views/view-edit.php:379
+#: views/view-edit.php:392
 msgid "Yes, activate the TableTools functions (Copy to Clipboard, Save to CSV, Save to XLS, Print Table) for this table."
 msgstr "是，为该表格激活表格工具功能 (复制到剪切板，保存为 CSV文件，保存为 XLS文件，打印表格)。"
 
-#: views/view-edit.php:380
+#: views/view-edit.php:393
 msgid "This option can only be used with the &quot;DataTables+TableTools&quot; JavaScript library."
 msgstr "该选项只能用于 &quot;数据表 + 表格工具&quot; JavaScript 库。"
 
-#: views/view-edit.php:384
+#: views/view-edit.php:397
 msgid "Custom Commands"
 msgstr "自定义命令"
 
-#: views/view-edit.php:385
+#: views/view-edit.php:398
 msgid "Enter additional DataTables JavaScript parameters that will be included with the script call here."
 msgstr "在这里输入要包含在脚本调用中的附加数据表 JavaScript 参数。"
 
-#: views/view-edit.php:385
+#: views/view-edit.php:398
 msgid "For advanced use only. Read the <a href=\"http://www.datatables.net/\">DataTables documentation</a> before."
 msgstr "如果要进行高级应用，请先阅读 <a href=\"http://www.datatables.net/\">数据表文档</a>。"
 
-#: views/view-edit.php:401
+#: views/view-edit.php:414
 msgid "Custom Data Fields"
 msgstr "自定义数据域"
 
-#: views/view-edit.php:403
+#: views/view-edit.php:416
 msgid "Custom Data Fields can be used to add extra metadata to a table."
 msgstr "自定义数据域能够用来给表格添加附加的元数据。"
 
-#: views/view-edit.php:403
+#: views/view-edit.php:416
 msgid "For example, this could be information about the source or the creator of the data."
 msgstr "例如，可以是关于表格来源或创作者的信息。"
 
-#: views/view-edit.php:405
+#: views/view-edit.php:418
 #, php-format
 msgid "You can show this data in the same way as tables by using the shortcode <strong>[table-info id=%s field=\"&lt;field-name&gt;\" /]</strong>."
 msgstr "与表格一样，您可以使用代码 <strong>[table-info id=%s field=\"&lt;field-name&gt;\" /]</strong>来显示这些数据。"
 
-#: views/view-edit.php:411
+#: views/view-edit.php:424
 msgid "Field Name"
 msgstr "域名称"
 
-#: views/view-edit.php:412
+#: views/view-edit.php:425
 msgid "Value"
 msgstr "值"
 
-#: views/view-edit.php:426
+#: views/view-edit.php:439
 msgid "Delete Field"
 msgstr "删除域"
 
-#: views/view-edit.php:428
+#: views/view-edit.php:441
 msgid "View shortcode"
 msgstr "查看代码"
 
-#: views/view-edit.php:437
+#: views/view-edit.php:450
 msgid "To add a new Custom Data Field, enter its name (only lowercase letters, numbers, _ and -)."
 msgstr "要添加一个自定义数据域，请输入名称 (只能使用小写字母，数字，_ 和 - )。"
 
-#: views/view-edit.php:438
+#: views/view-edit.php:451
 msgid "Custom Data Field Name"
 msgstr "自定义数据域名称"
 
-#: views/view-edit.php:452
+#: views/view-edit.php:465
 msgid "Other actions"
 msgstr "其它操作"
 
-#: views/view-edit.php:455
+#: views/view-edit.php:468
 msgid "Delete Table"
 msgstr "删除表格"
 
-#: views/view-edit.php:456
+#: views/view-edit.php:469
 #: views/view-export.php:59
 msgid "Export Table"
 msgstr "导出表格"
@@ -1461,7 +1517,7 @@ msgid "To backup all tables, including their settings, at once use the &quot;%s&
 msgstr "要一次性备份所有表格，包括它们的设置，请使用 &quot;%s&quot; 按钮，位于 &quot;%s&quot;。"
 
 #: views/view-export.php:10
-#: views/view-options.php:180
+#: views/view-options.php:189
 msgid "Create and Download Dump File"
 msgstr "创建并下载备份文件"
 
@@ -1723,8 +1779,8 @@ msgstr "这些将用于改变表格样式。"
 
 #: views/view-options.php:50
 #, php-format
-msgid "You can get styling examples from the <a href=\"%s\">plugin's website</a>."
-msgstr "您可以从 <a href=\"%s\">插件网站</a> 获取样式示例。"
+msgid "You can get styling examples from the <a href=\"%s\">FAQ</a>."
+msgstr "您可以从 <a href=\"%s\">FAQ</a> 获取样式示例。"
 
 #: views/view-options.php:50
 #, php-format
@@ -1741,7 +1797,7 @@ msgid "Yes, open links that are inserted with the &quot;%s&quot; button on the &
 msgstr "是，<strong>从现在开始</strong>都在新的浏览器窗口中打开通过 &quot;%s&quot; 按钮插入的 &quot;%s&quot; 页上的链接。"
 
 #: views/view-options.php:62
-#: views/view-options.php:159
+#: views/view-options.php:168
 msgid "Save Options"
 msgstr "保存选项"
 
@@ -1772,8 +1828,8 @@ msgid "Admin Options"
 msgstr "管理选项"
 
 #: views/view-options.php:89
-#: views/view-options.php:200
-#: views/view-options.php:214
+#: views/view-options.php:209
+#: views/view-options.php:223
 msgid "This area are only available to site administrators!"
 msgstr "该区域只有管理员才能访问！"
 
@@ -1853,123 +1909,123 @@ msgstr "工具"
 msgid "Posts"
 msgstr "文章"
 
-#: views/view-options.php:129
+#: views/view-options.php:138
 msgid "Pages"
 msgstr "页面"
 
-#: views/view-options.php:130
+#: views/view-options.php:139
 msgid "Plugins"
 msgstr "插件"
 
-#: views/view-options.php:131
+#: views/view-options.php:140
 msgid "Settings"
 msgstr "设置"
 
-#: views/view-options.php:132
+#: views/view-options.php:141
 msgid "Dashboard"
 msgstr "控制面板"
 
-#: views/view-options.php:133
+#: views/view-options.php:142
 msgid "Top-Level"
 msgstr "顶级"
 
-#: views/view-options.php:138
+#: views/view-options.php:147
 msgid "Frontend Edit Link"
 msgstr "快速编辑链接"
 
-#: views/view-options.php:139
+#: views/view-options.php:148
 msgid "Yes, show an \"Edit\" link to users with sufficient rights near every table on the frontend."
 msgstr "是，如果用户拥有足够的权限，就在前台的每一个表格上显示 \"编辑\" 链接。"
 
-#: views/view-options.php:143
+#: views/view-options.php:152
 msgid "WordPress Search"
 msgstr "WordPress 搜索"
 
-#: views/view-options.php:144
+#: views/view-options.php:153
 msgid "Yes, the WordPress Search shall also find posts and pages that contain the search term inside a table."
 msgstr "是，WordPress 搜索应该同时查找包含该搜索词的文章和页面。"
 
-#: views/view-options.php:148
+#: views/view-options.php:157
 msgid "Remove upon Deactivation"
 msgstr "停用时移除"
 
-#: views/view-options.php:149
+#: views/view-options.php:158
 msgid "Yes, remove all plugin related data from the database when the plugin is deactivated."
 msgstr "是，当停用该插件时从数据库移除所有与该插件相关的数据。"
 
-#: views/view-options.php:149
+#: views/view-options.php:158
 msgid "Should be activated directly before deactivation only!"
 msgstr "必须是激活状态才能停用。"
 
-#: views/view-options.php:169
+#: views/view-options.php:178
 msgid "WP-Table Reloaded Data Export and Backup"
 msgstr "WP-Table Reloaded 数据导出与备份"
 
-#: views/view-options.php:172
+#: views/view-options.php:181
 msgid "WP-Table Reloaded can export and import a so-called dump file that contains all tables, their settings and the plugin's options."
 msgstr "WP-Table Reloaded 能够导出和导入一个包含所有表格、表格设置和插件选项的存放文件。"
 
-#: views/view-options.php:172
+#: views/view-options.php:181
 msgid "This file can be used as a backup or to move all data to another WordPress site."
 msgstr "该文件可以作为备份或者用来将数据全部转移到另一个 WordPress 站点。"
 
-#: views/view-options.php:175
+#: views/view-options.php:184
 msgid "Export a dump file"
 msgstr "导出存放文件"
 
-#: views/view-options.php:177
+#: views/view-options.php:186
 msgid "To export all Tables and their settings, click the button below to generate and download a dump file."
 msgstr "要导出所有表格及其设置，请点击下面的按钮来产生并下载一个存放文件。"
 
-#: views/view-options.php:177
+#: views/view-options.php:186
 msgid "<strong>Warning</strong>: Do <strong>not</strong> edit the content of that file under any circumstances as you will destroy the file!"
 msgstr "<strong>警告</strong>：在任何情况下都 <strong>不要</strong> 编辑该文件，否则可能导致文件损坏！"
 
-#: views/view-options.php:186
+#: views/view-options.php:195
 msgid "Import a dump file"
 msgstr "导入存放文件"
 
-#: views/view-options.php:188
+#: views/view-options.php:197
 msgid "To import a WP-Table Reloaded dump file and restore the included data, upload the file from your computer."
 msgstr "要导入已保存的 WP-Table Reloaded 存放文件以恢复其中的数据，请从您的电脑上传该文件。"
 
-#: views/view-options.php:188
+#: views/view-options.php:197
 msgid "All current data of this WP-Table Reloaded installation (Tables, Options, Settings) <strong>WILL BE OVERWRITTEN</strong> with the data from the file!"
 msgstr "所有当前安装的 WP-Table Reloaded 的数据 (表格、选项、设置) <strong>都将被文件中的数据覆盖</strong> ！"
 
-#: views/view-options.php:188
+#: views/view-options.php:197
 msgid "Do not proceed, if you do not understand this!"
 msgstr "如果您没有充分理解本操作，请不要轻易执行！"
 
-#: views/view-options.php:188
+#: views/view-options.php:197
 msgid "It is highly recommended to export and backup the data of this installation before importing another dump file (see above)."
 msgstr "强烈建议在导入另一个存放文件（参考上面的说明）之前导出并备份当前安装的所有数据。"
 
-#: views/view-options.php:194
+#: views/view-options.php:203
 msgid "Select Dump File"
 msgstr "选择存放文件"
 
-#: views/view-options.php:196
+#: views/view-options.php:205
 msgid "Import Dump File"
 msgstr "导入存放文件"
 
-#: views/view-options.php:206
+#: views/view-options.php:215
 msgid "Manually Uninstall WP-Table Reloaded"
 msgstr "手动删除 WP-Table Reloaded"
 
-#: views/view-options.php:208
+#: views/view-options.php:217
 msgid "Uninstalling <strong>will permanently delete</strong> all tables, data, and options, that belong to WP-Table Reloaded from the database, including all tables you added or imported."
 msgstr "卸载 WP-Table Reloaded 将会从数据库中 <strong>永久删除</strong> 与该插件相关的所有表格、数据和选项，包括所有您添加或导入的表格。"
 
-#: views/view-options.php:208
+#: views/view-options.php:217
 msgid "You will manually need to remove the plugin's files from the plugin folder afterwards."
 msgstr "之后您可能需要手工删除该插件安装文件夹中的相关文件。"
 
-#: views/view-options.php:208
+#: views/view-options.php:217
 msgid "Be very careful with this and only click the button if you know what you are doing!"
 msgstr "千万小心，在您点击按钮之前请确保您非常清楚自己正在做什么！"
 
-#: views/view-options.php:212
+#: views/view-options.php:221
 msgid "Uninstall Plugin WP-Table Reloaded"
 msgstr "删除 WP-Table Reloaded 插件"
 

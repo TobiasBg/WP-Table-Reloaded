@@ -2162,7 +2162,7 @@ msgstr "Damit kann das Layout und das Aussehen von Tabellen geändert werden."
 #: views/view-options.php:50
 #, php-format
 msgid "You can get styling examples from the <a href=\"%s\">FAQ</a>."
-msgstr "In der <a href=\"%s\">FAQ</a> auf der Plugin-Webseite findest du Layout- bzw. Code-Beispiele"
+msgstr "In der <a href=\"%s\">FAQ</a> auf der Plugin-Webseite findest du Layout- bzw. Code-Beispiele."
 
 # @ wp-table-reloaded
 #: views/view-options.php:50

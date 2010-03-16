@@ -11,8 +11,7 @@
         <div class="postbox">
         <h3 class="hndle"><span><?php _e( 'Usage', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span></h3>
         <div class="inside">
-        <p><?php _e( 'At first you should add or import a table.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'This means that you either let the plugin create an empty table for you or that you load an existing table from either a CSV, XML or HTML file.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p><p><?php _e( 'Then you can edit your data or change the structure of your table (e.g. by inserting or deleting rows or columns, swaping rows or columns or sorting them) and select specific table options like alternating row colors or whether to print the name or description, if you want.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'To easily add a link or an image to a cell, use the provided buttons. Those will ask you for the URL and a title. Then you can click into a cell and the corresponding HTML will be added to it for you.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p><p><?php printf( __( 'To insert the table into a page, post or text-widget, copy the shortcode <strong>[table id=%s /]</strong> and paste it into the corresponding place in the editor.', WP_TABLE_RELOADED_TEXTDOMAIN ), '&lt;ID&gt;' ); ?> <?php printf( __( 'You can also select the desired table from a list (after clicking the button &quot;%s&quot; in the editor toolbar) and the corresponding shortcode will be added for you.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Table', WP_TABLE_RELOADED_TEXTDOMAIN ) ); ?></p><p><?php _e( 'Tables can be styled by changing and adding CSS commands.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'The plugin ships with default CSS Stylesheets, which can be customized with own code or replaced with other Stylesheets.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'For this, each table is given certain CSS classes that can be used as CSS selectors.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php printf ( __( 'Please see the <a href="%s">documentation</a> for a list of these selectors and for styling examples.', WP_TABLE_RELOADED_TEXTDOMAIN ), 'http://tobias.baethge.com/go/wp-table-reloaded/documentation/' ); ?>
-        </p>
+        <p><?php _e( 'At first you should add or import a table.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'This means that you either let the plugin create an empty table for you or that you load an existing table from either a CSV, XML or HTML file.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p><p><?php _e( 'Then you can edit your data or change the structure of your table (e.g. by inserting or deleting rows or columns, swaping rows or columns or sorting them) and select specific table options like alternating row colors or whether to print the name or description, if you want.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'To easily add a link or an image to a cell, use the provided buttons. Those will ask you for the URL and a title. Then you can click into a cell and the corresponding HTML will be added to it for you.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p><p><?php printf( __( 'To insert the table into a page, post or text-widget, copy the shortcode <strong>[table id=%s /]</strong> and paste it into the corresponding place in the editor.', WP_TABLE_RELOADED_TEXTDOMAIN ), '&lt;ID&gt;' ); ?> <?php printf( __( 'You can also select the desired table from a list (after clicking the button &quot;%s&quot; in the editor toolbar) and the corresponding shortcode will be added for you.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Table', WP_TABLE_RELOADED_TEXTDOMAIN ) ); ?></p><p><?php _e( 'Tables can be styled by changing and adding CSS commands.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'The plugin ships with default CSS Stylesheets, which can be customized with own code or replaced with other Stylesheets.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'For this, each table is given certain CSS classes that can be used as CSS selectors.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php printf ( __( 'Please see the <a href="%s">documentation</a> for a list of these selectors and for styling examples.', WP_TABLE_RELOADED_TEXTDOMAIN ), 'http://tobias.baethge.com/go/wp-table-reloaded/documentation/' ); ?></p>
         </div>
         </div>
 
@@ -51,18 +50,19 @@
                     'cs_CZ' => '<a href="http://separatista.net/">Separatista</a>',
                     'es_ES' => '<a href="http://halles.cl/">Matias Halles</a>', // <a href="http://theindependentproject.com/">Alejandro Urrutia</a>
                     'fi_FI' => 'Jaakko',
+                    'fr_FR' => '<a href="http://www.ningbohotelreview.com/">NingboHOTELreview</a>',
                     'hi_IN' => '<a href="http://outshinesolutions.com/">Outshine Solutions</a>',
                     'it_IT' => '<a href="http://www.scrical.it/">Gabriella Mazzon</a>',
                     'ja'    => '<a href="http://www.u-1.net/">Yuuichi</a>',
                     'pt_BR' => '<a href="http://www.pensarics.com/">Rics</a>',
-                    'zh_CN' => '<a href="http://cnzhx.net/">Haoxian Zeng</a>',
                     'ru_RU' => '<a href="http://www.wordpress4you.com/">WordPress4You</a>',
                     'sk_SK' => '<a href="http://lukas.cerro.sk/">55.lukas</a>',
                     'sv_SE' => '<a href="http://www.zuperzed.se/">ZuperZed</a>',
+                    'ua_UA' => '<a href="http://antsar.info/">murooch</a>',
+                    'zh_CN' => '<a href="http://cnzhx.net/">Haoxian Zeng</a>',
                     // probably inactive languages
                     'by_BY' => '<a href="http://www.fatcow.com/">Marcis Gasuns</a>',
                     'et'    => 'Lembit Kivisik',
-                    'fr_FR' => '<a href="http://ultratrailer.net/">Yin-Yin</a>',
                     'pl_PL' => 'Alex Kortan',
                     'sq_AL' => '<a href="http://www.romeolab.com/">Romeo</a>',
                     'tr_TR' => '<a href="http://www.wpuzmani.com/">Semih</a>'
