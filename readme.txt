@@ -118,7 +118,7 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 * enhancement: add WP-Table Reloaded screen icon to all plugin screens and the Top-Level menu entry
 * enhancement: add two template tag functions that return the output instead of echoing it
 * bugfix: fix problem with admin menu parent pages, make them ready for WP 3.0
-* languages: added French, Chinese (Simplified), and Russian
+* languages: added French, Chinese (Simplified), Russian, and Ukrainian
 
 = Version 1.6.1 =
 * enhancement: let WP Search also search table name and description
