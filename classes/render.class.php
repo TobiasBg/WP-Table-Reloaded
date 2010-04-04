@@ -252,8 +252,8 @@ class WP_Table_Reloaded_Render {
      * Remove all cells that shall not be rendered, because they are hidden, from the data set
      */
     function get_render_data() {
-        $table = $this->table;
-        
+        $table = $orig_table = $this->table;
+
         // if row_offset or row_count were given, we cut that part from the table and show just that
         // ATTENTION: MIGHT BE DROPPED IN FUTURE VERSIONS!
         if ( null === $this->output_options['row_count'] )
@@ -281,6 +281,9 @@ class WP_Table_Reloaded_Render {
             }
             $table['data'][$row_idx] = array_merge( $row );
         }
+        
+        $table = apply_filters( 'wp_table_reloaded_render_table', $table, $orig_table, $this->output_options );
+        
         return $table;
     }
 
