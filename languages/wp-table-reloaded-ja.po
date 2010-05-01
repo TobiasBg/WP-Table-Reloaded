@@ -1,33 +1,33 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Wp-Table Reloaded 1.6\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-table-reloaded\n"
-"POT-Creation-Date: 2009-12-28 20:16+0000\n"
-"PO-Revision-Date: \n"
-"Last-Translator: Yuuichi <u1@u-1.net>\n"
-"Language-Team: Yuuichi <u1@u-1.net>\n"
+"Project-Id-Version: WP-Table Reloaded 1.7\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-03-23 12:11+0900\n"
+"PO-Revision-Date: 2010-03-23 21:00+0900\n"
+"Last-Translator: Oki Murakami <oki@centree.net>\n"
+"Language-Team: Oki Murakami <oki@centree.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-KeywordsList: __;_e;_x\n"
+"X-Poedit-Bookmarks: 115,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
 "X-Poedit-Language: Japanese\n"
 "X-Poedit-Country: JAPAN\n"
-"X-Poedit-SourceCharset: utf-8\n"
 
 #: classes/export.class.php:28
 #: classes/import.class.php:36
 msgid "CSV - Character-Separated Values"
-msgstr "CSV - カンマ区切り"
+msgstr "CSV - Character-Separated Values"
 
 #: classes/export.class.php:29
 #: classes/import.class.php:37
 msgid "HTML - Hypertext Markup Language"
-msgstr "HTML - ハイパーテキストマークアップ言語"
+msgstr "HTML - Hypertext Markup Language"
 
 #: classes/export.class.php:30
 #: classes/import.class.php:38
 msgid "XML - eXtended Markup Language"
-msgstr "XML - 拡張マークアップ言語"
+msgstr "XML - eXtended Markup Language"
 
 #: classes/export.class.php:33
 msgid "; (semicolon)"
@@ -50,736 +50,693 @@ msgid "| (pipe)"
 msgstr "| (パイプ)"
 
 #: classes/helper.class.php:40
-#: views/view-about.php:22
+#: views/view-about.php:21
 #, php-format
 msgid "More information about WP-Table Reloaded can be found on the <a href=\"%s\">plugin's website</a> or on its page in the <a href=\"%s\">WordPress Plugin Directory</a>."
-msgstr "WP-Table Reloaded に関する追加の情報は <a href=\"%s\">プラグインのWebサイト</a>や<a href=\"%s\">WordPress Plugin Directory</a>で見つけることができます."
+msgstr "WP-Table Reloaded についてのより詳しい情報は <a href=\"%s\">プラグインウェブサイト</a> か <a href=\"%s\">WordPress プラグイン ディレクトリ</a>で見つけることができます。"
 
 #: classes/helper.class.php:41
-#: views/view-about.php:22
+#: views/view-about.php:21
 #, php-format
 msgid "For technical information, see the <a href=\"%s\">documentation</a>."
-msgstr "技術的な情報は,<a href=\"%s\">ドキュメント</a>をご覧ください."
+msgstr "技術的な情報については<a href=\"%s\">ドキュメンテーション</a>をご覧ください。"
 
 #: classes/helper.class.php:42
-#: views/view-about.php:29
+#: views/view-about.php:28
 #, php-format
 msgid "<a href=\"%s\">Support</a> is provided through the <a href=\"%s\">WordPress Support Forums</a>."
-msgstr "<a href=\"%s\">サポート</a> は <a href=\"%s\">WordPress Support Forums</a> にて行っています."
+msgstr "<a href=\"%s\">サポート</a>は <a href=\"%s\">WordPress サポートフォーラム</a>で提供されています。"
 
 #: classes/helper.class.php:43
-#: views/view-about.php:29
+#: views/view-about.php:28
 #, php-format
 msgid "Before asking for support, please carefully read the <a href=\"%s\">Frequently Asked Questions</a> where you will find answered to the most common questions, and search through the forums."
-msgstr "サポートに問い合わせる前に<a href=\"%s\">よくある質問と回答</a>を注意深く読んでください.そこではごく一般的な質問に対する回答がありますし,またそこで見つからない場合はサポートフォーラムを検索することもできます."
+msgstr "サポートで質問する前に <a href=\"%s\">Frequently Asked Questions</a> を注意深く読んだり、関係するフォーラムを検索してみたりして下さい。そうすれば、一般的な質問の答えを見つけることができるかもしれません。 "
 
 #: classes/helper.class.php:44
-#: views/view-about.php:36
+#: views/view-about.php:35
 #, php-format
 msgid "If you like the plugin, <a href=\"%s\"><strong>a donation</strong></a> is recommended."
-msgstr "このプラグインが気に入ったら,ぜひとも<a href=\"%s\"><strong>寄付</strong></a>をお願いします."
+msgstr "このプラグインを気に入ったなら、 <a href=\"%s\"><strong>寄付</strong></a> をしてくださるようお勧めいたします。"
 
 #: classes/helper.class.php:74
 msgid "Thank you for using <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/\">WP-Table Reloaded</a>."
-msgstr "<a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/\">WP-Table Reloaded</a>を使っていただきありがとうございます."
+msgstr "<a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/\">WP-Table Reloaded</a>のご利用ありがとうございます。"
 
 #: classes/helper.class.php:74
 #, php-format
 msgid "Support the plugin with your <a href=\"%s\">donation</a>!"
-msgstr "このプラグインのサポートはあなたの<a href=\"%s\">寄付</a>で行われています!"
+msgstr "このプラグインをあなたの <a href=\"%s\">寄付</a> で支えてください!"
 
 #: classes/helper.class.php:104
 #: classes/helper.class.php:109
 msgid "Table cells can span across more than one column or row."
-msgstr "テーブル内のセルは,行方向・列方向ともに結合して1つのセルとすることができます."
+msgstr "テーブルのセルは1つの列、または1段以上に分割することができます。"
 
 #: classes/helper.class.php:104
 msgid "Combining consecutive cells within the same row is called \"colspanning\"."
-msgstr "セルを横方向に結合することは\"colspanning\"と呼ばれます。"
+msgstr "同じ行の中の連続したセルを結合することを \"colspanning\"と呼びます。"
 
 #: classes/helper.class.php:104
 msgid "To combine cells, add the keyword #colspan# to the cell to the right of the one with the content for the combined cell by using the corresponding button."
-msgstr "セルを横方向に結合するには,結合後に表示される内容を結合範囲のセルの一番左に入力し,それ以外のセルにキーワード #colspan# を入力します.キーワードは colspanタグを追加 ボタンを押すことで指定したセルを選択し入力することができます."
+msgstr "セルを結合するには、#colspan#というキーワードを対応する行の右側にあるボタンを使ってセルの項目に加えてください。"
 
 #: classes/helper.class.php:104
 #: classes/helper.class.php:109
 msgid "Repeat this to add the keyword to all cells that shall be connected."
-msgstr "この操作を繰り返し,結合するセルにキーワードを追加して下さい."
+msgstr "関連のあるすべてのセルにこのキーワードを加えることを繰り返す。"
+
+#: classes/helper.class.php:104
+#: classes/helper.class.php:109
+msgid "Be aware that the JavaScript libraries will not work on tables which have combined cells."
+msgstr "JavaScriptライブラリは、結合されたセルには適応されません。ご注意ください。"
 
 #: classes/helper.class.php:109
 msgid "Combining consecutive cells within the same column is called \"rowspanning\"."
-msgstr "セルを縦方向に結合することは\"rowspanning\"と呼ばれます。"
+msgstr "同じ列の中の連続したセルを結合することを \"rowspanning\" と呼びます。"
 
 #: classes/helper.class.php:109
 msgid "To combine cells, add the keyword #rowspan# to the cell below the one with the content for the combined cell by using the corresponding button."
-msgstr "セルを縦方向に結合するには,結合後に表示される内容を結合範囲のセルの一番上に入力し,それ以外のセルにキーワード #rowspan# を入力します.キーワードは rowspanタグを追加 ボタンを押すことで指定したセルを選択し入力することができます."
+msgstr "セルを結合するには、#rowspan#というキーワードを、対応する列の最下部にあるボタンを使ってセルの項目に加えてください。"
 
 #: classes/helper.class.php:118
 msgid "Help"
 msgstr "ヘルプ"
 
-#: classes/render.class.php:96
+#: classes/render.class.php:140
 #: views/view-list.php:60
 msgid "Edit"
 msgstr "編集"
 
-#: controllers/controller-admin.php:292
+#: controllers/controller-admin.php:256
 msgid "Czech"
 msgstr "チェコ語"
 
-#: controllers/controller-admin.php:293
+#: controllers/controller-admin.php:257
 msgid "German"
 msgstr "ドイツ語"
 
-#: controllers/controller-admin.php:294
+#: controllers/controller-admin.php:258
 msgid "English"
 msgstr "英語"
 
-#: controllers/controller-admin.php:295
-msgid "Hindi"
-msgstr "ヒンディー語"
-
-#: controllers/controller-admin.php:296
-msgid "Japanese"
-msgstr "日本語"
-
-#: controllers/controller-admin.php:297
-msgid "Brazilian Portuguese"
-msgstr "トルコ語"
-
-#: controllers/controller-admin.php:298
-msgid "Slovak"
-msgstr "スロバキア語"
-
-#: controllers/controller-admin.php:299
-msgid "Swedish"
-msgstr "スウェーデン語"
-
-#: controllers/controller-admin.php:301
-msgid "Albanian"
-msgstr "アルバニア語"
-
-#: controllers/controller-admin.php:302
-msgid "Belorussian"
-msgstr "ベラルーシ語"
-
-#: controllers/controller-admin.php:303
-msgid "Finnish"
-msgstr "フィンランド語"
-
-#: controllers/controller-admin.php:304
-msgid "French"
-msgstr "フランス語"
-
-#: controllers/controller-admin.php:305
-msgid "Italian"
-msgstr "イタリア語"
-
-#: controllers/controller-admin.php:306
-msgid "Polish"
-msgstr "ポーランド語"
-
-#: controllers/controller-admin.php:307
-msgid "Russian"
-msgstr "ロシア語"
-
-#: controllers/controller-admin.php:308
+#: controllers/controller-admin.php:259
 msgid "Spanish"
 msgstr "スペイン語"
 
-#: controllers/controller-admin.php:309
-msgid "Turkish"
-msgstr "トルコ語"
+#: controllers/controller-admin.php:260
+msgid "Finnish"
+msgstr "フィンランド語"
 
-#: controllers/controller-admin.php:335
+#: controllers/controller-admin.php:261
+msgid "French"
+msgstr "フランス語"
+
+#: controllers/controller-admin.php:262
+msgid "Hindi"
+msgstr "ヒンディー語"
+
+#: controllers/controller-admin.php:263
+msgid "Italian"
+msgstr "イタリア語"
+
+#: controllers/controller-admin.php:264
+msgid "Japanese"
+msgstr "日本語"
+
+#: controllers/controller-admin.php:265
+msgid "Brazilian Portuguese"
+msgstr "ポルトガル語(ブラジル)"
+
+#: controllers/controller-admin.php:266
+msgid "Russian"
+msgstr "ロシア語"
+
+#: controllers/controller-admin.php:267
+msgid "Slovak"
+msgstr "スロバキア語"
+
+#: controllers/controller-admin.php:268
+msgid "Swedish"
+msgstr "スウェーデン語"
+
+#: controllers/controller-admin.php:269
+msgid "Chinese (Simplified)"
+msgstr "中国語(簡体字)"
+
+#: controllers/controller-admin.php:302
 #, php-format
 msgid "Welcome to WP-Table Reloaded %s. If you encounter any questions or problems, please refer to the <a href=\"%s\">FAQ</a>, the <a href=\"%s\">documentation</a>, and the <a href=\"%s\">support</a> section."
-msgstr "WP-Table Reloaded %s へようこそ.もしあなたが疑問や問題に遭遇したら<a href=\"%s\">FAQ</a>や<a href=\"%s\">ドキュメント</a>,<a href=\"%s\">サポート</a>を参照してください."
+msgstr "WP-Table Reloaded %sにようこそ。もし質問や問題が生じたら、 <a href=\"%s\">FAQ</a>や、<a href=\"%s\">ドキュメンテーション</a>、または<a href=\"%s\">サポート</a> セクションをご参照ください。"
 
-#: controllers/controller-admin.php:336
+#: controllers/controller-admin.php:303
 #, php-format
 msgid "Thank you for upgrading to WP-Table Reloaded %s."
-msgstr "WP-Table Reloaded %s へアップグレードしていただいてありがとうございます."
+msgstr "WP-Table Reloaded %s をアップデートしていただきありがとうございます。"
 
-#: controllers/controller-admin.php:336
-msgid "Among other things, this version adds support for \"colspan\" and \"rowspan\" of table cells and enables the WP Search to search through tables."
-msgstr "このバージョンでは大きな変更として,テーブルセルの結合や,WordPress の検索機能にテーブルを含めることができるようになりました."
+#: controllers/controller-admin.php:303
+msgid "This version includes several enhancements, like an updated DataTables library, a &quot;Table&quot; button in the toolbar of the visual editor, and several other things."
+msgstr "このバージョンには(1)データテーブルライブラリの改良や、 (2)&quot;Table&quot;ボタンがビジュアルエディタのツールバーに表示可能となったことなど、さまざまな機能が追加されています。"
 
-#: controllers/controller-admin.php:336
+#: controllers/controller-admin.php:303
 #, php-format
 msgid "Please read the <a href=\"%s\">release announcement</a> for more information."
-msgstr "詳細は<a href=\"%s\">リリース情報</a>をご覧下さい."
+msgstr "詳しい情報については<a href=\"%s\">release announcement</a> をご覧ください。"
 
-#: controllers/controller-admin.php:336
+#: controllers/controller-admin.php:303
 #, php-format
 msgid "If you like the new features and enhancements, I would appreciate a small <a href=\"%s\">donation</a>. Thank you."
-msgstr "もし追加された機能などが気に入ったら,幾ばくかの<a href=\"%s\">寄付</a>をお願いします。 ありがとうございます。"
+msgstr "新しい機能を気に入っていただけたなら、小額の<a href=\"%s\">寄付</a>をしてくださればうれしく思います。ありがとうございます。"
 
-#: controllers/controller-admin.php:341
+#: controllers/controller-admin.php:308
 msgid "Hide this message"
 msgstr "このメッセージを隠す"
 
-#: controllers/controller-admin.php:349
+#: controllers/controller-admin.php:316
 msgid "Thanks for using this plugin! You've installed WP-Table Reloaded over a month ago."
-msgstr "このプラグインを使っていただきありがとうございます! インストールしてから1ヶ月が経過しました."
+msgstr "このプラグインをご利用いただきありがとうございます!　WP-Table Reloadedをインストールいただいてから１ヶ月以上経過しました。"
 
-#: controllers/controller-admin.php:349
+#: controllers/controller-admin.php:316
 #, php-format
 msgid "If it works and you are satisfied with the results of managing your %s table, isn't it worth at least one dollar or euro?"
-msgid_plural "If it works and you are satisfied with the results of managing your %s tables, isn't it worth at least one dollar or euro?"
-msgstr[0] "プラグインが問題なく動作し,%s個のテーブルの管理に満足したならば,幾ばくかの寄付をお願いします."
+msgstr "このプラグインが正常に動作し、%s テーブルの管理に満足していただけましたか？1ユーロまたは1ドル以上の価値があると思われませんか？"
 
-#: controllers/controller-admin.php:350
+#: controllers/controller-admin.php:317
 #, php-format
 msgid "<a href=\"%s\">Donations</a> help me to continue support and development of this <i>free</i> software - things for which I spend countless hours of my free time! Thank you!"
-msgstr "<a href=\"%s\">寄付</a> をいただくことはこの<i>フリー</i>ソフトウェアのサポートと開発継続の一助となります."
+msgstr "皆さんからの<a href=\"%s\">寄付</a> はこの <i>フリー</i> ソフトウェア-数え切れないほどの私の自由時間を費やして作った作品-を開発しサポートし続ける助けになります。ありがとうございます。"
 
-#: controllers/controller-admin.php:351
+#: controllers/controller-admin.php:318
 msgid "Sure, no problem!"
-msgstr "もちろん問題ありません!"
+msgstr "もちろん、問題ありません!"
 
-#: controllers/controller-admin.php:352
+#: controllers/controller-admin.php:319
 msgid "I already donated."
-msgstr "私はすでに寄付を行いました."
+msgstr "私はすでに寄付をしました。"
 
-#: controllers/controller-admin.php:353
+#: controllers/controller-admin.php:320
 msgid "No, thanks. Don't ask again."
-msgstr "結構です.この質問をもう表示しません."
+msgstr "いいえ、結構です。　今後、同様の質問をしないでください。"
+
+#: controllers/controller-admin.php:348
+#, php-format
+msgid "Table &quot;%s&quot; added successfully."
+msgstr "テーブル &quot;%s&quot; は正常に追加されました。"
+
+#: controllers/controller-admin.php:379
+#, php-format
+msgid "Table edited successfully. This Table now has the ID %s. You'll need to adjust existing shortcodes accordingly."
+msgstr "テーブルは正常に編集されました。このテーブルの現時点でIDは%sです。必要に応じてショートコードの記述を変更または調整してください。 "
 
 #: controllers/controller-admin.php:381
 #, php-format
-msgid "Table &quot;%s&quot; added successfully."
-msgstr "テーブル &quot;%s&quot; の追加に成功しました."
-
-#: controllers/controller-admin.php:412
-#, php-format
-msgid "Table edited successfully. This Table now has the ID %s. You'll need to adjust existing shortcodes accordingly."
-msgstr "テーブルの編集に成功しました. このテーブルの ID は %s です. 必要に応じてショートコードの修正を行ってください."
-
-#: controllers/controller-admin.php:414
-#, php-format
 msgid "The ID could not be changed from %s to %s, because there already is a Table with that ID."
-msgstr "すでに同じ ID が存在するため %s から %s への ID の変更はできませんでした."
+msgstr "ID%s はID%sへ変更できませんでした。IDがすでに別のテーブルに使われています。"
 
-#: controllers/controller-admin.php:417
+#: controllers/controller-admin.php:384
 msgid "Table edited successfully."
-msgstr "テーブルの編集に成功しました."
+msgstr "テーブルは正常に編集されました。"
 
-#: controllers/controller-admin.php:463
+#: controllers/controller-admin.php:431
 msgid "Rows swapped successfully."
-msgstr "行の入れ替えに成功しました."
+msgstr "行は正常に入れ替えられました。"
 
-#: controllers/controller-admin.php:484
+#: controllers/controller-admin.php:452
 msgid "Columns swapped successfully."
-msgstr "列の入れ替えに成功しました."
+msgstr "列は正常に入れ替えられました。"
 
-#: controllers/controller-admin.php:513
+#: controllers/controller-admin.php:481
 msgid "Table sorted successfully."
-msgstr "テーブルの並び替えに成功しました."
+msgstr "テーブルは正常に並び替えられました。"
 
-#: controllers/controller-admin.php:534
+#: controllers/controller-admin.php:502
 msgid "Row moved successfully."
-msgstr "行の移動に成功しました."
+msgstr "行は正常に移動しました。"
 
-#: controllers/controller-admin.php:559
+#: controllers/controller-admin.php:527
 msgid "Column moved successfully."
-msgstr "列の移動に成功しました."
+msgstr "コラムは正常に移動しました。"
 
+#: controllers/controller-admin.php:535
+#: controllers/controller-admin.php:544
+#: controllers/controller-admin.php:554
 #: controllers/controller-admin.php:567
-msgid "Row could not be deleted."
-msgid_plural "Rows could not be deleted."
-msgstr[0] "行が削除できません."
+#: controllers/controller-admin.php:590
+#: controllers/controller-admin.php:617
+#: controllers/controller-admin.php:632
+#: controllers/controller-admin.php:646
+#: controllers/controller-admin.php:653
+msgid "Could not add Custom Data Field, because you did not enter a name."
+msgstr "フィールド名を入力していないため、カスタムデータフィールドを追加できませんでした。"
 
-#: controllers/controller-admin.php:576
-msgid "Row deleted successfully."
-msgid_plural "Rows deleted successfully."
-msgstr[0] "行の削除に成功しました."
-
-#: controllers/controller-admin.php:586
-msgid "Column could not be deleted."
-msgid_plural "Columns could not be deleted."
-msgstr[0] "列が削除できません."
-
-#: controllers/controller-admin.php:599
-msgid "Column deleted successfully."
-msgid_plural "Columns deleted successfully."
-msgstr[0] "列の削除に成功しました."
-
-#: controllers/controller-admin.php:622
-msgid "Row inserted successfully."
-msgid_plural "Rows inserted successfully."
-msgstr[0] "行の挿入に成功しました."
-
-#: controllers/controller-admin.php:649
-msgid "Column inserted successfully."
-msgid_plural "Columns inserted successfully."
-msgstr[0] "列の挿入に成功しました."
+#: controllers/controller-admin.php:658
+msgid "Could not add Custom Data Field, because the name you entered is reserved for other table data."
+msgstr "あなたの入力したフィールド名は他のテーブルデータで使用されているため、カスタムデータフィールドを追加できませんでした。"
 
 #: controllers/controller-admin.php:664
-msgid "Row added successfully."
-msgid_plural "Rows added successfully."
-msgstr[0] "行の追加に成功しました."
-
-#: controllers/controller-admin.php:678
-msgid "Column added successfully."
-msgid_plural "Columns added successfully."
-msgstr[0] "列の追加に成功しました."
-
-#: controllers/controller-admin.php:685
-msgid "Could not add Custom Data Field, because you did not enter a name."
-msgstr "名前が入力されていないためカスタムデータ領域を追加できません."
-
-#: controllers/controller-admin.php:690
-msgid "Could not add Custom Data Field, because the name you entered is reserved for other table data."
-msgstr "入力された名前がすでに他のデータ領域の名称として予約されているためカスタムデータ領域を追加できません."
-
-#: controllers/controller-admin.php:696
 msgid "Could not add Custom Data Field, because the name contained illegal characters."
-msgstr "入力された名前が不正な文字を使用しているためカスタムデータ領域を追加できません."
+msgstr "フィールド名に使用できない文字が含まれているため、カスタムデータフィールドを追加できませんでした。"
 
-#: controllers/controller-admin.php:700
+#: controllers/controller-admin.php:668
 msgid "Could not add Custom Data Field, because a Field with that name already exists."
-msgstr "入力された名前がすでに使用されているためカスタムデータ領域を追加できません."
+msgstr "フィールド名が既に存在するため、カスタムデータフィールドを追加できませんでした。"
 
-#: controllers/controller-admin.php:706
+#: controllers/controller-admin.php:674
 msgid "Custom Data Field added successfully."
-msgstr "カスタムデータ領域を追加しました."
+msgstr "カスタムデータフィールドは正常に追加されました。"
 
-#: controllers/controller-admin.php:746
-#: controllers/controller-admin.php:802
+#: controllers/controller-admin.php:714
+#: controllers/controller-admin.php:770
 msgid "Copy of"
-msgstr "コピー"
+msgstr "コピー～:"
 
-#: controllers/controller-admin.php:750
-msgid "Table copied successfully."
-msgid_plural "Tables copied successfully."
-msgstr[0] "テーブルのコピーに成功しました."
-
-#: controllers/controller-admin.php:756
-msgid "Table deleted successfully."
-msgid_plural "Tables deleted successfully."
-msgstr[0] "テーブルは削除に成功しました."
-
-#: controllers/controller-admin.php:777
-#: controllers/controller-admin.php:915
-#: controllers/controller-admin.php:953
-msgid "Table imported successfully."
-msgid_plural "Tables imported successfully."
-msgstr[0] "テーブルのインポートに成功しました."
-
-#: controllers/controller-admin.php:784
+#: controllers/controller-admin.php:718
+#: controllers/controller-admin.php:724
+#: controllers/controller-admin.php:745
+#: controllers/controller-admin.php:900
+#: controllers/controller-admin.php:938
+#: controllers/controller-admin.php:752
 msgid "You did not select any tables!"
-msgstr "テーブルが選択されていません!"
+msgstr "どのテーブルも選択されていません!"
 
-#: controllers/controller-admin.php:807
+#: controllers/controller-admin.php:775
 #, php-format
 msgid "Table &quot;%s&quot; copied successfully."
-msgstr "テーブル &quot;%s&quot; のコピーに成功しました."
+msgstr "テーブル &quot;%s&quot;　は正常にコピーされました。"
 
-#: controllers/controller-admin.php:825
+#: controllers/controller-admin.php:793
 #, php-format
 msgid "Table &quot;%s&quot; deleted successfully."
-msgstr "テーブル &quot;%s&quot; の削除に成功しました."
+msgstr "テーブル &quot;%s&quot; は正常に削除されました。"
 
-#: controllers/controller-admin.php:833
+#: controllers/controller-admin.php:801
 msgid "Custom Data Field deleted successfully."
-msgstr "カスタムデータ領域の削除に成功しました."
+msgstr "カスタムデータフィールドは正常に削除されました。"
 
-#: controllers/controller-admin.php:835
+#: controllers/controller-admin.php:803
 msgid "Custom Data Field could not be deleted."
-msgstr "カスタムデータ領域を削除できません."
+msgstr "カスタムデータフィールドは削除されませんでした。"
+
+#: controllers/controller-admin.php:809
+msgid "Delete failed."
+msgstr "削除に失敗しました。"
 
 #: controllers/controller-admin.php:841
-msgid "Delete failed."
-msgstr "削除に失敗しました."
-
-#: controllers/controller-admin.php:869
-#: controllers/controller-admin.php:878
-#: controllers/controller-admin.php:888
+#: controllers/controller-admin.php:851
+#: controllers/controller-admin.php:862
 msgid "Imported Table"
-msgstr "テーブルのインポート"
+msgstr "インポートされたテーブル"
 
-#: controllers/controller-admin.php:870
-#: controllers/controller-admin.php:889
+#: controllers/controller-admin.php:842
+#: controllers/controller-admin.php:863
 #, php-format
 msgid "from %s"
 msgstr "%s から"
 
-#: controllers/controller-admin.php:879
+#: controllers/controller-admin.php:852
 msgid "via form"
-msgstr "経由 via from"
+msgstr "文書名-"
 
-#: controllers/controller-admin.php:899
-#: controllers/controller-admin.php:931
+#: controllers/controller-admin.php:879
+#: controllers/controller-admin.php:916
 msgid "Table could not be imported."
-msgstr "テーブルがインポートできませんでした."
+msgstr "テーブルはインポートできませんでした。"
 
-#: controllers/controller-admin.php:911
+#: controllers/controller-admin.php:896
 #, php-format
 msgid "Table %s (%s) replaced successfully."
-msgstr "テーブル %s (%s) の置換に成功しました."
+msgstr "テーブル %s (%s) は正常に新しいものに置き換えられました。"
 
-#: controllers/controller-admin.php:961
-#: controllers/controller-admin.php:1147
+#: controllers/controller-admin.php:946
+#: controllers/controller-admin.php:1139
 msgid "You do not have sufficient rights to perform this action."
-msgstr "この動作を実行する権限がありません."
+msgstr "あなたにはこのアクションを実行するための権限がありません。"
 
-#: controllers/controller-admin.php:968
+#: controllers/controller-admin.php:953
 msgid "You did not upload a WP-Table Reloaded dump file."
-msgstr "WP-Table Reloaded のダンプファイルをアップロードしませんでした."
+msgstr "WP-Table Reloaded ダンプファイルをアップロードしませんでした。"
 
-#: controllers/controller-admin.php:977
+#: controllers/controller-admin.php:962
 msgid "The uploaded dump file is empty. Please upload a valid dump file."
-msgstr "アップロードしたダンプファイルが空です.正しいダンプファイルをアップロードしてください."
+msgstr "アップロードされたダンプファイルは空です。有効なダンプファイルをアップロードしてください。"
 
-#: controllers/controller-admin.php:1006
+#: controllers/controller-admin.php:991
 msgid "All Tables, Settings and Options were successfully imported."
-msgstr "全てのテーブル・設定・オプションが正しくインポートされました."
+msgstr "すべてのテーブル、設定およびオプションは正常にインポートされました。"
 
-#: controllers/controller-admin.php:1035
+#: controllers/controller-admin.php:1020
 #, php-format
 msgid "Table &quot;%s&quot; exported successfully."
-msgstr "テーブル&quot;%s&quot; のエクスポートが正常に行われました."
+msgstr "テーブル &quot;%s&quot; は正常にエクスポートされました。"
 
-#: controllers/controller-admin.php:1080
-#: views/view-options.php:215
+#: controllers/controller-admin.php:1065
+#: views/view-options.php:232
 msgid "You do not have sufficient rights to access the Plugin Options."
-msgstr "プラグインの設定にアクセスする権限がありません."
+msgstr "あなたにはこのプラグインのオプションにアクセスするための権限がありません。"
 
-#: controllers/controller-admin.php:1134
+#: controllers/controller-admin.php:1120
 msgid "Options saved successfully."
-msgstr "設定の保存に成功しました."
+msgstr "オプションは正常に保存されました。"
 
-#: controllers/controller-admin.php:1197
+#: controllers/controller-admin.php:1123
+#, php-format
+msgid "<a href=\"%s\">Click here to Proceed.</a>"
+msgstr "<a href=\"%s\">処理を実行するにはここをクリック</a>"
+
+#: controllers/controller-admin.php:1189
 msgid "There is no table with this ID!"
-msgstr "この ID のテーブルは存在しません!"
+msgstr "このIDを持つテーブルはありません!"
 
-#: controllers/controller-admin.php:1234
+#: controllers/controller-admin.php:1226
 msgid "Thank you very much! Your donation is highly appreciated. You just contributed to the further development of WP-Table Reloaded!"
-msgstr "ありがとうございます! あなたの寄付に本当に感謝いたします. あなたは WP-Table Reloaded のさらなる発展に貢献されました!"
+msgstr "どうもありがとうございます! あなたの寄付に大いに感謝いたします。あなたはたった今、今後のWP-Table Reloadedの開発に貢献されました!"
 
-#: controllers/controller-admin.php:1236
+#: controllers/controller-admin.php:1228
 #, php-format
 msgid "No problem! I still hope you enjoy the benefits that WP-Table Reloaded brings to you. If you should want to change your mind, you'll always find the &quot;%s&quot; button on the <a href=\"%s\">WP-Table Reloaded website</a>."
-msgstr "問題ありません! WP-Table Reloaded があなたにとって有益でありますように. もし,あなたの気持ちが変化したときは <a href=\"%s\">WP-Table Reloaded の Web サイト</a>で\"寄付\"ボタンをいつでも見つけることができます."
+msgstr "問題ありません! WP-Table Reloadedから得られる益を今後も楽しまれますように。もしお気持ちが変わられましたら、 <a href=\"%s\">WP-Table Reloaded ウェブサイト</a>で&quot;%s&quot; ボタンをいつでも見つけることができます。"
 
-#: controllers/controller-admin.php:1236
-#: controllers/controller-admin.php:1654
+#: controllers/controller-admin.php:1228
+#: controllers/controller-admin.php:1656
 msgid "Donate"
-msgstr "寄付"
+msgstr "寄付をする"
 
-#: controllers/controller-admin.php:1263
-#: controllers/controller-admin.php:1271
+#: controllers/controller-admin.php:1251
+#: controllers/controller-admin.php:1258
 msgid "List of Tables"
-msgstr "テーブル一覧 "
+msgstr "テーブルのリスト"
 
-#. #-#-#-#-#  plugin.pot (WP-Table Reloaded 1.6-beta1)  #-#-#-#-#
-#. Plugin Name of an extension
-#: controllers/controller-admin.php:1263
-#: controllers/controller-admin.php:1268
-#: controllers/controller-admin.php:1270
+#. #-#-#-#-#  plugin.pot (WP-Table Reloaded 1.7)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: controllers/controller-admin.php:1251
+#: controllers/controller-admin.php:1255
+#: controllers/controller-admin.php:1257
 msgid "WP-Table Reloaded"
 msgstr "WP-Table Reloaded"
 
-#: controllers/controller-admin.php:1264
-#: controllers/controller-admin.php:1294
+#: controllers/controller-admin.php:1252
+#: controllers/controller-admin.php:1288
 msgid "Add new Table"
-msgstr "新しいテーブルの追加"
+msgstr "新しいテーブルを追加する"
 
-#: controllers/controller-admin.php:1265
-#, php-format
-msgid "Edit Table &quot;%s&quot; (ID %s)"
-msgstr "テーブルの編集 &quot;%s&quot; (ID %s)"
-
-#: controllers/controller-admin.php:1266
-#: controllers/controller-admin.php:1295
+#: controllers/controller-admin.php:1253
+#: controllers/controller-admin.php:1289
 msgid "Import a Table"
-msgstr "テーブルのインポート"
+msgstr "テーブルをインポートする"
 
-#: controllers/controller-admin.php:1267
-#: controllers/controller-admin.php:1296
+#: controllers/controller-admin.php:1254
+#: controllers/controller-admin.php:1290
 msgid "Export a Table"
-msgstr "テーブルのエクスポート"
+msgstr "テーブルをエクスポートする"
 
-#: controllers/controller-admin.php:1268
-#: controllers/controller-admin.php:1302
-#: views/view-edit.php:338
-#: views/view-edit.php:353
+#: controllers/controller-admin.php:1255
+#: controllers/controller-admin.php:1296
+#: views/view-edit.php:342
+#: views/view-edit.php:357
 #: views/view-export.php:10
 msgid "Plugin Options"
-msgstr "プラグイン設定"
+msgstr "プラグイン オプション"
 
-#: controllers/controller-admin.php:1269
+#: controllers/controller-admin.php:1256
 msgid "About WP-Table Reloaded"
 msgstr "WP-Table Reloaded について"
 
-#: controllers/controller-admin.php:1272
+#: controllers/controller-admin.php:1264
+#, php-format
+msgid "Edit Table &quot;%s&quot; (ID %s)"
+msgstr "テーブル &quot;%s&quot; (ID %s) を編集する"
+
+#: controllers/controller-admin.php:1265
 #, php-format
 msgid "Preview of Table &quot;%s&quot; (ID %s)"
-msgstr "これはテーブルデータ(ID %s)のプレビューです."
+msgstr "テーブル &quot;%s&quot; (ID %s) のプレビュー"
 
-#: controllers/controller-admin.php:1293
+#: controllers/controller-admin.php:1287
 msgid "List Tables"
-msgstr "テーブル一覧"
+msgstr "テーブルのリスト"
 
-#: controllers/controller-admin.php:1303
+#: controllers/controller-admin.php:1297
 msgid "About the plugin"
 msgstr "プラグインについて"
 
-#: controllers/controller-admin.php:1650
+#: controllers/controller-admin.php:1652
 msgid "WP-Table Reloaded Plugin Page"
 msgstr "WP-Table Reloaded プラグインのページ"
 
-#: controllers/controller-admin.php:1650
+#: controllers/controller-admin.php:1652
 msgid "Plugin Page"
-msgstr "プラグインホームページ"
+msgstr "プラグインのページ"
 
-#: controllers/controller-admin.php:1651
+#: controllers/controller-admin.php:1653
 msgid "Frequently Asked Questions"
-msgstr "よくある質問と回答"
+msgstr "よくある質問"
 
-#: controllers/controller-admin.php:1651
+#: controllers/controller-admin.php:1653
 msgid "FAQ"
 msgstr "FAQ"
 
-#: controllers/controller-admin.php:1652
+#: controllers/controller-admin.php:1654
 msgid "Support"
 msgstr "サポート"
 
-#: controllers/controller-admin.php:1653
+#: controllers/controller-admin.php:1655
 msgid "Plugin Documentation"
-msgstr "プラグインのドキュメント"
+msgstr "プラグイン ドキュメンテーション"
 
-#: controllers/controller-admin.php:1653
+#: controllers/controller-admin.php:1655
 msgid "Documentation"
-msgstr "ドキュメント"
+msgstr "ドキュメンテーション"
 
-#: controllers/controller-admin.php:1654
+#: controllers/controller-admin.php:1656
 msgid "Support WP-Table Reloaded with your donation!"
 msgstr "あなたの寄付で WP-Table Reloaded を支援してください!"
 
-#: controllers/controller-admin.php:1692
-msgid "Do you really want to activate this? You should only do that right before uninstallation!"
-msgstr "本当に実行しますか? これはアンインストールの直前にのみ行ってください!"
-
-#: controllers/controller-admin.php:1693
-msgid "URL of link to insert"
-msgstr "挿入してリンクするURL"
-
-#: controllers/controller-admin.php:1694
-msgid "Text of link"
-msgstr "リンクする文字列"
-
 #: controllers/controller-admin.php:1695
-msgid "To insert the following HTML code for a link into a cell, just click the cell after closing this dialog."
-msgstr "以下のHTMLコードをセルの中へのリンクに挿入するには、このダイアログを閉じた後に、セルをクリックしてください。"
+msgid "Do you really want to activate this? You should only do that right before uninstallation!"
+msgstr "本当に実行してもいいですか? この作業はアンインストール直前に行ってください!"
 
 #: controllers/controller-admin.php:1696
-msgid "To insert an image, click the cell into which you want to insert the image."
-msgstr "画像を挿入するには、挿入したいセルをクリックしてください。"
-
-#: controllers/controller-admin.php:1696
-msgid "The Media Library will open, from which you can select the desired image or insert the image URL."
-msgstr "画像や画像の URL を挿入するためにメディアライブラリを開きます."
-
-#: controllers/controller-admin.php:1696
-#, php-format
-msgid "Click the &quot;%s&quot; button to insert the image."
-msgstr "画像を挿入するには &quot;%s&quot; ボタンをクリックしてください."
-
-#: controllers/controller-admin.php:1696
-msgid "Insert into Post"
-msgstr "投稿テンプレートを作成"
+msgid "URL of link to insert"
+msgstr "挿入するURLリンク"
 
 #: controllers/controller-admin.php:1697
-msgid "To combine cells within a row, click into the cell to the right of the cell that has the content the combined cells shall have."
-msgstr "横に結合するには,結合後に表示される内容を入力したセルより右のセルをクリックしてください."
+msgid "Text of link"
+msgstr "リンクテキスト"
 
 #: controllers/controller-admin.php:1698
-msgid "To combine cells within a column, click into the cell below the cell that has the content the combined cells shall have."
-msgstr "縦に結合するには,結合後に表示される内容を入力したセルより下のセルをクリックしてください."
+msgid "To insert the following HTML code for a link into a cell, just click the cell after closing this dialog."
+msgstr "以下のHTMLをリンクとしてセルの中に挿入するには、このダイアログを閉じた後にセルをクリックしてください。"
 
 #: controllers/controller-admin.php:1699
-msgid "Do you want to copy the selected tables?"
-msgstr "選択したテーブルをコピーしますか?"
+msgid "To insert an image, click &quot;OK&quot; and then click into the cell into which you want to insert the image."
+msgstr "画像を挿入したい場合は、&quot;OK&quot; をクリックし、その後画像を挿入したいセルをクリックしてください。"
+
+#: controllers/controller-admin.php:1699
+msgid "The Media Library will open, from which you can select the desired image or insert the image URL."
+msgstr "メディアライブラリが開きます。その後、挿入したい画像や画像のURLを選択できます。"
+
+#: controllers/controller-admin.php:1699
+#, php-format
+msgid "Click the &quot;%s&quot; button to insert the image."
+msgstr "画像を挿入するためには &quot;%s&quot; ボタンをクリックしてください。"
+
+#: controllers/controller-admin.php:1699
+msgid "Insert into Post"
+msgstr "投稿に挿入する"
 
 #: controllers/controller-admin.php:1700
-msgid "The selected tables and all content will be erased. Do you really want to delete them?"
-msgstr "選択したテーブルとその内容が完全に削除されます. 本当に削除しますか?"
+msgid "To combine cells within a row, click into the cell to the right of the cell that has the content the combined cells shall have."
+msgstr "列に含まれるセルを結合するには、セルの右側をクリックしてください。"
 
 #: controllers/controller-admin.php:1701
-msgid "Do you really want to import the selected tables from the wp-Table plugin?"
-msgstr "wp-Table プラグインから選択したテーブルをインポートしますか?"
+msgid "To combine cells within a column, click into the cell below the cell that has the content the combined cells shall have."
+msgstr "行に含まれるセルを結合するには、セルの右側をクリックしてください。"
 
 #: controllers/controller-admin.php:1702
-msgid "Do you want to copy this table?"
-msgstr "このテーブルをコピーしますか?"
+msgid "Do you want to copy the selected tables?"
+msgstr "選択したテーブルをコピーしますか？"
 
 #: controllers/controller-admin.php:1703
-msgid "The complete table and all content will be erased. Do you really want to delete it?"
-msgstr "テーブルとその内容が完全に削除されます. 本当に削除しますか?"
+msgid "The selected tables and all content will be erased. Do you really want to delete them?"
+msgstr "選択されたテーブルと内容はすべて削除されます。本当に削除してもよいですか？"
 
 #: controllers/controller-admin.php:1704
-msgid "Do you really want to delete the selected rows?"
-msgstr "本当にこの行を削除しますか?"
+msgid "Do you really want to import the selected tables from the wp-Table plugin?"
+msgstr "選択された wp-Table プラグインからのテーブルを本当にインポートしてよいですか？"
 
 #: controllers/controller-admin.php:1705
-msgid "Do you really want to delete the selected columns?"
-msgstr "本当にこの行を削除しますか?"
+msgid "Do you want to copy this table?"
+msgstr "このテーブルをコピーしますか？"
 
 #: controllers/controller-admin.php:1706
-#: controllers/controller-admin.php:1710
-#: controllers/controller-admin.php:1712
-msgid "You have not selected any rows."
-msgstr "テーブルが選択されていません!"
+msgid "The complete table and all content will be erased. Do you really want to delete it?"
+msgstr "すべてのテーブルとすべての内容が削除されます。本当に削除してもよいですか？"
 
 #: controllers/controller-admin.php:1707
-#: controllers/controller-admin.php:1711
-#: controllers/controller-admin.php:1713
-msgid "You have not selected any columns."
-msgstr "テーブルが選択されていません!"
+msgid "Do you really want to delete the selected rows?"
+msgstr "選択された列を本当に削除してもよいですか？"
 
 #: controllers/controller-admin.php:1708
-msgid "You can not delete all rows of the table at once!"
-msgstr "一度に全ての列を削除することはできません!"
+msgid "Do you really want to delete the selected columns?"
+msgstr "選択された行を本当に削除してもよいですか？"
 
 #: controllers/controller-admin.php:1709
-msgid "You can not delete all columns of the table at once!"
-msgstr "一度に全ての行を削除することはできません!"
-
-#: controllers/controller-admin.php:1714
-msgid "Do you really want to import this table from the wp-Table plugin?"
-msgstr "wp-Table プラグインからこのテーブルのデータをインポートしますか?"
-
+#: controllers/controller-admin.php:1713
 #: controllers/controller-admin.php:1715
-msgid "Do you really want to uninstall the plugin and delete ALL data?"
-msgstr "プラグインをアンインストールし,全てのデータを削除しますか?"
+msgid "You have not selected any rows."
+msgstr "どの列も選択されていません。"
 
+#: controllers/controller-admin.php:1710
+#: controllers/controller-admin.php:1714
 #: controllers/controller-admin.php:1716
-msgid "Are you really sure?"
-msgstr "本当によろしいですか?"
+msgid "You have not selected any columns."
+msgstr "どの行も選択されていません。"
+
+#: controllers/controller-admin.php:1711
+msgid "You can not delete all rows of the table at once!"
+msgstr "一回の作業ですべての列を削除することはできません!"
+
+#: controllers/controller-admin.php:1712
+msgid "You can not delete all columns of the table at once!"
+msgstr "一回の作業ですべての行を削除することはできません!"
 
 #: controllers/controller-admin.php:1717
-msgid "Do you really want to change the ID of the table?"
-msgstr "このテーブルの ID を本当に変更しますか?"
+msgid "Do you really want to import this table from the wp-Table plugin?"
+msgstr "本当にwp-Table プラグインからこれらのテーブルをインポートしますか？"
 
 #: controllers/controller-admin.php:1718
-msgid "To show this Custom Data Field, use this shortcode:"
-msgstr "このカスタムデータ領域を表示するには次のショートコードを使用してください : "
+msgid "Do you really want to uninstall the plugin and delete ALL data?"
+msgstr "本当にこのプラグインをアンインストールし、すべてのデータを削除してもよいですか？"
 
 #: controllers/controller-admin.php:1719
-msgid "To show this table, use this shortcode:"
-msgstr "このテーブルを表示するには次のショートコードを使用してください : "
+msgid "Are you really sure?"
+msgstr "本当によろしいですか？"
 
 #: controllers/controller-admin.php:1720
+msgid "Do you really want to change the ID of the table?"
+msgstr "本当にこのテーブルのIDを変更してもよいですか？"
+
+#: controllers/controller-admin.php:1721
+msgid "To show this Custom Data Field, use this shortcode:"
+msgstr "カスタムデータフィールドを表示するために、このショートコードが利用できます。"
+
+#: controllers/controller-admin.php:1722
+msgid "To show this table, use this shortcode:"
+msgstr "このテーブルを表示するには、このショートコードを記述してください。"
+
+#: controllers/controller-admin.php:1723
 msgid "Warning: You will lose all current Tables and Settings! You should create a backup first. Be warned!"
-msgstr "警告 : このテーブルに関する設定が失われます! まずバックアップを作成してください."
+msgstr "警告: すべてのテーブルと設定が失われます。まずバックアップを作成してください。お気を付け下さい!"
 
-#: controllers/controller-admin.php:1721
+#: controllers/controller-admin.php:1724
 msgid "You have made changes to the content of this table and not yet saved them."
-msgstr "このテーブルに変更を施しましたが,まだ保存がされていません."
+msgstr "このテーブルの内容は変更されていますが、まだ保存されていません。"
 
-#: controllers/controller-admin.php:1721
+#: controllers/controller-admin.php:1724
 #, php-format
 msgid "You should first click &quot;%s&quot; or they will be lost if you navigate away from this page."
-msgstr "最初に &quot;%s&quot; をクリックしてください.さもないと別のページへ移動した場合に内容が失われてしまいます."
+msgstr "まず &quot;%s&quot; をクリックしてください。そうしないと、このページから移動すると変更したデータが失われます。"
 
-#: controllers/controller-admin.php:1721
+#: controllers/controller-admin.php:1724
 #: views/view-edit.php:41
 #: views/view-edit.php:253
-#: views/view-edit.php:392
-#: views/view-edit.php:443
+#: views/view-edit.php:405
+#: views/view-edit.php:456
 msgid "Update Changes"
-msgstr "変更を反映"
+msgstr "変更を更新する"
 
-#: controllers/controller-admin.php:1763
+#: controllers/controller-admin.php:1767
 #: views/view-about.php:14
 #: views/view-list.php:2
 msgid "Table"
 msgstr "テーブル"
 
-#: controllers/controller-admin.php:1792
+#: controllers/controller-admin.php:1768
+msgid "Insert a Table"
+msgstr "テーブルを挿入する"
+
+#: controllers/controller-admin.php:1829
 msgid "Please wait..."
 msgstr "しばらくお待ちください..."
 
-#: controllers/controller-admin.php:1793
+#: controllers/controller-admin.php:1830
 msgid "Show _MENU_ Tables"
 msgstr "Show _MENU_ Tables"
 
-#: controllers/controller-admin.php:1794
+#: controllers/controller-admin.php:1831
 #: views/view-ajax_list.php:53
 #: views/view-export.php:71
 #: views/view-list.php:88
 msgid "No tables were found."
-msgstr "テーブルが見つかりません."
+msgstr "テーブルは見つかりませんでいsた。"
 
-#: controllers/controller-admin.php:1795
+#: controllers/controller-admin.php:1832
 msgid "_START_ to _END_ of _TOTAL_ Tables"
 msgstr "_START_ to _END_ of _TOTAL_ Tables"
 
-#: controllers/controller-admin.php:1796
+#: controllers/controller-admin.php:1833
 msgid "(filtered from _MAX_ Tables)"
 msgstr "(filtered from _MAX_ Tables)"
 
-#: controllers/controller-admin.php:1797
+#: controllers/controller-admin.php:1834
 msgid "Filter:"
-msgstr "フィルタ : "
+msgstr "フィルター:"
 
-#: controllers/controller-admin.php:1798
+#: controllers/controller-admin.php:1835
 msgid "First"
-msgstr "先頭"
+msgstr "最初"
 
-#: controllers/controller-admin.php:1799
+#: controllers/controller-admin.php:1836
 msgid "Back"
-msgstr "戻る"
+msgstr "前"
 
-#: controllers/controller-admin.php:1800
+#: controllers/controller-admin.php:1837
 msgid "Next"
 msgstr "次"
 
-#: controllers/controller-admin.php:1801
+#: controllers/controller-admin.php:1838
 msgid "Last"
 msgstr "最後"
 
 #: views/view-about.php:5
 msgid "Plugin Purpose"
-msgstr "このプラグインの目的"
+msgstr "プラグインの目的"
 
 #: views/view-about.php:7
 msgid "WP-Table Reloaded allows you to create and manage tables in the admin-area of WordPress."
-msgstr "WP-Table Reloaded は WordPress の管理画面でテーブルを作成したり管理したりすることができます."
+msgstr "WP-Table Reloaded を使うと、WordPressの管理画面からテーブルを作成したり管理したりできるようになります。"
 
 #: views/view-about.php:7
 msgid "Those tables may contain strings, numbers and even HTML (e.g. to include images or links)."
-msgstr "作成するテーブルは文字列や数列,そしてHTML(たとえば画像やリンク)も含むことができます."
+msgstr "それらのテーブルには文字列、数字、またHTML(画像やリンクも含む)も挿入できます。"
 
 #: views/view-about.php:7
 msgid "You can then show the tables in your posts, on your pages or in text-widgets by using a shortcode."
-msgstr "作成したテーブルはショートコードを使用することで投稿やページ,テキストウィジェットに表示することができます."
+msgstr "それらのテーブルを、ショートコードを利用して、投稿、ページ、またテキストウィジェットに表示させることができます。"
 
 #: views/view-about.php:7
 msgid "If you want to show your tables anywhere else in your theme, you can use a template tag function."
-msgstr "もしテーブルを WordPress テーマ内の好きな場所に表示したい場合はテンプレートタグを使用します."
+msgstr "あなたの使っているテーマのどこかにテーブルを表示させたいなら、テンプレートタグ機能を使うことができます。"
 
 #: views/view-about.php:12
 msgid "Usage"
-msgstr "使用方法"
+msgstr "使い方"
 
 #: views/view-about.php:14
 msgid "At first you should add or import a table."
-msgstr "まずはテーブルを作成するか読み込みます."
+msgstr "まず最初に、テーブルをインポートするか追加してください。"
 
 #: views/view-about.php:14
 msgid "This means that you either let the plugin create an empty table for you or that you load an existing table from either a CSV, XML or HTML file."
-msgstr "これはプラグインを使って空のテーブルを作成するか既存テーブルをCSVやXML,HTML形式から読み込むということです."
+msgstr "この作業によりプラグインは空のテーブル作成するか、もしくは既存のCSV、 XML または HTML ファイルをロードします。"
 
 #: views/view-about.php:14
 msgid "Then you can edit your data or change the structure of your table (e.g. by inserting or deleting rows or columns, swaping rows or columns or sorting them) and select specific table options like alternating row colors or whether to print the name or description, if you want."
-msgstr "その後,セル内のデータを編集したりテーブルの構造を変更(行や列の挿入や削除,入れ替え,並び替え)したりします.またテーブル単位で行の色を交互に変えることやテーブル名・説明の表示などをしていできます."
+msgstr "それから、このテーブルのデータを編集したり構造を変更したり(例:行や列を挿入･削除する、行や列を入れ替えたり並べ替えたりする)、行の色を替えたり、説明文を表示したりできます。"
 
 #: views/view-about.php:14
 msgid "To easily add a link or an image to a cell, use the provided buttons. Those will ask you for the URL and a title. Then you can click into a cell and the corresponding HTML will be added to it for you."
-msgstr "画像やリンクを提供されるボタンから簡単に追加できます. クリックするとURL や タイトルを聞いてきます.その後,セルをクリックすると適切なHTMLコードが挿入されます."
+msgstr "リンクや画像を簡単にセルに挿入するために、用意されているボタンを使うことができます。URLやタイトル名を入力してクリックすると、対応するHTMLがセルに追加されます。"
 
 #: views/view-about.php:14
 #: views/view-ajax_preview.php:5
@@ -787,152 +744,152 @@ msgstr "画像やリンクを提供されるボタンから簡単に追加でき
 #: views/view-list.php:2
 #, php-format
 msgid "To insert the table into a page, post or text-widget, copy the shortcode <strong>[table id=%s /]</strong> and paste it into the corresponding place in the editor."
-msgstr "投稿やページ,テキストウィジェットに挿入するには<strong>[table id=%s /]</strong>というショートコードを表示したい場所に貼り付けてください."
+msgstr "テーブルをページや投稿、テキストウィジェットに挿入するには　以下のショートコード <strong>[table id=%s /]</strong> をコピーしエディタで表示させたい場所にペーストしてください。"
 
 #: views/view-about.php:14
 #, php-format
 msgid "You can also select the desired table from a list (after clicking the button &quot;%s&quot; in the editor toolbar) and the corresponding shortcode will be added for you."
-msgstr "また、あなたはリスト(エディタツールバーで&quot;%s&quot;ボタンをクリックした後に表示されます)から希望のテーブルを選択できます.そして、対応するショートコードが入力されます."
+msgstr "表示したりテーブルは、テーブルリストからも選択できます。（エディタのツールバーにある &quot;%s&quot; ボタンをクリックした後） その後、対応するショートコードが追加されます。"
 
 #: views/view-about.php:14
 msgid "Tables can be styled by changing and adding CSS commands."
-msgstr "スタイルシートを変更したり付加したりすることでテーブルの装飾を行うことができます."
+msgstr "テーブルはCSSコマンドによってスタイリングされます。"
 
 #: views/view-about.php:14
 msgid "The plugin ships with default CSS Stylesheets, which can be customized with own code or replaced with other Stylesheets."
-msgstr "プラグインはデフォルトのスタイルシートを出力します。このスタイルシートは独自にカスタマイズするか,または他のスタイルシートに取り替えることができます."
+msgstr "このプラグインには、デフォルトのCSSスタイルシートがあり、それが適応された状態で出荷されています。このスタイルシートはカスタマイズしたり、他のスタイルシートと入れ替えたりできます。"
 
 #: views/view-about.php:14
 msgid "For this, each table is given certain CSS classes that can be used as CSS selectors."
-msgstr "これに関しては,CSSセレクタとして使用できるあるCSSのクラスが,それぞれのテーブルに付加されます."
+msgstr "そのため、それぞれのテーブルはそれぞれCSSクラス名を持っており、CSSセレクタとして使用されます。"
 
 #: views/view-about.php:14
 #, php-format
 msgid "Please see the <a href=\"%s\">documentation</a> for a list of these selectors and for styling examples."
-msgstr "スタイル設定の例やこれらのセレクタについては<a href=\"%s\">ドキュメント</a>をご覧ください."
+msgstr "CSSのセレクタ名やCSSスタイリングの例は<a href=\"%s\">ドキュメンテーション</a> で公開されています。"
 
-#: views/view-about.php:20
+#: views/view-about.php:19
 msgid "More Information and Documentation"
-msgstr "追加情報と資料"
+msgstr "詳しい情報やドキュメンテーション"
 
-#: views/view-about.php:27
+#: views/view-about.php:26
 msgid "Help and Support"
 msgstr "ヘルプとサポート"
 
-#: views/view-about.php:29
+#: views/view-about.php:28
 #, php-format
 msgid "If you do not find an answer there, please <a href=\"%s\">open a new thread</a> in the WordPress Support Forums with the tag &quot;wp-table-reloaded&quot;."
-msgstr "もしここで答えが見つからない場合は,WordPress サポートフォーラムの&quot;wp-table-reloaded&quot;タグにて<a href=\"%s\">新しいスレッドを立ち上げて</a>ください."
+msgstr "あなたの質問に対する答えが見つからない場合、WordPress サポートフォーラムに &quot;wp-table-reloaded&quot;というタグをつけて<a href=\"%s\">新しいスレッドを開いてください。</a>"
 
-#: views/view-about.php:34
+#: views/view-about.php:33
 msgid "Author and License"
-msgstr "作成者・ライセンス"
+msgstr "著者及びライセンス情報"
 
-#: views/view-about.php:36
+#: views/view-about.php:35
 #, php-format
 msgid "This plugin was written by <a href=\"%s\">Tobias B&auml;thge</a>."
-msgstr "このプラグインは<a href=\"http://tobias.baethge.com/\">Tobias B&auml;thge</a> によって作成されました."
+msgstr "このプラグインは <a href=\"%s\">Tobias B&auml;thge</a>によって作成されました。"
 
-#: views/view-about.php:36
+#: views/view-about.php:35
 msgid "It is licensed as Free Software under GPL 2."
-msgstr "このプラグインのライセンスには GPL2 が適用されています."
+msgstr "このフリーソフトウェアはGPL2ライセンスの元に公開されています。"
 
-#: views/view-about.php:36
+#: views/view-about.php:35
 #, php-format
 msgid "Please rate the plugin in the <a href=\"%s\">WordPress Plugin Directory</a>."
-msgstr "<a href=\"%s\">WordPress Plugin Directory</a>でこのプラグインを評価してください."
+msgstr "ぜひ、<a href=\"%s\">WordPress プラグイン ディレクトリ</a>でこのプラグインを評価してください。"
 
-#: views/view-about.php:36
+#: views/view-about.php:35
 msgid "Donations and good ratings encourage me to further develop the plugin and to provide countless hours of support. Any amount is appreciated! Thanks!"
-msgstr "寄付や良い評価はプラグインの開発やサポートに時間を費やす私の励みになります.どれだけの量でも嬉しいです! ご利用ありがとうございます!"
+msgstr "寄付や良い評価をいただくと、今後のプラグインの開発やサポート情報の提供を続けていくよう勇気づけられます。　いくらでも大歓迎です！　ありがとうございます!"
 
-#: views/view-about.php:41
+#: views/view-about.php:40
 msgid "Credits and Thanks"
-msgstr "クレジット・謝辞"
+msgstr "クレジットと謝辞"
+
+#: views/view-about.php:43
+msgid "Thanks go to <a href=\"http://alexrabe.boelinger.com/\">Alex Rabe</a> for the original wp-Table plugin,"
+msgstr "Thanks go to <a href=\"http://alexrabe.boelinger.com/\">Alex Rabe</a> for the original wp-Table plugin,"
 
 #: views/view-about.php:44
-msgid "Thanks go to <a href=\"http://alexrabe.boelinger.com/\">Alex Rabe</a> for the original wp-Table plugin,"
-msgstr "まず,オリジナルの wp-Table プラグイン作成の<a href=\"http://alexrabe.boelinger.com/\">Alex Rabe</a>氏"
+msgid "Allan Jardine for the <a href=\"http://www.datatables.net/\">DataTables jQuery plugin</a>,"
+msgstr "Allan Jardine for the <a href=\"http://www.datatables.net/\">DataTables jQuery plugin</a>,"
 
 #: views/view-about.php:45
-msgid "Allan Jardine for the <a href=\"http://www.datatables.net/\">DataTables jQuery plugin</a>,"
-msgstr "<a href=\"http://www.datatables.net/\">DataTables jQuery plugin</a> 作成の Allan Jardine 氏,"
+msgid "Christian Bach for the <a href=\"http://www.tablesorter.com/\">Tablesorter jQuery plugin</a>,"
+msgstr "Christian Bach for the <a href=\"http://www.tablesorter.com/\">Tablesorter jQuery plugin</a>,"
 
 #: views/view-about.php:46
-msgid "Christian Bach for the <a href=\"http://www.tablesorter.com/\">Tablesorter jQuery plugin</a>,"
-msgstr "<a href=\"http://www.tablesorter.com/\">Tablesorter jQuery plugin</a> 作成の Christian Bach氏,"
+msgid "Soeren Krings for its extension <a href=\"http://tablesorter.openwerk.de/\">Tablesorter Extended</a>,"
+msgstr "Soeren Krings for its extension <a href=\"http://tablesorter.openwerk.de/\">Tablesorter Extended</a>,"
 
 #: views/view-about.php:47
-msgid "Soeren Krings for its extension <a href=\"http://tablesorter.openwerk.de/\">Tablesorter Extended</a>,"
-msgstr "<a href=\"http://tablesorter.openwerk.de/\">Tablesorter Extended</a> 作成の Soeren Krings 氏,"
-
-#: views/view-about.php:48
 msgid "the submitters of translations:"
-msgstr "各国語版の翻訳ファイルを提供していただいた下記の皆様"
+msgstr "翻訳ファイルの翻訳者:"
 
-#: views/view-about.php:69
+#: views/view-about.php:76
 #, php-format
 msgid "%s (thanks to %s)"
-msgstr "%s (%s 氏)"
+msgstr "%s (thanks to %s)"
 
-#: views/view-about.php:72
+#: views/view-about.php:79
 msgid "and to all donors, contributors, supporters, reviewers and users of the plugin!"
-msgstr "そして,寄付された方,プラグイン作成に関わってくださった方,支持してくださった方,評価してくださった方,このプラグインを使用する全ての方にありがとう!"
+msgstr "そして寄付を頂いたすべての方、貢献して下さった方、支援して下さった方、レビューしてくださった方、そしてこのプラグインを使ってくださっているすべての方に感謝いたします!"
 
-#: views/view-about.php:78
+#: views/view-about.php:85
 msgid "Debug and Version Information"
-msgstr "デバッグ・バージョン情報"
+msgstr "デバッグとバージョン情報"
 
-#: views/view-about.php:78
+#: views/view-about.php:85
 #: views/view-edit.php:15
 #: views/view-edit.php:51
 #: views/view-edit.php:104
 #: views/view-edit.php:262
-#: views/view-edit.php:349
-#: views/view-edit.php:401
+#: views/view-edit.php:353
+#: views/view-edit.php:414
 #: views/view-options.php:19
-#: views/view-options.php:62
-#: views/view-options.php:79
-#: views/view-options.php:167
-#: views/view-options.php:178
+#: views/view-options.php:70
+#: views/view-options.php:87
+#: views/view-options.php:184
+#: views/view-options.php:195
 msgctxt "expand"
 msgid "Hide"
 msgstr "隠す"
 
-#: views/view-about.php:78
+#: views/view-about.php:85
 #: views/view-edit.php:15
 #: views/view-edit.php:51
 #: views/view-edit.php:104
 #: views/view-edit.php:262
-#: views/view-edit.php:349
-#: views/view-edit.php:401
+#: views/view-edit.php:353
+#: views/view-edit.php:414
 #: views/view-options.php:19
-#: views/view-options.php:62
-#: views/view-options.php:79
-#: views/view-options.php:167
-#: views/view-options.php:178
+#: views/view-options.php:70
+#: views/view-options.php:87
+#: views/view-options.php:184
+#: views/view-options.php:195
 msgid "Expand"
-msgstr "広げる"
+msgstr "詳しい情報..."
 
-#: views/view-about.php:81
+#: views/view-about.php:88
 msgid "You are using the following versions of the software."
-msgstr "あなたは次のバージョンを使用しています。"
+msgstr "使用中のソフトウェアのバージョンは次の通りです。"
 
-#: views/view-about.php:81
+#: views/view-about.php:88
 msgid "Please provide this information in bug reports."
-msgstr "この情報をバグレポートとして提供してください."
+msgstr "バグがありましたら是非ご報告ください。"
 
-#: views/view-about.php:84
+#: views/view-about.php:91
 msgid "Plugin installed"
-msgstr "プラグインはインストールされています"
+msgstr "プラグインはインストールされました。"
 
 #: views/view-add.php:4
 msgid "To add a new table, enter its name, a description (optional) and the number of rows and columns."
-msgstr "新しいテーブルを追加するには,テーブルの名称,説明(任意),行と列の数を入力してください."
+msgstr "新しいテーブルを追加するためには、　テーブル名と説明文（オプション）、列数と行数を入力してください。"
 
 #: views/view-add.php:4
 msgid "You may also add, insert or delete rows and columns later."
-msgstr "行や列は後で追加や挿入・削除をすることもできます."
+msgstr "テーブルを作成した後でも列や行を追加したり、挿入したり削除したりできます。"
 
 #: views/view-add.php:13
 #: views/view-ajax_list.php:14
@@ -948,7 +905,7 @@ msgstr "テーブル名"
 
 #: views/view-add.php:14
 msgid "Enter Table Name"
-msgstr "テーブル名を入力してください"
+msgstr "テーブル名を入力"
 
 #: views/view-add.php:17
 #: views/view-ajax_list.php:15
@@ -963,38 +920,38 @@ msgstr "説明"
 
 #: views/view-add.php:18
 msgid "Enter Description"
-msgstr "説明を入力してください"
+msgstr "説明文を入力"
 
 #: views/view-add.php:21
 msgid "Number of Rows"
-msgstr "行の数"
+msgstr "列の数"
 
 #: views/view-add.php:25
 msgid "Number of Columns"
-msgstr "列の数"
+msgstr "行の数"
 
 #: views/view-add.php:32
 msgid "Add Table"
-msgstr "テーブル追加"
+msgstr "テーブルを追加する"
 
 #: views/view-ajax_list.php:3
 #: views/view-list.php:2
 msgid "This is a list of all available tables."
-msgstr "利用可能なテーブルの一覧です."
+msgstr "以下は利用可能なテーブルのリストです。"
 
 #: views/view-ajax_list.php:3
 msgid "You may insert a table into a post or page here."
-msgstr "投稿やページにテーブルを挿入します."
+msgstr "ここで、投稿やページにテーブルを挿入できます。"
 
 #: views/view-ajax_list.php:4
 #, php-format
 msgid "Click the &quot;%s&quot; link after the desired table and the corresponding shortcode will be inserted into the editor (<strong>[table id=&lt;ID&gt; /]</strong>)."
-msgstr "使いたいテーブルを選択した後に \"挿入\" をクリックすると対応するショートコードが編集領域に挿入されます(形式 : <strong>[table id=&lt;the_table_ID&gt; /]</strong>)."
+msgstr "使用したいテーブルをクリック&quot;%s&quot; すると、対応するショートコードがエディタの中に挿入されます。 (<strong>[table id=&lt;ID&gt; /]</strong>)."
 
 #: views/view-ajax_list.php:4
 #: views/view-ajax_list.php:44
 msgid "Insert"
-msgstr "挿入"
+msgstr "挿入する"
 
 #: views/view-ajax_list.php:13
 #: views/view-ajax_list.php:21
@@ -1007,35 +964,35 @@ msgstr "ID"
 
 #: views/view-ajax_list.php:16
 #: views/view-ajax_list.php:24
-#: views/view-edit.php:413
+#: views/view-edit.php:426
 #: views/view-import.php:101
 #: views/view-import.php:110
 msgid "Action"
-msgstr "動作"
+msgstr "実行"
 
 #: views/view-ajax_preview.php:3
 msgid "This is a preview of your table."
-msgstr "これはテーブルデータのプレビューです."
+msgstr "テーブルのプレビュー"
 
 #: views/view-ajax_preview.php:4
 msgid "Because of CSS styling, the table might look different on your page!"
-msgstr "スタイルシートによってあなたのページではテーブルのデザインは違って見えるかも知れません."
+msgstr "CSSスタイリングの指定により、このテーブルはあなたが指定したページでは違うデザインに見えるかもしれません。"
 
 #: views/view-ajax_preview.php:4
 msgid "The JavaScript libraries are also not available in this preview."
-msgstr "JavaScriptライブラリはこのプレビューでは利用できません."
+msgstr "JavaScript ライブラリはこのプレビューでは適応されません。"
 
 #: views/view-edit.php:8
 msgid "On this page, you can edit the content of the table."
-msgstr "このページは,テーブルの内容を編集することができます."
+msgstr "このページで、テーブルの内容を編集できます。"
 
 #: views/view-edit.php:8
 msgid "It is also possible to change the table structure by inserting, deleting, moving, and swapping columns and rows."
-msgstr "行や列を挿入・削除・移動・入れ替えを行うことで,テーブルの構造を変更することができます."
+msgstr "列や行を挿入、削除、移動、または入れ替えすることによりこのテーブルの構造を変更することが可能です。"
 
 #: views/view-edit.php:15
 msgid "Table Information"
-msgstr "テーブル情報"
+msgstr "テーブル インフォメーション"
 
 #: views/view-edit.php:19
 msgid "Table ID"
@@ -1045,31 +1002,32 @@ msgstr "テーブル ID"
 #: views/view-list.php:17
 #: views/view-list.php:27
 msgid "Last Modified"
-msgstr "最終更新"
+msgstr "最終更新日"
 
 #: views/view-edit.php:33
 #: views/view-list.php:44
 msgid "by"
-msgstr "by"
+msgstr "作成(変更)者:"
 
 #: views/view-edit.php:42
 #: views/view-edit.php:254
-#: views/view-edit.php:393
-#: views/view-edit.php:444
+#: views/view-edit.php:406
+#: views/view-edit.php:457
 msgid "Save and go back"
 msgstr "保存して戻る"
 
 #: views/view-edit.php:45
 #: views/view-edit.php:257
-#: views/view-edit.php:396
-#: views/view-edit.php:447
-#: views/view-options.php:154
+#: views/view-edit.php:409
+#: views/view-edit.php:460
+#: views/view-options.php:65
+#: views/view-options.php:171
 msgid "Cancel"
-msgstr "中止"
+msgstr "キャンセル"
 
 #: views/view-edit.php:51
 msgid "Table Contents"
-msgstr "テーブル内容"
+msgstr "テーブルの内容"
 
 #: views/view-edit.php:104
 msgid "Data Manipulation"
@@ -1078,24 +1036,24 @@ msgstr "データ操作"
 #: views/view-edit.php:114
 #: views/view-options.php:55
 msgid "Insert Link"
-msgstr "リンク挿入"
+msgstr "リンクを挿入"
 
 #: views/view-edit.php:115
 msgid "Insert Image"
-msgstr "画像挿入"
+msgstr "画像を挿入"
 
 #: views/view-edit.php:124
 msgid "ascending"
-msgstr "降順"
+msgstr "昇順"
 
 #: views/view-edit.php:125
 msgid "descending"
-msgstr "昇順"
+msgstr "降順"
 
 #: views/view-edit.php:128
 #, php-format
 msgid "Sort table by column %s in %s order"
-msgstr "%s 列を%sで並び替えます."
+msgstr "行 %s を （%s） に並べ替える"
 
 #: views/view-edit.php:130
 msgid "Sort"
@@ -1117,33 +1075,33 @@ msgstr "表示する"
 #, php-format
 msgctxt "hide_unhide"
 msgid "Selected rows: %s %s"
-msgstr "選択された行 : %s %s"
+msgstr "選択されている列: %s %s"
 
 #: views/view-edit.php:141
 #, php-format
 msgctxt "hide_unhide"
 msgid "Selected columns: %s %s"
-msgstr "選択された列 : %s %s"
+msgstr "選択されている行: %s %s"
 
 #: views/view-edit.php:144
 msgid "Combine cells in a row:"
-msgstr "セルを横に結合する"
+msgstr "列にあるセルを結合する"
 
 #: views/view-edit.php:145
 msgid "Add colspan"
-msgstr "colspanタグを追加"
+msgstr "行の結合を追加"
 
 #: views/view-edit.php:148
 msgid "Combine cells in a column:"
-msgstr "セルを縦に結合する"
+msgstr "行にあるセルを結合する"
 
 #: views/view-edit.php:149
 msgid "Add rowspan"
-msgstr "rowspanタグを追加"
+msgstr "列の結合を追加"
 
 #: views/view-edit.php:155
 msgid "Insert row"
-msgstr "行挿入"
+msgstr "列を挿入する"
 
 #: views/view-edit.php:156
 #: views/view-edit.php:160
@@ -1155,38 +1113,38 @@ msgstr "削除"
 #, php-format
 msgctxt "insert_delete"
 msgid "Selected rows: %s %s"
-msgstr "選択された行 : %s %s"
+msgstr "選択されている列: %s %s"
 
 #: views/view-edit.php:159
 msgid "Insert column"
-msgstr "列挿入"
+msgstr "行を挿入する"
 
 #: views/view-edit.php:161
 #, php-format
 msgctxt "insert_delete"
 msgid "Selected columns: %s %s"
-msgstr "選択された列 : %s %s"
+msgstr "選択されている行: %s %s"
 
 #: views/view-edit.php:171
 #, php-format
 msgid "Add %s row(s)"
-msgstr "%s 行追加"
+msgstr "列を %s 列追加する"
 
 #: views/view-edit.php:172
 #: views/view-edit.php:175
-#: views/view-edit.php:438
+#: views/view-edit.php:451
 msgid "Add"
 msgstr "追加"
 
 #: views/view-edit.php:174
 #, php-format
 msgid "Add %s column(s)"
-msgstr "%s 列追加"
+msgstr "行を %s 行追加する"
 
 #: views/view-edit.php:189
 #, php-format
 msgid "Swap rows %s and %s"
-msgstr "行 %s と %s を入れ替え"
+msgstr "列 %s と %s を入れ替える"
 
 #: views/view-edit.php:191
 #: views/view-edit.php:206
@@ -1196,22 +1154,22 @@ msgstr "入れ替え"
 #: views/view-edit.php:204
 #, php-format
 msgid "Swap columns %s and %s"
-msgstr "列 %s と %s を入れ替え"
+msgstr "行 %s と %s を入れ替える"
 
 #: views/view-edit.php:219
 #: views/view-edit.php:239
 msgid "before"
-msgstr "前に"
+msgstr "前"
 
 #: views/view-edit.php:220
 #: views/view-edit.php:240
 msgid "after"
-msgstr "後に"
+msgstr "後"
 
 #: views/view-edit.php:223
 #, php-format
 msgid "Move row %s %s row %s"
-msgstr "行 %s を 次の行の %s(%s)へ移動"
+msgstr "列 %s を列 ｢<strong>＊</strong>｣ の %s に移動する <strong>＊(基準となる列: %s)</strong>"
 
 #: views/view-edit.php:225
 #: views/view-edit.php:245
@@ -1221,335 +1179,340 @@ msgstr "移動"
 #: views/view-edit.php:243
 #, php-format
 msgid "Move column %s %s column %s"
-msgstr "列 %s を 次の列の %s(%s)へ移動"
+msgstr "行 %s を行 ｢<strong>＊</strong>｣ の %s に移動する <strong>＊(基準となる行: %s)</strong>"
 
 #: views/view-edit.php:262
 msgid "Table Styling Options"
-msgstr "テーブルスタイルの設定"
+msgstr "テーブル スタイルオプション"
 
 #: views/view-edit.php:264
 msgid "These settings will only be used for this table."
-msgstr "この設定は現在のテーブルにのみ適用されます."
+msgstr "この設定はこのテーブルだけに適用されます。"
 
 #: views/view-edit.php:267
 msgid "Alternating row colors"
-msgstr "行の色を交互に設定する"
+msgstr "行の背景色（１行おき）"
 
 #: views/view-edit.php:268
 msgid "Every second row has an alternating background color."
-msgstr "行の背景色が交互に変わって表示されます."
+msgstr "設定された色を、１行おきに背景色に適用します（行をみやすくするため）"
 
 #: views/view-edit.php:271
 msgid "Row Highlighting"
-msgstr "行挿入"
+msgstr "行の強調"
 
 #: views/view-edit.php:272
 msgid "Highlight a row by changing its background color while the mouse cursor hovers above it."
-msgstr "ハウスカーソルを重ねたとき,背景色を変更して行をハイライトする."
+msgstr "マウスカーソルが行の上に置かれている時、行の背景色を変更することでその行を目立たせます。"
 
 #: views/view-edit.php:275
 msgid "Table head"
-msgstr "テーブルヘッダー"
+msgstr "テーブル ヘッド"
 
 #: views/view-edit.php:276
-msgid "The first row of your table is the table head (HTML tag &lt;th&gt;)."
-msgstr "テーブルの最初の行はヘッダーとして &lt;th&gt; タグが使用されます."
+msgid "The first row of your table is the table head (HTML tags &lt;thead&gt; and &lt;th&gt;)."
+msgstr "テーブルの最初の行が tags &lt;テーブルヘッド&gt; です。 (HTMLタグ &lt;thead&gt; または &lt;th&gt;)."
 
 #: views/view-edit.php:279
 msgid "Table footer"
-msgstr "テーブルフッター"
+msgstr "テーブル フッター"
 
 #: views/view-edit.php:280
-msgid "The last row of your table is the table footer (HTML tag &lt;th&gt;)."
-msgstr "テーブルの最後の行はフッターとして &lt;th&gt; タグが使用されます."
+msgid "The last row of your table is the table footer (HTML tags &lt;tfoot&gt; and &lt;th&gt;)."
+msgstr "テーブルの最後の行が &lt;テーブルフッター&gt;です (HTML タグ &lt;tfoot&gt; または &lt;th&gt;)."
 
 #: views/view-edit.php:289
-#: views/view-edit.php:304
+#: views/view-edit.php:306
 msgid "above"
 msgstr "上"
 
 #: views/view-edit.php:291
-#: views/view-edit.php:306
+#: views/view-edit.php:308
 msgid "below"
 msgstr "下"
 
-#: views/view-edit.php:293
+#: views/view-edit.php:294
 #, php-format
 msgid "The Table Name shall be written %s the table (HTML tag &lt;h2&gt;)."
-msgstr "テーブル名はテーブルの &lt;h2&gt; タグの上に表示されます."
+msgstr "テーブル名をテーブルの %s に表示します (HTML タグ &lt;h2&gt;)."
 
-#: views/view-edit.php:298
+#: views/view-edit.php:300
 msgid "Table Description"
 msgstr "テーブルの説明"
 
-#: views/view-edit.php:308
+#: views/view-edit.php:311
 #, php-format
 msgid "The Table Description shall be written %s the table."
-msgstr "テーブルの説明はテーブルの下部に表示されます."
+msgstr "テーブルの説明をテーブルの %s に表示します。"
 
-#: views/view-edit.php:313
+#: views/view-edit.php:317
 msgid "Use JavaScript library"
 msgstr "JavaScript ライブラリを使用する"
 
-#: views/view-edit.php:319
 #: views/view-edit.php:323
-#: views/view-edit.php:335
-msgid "You can change further settings for this library below."
-msgstr "以下のライブラリの詳細な設定を変更することができます."
-
 #: views/view-edit.php:327
-#: views/view-edit.php:331
-msgid "The table will then be sortable by the visitor."
-msgstr "テーブルは閲覧者による並び替えが行えます."
+#: views/view-edit.php:339
+msgid "You can change further settings for this library below."
+msgstr "以下のライブラリの設定をさらに変更することができます。"
 
-#: views/view-edit.php:338
+#: views/view-edit.php:331
+#: views/view-edit.php:335
+msgid "The table will then be sortable by the visitor."
+msgstr "閲覧者が表の並び替えをできるようにします。"
+
+#: views/view-edit.php:342
 #, php-format
 msgid "Yes, use the &quot;%s&quot; JavaScript library with this table."
-msgstr "このテーブルで,&quot;%s&quot; JavaScript ライブラリを使用します."
+msgstr "はい、 &quot;%s&quot; JavaScript ライブラリをこのテーブルに適用します。"
 
-#: views/view-edit.php:338
+#: views/view-edit.php:342
 #, php-format
 msgid "You must enable the use of a JavaScript library on the &quot;%s&quot; screen first."
-msgstr "JavaScript ライブラリを利用するためには,まず&quot;%s&quot;画面にて有効にしてください."
+msgstr "JavaScript ライブラリを使用するには、 最初に &quot;%s&quot; 画面でJavascriptの使用を有効にする必要があります。"
 
-#: views/view-edit.php:349
+#: views/view-edit.php:353
 msgid "DataTables JavaScript Features"
-msgstr "DataTables JavaScript の機能"
+msgstr "データテーブル JavaScript 機能の詳細"
 
-#: views/view-edit.php:351
+#: views/view-edit.php:355
 msgid "You can enable certain features for the DataTables JavaScript library here."
-msgstr "ここでDataTables JavaScriptライブラリの一定の機能を有効にできます."
+msgstr "データテーブル JavaScript ライブラリの機能を選ぶことができます。"
 
-#: views/view-edit.php:351
+#: views/view-edit.php:355
 msgid "More information on these features can be found on the <a href=\"http://www.datatables.net/\">DataTables website</a>."
-msgstr "<a href=\"http://www.datatables.net/\">DataTables Webサイト</a>でこれらの機能に関する詳しい情報を得ることができます."
-
-#: views/view-edit.php:353
-#, php-format
-msgid "You can currently not change these options, because you have not enabled the &quot;DataTables&quot; or the &quot;DataTables+TableTools&quot; JavaScript library on the &quot;%s&quot; screen."
-msgstr "&quot;%s&quot; 画面において,&quot;DataTables&quot; または &quot;DataTables+TableTools&quot; JavaScript ライブラリを有効にしていないため,これらの設定を変更することができません."
-
-#: views/view-edit.php:353
-msgid "It is not possible to use these features with the &quot;Tablesorter&quot; or &quot;Tablesorter Extended&quot; libraries."
-msgstr "これらの機能を&quot;Tablesorter&quot; or &quot;Tablesorter Extended&quot;ライブラリといっしょに使用することはできません."
+msgstr "これらの機能の詳細についての詳しい情報は <a href=\"http://www.datatables.net/\">データテーブル ウェブサイト(英語)</a> で得ることができます。"
 
 #: views/view-edit.php:357
+#, php-format
+msgid "You can currently not change these options, because you have not enabled the &quot;DataTables&quot; or the &quot;DataTables+TableTools&quot; JavaScript library on the &quot;%s&quot; screen."
+msgstr "現在、&quot;Data Tables&quot; または the &quot;DataTables+TableTools&quot; JavaScript ライブラリが the &quot;%s&quot; 画面で有効化されていないため、このオプションは変更できません。"
+
+#: views/view-edit.php:357
+msgid "It is not possible to use these features with the &quot;Tablesorter&quot; or &quot;Tablesorter Extended&quot; libraries."
+msgstr "この機能は&quot;Tablesorter&quot; または &quot;Tablesorter Extended&quot; ライブラリと一緒に使うことができません。"
+
+#: views/view-edit.php:361
 msgid "Sorting"
 msgstr "並び替え"
 
-#: views/view-edit.php:358
-msgid "Yes, enable sorting of table data by the visitor."
-msgstr "閲覧者によるテーブルの並び替えを許可します."
-
-#: views/view-edit.php:361
-msgid "Pagination"
-msgstr "ページ分け"
-
 #: views/view-edit.php:362
-msgid "Yes, enable pagination of the table (showing only a certain number of rows) by the visitor."
-msgstr "閲覧者によるページ分け(特定の行数だけが表示される)を有効にします."
+msgid "Yes, enable sorting of table data by the visitor."
+msgstr "はい、閲覧者によってテーブルデータの並び替えができるようにします。"
 
 #: views/view-edit.php:365
+msgid "Pagination"
+msgstr "ページ付け"
+
+#: views/view-edit.php:370
+msgid "Yes, enable pagination (showing only a certain number of rows) of the table by the visitor."
+msgstr "はい、指定された行数ごとにページを表示できるようにします。"
+
+#: views/view-edit.php:372
+#, php-format
+msgid "Show %1$s rows of the table per page."
+msgstr "１ページにShow %1$s 行を表示します。"
+
+#: views/view-edit.php:378
 msgid "Length Change"
 msgstr "長さの変更"
 
-#: views/view-edit.php:366
-msgid "Yes, allow visitor to change the number of rows shown when using pagination."
-msgstr "閲覧者によるページ分けの行数指定を許可します."
+#: views/view-edit.php:379
+msgid "Yes, allow the visitor to change the number of rows shown when using pagination."
+msgstr "ページ付けを利用中、閲覧者が１ページに表示できる行するを変更できるようにする。"
 
-#: views/view-edit.php:369
+#: views/view-edit.php:382
 msgid "Filtering"
 msgstr "フィルタリング"
 
-#: views/view-edit.php:370
+#: views/view-edit.php:383
 msgid "Yes, enable the visitor to filter or search the table. Only rows with the search word in them are shown."
-msgstr "閲覧者によるフィルタリングを許可します. 検索した語の含まれる行だけが表示されます."
+msgstr "はい、閲覧者にテーブルのフィルタリングまた検索を許可します。検索キーワードがある行のみが表示されます。"
 
-#: views/view-edit.php:373
+#: views/view-edit.php:386
 msgid "Info Bar"
-msgstr "情報バー"
+msgstr "インフォメーション バー"
 
-#: views/view-edit.php:374
+#: views/view-edit.php:387
 msgid "Yes, show the table information display. This shows information and statistics about the currently visible data, including filtering."
-msgstr "テーブルの情報を表示します.テーブルの情報やフィルタリングを含む各種統計を表示します."
+msgstr "はい、テーブルインフォメーションディスプレイを表示します。　現在閲覧できるテーブルデータの情報や統計情報、フィルタリングの状態も表示できます。"
 
-#: views/view-edit.php:377
+#: views/view-edit.php:390
 msgid "TableTools"
-msgstr "テーブルツール"
+msgstr "TableTools"
 
-#: views/view-edit.php:379
+#: views/view-edit.php:392
 msgid "Yes, activate the TableTools functions (Copy to Clipboard, Save to CSV, Save to XLS, Print Table) for this table."
-msgstr "テーブルツール(クルップボードへのコピー,CSVとして保存,XLSとして保存,テーブルの印刷)を有効にします"
+msgstr "はい、このテーブルにTableTools機能を（クリップボードへのコピー、CSV・XLSへの保存やテーブルの印刷）有効化します。"
 
-#: views/view-edit.php:380
+#: views/view-edit.php:393
 msgid "This option can only be used with the &quot;DataTables+TableTools&quot; JavaScript library."
-msgstr "この設定は&quot;DataTables+TableTools&quot; ライブラリを有効にした状態でのみ使用できます."
+msgstr "このオプションは &quot;DataTables+TableTools&quot; JavaScript ライブラリが有効な時に使用できます。"
 
-#: views/view-edit.php:384
+#: views/view-edit.php:397
 msgid "Custom Commands"
 msgstr "カスタムコマンド"
 
-#: views/view-edit.php:385
+#: views/view-edit.php:398
 msgid "Enter additional DataTables JavaScript parameters that will be included with the script call here."
-msgstr "ここで呼ばれるJavaScriptで使用する追加のパラメータを入力してください."
+msgstr "DataTables JavaScript ライブラリに含まれているパラメータを入力できます。"
 
-#: views/view-edit.php:385
+#: views/view-edit.php:398
 msgid "For advanced use only. Read the <a href=\"http://www.datatables.net/\">DataTables documentation</a> before."
-msgstr "高度な使用を行う前に<a href=\"http://www.datatables.net/\">DataTables documentation</a>を読んでください."
+msgstr "上級者向けです。使用前に<a href=\"http://www.datatables.net/\">DataTables ドキュメンテーション</a>をご覧下さい"
 
-#: views/view-edit.php:401
+#: views/view-edit.php:414
 msgid "Custom Data Fields"
-msgstr "カスタムデータ領域"
+msgstr "カスタムデータフィールド"
 
-#: views/view-edit.php:403
+#: views/view-edit.php:416
 msgid "Custom Data Fields can be used to add extra metadata to a table."
-msgstr "カスタムデータ領域には様々なメタデータをテーブルに追加することができます."
+msgstr "カスタムデータフィールドはテーブルに別のメタデータを追加したい場合に利用できます。"
 
-#: views/view-edit.php:403
+#: views/view-edit.php:416
 msgid "For example, this could be information about the source or the creator of the data."
-msgstr "例えば,出典情報やデータ作者の情報などです."
+msgstr "たとえば、データの作者やソース情報を含めることができます。"
 
-#: views/view-edit.php:405
+#: views/view-edit.php:418
 #, php-format
 msgid "You can show this data in the same way as tables by using the shortcode <strong>[table-info id=%s field=\"&lt;field-name&gt;\" /]</strong>."
-msgstr "あなたはこのデータを <strong>[table-info id=%s field=\"&lt;field-name&gt;\" /]</strong> というショートコードを使用することでテーブルと同じように表示できます."
+msgstr "このデータは、テーブルと同じようにショートコード <strong>[table-info id=%s field=\"&lt;field-name&gt;\" /]</strong> を使うことによって表示することができます。"
 
-#: views/view-edit.php:411
+#: views/view-edit.php:424
 msgid "Field Name"
-msgstr "領域名"
+msgstr "フィールド名"
 
-#: views/view-edit.php:412
+#: views/view-edit.php:425
 msgid "Value"
 msgstr "値"
 
-#: views/view-edit.php:426
+#: views/view-edit.php:439
 msgid "Delete Field"
-msgstr "領域を削除"
+msgstr "データフィールド"
 
-#: views/view-edit.php:428
+#: views/view-edit.php:441
 msgid "View shortcode"
-msgstr "ショートコードを表示"
+msgstr "ショートコードを取得する"
 
-#: views/view-edit.php:437
+#: views/view-edit.php:450
 msgid "To add a new Custom Data Field, enter its name (only lowercase letters, numbers, _ and -)."
-msgstr "新しいカスタムデータ領域を追加するには,名前を入力してください(半角小文字のアルファベット,数字,アンダーバー,ハイフンが使用できます)."
+msgstr "新しいカスタムデータフィールドを追加するには、名前を入力してください（アルファベットの小文字、数字、記号_（アンダースコア）-（ハイフン）のみが使えます）"
 
-#: views/view-edit.php:438
+#: views/view-edit.php:451
 msgid "Custom Data Field Name"
-msgstr "カスタムデータ領域名"
+msgstr "カスタムデータフィールド名"
 
-#: views/view-edit.php:452
+#: views/view-edit.php:465
 msgid "Other actions"
-msgstr "その他の動作"
+msgstr "他のアクション"
 
-#: views/view-edit.php:455
+#: views/view-edit.php:468
 msgid "Delete Table"
-msgstr "テーブル削除"
+msgstr "テーブルを削除"
 
-#: views/view-edit.php:456
+#: views/view-edit.php:469
 #: views/view-export.php:59
 msgid "Export Table"
-msgstr "テーブル出力"
+msgstr "テーブルをエクスポート"
 
 #: views/view-export.php:10
 msgid "It is recommended to export and backup the data of important tables regularly."
-msgstr "重要なテーブルに関するデータは定期的にエクスポートして,バックアップをすることを推奨します."
+msgstr "重要なテーブルについては定期的にエクスポートしてバックアップすることをお勧めします。"
 
 #: views/view-export.php:10
 msgid "Select the table, the desired export format and (for CSV only) a delimiter."
-msgstr "エクスポートするテーブルを選択し,出力フォーマットと(CSVファイルのみ)区切り文字を指定してください."
+msgstr "エクスポートするテーブルと、希望するフォーマット、および区切り文字（CSV形式のみ）を選択してください。"
 
 #: views/view-export.php:10
 msgid "You may choose to download the export file. Otherwise it will be shown on this page."
-msgstr "出力したファイルはダウンロードするか,このページに表示することができます."
+msgstr "エクスポートファイルをファイルとしてダウンロードできます。あるいは、エクスポートファイルがこのページに表示されます。"
 
 #: views/view-export.php:10
 msgid "Be aware that only the table data, but no options or settings are exported."
-msgstr "出力されるのはテーブルのデータのみでプラグインの設定は出力されないことをご了承ください."
+msgstr "テーブルデータのみがエクスポートされます。オプションや設定はエクスポートされませんので、ご注意ください。"
 
 #: views/view-export.php:10
 #, php-format
 msgid "To backup all tables, including their settings, at once use the &quot;%s&quot; button in the &quot;%s&quot;."
-msgstr "全てのテーブルや,それらに関する設定を保存するためには,すぐに&quot;%s&quot; ボタンを使用してください.それは&quot;%s&quot;にあります."
+msgstr "すべてのテーブルデータ（設定やオプションも含む）をバックアップしたい場合には、&quot;%s&quot; ボタンをご利用ください。 （&quot;%s&quot;.にあります）"
 
 #: views/view-export.php:10
-#: views/view-options.php:172
+#: views/view-options.php:189
 msgid "Create and Download Dump File"
-msgstr "ダンプファイルを作成しダウンロード"
+msgstr "ダンプファイルを作成しダウンロードする"
 
 #: views/view-export.php:18
 msgid "Select Table to Export"
-msgstr "エクスポートするテーブルを選択"
+msgstr "エクスポートするテーブルを選ぶ"
 
 #: views/view-export.php:33
 msgid "Select Export Format"
-msgstr "出力形式を選択"
+msgstr "エクスポートのフォーマットを選ぶ"
 
 #: views/view-export.php:43
 msgid "Select Delimiter to use"
-msgstr "使用する区切り文字を選択"
+msgstr "使用する区切り文字を選ぶ"
 
 #: views/view-export.php:50
 msgid "Only needed for CSV export."
-msgstr "<small>(CSV形式で出力する場合のみ)</small>"
+msgstr "CSV形式でエクスポートするときのみ必要です。"
 
 #: views/view-export.php:53
 msgid "Download file"
-msgstr "ファイルをダウンロード"
+msgstr "ファイルをダウンロードする。"
 
 #: views/view-export.php:54
 msgid "Yes, I want to download the export file."
-msgstr "はい. 出力したファイルをダウンロードします."
+msgstr "はい、エクスポートファイルをダウンロードします。"
 
 #: views/view-export.php:71
 #: views/view-list.php:88
 #, php-format
 msgid "You should <a href=\"%s\">add</a> or <a href=\"%s\">import</a> a table to get started!"
-msgstr "利用を始めるにはテーブルを<a href=\"%s\">追加</a>や<a href=\"%s\">インポート</a>してください."
+msgstr "作業をスタートするにはテーブルを<a href=\"%s\">追加</a> または <a href=\"%s\">インポート</a> する必要があります!"
 
 #: views/view-import.php:3
 msgid "WP-Table Reloaded can import tables from existing data."
-msgstr "WP-Table Reloaded は既存のデータをテーブルとしてインポートできます."
+msgstr "WP-Table Reloaded は外部データからテーブルをインポートすることが可能です。"
 
 #: views/view-import.php:3
 msgid "This may be a CSV, XML or HTML file, each with a certain structure."
-msgstr "これはCSV,XMLやHTMLなど特定の構造のあるものです."
+msgstr "CSV, XML または HTML で正常に記述されたデータをインポートできます。"
 
 #: views/view-import.php:3
 msgid "To import an existing table, please select its format and the source for the import."
-msgstr "既存のテーブルをインポートするには,そのフォーマットと元となるデータを選択してください."
+msgstr "すでに存在するテーブルにインポートするには、フォーマットとインポートファイルのソースを選んでください。"
 
 #: views/view-import.php:3
 msgid "You can also decide, if you want to import it as a new table or replace an existing table."
-msgstr "また、新しいテーブルとしてインポートするか,既存のテーブルと置換するかを選択することができます."
+msgstr "テーブルのインポート時、新しいテーブルとしてインポートするか、既存のテーブルに上書きするかを選ぶことができます。"
 
 #: views/view-import.php:10
 msgid "Select Import Format"
-msgstr "インポートするファイルの形式"
+msgstr "インポート フォーマットを選ぶ"
 
 #: views/view-import.php:21
 msgid "Add or Replace Table?"
-msgstr "テーブルは追加するか置換するか"
+msgstr "テーブルを追加しますか、置き換えますか？"
 
 #: views/view-import.php:23
 msgid "Add as new Table"
-msgstr "新しいテーブルとして追加"
+msgstr "テーブルを新しく追加する"
 
 #: views/view-import.php:24
 msgid "Replace existing Table"
-msgstr "既存のテーブルを置換"
+msgstr "既存のテーブルに置き換える"
 
 #: views/view-import.php:28
 msgid "Select existing Table to Replace"
-msgstr "置換するテーブルを選択"
+msgstr "置き換える既存のテーブルを選ぶ"
 
 #: views/view-import.php:44
 msgid "Select source for Import"
-msgstr "インポートの方法を選択"
+msgstr "インポートファイルのソースを選ぶ"
 
 #: views/view-import.php:46
 msgid "File upload"
-msgstr "ファイルアップロード"
+msgstr "ファイルをアップロード"
 
 #: views/view-import.php:47
 msgid "URL"
@@ -1557,7 +1520,7 @@ msgstr "URL"
 
 #: views/view-import.php:48
 msgid "Manual input"
-msgstr "手動入力"
+msgstr "マニュアル入力"
 
 #: views/view-import.php:49
 msgid "File on server"
@@ -1565,65 +1528,65 @@ msgstr "サーバ上のファイル"
 
 #: views/view-import.php:53
 msgid "Select File with Table to Import"
-msgstr "テーブルとしてインポートするファイルを選択してください."
+msgstr "インポートするテーブルを選ぶ"
 
 #: views/view-import.php:57
 msgid "URL to Import Table from"
-msgstr "テーブルとして読み込むURL"
+msgstr "インポートファイルURL"
 
 #: views/view-import.php:61
 msgid "Path to file on server"
-msgstr "サーバ上のファイルへのパス"
+msgstr "サーバにあるファイルのパス"
 
 #: views/view-import.php:65
 msgid "Paste data with Table to Import"
-msgstr "読み込むデータをテキストエリアに貼り付けてください"
+msgstr "インポート用のデータを貼り付ける"
 
 #: views/view-import.php:71
 msgid "Import Table"
-msgstr "テーブルのインポート"
+msgstr "テーブルをインポート"
 
 #: views/view-import.php:85
 msgid "Import from original wp-Table plugin"
-msgstr "オリジナルの wp-table プラグインからインポート"
+msgstr "wp-Table プラグインデータからインポート"
 
 #: views/view-import.php:131
 msgid "Import"
-msgstr "Importer"
+msgstr "インポート"
 
 #: views/view-import.php:139
 #: views/view-list.php:79
 msgid "Bulk actions:"
-msgstr "一括操作 : "
+msgstr "一括処理:"
 
 #: views/view-import.php:139
 msgid "Import Tables"
-msgstr "テーブルのインポート"
+msgstr "テーブルをインポート"
 
 #: views/view-import.php:145
 msgid "wp-Table by Alex Rabe seems to be installed, but no tables were found."
-msgstr "Alex Rabe 氏作の wp-Table がインストールされているようですがテーブルのデータが見つかりません."
+msgstr "wp-Table （著者:Alex Rabe）はインストールされていますが、テーブルが見つかりませんでした。"
 
 #: views/view-list.php:2
 msgid "You may add, edit, copy, delete or preview tables here."
-msgstr "テーブルの追加,編集,複製や削除が行えます."
+msgstr "ここでテーブルの追加、編集、コピー、またはプレビューができます。"
 
 #: views/view-list.php:2
 msgid "Each table has a unique ID that needs to be adjusted in that shortcode."
-msgstr "テーブルはショートコードで利用するための固有のIDを持ちます."
+msgstr "それぞれのテーブルは特有のIDを持ちます。このIDはショートコード発行時に必要です。"
 
 #: views/view-list.php:2
 #, php-format
 msgid "You can also click the button &quot;%s&quot; in the editor toolbar to select and insert a table."
-msgstr "編集ツールバーの&quot;%s&quot;を押すことでテーブルを選択し挿入することができます."
+msgstr "エディタのツールバーにあるこのボタン &quot;%s&quot; をクリックするとテーブルを表示できます。"
 
 #: views/view-list.php:39
 msgid "(no name)"
-msgstr "(名称未設定)"
+msgstr "(テーブル名がありません)"
 
 #: views/view-list.php:40
 msgid "(no description)"
-msgstr "(説明記述なし)"
+msgstr "(説明はありません)"
 
 #: views/view-list.php:58
 #, php-format
@@ -1645,7 +1608,7 @@ msgstr "エクスポート"
 #: views/view-list.php:66
 #, php-format
 msgid "Preview of Table %s"
-msgstr "テーブル %s をプレビュー."
+msgstr "テーブル %s のプレビュー"
 
 #: views/view-list.php:67
 msgid "Preview"
@@ -1653,39 +1616,39 @@ msgstr "プレビュー"
 
 #: views/view-list.php:79
 msgid "Copy Tables"
-msgstr "テーブルのコピー"
+msgstr "テーブルをコピー"
 
 #: views/view-list.php:79
 msgid "Delete Tables"
-msgstr "テーブルの削除"
+msgstr "テーブルを削除"
 
 #: views/view-options.php:3
 msgid "WP-Table Reloaded has several options which affect the plugin behavior in different areas."
-msgstr "WP-Table Reloaded には、異なった領域でプラグインの振舞いに影響するいくつかの設定があります。"
+msgstr "WP-Table Reloaded には他のエリアでプラグインの動作に影響を及ぼすさまざまなオプションがあります。"
 
 #: views/view-options.php:4
 msgid "Frontend Options influence the output and used features of tables in pages, posts or text-widgets."
-msgstr "フロントエンド設定は投稿,ページ,テキストウィジェットにおける、テーブルなどの出力に影響を及ぼします。"
+msgstr "フロントエンドのオプションは、ページや投稿、テキストウィジェットに表示できるテーブルの動作や出力に影響を及ぼします。"
 
 #: views/view-options.php:4
 #, php-format
 msgid "The Backend Options control the plugin's admin area, e.g. the &quot;%s&quot; screen."
-msgstr "バックエンドの設定はプラグイン管理画面に関する制御を行います. 例  &quot;%s&quot; 画面"
+msgstr "バックエンドオプションはプラグインの管理エリアをコントロールします。（例: &quot;%s&quot; 画面)"
 
 #: views/view-options.php:4
 #: views/view-options.php:55
-#: views/view-options.php:67
-#: views/view-options.php:71
+#: views/view-options.php:75
+#: views/view-options.php:79
 msgid "Edit Table"
-msgstr "テーブル編集"
+msgstr "テーブルを編集"
 
 #: views/view-options.php:4
 msgid "Administrators have access to further Admin Options."
-msgstr "管理者は管理設定を行う権限を持っています."
+msgstr "管理者はさらに多くの管理オプションにアクセスできます。"
 
 #: views/view-options.php:19
 msgid "Frontend Options"
-msgstr "フロントエンドに関する設定"
+msgstr "フロントエンド オプション"
 
 #: views/view-options.php:23
 msgid "JavaScript library"
@@ -1693,318 +1656,321 @@ msgstr "JavaScript ライブラリ"
 
 #: views/view-options.php:24
 msgid "Yes, enable the use of a JavaScript library."
-msgstr "JavaScriptライブラリを有効にします."
+msgstr "はい、JavaScript ライブラリを利用可能にします。"
 
 #: views/view-options.php:24
 msgid "WP-Table Reloaded includes three JavaScript libraries that can add useful features, like sorting, pagination, and filtering, to a table."
-msgstr "WP-Table Reloadedは便利な機能を追加する3つのJavaScriptライブラリを同梱しています(テーブルデータの並び替え,ページ分け,フィルタリング)"
+msgstr "WP-Table Reloaded には並び替えやフィルタリングなど便利な機能を追加するための 3つの JavaScript ライブラリ が含まれています。"
 
 #: views/view-options.php:28
 msgid "Select the library to use:"
-msgstr "使用するライブラリを選択 : "
+msgstr "使用するライブラリを選ぶ:"
 
 #: views/view-options.php:29
-#: views/view-options.php:119
+#: views/view-options.php:127
 msgid "recommended"
-msgstr "推奨"
+msgstr "おすすめ"
 
 #: views/view-options.php:33
 #, php-format
 msgid "(You can read more about each library's features on the <a href=\"%s\">plugin's website</a>.)"
-msgstr "(これらのライブラリの詳細な機能については<a href=\"%s\">プラグインのWebサイト</a>で読むことができます.)"
+msgstr "(ライブラリの機能や動作の詳細については <a href=\"%s\">プラグインのウェブサイト</a>でご覧下さい。)"
 
 #: views/view-options.php:36
 msgid "Default CSS"
-msgstr "標準のCSS"
+msgstr "デフォルト CSS"
 
 #: views/view-options.php:38
 msgid "Yes, include and load the plugin's default CSS Stylesheets. This is highly recommended, if you use one of the JavaScript libraries!"
-msgstr "プラグイン標準のCSSを読み込みます.これらのJavaScriptライブラリを利用するならば強く推奨します."
+msgstr "はい、デフォルトCSSスタイルシートを使用します。（本プラグインに含まれているJavaScript ライブラリを利用される場合には、デフォルトCSSスタイルシートの使用を強くおすすめいたします）"
 
 #: views/view-options.php:42
 msgid "Custom CSS"
-msgstr "独自のCSS"
+msgstr "カスタム CSS"
 
 #: views/view-options.php:44
 msgid "Yes, include and load the following custom CSS commands."
-msgstr "次の独自CSSを読み込みます."
+msgstr "はい、以下のカスタム CSS コマンドを使用します。"
 
 #: views/view-options.php:44
 msgid "This should be used to change the table layout and styling."
-msgstr "テーブルのレイアウトやスタイルの変更に使用します."
+msgstr "カスタムCSSに必要な記述をすることで、レイアウトやスタイルを変更できます。"
 
 #: views/view-options.php:50
 #, php-format
-msgid "You can get styling examples from the <a href=\"%s\">plugin's website</a>."
-msgstr "<a href=\"%s\">プラグインWebサイト</a>にて装飾に関するサンプルを入手できます."
+msgid "You can get styling examples from the <a href=\"%s\">FAQ</a>."
+msgstr "<a href=\"%s\">FAQ</a>からCSSスタイルのサンプルを入手することができます。"
 
 #: views/view-options.php:50
 #, php-format
 msgid "Information on available CSS selectors can be found in the <a href=\"%s\">documentation</a>."
-msgstr "利用可能なCSSセレクタのについての情報は<a href=\"%s\">ドキュメント</a>をご覧ください."
+msgstr "利用できるCSSセレクタについての情報は<a href=\"%s\">ドキュメンテーション</a>で見つけることができます。"
 
 #: views/view-options.php:54
 msgid "Links in new window"
-msgstr "リンクを新しいウィンドウで開く"
+msgstr "新しいウィンドウへのリンク"
 
 #: views/view-options.php:55
 #, php-format
 msgid "Yes, open links that are inserted with the &quot;%s&quot; button on the &quot;%s&quot; screen in a new browser window <strong>from now on</strong>."
-msgstr "今後,&quot;%s&quot;ボタンが&quot;%s&quot;画面にある状態で挿入されるリンクを新しいウィンドウで開く."
+msgstr "はい、&quot;%s&quot; ボタン (&quot;%s&quot; 画面の中)で挿入されたリンクを<strong>今後</strong>新しいウィンドウの中にを開きます。"
 
 #: views/view-options.php:62
-msgid "Backend Options"
-msgstr "バックエンドの設定"
-
-#: views/view-options.php:66
-msgid "Exit warning"
-msgstr "画面移動の警告"
-
-#: views/view-options.php:67
-#, php-format
-msgid "Yes, show a warning message, if I leave the &quot;%s&quot; screen and have not yet saved my changes."
-msgstr "もし&quot;%s&quot; 画面から移動する際に,保存がされていなかったら警告を表示する."
+#: views/view-options.php:168
+msgid "Save Options"
+msgstr "オプションを保存"
 
 #: views/view-options.php:70
-msgid "Growing textareas"
-msgstr "テキストエリアを拡大する"
+msgid "Backend Options"
+msgstr "バックエンド オプション"
 
-#: views/view-options.php:71
+#: views/view-options.php:74
+msgid "Exit warning"
+msgstr "警告メッセージを閉じる"
+
+#: views/view-options.php:75
 #, php-format
-msgid "Yes, enlarge the textareas on the &quot;%s&quot; screen when they are focussed."
-msgstr "&quot;%s&quot; 画面でフォーカスされたときにテキストエリアを拡大します."
+msgid "Yes, show a warning message, if I leave the &quot;%s&quot; screen and have not yet saved my changes."
+msgstr "はい、&quot;%s&quot; 画面において変更を保存していない場合、警告メッセージを表示します。"
+
+#: views/view-options.php:78
+msgid "Growing textareas"
+msgstr "テキストエリアの拡張"
 
 #: views/view-options.php:79
-msgid "Admin Options"
-msgstr "管理設定"
-
-#: views/view-options.php:81
-#: views/view-options.php:192
-#: views/view-options.php:206
-msgid "This area are only available to site administrators!"
-msgstr "このエリアは管理者のみが利用できます."
-
-#: views/view-options.php:81
-msgid "You can therefore not change these options."
-msgstr "したがって、あなたはこれらの設定を変更することができません。"
-
-#: views/view-options.php:86
-msgid "Plugin Access"
-msgstr "プラグインへのアクセス"
+#, php-format
+msgid "Yes, enlarge the textareas on the &quot;%s&quot; screen when they are focussed."
+msgstr "はい、 &quot;%s&quot; 画面でテキストエリアをクリックしたとき、テキストリアボックスを拡張します。"
 
 #: views/view-options.php:87
-msgid "To access WP-Table Reloaded, a user needs to be:"
-msgstr "WP-Table Reloaded にアクセスするのに必要なユーザ権限 : "
+msgid "Admin Options"
+msgstr "管理オプション"
 
-#: views/view-options.php:88
-#: views/view-options.php:99
+#: views/view-options.php:89
+#: views/view-options.php:209
+#: views/view-options.php:223
+msgid "This area are only available to site administrators!"
+msgstr "このエリアはサイト管理者のみ利用可能です。"
+
+#: views/view-options.php:89
+msgid "You can therefore not change these options."
+msgstr "あなたには管理者権限が与えられていないので、これらのオプションを変更できません。"
+
+#: views/view-options.php:94
+msgid "Plugin Access"
+msgstr "プラグイン アクセス"
+
+#: views/view-options.php:95
+msgid "To access WP-Table Reloaded, a user needs to be:"
+msgstr "WP-Table Reloadedにアクセスするための条件:"
+
+#: views/view-options.php:96
+#: views/view-options.php:107
 msgctxt "User role"
 msgid "Administrator"
 msgstr "管理者"
 
-#: views/view-options.php:89
-#: views/view-options.php:100
+#: views/view-options.php:97
+#: views/view-options.php:108
 msgctxt "User role"
 msgid "Editor"
 msgstr "編集者"
 
-#: views/view-options.php:90
-#: views/view-options.php:101
+#: views/view-options.php:98
+#: views/view-options.php:109
 msgctxt "User role"
 msgid "Author"
-msgstr "作成者"
+msgstr "著者"
 
-#: views/view-options.php:91
+#: views/view-options.php:99
 msgctxt "User role"
 msgid "Contributor"
-msgstr "寄稿者"
+msgstr "投稿者"
 
-#: views/view-options.php:97
+#: views/view-options.php:105
 msgid "Plugin Options Access"
-msgstr "プラグイン設定へのアクセス"
-
-#: views/view-options.php:98
-msgid "To access the Plugin Options of WP-Table Reloaded, a user needs to be:"
-msgstr "WP-Table Reloaded のプラグイン設定にアクセスするのに必要なユーザ権限 : "
-
-#: views/view-options.php:102
-msgid "Admin Options, Dump file Import, and Manual Plugin Uninstall are always accessible by Administrators only, regardless of this setting."
-msgstr "この設定に関わらず,管理者は管理設定,ダンプファイルのインポート,プラグインの手動アンインストールに常にアクセスできます."
+msgstr "プラグイン オプション アクセス"
 
 #: views/view-options.php:106
+msgid "To access the Plugin Options of WP-Table Reloaded, a user needs to be:"
+msgstr "WP-Table Reloaded プラグイン オプションにアクセスするための条件:"
+
+#: views/view-options.php:110
+msgid "Admin Options, Dump file Import, and Manual Plugin Uninstall are always accessible by Administrators only, regardless of this setting."
+msgstr "設定に基づき、管理オプション、ダンプファイルのインポート、または手動でのプラグインのアンインストールはいつでも管理者のみが実行できます。"
+
+#: views/view-options.php:114
 msgid "Plugin Language"
-msgstr "プラグイン言語"
+msgstr "プラグインの言語"
 
-#: views/view-options.php:107
+#: views/view-options.php:115
 msgid "WP-Table Reloaded shall be shown in this language:"
-msgstr "WP-Table Reloaded の管理画面は次の部分に表示されます."
+msgstr "WP-Table Reloaded はこの言語で表示されます。"
 
-#: views/view-options.php:108
+#: views/view-options.php:116
 #, php-format
 msgid "WordPress Default (currently %s)"
-msgstr "WordPress 標準 (現在 %s)"
+msgstr "WordPress デフォルト (現在は %s です)"
 
-#: views/view-options.php:117
+#: views/view-options.php:125
 msgid "Admin menu entry"
-msgstr "管理画面の表示位置"
+msgstr "管理メニュー エントリー"
 
-#: views/view-options.php:118
+#: views/view-options.php:126
 msgid "WP-Table Reloaded shall be shown in this section of the admin menu:"
-msgstr "WP-Table Reloaded の管理画面は次の部分に表示されます."
+msgstr "WP-Table Reloaded は管理画面のこのセクションに表示されます。"
 
-#: views/view-options.php:119
+#: views/view-options.php:127
 msgid "Tools"
 msgstr "ツール"
 
-#: views/view-options.php:120
+#: views/view-options.php:128
 msgid "Posts"
 msgstr "投稿"
 
-#: views/view-options.php:121
+#: views/view-options.php:138
 msgid "Pages"
 msgstr "ページ"
 
-#: views/view-options.php:122
+#: views/view-options.php:139
 msgid "Plugins"
 msgstr "プラグイン"
 
-#: views/view-options.php:123
+#: views/view-options.php:140
 msgid "Settings"
 msgstr "設定"
 
-#: views/view-options.php:124
+#: views/view-options.php:141
 msgid "Dashboard"
 msgstr "ダッシュボード"
 
-#: views/view-options.php:125
+#: views/view-options.php:142
 msgid "Top-Level"
 msgstr "トップレベル"
 
-#: views/view-options.php:130
+#: views/view-options.php:147
 msgid "Frontend Edit Link"
-msgstr "フロントエンド編集リンク"
+msgstr "フロントエンド 編集リンク"
 
-#: views/view-options.php:131
+#: views/view-options.php:148
 msgid "Yes, show an \"Edit\" link to users with sufficient rights near every table on the frontend."
-msgstr "表示されているテーブルの右側に\"編集\"リンクを表示します."
+msgstr "はい、十分な資格があるユーザーがアクセスした場合、それぞれのテーブルのフロントエンドに \"編集\" リンクボタンを表示します。"
 
-#: views/view-options.php:135
+#: views/view-options.php:152
 msgid "WordPress Search"
 msgstr "WordPress 検索"
 
-#: views/view-options.php:136
+#: views/view-options.php:153
 msgid "Yes, the WordPress Search shall also find posts and pages that contain the search term inside a table."
-msgstr "ページや投稿に挿入したテーブルに含まれる語句を Wordpress の検索機能で検索できるようにします."
+msgstr "はい、 WordPress 検索が ページや投稿に配置されているテーブルの中も検索するようにします。"
 
-#: views/view-options.php:140
+#: views/view-options.php:157
 msgid "Remove upon Deactivation"
-msgstr "プラグインを無効化してアンインストールしますか?"
+msgstr "プラグインの停止と削除"
 
-#: views/view-options.php:141
+#: views/view-options.php:158
 msgid "Yes, remove all plugin related data from the database when the plugin is deactivated."
-msgstr "このプラグインを無効化した際にデータベースから関連するデータを削除します."
+msgstr "はい、プラグインを停止し、このプラグインに関係するデータベースを削除します。"
 
-#: views/view-options.php:141
+#: views/view-options.php:158
 msgid "Should be activated directly before deactivation only!"
-msgstr "プラグインを削除する直前にのみ有効にしてください."
-
-#: views/view-options.php:151
-msgid "Save Options"
-msgstr "設定保存"
-
-#: views/view-options.php:161
-msgid "WP-Table Reloaded Data Export and Backup"
-msgstr "WP-Table Reloaded データエクスポート・バックアップ"
-
-#: views/view-options.php:164
-msgid "WP-Table Reloaded can export and import a so-called dump file that contains all tables, their settings and the plugin's options."
-msgstr "WP-Table Reloadedは全てのテーブル、それらの設定、およびプラグインのオプションを保存した,いわゆるダンプファイルをエクスポート・インポートすることができます"
-
-#: views/view-options.php:164
-msgid "This file can be used as a backup or to move all data to another WordPress site."
-msgstr "このファイルは設定・データのバックアップや他の WordPress サイトへの移動に使用できます."
-
-#: views/view-options.php:167
-msgid "Export a dump file"
-msgstr "ダンプファイルのエクスポート"
-
-#: views/view-options.php:169
-msgid "To export all Tables and their settings, click the button below to generate and download a dump file."
-msgstr "全てのテーブルと設定をエクスポートしてダンプファイルを生成しダウンロードするには以下のボタンをクリックしてください."
-
-#: views/view-options.php:169
-msgid "<strong>Warning</strong>: Do <strong>not</strong> edit the content of that file under any circumstances as you will destroy the file!"
-msgstr "<strong>警告</strong>: ファイルの内容が破壊されるので決して編集<strong>しないで</strong>ください."
+msgstr "プラグイン停止の直前にのみこの機能を有効にしてください!"
 
 #: views/view-options.php:178
-msgid "Import a dump file"
-msgstr "ダンプファイルのインポート"
+msgid "WP-Table Reloaded Data Export and Backup"
+msgstr "WP-Table Reloaded データ エクスポートとバックアップ"
 
-#: views/view-options.php:180
-msgid "To import a WP-Table Reloaded dump file and restore the included data, upload the file from your computer."
-msgstr "WP-Table Reloaded のダンプファイルをインポートして,データを復旧するには,コンピュータからファイルをアップロードしてください."
+#: views/view-options.php:181
+msgid "WP-Table Reloaded can export and import a so-called dump file that contains all tables, their settings and the plugin's options."
+msgstr "WP-Table Reloaded はダンプファイル(すべてのテーブル、設定およびオプションを含む)をエクスポート、及びインポートできます。"
 
-#: views/view-options.php:180
-msgid "All current data of this WP-Table Reloaded installation (Tables, Options, Settings) <strong>WILL BE OVERWRITTEN</strong> with the data from the file!"
-msgstr "現在の WP-Table Reloaded のデータ(テーブル,オプション,設定)は読み込んだファイルで<strong>上書きされます</strong>."
+#: views/view-options.php:181
+msgid "This file can be used as a backup or to move all data to another WordPress site."
+msgstr "このファイルはテーブルデータのバックアップ、あるいは別のWordPressサイトへのデータ移行に利用できます。"
 
-#: views/view-options.php:180
-msgid "Do not proceed, if you do not understand this!"
-msgstr "よく分からない場合は実行しないでください!"
-
-#: views/view-options.php:180
-msgid "It is highly recommended to export and backup the data of this installation before importing another dump file (see above)."
-msgstr "他のダンプファイルをインポートする前にエクスポートを行うことを強く推奨します(上記をご覧ください)."
+#: views/view-options.php:184
+msgid "Export a dump file"
+msgstr "ダンプファイルをエクスポート"
 
 #: views/view-options.php:186
+msgid "To export all Tables and their settings, click the button below to generate and download a dump file."
+msgstr "すべてのテーブルと設定をエクスポートしたい場合は、下のボタンをクリックしダンプデータを生成後ダウンロードしてください。"
+
+#: views/view-options.php:186
+msgid "<strong>Warning</strong>: Do <strong>not</strong> edit the content of that file under any circumstances as you will destroy the file!"
+msgstr "<strong>警告</strong>: このダンプファイルを外部エディタなどで <strong>絶対に編集しないでください</strong>。編集した場合、ファイル全体が壊れてしまいます。"
+
+#: views/view-options.php:195
+msgid "Import a dump file"
+msgstr "ダンプファイルをインポート"
+
+#: views/view-options.php:197
+msgid "To import a WP-Table Reloaded dump file and restore the included data, upload the file from your computer."
+msgstr "WP-Table Reloaded のダンプファイルをインポートまたは復元する場合、あなたのコンピュータからファイルをアップロードしてください。"
+
+#: views/view-options.php:197
+msgid "All current data of this WP-Table Reloaded installation (Tables, Options, Settings) <strong>WILL BE OVERWRITTEN</strong> with the data from the file!"
+msgstr "現在のWP-Table Reloaded データ (テーブル、オプション、設定) は<strong>上書きされます</strong>。"
+
+#: views/view-options.php:197
+msgid "Do not proceed, if you do not understand this!"
+msgstr "これらのことが理解できないなら、続く処理を実行しないでください!"
+
+#: views/view-options.php:197
+msgid "It is highly recommended to export and backup the data of this installation before importing another dump file (see above)."
+msgstr "別のダンプファイルをインポートする場合、その前に現在のデータのエクスポートやバックアップ作業をすることを強くおすすめいたします。"
+
+#: views/view-options.php:203
 msgid "Select Dump File"
 msgstr "ダンプファイルの選択"
 
-#: views/view-options.php:188
+#: views/view-options.php:205
 msgid "Import Dump File"
 msgstr "ダンプファイルのインポート"
 
-#: views/view-options.php:198
+#: views/view-options.php:215
 msgid "Manually Uninstall WP-Table Reloaded"
 msgstr "WP-Table Reloaded を手動でアンインストール"
 
-#: views/view-options.php:200
+#: views/view-options.php:217
 msgid "Uninstalling <strong>will permanently delete</strong> all tables, data, and options, that belong to WP-Table Reloaded from the database, including all tables you added or imported."
-msgstr "アンインストールはWP-Table Reloadedによって作成された,テーブル(インポートしたり新規に作成したもの),データ,設定の全てを<strong>永久に削除します</strong>."
+msgstr "アンインストール作業を行うと 、WP-Table Reloadedに含まれるすべてのデータベース（すべてのテーブルデータ、設定を含む)が<strong>が削除されます</strong> 。"
 
-#: views/view-options.php:200
+#: views/view-options.php:217
 msgid "You will manually need to remove the plugin's files from the plugin folder afterwards."
-msgstr "その後,手動でプラグインフォルダーからプラグインのファイルを削除する必要があります."
+msgstr "この作業のあと、プラグインフォルダから手動でこのプラグインを削除する必要があります。"
 
-#: views/view-options.php:200
+#: views/view-options.php:217
 msgid "Be very careful with this and only click the button if you know what you are doing!"
-msgstr "この動作が何を意味するのかを十分に理解した上でボタンをクリックしてください!"
+msgstr "このボタンは、自分がどんな作業をしているかをよく理解し、で十分に注意した上でクリックしてください。"
 
-#: views/view-options.php:204
+#: views/view-options.php:221
 msgid "Uninstall Plugin WP-Table Reloaded"
 msgstr "WP-Table Reloaded をアンインストール"
 
 #: views/view-uninstall.php:3
 msgid "Plugin deactivated successfully."
-msgstr "プラグインの無効化に成功しました."
+msgstr "プラグインは正常に停止されました。"
 
 #: views/view-uninstall.php:4
 msgid "All tables, data and options were deleted. You may now manually remove the plugin's subfolder from your WordPress plugin folder or use the \"Delete\" link on the Plugins page."
-msgstr "全てのテーブル,データ,設定が削除されました.プラグインフォルダにある WP-Table Reloaded のサブフォルダを手動で削除するか,プラグイン管理ページの\"削除\"リンクを使用して下さい."
+msgstr "すべてのテーブル、データ及びオプションが削除されました。WordPress plugin フォルダから、またはプラグインページの \"削除\" リンクから手動でこのプラグインを削除してください。"
 
-#. Plugin URI of an extension
+#. Plugin URI of the plugin/theme
 msgid "http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/"
 msgstr "http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/"
 
-#. Description of an extension
+#. Description of the plugin/theme
 msgid "This plugin allows you to create and easily manage tables in the admin-area of WordPress. A comfortable backend allows an easy manipulation of table data. You can then include the tables into your posts, on your pages or in text widgets by using a shortcode or a template tag function. Tables can be imported and exported from/to CSV, XML and HTML."
-msgstr "このプラグインは WordPress の管理画面においてテーブルの作成と管理を簡単に行う機能を提供します. 充実した機能でテーブルデータの簡単な操作を提供します.投稿やページ,テキストウィジェットに作成したテーブルを表示するにはショートコードやテンプレートタグを使用します. テーブルデータはCSV,XML,HTML形式などで入出力が可能です."
+msgstr "このプラグインを使って、WordPressの管理エリアで簡単にテーブルを作成し管理することができます。快適にテーブルデータを操作できることでしょう。作成したテーブルはショートコードやテンプレートタグ機能を使って、ページ、さらにテキストウィジェットの中にも配置できます。テーブルはCSV、XML、HTML方式のデータとしてインポートまたはエクスポートできます。"
 
-#. Author of an extension
+#. Author of the plugin/theme
 msgid "Tobias B&auml;thge"
 msgstr "Tobias B&auml;thge"
 
-#. Author URI of an extension
+#. Author URI of the plugin/theme
 msgid "http://tobias.baethge.com/"
 msgstr "http://tobias.baethge.com/"
 
+#~ msgid "Ukrainian"
+#~ msgstr "ウクライナ語"
