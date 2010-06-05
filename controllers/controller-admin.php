@@ -1289,14 +1289,16 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
             'export' => __( 'Export a Table', WP_TABLE_RELOADED_TEXTDOMAIN )
         );
         $table_actions = apply_filters( 'wp_table_reloaded_backend_table_actions', $table_actions );
-        $last_table_action = array_pop( array_keys( $table_actions ) );
-        
+        $_table_actions = array_keys( $table_actions );
+        $last_table_action = array_pop( $_table_actions );
+
         $plugin_actions = array(
             'options' => __( 'Plugin Options', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'about' => __( 'About the plugin', WP_TABLE_RELOADED_TEXTDOMAIN )
         );
         $plugin_actions = apply_filters( 'wp_table_reloaded_backend_plugin_actions', $plugin_actions );
-        $last_plugin_action = array_pop( array_keys( $plugin_actions ) );
+        $_plugin_actions = array_keys( $plugin_actions );
+        $last_plugin_action = array_pop( $_plugin_actions );
 
         ?>
         <ul class="subsubsub">
