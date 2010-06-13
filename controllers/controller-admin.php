@@ -938,7 +938,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
             $table_id = $table['id'];
             $this->load_view( 'edit', compact( 'table_id' ) );
         } elseif ( isset( $_POST['import_wp_table_reloaded_dump_file'] ) ) {
-            check_admin_referer( $this->get_nonce( 'import_dump' ) );
+            check_admin_referer( $this->get_nonce( 'import_dump' ), $this->get_nonce( 'import_dump' ) );
             
             // check if user is admin
             if ( !current_user_can( 'manage_options' ) ) {
@@ -1033,7 +1033,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
      */
     function do_action_export_all() {
         if ( isset( $_POST['export_all'] ) ) {
-            check_admin_referer( $this->get_nonce( 'export_all' ) );
+            check_admin_referer( $this->get_nonce( 'export_all' ), $this->get_nonce( 'export_all' ) );
 
             $export = array();
             $export['table_info'] = $this->tables;
@@ -1057,7 +1057,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
      */
     function do_action_options() {
         if ( isset( $_POST['submit'] ) && isset( $_POST['options'] ) ) {
-            check_admin_referer( $this->get_nonce( 'options' ) );
+            check_admin_referer( $this->get_nonce( 'options' ), $this->get_nonce( 'options' ) );
 
             // check if user can access Plugin Options
             if ( !$this->user_has_access( 'plugin-options' ) ) {

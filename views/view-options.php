@@ -13,7 +13,7 @@
 
         <div style="clear:both;">
         <form method="post" action="<?php echo $this->get_action_url(); ?>">
-        <?php wp_nonce_field( $this->get_nonce( 'options' ) ); ?>
+        <?php wp_nonce_field( $this->get_nonce( 'options' ), $this->get_nonce( 'options' ) ); ?>
 
         <div class="postbox<?php echo $this->helper->postbox_closed( 'frontend-plugin-options', false ); ?>">
 <h3 class="hndle"><span><?php _e( 'Frontend Options', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></span><span class="hide_link"><small><?php echo _x( 'Hide', 'expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span><span class="expand_link"><small><?php _e( 'Expand', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></span></h3>
@@ -185,7 +185,7 @@
         <div class="inside">
         <p><?php _e( 'To export all Tables and their settings, click the button below to generate and download a dump file.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?><br/><?php _e( '<strong>Warning</strong>: Do <strong>not</strong> edit the content of that file under any circumstances as you will destroy the file!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></p>
         <form method="post" action="<?php echo $this->get_action_url(); ?>">
-        <?php wp_nonce_field( $this->get_nonce( 'export_all' ) ); ?>
+        <?php wp_nonce_field( $this->get_nonce( 'export_all' ), $this->get_nonce( 'export_all' ) ); ?>
         <input type="submit" name="export_all" class="button-primary" value="<?php _e( 'Create and Download Dump File', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
         </form>
         </div>
@@ -199,7 +199,7 @@
             if ( $is_admin ) {
             ?>
                 <form method="post" enctype="multipart/form-data" action="<?php echo $this->get_action_url(); ?>">
-                <?php wp_nonce_field( $this->get_nonce( 'import_dump' ) ); ?>
+                <?php wp_nonce_field( $this->get_nonce( 'import_dump' ), $this->get_nonce( 'import_dump' ) ); ?>
                 <label for="dump_file"><?php _e( 'Select Dump File', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label> <input name="dump_file" id="dump_file" type="file"<?php echo ( !$is_admin ) ? ' disabled="disabled"': '' ; ?> />
                 <input type="hidden" name="action" value="import" />
                 <input id="import_wp_table_reloaded_dump_file" type="submit" name="import_wp_table_reloaded_dump_file" class="button-primary" value="<?php _e( 'Import Dump File', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
