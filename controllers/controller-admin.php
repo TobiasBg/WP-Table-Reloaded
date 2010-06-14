@@ -861,7 +861,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
                     $this->import_instance->filename = __( 'Imported Table', WP_TABLE_RELOADED_TEXTDOMAIN );
                     $this->import_instance->mimetype = sprintf( __( 'from %s', WP_TABLE_RELOADED_TEXTDOMAIN ), $_POST['import_url'] );
                     $this->import_instance->import_from = 'url';
-                    $url = clean_url( $_POST['import_url'] );
+                    $url = esc_url( $_POST['import_url'] );
                     $temp_data = wp_remote_fopen( $url );
                     $this->import_instance->import_data = ( false !== $temp_data ) ? $temp_data : '';
                 } else {
@@ -1460,7 +1460,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
         $action_url = add_query_arg( $url_params, admin_url( $this->page_url ) );
         if ( $add_nonce )
             $action_url = wp_nonce_url( $action_url, $this->get_nonce( $url_params['action'], $url_params['item'] ) );
-        $action_url = clean_url( $action_url );
+        $action_url = esc_url( $action_url );
         return $action_url;
     }
     
@@ -1758,7 +1758,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
         );
         $ajax_url = add_query_arg( $params, admin_url( $this->page_url ) );
         $ajax_url = wp_nonce_url( $ajax_url, $this->get_nonce( $params['action'], false ) );
-        $ajax_url = clean_url( $ajax_url );
+        $ajax_url = esc_url( $ajax_url );
         $suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.dev' : '';
         $jsfile = "admin/admin-editor-buttons-script{$suffix}.js";
 

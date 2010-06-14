@@ -194,4 +194,15 @@ class WP_Table_Reloaded_Controller_Base {
 
 } // class WP_Table_Reloaded_Controller_Base
 
+/**
+ * Provide backwards compatibility for deprecated functions
+ */
+ 
+// esc_url replaced clean_url in WP 3.0
+if ( !function_exists( 'esc_url' ) ) {
+    function esc_url( $url ) {
+        return clean_url( $url );
+    }
+}
+
 ?>

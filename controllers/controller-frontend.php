@@ -310,7 +310,7 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
                         'table_id' => $table['id']
                 );
                 $edit_url = add_query_arg( $url_params, admin_url( $admin_menu_page ) );
-                $edit_url = clean_url( $edit_url );
+                $edit_url = esc_url( $edit_url );
             }
         }
         $output_options['edit_table_url'] = $edit_url;

@@ -48,7 +48,7 @@ class WP_Table_Reloaded_Helper {
     // ###################################################################################################################
     function safe_output( $string ) {
         $string = stripslashes( $string ); // because $string is add_slashed before WP stores it in DB
-        return wp_specialchars( $string, ENT_QUOTES, false, true );
+        return _wp_specialchars( $string, ENT_QUOTES, false, true );
     }
 
     // ###################################################################################################################
