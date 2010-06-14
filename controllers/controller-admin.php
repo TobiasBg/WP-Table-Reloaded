@@ -463,12 +463,24 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
                     foreach ( $table['data'] as $row_idx => $row )
                         array_splice( $table['data'][$row_idx], $cols, 0, $table['visibility']['rows'][$row_idx] );
 
+                    $array_to_sort = $table['data'];
+                    if ( isset( $table['options']['first_row_th'] ) && $table['options']['first_row_th'] )
+                        $first_row = array_shift( $array_to_sort );
+                    if ( isset( $table['options']['table_footer'] ) && $table['options']['table_footer'] )
+                        $last_row = array_pop( $array_to_sort );
+
                     $sortarray = $this->create_class_instance( 'arraysort', 'arraysort.class.php' );
-                    $sortarray->input_array = $table['data'];
+                    $sortarray->input_array = $array_to_sort;
                     $sortarray->column = $column;
                     $sortarray->order = $sort_order;
                     $sortarray->sort();
-                    $table['data'] = $sortarray->sorted_array;
+                    $sorted_array = $sortarray->sorted_array;
+
+                    if ( isset( $table['options']['first_row_th'] ) && $table['options']['first_row_th'] )
+                        array_unshift( $sorted_array, $first_row );
+                    if ( isset( $table['options']['table_footer'] ) && $table['options']['table_footer'] )
+                        array_push( $sorted_array, $last_row );
+                    $table['data'] = $sorted_array;
 
                     // then restore row visibility from sorted data and remove temporary column
                     foreach ( $table['data'] as $row_idx => $row ) {
