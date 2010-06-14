@@ -67,7 +67,7 @@ if ( is_admin() ) {
      * Thus, the function is only available in the frontend part of WordPress.
      *
      * @see wp_table_reloaded_get_table
-     * @param string $table_query Query string like list of parameters for Shortcode "table" rendering
+     * @param string|array $table_query Query string like list or array of parameters for Shortcode "table" rendering
      */
     function wp_table_reloaded_print_table( $table_query ) {
         echo wp_table_reloaded_get_table( $table_query );
@@ -77,11 +77,14 @@ if ( is_admin() ) {
      * Add function to retrieve the table HTML, needed for template tag function wp_table_reloaded_print_table
      *
      * @uses $WP_Table_Reloaded_Frontend
-     * @param string $table_query Query string like list of parameters for Shortcode "table" rendering
+     * @param string|array $table_query Query string like list or array of parameters for Shortcode "table" rendering
      */
     function wp_table_reloaded_get_table( $table_query ) {
         global $WP_Table_Reloaded_Frontend;
-        parse_str( $table_query, $atts );
+        if ( is_array( $table_query ) )
+            $atts = $table_query;
+        else
+            parse_str( $table_query, $atts );
         return $WP_Table_Reloaded_Frontend->handle_content_shortcode_table( $atts );
     }
 
@@ -93,7 +96,7 @@ if ( is_admin() ) {
      * Thus, the function is only available in the frontend part of WordPress.
      *
      * @see wp_table_reloaded_get_table_info
-     * @param string $table_query Query string like list of parameters for Shortcode "table-info" rendering
+     * @param string|array $table_query Query string like list or array of parameters for Shortcode "table-info" rendering
      */
     function wp_table_reloaded_print_table_info( $table_query ) {
         echo wp_table_reloaded_get_table_info( $table_query );
@@ -103,11 +106,14 @@ if ( is_admin() ) {
      * Add function to retrieve the table-info HTML, needed for template tag function wp_table_reloaded_print_table_info
      *
      * @uses $WP_Table_Reloaded_Frontend
-     * @param string $table_query Query string like list of parameters for Shortcode "table-info" rendering
+     * @param string|array $table_query Query string like list or array of parameters for Shortcode "table-info" rendering
      */
     function wp_table_reloaded_get_table_info( $table_query ) {
         global $WP_Table_Reloaded_Frontend;
-        parse_str( $table_query, $atts );
+        if ( is_array( $table_query ) )
+            $atts = $table_query;
+        else
+            parse_str( $table_query, $atts );
         return $WP_Table_Reloaded_Frontend->handle_content_shortcode_table_info( $atts );
     }
 
