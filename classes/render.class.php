@@ -147,11 +147,15 @@ class WP_Table_Reloaded_Render {
             $tbody = "<tbody{$tbody_class}>\n" . implode( '', $tbody ) . "</tbody>\n";
             $tfoot = ( !empty( $tfoot ) ) ? "<tfoot>\n{$tfoot}</tfoot>\n" : '';
 
+            $id = " id=\"{$this->output_options['html_id']}\"";
+            $summary = apply_filters( 'wp_table_reloaded_table_summary_arg', '', $table['id'], $table );
+            $summary = ( !empty( $summary ) ) ? " summary=\"" . esc_attr( $summary ) . "\"" : '';
+            $class = ( !empty( $cssclasses ) ) ? " class=\"{$cssclasses}\"" : '';
             $cellspacing = ( false !== $this->output_options['cellspacing'] ) ? " cellspacing=\"{$this->output_options['cellspacing']}\"" : '';
             $cellpadding = ( false !== $this->output_options['cellpadding'] ) ? " cellpadding=\"{$this->output_options['cellpadding']}\"" : '';
             $border = ( false !== $this->output_options['border'] ) ? " border=\"{$this->output_options['border']}\"" : '';
 
-            $output .= "\n<table id=\"{$this->output_options['html_id']}\" class=\"{$cssclasses}\"{$cellspacing}{$cellpadding}{$border}>\n";
+            $output .= "\n<table{$id}{$summary}{$class}{$cellspacing}{$cellpadding}{$border}>\n";
             $output .= $caption . $colgroup . $thead . $tfoot . $tbody;
             $output .= "</table>\n";
 
