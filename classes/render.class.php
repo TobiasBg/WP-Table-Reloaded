@@ -136,6 +136,7 @@ class WP_Table_Reloaded_Render {
 
             $tbody_class = ( $this->output_options['row_hover'] ) ? ' class="row-hover"' : '';
 
+            $caption = '';
             if ( !empty( $this->output_options['edit_table_url'] ) ) {
                 $edit_table_link = "<a href=\"{$this->output_options['edit_table_url']}\" title=\"" . __( 'Edit' ) . "\">" . __( 'Edit' ) . "</a>";
                 $caption = "<caption style=\"caption-side: bottom; text-align: left; border:none; background: none;\">{$edit_table_link}</caption>\n";
