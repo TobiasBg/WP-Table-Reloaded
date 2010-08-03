@@ -1,6 +1,6 @@
 /*
  * File:        TableTools.js
- * Version:     1.1.3
+ * Version:     1.1.4
  * CVS:         $Id$
  * Description: Copy, save and print functions for DataTables
  * Author:      Allan Jardine (www.sprymedia.co.uk)
@@ -29,7 +29,7 @@ var TableToolsInit = {
 	},
 	"oBom": {
 		"bCsv": true,
-		"bXls": true,
+		"bXls": true
 	},
 	"bIncFooter": true,
 	"bIncHiddenColumns": false,
@@ -306,7 +306,7 @@ function TableTools ( oInit )
 			_iPrintScroll = $(window).scrollTop();
 			window.scrollTo( 0, 0 );
 			
-			$(document).bind( "keydown", null, fnPrintEnd );
+			$(document).bind( "keyup", null, fnPrintEnd );
 			
 			setTimeout( function() {
 				$(nInfo).fadeOut( "normal", function() {

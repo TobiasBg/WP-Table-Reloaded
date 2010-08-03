@@ -540,7 +540,7 @@ CSSSTYLE;
             wp_register_script( 'wp-table-reloaded-zeroclipboard-js', $js_zeroclipboard_url, array(), $this->options['installed_version'] );
             wp_print_scripts( 'wp-table-reloaded-zeroclipboard-js' );
 
-            $js_tabletools_url = plugins_url( 'js/tabletools/tabletools.js', WP_TABLE_RELOADED__FILE__ );
+            $js_tabletools_url = plugins_url( 'js/tabletools/tabletools.min.js', WP_TABLE_RELOADED__FILE__ );
             $js_tabletools_url = apply_filters( 'wp_table_reloaded_url_js_tabletools', $js_tabletools_url );
             wp_register_script( 'wp-table-reloaded-tabletools-js', $js_tabletools_url, array(), $this->options['installed_version'] );
             $swf_zeroclipboard_url = plugins_url( 'js/tabletools/zeroclipboard.swf', WP_TABLE_RELOADED__FILE__ );
