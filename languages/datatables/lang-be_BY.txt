@@ -1,17 +1,17 @@
 ﻿{
-	"sProcessing":   "Апрацоўка...",
-	"sLengthMenu":   "Паказаць змесціва _MENU_",
-	"sZeroRecords":  "Няма суадносных запісаў,
-	"sInfo":         "Паказаць _START_ да _END_ з _TOTAL_ элементаў",
-	"sInfoEmpty":    "Паказаць 0 to 0 of 0 элементаў",
-	"sInfoFiltered": "(адфільтравана з _MAX_ total элементаў)",
+	"sProcessing":   "Пачакайце...",
+	"sLengthMenu":   "Паказаць _MENU_ запісаў",
+	"sZeroRecords":  "Запісы адсутнічаюць.",
+	"sInfo":         "Запісы з _START_ да _END_ з _TOTAL_ запісаў",
+	"sInfoEmpty":    "Запісы з 0 да 0 з 0 запісаў",
+	"sInfoFiltered": "(адфільтравана з _MAX_ запісаў)",
 	"sInfoPostFix":  "",
 	"sSearch":       "Пошук:",
 	"sUrl":          "",
 	"oPaginate": {
-		"sFirst":    "Першае",
-		"sPrevious": "Папярэдняе",
-		"sNext":     "Наступнае",
-		"sLast":     "Апошняе"
+		"sFirst": "Першая",
+		"sPrevious": "Папярэдняя",
+		"sNext": "Наступная",
+		"sLast": "Апошняя"
 	}
 }

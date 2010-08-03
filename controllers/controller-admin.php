@@ -253,7 +253,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
      */
     function show_manage_page() {
         $this->available_plugin_languages = array(
-            'be_BY' => __( 'Belorussian', WP_TABLE_RELOADED_TEXTDOMAIN ),
+            'be_BY' => __( 'Belarusian', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'cs_CZ' => __( 'Czech', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'de_DE' => __( 'German', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'en_US' => __( 'English', WP_TABLE_RELOADED_TEXTDOMAIN ),

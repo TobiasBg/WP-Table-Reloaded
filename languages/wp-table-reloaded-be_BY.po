@@ -1,14 +1,15 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: WP-Table Reloaded\n"
+"Project-Id-Version: WP-Table Reloaded BY (1.7)\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-table-reloaded\n"
 "POT-Creation-Date: 2010-03-04 21:16+0000\n"
 "PO-Revision-Date: \n"
-"Language-Team: Patricia Clausnitzer <pat.clausnitzer@gmail.com>\n"
+"Last-Translator: Slava Mikheev <slavikmikheev@gmail.com>\n"
+"Language-Team: Slava Mikheev <slavikmikheev@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=2;\n"
 "X-Poedit-Language: Belarusian\n"
 "X-Poedit-Country: BELARUS\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -19,21 +20,21 @@ msgstr ""
 #: classes/export.class.php:28
 #: classes/import.class.php:36
 msgid "CSV - Character-Separated Values"
-msgstr "CSV - Character-Separated Values (значэньні падзеленыя знакамі)"
+msgstr "CSV - Character-Separated Values (значэнні падзеленыя знакамі)"
 
 #: classes/export.class.php:29
 #: classes/import.class.php:37
 msgid "HTML - Hypertext Markup Language"
-msgstr "HTML - Hypertext Markup Language (мова разьмэткі гіпертэксту)"
+msgstr "HTML - Hypertext Markup Language (мова разметкі гіпертэксту)"
 
 #: classes/export.class.php:30
 #: classes/import.class.php:38
 msgid "XML - eXtended Markup Language"
-msgstr "XML - eXtended Markup Language (пашыраная мова разьмэткі)"
+msgstr "XML - eXtended Markup Language (пашыраная мова разметкі)"
 
 #: classes/export.class.php:33
 msgid "; (semicolon)"
-msgstr "; (кропка зь коскі)"
+msgstr "; (кропка з коскай)"
 
 #: classes/export.class.php:34
 msgid ", (comma)"
@@ -55,31 +56,31 @@ msgstr "| (вертыкальная рыса)"
 #: views/view-about.php:22
 #, php-format
 msgid "More information about WP-Table Reloaded can be found on the <a href=\"%s\">plugin's website</a> or on its page in the <a href=\"%s\">WordPress Plugin Directory</a>."
-msgstr "Падрабязную ынфармацыю o WP-Table Reloaded можаце атрымаць на <a href=\"%s\">сайце ўбудовы</a> ці на старонцы <a href=\"%s\">WordPress Plugin Directory</a>."
+msgstr "Падрабязную інфармацыю аб WP-Table Reloaded можаце атрымаць на <a href=\"%s\">сайце ўбудовы</a> ці на старонцы <a href=\"%s\">WordPress Plugin Directory</a>."
 
 #: classes/helper.class.php:41
 #: views/view-about.php:22
 #, php-format
 msgid "For technical information, see the <a href=\"%s\">documentation</a>."
-msgstr "Тэхнічную ынфармацыю можаце знайсьці ў <a href=\"%s\">докумантеции</a>."
+msgstr "Тэхнічную інфармацыю можаце знайсці ў <a href=\"%s\">дакумантацыі</a>."
 
 #: classes/helper.class.php:42
 #: views/view-about.php:29
 #, php-format
 msgid "<a href=\"%s\">Support</a> is provided through the <a href=\"%s\">WordPress Support Forums</a>."
-msgstr "<a href=\"%s\">Падтрымка</a> ажыццяўляецца празь <a href=\"%s\">Форум падтрымкі WordPress</a> (ангельскі)."
+msgstr "<a href=\"%s\">Падтрымка</a> ажыццяўляецца праз <a href=\"%s\">Форум падтрымкі WordPress</a> (ангельскі)."
 
 #: classes/helper.class.php:43
 #: views/view-about.php:29
 #, php-format
 msgid "Before asking for support, please carefully read the <a href=\"%s\">Frequently Asked Questions</a> where you will find answered to the most common questions, and search through the forums."
-msgstr "Перад тым, як звярнуцца за дапамогай, пашукайце адказы на форуме і ўважліва прачытайце <a href=\"%s\">Часта задаваныя пытаньні</a>, дзе вы можаце знайсьці адказы на найболей часта задаваныя пытаньні."
+msgstr "Перад тым, як звярнуцца за дапамогай, пашукайце адказы на форуме і ўважліва прачытайце <a href=\"%s\">Часта задаваныя пытанні</a>, дзе вы можаце знайсці адказы на найболей часта задаваныя пытанні."
 
 #: classes/helper.class.php:44
 #: views/view-about.php:36
 #, php-format
 msgid "If you like the plugin, <a href=\"%s\"><strong>a donation</strong></a> is recommended."
-msgstr "Калі вам спадабалася ўбудова, мы будзем удзячныя вам за <a href=\"%s\"><strong>ахвяраваньне</strong></a>."
+msgstr "Калі вам спадабалася ўбудова, мы будзем удзячныя вам за <a href=\"%s\"><strong>ахвяраванне</strong></a>."
 
 #: classes/helper.class.php:74
 msgid "Thank you for using <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/\">WP-Table Reloaded</a>."
@@ -88,7 +89,7 @@ msgstr "Мы ўдзячныя вам за тое, што вы выкарысто
 #: classes/helper.class.php:74
 #, php-format
 msgid "Support the plugin with your <a href=\"%s\">donation</a>!"
-msgstr "Калі ласка, падтрымаеце ўбудову вашымі <a href=\"%s\">ахвяраваньнямі</a>!"
+msgstr "Калі ласка, падтрымайце ўбудову вашымі <a href=\"%s\">ахвяраваннямі</a>!"
 
 #: classes/helper.class.php:104
 #: classes/helper.class.php:109
@@ -101,17 +102,17 @@ msgstr "Злучэнне вочак у адным радку завецца  \"c
 
 #: classes/helper.class.php:104
 msgid "To combine cells, add the keyword #colspan# to the cell to the right of the one with the content for the combined cell by using the corresponding button."
-msgstr "Для таго, што б злучыць вочкі ў шэрагу, дадайце ключавое слова #colspan# у самае правае вочка і націсніце адпаведную кнопку."
+msgstr "Для таго, каб злучыць вочкі ў шэрагу, дадайце ключавое слова #colspan# у самае правае вочка і націсніце адпаведную кнопку."
 
 #: classes/helper.class.php:104
 #: classes/helper.class.php:109
 msgid "Repeat this to add the keyword to all cells that shall be connected."
-msgstr "Паўторыце гэту аперацыю для ўсіх вочак якія трэба злучыць."
+msgstr "Паўтарыце гэту аперацыю для ўсіх вочак, якія трэба злучыць."
 
 #: classes/helper.class.php:104
 #: classes/helper.class.php:109
 msgid "Be aware that the JavaScript libraries will not work on tables which have combined cells."
-msgstr "Улічыце, што бібліятэкі JavaScript не будуць працаваць зь табліцамі, якія маюць объедененные вочкі."
+msgstr "Улічыце, што бібліятэкі JavaScript не будуць працаваць з табліцамі, якія маюць абъяднаныя вочкі."
 
 #: classes/helper.class.php:109
 msgid "Combining consecutive cells within the same column is called \"rowspanning\"."
@@ -119,7 +120,7 @@ msgstr "Злучэнне вочак у адным слупку завецца \"
 
 #: classes/helper.class.php:109
 msgid "To combine cells, add the keyword #rowspan# to the cell below the one with the content for the combined cell by using the corresponding button."
-msgstr "Для таго, што б злучыць вочкі ў слупку, дадайце ключавое слова #rowspan# у самае ніжняе вочка і націсніце адпаведную кнопку."
+msgstr "Для таго, каб злучыць вочкі ў слупку, дадайце ключавое слова #rowspan# у самае ніжняе вочка і націсніце адпаведную кнопку."
 
 #: classes/helper.class.php:118
 msgid "Help"
@@ -132,39 +133,39 @@ msgstr "Рэдагаваць"
 
 #: controllers/controller-admin.php:256
 msgid "Czech"
-msgstr "чэшскі"
+msgstr "Чэшскі"
 
 #: controllers/controller-admin.php:257
 msgid "German"
-msgstr "нямецкі"
+msgstr "Нямецкі"
 
 #: controllers/controller-admin.php:258
 msgid "English"
-msgstr "ангельскі"
+msgstr "Ангельскі"
 
 #: controllers/controller-admin.php:259
 msgid "Spanish"
-msgstr "іспанскі"
+msgstr "Іспанскі"
 
 #: controllers/controller-admin.php:260
 msgid "Finnish"
-msgstr "фінскі"
+msgstr "Фінскі"
 
 #: controllers/controller-admin.php:261
 msgid "Hindi"
-msgstr "хинди"
+msgstr "Хінді"
 
 #: controllers/controller-admin.php:262
 msgid "Italian"
-msgstr "італьянскі"
+msgstr "Італьянскі"
 
 #: controllers/controller-admin.php:263
 msgid "Japanese"
-msgstr "японскі"
+msgstr "Японскі"
 
 #: controllers/controller-admin.php:264
 msgid "Brazilian Portuguese"
-msgstr "бразільскі/партугальский"
+msgstr "Бразільскі/партугальскі"
 
 #: controllers/controller-admin.php:265
 msgid "Chinese (Simplified)"
@@ -172,67 +173,67 @@ msgstr "Кітайскі (Спрошчаны)"
 
 #: controllers/controller-admin.php:266
 msgid "Russian"
-msgstr "рускі"
+msgstr "Рускі"
 
 #: controllers/controller-admin.php:267
 msgid "Slovak"
-msgstr "славацкі"
+msgstr "Славацкі"
 
 #: controllers/controller-admin.php:268
 msgid "Swedish"
-msgstr "швецкі"
+msgstr "Швецкі"
 
 #: controllers/controller-admin.php:270
 msgid "Albanian"
-msgstr "албанскі"
+msgstr "Албанскі"
 
 #: controllers/controller-admin.php:271
 msgid "Belorussian"
-msgstr "беларускі"
+msgstr "Беларускі"
 
 #: controllers/controller-admin.php:272
 msgid "Estonian"
-msgstr "эстонскі"
+msgstr "Эстонскі"
 
 #: controllers/controller-admin.php:273
 msgid "French"
-msgstr "французскі"
+msgstr "Французскі"
 
 #: controllers/controller-admin.php:274
 msgid "Polish"
-msgstr "польскі"
+msgstr "Польскі"
 
 #: controllers/controller-admin.php:275
 msgid "Turkish"
-msgstr "турэцкі"
+msgstr "Турэцкі"
 
 #: controllers/controller-admin.php:301
 #, php-format
 msgid "Welcome to WP-Table Reloaded %s. If you encounter any questions or problems, please refer to the <a href=\"%s\">FAQ</a>, the <a href=\"%s\">documentation</a>, and the <a href=\"%s\">support</a> section."
-msgstr "Сардэчна запрашаем WP-Table Reloaded %s. Калі ў вас паўстануць якія-небудзь пытаньні ці цяжкасці, калі ласка азнаёмцеся зь <a href=\"%s\">часта задаванымі пытаньнямі</a> і <a href=\"%s\">дакументацыяй</a>, ці звяртайцеся ў секцыю <a href=\"%s\">падтрымкі</a> ."
+msgstr "Сардэчна запрашаем на WP-Table Reloaded %s. Калі ў вас паўстануць якія-небудзь пытанні, ці цяжкасці, калі ласка азнаёмцеся з <a href=\"%s\">часта задаванымі пытаннямі</a> і <a href=\"%s\">дакументацыяй</a>, ці звяртайцеся ў секцыю <a href=\"%s\">падтрымкі</a> ."
 
 #: controllers/controller-admin.php:302
 #, php-format
 msgid "Thank you for upgrading to WP-Table Reloaded %s."
-msgstr "Дзякуй, за тое што абнавілі сваю версію  WP-Table Reloaded  %s."
+msgstr "Дзякуй за тое, што абнавілі сваю версію  WP-Table Reloaded  %s."
 
 #: controllers/controller-admin.php:302
 msgid "This version includes several enhancements, like an updated DataTables library, a &quot;Table&quot; button in the toolbar of the visual editor, and several other things."
-msgstr "Новая версія ўтрымоўвае шэраг паляпшэнняў, такіх як абноўленыя бібліятэкі DataTables, кнопку &quot;Табліцы&quot; на панэлі прылад візуальнага рэдактара і некаторыя ыншыя."
+msgstr "Новая версія ўтрымоўвае шэраг паляпшэнняў, такіх як абноўленыя бібліятэкі DataTables, кнопку &quot;Табліцы&quot; на панэлі прылад візуальнага рэдактара і некаторыя іншыя."
 
 #: controllers/controller-admin.php:302
 #, php-format
 msgid "Please read the <a href=\"%s\">release announcement</a> for more information."
-msgstr "Для таго, што б атрымаць больш падрабязную ынфармацыю, прачытайце <a href=\"%s\">паведамленне пра рэліз</a>."
+msgstr "Для таго, каб атрымаць больш падрабязную інфармацыю, прачытайце <a href=\"%s\">паведамленне пра рэліз</a>."
 
 #: controllers/controller-admin.php:302
 #, php-format
 msgid "If you like the new features and enhancements, I would appreciate a small <a href=\"%s\">donation</a>. Thank you."
-msgstr "Калі вам спадабаліся новыя функцыі і магчымасці, я буду ўдзячны за невялікае <a href=\"%s\">ахвяраваньне</a>. Дзякуй."
+msgstr "Калі вам спадабаліся новыя функцыі і магчымасці, я буду ўдзячны за невялікае <a href=\"%s\">ахвяраванне</a>. Дзякуй."
 
 #: controllers/controller-admin.php:307
 msgid "Hide this message"
-msgstr "Схаваць гэта паведамленне."
+msgstr "Схаваць гэтае паведамленне."
 
 #: controllers/controller-admin.php:315
 msgid "Thanks for using this plugin! You've installed WP-Table Reloaded over a month ago."
@@ -242,21 +243,21 @@ msgstr "Дзякуй за тое, што выкарыстоўваеце гэту
 #, php-format
 msgid "If it works and you are satisfied with the results of managing your %s table, isn't it worth at least one dollar or euro?"
 msgid_plural "If it works and you are satisfied with the results of managing your %s tables, isn't it worth at least one dollar or euro?"
-msgstr[0] "Калі ўсё працуе і вы задаволены тым, як кіруеце вашай %s табліцай, то магчыма, гэта варта адзін даляр ці еўра?"
-msgstr[1] "Калі ўсё працуе і вы задаволены тым, як кіруеце вашымі %s табліцамі, то магчыма, гэта варта адзін даляр ці еўра?"
+msgstr[0] "Калі ўсё працуе і вы задаволены тым, як кіруеце вашай %s табліцай, то, магчыма, гэта варта адзін даляр ці еўра?"
+msgstr[1] "Калі ўсё працуе і вы задаволены тым, як кіруеце вашымі %s табліцамі, то,  магчыма, гэта варта адзін даляр ці еўра?"
 
 #: controllers/controller-admin.php:316
 #, php-format
 msgid "<a href=\"%s\">Donations</a> help me to continue support and development of this <i>free</i> software - things for which I spend countless hours of my free time! Thank you!"
-msgstr "<a href=\"%s\">Ахвяраваньні</a> дапамогуць мне падтрымліваць і развіваць гэты <i>бясплатны</i> убудова. Дзякуй!"
+msgstr "<a href=\"%s\">Ахвяраванні</a> дапамогуць мне падтрымліваць і развіваць гэтую <i>бясплатную</i> ўбудову. Дзякуй!"
 
 #: controllers/controller-admin.php:317
 msgid "Sure, no problem!"
-msgstr "Так, безь праблем!"
+msgstr "Так, без праблем"
 
 #: controllers/controller-admin.php:318
 msgid "I already donated."
-msgstr "Я ўжо зрабіў ахвяраваньне."
+msgstr "Я ўжо зрабіў ахвяраванне."
 
 #: controllers/controller-admin.php:319
 msgid "No, thanks. Don't ask again."
@@ -265,53 +266,53 @@ msgstr "Не, дзякуй. Больш не пытайце."
 #: controllers/controller-admin.php:347
 #, php-format
 msgid "Table &quot;%s&quot; added successfully."
-msgstr "Табліца &quot;%s&quot; была пасьпяхова добавленна."
+msgstr "Табліца &quot;%s&quot; была паспяхова дабаўлена."
 
 #: controllers/controller-admin.php:378
 #, php-format
 msgid "Table edited successfully. This Table now has the ID %s. You'll need to adjust existing shortcodes accordingly."
-msgstr "Табліца пасьпяхова отредактированьна. Заразь гэта табліца мае такое  ID %s. Вам неабходна зьмяніць існыя коды адпаведна."
+msgstr "Табліца паспяхова адрэдактавана. Зараз гэта табліца мае такое  ID %s. Вам неабходна змяніць існыя коды адпаведна."
 
 #: controllers/controller-admin.php:380
 #, php-format
 msgid "The ID could not be changed from %s to %s, because there already is a Table with that ID."
-msgstr "ID нельга зьмяніць зь  %s нa %s, таму што ўжо існуе табліца зь такім ID."
+msgstr "ID нельга змяніць з  %s нa %s, таму што ўжо існуе табліца з такім ID."
 
 #: controllers/controller-admin.php:383
 msgid "Table edited successfully."
-msgstr "Табліца была пасьпяхова отредактированьна."
+msgstr "Табліца была паспяхова адрэдатавана."
 
 #: controllers/controller-admin.php:430
 msgid "Rows swapped successfully."
-msgstr "Шэрагі пасьпяхова заменены."
+msgstr "Шэрагі паспяхова заменены."
 
 #: controllers/controller-admin.php:451
 msgid "Columns swapped successfully."
-msgstr "Слупкі пасьпяхова заменены."
+msgstr "Слупкі паспяхова заменены."
 
 #: controllers/controller-admin.php:480
 msgid "Table sorted successfully."
-msgstr "Табліца пасьпяхова отсортированьна."
+msgstr "Табліца паспяхова адсартыравана."
 
 #: controllers/controller-admin.php:501
 msgid "Row moved successfully."
-msgstr "Шэраг пасьпяхова перамешчаны."
+msgstr "Шэраг паспяхова перамешчаны."
 
 #: controllers/controller-admin.php:526
 msgid "Column moved successfully."
-msgstr "Слупок пасьпяхова перамешчаны."
+msgstr "Слупок паспяхова перамешчаны."
 
 #: controllers/controller-admin.php:534
 msgid "Row could not be deleted."
 msgid_plural "Rows could not be deleted."
-msgstr[0] "Радок не можа быць выдалены."
+msgstr[0] "Радок не можа быць выдален."
 msgstr[1] "Радкі не могуць быць выдалены."
 
 #: controllers/controller-admin.php:543
 msgid "Row deleted successfully."
 msgid_plural "Rows deleted successfully."
-msgstr[0] "Шэраг выдалены пасьпяхова."
-msgstr[1] "Шэрагі выдалены пасьпяхова."
+msgstr[0] "Шэраг выдалены паспяхова."
+msgstr[1] "Шэрагі выдалены паспяхова."
 
 #: controllers/controller-admin.php:553
 msgid "Column could not be deleted."
@@ -322,52 +323,52 @@ msgstr[1] "Слупкі не могуць быць выдалены."
 #: controllers/controller-admin.php:566
 msgid "Column deleted successfully."
 msgid_plural "Columns deleted successfully."
-msgstr[0] "Слупок выдалены пасьпяхова."
-msgstr[1] "Слупкі выдалены пасьпяхова."
+msgstr[0] "Слупок выдалены паспяхова."
+msgstr[1] "Слупкі выдалены паспяхова."
 
 #: controllers/controller-admin.php:589
 msgid "Row inserted successfully."
 msgid_plural "Rows inserted successfully."
-msgstr[0] "Шэраг устаўлены пасьпяхова."
-msgstr[1] "Шэрагі ўстаўлены пасьпяхова."
+msgstr[0] "Шэраг устаўлены паспяхова."
+msgstr[1] "Шэрагі ўстаўлены паспяхова."
 
 #: controllers/controller-admin.php:616
 msgid "Column inserted successfully."
 msgid_plural "Columns inserted successfully."
-msgstr[0] "Слупок устаўлены пасьпяхова."
-msgstr[1] "Слупкі ўстаўлены пасьпяхова."
+msgstr[0] "Слупок устаўлены паспяхова."
+msgstr[1] "Слупкі ўстаўлены паспяхова."
 
 #: controllers/controller-admin.php:631
 msgid "Row added successfully."
 msgid_plural "Rows added successfully."
-msgstr[0] "Шэраг дададзены пасьпяхова."
-msgstr[1] "Шэрагі дададзены пасьпяхова."
+msgstr[0] "Шэраг дададзены паспяхова."
+msgstr[1] "Шэрагі дададзены паспяхова."
 
 #: controllers/controller-admin.php:645
 msgid "Column added successfully."
 msgid_plural "Columns added successfully."
-msgstr[0] "Слупок дададзены пасьпяхова."
-msgstr[1] "Слупкі дададзены пасьпяхова."
+msgstr[0] "Слупок дададзены паспяхова."
+msgstr[1] "Слупкі дададзены паспяхова."
 
 #: controllers/controller-admin.php:652
 msgid "Could not add Custom Data Field, because you did not enter a name."
-msgstr "Карыстацкае поле не можа быць добавленно, бо не указаньно ымя."
+msgstr "Карыстацкае поле не можа быць дададзена, бо не паказана імя."
 
 #: controllers/controller-admin.php:657
 msgid "Could not add Custom Data Field, because the name you entered is reserved for other table data."
-msgstr "Карыстацкае поле не можа быць добавленно, бо ымя, якія вы паказалі, зарезервированьно за ыншым полем."
+msgstr "Карыстацкае поле не можа быць дададзена, бо імя, якое вы паказалі, зарэзервавана за іншым полем."
 
 #: controllers/controller-admin.php:663
 msgid "Could not add Custom Data Field, because the name contained illegal characters."
-msgstr "Карыстацкае поле не можа быць добавленно, бо ымя ўтрымоўвае недапушчальныя знакі."
+msgstr "Карыстацкае поле не можа быць дададзена, бо імя ўтрымоўвае недапушчальныя знакі."
 
 #: controllers/controller-admin.php:667
 msgid "Could not add Custom Data Field, because a Field with that name already exists."
-msgstr "Карыстацкае поле не можа быць добавленно, бо поле зь такім ымем ужо існуе."
+msgstr "Карыстацкае поле не можа быць дададзена, бо поле з такім імем ужо існуе."
 
 #: controllers/controller-admin.php:673
 msgid "Custom Data Field added successfully."
-msgstr "Карыстацкае поле добавленно пасьпяхова."
+msgstr "Карыстацкае поле дададзена паспяхова."
 
 #: controllers/controller-admin.php:713
 #: controllers/controller-admin.php:769
@@ -377,40 +378,40 @@ msgstr "Копія"
 #: controllers/controller-admin.php:717
 msgid "Table copied successfully."
 msgid_plural "Tables copied successfully."
-msgstr[0] "Табліца скопированьна пасьпяхова."
-msgstr[1] "Табліцы скопированьны пасьпяхова."
+msgstr[0] "Табліца скапіявана паспяхова."
+msgstr[1] "Табліцы скапіяваны паспяхова."
 
 #: controllers/controller-admin.php:723
 msgid "Table deleted successfully."
 msgid_plural "Tables deleted successfully."
-msgstr[0] "Табліца выдалена пасьпяхова."
-msgstr[1] "Табліцы выдалены пасьпяхова."
+msgstr[0] "Табліца выдалена паспяхова."
+msgstr[1] "Табліцы выдалены паспяхова."
 
 #: controllers/controller-admin.php:744
 #: controllers/controller-admin.php:899
 #: controllers/controller-admin.php:937
 msgid "Table imported successfully."
 msgid_plural "Tables imported successfully."
-msgstr[0] "Табліца ымпартавана пасьпяхова."
-msgstr[1] "Табліцы ымпартаваны пасьпяхова"
+msgstr[0] "Табліца імпартавана паспяхова."
+msgstr[1] "Табліцы імпартаваны паспяхова"
 
 #: controllers/controller-admin.php:751
 msgid "You did not select any tables!"
-msgstr "Ніводная табліца не выбраньна."
+msgstr "Ніводная табліца не абрана."
 
 #: controllers/controller-admin.php:774
 #, php-format
 msgid "Table &quot;%s&quot; copied successfully."
-msgstr "Табліца &quot;%s&quot; скопированьна пасьпяхова."
+msgstr "Табліца &quot;%s&quot; скапіявана паспяхова."
 
 #: controllers/controller-admin.php:792
 #, php-format
 msgid "Table &quot;%s&quot; deleted successfully."
-msgstr "Табліца &quot;%s&quot; выдалена пасьпяхова."
+msgstr "Табліца &quot;%s&quot; выдалена паспяхова."
 
 #: controllers/controller-admin.php:800
 msgid "Custom Data Field deleted successfully."
-msgstr "Карыстацкае поле выдалена пасьпяхова."
+msgstr "Карыстацкае поле выдалена паспяхова."
 
 #: controllers/controller-admin.php:802
 msgid "Custom Data Field could not be deleted."
@@ -430,26 +431,26 @@ msgstr "Імпартаваная табліца."
 #: controllers/controller-admin.php:862
 #, php-format
 msgid "from %s"
-msgstr "зь %s"
+msgstr "з %s"
 
 #: controllers/controller-admin.php:851
 msgid "via form"
-msgstr "празь форму"
+msgstr "праз форму"
 
 #: controllers/controller-admin.php:878
 #: controllers/controller-admin.php:915
 msgid "Table could not be imported."
-msgstr "Табліца не можа быць импортированьна."
+msgstr "Табліца не можа быць імпартавана."
 
 #: controllers/controller-admin.php:895
 #, php-format
 msgid "Table %s (%s) replaced successfully."
-msgstr "Табліца %s (%s) заменена пасьпяхова."
+msgstr "Табліца %s (%s) заменена паспяхова."
 
 #: controllers/controller-admin.php:945
 #: controllers/controller-admin.php:1138
 msgid "You do not have sufficient rights to perform this action."
-msgstr "У вас недастаткова мае рацыю для выкананьня гэтага дзеяння."
+msgstr "У вас недастаткова праў для выканання гэтага дзеяння."
 
 #: controllers/controller-admin.php:952
 msgid "You did not upload a WP-Table Reloaded dump file."
@@ -461,21 +462,21 @@ msgstr "Вы загрузілі пусты дамп файл. Калі ласк�
 
 #: controllers/controller-admin.php:990
 msgid "All Tables, Settings and Options were successfully imported."
-msgstr "Усе табліцы, налады і ўсталёўкі былі пасьпяхова перанесены."
+msgstr "Усе табліцы, налады і ўсталёўкі былі паспяхова перанесены."
 
 #: controllers/controller-admin.php:1019
 #, php-format
 msgid "Table &quot;%s&quot; exported successfully."
-msgstr "Табліца &quot;%s&quot;экспортированьна пасьпяхова."
+msgstr "Табліца &quot;%s&quot; экспартавана паспяхова."
 
 #: controllers/controller-admin.php:1064
 #: views/view-options.php:232
 msgid "You do not have sufficient rights to access the Plugin Options."
-msgstr "У вас недастаткова мае рацыю для доступу да Plugin Options."
+msgstr "У вас недастаткова праў для доступу да Plugin Options."
 
 #: controllers/controller-admin.php:1119
 msgid "Options saved successfully."
-msgstr "Опцыі захаваны пасьпяхова."
+msgstr "Опцыі захаваны паспяхова."
 
 #: controllers/controller-admin.php:1122
 #, php-format
@@ -484,21 +485,21 @@ msgstr "<a href=\"%s\">Працягнуць.</a>"
 
 #: controllers/controller-admin.php:1188
 msgid "There is no table with this ID!"
-msgstr "Табліца зь такім ID не існуе."
+msgstr "Табліца з такім ID не існуе."
 
 #: controllers/controller-admin.php:1225
 msgid "Thank you very much! Your donation is highly appreciated. You just contributed to the further development of WP-Table Reloaded!"
-msgstr "Вельмі ўдзячны вам за ахвяраваньне. Вы зрабілі свой унёсак у развіццё WP-Table Reloaded!"
+msgstr "Вельмі ўдзячны вам за ахвяраванне. Вы зрабілі свой унёсак у развіццё WP-Table Reloaded!"
 
 #: controllers/controller-admin.php:1227
 #, php-format
 msgid "No problem! I still hope you enjoy the benefits that WP-Table Reloaded brings to you. If you should want to change your mind, you'll always find the &quot;%s&quot; button on the <a href=\"%s\">WP-Table Reloaded website</a>."
-msgstr "Нет проблем! Я все еще надеюсь, вам понравится тех выгод, которые WP-Table Reloaded приносит Вам. Если вы хотите должна изьменить свое решение, ты всегда найдешь &quot;%s&quot; button on the <a href=\"%s\">WP-Table Reloaded website</a>."
+msgstr ""
 
 #: controllers/controller-admin.php:1227
 #: controllers/controller-admin.php:1655
 msgid "Donate"
-msgstr "Ахвяраваньне"
+msgstr "Ахвяраванне"
 
 #: controllers/controller-admin.php:1250
 #: controllers/controller-admin.php:1257
@@ -538,7 +539,7 @@ msgstr "Налады ўбудовы"
 
 #: controllers/controller-admin.php:1255
 msgid "About WP-Table Reloaded"
-msgstr "О  WP-Table Reloaded"
+msgstr "Аб WP-Table Reloaded"
 
 #: controllers/controller-admin.php:1263
 #, php-format
@@ -560,7 +561,7 @@ msgstr "Пра ўбудову"
 
 #: controllers/controller-admin.php:1651
 msgid "WP-Table Reloaded Plugin Page"
-msgstr "Старонка ўбудовы WP-Table Reloaded"
+msgstr "Старонка убудовы WP-Table Reloaded"
 
 #: controllers/controller-admin.php:1651
 msgid "Plugin Page"
@@ -568,7 +569,7 @@ msgstr "Старонка ўбудовы"
 
 #: controllers/controller-admin.php:1652
 msgid "Frequently Asked Questions"
-msgstr "Часта задаваныя пытаньні"
+msgstr "Часта задаваныя пытанні"
 
 #: controllers/controller-admin.php:1652
 msgid "FAQ"
@@ -588,11 +589,11 @@ msgstr "Дакументацыя"
 
 #: controllers/controller-admin.php:1655
 msgid "Support WP-Table Reloaded with your donation!"
-msgstr "Падтрымаеце  WP-Table Reloaded зь дапамогай сваіх ахвяраваньняў !"
+msgstr "Падтрымаеце  WP-Table Reloaded з дапамогай сваіх ахвяраванняў!"
 
 #: controllers/controller-admin.php:1694
 msgid "Do you really want to activate this? You should only do that right before uninstallation!"
-msgstr "Вы уверенны ? Гэта варта зрабіць перад выдаленнем убудовы!"
+msgstr "Вы ўпэўнены? Гэта варта зрабіць перад выдаленнем убудовы!"
 
 #: controllers/controller-admin.php:1695
 msgid "URL of link to insert"
@@ -604,15 +605,15 @@ msgstr "Тэкст спасылкі"
 
 #: controllers/controller-admin.php:1697
 msgid "To insert the following HTML code for a link into a cell, just click the cell after closing this dialog."
-msgstr "Каб зьмясціць у вочка HTML код спасылкі, клікніце на вочку пасля таго, як зачыніце гэта дыялогавае акно."
+msgstr "Каб змясціць у вочка HTML код спасылкі, клікніце на вочку пасля таго, як зачыніце гэта дыялогавае акно."
 
 #: controllers/controller-admin.php:1698
 msgid "To insert an image, click &quot;OK&quot; and then click into the cell into which you want to insert the image."
-msgstr "Каб уставіць малюначак, клікніце на тое вочка куды вы жадаеце зьмясціць малюначак."
+msgstr "Каб уставіць малюначак, клікніце на тое вочка, куды вы жадаеце змясціць малюначак."
 
 #: controllers/controller-admin.php:1698
 msgid "The Media Library will open, from which you can select the desired image or insert the image URL."
-msgstr "Адчыніцца акно медыя бібліятэкі, дзе вы зьможаце абраць малюначак ці ўставіць URL малюначкі."
+msgstr "Адчыніцца акно медыя бібліятэкі, дзе вы зможаце абраць малюначак ці ўставіць URL малюначкі."
 
 #: controllers/controller-admin.php:1698
 #, php-format
@@ -625,11 +626,11 @@ msgstr "Уставіць у пост."
 
 #: controllers/controller-admin.php:1699
 msgid "To combine cells within a row, click into the cell to the right of the cell that has the content the combined cells shall have."
-msgstr "Каб аб'яднаць вочкі ў шэрагу, трэба клікнуць на вочка якая варта справа ад той, у якой знаходзіцца зьмесціва, якія вы жадаеце зьмясціць у аб'яднаныя вочкі."
+msgstr "Каб аб'яднаць вочкі ў шэрагу, трэба клікнуць на вочка якая варта справа ад той, у якой знаходзіцца змесціва, якія вы жадаеце змясціць у аб'яднаныя вочкі."
 
 #: controllers/controller-admin.php:1700
 msgid "To combine cells within a column, click into the cell below the cell that has the content the combined cells shall have."
-msgstr "Каб аб'яднаць вочкі ў слупку, трэба клікнуць на вочка якая варта пад той, у якой знаходзіцца зьмесціва, якія вы жадаеце зьмясціць у аб'яднаныя вочкі."
+msgstr "Каб аб'яднаць вочкі ў слупку, трэба клікнуць на вочка якая варта пад той, у якой знаходзіцца змесціва, якія вы жадаеце змясціць у аб'яднаныя вочкі."
 
 #: controllers/controller-admin.php:1701
 msgid "Do you want to copy the selected tables?"
@@ -637,11 +638,11 @@ msgstr "Вы жадаеце скапіяваць вылучаныя табліц
 
 #: controllers/controller-admin.php:1702
 msgid "The selected tables and all content will be erased. Do you really want to delete them?"
-msgstr "Вылучаныя табліцы і ўсё зьмесціва будуць удаленны. Вы сапраўды жадаеце іх выдаліць?"
+msgstr "Вылучаныя табліцы і ўсё змесціва будуць выдалены. Вы сапраўды жадаеце іх выдаліць?"
 
 #: controllers/controller-admin.php:1703
 msgid "Do you really want to import the selected tables from the wp-Table plugin?"
-msgstr "Вы сапраўды жадаеце ымпартаваць вылучаныя табліцы зь wp-Table plugin?"
+msgstr "Вы сапраўды жадаеце імпартаваць вылучаныя табліцы з wp-Table plugin?"
 
 #: controllers/controller-admin.php:1704
 msgid "Do you want to copy this table?"
@@ -649,7 +650,7 @@ msgstr "Вы жадаеце скапіяваць гэту табліцу?"
 
 #: controllers/controller-admin.php:1705
 msgid "The complete table and all content will be erased. Do you really want to delete it?"
-msgstr "Всу табліцы і зьмесціва будуць удаленны. Вы сапраўды жадаеце іх выдаліць?"
+msgstr "Усе табліцы і змесціва будуць выдалены. Вы сапраўды жадаеце іх выдаліць?"
 
 #: controllers/controller-admin.php:1706
 msgid "Do you really want to delete the selected rows?"
@@ -657,7 +658,7 @@ msgstr "Вы сапраўды жадаеце выдаліць вылучаныя
 
 #: controllers/controller-admin.php:1707
 msgid "Do you really want to delete the selected columns?"
-msgstr "Вы сапраўды жадаеце выдаліць вылучаныя слупкі?"
+msgstr "Вы сапраўды жадаеце выдаліць вылучаныя шэрагі?"
 
 #: controllers/controller-admin.php:1708
 #: controllers/controller-admin.php:1712
@@ -681,7 +682,7 @@ msgstr "Вы не можаце выдаліць адразу ўсе слупкі
 
 #: controllers/controller-admin.php:1716
 msgid "Do you really want to import this table from the wp-Table plugin?"
-msgstr "Вы сапраўды жадаеце ымпартаваць гэту табліцу зь wp-Table plugin?"
+msgstr "Вы сапраўды жадаеце імпартаваць гэту табліцу з wp-Table plugin?"
 
 #: controllers/controller-admin.php:1717
 msgid "Do you really want to uninstall the plugin and delete ALL data?"
@@ -689,11 +690,11 @@ msgstr "Вы сапраўды жадаеце выдаліць убудову і 
 
 #: controllers/controller-admin.php:1718
 msgid "Are you really sure?"
-msgstr "Вы уверенны?"
+msgstr "Вы ўпэўнены?"
 
 #: controllers/controller-admin.php:1719
 msgid "Do you really want to change the ID of the table?"
-msgstr "Вы сапраўды жадаеце зьмяніць ID табліцы?"
+msgstr "Вы сапраўды жадаеце змяніць ID табліцы?"
 
 #: controllers/controller-admin.php:1720
 msgid "To show this Custom Data Field, use this shortcode:"
@@ -705,16 +706,16 @@ msgstr "Каб адлюстраваць гэту табліцу выкарыст
 
 #: controllers/controller-admin.php:1722
 msgid "Warning: You will lose all current Tables and Settings! You should create a backup first. Be warned!"
-msgstr "Увага: вы страціце ўсе табліцы і натройки! Вам трэба стварыць рэзервовую копію."
+msgstr "Увага: вы страціце ўсе табліцы і налады! Вам трэба стварыць рэзервовую копію."
 
 #: controllers/controller-admin.php:1723
 msgid "You have made changes to the content of this table and not yet saved them."
-msgstr "Вы ўнеслі изьменеия ў зьмесціва гэтай табліцы, але не захавалі іх."
+msgstr "Вы ўнеслі змены ў змесціва гэтай табліцы, але не захавалі іх."
 
 #: controllers/controller-admin.php:1723
 #, php-format
 msgid "You should first click &quot;%s&quot; or they will be lost if you navigate away from this page."
-msgstr "Вам трэба клікнуць &quot;%s&quot; ці дадзеныя будуць потерянны ў выпадку калі вы покините гэту старонку."
+msgstr "Вам трэба клікнуць &quot;%s&quot; ці дадзеныя будуць страчаны ў выпадку калі вы пакініце гэту старонку."
 
 #: controllers/controller-admin.php:1723
 #: views/view-edit.php:41
@@ -722,13 +723,13 @@ msgstr "Вам трэба клікнуць &quot;%s&quot; ці дадзеныя 
 #: views/view-edit.php:405
 #: views/view-edit.php:456
 msgid "Update Changes"
-msgstr "Абнавіць зьмены."
+msgstr "Абнавіць змены."
 
 #: controllers/controller-admin.php:1766
 #: views/view-about.php:14
 #: views/view-list.php:2
 msgid "Table"
-msgstr "табліца"
+msgstr "Табліца"
 
 #: controllers/controller-admin.php:1767
 msgid "Insert a Table"
@@ -751,11 +752,11 @@ msgstr "Ніводнай табліцы не знойдзена."
 
 #: controllers/controller-admin.php:1831
 msgid "_START_ to _END_ of _TOTAL_ Tables"
-msgstr "Паказаць _START_ да _END_ зь _TOTAL_ табліц"
+msgstr "Паказаць _START_ да _END_ з _TOTAL_ табліц"
 
 #: controllers/controller-admin.php:1832
 msgid "(filtered from _MAX_ Tables)"
-msgstr "(абрана зь _MAX_ табліц)"
+msgstr "(абрана з _MAX_ табліц)"
 
 #: controllers/controller-admin.php:1833
 msgid "Filter:"
@@ -783,7 +784,7 @@ msgstr "Прызначэнне ўбудовы."
 
 #: views/view-about.php:7
 msgid "WP-Table Reloaded allows you to create and manage tables in the admin-area of WordPress."
-msgstr "WP-Table Reloaded дае вам магчымасць ствараць табліцы і кіраваць ымі ў адмін часткі WordPress."
+msgstr "WP-Table Reloaded дае вам магчымасць ствараць табліцы і кіраваць імі ў адмін частке WordPress."
 
 #: views/view-about.php:7
 msgid "Those tables may contain strings, numbers and even HTML (e.g. to include images or links)."
@@ -791,7 +792,7 @@ msgstr "Гэтыя табліцы могуць утрымоўваць тэкст
 
 #: views/view-about.php:7
 msgid "You can then show the tables in your posts, on your pages or in text-widgets by using a shortcode."
-msgstr "Затым вы можаце зьмясціць табліцы ў ваш пост, на вашы старонкі ці виджеты, выкарыстоўваючы код."
+msgstr "Затым вы можаце змясціць табліцы ў ваш пост, на вашы старонкі ці виджаты, выкарыстоўваючы код."
 
 #: views/view-about.php:7
 msgid "If you want to show your tables anywhere else in your theme, you can use a template tag function."
@@ -799,19 +800,19 @@ msgstr "Калі вы жадаеце выкарыстоўваць табліцы
 
 #: views/view-about.php:12
 msgid "Usage"
-msgstr "Выкарыстаньне"
+msgstr "Выкарыстанне"
 
 #: views/view-about.php:14
 msgid "At first you should add or import a table."
-msgstr "Спачатку вам трэба дадаць і ымпартаваць табліцу."
+msgstr "Спачатку вам трэба дадаць і імпартаваць табліцу."
 
 #: views/view-about.php:14
 msgid "This means that you either let the plugin create an empty table for you or that you load an existing table from either a CSV, XML or HTML file."
-msgstr "Гэта значыць, што вы дазволілі ўбудове стварыць пустую табліцу ці загрузілі ўжо існую табліцу зь CSV, XML ці HTML файла."
+msgstr "Гэта значыць, што вы дазволілі ўбудове стварыць пустую табліцу, ці загрузілі ўжо існую табліцу з CSV, XML ці HTML файла."
 
 #: views/view-about.php:14
 msgid "Then you can edit your data or change the structure of your table (e.g. by inserting or deleting rows or columns, swaping rows or columns or sorting them) and select specific table options like alternating row colors or whether to print the name or description, if you want."
-msgstr "Пасля вы можаце рэдагаваць вашы дадзеныя ці зьмяняць структуру табліцы (напрыклад дадаючы шэрагі ці слупкі, зьмяняючы месцамі шэрагі ці слупкі, ці сартуючы іх) і выбіраць спецыфічныя опцыі табліцы, такія як альтэрнатыўны колер фону радка і адлюстраваньне ымя і апісаньні."
+msgstr "Пасля вы можаце рэдагаваць вашы дадзеныя ці змяняць структуру табліцы (напрыклад дадаючы шэрагі, ці слупкі, змяняючы месцамі шэрагі ці, слупкі, ці сартуючы іх) і выбіраць спецыфічныя опцыі табліцы, такія як альтэрнатыўны колер фону радка і адлюстраванне імя і апісання."
 
 #: views/view-about.php:14
 msgid "To easily add a link or an image to a cell, use the provided buttons. Those will ask you for the URL and a title. Then you can click into a cell and the corresponding HTML will be added to it for you."
@@ -823,7 +824,7 @@ msgstr "Для таго, каб дадаць малюначак ці спасы�
 #: views/view-list.php:2
 #, php-format
 msgid "To insert the table into a page, post or text-widget, copy the shortcode <strong>[table id=%s /]</strong> and paste it into the corresponding place in the editor."
-msgstr "Для таго, каб дадаць табліцу на старонку, у пост ці ў тэкставы виджет, скапіюйце код <strong>[table id=%s /]</strong> і зьмесціце ў соответствуещее месца ў рэдактары."
+msgstr "Для таго, каб дадаць табліцу на старонку, у пост ці ў тэкставы виджет, скапіюйце код <strong>[table id=%s /]</strong> і змесціце ў соответствуещее месца ў рэдактары."
 
 #: views/view-about.php:14
 #, php-format
@@ -832,20 +833,20 @@ msgstr "Вы гэтак жа можаце абраць жаданую таблі
 
 #: views/view-about.php:14
 msgid "Tables can be styled by changing and adding CSS commands."
-msgstr "Вонкавы выгляд табліцы можа быць зьменены зь дапамогай даданьня і зьмены CSS дырэктыў."
+msgstr "Вонкавы выгляд табліцы можа быць зменены з дапамогай дадання і змены CSS дырэктыў."
 
 #: views/view-about.php:14
 msgid "The plugin ships with default CSS Stylesheets, which can be customized with own code or replaced with other Stylesheets."
-msgstr "Убудова падаецца зь лістом стыляў па зьмаўчаньні, які можа быць дапоўнены вашым уласным кодам ці заменены на ыншы ліст стыляў."
+msgstr "Убудова падаецца з лістом стыляў па змаўчанні, які можа быць дапоўнены вашым уласным кодам ці заменены на іншы ліст стыляў."
 
 #: views/view-about.php:14
 msgid "For this, each table is given certain CSS classes that can be used as CSS selectors."
-msgstr "Для гэтага кожная табліца забяспечана сваімі класамі ў лісце стыляў, якія могуць быць использованьны як селектары стыляў."
+msgstr "Для гэтага кожная табліца забяспечана сваімі класамі ў лісце стыляў, якія могуць быць скарыстаны як селектары стыляў."
 
 #: views/view-about.php:14
 #, php-format
 msgid "Please see the <a href=\"%s\">documentation</a> for a list of these selectors and for styling examples."
-msgstr "Спісы селектараў і прыклады стыляў вы можаце знайсьці ў <a href=\"%s\">дакументацыі</a>."
+msgstr "Спісы селектараў і прыклады стыляў вы можаце знайсці ў <a href=\"%s\">дакументацыі</a>."
 
 #: views/view-about.php:20
 msgid "More Information and Documentation"
@@ -853,12 +854,12 @@ msgstr "Інфармацыя і дакументацыя."
 
 #: views/view-about.php:27
 msgid "Help and Support"
-msgstr "Помощ і падтрымка"
+msgstr "Дапамога і падтрымка"
 
 #: views/view-about.php:29
 #, php-format
 msgid "If you do not find an answer there, please <a href=\"%s\">open a new thread</a> in the WordPress Support Forums with the tag &quot;wp-table-reloaded&quot;."
-msgstr "Калі вы не знайшлі адказь на сваё пытаньне, калі ласка, <a href=\"%s\">стварыце новую тэму</a> на форуме падтрымкі WordPress зь ключавым словам &quot;wp-table-reloaded&quot;."
+msgstr "Калі вы не знайшлі адказ на сваё пытанне, калі ласка, <a href=\"%s\">стварыце новую тэму</a> на форуме падтрымкі WordPress з ключавым словам &quot;wp-table-reloaded&quot;."
 
 #: views/view-about.php:34
 msgid "Author and License"
@@ -867,7 +868,7 @@ msgstr "Аўтар  і ліцэнзія"
 #: views/view-about.php:36
 #, php-format
 msgid "This plugin was written by <a href=\"%s\">Tobias B&auml;thge</a>."
-msgstr "Убудова напісала <a href=\"%s\">Tobias B&auml;thge</a>"
+msgstr "Убудова напісана <a href=\"%s\">Tobias B&auml;thge</a>"
 
 #: views/view-about.php:36
 msgid "It is licensed as Free Software under GPL 2."
@@ -880,7 +881,7 @@ msgstr "Калі ласка дайце адзнаку ўбудове ў <a href=
 
 #: views/view-about.php:36
 msgid "Donations and good ratings encourage me to further develop the plugin and to provide countless hours of support. Any amount is appreciated! Thanks!"
-msgstr "Ахвяраваньні і высокія рэйтынгі дапамагаюць далейшаму развіццю ўбудовы і яго падтрымцы. Вітаецца любое ахвяраваньне! Дзякуй!"
+msgstr "Ахвяраванні і высокія рэйтынгі дапамагаюць далейшаму развіццю ўбудовы і яго падтрымцы. Вітаецца любое ахвяраванне! Дзякуй!"
 
 #: views/view-about.php:41
 msgid "Credits and Thanks"
@@ -888,15 +889,15 @@ msgstr "Падзяка"
 
 #: views/view-about.php:44
 msgid "Thanks go to <a href=\"http://alexrabe.boelinger.com/\">Alex Rabe</a> for the original wp-Table plugin,"
-msgstr "Дзякуй за тое, што звярнуліся на <a href=\"http://alexrabe.boelinger.com/\">Alex Rabe</a> для таго, каб атрымаць wp-Table убудова,"
+msgstr "Дзякуй за тое, што звярнуліся на <a href=\"http://alexrabe.boelinger.com/\">Alex Rabe</a> для таго, каб атрымаць wp-Table убудову,"
 
 #: views/view-about.php:45
 msgid "Allan Jardine for the <a href=\"http://www.datatables.net/\">DataTables jQuery plugin</a>,"
-msgstr "Allan Jardine за ўбудовай <a href=\"http://www.datatables.net/\">DataTables jQuery </a>,"
+msgstr "Allan Jardine за ўбудову <a href=\"http://www.datatables.net/\">DataTables jQuery </a>,"
 
 #: views/view-about.php:46
 msgid "Christian Bach for the <a href=\"http://www.tablesorter.com/\">Tablesorter jQuery plugin</a>,"
-msgstr "Christian Bach за ўбудовай <a href=\"http://www.tablesorter.com/\">Tablesorter jQuery</a>,"
+msgstr "Christian Bach за ўбудову <a href=\"http://www.tablesorter.com/\">Tablesorter jQuery</a>,"
 
 #: views/view-about.php:47
 msgid "Soeren Krings for its extension <a href=\"http://tablesorter.openwerk.de/\">Tablesorter Extended</a>,"
@@ -913,11 +914,11 @@ msgstr "%s (дзякуючы %s)"
 
 #: views/view-about.php:79
 msgid "and to all donors, contributors, supporters, reviewers and users of the plugin!"
-msgstr "і ўсім фундатарам, распрацоўнікам, аглядальнікам і тым хто выкарыстоўвае ўбудова!"
+msgstr "і ўсім фундатарам, распрацоўнікам, аглядальнікам і тым хто выкарыстоўвае ўбудову!"
 
 #: views/view-about.php:85
 msgid "Debug and Version Information"
-msgstr "Адладка і ынфармацыя пра версіі"
+msgstr "Адладка і інфармацыя пра версіі"
 
 #: views/view-about.php:85
 #: views/view-edit.php:15
@@ -952,23 +953,23 @@ msgstr "Адлюстраваць"
 
 #: views/view-about.php:88
 msgid "You are using the following versions of the software."
-msgstr "Вы выкарыстоўваеце слудующую версію праграмы."
+msgstr "Вы выкарыстоўваеце наступную версію праграмы."
 
 #: views/view-about.php:88
 msgid "Please provide this information in bug reports."
-msgstr "Падайце гэту ынфармацыю як справаздача пра памылку."
+msgstr "Падайце гэту інфармацыю ў баг рэпарту ."
 
 #: views/view-about.php:91
 msgid "Plugin installed"
-msgstr "Убудова ўсталяваны."
+msgstr "Убудова ўсталявана."
 
 #: views/view-add.php:4
 msgid "To add a new table, enter its name, a description (optional) and the number of rows and columns."
-msgstr "Для таго, каб дадаць новую табліцу ўвядзіце яе ымя, апісаньне (опционно) і пакажыце колькасць шэрагаў і калонак."
+msgstr "Для таго, каб дадаць новую табліцу ўвядзіце яе імя, апісанне (опционно) і пакажыце колькасць шэрагаў і калонак."
 
 #: views/view-add.php:4
 msgid "You may also add, insert or delete rows and columns later."
-msgstr "Вы можаце дадаць ці выдаліць шэрагі і калонкі пазней."
+msgstr "Вы можаце дадаць, ці выдаліць шэрагі і калонкі пазней."
 
 #: views/view-add.php:13
 #: views/view-ajax_list.php:14
@@ -984,7 +985,7 @@ msgstr "Імя табліцы"
 
 #: views/view-add.php:14
 msgid "Enter Table Name"
-msgstr "Пакажыце ымя табліцы"
+msgstr "Пакажыце імя табліцы"
 
 #: views/view-add.php:17
 #: views/view-ajax_list.php:15
@@ -995,11 +996,11 @@ msgstr "Пакажыце ымя табліцы"
 #: views/view-list.php:16
 #: views/view-list.php:26
 msgid "Description"
-msgstr "Апісаньне"
+msgstr "Апісанне"
 
 #: views/view-add.php:18
 msgid "Enter Description"
-msgstr "Увядзіце апісаньне"
+msgstr "Увядзіце апісанне"
 
 #: views/view-add.php:21
 msgid "Number of Rows"
@@ -1059,15 +1060,15 @@ msgstr "Дзякуючы лісту стыляў, вонкавы выгляд т
 
 #: views/view-ajax_preview.php:4
 msgid "The JavaScript libraries are also not available in this preview."
-msgstr "JavaScript бібліятэкі таксама не даступныя для папярэдняга прагляду."
+msgstr "JavaScript бібліятэкі таксама не даступны для папярэдняга прагляду."
 
 #: views/view-edit.php:8
 msgid "On this page, you can edit the content of the table."
-msgstr "На гэтай старонцы вы можаце рэдагаваць зьмесціва табліцы."
+msgstr "На гэтай старонцы вы можаце рэдагаваць змесціва табліцы."
 
 #: views/view-edit.php:8
 msgid "It is also possible to change the table structure by inserting, deleting, moving, and swapping columns and rows."
-msgstr "Таксама, магчыма зьмяняць структуру табліцы шляхам даданьня, выняткі і перасоўваньні шэрагаў і калонак."
+msgstr "Таксама, магчыма змяняць структуру табліцы шляхам дадання, выняткі і перасоўванні шэрагаў і калонак."
 
 #: views/view-edit.php:15
 msgid "Table Information"
@@ -1081,7 +1082,7 @@ msgstr "ID табліцы"
 #: views/view-list.php:17
 #: views/view-list.php:27
 msgid "Last Modified"
-msgstr "Дата апошняй зьмены"
+msgstr "Дата апошняй змены"
 
 #: views/view-edit.php:33
 #: views/view-list.php:44
@@ -1123,11 +1124,11 @@ msgstr "Змясціць малюнак"
 
 #: views/view-edit.php:124
 msgid "ascending"
-msgstr "па ўзрастаньні"
+msgstr "па ўзрастанні"
 
 #: views/view-edit.php:125
 msgid "descending"
-msgstr "па зьмяншэньні"
+msgstr "па змяншэнні"
 
 #: views/view-edit.php:128
 #, php-format
@@ -1266,7 +1267,7 @@ msgstr "Налады стылю табліцы"
 
 #: views/view-edit.php:264
 msgid "These settings will only be used for this table."
-msgstr "Гэтыя ўсталёўкі будуць использованьны толькі для гэтай табліцы."
+msgstr "Гэтыя ўсталёўкі будуць скарыстаны толькі для гэтай табліцы."
 
 #: views/view-edit.php:267
 msgid "Alternating row colors"
@@ -1282,7 +1283,7 @@ msgstr "Падсвятленне шэрагу"
 
 #: views/view-edit.php:272
 msgid "Highlight a row by changing its background color while the mouse cursor hovers above it."
-msgstr "Шэраг падсвятляецца шляхам зьмены колеру фону, калі на яго наводзіцца курсор мышы."
+msgstr "Шэраг падсвятляецца шляхам змены колеру фону, калі на яго наводзіцца курсор мышы."
 
 #: views/view-edit.php:275
 msgid "Table head"
@@ -1290,15 +1291,15 @@ msgstr "Загаловак табліцы"
 
 #: views/view-edit.php:276
 msgid "The first row of your table is the table head (HTML tags &lt;thead&gt; and &lt;th&gt;)."
-msgstr "Превый шэраг вашай табліцы гэта яе загаловак (яму прысвоены HTML tag &lt;th&gt;)"
+msgstr "Правы шэраг вашай табліцы гэта яе загаловак (яму прысвоены HTML tag &lt;th&gt;)"
 
 #: views/view-edit.php:279
 msgid "Table footer"
-msgstr "Футер табліцы"
+msgstr "Футэр табліцы"
 
 #: views/view-edit.php:280
 msgid "The last row of your table is the table footer (HTML tags &lt;tfoot&gt; and &lt;th&gt;)."
-msgstr "Апошні шэраг вашай табліцы з'яўляецца яе футером."
+msgstr "Апошні шэраг вашай табліцы з'яўляецца яе футэрам."
 
 #: views/view-edit.php:289
 #: views/view-edit.php:306
@@ -1313,16 +1314,16 @@ msgstr "пад"
 #: views/view-edit.php:294
 #, php-format
 msgid "The Table Name shall be written %s the table (HTML tag &lt;h2&gt;)."
-msgstr "Имя таблицы должно быть написано %s the table (HTML tag &lt;h2&gt;)."
+msgstr ""
 
 #: views/view-edit.php:300
 msgid "Table Description"
-msgstr "Апісаньне табліцы"
+msgstr "Апісанне табліцы"
 
 #: views/view-edit.php:311
 #, php-format
 msgid "The Table Description shall be written %s the table."
-msgstr "Имя таблицы должно быть написано %s the table."
+msgstr ""
 
 #: views/view-edit.php:317
 msgid "Use JavaScript library"
@@ -1332,12 +1333,12 @@ msgstr "Выкарыстоўваць JavaScript бібліятэку "
 #: views/view-edit.php:327
 #: views/view-edit.php:339
 msgid "You can change further settings for this library below."
-msgstr "Вы можаце зьмяніць налады гэтай бібліятэкі ніжэй."
+msgstr "Вы можаце змяніць налады гэтай бібліятэкі ніжэй."
 
 #: views/view-edit.php:331
 #: views/view-edit.php:335
 msgid "The table will then be sortable by the visitor."
-msgstr "Сартаваньне гэтай табліцы будзе даступная карыстачу."
+msgstr "Сартаванне гэтай табліцы будзе даступна карыстачу."
 
 #: views/view-edit.php:342
 #, php-format
@@ -1351,28 +1352,28 @@ msgstr "Вы павінны ўключыць падтрымку JavaScript бі�
 
 #: views/view-edit.php:353
 msgid "DataTables JavaScript Features"
-msgstr "JavaScript магчымасьці базы дадзеных."
+msgstr "JavaScript магчымасці базы дадзеных."
 
 #: views/view-edit.php:355
 msgid "You can enable certain features for the DataTables JavaScript library here."
-msgstr "Тут вы можаце ўключыць некаторыя магчымасьці для базы дадзеных JavaScript."
+msgstr "Тут вы можаце ўключыць некаторыя магчымасці для базы дадзеных JavaScript."
 
 #: views/view-edit.php:355
 msgid "More information on these features can be found on the <a href=\"http://www.datatables.net/\">DataTables website</a>."
-msgstr "За дадатковай ынфармацыяй звяртайцеся на <a href=\"http://www.datatables.net/\">сайт DataTables</a>."
+msgstr "За дадатковай інфармацыяй звяртайцеся на <a href=\"http://www.datatables.net/\">сайт DataTables</a>."
 
 #: views/view-edit.php:357
 #, php-format
 msgid "You can currently not change these options, because you have not enabled the &quot;DataTables&quot; or the &quot;DataTables+TableTools&quot; JavaScript library on the &quot;%s&quot; screen."
-msgstr "У дадзены момант гэтыя опцыі зьмяніць нельга, таму што вы не актывавалі  &quot;DataTables&quot; ці &quot;DataTables+TableTools&quot; JavaScript бібліятэку на &quot;%s&quot;."
+msgstr "У дадзены момант гэтыя опцыі змяніць нельга, таму што вы не актывавалі  &quot;DataTables&quot; ці &quot;DataTables+TableTools&quot; JavaScript бібліятэку на &quot;%s&quot;."
 
 #: views/view-edit.php:357
 msgid "It is not possible to use these features with the &quot;Tablesorter&quot; or &quot;Tablesorter Extended&quot; libraries."
-msgstr "Гэтыя функцыі нельга выкарыстоўваць у спалучэньні зь &quot;Tablesorter&quot; ці &quot;Tablesorter Extended&quot; бібліятэкамі."
+msgstr "Гэтыя функцыі нельга выкарыстоўваць у спалучэнні з &quot;Tablesorter&quot; ці &quot;Tablesorter Extended&quot; бібліятэкамі."
 
 #: views/view-edit.php:361
 msgid "Sorting"
-msgstr "Сартаваньне"
+msgstr "Сартаванне"
 
 #: views/view-edit.php:362
 msgid "Yes, enable sorting of table data by the visitor."
@@ -1393,27 +1394,27 @@ msgstr "Адлюстроўваць %1$s радкоў табліцы на ста�
 
 #: views/view-edit.php:378
 msgid "Length Change"
-msgstr "Змяніць длинну"
+msgstr "Змяніць даўжыню"
 
 #: views/view-edit.php:379
 msgid "Yes, allow the visitor to change the number of rows shown when using pagination."
-msgstr "Дазволіць карыстачу зьмяняць колькасць шэрагаў пры выкарыстаньні нумарацыі старонак."
+msgstr "Дазволіць карыстачу змяняць колькасць шэрагаў пры выкарыстанні нумарацыі старонак."
 
 #: views/view-edit.php:382
 msgid "Filtering"
-msgstr "Фільтраваньне"
+msgstr "Фільтраванне"
 
 #: views/view-edit.php:383
 msgid "Yes, enable the visitor to filter or search the table. Only rows with the search word in them are shown."
-msgstr "Дазволіць карыстачу фільтраваць і шукаць табліцу. Адлюстраваны толькі шэрагі зь шуканым словам."
+msgstr "Дазволіць карыстачу фільтраваць і шукаць табліцу. Адлюстраваны толькі шэрагі з шуканым словам."
 
 #: views/view-edit.php:386
 msgid "Info Bar"
-msgstr "Панэль ынфармацыі"
+msgstr "Панэль інфармацыі"
 
 #: views/view-edit.php:387
 msgid "Yes, show the table information display. This shows information and statistics about the currently visible data, including filtering."
-msgstr "Так, адлюстроўваць ынфармацыю табліцы. Тут адлюстравана ынфармацыя і статыстыка пра бягучыя бачныя дадзеныя, уключаючы фільтраваньне."
+msgstr "Так, адлюстроўваць інфармацыю табліцы. Тут адлюстравана інфармацыя і статыстыка пра бягучыя бачныя дадзеныя, уключаючы фільтраванне."
 
 #: views/view-edit.php:390
 msgid "TableTools"
@@ -1421,11 +1422,11 @@ msgstr "Прылады табліцы"
 
 #: views/view-edit.php:392
 msgid "Yes, activate the TableTools functions (Copy to Clipboard, Save to CSV, Save to XLS, Print Table) for this table."
-msgstr "Так, активаровать функцыю \"прылады табліцы\" ( \"скапіяваць у буфер абмену\", \"захаваць у CSV\", \"захаваць у XLS\", \"надрукаваць табліцу\") для гэтай табліцы."
+msgstr "Так, актываваць функцыю \"прылады табліцы\" ( \"скапіяваць у буфер абмену\", \"захаваць у CSV\", \"захаваць у XLS\", \"надрукаваць табліцу\") для гэтай табліцы."
 
 #: views/view-edit.php:393
 msgid "This option can only be used with the &quot;DataTables+TableTools&quot; JavaScript library."
-msgstr "Гэту опцыю магчыма выкарыстоўваць толькі зь &quot;DataTables+TableTools&quot; JavaScript бібліятэкай."
+msgstr "Гэту опцыю магчыма выкарыстоўваць толькі з &quot;DataTables+TableTools&quot; JavaScript бібліятэкай."
 
 #: views/view-edit.php:397
 msgid "Custom Commands"
@@ -1433,7 +1434,7 @@ msgstr "Карыстацкія каманды"
 
 #: views/view-edit.php:398
 msgid "Enter additional DataTables JavaScript parameters that will be included with the script call here."
-msgstr "Увесьці дадатковыя DataTables JavaScript парамэтры якія будуць добавленны да выкліку гэтага скрыпту."
+msgstr "Увесці дадатковыя DataTables JavaScript параметры, якія будуць дададзены да выкліку гэтага скрыпту."
 
 #: views/view-edit.php:398
 msgid "For advanced use only. Read the <a href=\"http://www.datatables.net/\">DataTables documentation</a> before."
@@ -1445,16 +1446,16 @@ msgstr "Палі вызначаныя карыстачом"
 
 #: views/view-edit.php:416
 msgid "Custom Data Fields can be used to add extra metadata to a table."
-msgstr "Палі вызначаныя карыстачом могуць выкарыстоўвацца для даданьня дадатковай meta-дадзеных у табліцу."
+msgstr "Палі вызначаныя карыстачом могуць выкарыстоўвацца для дадання дадатковых meta-дадзеных у табліцу."
 
 #: views/view-edit.php:416
 msgid "For example, this could be information about the source or the creator of the data."
-msgstr "Напрыклад, гэта можа быць ынфармацыя пра крыніцу ці стваральніку ынфармацыі. "
+msgstr "Напрыклад, гэта можа быць інфармацыя пра крыніцу, ці стваральніка інфармацыі. "
 
 #: views/view-edit.php:418
 #, php-format
 msgid "You can show this data in the same way as tables by using the shortcode <strong>[table-info id=%s field=\"&lt;field-name&gt;\" /]</strong>."
-msgstr "Вы можаце паказваць гэта ынфармацыю гэтак жа як і табліцы, зь дапамогай выкарыстаньня кода <strong>[table-info id=%s field=\"&lt;field-name&gt;\" /]</strong>."
+msgstr "Вы можаце паказваць гэтаую інфармацыю гэтак жа як і табліцы, з дапамогай выкарыстання кода <strong>[table-info id=%s field=\"&lt;field-name&gt;\" /]</strong>."
 
 #: views/view-edit.php:424
 msgid "Field Name"
@@ -1474,7 +1475,7 @@ msgstr "Паглядзець код"
 
 #: views/view-edit.php:450
 msgid "To add a new Custom Data Field, enter its name (only lowercase letters, numbers, _ and -)."
-msgstr "Каб паказаць новае поле вызначанае карыстачом, увядзіце гэта ымя (толькі вялікімі літарамі, лікамі, _і-)."
+msgstr "Каб паказаць новае поле вызначанае карыстачом, увядзіце гэта імя (толькі вялікімі літарамі, лікамі, _ і -)."
 
 #: views/view-edit.php:451
 msgid "Custom Data Field Name"
@@ -1482,7 +1483,7 @@ msgstr "Імя поля вызначанага карыстачом"
 
 #: views/view-edit.php:465
 msgid "Other actions"
-msgstr "Іншыя дзеяньні"
+msgstr "Іншыя дзеянні"
 
 #: views/view-edit.php:468
 msgid "Delete Table"
@@ -1503,11 +1504,11 @@ msgstr "Абраць табліцу, фармат экспарту і (толь�
 
 #: views/view-export.php:10
 msgid "You may choose to download the export file. Otherwise it will be shown on this page."
-msgstr "Вы можаце запампаваць экспарт-файл, ынакш ён будзе адлюстраваны на гэтай старонцы."
+msgstr "WP-Table Reloaded можа імпартаваць табліцы з ужо існых дадзеных. Вы можаце запампаваць экспарт-файл, інакш ён будзе адлюстраваны на гэтай старонцы."
 
 #: views/view-export.php:10
 msgid "Be aware that only the table data, but no options or settings are exported."
-msgstr "Ведайце, што экспартуюцца толькі дадзеныя табліцы, а не настрайки і ўсталёўкі."
+msgstr "Ведайце, што экспартуюцца толькі дадзеныя табліцы, а не налады і ўсталёўкі."
 
 #: views/view-export.php:10
 #, php-format
@@ -1551,23 +1552,23 @@ msgstr "Для таго, каб пачаць, вам трэба <a href=\"%s\">�
 
 #: views/view-import.php:3
 msgid "WP-Table Reloaded can import tables from existing data."
-msgstr "WP-Table Reloaded можа ымпартаваць табліцы зь ужо існых дадзеных."
+msgstr "WP-Table Reloaded можа імпартаваць табліцы з ужо існых дадзеных."
 
 #: views/view-import.php:3
 msgid "This may be a CSV, XML or HTML file, each with a certain structure."
-msgstr "Гэта можа быць CSV, XML ці HTML файл, кожны зь вызначанай структурай."
+msgstr "Гэта можа быць CSV, XML ці HTML файл, кожны з вызначанай структурай."
 
 #: views/view-import.php:3
 msgid "To import an existing table, please select its format and the source for the import."
-msgstr "Для таго, каб ымпартаваць ужо існую табліцу, абярыце фармат і крыніца ымпартаваньня."
+msgstr "Для таго, каб імпартаваць ужо існую табліцу, абярыце фармат і крыніцу імпартавання."
 
 #: views/view-import.php:3
 msgid "You can also decide, if you want to import it as a new table or replace an existing table."
-msgstr "Вы можаце ымпартаваць табліцу як новую ці замяніць ужо існую."
+msgstr "Вы можаце імпартаваць табліцу як новую ці замяніць ужо існуючую."
 
 #: views/view-import.php:10
 msgid "Select Import Format"
-msgstr "Абраць фармат ымпарту."
+msgstr "Абраць фармат імпарту."
 
 #: views/view-import.php:21
 msgid "Add or Replace Table?"
@@ -1579,15 +1580,15 @@ msgstr "Дадаць табліцу як новую"
 
 #: views/view-import.php:24
 msgid "Replace existing Table"
-msgstr "Замяніць існую табліцу"
+msgstr "Замяніць існуючую табліцу"
 
 #: views/view-import.php:28
 msgid "Select existing Table to Replace"
-msgstr "Абраць існую табліцу для замены"
+msgstr "Абраць існуючую табліцу для замены"
 
 #: views/view-import.php:44
 msgid "Select source for Import"
-msgstr "Абраць крыніцу ымпарту"
+msgstr "Абраць крыніцу імпарту"
 
 #: views/view-import.php:46
 msgid "File upload"
@@ -1599,7 +1600,7 @@ msgstr "URL адрас"
 
 #: views/view-import.php:48
 msgid "Manual input"
-msgstr "Ручное даданьне"
+msgstr "Ручное даданне"
 
 #: views/view-import.php:49
 msgid "File on server"
@@ -1607,11 +1608,11 @@ msgstr "Файл на серверы"
 
 #: views/view-import.php:53
 msgid "Select File with Table to Import"
-msgstr "Абраць файл зь табліцай для ымпарту"
+msgstr "Абраць файл з табліцай для імпарту"
 
 #: views/view-import.php:57
 msgid "URL to Import Table from"
-msgstr "URL адрас зь якога будзе импортированьна табліца"
+msgstr "URL адрас з якога будзе імпартавана табліца"
 
 #: views/view-import.php:61
 msgid "Path to file on server"
@@ -1619,7 +1620,7 @@ msgstr "Шлях да файла на серверы."
 
 #: views/view-import.php:65
 msgid "Paste data with Table to Import"
-msgstr "Устаўце дадзеныя ўтрымоўвалыя табліцу, якую будзеце ымпартаваць."
+msgstr "Устаўце дадзеныя з табліцай, якую будзеце імпартаваць."
 
 #: views/view-import.php:71
 msgid "Import Table"
@@ -1627,7 +1628,7 @@ msgstr "Імпартаваць табліцу"
 
 #: views/view-import.php:85
 msgid "Import from original wp-Table plugin"
-msgstr "Імпартаваць зь арыгінальнага wp-Table убудовы."
+msgstr "Імпартаваць з арыгінальнай wp-Table убудовы."
 
 #: views/view-import.php:131
 msgid "Import"
@@ -1636,7 +1637,7 @@ msgstr "Імпартаваць"
 #: views/view-import.php:139
 #: views/view-list.php:79
 msgid "Bulk actions:"
-msgstr "Масавыя дзеяньні:"
+msgstr "Масавыя дзеянні:"
 
 #: views/view-import.php:139
 msgid "Import Tables"
@@ -1652,20 +1653,20 @@ msgstr "Тут вы можаце дадаваць, рэдагаваць ці а�
 
 #: views/view-list.php:2
 msgid "Each table has a unique ID that needs to be adjusted in that shortcode."
-msgstr "Кожная табліца мае ўнікальны ID які трэба паказаць у гэтым кодзе."
+msgstr "Кожная табліца мае ўнікальны ID, які трэба паказаць у гэтым кодзе."
 
 #: views/view-list.php:2
 #, php-format
 msgid "You can also click the button &quot;%s&quot; in the editor toolbar to select and insert a table."
-msgstr "Для таго, каб абраць і ўставіць табліцу вы можаце гэтак жа націснуць кнопку &quot;%s&quot; на панэлі рэдагаваньня."
+msgstr "Для таго, каб абраць і ўставіць табліцу вы можаце гэтак жа націснуць кнопку &quot;%s&quot; на панэлі рэдагавання."
 
 #: views/view-list.php:39
 msgid "(no name)"
-msgstr "(імя не указаньно)"
+msgstr "(імя не паказана)"
 
 #: views/view-list.php:40
 msgid "(no description)"
-msgstr "(безь апісаньня)"
+msgstr "(без апісання)"
 
 #: views/view-list.php:58
 #, php-format
@@ -1691,7 +1692,7 @@ msgstr "Папярэдні прагляд табліцы  %s"
 
 #: views/view-list.php:67
 msgid "Preview"
-msgstr "Папярэдні просмот"
+msgstr "Папярэдні прагляд"
 
 #: views/view-list.php:79
 msgid "Copy Tables"
@@ -1707,12 +1708,12 @@ msgstr "WP-Table Reloaded мае некалькі налад, якія адка�
 
 #: views/view-options.php:4
 msgid "Frontend Options influence the output and used features of tables in pages, posts or text-widgets."
-msgstr "Налады тэмы ўплываюць на адлюстраваньне табліц на старонках,у  пастах і тэкставых виджетах."
+msgstr "Налады тэмы ўплываюць на адлюстраванне табліц на старонках, у  пастах і тэкставых виджетах."
 
 #: views/view-options.php:4
 #, php-format
 msgid "The Backend Options control the plugin's admin area, e.g. the &quot;%s&quot; screen."
-msgstr "Налады адмін часткі ставяцца да старонкі кіраваньня ўбудовай (&quot;%s&quot;)."
+msgstr "Налады адмін часткі ставяцца на старонке кіравання ўбудовай (&quot;%s&quot;)."
 
 #: views/view-options.php:4
 #: views/view-options.php:55
@@ -1735,33 +1736,33 @@ msgstr "JavaScript бібліятэка"
 
 #: views/view-options.php:24
 msgid "Yes, enable the use of a JavaScript library."
-msgstr "Уключыць выкарыстаньні JavaScript бібліятэк."
+msgstr "Уключыць выкарыстанне JavaScript бібліятэк."
 
 #: views/view-options.php:24
 msgid "WP-Table Reloaded includes three JavaScript libraries that can add useful features, like sorting, pagination, and filtering, to a table."
-msgstr "WP-Table Reloaded уключае тры JavaScript бібліятэкі зь дапамогай якіх вы можаце дадаць у табліцу сартаваньне, пастаронкавае адлюстраваньне і фильтрованине."
+msgstr "WP-Table Reloaded уключае тры JavaScript бібліятэкі з дапамогай якіх вы можаце дадаць у табліцу сартаванне, пастаронкавае адлюстраванне і фильтраванне."
 
 #: views/view-options.php:28
 msgid "Select the library to use:"
-msgstr "Абераце билиотеку для выкарыстаньня:"
+msgstr "Абярыце бібліятэку для выкарыстання:"
 
 #: views/view-options.php:29
 #: views/view-options.php:127
 msgid "recommended"
-msgstr "рекомендованьно"
+msgstr "рэкамендавана"
 
 #: views/view-options.php:33
 #, php-format
 msgid "(You can read more about each library's features on the <a href=\"%s\">plugin's website</a>.)"
-msgstr "(Больш ынфармацыі пра ўласцівасьці кожнай бібліятэкі вы можаце атрымаць на <a href=\"%s\">вэбсайт убудовы</a>.)"
+msgstr "(Больш інфармацыі пра ўласцівасці кожнай бібліятэкі вы можаце атрымаць на <a href=\"%s\">вэбсайты убудовы</a>.)"
 
 #: views/view-options.php:36
 msgid "Default CSS"
-msgstr "CSS па зьмаўчаньні"
+msgstr "CSS па змаўчанні"
 
 #: views/view-options.php:38
 msgid "Yes, include and load the plugin's default CSS Stylesheets. This is highly recommended, if you use one of the JavaScript libraries!"
-msgstr "Выкарыстоўваць CSS па зьмаўчаньні. Гэта рэкамендуецца ў выпадку выкарыстаньня бібліятэкі JavaScript."
+msgstr "Выкарыстоўваць CSS па змаўчанні. Гэта рэкамендуецца ў выпадку выкарыстання бібліятэкі JavaScript."
 
 #: views/view-options.php:42
 msgid "Custom CSS"
@@ -1773,7 +1774,7 @@ msgstr "Выкарыстоўваць дырэктывы карыстацкага
 
 #: views/view-options.php:44
 msgid "This should be used to change the table layout and styling."
-msgstr "Выкарыстоўвайце гэта для изьменеия вонкавага выгляду і стыляў табліцы."
+msgstr "Выкарыстоўвайце гэта для змены вонкавага выгляду і стыляў табліцы."
 
 #: views/view-options.php:50
 #, php-format
@@ -1783,7 +1784,7 @@ msgstr "Вы можаце атрымаць прыклады стыляў у <a h
 #: views/view-options.php:50
 #, php-format
 msgid "Information on available CSS selectors can be found in the <a href=\"%s\">documentation</a>."
-msgstr "Інфармацыю пра даступныя  CSS дырэктывах можаце знайсьці ў <a href=\"%s\">дакументацыі</a>."
+msgstr "Інфармацыю пра даступныя  CSS дырэктывы можаце знайсці ў <a href=\"%s\">дакументацыі</a>."
 
 #: views/view-options.php:54
 msgid "Links in new window"
@@ -1792,7 +1793,7 @@ msgstr "Адкрыць спасылку ў новым акне."
 #: views/view-options.php:55
 #, php-format
 msgid "Yes, open links that are inserted with the &quot;%s&quot; button on the &quot;%s&quot; screen in a new browser window <strong>from now on</strong>."
-msgstr "Уставіць спасылкі якія былі зьмешчаны зь помощю &quot;%s&quot; кнопкі на &quot;%s&quot; экран у новым акне браўзэра <strong>зь цяперашняга моманту</strong>"
+msgstr "Уставіць спасылкі якія былі змешчаны з дапамогай &quot;%s&quot; кнопкі на &quot;%s&quot; экран у новым акне браўзэра <strong>з цяперашняга моманту</strong>"
 
 #: views/view-options.php:62
 #: views/view-options.php:168
@@ -1805,16 +1806,16 @@ msgstr "Опцыі адмін часткі"
 
 #: views/view-options.php:74
 msgid "Exit warning"
-msgstr "Адлюстроўваць папярэджаньне"
+msgstr "Адлюстроўваць папярэджанне"
 
 #: views/view-options.php:75
 #, php-format
 msgid "Yes, show a warning message, if I leave the &quot;%s&quot; screen and have not yet saved my changes."
-msgstr "Так, паказваць папераджальнае паведамленне, калі я жадаю пакінуць &quot;%s&quot; экран, але зьмены не сохраненны."
+msgstr "Так, паказваць папераджальнае паведамленне, калі я жадаю пакінуць &quot;%s&quot; экран, але змены не захаваны."
 
 #: views/view-options.php:78
 msgid "Growing textareas"
-msgstr "Якія павялічваюцца тэкставыя палі."
+msgstr "Павялічваючыеся тэкставыя палі."
 
 #: views/view-options.php:79
 #, php-format
@@ -1833,7 +1834,7 @@ msgstr "Гэта поле даступна толькі адміністрата
 
 #: views/view-options.php:89
 msgid "You can therefore not change these options."
-msgstr "Вы не можаце зьмяніць гэтыя налады."
+msgstr "Вы не можаце змяніць гэтыя налады."
 
 #: views/view-options.php:94
 msgid "Plugin Access"
@@ -1872,11 +1873,11 @@ msgstr "Доступ да налад"
 
 #: views/view-options.php:106
 msgid "To access the Plugin Options of WP-Table Reloaded, a user needs to be:"
-msgstr "Для таго, каб атрымаць доступ да  Plugin Options of WP-Table Reloaded, карыстач павінен быць:"
+msgstr "Для таго каб атрымаць доступ да  Plugin Options of WP-Table Reloaded, карыстач павінен быць:"
 
 #: views/view-options.php:110
 msgid "Admin Options, Dump file Import, and Manual Plugin Uninstall are always accessible by Administrators only, regardless of this setting."
-msgstr "Налады адміністратара, ымпарт файла і ручное выдаленне ўбудовы даступна толькі адміністратару, не залежна ад налад."
+msgstr "Налады адміністратара, імпарт файла і ручное выдаленне ўбудовы даступна толькі адміністратару, не залежна ад налад."
 
 #: views/view-options.php:114
 msgid "Plugin Language"
@@ -1921,7 +1922,7 @@ msgstr "Усталёўкі"
 
 #: views/view-options.php:141
 msgid "Dashboard"
-msgstr "Панэль кіраваньня"
+msgstr "Панэль кіравання"
 
 #: views/view-options.php:142
 msgid "Top-Level"
@@ -1929,11 +1930,11 @@ msgstr "Верхні ўзровень"
 
 #: views/view-options.php:147
 msgid "Frontend Edit Link"
-msgstr "Рэдагаваньне вонкавага выгляду."
+msgstr "Рэдагаванне вонкавага выгляду."
 
 #: views/view-options.php:148
 msgid "Yes, show an \"Edit\" link to users with sufficient rights near every table on the frontend."
-msgstr "Так, паказваць спасылку  \"Рэдагаваць\" каля кожнай табліцы, карыстачу меламу досыць мае рацыю."
+msgstr "Так, паказваць спасылку  \"Рэдагаваць\" каля кожнай табліцы."
 
 #: views/view-options.php:152
 msgid "WordPress Search"
@@ -1949,7 +1950,7 @@ msgstr "Выдаліць пры дэактывацыі"
 
 #: views/view-options.php:158
 msgid "Yes, remove all plugin related data from the database when the plugin is deactivated."
-msgstr "Пры дэактывацыі ўбудовы выдаліць усю ынфармацыю пра ўбудову."
+msgstr "Пры дэактывацыі ўбудовы выдаліць усю інфармацыю пра ўбудову."
 
 #: views/view-options.php:158
 msgid "Should be activated directly before deactivation only!"
@@ -1957,23 +1958,23 @@ msgstr "Актывацыя павінна быць праведзена вылу
 
 #: views/view-options.php:178
 msgid "WP-Table Reloaded Data Export and Backup"
-msgstr "Захаваньне і экспарт ынфармацыі па WP-Table Reloaded"
+msgstr "Захаванне і экспарт інфармацыі па WP-Table Reloaded"
 
 #: views/view-options.php:181
 msgid "WP-Table Reloaded can export and import a so-called dump file that contains all tables, their settings and the plugin's options."
-msgstr "WP-Table Reloaded можа экспартаваць і ымпартаваць дамп-файлы якія ўтрымоўваюцца ва ўсіх табліцах, іх усталёўкі і опцыі ўбудовы."
+msgstr "WP-Table Reloaded можа экспартаваць і імпартаваць дамп-файлы якія ўтрымоўваюцца ва ўсіх табліцах, іх усталёўкі і опцыі ўбудовы."
 
 #: views/view-options.php:181
 msgid "This file can be used as a backup or to move all data to another WordPress site."
-msgstr "Гэты файл можа быць скарыстаны як рэзервовая копія ці для перасоўваньня ўсёй ынфармацыі на ыншай WordPress сайт."
+msgstr "Гэты файл можа быць скарыстаны як рэзервовая копія ці для перасоўвання ўсёй інфармацыі на іншы WordPress сайт."
 
 #: views/view-options.php:184
 msgid "Export a dump file"
-msgstr "экспартаваць дамп-файл"
+msgstr "Экспартаваць дамп-файл"
 
 #: views/view-options.php:186
 msgid "To export all Tables and their settings, click the button below to generate and download a dump file."
-msgstr "Каб экспартаваць усе табліцы і іх налады, націсніце на слудующую кнопку для стварэння і загрузкі дамп-файла. "
+msgstr "Каб экспартаваць усе табліцы і іх налады, націсніце на наступную кнопку для стварэння і загрузкі дамп-файла. "
 
 #: views/view-options.php:186
 msgid "<strong>Warning</strong>: Do <strong>not</strong> edit the content of that file under any circumstances as you will destroy the file!"
@@ -1985,11 +1986,11 @@ msgstr "Імпартаваць дамп-файл"
 
 #: views/view-options.php:197
 msgid "To import a WP-Table Reloaded dump file and restore the included data, upload the file from your computer."
-msgstr "Для таго, каб ымпартаваць WP-Table Reloaded  дамп-файл і аднавіць усю ынфармацыю, загрузіце файл зь вашага кампутара."
+msgstr "Для таго, каб імпартаваць WP-Table Reloaded  дамп-файл і аднавіць усю інфармацыю, загрузіце файл з вашага кампутара."
 
 #: views/view-options.php:197
 msgid "All current data of this WP-Table Reloaded installation (Tables, Options, Settings) <strong>WILL BE OVERWRITTEN</strong> with the data from the file!"
-msgstr "Усе бягучыя дадзеныя гэтай табліцы WP-Reloaded усталёўка (Табліцы, Парамэтры, Налады) <strong> будуць перазапісаны </ STRONG> зь дадзенымі зь файла!"
+msgstr "Усе бягучыя дадзеныя гэтай табліцы WP-Reloaded усталёўцы (Табліцы, Параметры, Налады) <strong> будуць перазапісаны </ STRONG> з дадзенымі з файла!"
 
 #: views/view-options.php:197
 msgid "Do not proceed, if you do not understand this!"
@@ -1997,7 +1998,7 @@ msgstr "Не працягвайце, калі вы гэтага не разум�
 
 #: views/view-options.php:197
 msgid "It is highly recommended to export and backup the data of this installation before importing another dump file (see above)."
-msgstr "Настойліва рэкамендуецца для экспарту і рэзервовага капіяваньня дадзеных гэтай усталёўкі перад ымпартам наступнага файла дампа (гл. вышэй)."
+msgstr "Настойліва рэкамендуецца для экспарту і рэзервовага капіявання дадзеных гэтай усталёўкі перад імпартам наступнага файла дампа (гл. вышэй)."
 
 #: views/view-options.php:203
 msgid "Select Dump File"
@@ -2013,15 +2014,15 @@ msgstr "Уручную выдаліць WP-Table Reloaded"
 
 #: views/view-options.php:217
 msgid "Uninstalling <strong>will permanently delete</strong> all tables, data, and options, that belong to WP-Table Reloaded from the database, including all tables you added or imported."
-msgstr "<strong>Выдаленне</strong> убудовы пацягне за сабой выдаленне ўсіх табліц, дадзеных і парамэтраў, якія прыналежаць да WP-Reloaded, зь базы дадзеных, у тым ліку зь усіх табліц што вы дадалі ці ымпартавалі."
+msgstr "<strong>Выдаленне</strong> убудовы пацягне за сабой выдаленне ўсіх табліц, дадзеных і параметраў, якія прыналежаць да WP-Reloaded, з базы дадзеных, у тым ліку з усіх табліц што вы дадалі ці імпартавалі."
 
 #: views/view-options.php:217
 msgid "You will manually need to remove the plugin's files from the plugin folder afterwards."
-msgstr "За тым вам неабходна ўручную выдаліць файлы ўбудовы зь тэчкі ўбудоў."
+msgstr "Затым вам неабходна ўручную выдаліць файлы ўбудовы з тэчкі ўбудоў."
 
 #: views/view-options.php:217
 msgid "Be very careful with this and only click the button if you know what you are doing!"
-msgstr "Будзьце вельмі асцярожныя зь гэтым і націсніце на кнопку,толькі ў тым выпадку, калі вы ведаеце, што робіце!"
+msgstr "Будзьце вельмі асцярожны з гэтым і націсніце на кнопку толькі ў тым выпадку, калі вы ведаеце, што робіце"
 
 #: views/view-options.php:221
 msgid "Uninstall Plugin WP-Table Reloaded"
@@ -2029,11 +2030,11 @@ msgstr "Выдаліць убудову WP-Table Reloaded"
 
 #: views/view-uninstall.php:3
 msgid "Plugin deactivated successfully."
-msgstr "Убудова дэактываваны пасьпяхова"
+msgstr "Убудова дэактывавана паспяхова"
 
 #: views/view-uninstall.php:4
 msgid "All tables, data and options were deleted. You may now manually remove the plugin's subfolder from your WordPress plugin folder or use the \"Delete\" link on the Plugins page."
-msgstr "Былі выдалены ўсе табліцы, дадзеныя і парамэтры. Заразь Вы можаце ўручную выдаліць тэчку ўбудовы зь тэчкі ўбудоў WordPress ці выкарыстоўвайце \"Delete\" спасылкі на старонцы Ўбудовы."
+msgstr "Былі выдалены ўсе табліцы і параметры. Зараз Вы можаце ўручную выдаліць тэчку ўбудовы з тэчкі ўбудоў WordPress ці выкарыстоўвайце \"Delete\" спасылкі на старонцы Ўбудовы."
 
 #. Plugin URI of an extension
 msgid "http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/"
@@ -2041,11 +2042,11 @@ msgstr "http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/"
 
 #. Description of an extension
 msgid "This plugin allows you to create and easily manage tables in the admin-area of WordPress. A comfortable backend allows an easy manipulation of table data. You can then include the tables into your posts, on your pages or in text widgets by using a shortcode or a template tag function. Tables can be imported and exported from/to CSV, XML and HTML."
-msgstr "Гэта ўбудова дазваляе вам ствараць і лёгка кіраваць табліцамі ў адмін-пляцы WordPress. Зручныя бэкэнды дазваляюць лёгка маніпуляваць таблічнымі дадзенымі. Вы можаце ўключаць табліцы ў вашым пасце, на сваіх старонках ці ў тэксце зь дапамогай виджетов Shortcode ці тэг шаблону функцыі. Табліцы могуць быць ымпартаваны і экспартаваны ў / зь CSV, XML і HTML."
+msgstr "Гэта ўбудова дазваляе вам ствараць табліцы і лёгка кіраваць імі ў адмін-пляцы WordPress. Зручныя бэкэнды дазваляюць лёгка маніпуляваць таблічнымі дадзенымі. Вы можаце ўключаць табліцы ў вашым пасце, на сваіх старонках ці ў тэксце з дапамогай виджетов Shortcode ці тэга шаблону функцыі. Табліцы могуць быць імпартаваны і экспартаваны ў / з CSV, XML і HTML."
 
 #. Author of an extension
-msgid "Tobias Baethge"
-msgstr "Tobias Baethge"
+msgid "Tobias B&auml;thge"
+msgstr "Tobias B&auml;thge"
 
 #. Author URI of an extension
 msgid "http://tobias.baethge.com/"
@@ -2056,157 +2057,157 @@ msgstr "http://tobias.baethge.com/"
 #~ "\"rowspan\" of table cells and enables the WP Search to search through "
 #~ "tables."
 #~ msgstr ""
-#~ "Апроч ыншага, у гэтай версіі з'явілася падтрымка атрыбутаў \"colspan\" і "
-#~ "\"rowspan\", а гэтак жа пошук па табліцах."
+#~ "Помимо прочего, в этой версии появилась поддержка атрибутов \"colspan\" и "
+#~ "\"rowspan\", а так же поиск по таблицам."
 
 #~ msgid "This is the &quot;%s&quot; screen."
-#~ msgstr "Aktu?ln? se nach?z?te v nab?dce &quot;%s&quot;."
+#~ msgstr "Aktuálně se nacházíte v nabídce &quot;%s&quot;."
 
 #~ msgid ""
 #~ "This version adds support for the DataTables JavaScript library (with "
 #~ "features like sorting, pagination, and filtering) and includes a lot more "
 #~ "enhancements."
 #~ msgstr ""
-#~ "Nov? verze p?in??? zejm?na podporu JavaScriptov? knihovny DataTables "
-#~ "(umo??uje nap?. ?azen?, str?nkov?n? a filtrov?n? tabulek) a obsahuje i "
-#~ "mnoho dal??ch vylep?en?."
+#~ "Nová verze přináší zejména podporu JavaScriptové knihovny DataTables "
+#~ "(umožňuje např. řazení, stránkování a filtrování tabulek) a obsahuje i "
+#~ "mnoho dalších vylepšení."
 
 #~ msgid "Hide|expand"
-#~ msgstr "Skr?t|expand"
+#~ msgstr "Skrýt|expand"
 
 #~ msgid "Hide|item"
-#~ msgstr "Skr?t|item"
+#~ msgstr "Skrýt|item"
 
 #~ msgid "Unhide|item"
 #~ msgstr "Zviditelnit|item"
 
 #~ msgid "Selected rows: %s %s|hide_unhide"
-#~ msgstr "Ozna?en? ??dky: %s %s|hide_unhide"
+#~ msgstr "Označené řádky: %s %s|hide_unhide"
 
 #~ msgid "Selected rows:"
-#~ msgstr "Ozna?en? ??dky:"
+#~ msgstr "Označené řádky:"
 
 #~ msgid "Selected columns: %s %s|hide_unhide"
-#~ msgstr "Ozna?en? sloupce: %s %s|hide_unhide"
+#~ msgstr "Označené sloupce: %s %s|hide_unhide"
 
 #~ msgid "Selected columns:"
-#~ msgstr "Ozna?en? sloupce:"
+#~ msgstr "Označené sloupce:"
 
 #~ msgid "Selected rows: %s %s|insert_delete"
-#~ msgstr "%s nad ozna?en? ??dky nebo je %s|insert_delete"
+#~ msgstr "%s nad označené řádky nebo je %s|insert_delete"
 
 #~ msgid "Selected columns: %s %s|insert_delete"
-#~ msgstr "%s nalevo od ozna?en?ch sloupc? nebo je %s|insert_delete"
+#~ msgstr "%s nalevo od označených sloupců nebo je %s|insert_delete"
 
 #~ msgid "Administrator|User role"
-#~ msgstr "Administr?tor|User role"
+#~ msgstr "Administrátor|User role"
 
 #~ msgid "Editor|User role"
-#~ msgstr "??fredaktor|User role"
+#~ msgstr "Šéfredaktor|User role"
 
 #~ msgid "Author|User role"
 #~ msgstr "Redaktor|User role"
 
 #~ msgid "Contributor|User role"
-#~ msgstr "Spolupracovn?k|User role"
+#~ msgstr "Spolupracovník|User role"
 
 #~ msgid "Change will take effect after another page load after saving."
 #~ msgstr ""
-#~ "P??padn? zm?na se projev? a? kdy? toto nastaven? ulo??te a pot? je?t? "
-#~ "jednou obnov?te str?nku."
+#~ "Případná změna se projeví až když toto nastavení uložíte a poté ještě "
+#~ "jednou obnovíte stránku."
 
 #~ msgid "Albanian (thanks to <a href=\"http://www.romeolab.com/\">Romeo</a>)"
-#~ msgstr "alb?n?tina (<a href=\"http://www.romeolab.com/\">Romeo</a>)"
+#~ msgstr "albánština (<a href=\"http://www.romeolab.com/\">Romeo</a>)"
 
 #~ msgid ""
 #~ "Belorussian (thanks to <a href=\"http://www.fatcow.com/\">Marcis Gasuns</"
 #~ "a>)"
-#~ msgstr "b?loru?tina (<a href=\"http://www.fatcow.com/\">Marcis Gasuns</a>)"
+#~ msgstr "běloruština (<a href=\"http://www.fatcow.com/\">Marcis Gasuns</a>)"
 
 #~ msgid ""
 #~ "Brazilian Portugues (thanks to <a href=\"http://www.pensarics.com/"
 #~ "\">Rics</a>)"
 #~ msgstr ""
-#~ "brazilsk? portugal?tina (<a href=\"http://www.pensarics.com/\">Rics</a>)"
+#~ "brazilská portugalština (<a href=\"http://www.pensarics.com/\">Rics</a>)"
 
 #~ msgid ""
 #~ "Czech (thanks to <a href=\"http://separatista.net/\">Separatista</a>)"
-#~ msgstr "?e?tina (<a href=\"http://www.separatista.net/\">Separatista</a>)"
+#~ msgstr "čeština (<a href=\"http://www.separatista.net/\">Separatista</a>)"
 
 #~ msgid "French (thanks to <a href=\"http://ultratrailer.net/\">Yin-Yin</a>)"
-#~ msgstr "francouz?tina (<a href=\"http://ultratrailer.net/\">Yin-Yin</a>)"
+#~ msgstr "francouzština (<a href=\"http://ultratrailer.net/\">Yin-Yin</a>)"
 
 #~ msgid ""
 #~ "Italian (thanks to <a href=\"http://www.scrical.it/\">Gabriella Mazzon</"
 #~ "a>)"
-#~ msgstr "ital?tina (<a href=\"http://www.scrical.it/\">Gabriella Mazzon</a>)"
+#~ msgstr "italština (<a href=\"http://www.scrical.it/\">Gabriella Mazzon</a>)"
 
 #~ msgid "Japanese (thanks to <a href=\"http://www.u-1.net/\">Yuuichi</a>)"
-#~ msgstr "japon?tina (<a href=\"http://www.u-1.net/\">Yuuichi</a>)"
+#~ msgstr "japonština (<a href=\"http://www.u-1.net/\">Yuuichi</a>)"
 
 #~ msgid "Polish (thanks to Alex Kortan)"
-#~ msgstr "pol?tina (Alex Kortan)"
+#~ msgstr "polština (Alex Kortan)"
 
 #~ msgid "Russian (thanks to <a href=\"http://wp-skins.info/\">Truper</a>)"
-#~ msgstr "ru?tina (<a href=\"http://wp-skins.info/\">Truper</a>)"
+#~ msgstr "ruština (<a href=\"http://wp-skins.info/\">Truper</a>)"
 
 #~ msgid "Slovak (thanks to <a href=\"http://lukas.cerro.sk/\">55.lukas</a>)"
-#~ msgstr "sloven?tina (<a href=\"http://lukas.cerro.sk/\">55.lukas</a>)"
+#~ msgstr "slovenština (<a href=\"http://lukas.cerro.sk/\">55.lukas</a>)"
 
 #~ msgid ""
 #~ "Spanish (thanks to <a href=\"http://theindependentproject.com/"
 #~ "\">Alejandro Urrutia</a> and <a href=\"http://halles.cl/\">Matias Halles</"
 #~ "a>)"
 #~ msgstr ""
-#~ "?pan?l?tina (<a href=\"http://theindependentproject.com/\">Alejandro "
+#~ "španělština (<a href=\"http://theindependentproject.com/\">Alejandro "
 #~ "Urrutia</a> a <a href=\"http://halles.cl/\">Matias Halles</a>)"
 
 #~ msgid "Swedish (thanks to <a href=\"http://www.zuperzed.se/\">ZuperZed</a>)"
-#~ msgstr "?v?d?tina (<a href=\"http://www.zuperzed.se/\">ZuperZed</a>)"
+#~ msgstr "švédština (<a href=\"http://www.zuperzed.se/\">ZuperZed</a>)"
 
 #~ msgid "Turkish (thanks to <a href=\"http://www.wpuzmani.com/\">Semih</a>)"
-#~ msgstr "ture?tina (<a href=\"http://www.wpuzmani.com/\">Semih</a>)"
+#~ msgstr "turečtina (<a href=\"http://www.wpuzmani.com/\">Semih</a>)"
 
 #~ msgid "Insert failed."
-#~ msgstr "P?i vkl?d?n? do?lo k chyb?."
+#~ msgstr "Při vkládání došlo k chybě."
 
 #~ msgid ""
 #~ "If you want to show a table in your pages, posts or text-widgets, use the "
 #~ "shortcode <strong>[table id=&lt;the_table_ID&gt; /]</strong> or click the "
 #~ "button \"Table\" in the editor toolbar."
 #~ msgstr ""
-#~ "Pokud chcete n?kterou tabulku vlo?it do p??sp?vku, str?nky nebo textov?ho "
-#~ "widgetu, pou?ijte bu? zkr?cen? z?pis <strong>[table id=&lt;"
-#~ "the_table_ID&gt; /]</strong> nebo p??mo tla??tko \"tabulky\" v HTML "
+#~ "Pokud chcete některou tabulku vložit do příspěvku, stránky nebo textového "
+#~ "widgetu, použijte buď zkrácený zápis <strong>[table id=&lt;"
+#~ "the_table_ID&gt; /]</strong> nebo přímo tlačítko \"tabulky\" v HTML "
 #~ "editoru."
 
 #~ msgid ""
 #~ "You may edit the content of the table here. It is also possible to add or "
 #~ "delete columns and rows."
 #~ msgstr ""
-#~ "Zde m??ete upravovat samotn? obsah tabulky, stejn? jako p?id?vat nebo "
-#~ "mazat sloupce a ??dky."
+#~ "Zde můžete upravovat samotný obsah tabulky, stejně jako přidávat nebo "
+#~ "mazat sloupce a řádky."
 
 #~ msgid "Row hidden"
-#~ msgstr "Skr?t ??dek"
+#~ msgstr "Skrýt řádek"
 
 #~ msgid "Column hidden"
-#~ msgstr "Skr?t sloupec"
+#~ msgstr "Skrýt sloupec"
 
 #~ msgid "Use Table Headline"
-#~ msgstr "Pou??t z?hlav? tabulky"
+#~ msgstr "Použít záhlaví tabulky"
 
 #~ msgid "Print Table Name"
-#~ msgstr "Zobrazit n?zev tabulky"
+#~ msgstr "Zobrazit název tabulky"
 
 #~ msgid "Use Tablesorter"
-#~ msgstr "Pou??t Tablesorter"
+#~ msgstr "Použít Tablesorter"
 
 #~ msgid ""
 #~ "You may sort a table using the <a href=\"http://www.tablesorter.com/"
 #~ "\">Tablesorter-jQuery-Plugin</a>."
 #~ msgstr ""
-#~ "M??ete ?ten???m povolit vlastn? interaktivn? ?azen? dat v tabulce pomoc? "
+#~ "Můžete čtenářům povolit vlastní interaktivní řazení dat v tabulce pomocí "
 #~ "<a href=\"http://www.tablesorter.com/\">jQuery pluginu Tablesorter</a>."
 
 #~ msgid ""
@@ -2214,21 +2215,21 @@ msgstr "http://tobias.baethge.com/"
 #~ "Options\" screen and the option \"Use Table Headline\" has to be enabled "
 #~ "above for this to work!</small>"
 #~ msgstr ""
-#~ "<small>Upozorn?n?: Mus?te Tablesorter nejd??ve glob?ln? povolit naho?e v "
-#~ "menu \"Nastaven? pluginu\" a z?rove? mus? b?t u konkr?tn? tabulky "
-#~ "za?krtnuta mo?nost \"Pou??t z?hlav? tabulky\", aby v?e spr?vn? fungovalo!"
+#~ "<small>Upozornění: Musíte Tablesorter nejdříve globálně povolit nahoře v "
+#~ "menu \"Nastavení pluginu\" a zároveň musí být u konkrétní tabulky "
+#~ "zaškrtnuta možnost \"Použít záhlaví tabulky\", aby vše správně fungovalo!"
 #~ "</small>"
 
 #~ msgid "You may also select the import source."
 #~ msgstr ""
-#~ "M??ete si tak? vybrat zdroj, odkud chcete tabulkov? data importovat."
+#~ "Můžete si také vybrat zdroj, odkud chcete tabulková data importovat."
 
 #~ msgid "General Plugin Options"
-#~ msgstr "Obecn? nastaven? pluginu"
+#~ msgstr "Obecné nastavení pluginu"
 
 #~ msgid "They will effect all tables or the general plugin behavior."
 #~ msgstr ""
-#~ "Toto nastaven? ovlivn? v?echny tabulky nebo obecn? vlastnosti pluginu."
+#~ "Toto nastavení ovlivní všechny tabulky nebo obecné vlastnosti pluginu."
 
 #~ msgid "Enable Tablesorter-JavaScript?"
 #~ msgstr "Povolit Tablesorter?"
@@ -2239,99 +2240,99 @@ msgstr "http://tobias.baethge.com/"
 #~ "activated for each table separately in its options)."
 #~ msgstr ""
 #~ "Ano, povolit jQuery plugin <a href=\"http://www.tablesorter.com/"
-#~ "\">Tablesorter</a>. Tato volba umo??uje ?ten???m, aby si mohli sami "
-#~ "interaktivn? a libovoln? ?adit data v tabulce tak, jak pot?ebuj? (m??e "
-#~ "b?t aktivov?no tak? selektivn? pro ka?dou tabulku jednotliv? v nastaven? "
+#~ "\">Tablesorter</a>. Tato volba umožňuje čtenářům, aby si mohli sami "
+#~ "interaktivně a libovolně řadit data v tabulce tak, jak potřebují (může "
+#~ "být aktivováno také selektivně pro každou tabulku jednotlivě v nastavení "
 #~ "tabulky)."
 
 #~ msgid "Enter custom CSS"
-#~ msgstr "Vlo?it vlastn? CSS"
+#~ msgstr "Vložit vlastní CSS"
 
 #~ msgid ""
 #~ "You might get a better website performance, if you add the CSS styling to "
 #~ "your theme's \"style.css\" (located at <a href=\"%s\">%s</a>) instead."
 #~ msgstr ""
-#~ "M??ete zv??it v?kon sv?ho webu tak? t?m, ?e vlastn? tabulkov? CSS styly "
-#~ "m?sto do tohoto pole p?id?te p??mo do souboru \"style.css\" ve va?? "
-#~ "?ablon? (tento soubor je um?st?n konkr?tn? zde: <a href=\"%s\">%s</a>)."
+#~ "Můžete zvýšit výkon svého webu také tím, že vlastní tabulkové CSS styly "
+#~ "místo do tohoto pole přidáte přímo do souboru \"style.css\" ve vaší "
+#~ "šabloně (tento soubor je umístěn konkrétně zde: <a href=\"%s\">%s</a>)."
 
 #~ msgid ""
 #~ "See the <a href=\"%s\">plugin website</a> for styling examples or use one "
 #~ "of the following: <a href=\"%s\">Example Style 1</a> <a href=\"%s"
 #~ "\">Example Style 2</a>"
 #~ msgstr ""
-#~ "Pro dal?? informace o CSS stylov?n? tabulek nav?tivte <a href=\"%s"
-#~ "\">str?nky pluginu</a>, nebo pou?ijte p??mo n?kter? z n?sleduj?c?ch "
-#~ "vzor?: <a href=\"%s\">P??klad 1</a>, <a href=\"%s\">P??klad 2</a>."
+#~ "Pro další informace o CSS stylování tabulek navštivte <a href=\"%s"
+#~ "\">stránky pluginu</a>, nebo použijte přímo některý z následujících "
+#~ "vzorů: <a href=\"%s\">Příklad 1</a>, <a href=\"%s\">Příklad 2</a>."
 
 #~ msgid "Just copy the contents of a file into the textarea."
 #~ msgstr ""
-#~ "Sta?? pouze nakop?rovat CSS z?skan? z konkr?tn?ho p??kladu do pole pro "
-#~ "vlo?en? vlastn?ho CSS."
+#~ "Stačí pouze nakopírovat CSS získané z konkrétního příkladu do pole pro "
+#~ "vložení vlastního CSS."
 
 #~ msgid ""
 #~ "Another possibility is, to include a CSS file (e.g. from your theme "
 #~ "folder) with the CSS @import command: %s"
 #~ msgstr ""
-#~ "Dal?? mo?nost? je pak pou?it? vlastn?ho samostatn?ho CSS souboru "
-#~ "(ulo?en?ho nap?. v adres??i va?? ?ablony) pomoc? importn?ho CSS p??kazu: %"
+#~ "Další možností je pak použití vlastního samostatného CSS souboru "
+#~ "(uloženého např. v adresáři vaší šablony) pomocí importního CSS příkazu: %"
 #~ "s"
 
 #~ msgid "Use Tablesorter Extended?"
-#~ msgstr "Pou??t Roz???en? Tablesorter?"
+#~ msgstr "Použít Rozšířený Tablesorter?"
 
 #~ msgid ""
 #~ "Yes, use Extended Tablesorter from <a href=\"http://tablesorter.openwerk."
 #~ "de\">S&ouml;ren Krings</a> instead of original Tablesorter script "
 #~ "(EXPERIMENTAL FEATURE!)."
 #~ msgstr ""
-#~ "Ano, chci pou??t rad?ji Roz???en? Tablesorter, jeho? autorem je <a href="
-#~ "\"http://tablesorter.openwerk.de\">S&ouml;ren Krings</a>, m?sto p?vodn?ho "
-#~ "jQuery skriptu Tablesorter (POZOR: Tato funkce je zat?m v testovac?m "
-#~ "re?imu!)."
+#~ "Ano, chci použít raději Rozšířený Tablesorter, jehož autorem je <a href="
+#~ "\"http://tablesorter.openwerk.de\">S&ouml;ren Krings</a>, místo původního "
+#~ "jQuery skriptu Tablesorter (POZOR: Tato funkce je zatím v testovacím "
+#~ "režimu!)."
 
 #~ msgid ""
 #~ "Yes, uninstall everything when the plugin is deactivated. Attention: You "
 #~ "should only enable this checkbox directly before deactivating the plugin "
 #~ "from the WordPress plugins page!"
 #~ msgstr ""
-#~ "Ano, chci v?echno odinstalovat, pokud bude plugin deaktivov?n. "
-#~ "Upozorn?n?: Tuto mo?nost byste m?li povolit pouze t?sn? p?ed samotnou "
-#~ "deaktivac? tohoto pluginu v P?ehledu plugin?!"
+#~ "Ano, chci všechno odinstalovat, pokud bude plugin deaktivován. "
+#~ "Upozornění: Tuto možnost byste měli povolit pouze těsně před samotnou "
+#~ "deaktivací tohoto pluginu v Přehledu pluginů!"
 
 #~ msgid ""
 #~ "(This setting does not influence the \"Manually Uninstall Plugin\" button "
 #~ "below!)"
 #~ msgstr ""
-#~ "(Toto nastaven? nijak neovliv?uje mo?nost \"Ru?n? odinstalace pluginu\", "
-#~ "kterou m??ete prov?st n??e!)"
+#~ "(Toto nastavení nijak neovlivňuje možnost \"Ruční odinstalace pluginu\", "
+#~ "kterou můžete provést níže!)"
 
 #~ msgid "Allow donation message?"
-#~ msgstr "Povolit upozorn?n? o pen??n?m daru?"
+#~ msgstr "Povolit upozornění o peněžním daru?"
 
 #~ msgid "Yes, show a donation message after 30 days of using the plugin."
 #~ msgstr ""
-#~ "Ano, chci zobrazit informace o mo?nosti pen??n?ho daru po uplynut? 30 dn? "
-#~ "od nainstalov?n? pluginu."
+#~ "Ano, chci zobrazit informace o možnosti peněžního daru po uplynutí 30 dní "
+#~ "od nainstalování pluginu."
 
 #~ msgid "Manually Uninstall Plugin"
-#~ msgstr "Ru?n? odinstalovat plugin"
+#~ msgstr "Ručně odinstalovat plugin"
 
 #~ msgid ""
 #~ "To include the table into your posts, pages or text widgets, write the "
 #~ "shortcode [table id=&lt;table-id&gt;] into them."
 #~ msgstr ""
-#~ "Pro vlo?en? tabulky do p??sp?vku, str?nky nebo textov?ho widgetu pak "
-#~ "sta?? napsat pouze zkr?cen? z?pis [table id=&lt;table-id&gt;]."
+#~ "Pro vložení tabulky do příspěvku, stránky nebo textového widgetu pak "
+#~ "stačí napsat pouze zkrácený zápis [table id=&lt;table-id&gt;]."
 
 #~ msgid ""
 #~ "You may also style your table via CSS. Example files are provided on the "
 #~ "plugin website. Every table has the CSS class \"wp-table-reloaded\". Each "
 #~ "table also has the class \"wp-table-reloaded-&lt;table-id&gt;\"."
 #~ msgstr ""
-#~ "M??ete tak? upravovat zobrazov?n? tabulek pomoc? CSS styl?, konkr?tn? "
-#~ "p??klady naleznete na str?nk?ch pluginu. Ka?d? tabulka m? proto v HTML "
-#~ "p?i?azeny CSS t??dy \"wp-table-reloaded\" a \"wp-table-reloaded-&lt;table-"
+#~ "Můžete také upravovat zobrazování tabulek pomocí CSS stylů, konkrétní "
+#~ "příklady naleznete na stránkách pluginu. Každá tabulka má proto v HTML "
+#~ "přiřazeny CSS třídy \"wp-table-reloaded\" a \"wp-table-reloaded-&lt;table-"
 #~ "id&gt;\"."
 
 #~ msgid ""
@@ -2339,10 +2340,10 @@ msgstr "http://tobias.baethge.com/"
 #~ "number&gt;\" to style rows and columns individually. Use this to style "
 #~ "columns width and text alignment for example."
 #~ msgstr ""
-#~ "M??ete tak? pou??vat CSS t??dy \"column-&lt;number&gt;\" a \"row-&lt;"
-#~ "number&gt;\" pro nastaven? specifick?ho zobrazen? pro konkr?tn? ??dky a "
-#~ "sloupce. Pomoc? t?chto t??d tak? m??ete nastavit nap?. ???ku sloupc? a "
-#~ "zarovn?n? textu v tabulce."
+#~ "Můžete také používat CSS třídy \"column-&lt;number&gt;\" a \"row-&lt;"
+#~ "number&gt;\" pro nastavení specifického zobrazení pro konkrétní řádky a "
+#~ "sloupce. Pomocí těchto tříd také můžete nastavit např. šířku sloupců a "
+#~ "zarovnání textu v tabulce."
 
 #~ msgid ""
 #~ "See the <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-"
@@ -2350,9 +2351,9 @@ msgstr "http://tobias.baethge.com/"
 #~ "get <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-"
 #~ "reloaded-english/support/\">support</a>."
 #~ msgstr ""
-#~ "V p??pad? probl?m? nahl?dn?te do <a href=\"http://tobias.baethge.com/"
-#~ "wordpress-plugins/wp-table-reloaded-english/documentation/\">manu?lu</a>, "
-#~ "nebo se obra?te na autora s ??dost? o <a href=\"http://tobias.baethge.com/"
+#~ "V případě problémů nahlédněte do <a href=\"http://tobias.baethge.com/"
+#~ "wordpress-plugins/wp-table-reloaded-english/documentation/\">manuálu</a>, "
+#~ "nebo se obraťte na autora s žádostí o <a href=\"http://tobias.baethge.com/"
 #~ "wordpress-plugins/wp-table-reloaded-english/support/\">podporu</a>."
 
 #~ msgid ""
@@ -2361,39 +2362,39 @@ msgstr "http://tobias.baethge.com/"
 #~ "<a href=\"http://wordpress.org/extend/plugins/wp-table-reloaded/"
 #~ "\">WordPress Plugin Directory</a>."
 #~ msgstr ""
-#~ "Pokud se V?m plugin l?bil a ?sp??n? ho vyu??v?te, zva?te pros?m mo?nost "
-#~ "<a href=\"http://tobias.baethge.com/donate/\"><strong>pen??n?ho daru</"
-#~ "strong></a> a ohodno?te plugin v <a href=\"http://wordpress.org/extend/"
-#~ "plugins/wp-table-reloaded/\">ofici?ln?m adres??i plugin? Wordpressu</a>."
+#~ "Pokud se Vám plugin líbil a úspěšně ho využíváte, zvažte prosím možnost "
+#~ "<a href=\"http://tobias.baethge.com/donate/\"><strong>peněžního daru</"
+#~ "strong></a> a ohodnoťte plugin v <a href=\"http://wordpress.org/extend/"
+#~ "plugins/wp-table-reloaded/\">oficiálním adresáři pluginů Wordpressu</a>."
 
 #~ msgid "This is the \"List Tables\" screen."
-#~ msgstr "Aktu?ln? se nach?z?te v nab?dce \"Spr?va tabulek\"."
+#~ msgstr "Aktuálně se nacházíte v nabídce \"Správa tabulek\"."
 
 #~ msgid "This is the \"Edit Table\" screen."
-#~ msgstr "Aktu?ln? se nach?z?te v nab?dce \"Upravit tabulku\"."
+#~ msgstr "Aktuálně se nacházíte v nabídce \"Upravit tabulku\"."
 
 #~ msgid "This is the \"Add new Table\" screen."
-#~ msgstr "Aktu?ln? se nach?z?te v nab?dce \"Vytvo?it tabulku\"."
+#~ msgstr "Aktuálně se nacházíte v nabídce \"Vytvořit tabulku\"."
 
 #~ msgid "This is the \"Import a Table\" screen."
-#~ msgstr "Aktu?ln? se nach?z?te v nab?dce \"Importovat tabulku\"."
+#~ msgstr "Aktuálně se nacházíte v nabídce \"Importovat tabulku\"."
 
 #~ msgid "This is the \"Export a Table\" screen."
-#~ msgstr "Aktu?ln? se nach?z?te v nab?dce \"Exportovat tabulku\"."
+#~ msgstr "Aktuálně se nacházíte v nabídce \"Exportovat tabulku\"."
 
 #~ msgid "URL of image to insert"
-#~ msgstr "Vlo?te URL adresu obr?zku"
+#~ msgstr "Vložte URL adresu obrázku"
 
 #, fuzzy
 #~ msgid "&quot;alt&quot; text of the image"
-#~ msgstr "Vlo?te ''alt'' text obr?zku"
+#~ msgstr "Vložte ''alt'' text obrázku"
 
 #~ msgid ""
 #~ "To insert the following image into a cell, just click the cell after "
 #~ "closing this dialog."
 #~ msgstr ""
-#~ "Abyste vlo?ili tento obr?zek do tabulky, tak si po uzav?en? tohoto okna "
-#~ "pomoc? tla??tka OK vyberte konkr?tn? m?sto v tabulce a klikn?te tam."
+#~ "Abyste vložili tento obrázek do tabulky, tak si po uzavření tohoto okna "
+#~ "pomocí tlačítka OK vyberte konkrétní místo v tabulce a klikněte tam."
 
 #~ msgid "Information about the plugin"
 #~ msgstr "Informace o pluginu"
@@ -2403,5 +2404,5 @@ msgstr "http://tobias.baethge.com/"
 
 #~ msgid "(upload will be preferred over pasting)"
 #~ msgstr ""
-#~ "(p?i zpracov?n? dat bude up?ednostn?n vybran? souboru p?ed p??mo "
-#~ "vlo?en?mi daty)"
+#~ "(při zpracování dat bude upřednostněn vybraný souboru před přímo "
+#~ "vloženými daty)"
