@@ -1,4 +1,4 @@
-# Translation of the WordPress plugin WP-Table Reloaded 1.7 by Tobias B&auml;thge.
+# Translation of the WordPress plugin WP-Table Reloaded 1.8 by Tobias B&auml;thge.
 # Copyright (C) 2010 Tobias B&auml;thge
 # This file is distributed under the same license as the WP-Table Reloaded package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: WP-Table Reloaded 1.7\n"
+"Project-Id-Version: WP-Table Reloaded 1.8\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-table-reloaded\n"
-"POT-Creation-Date: 2010-03-16 18:32+0000\n"
+"POT-Creation-Date: 2010-08-05 13:22+0000\n"
 "PO-Revision-Date: 2010-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -135,63 +135,75 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
-#: classes/render.class.php:140 views/view-list.php:60
+#: classes/render.class.php:141 views/view-list.php:60
 msgid "Edit"
 msgstr ""
 
 #: controllers/controller-admin.php:256
-msgid "Czech"
+msgid "Belarusian"
 msgstr ""
 
 #: controllers/controller-admin.php:257
-msgid "German"
+msgid "Czech"
 msgstr ""
 
 #: controllers/controller-admin.php:258
-msgid "English"
+msgid "German"
 msgstr ""
 
 #: controllers/controller-admin.php:259
-msgid "Spanish"
+msgid "English"
 msgstr ""
 
 #: controllers/controller-admin.php:260
-msgid "Finnish"
+msgid "Spanish"
 msgstr ""
 
 #: controllers/controller-admin.php:261
-msgid "French"
+msgid "Finnish"
 msgstr ""
 
 #: controllers/controller-admin.php:262
-msgid "Hindi"
+msgid "French"
 msgstr ""
 
 #: controllers/controller-admin.php:263
-msgid "Italian"
+msgid "Hindi"
 msgstr ""
 
 #: controllers/controller-admin.php:264
-msgid "Japanese"
+msgid "Italian"
 msgstr ""
 
 #: controllers/controller-admin.php:265
-msgid "Brazilian Portuguese"
+msgid "Japanese"
 msgstr ""
 
 #: controllers/controller-admin.php:266
-msgid "Russian"
+msgid "Polish"
 msgstr ""
 
 #: controllers/controller-admin.php:267
-msgid "Slovak"
+msgid "Brazilian Portuguese"
 msgstr ""
 
 #: controllers/controller-admin.php:268
-msgid "Swedish"
+msgid "Russian"
 msgstr ""
 
 #: controllers/controller-admin.php:269
+msgid "Slovak"
+msgstr ""
+
+#: controllers/controller-admin.php:270
+msgid "Swedish"
+msgstr ""
+
+#: controllers/controller-admin.php:271
+msgid "Ukrainian"
+msgstr ""
+
+#: controllers/controller-admin.php:272
 msgid "Chinese (Simplified)"
 msgstr ""
 
@@ -211,8 +223,7 @@ msgstr ""
 #: controllers/controller-admin.php:303
 msgid ""
 "This version includes several enhancements, like an updated DataTables "
-"library, a &quot;Table&quot; button in the toolbar of the visual editor, and "
-"several other things."
+"library, several enhancements to certain features and a few small bug fixes."
 msgstr ""
 
 #: controllers/controller-admin.php:303
@@ -300,209 +311,209 @@ msgstr ""
 msgid "Columns swapped successfully."
 msgstr ""
 
-#: controllers/controller-admin.php:481
+#: controllers/controller-admin.php:493
 msgid "Table sorted successfully."
 msgstr ""
 
-#: controllers/controller-admin.php:502
+#: controllers/controller-admin.php:514
 msgid "Row moved successfully."
 msgstr ""
 
-#: controllers/controller-admin.php:527
+#: controllers/controller-admin.php:539
 msgid "Column moved successfully."
 msgstr ""
 
-#: controllers/controller-admin.php:535
+#: controllers/controller-admin.php:547
 msgid "Row could not be deleted."
 msgid_plural "Rows could not be deleted."
 msgstr[0] ""
 msgstr[1] ""
 
-#: controllers/controller-admin.php:544
+#: controllers/controller-admin.php:556
 msgid "Row deleted successfully."
 msgid_plural "Rows deleted successfully."
 msgstr[0] ""
 msgstr[1] ""
 
-#: controllers/controller-admin.php:554
+#: controllers/controller-admin.php:566
 msgid "Column could not be deleted."
 msgid_plural "Columns could not be deleted."
 msgstr[0] ""
 msgstr[1] ""
 
-#: controllers/controller-admin.php:567
+#: controllers/controller-admin.php:579
 msgid "Column deleted successfully."
 msgid_plural "Columns deleted successfully."
 msgstr[0] ""
 msgstr[1] ""
 
-#: controllers/controller-admin.php:590
+#: controllers/controller-admin.php:602
 msgid "Row inserted successfully."
 msgid_plural "Rows inserted successfully."
 msgstr[0] ""
 msgstr[1] ""
 
-#: controllers/controller-admin.php:617
+#: controllers/controller-admin.php:629
 msgid "Column inserted successfully."
 msgid_plural "Columns inserted successfully."
 msgstr[0] ""
 msgstr[1] ""
 
-#: controllers/controller-admin.php:632
+#: controllers/controller-admin.php:644
 msgid "Row added successfully."
 msgid_plural "Rows added successfully."
 msgstr[0] ""
 msgstr[1] ""
 
-#: controllers/controller-admin.php:646
+#: controllers/controller-admin.php:658
 msgid "Column added successfully."
 msgid_plural "Columns added successfully."
 msgstr[0] ""
 msgstr[1] ""
 
-#: controllers/controller-admin.php:653
+#: controllers/controller-admin.php:665
 msgid "Could not add Custom Data Field, because you did not enter a name."
 msgstr ""
 
-#: controllers/controller-admin.php:658
+#: controllers/controller-admin.php:670
 msgid ""
 "Could not add Custom Data Field, because the name you entered is reserved "
 "for other table data."
 msgstr ""
 
-#: controllers/controller-admin.php:664
+#: controllers/controller-admin.php:676
 msgid ""
 "Could not add Custom Data Field, because the name contained illegal "
 "characters."
 msgstr ""
 
-#: controllers/controller-admin.php:668
+#: controllers/controller-admin.php:680
 msgid ""
 "Could not add Custom Data Field, because a Field with that name already "
 "exists."
 msgstr ""
 
-#: controllers/controller-admin.php:674
+#: controllers/controller-admin.php:686
 msgid "Custom Data Field added successfully."
 msgstr ""
 
-#: controllers/controller-admin.php:714 controllers/controller-admin.php:770
+#: controllers/controller-admin.php:726 controllers/controller-admin.php:782
 msgid "Copy of"
 msgstr ""
 
-#: controllers/controller-admin.php:718
+#: controllers/controller-admin.php:730
 msgid "Table copied successfully."
 msgid_plural "Tables copied successfully."
 msgstr[0] ""
 msgstr[1] ""
 
-#: controllers/controller-admin.php:724
+#: controllers/controller-admin.php:736
 msgid "Table deleted successfully."
 msgid_plural "Tables deleted successfully."
 msgstr[0] ""
 msgstr[1] ""
 
-#: controllers/controller-admin.php:745 controllers/controller-admin.php:900
-#: controllers/controller-admin.php:938
+#: controllers/controller-admin.php:757 controllers/controller-admin.php:912
+#: controllers/controller-admin.php:950
 msgid "Table imported successfully."
 msgid_plural "Tables imported successfully."
 msgstr[0] ""
 msgstr[1] ""
 
-#: controllers/controller-admin.php:752
+#: controllers/controller-admin.php:764
 msgid "You did not select any tables!"
 msgstr ""
 
-#: controllers/controller-admin.php:775
+#: controllers/controller-admin.php:787
 #, php-format
 msgid "Table &quot;%s&quot; copied successfully."
 msgstr ""
 
-#: controllers/controller-admin.php:793
+#: controllers/controller-admin.php:805
 #, php-format
 msgid "Table &quot;%s&quot; deleted successfully."
 msgstr ""
 
-#: controllers/controller-admin.php:801
+#: controllers/controller-admin.php:813
 msgid "Custom Data Field deleted successfully."
 msgstr ""
 
-#: controllers/controller-admin.php:803
+#: controllers/controller-admin.php:815
 msgid "Custom Data Field could not be deleted."
 msgstr ""
 
-#: controllers/controller-admin.php:809
+#: controllers/controller-admin.php:821
 msgid "Delete failed."
 msgstr ""
 
-#: controllers/controller-admin.php:841 controllers/controller-admin.php:851
-#: controllers/controller-admin.php:862
+#: controllers/controller-admin.php:853 controllers/controller-admin.php:863
+#: controllers/controller-admin.php:874
 msgid "Imported Table"
 msgstr ""
 
-#: controllers/controller-admin.php:842 controllers/controller-admin.php:863
+#: controllers/controller-admin.php:854 controllers/controller-admin.php:875
 #, php-format
 msgid "from %s"
 msgstr ""
 
-#: controllers/controller-admin.php:852
+#: controllers/controller-admin.php:864
 msgid "via form"
 msgstr ""
 
-#: controllers/controller-admin.php:879 controllers/controller-admin.php:916
+#: controllers/controller-admin.php:891 controllers/controller-admin.php:928
 msgid "Table could not be imported."
 msgstr ""
 
-#: controllers/controller-admin.php:896
+#: controllers/controller-admin.php:908
 #, php-format
 msgid "Table %s (%s) replaced successfully."
 msgstr ""
 
-#: controllers/controller-admin.php:946 controllers/controller-admin.php:1139
+#: controllers/controller-admin.php:958 controllers/controller-admin.php:1151
 msgid "You do not have sufficient rights to perform this action."
 msgstr ""
 
-#: controllers/controller-admin.php:953
+#: controllers/controller-admin.php:965
 msgid "You did not upload a WP-Table Reloaded dump file."
 msgstr ""
 
-#: controllers/controller-admin.php:962
+#: controllers/controller-admin.php:974
 msgid "The uploaded dump file is empty. Please upload a valid dump file."
 msgstr ""
 
-#: controllers/controller-admin.php:991
+#: controllers/controller-admin.php:1003
 msgid "All Tables, Settings and Options were successfully imported."
 msgstr ""
 
-#: controllers/controller-admin.php:1020
+#: controllers/controller-admin.php:1032
 #, php-format
 msgid "Table &quot;%s&quot; exported successfully."
 msgstr ""
 
-#: controllers/controller-admin.php:1065 views/view-options.php:232
+#: controllers/controller-admin.php:1077 views/view-options.php:232
 msgid "You do not have sufficient rights to access the Plugin Options."
 msgstr ""
 
-#: controllers/controller-admin.php:1120
+#: controllers/controller-admin.php:1132
 msgid "Options saved successfully."
 msgstr ""
 
-#: controllers/controller-admin.php:1123
+#: controllers/controller-admin.php:1135
 #, php-format
 msgid "<a href=\"%s\">Click here to Proceed.</a>"
 msgstr ""
 
-#: controllers/controller-admin.php:1189
+#: controllers/controller-admin.php:1201
 msgid "There is no table with this ID!"
 msgstr ""
 
-#: controllers/controller-admin.php:1226
+#: controllers/controller-admin.php:1238
 msgid ""
 "Thank you very much! Your donation is highly appreciated. You just "
 "contributed to the further development of WP-Table Reloaded!"
 msgstr ""
 
-#: controllers/controller-admin.php:1228
+#: controllers/controller-admin.php:1240
 #, php-format
 msgid ""
 "No problem! I still hope you enjoy the benefits that WP-Table Reloaded "
@@ -511,290 +522,290 @@ msgid ""
 "a>."
 msgstr ""
 
-#: controllers/controller-admin.php:1228 controllers/controller-admin.php:1656
+#: controllers/controller-admin.php:1240 controllers/controller-admin.php:1670
 msgid "Donate"
 msgstr ""
 
-#: controllers/controller-admin.php:1251 controllers/controller-admin.php:1258
+#: controllers/controller-admin.php:1263 controllers/controller-admin.php:1270
 msgid "List of Tables"
 msgstr ""
 
-#. #-#-#-#-#  plugin.pot (WP-Table Reloaded 1.7)  #-#-#-#-#
+#. #-#-#-#-#  plugin.pot (WP-Table Reloaded 1.8)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
-#: controllers/controller-admin.php:1251 controllers/controller-admin.php:1255
-#: controllers/controller-admin.php:1257
+#: controllers/controller-admin.php:1263 controllers/controller-admin.php:1267
+#: controllers/controller-admin.php:1269
 msgid "WP-Table Reloaded"
 msgstr ""
 
-#: controllers/controller-admin.php:1252 controllers/controller-admin.php:1288
+#: controllers/controller-admin.php:1264 controllers/controller-admin.php:1300
 msgid "Add new Table"
 msgstr ""
 
-#: controllers/controller-admin.php:1253 controllers/controller-admin.php:1289
+#: controllers/controller-admin.php:1265 controllers/controller-admin.php:1301
 msgid "Import a Table"
 msgstr ""
 
-#: controllers/controller-admin.php:1254 controllers/controller-admin.php:1290
+#: controllers/controller-admin.php:1266 controllers/controller-admin.php:1302
 msgid "Export a Table"
 msgstr ""
 
-#: controllers/controller-admin.php:1255 controllers/controller-admin.php:1296
+#: controllers/controller-admin.php:1267 controllers/controller-admin.php:1309
 #: views/view-edit.php:342 views/view-edit.php:357 views/view-export.php:10
 msgid "Plugin Options"
 msgstr ""
 
-#: controllers/controller-admin.php:1256
+#: controllers/controller-admin.php:1268
 msgid "About WP-Table Reloaded"
 msgstr ""
 
-#: controllers/controller-admin.php:1264
+#: controllers/controller-admin.php:1276
 #, php-format
 msgid "Edit Table &quot;%s&quot; (ID %s)"
 msgstr ""
 
-#: controllers/controller-admin.php:1265
+#: controllers/controller-admin.php:1277
 #, php-format
 msgid "Preview of Table &quot;%s&quot; (ID %s)"
 msgstr ""
 
-#: controllers/controller-admin.php:1287
+#: controllers/controller-admin.php:1299
 msgid "List Tables"
 msgstr ""
 
-#: controllers/controller-admin.php:1297
+#: controllers/controller-admin.php:1310
 msgid "About the plugin"
 msgstr ""
 
-#: controllers/controller-admin.php:1652
+#: controllers/controller-admin.php:1666
 msgid "WP-Table Reloaded Plugin Page"
 msgstr ""
 
-#: controllers/controller-admin.php:1652
+#: controllers/controller-admin.php:1666
 msgid "Plugin Page"
 msgstr ""
 
-#: controllers/controller-admin.php:1653
+#: controllers/controller-admin.php:1667
 msgid "Frequently Asked Questions"
 msgstr ""
 
-#: controllers/controller-admin.php:1653
+#: controllers/controller-admin.php:1667
 msgid "FAQ"
 msgstr ""
 
-#: controllers/controller-admin.php:1654
+#: controllers/controller-admin.php:1668
 msgid "Support"
 msgstr ""
 
-#: controllers/controller-admin.php:1655
+#: controllers/controller-admin.php:1669
 msgid "Plugin Documentation"
 msgstr ""
 
-#: controllers/controller-admin.php:1655
+#: controllers/controller-admin.php:1669
 msgid "Documentation"
 msgstr ""
 
-#: controllers/controller-admin.php:1656
+#: controllers/controller-admin.php:1670
 msgid "Support WP-Table Reloaded with your donation!"
 msgstr ""
 
-#: controllers/controller-admin.php:1695
+#: controllers/controller-admin.php:1709
 msgid ""
 "Do you really want to activate this? You should only do that right before "
 "uninstallation!"
 msgstr ""
 
-#: controllers/controller-admin.php:1696
+#: controllers/controller-admin.php:1710
 msgid "URL of link to insert"
 msgstr ""
 
-#: controllers/controller-admin.php:1697
+#: controllers/controller-admin.php:1711
 msgid "Text of link"
 msgstr ""
 
-#: controllers/controller-admin.php:1698
+#: controllers/controller-admin.php:1712
 msgid ""
 "To insert the following HTML code for a link into a cell, just click the "
 "cell after closing this dialog."
 msgstr ""
 
-#: controllers/controller-admin.php:1699
+#: controllers/controller-admin.php:1713
 msgid ""
 "To insert an image, click &quot;OK&quot; and then click into the cell into "
 "which you want to insert the image."
 msgstr ""
 
-#: controllers/controller-admin.php:1699
+#: controllers/controller-admin.php:1713
 msgid ""
 "The Media Library will open, from which you can select the desired image or "
 "insert the image URL."
 msgstr ""
 
-#: controllers/controller-admin.php:1699
+#: controllers/controller-admin.php:1713
 #, php-format
 msgid "Click the &quot;%s&quot; button to insert the image."
 msgstr ""
 
-#: controllers/controller-admin.php:1699
+#: controllers/controller-admin.php:1713
 msgid "Insert into Post"
 msgstr ""
 
-#: controllers/controller-admin.php:1700
+#: controllers/controller-admin.php:1714
 msgid ""
 "To combine cells within a row, click into the cell to the right of the cell "
 "that has the content the combined cells shall have."
 msgstr ""
 
-#: controllers/controller-admin.php:1701
+#: controllers/controller-admin.php:1715
 msgid ""
 "To combine cells within a column, click into the cell below the cell that "
 "has the content the combined cells shall have."
 msgstr ""
 
-#: controllers/controller-admin.php:1702
+#: controllers/controller-admin.php:1716
 msgid "Do you want to copy the selected tables?"
 msgstr ""
 
-#: controllers/controller-admin.php:1703
+#: controllers/controller-admin.php:1717
 msgid ""
 "The selected tables and all content will be erased. Do you really want to "
 "delete them?"
 msgstr ""
 
-#: controllers/controller-admin.php:1704
+#: controllers/controller-admin.php:1718
 msgid ""
 "Do you really want to import the selected tables from the wp-Table plugin?"
 msgstr ""
 
-#: controllers/controller-admin.php:1705
+#: controllers/controller-admin.php:1719
 msgid "Do you want to copy this table?"
 msgstr ""
 
-#: controllers/controller-admin.php:1706
+#: controllers/controller-admin.php:1720
 msgid ""
 "The complete table and all content will be erased. Do you really want to "
 "delete it?"
 msgstr ""
 
-#: controllers/controller-admin.php:1707
+#: controllers/controller-admin.php:1721
 msgid "Do you really want to delete the selected rows?"
 msgstr ""
 
-#: controllers/controller-admin.php:1708
+#: controllers/controller-admin.php:1722
 msgid "Do you really want to delete the selected columns?"
 msgstr ""
 
-#: controllers/controller-admin.php:1709 controllers/controller-admin.php:1713
-#: controllers/controller-admin.php:1715
+#: controllers/controller-admin.php:1723 controllers/controller-admin.php:1727
+#: controllers/controller-admin.php:1729
 msgid "You have not selected any rows."
 msgstr ""
 
-#: controllers/controller-admin.php:1710 controllers/controller-admin.php:1714
-#: controllers/controller-admin.php:1716
+#: controllers/controller-admin.php:1724 controllers/controller-admin.php:1728
+#: controllers/controller-admin.php:1730
 msgid "You have not selected any columns."
 msgstr ""
 
-#: controllers/controller-admin.php:1711
+#: controllers/controller-admin.php:1725
 msgid "You can not delete all rows of the table at once!"
 msgstr ""
 
-#: controllers/controller-admin.php:1712
+#: controllers/controller-admin.php:1726
 msgid "You can not delete all columns of the table at once!"
 msgstr ""
 
-#: controllers/controller-admin.php:1717
+#: controllers/controller-admin.php:1731
 msgid "Do you really want to import this table from the wp-Table plugin?"
 msgstr ""
 
-#: controllers/controller-admin.php:1718
+#: controllers/controller-admin.php:1732
 msgid "Do you really want to uninstall the plugin and delete ALL data?"
 msgstr ""
 
-#: controllers/controller-admin.php:1719
+#: controllers/controller-admin.php:1733
 msgid "Are you really sure?"
 msgstr ""
 
-#: controllers/controller-admin.php:1720
+#: controllers/controller-admin.php:1734
 msgid "Do you really want to change the ID of the table?"
 msgstr ""
 
-#: controllers/controller-admin.php:1721
+#: controllers/controller-admin.php:1735
 msgid "To show this Custom Data Field, use this shortcode:"
 msgstr ""
 
-#: controllers/controller-admin.php:1722
+#: controllers/controller-admin.php:1736
 msgid "To show this table, use this shortcode:"
 msgstr ""
 
-#: controllers/controller-admin.php:1723
+#: controllers/controller-admin.php:1737
 msgid ""
 "Warning: You will lose all current Tables and Settings! You should create a "
 "backup first. Be warned!"
 msgstr ""
 
-#: controllers/controller-admin.php:1724
+#: controllers/controller-admin.php:1738
 msgid ""
 "You have made changes to the content of this table and not yet saved them."
 msgstr ""
 
-#: controllers/controller-admin.php:1724
+#: controllers/controller-admin.php:1738
 #, php-format
 msgid ""
 "You should first click &quot;%s&quot; or they will be lost if you navigate "
 "away from this page."
 msgstr ""
 
-#: controllers/controller-admin.php:1724 views/view-edit.php:41
+#: controllers/controller-admin.php:1738 views/view-edit.php:41
 #: views/view-edit.php:253 views/view-edit.php:405 views/view-edit.php:456
 msgid "Update Changes"
 msgstr ""
 
-#: controllers/controller-admin.php:1767 views/view-about.php:14
+#: controllers/controller-admin.php:1781 views/view-about.php:14
 #: views/view-list.php:2
 msgid "Table"
 msgstr ""
 
-#: controllers/controller-admin.php:1768
+#: controllers/controller-admin.php:1782
 msgid "Insert a Table"
 msgstr ""
 
-#: controllers/controller-admin.php:1829
+#: controllers/controller-admin.php:1843
 msgid "Please wait..."
 msgstr ""
 
-#: controllers/controller-admin.php:1830
+#: controllers/controller-admin.php:1844
 msgid "Show _MENU_ Tables"
 msgstr ""
 
-#: controllers/controller-admin.php:1831 views/view-ajax_list.php:53
+#: controllers/controller-admin.php:1845 views/view-ajax_list.php:53
 #: views/view-export.php:71 views/view-list.php:88
 msgid "No tables were found."
 msgstr ""
 
-#: controllers/controller-admin.php:1832
+#: controllers/controller-admin.php:1846
 msgid "_START_ to _END_ of _TOTAL_ Tables"
 msgstr ""
 
-#: controllers/controller-admin.php:1833
+#: controllers/controller-admin.php:1847
 msgid "(filtered from _MAX_ Tables)"
 msgstr ""
 
-#: controllers/controller-admin.php:1834
+#: controllers/controller-admin.php:1848
 msgid "Filter:"
 msgstr ""
 
-#: controllers/controller-admin.php:1835
+#: controllers/controller-admin.php:1849
 msgid "First"
 msgstr ""
 
-#: controllers/controller-admin.php:1836
+#: controllers/controller-admin.php:1850
 msgid "Back"
 msgstr ""
 
-#: controllers/controller-admin.php:1837
+#: controllers/controller-admin.php:1851
 msgid "Next"
 msgstr ""
 
-#: controllers/controller-admin.php:1838
+#: controllers/controller-admin.php:1852
 msgid "Last"
 msgstr ""
 
