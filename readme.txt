@@ -3,7 +3,7 @@ Contributors: TobiasBg
 Donate link: http://tobias.baethge.com/donate/
 Tags: html,table,data,editor,csv,import,export,excel,widget,admin,sidebar
 Requires at least: 2.8
-Tested up to: 3.0
+Tested up to: 3.0.1
 Stable tag: 1.7
 
 WP-Table Reloaded lets you manage tables in a comfortable backend in WP's admin area, without any knowledge of HTML, and can add valuable features.
@@ -61,7 +61,7 @@ If you find a bug or have a feature request, please don't hesitate to tell me ab
 You would help a lot if you could add an issue ticket in the [issue tracker on Google Code](http://code.google.com/p/wp-table-reloaded/).
 Feature requests may also posted in the comments on the plugin website.
 
-For other help or support questions (especially with CSS), please use the [WordPress Support Forums](http://wordpress.org/support/). Please [open a new topic](http://wordpress.org/tags/wp-table-reloaded) there (with the tag "wp-table-reloaded") and email me a link to the thread (or post it as a comment on the plugin website). Thank you!
+For other help or support questions, please use the [WordPress Support Forums](http://wordpress.org/tags/wp-table-reloaded). Please [search](http://wordpress.org/support/) through the forums first, then [open a new thread](http://wordpress.org/tags/wp-table-reloaded) (with the tag "wp-table-reloaded"). Thank you!
 You may also make feature requests using this method! Don't be shy!
 
 = Requirements? =
@@ -95,9 +95,8 @@ You may also add certain features (like sorting, pagination, filtering, alternat
 == Acknowledgements ==
 
 Thanks go to [Alex Rabe](http://alexrabe.boelinger.com/) for the initial wp-Table plugin!
-Thanks go to [Allan Jardine](http://www.datatables.net/) for the DataTables-jQuery-plugin.
-Thanks go to [Christian Bach](http://tablesorter.com/docs/) for the TableSorter-jQuery-plugin.
-Thanks go to [S&ouml;ren Krings](http://tablesorter.openwerk.de/) for the TableSorter-Extended-jQuery-plugin.
+Special thanks go to [Allan Jardine](http://www.datatables.net/) for the DataTables-jQuery-plugin.
+Thanks go to [Christian Bach](http://tablesorter.com/docs/) for the TableSorter-jQuery-plugin and to [S&ouml;ren Krings](http://tablesorter.openwerk.de/) for the TableSorter-Extended-jQuery-plugin.
 Thanks to all language file translators!
 Thanks to every donor, supporter and bug reporter!
 
@@ -110,8 +109,22 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 
 == Changelog ==
 
-= Version 1.7.1 =
-* languages: added Polish and Belorussian
+= Version 1.8 =
+* feature: Updated JavaScript libraries to DataTables 1.7 and TableTools 1.1.4
+* enhancement: Template tag functions now accept strings and arrays for passing parameters
+* enhancement: Backwards compatibility for deprecated functions, don't use deprecated functions anymore
+* enhancement: Sort on "Edit" screen no longer moves header or footer row, if they are activated
+* enhancement: Added plugin filter hook to change table content prior to rendering
+* enhancement: Added "summary" attribute filter for <table> HTML element
+* enhancement: RTL-languages supported in frontend CSS
+* enhancement: Adjusted default CSS for new default theme "TwentyTen"
+* bugfix: Fixed search to not find table IDs with the same beginning
+* bugfix: Fixed problem with certain call-by-reference functions in certain versions of PHP
+* bugfix: valid HTML on "Plugin Options" screen
+* bugfix: Fixed notice due to not initialized variable
+* bugfix: Fixed DataTables translations for Danish and Norwegian
+* languages: Added Polish and Belarusian
+* languages: Added Romanian for DataTables
 
 = Version 1.7 =
 * feature: add "Table" button to the visual editor (TinyMCE)
@@ -221,8 +234,8 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 
 == Upgrade Notice ==
 
-= 1.7.1 =
-This upgrade makes WP-Table Reloaded ready for WordPress 3.0. It also adds Polish and Belorussian translations.
+= 1.8 =
+This upgrade includes an updated DataTables library, enhances several features and fixes a few small issues. 
 
 = 1.7 =
 This upgrade includes an updated DataTables library, adds a "Table" button in the toolbar of the visual editor, and enhances several other things.
