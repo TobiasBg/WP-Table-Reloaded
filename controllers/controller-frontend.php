@@ -449,6 +449,22 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
             if ( !empty( $url_css_plugin ) )
                 $default_css['plugin.css'] = "@import url(\"{$url_css_plugin}\");";
 
+            // is_rtl was introduced in WP 3.0, for other versions we need to provide it here
+            if ( !function_exists( 'is_rtl' ) ) {
+                function is_rtl() {
+                    global $wp_locale;
+                    $is_rtl = isset( $wp_locale ) && isset( $wp_locale->text_direction ) && ( 'rtl' == $wp_locale->text_direction );
+                    return $is_rtl;
+                }
+            }
+            // RTL languages support
+            if ( is_rtl() ) {
+                $url_css_rtl_plugin = $plugin_path . 'css/plugin.rtl.css' . '?ver=' . $this->options['installed_version'];
+                $url_css_rtl_plugin = apply_filters( 'wp_table_reloaded_url_css_rtl_plugin', $url_css_rtl_plugin );
+                if ( !empty( $url_css_rtl_plugin ) )
+                    $default_css['plugin.rtl.css'] = "@import url(\"{$url_css_rtl_plugin}\");";
+            }
+
             if ( $this->options['enable_tablesorter'] ) {
                 switch ( $this->options['tablesorter_script'] ) {
                     case 'datatables-tabletools':
