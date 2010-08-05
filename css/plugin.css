@@ -17,6 +17,7 @@
 	background-color: #E6EEEE;
 	border: 1px solid #FFFFFF;
 	padding: 4px;
+	color: #3D3D3D!important;
 }
 .wp-table-reloaded td {
 	color: #3D3D3D;
@@ -31,7 +32,7 @@
 	background-color: #F0F0F6;
 }
 .wp-table-reloaded .row-hover tr:hover td {
-	background-color: #D0D0D6;
+	background-color: #D0D0D6!important;
 }
 .wp-table-reloaded-table-description {
 	clear: both;
