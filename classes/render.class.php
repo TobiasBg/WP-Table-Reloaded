@@ -227,7 +227,7 @@ class WP_Table_Reloaded_Render {
                 $col_class .= " rowspan-{$this->rowspan[ $col_idx ]}";
             }
 
-            $col_class = apply_filters( 'wp_table_reloaded_cell_css_class', $col_class, $table_id, $row_idx + 1, $col_idx + 1, $this->colspan[ $row_idx ], $this->rowspan[ $col_idx ] );
+            $col_class = apply_filters( 'wp_table_reloaded_cell_css_class', $col_class, $table_id, $row_idx + 1, $col_idx + 1, $this->colspan[ $row_idx ], $this->rowspan[ $col_idx ], $cell_content );
             $class_attr = ( !empty( $col_class ) ) ? " class=\"{$col_class}\"" : '';
             $style_attr = ( ( 0 == $row_idx ) && !empty( $this->output_options['column_widths'][$col_idx] ) ) ? " style=\"width:{$this->output_options['column_widths'][$col_idx]};\"" : '';
 
