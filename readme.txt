@@ -3,7 +3,7 @@ Contributors: TobiasBg
 Donate link: http://tobias.baethge.com/donate/
 Tags: html,table,data,editor,csv,import,export,excel,widget,admin,sidebar
 Requires at least: 2.8
-Tested up to: 3.0.1
+Tested up to: 3.1
 Stable tag: 1.8
 
 WP-Table Reloaded lets you manage tables in a comfortable backend in WP's admin area, without any knowledge of HTML, and can add valuable features.
@@ -71,7 +71,7 @@ In short: WordPress 2.8 or higher
 = Languages and Localization? =
 
 The plugin currently includes the following languages:
-Belarusian, Brazilian Portuguese, Chinese (Simplified), Czech, English, Finnish, French, German, Hindi, Italian, Japanese, Polish, Russian, Slovak, Spanish, Swedish, and Ukrainian.
+Belarusian, Brazilian Portuguese, Chinese (Simplified), Czech, Dutch, English, Finnish, French, German, Hindi, Italian, Japanese, Polish, Russian, Slovak, Spanish, Swedish, and Ukrainian.
 
 I'd really appreciate it, if you would translate the plugin into your language! Using Heiko Rabe's WordPress plugin [Codestyling Localization](http://www.code-styling.de/english/development/wordpress-plugin-codestyling-localization-en/) that really is as easy as pie. Just install the plugin, add your language, create the .po-file, translate the strings in the comfortable editor and create the .mo-file. It will automatically be saved in WP-Table Reloaded's plugin folder. If you send me the .mo- and .po-file, I will gladly include them into future plugin releases.
 There is also a .pot-file available to use in the "languages" subfolder. Of course you can also use poEdit as your editor, which also works nicely.
@@ -108,6 +108,10 @@ I kindly ask you for link somewhere on your website to http://tobias.baethge.com
 I'm also happy about [donations](http://tobias.baethge.com/donate/) or something from [my wishlist](http://tobias.baethge.com/wishlist)! Thanks!
 
 == Changelog ==
+
+= Version 1.9 =
+* feature: Updated DataTables JavaScript library to 1.7.5
+* languages: Added Dutch
 
 = Version 1.8 =
 * feature: Updated JavaScript libraries to DataTables 1.7 and TableTools 1.1.4
