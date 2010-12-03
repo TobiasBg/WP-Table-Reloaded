@@ -163,7 +163,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
             $doing_ajax = true;
         }
 
-        // if we are not doing AJAX, so we call the main plugin handler
+        // we are not doing AJAX, so we call the main plugin handler
         if ( !$doing_ajax ) {
             add_action( 'admin_menu', array( &$this, 'add_manage_page' ) );
 
