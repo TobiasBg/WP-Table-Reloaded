@@ -55,6 +55,7 @@
                     'hi_IN' => '<a href="http://outshinesolutions.com/">Outshine Solutions</a>',
                     'it_IT' => '<a href="http://www.scrical.it/">Gabriella Mazzon</a>',
                     'ja'    => '<a href="http://www.u-1.net/">Yuuichi</a>',
+                    'nl_NL' => '<a href="http://http://www.siteoptimo.com/blog/">Pieter Carette</a>',
                     'pl_PL' => '<a href="http://www.projektowaniestronwww.net/">Projektowanie Stron WWW</a>',
                     'pt_BR' => '<a href="http://www.pensarics.com/">Rics</a>',
                     'ru_RU' => '<a href="http://www.wordpress4you.com/">WordPress4You</a>',
