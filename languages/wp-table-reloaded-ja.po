@@ -546,11 +546,11 @@ msgstr "投稿に挿入する"
 
 #: controllers/controller-admin.php:1700
 msgid "To combine cells within a row, click into the cell to the right of the cell that has the content the combined cells shall have."
-msgstr "列に含まれるセルを結合するには、セルの右側をクリックしてください。"
+msgstr "行に含まれるセルを結合するには、セルの右側をクリックしてください。"
 
 #: controllers/controller-admin.php:1701
 msgid "To combine cells within a column, click into the cell below the cell that has the content the combined cells shall have."
-msgstr "行に含まれるセルを結合するには、セルの右側をクリックしてください。"
+msgstr "列に含まれるセルを結合するには、セルの右側をクリックしてください。"
 
 #: controllers/controller-admin.php:1702
 msgid "Do you want to copy the selected tables?"
@@ -574,31 +574,31 @@ msgstr "すべてのテーブルとすべての内容が削除されます。本
 
 #: controllers/controller-admin.php:1707
 msgid "Do you really want to delete the selected rows?"
-msgstr "選択された列を本当に削除してもよいですか？"
+msgstr "選択された行を本当に削除してもよいですか？"
 
 #: controllers/controller-admin.php:1708
 msgid "Do you really want to delete the selected columns?"
-msgstr "選択された行を本当に削除してもよいですか？"
+msgstr "選択された列を本当に削除してもよいですか？"
 
 #: controllers/controller-admin.php:1709
 #: controllers/controller-admin.php:1713
 #: controllers/controller-admin.php:1715
 msgid "You have not selected any rows."
-msgstr "どの列も選択されていません。"
+msgstr "どの行も選択されていません。"
 
 #: controllers/controller-admin.php:1710
 #: controllers/controller-admin.php:1714
 #: controllers/controller-admin.php:1716
 msgid "You have not selected any columns."
-msgstr "どの行も選択されていません。"
+msgstr "どの列も選択されていません。"
 
 #: controllers/controller-admin.php:1711
 msgid "You can not delete all rows of the table at once!"
-msgstr "一回の作業ですべての列を削除することはできません!"
+msgstr "一回の作業ですべての行を削除することはできません!"
 
 #: controllers/controller-admin.php:1712
 msgid "You can not delete all columns of the table at once!"
-msgstr "一回の作業ですべての行を削除することはできません!"
+msgstr "一回の作業ですべての列を削除することはできません!"
 
 #: controllers/controller-admin.php:1717
 msgid "Do you really want to import this table from the wp-Table plugin?"
@@ -885,11 +885,11 @@ msgstr "プラグインはインストールされました。"
 
 #: views/view-add.php:4
 msgid "To add a new table, enter its name, a description (optional) and the number of rows and columns."
-msgstr "新しいテーブルを追加するためには、　テーブル名と説明文（オプション）、列数と行数を入力してください。"
+msgstr "新しいテーブルを追加するためには、　テーブル名と説明文（オプション）、行数と列数を入力してください。"
 
 #: views/view-add.php:4
 msgid "You may also add, insert or delete rows and columns later."
-msgstr "テーブルを作成した後でも列や行を追加したり、挿入したり削除したりできます。"
+msgstr "テーブルを作成した後でも行や列を追加したり、挿入したり削除したりできます。"
 
 #: views/view-add.php:13
 #: views/view-ajax_list.php:14
@@ -924,11 +924,11 @@ msgstr "説明文を入力"
 
 #: views/view-add.php:21
 msgid "Number of Rows"
-msgstr "列の数"
+msgstr "行の数"
 
 #: views/view-add.php:25
 msgid "Number of Columns"
-msgstr "行の数"
+msgstr "列の数"
 
 #: views/view-add.php:32
 msgid "Add Table"
@@ -988,7 +988,7 @@ msgstr "このページで、テーブルの内容を編集できます。"
 
 #: views/view-edit.php:8
 msgid "It is also possible to change the table structure by inserting, deleting, moving, and swapping columns and rows."
-msgstr "列や行を挿入、削除、移動、または入れ替えすることによりこのテーブルの構造を変更することが可能です。"
+msgstr "行や列を挿入、削除、移動、または入れ替えすることによりこのテーブルの構造を変更することが可能です。"
 
 #: views/view-edit.php:15
 msgid "Table Information"
@@ -1053,7 +1053,7 @@ msgstr "降順"
 #: views/view-edit.php:128
 #, php-format
 msgid "Sort table by column %s in %s order"
-msgstr "行 %s を （%s） に並べ替える"
+msgstr "列 %s を （%s） に並べ替える"
 
 #: views/view-edit.php:130
 msgid "Sort"
@@ -1075,33 +1075,33 @@ msgstr "表示する"
 #, php-format
 msgctxt "hide_unhide"
 msgid "Selected rows: %s %s"
-msgstr "選択されている列: %s %s"
+msgstr "選択されている行: %s %s"
 
 #: views/view-edit.php:141
 #, php-format
 msgctxt "hide_unhide"
 msgid "Selected columns: %s %s"
-msgstr "選択されている行: %s %s"
+msgstr "選択されている列: %s %s"
 
 #: views/view-edit.php:144
 msgid "Combine cells in a row:"
-msgstr "列にあるセルを結合する"
+msgstr "行にあるセルを結合する"
 
 #: views/view-edit.php:145
 msgid "Add colspan"
-msgstr "行の結合を追加"
+msgstr "列の結合を追加"
 
 #: views/view-edit.php:148
 msgid "Combine cells in a column:"
-msgstr "行にあるセルを結合する"
+msgstr "列にあるセルを結合する"
 
 #: views/view-edit.php:149
 msgid "Add rowspan"
-msgstr "列の結合を追加"
+msgstr "行の結合を追加"
 
 #: views/view-edit.php:155
 msgid "Insert row"
-msgstr "列を挿入する"
+msgstr "行を挿入する"
 
 #: views/view-edit.php:156
 #: views/view-edit.php:160
@@ -1113,22 +1113,22 @@ msgstr "削除"
 #, php-format
 msgctxt "insert_delete"
 msgid "Selected rows: %s %s"
-msgstr "選択されている列: %s %s"
+msgstr "選択されている行: %s %s"
 
 #: views/view-edit.php:159
 msgid "Insert column"
-msgstr "行を挿入する"
+msgstr "列を挿入する"
 
 #: views/view-edit.php:161
 #, php-format
 msgctxt "insert_delete"
 msgid "Selected columns: %s %s"
-msgstr "選択されている行: %s %s"
+msgstr "選択されている列: %s %s"
 
 #: views/view-edit.php:171
 #, php-format
 msgid "Add %s row(s)"
-msgstr "列を %s 列追加する"
+msgstr "行を %s 行追加する"
 
 #: views/view-edit.php:172
 #: views/view-edit.php:175
@@ -1139,12 +1139,12 @@ msgstr "追加"
 #: views/view-edit.php:174
 #, php-format
 msgid "Add %s column(s)"
-msgstr "行を %s 行追加する"
+msgstr "列を %s 列追加する"
 
 #: views/view-edit.php:189
 #, php-format
 msgid "Swap rows %s and %s"
-msgstr "列 %s と %s を入れ替える"
+msgstr "行 %s と %s を入れ替える"
 
 #: views/view-edit.php:191
 #: views/view-edit.php:206
@@ -1154,7 +1154,7 @@ msgstr "入れ替え"
 #: views/view-edit.php:204
 #, php-format
 msgid "Swap columns %s and %s"
-msgstr "行 %s と %s を入れ替える"
+msgstr "列 %s と %s を入れ替える"
 
 #: views/view-edit.php:219
 #: views/view-edit.php:239
@@ -1169,7 +1169,7 @@ msgstr "後"
 #: views/view-edit.php:223
 #, php-format
 msgid "Move row %s %s row %s"
-msgstr "列 %s を列 ｢<strong>＊</strong>｣ の %s に移動する <strong>＊(基準となる列: %s)</strong>"
+msgstr "行 %s を行 ｢<strong>＊</strong>｣ の %s に移動する <strong>＊(基準となる行: %s)</strong>"
 
 #: views/view-edit.php:225
 #: views/view-edit.php:245
@@ -1179,7 +1179,7 @@ msgstr "移動"
 #: views/view-edit.php:243
 #, php-format
 msgid "Move column %s %s column %s"
-msgstr "行 %s を行 ｢<strong>＊</strong>｣ の %s に移動する <strong>＊(基準となる行: %s)</strong>"
+msgstr "列 %s を列 ｢<strong>＊</strong>｣ の %s に移動する <strong>＊(基準となる列: %s)</strong>"
 
 #: views/view-edit.php:262
 msgid "Table Styling Options"
