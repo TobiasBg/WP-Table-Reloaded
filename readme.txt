@@ -112,6 +112,7 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 = Version 1.9 =
 * feature: Updated DataTables JavaScript library to 1.7.4
 * enhancement: Add cell content as a parameter for the CSS class filter
+* enhancement: Additional ID-based CSS classes for the table name and description texts
 * languages: Added Dutch
 
 = Version 1.8 =
