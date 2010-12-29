@@ -58,6 +58,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
         'uninstall_upon_deactivation' => false,
         'show_exit_warning' => true,
         'growing_textareas' => true,
+        'use_datatables_on_table_list' => true,
         'add_target_blank_to_links' => false,
         'enable_tablesorter' => true,
         'tablesorter_script' => 'datatables', // others are 'datatables-tabletools', 'tablesorter', and 'tablesorter_extended'
@@ -1085,6 +1086,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
             // checkboxes: option value is defined by whether option isset (e.g. was checked) or not
             $this->options['show_exit_warning'] = isset( $new_options['show_exit_warning'] );
             $this->options['growing_textareas'] = isset( $new_options['growing_textareas'] );
+            $this->options['use_datatables_on_table_list'] = isset( $new_options['use_datatables_on_table_list'] );
             $this->options['enable_tablesorter'] = isset( $new_options['enable_tablesorter'] );
             $this->options['use_default_css'] = isset( $new_options['use_default_css'] );
             $this->options['use_custom_css'] = isset( $new_options['use_custom_css'] );
@@ -1833,7 +1835,7 @@ WPLIST;
 
         $datatables = '';
         // filter to false, to prevent using DataTables in the List of Tables (seems to cause problems with IE 7)
-        $use_datatables = true;
+        $use_datatables = $this->options['use_datatables_on_table_list'];
         $use_datatables = apply_filters( 'wp_table_reloaded_admin_use_datatables', $use_datatables );
         // sorting doesn't make sense, if there is only one table in the list
         if ( $use_datatables && 1 < count( $this->tables ) ) {

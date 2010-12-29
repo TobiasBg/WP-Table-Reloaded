@@ -78,6 +78,10 @@
             <th scope="row"><?php _e( 'Growing textareas', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
             <td><input type="checkbox" name="options[growing_textareas]" id="options_growing_textareas"<?php echo ( $this->options['growing_textareas'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_growing_textareas"><?php printf( __( 'Yes, enlarge the textareas on the &quot;%s&quot; screen when they are focussed.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Edit Table', WP_TABLE_RELOADED_TEXTDOMAIN ) ); ?></label></td>
         </tr>
+        <tr valign="top">
+            <th scope="row"><?php _e( 'List of Tables features', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
+            <td><input type="checkbox" name="options[use_datatables_on_table_list]" id="options_use_datatables_on_table_list"<?php echo ( $this->options['use_datatables_on_table_list'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_use_datatables_on_table_list"><?php printf( __( 'Yes, use the DataTables JavaScript features (sorting, pagination, filtering) on the &quot;%s&quot; screen.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'List Tables', WP_TABLE_RELOADED_TEXTDOMAIN ) ); ?></label></td>
+        </tr>
 
         </table>
         </div>
