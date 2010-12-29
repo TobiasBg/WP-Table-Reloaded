@@ -198,6 +198,8 @@ class WP_Table_Reloaded_Controller_Base {
 /**
  * Provide backwards compatibility for deprecated functions
  */
+
+// copy of is_rtl (introduced in WP 3.0) is located in controller-frontend.php
  
 // esc_url replaced clean_url in WP 3.0
 if ( !function_exists( 'esc_url' ) ) {
