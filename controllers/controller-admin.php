@@ -1843,6 +1843,7 @@ WPLIST;
 
             $sProcessing = __( 'Please wait...', WP_TABLE_RELOADED_TEXTDOMAIN );
             $sLengthMenu = __( 'Show _MENU_ Tables', WP_TABLE_RELOADED_TEXTDOMAIN );
+            $sLengthMenu_All = __( 'All', WP_TABLE_RELOADED_TEXTDOMAIN );
             $sZeroRecords = __( 'No tables were found.', WP_TABLE_RELOADED_TEXTDOMAIN );
             $sInfo = __( '_START_ to _END_ of _TOTAL_ Tables', WP_TABLE_RELOADED_TEXTDOMAIN );
             $sInfoFiltered = __( '(filtered from _MAX_ Tables)', WP_TABLE_RELOADED_TEXTDOMAIN );
@@ -1860,6 +1861,7 @@ WPLIST;
 \nvar tablelist = $('#wp-table-reloaded-list').dataTable({
     "bSortClasses": false,
     {$pagination}
+    "aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "{$sLengthMenu_All}"]],
     "aaSorting": [],
     "bProcessing": true,
     "sPaginationType": "full_numbers",
