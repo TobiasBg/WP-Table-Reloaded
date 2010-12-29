@@ -265,23 +265,23 @@
         <table class="wp-table-reloaded-options">
         <tr valign="top">
             <th scope="row"><?php _e( 'Alternating row colors', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="table[options][alternating_row_colors]" id="table_options_alternating_row_colors"<?php echo ( $table['options']['alternating_row_colors'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="table_options_alternating_row_colors"><?php _e( 'Every second row has an alternating background color.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <td><input type="checkbox" name="table[options][alternating_row_colors]" id="table_options_alternating_row_colors"<?php checked( $table['options']['alternating_row_colors'] ); ?> value="true" /> <label for="table_options_alternating_row_colors"><?php _e( 'Every second row has an alternating background color.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Row Highlighting', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="table[options][row_hover]" id="table_options_row_hover"<?php echo ( $table['options']['row_hover'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="table_options_row_hover"><?php _e( 'Highlight a row by changing its background color while the mouse cursor hovers above it.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <td><input type="checkbox" name="table[options][row_hover]" id="table_options_row_hover"<?php checked( $table['options']['row_hover'] ); ?> value="true" /> <label for="table_options_row_hover"><?php _e( 'Highlight a row by changing its background color while the mouse cursor hovers above it.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Table head', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="table[options][first_row_th]" id="table_options_first_row_th"<?php echo ( $table['options']['first_row_th'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="table_options_first_row_th"><?php _e( 'The first row of your table is the table head (HTML tags &lt;thead&gt; and &lt;th&gt;).', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <td><input type="checkbox" name="table[options][first_row_th]" id="table_options_first_row_th"<?php checked( $table['options']['first_row_th'] ); ?> value="true" /> <label for="table_options_first_row_th"><?php _e( 'The first row of your table is the table head (HTML tags &lt;thead&gt; and &lt;th&gt;).', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Table footer', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="table[options][table_footer]" id="table_options_table_footer"<?php echo ( $table['options']['table_footer'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="table_options_table_footer"><?php _e( 'The last row of your table is the table footer (HTML tags &lt;tfoot&gt; and &lt;th&gt;).', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <td><input type="checkbox" name="table[options][table_footer]" id="table_options_table_footer"<?php checked( $table['options']['table_footer'] ); ?> value="true" /> <label for="table_options_table_footer"><?php _e( 'The last row of your table is the table footer (HTML tags &lt;tfoot&gt; and &lt;th&gt;).', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="table[options][print_name]" id="table_options_print_name"<?php echo ( $table['options']['print_name'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="table_options_print_name"></label>
+            <td><input type="checkbox" name="table[options][print_name]" id="table_options_print_name"<?php checked( $table['options']['print_name'] ); ?> value="true" /> <label for="table_options_print_name"></label>
             <?php
             $disabled = ( $table['options']['print_name'] ) ? '' : ' disabled="disabled"' ;
             $position_select = '<select' . $disabled . ' id="table_options_print_name_position" name="table[options][print_name_position]">';
@@ -298,7 +298,7 @@
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Table Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="table[options][print_description]" id="table_options_print_description"<?php echo ( $table['options']['print_description'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="table_options_print_description"></label>
+            <td><input type="checkbox" name="table[options][print_description]" id="table_options_print_description"<?php checked( $table['options']['print_description'] ); ?> value="true" /> <label for="table_options_print_description"></label>
             <?php
             $disabled = ( $table['options']['print_description'] ) ? '' : ' disabled="disabled"' ;
             $position_select = '<select' . $disabled . ' id="table_options_print_description_position" name="table[options][print_description_position]">';
@@ -315,7 +315,7 @@
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Cache Table Output', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="table[options][cache_table_output]" id="table_options_cache_table_output"<?php echo ( $table['options']['cache_table_output'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="table_options_cache_table_output"><?php _e( 'The resulting HTML output of the table shall be cached.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <td><input type="checkbox" name="table[options][cache_table_output]" id="table_options_cache_table_output"<?php checked( $table['options']['cache_table_output'] ); ?> value="true" /> <label for="table_options_cache_table_output"><?php _e( 'The resulting HTML output of the table shall be cached.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Custom CSS Class', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
@@ -347,7 +347,7 @@
                     $js_library_text = __( 'You can change further settings for this library below.' , WP_TABLE_RELOADED_TEXTDOMAIN );
             }
             ?>
-            <input type="checkbox" name="table[options][use_tablesorter]" id="table_options_use_tablesorter"<?php echo ( $table['options']['use_tablesorter'] ) ? ' checked="checked"': '' ; ?><?php echo ( !$this->options['enable_tablesorter'] || !$table['options']['first_row_th'] ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="table_options_use_tablesorter"><?php printf( __( 'Yes, use the &quot;%s&quot; JavaScript library with this table.', WP_TABLE_RELOADED_TEXTDOMAIN ), $js_library ); ?> <?php echo $js_library_text; ?><?php if ( !$this->options['enable_tablesorter'] ) { ?><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small><?php printf( __( 'You must enable the use of a JavaScript library on the &quot;%s&quot; screen first.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Plugin Options', WP_TABLE_RELOADED_TEXTDOMAIN ) ); ?></small><?php } ?></label></td>
+            <input type="checkbox" name="table[options][use_tablesorter]" id="table_options_use_tablesorter"<?php checked( $table['options']['use_tablesorter'] ); ?><?php echo ( !$this->options['enable_tablesorter'] || !$table['options']['first_row_th'] ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="table_options_use_tablesorter"><?php printf( __( 'Yes, use the &quot;%s&quot; JavaScript library with this table.', WP_TABLE_RELOADED_TEXTDOMAIN ), $js_library ); ?> <?php echo $js_library_text; ?><?php if ( !$this->options['enable_tablesorter'] ) { ?><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small><?php printf( __( 'You must enable the use of a JavaScript library on the &quot;%s&quot; screen first.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Plugin Options', WP_TABLE_RELOADED_TEXTDOMAIN ) ); ?></small><?php } ?></label></td>
         </tr>
         </table>
         </div>
@@ -367,11 +367,11 @@
         <table class="wp-table-reloaded-options wp-table-reloaded-datatables-options">
         <tr valign="top">
             <th scope="row"><?php _e( 'Sorting', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="table[options][datatables_sort]" id="table_options_datatables_sort"<?php echo ( $table['options']['datatables_sort'] ) ? ' checked="checked"': '' ; ?><?php echo ( !$datatables_enabled || !$table['options']['use_tablesorter'] || !$table['options']['first_row_th'] ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="table_options_datatables_sort"><?php _e( 'Yes, enable sorting of table data by the visitor.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <td><input type="checkbox" name="table[options][datatables_sort]" id="table_options_datatables_sort"<?php checked( $table['options']['datatables_sort'] ); ?><?php echo ( !$datatables_enabled || !$table['options']['use_tablesorter'] || !$table['options']['first_row_th'] ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="table_options_datatables_sort"><?php _e( 'Yes, enable sorting of table data by the visitor.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Pagination', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="table[options][datatables_paginate]" id="table_options_datatables_paginate"<?php echo ( $table['options']['datatables_paginate'] ) ? ' checked="checked"': '' ; ?><?php echo ( !$datatables_enabled || !$table['options']['use_tablesorter'] || !$table['options']['first_row_th'] ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="table_options_datatables_paginate">
+            <td><input type="checkbox" name="table[options][datatables_paginate]" id="table_options_datatables_paginate"<?php checked( $table['options']['datatables_paginate'] ); ?><?php echo ( !$datatables_enabled || !$table['options']['use_tablesorter'] || !$table['options']['first_row_th'] ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="table_options_datatables_paginate">
             <?php
             $disabled = ( !$table['options']['datatables_paginate'] || !$datatables_enabled || !$table['options']['use_tablesorter'] || !$table['options']['first_row_th'] ) ? ' disabled="disabled"' : '' ;
             $paginate_entries = '<input type="text"' . $disabled . ' id="table_options_datatables_paginate_entries" name="table[options][datatables_paginate_entries]" value="' . $this->helper->safe_output( $table['options']['datatables_paginate_entries'] ) . '" style="width:35px;" />';
@@ -384,19 +384,19 @@
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Length Change', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="table[options][datatables_lengthchange]" id="table_options_datatables_lengthchange"<?php echo ( $table['options']['datatables_lengthchange'] ) ? ' checked="checked"': '' ; ?><?php echo ( !$datatables_enabled || !$table['options']['use_tablesorter'] || !$table['options']['first_row_th'] ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="table_options_datatables_lengthchange"><?php _e( 'Yes, allow the visitor to change the number of rows shown when using pagination.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <td><input type="checkbox" name="table[options][datatables_lengthchange]" id="table_options_datatables_lengthchange"<?php checked( $table['options']['datatables_lengthchange'] ); ?><?php echo ( !$datatables_enabled || !$table['options']['use_tablesorter'] || !$table['options']['first_row_th'] ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="table_options_datatables_lengthchange"><?php _e( 'Yes, allow the visitor to change the number of rows shown when using pagination.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Filtering', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="table[options][datatables_filter]" id="table_options_datatables_filter"<?php echo ( $table['options']['datatables_filter'] ) ? ' checked="checked"': '' ; ?><?php echo ( !$datatables_enabled || !$table['options']['use_tablesorter'] || !$table['options']['first_row_th'] ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="table_options_datatables_filter"><?php _e( 'Yes, enable the visitor to filter or search the table. Only rows with the search word in them are shown.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <td><input type="checkbox" name="table[options][datatables_filter]" id="table_options_datatables_filter"<?php checked( $table['options']['datatables_filter'] ); ?><?php echo ( !$datatables_enabled || !$table['options']['use_tablesorter'] || !$table['options']['first_row_th'] ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="table_options_datatables_filter"><?php _e( 'Yes, enable the visitor to filter or search the table. Only rows with the search word in them are shown.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Info Bar', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="table[options][datatables_info]" id="table_options_datatables_info"<?php echo ( $table['options']['datatables_info'] ) ? ' checked="checked"': '' ; ?><?php echo ( !$datatables_enabled || !$table['options']['use_tablesorter'] || !$table['options']['first_row_th'] ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="table_options_datatables_info"><?php _e( 'Yes, show the table information display. This shows information and statistics about the currently visible data, including filtering.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <td><input type="checkbox" name="table[options][datatables_info]" id="table_options_datatables_info"<?php checked( $table['options']['datatables_info'] ); ?><?php echo ( !$datatables_enabled || !$table['options']['use_tablesorter'] || !$table['options']['first_row_th'] ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="table_options_datatables_info"><?php _e( 'Yes, show the table information display. This shows information and statistics about the currently visible data, including filtering.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'TableTools', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="table[options][datatables_tabletools]" id="table_options_datatables_tabletools"<?php echo ( $table['options']['datatables_tabletools'] ) ? ' checked="checked"': '' ; ?><?php echo ( !$tabletools_enabled || !$table['options']['use_tablesorter'] || !$table['options']['first_row_th'] ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="table_options_datatables_tabletools">
+            <td><input type="checkbox" name="table[options][datatables_tabletools]" id="table_options_datatables_tabletools"<?php checked( $table['options']['datatables_tabletools'] ); ?><?php echo ( !$tabletools_enabled || !$table['options']['use_tablesorter'] || !$table['options']['first_row_th'] ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="table_options_datatables_tabletools">
             <?php _e( 'Yes, activate the TableTools functions (Copy to Clipboard, Save to CSV, Save to XLS, Print Table) for this table.', WP_TABLE_RELOADED_TEXTDOMAIN );
             if ( !$tabletools_enabled ) { echo '<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>('; _e( 'This option can only be used with the &quot;DataTables+TableTools&quot; JavaScript library.', WP_TABLE_RELOADED_TEXTDOMAIN ); echo ')</small>';}
             ?></label></td>

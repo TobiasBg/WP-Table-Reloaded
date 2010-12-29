@@ -21,7 +21,7 @@
         <table class="wp-table-reloaded-options">
         <tr valign="top">
             <th scope="row"><?php _e( 'JavaScript library', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="options[enable_tablesorter]" id="options_enable_tablesorter"<?php echo ( $this->options['enable_tablesorter'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_enable_tablesorter"><?php _e( 'Yes, enable the use of a JavaScript library.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'WP-Table Reloaded includes three JavaScript libraries that can add useful features, like sorting, pagination, and filtering, to a table.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <td><input type="checkbox" name="options[enable_tablesorter]" id="options_enable_tablesorter"<?php checked( $this->options['enable_tablesorter'] ); ?> value="true" /> <label for="options_enable_tablesorter"><?php _e( 'Yes, enable the use of a JavaScript library.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'WP-Table Reloaded includes three JavaScript libraries that can add useful features, like sorting, pagination, and filtering, to a table.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
         <tr valign="top">
             <th scope="row">&nbsp;</th>
@@ -34,13 +34,13 @@
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Default CSS', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="options[use_default_css]" id="options_use_default_css"<?php echo ( $this->options['use_default_css'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_use_default_css">
+            <td><input type="checkbox" name="options[use_default_css]" id="options_use_default_css"<?php checked( $this->options['use_default_css'] ); ?> value="true" /> <label for="options_use_default_css">
             <?php _e( 'Yes, include and load the plugin\'s default CSS Stylesheets. This is highly recommended, if you use one of the JavaScript libraries!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
              </label></td>
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Custom CSS', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="options[use_custom_css]" id="options_use_custom_css"<?php echo ( $this->options['use_custom_css'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_use_custom_css">
+            <td><input type="checkbox" name="options[use_custom_css]" id="options_use_custom_css"<?php checked( $this->options['use_custom_css'] ); ?> value="true" /> <label for="options_use_custom_css">
             <?php _e( 'Yes, include and load the following custom CSS commands.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <?php _e( 'This should be used to change the table layout and styling.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
              </label></td>
         </tr>
@@ -52,7 +52,7 @@
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Links in new window', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="options[add_target_blank_to_links]" id="options_add_target_blank_to_links"<?php echo ( $this->options['add_target_blank_to_links'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_add_target_blank_to_links"><?php printf( __( 'Yes, open links that are inserted with the &quot;%s&quot; button on the &quot;%s&quot; screen in a new browser window <strong>from now on</strong>.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Insert Link', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Edit Table', WP_TABLE_RELOADED_TEXTDOMAIN ) ); ?></label></td>
+            <td><input type="checkbox" name="options[add_target_blank_to_links]" id="options_add_target_blank_to_links"<?php checked( $this->options['add_target_blank_to_links'] ); ?> value="true" /> <label for="options_add_target_blank_to_links"><?php printf( __( 'Yes, open links that are inserted with the &quot;%s&quot; button on the &quot;%s&quot; screen in a new browser window <strong>from now on</strong>.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Insert Link', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Edit Table', WP_TABLE_RELOADED_TEXTDOMAIN ) ); ?></label></td>
         </tr>
         </table>
         </div>
@@ -72,15 +72,15 @@
         <table class="wp-table-reloaded-options">
         <tr valign="top">
             <th scope="row"><?php _e( 'Exit warning', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="options[show_exit_warning]" id="options_show_exit_warning"<?php echo ( $this->options['show_exit_warning'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_show_exit_warning"><?php printf( __( 'Yes, show a warning message, if I leave the &quot;%s&quot; screen and have not yet saved my changes.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Edit Table', WP_TABLE_RELOADED_TEXTDOMAIN ) ); ?></label></td>
+            <td><input type="checkbox" name="options[show_exit_warning]" id="options_show_exit_warning"<?php checked( $this->options['show_exit_warning'] ); ?> value="true" /> <label for="options_show_exit_warning"><?php printf( __( 'Yes, show a warning message, if I leave the &quot;%s&quot; screen and have not yet saved my changes.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Edit Table', WP_TABLE_RELOADED_TEXTDOMAIN ) ); ?></label></td>
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Growing textareas', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="options[growing_textareas]" id="options_growing_textareas"<?php echo ( $this->options['growing_textareas'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_growing_textareas"><?php printf( __( 'Yes, enlarge the textareas on the &quot;%s&quot; screen when they are focussed.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Edit Table', WP_TABLE_RELOADED_TEXTDOMAIN ) ); ?></label></td>
+            <td><input type="checkbox" name="options[growing_textareas]" id="options_growing_textareas"<?php checked( $this->options['growing_textareas'] ); ?> value="true" /> <label for="options_growing_textareas"><?php printf( __( 'Yes, enlarge the textareas on the &quot;%s&quot; screen when they are focussed.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'Edit Table', WP_TABLE_RELOADED_TEXTDOMAIN ) ); ?></label></td>
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'List of Tables features', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="options[use_datatables_on_table_list]" id="options_use_datatables_on_table_list"<?php echo ( $this->options['use_datatables_on_table_list'] ) ? ' checked="checked"': '' ; ?> value="true" /> <label for="options_use_datatables_on_table_list"><?php printf( __( 'Yes, use the DataTables JavaScript features (sorting, pagination, filtering) on the &quot;%s&quot; screen.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'List Tables', WP_TABLE_RELOADED_TEXTDOMAIN ) ); ?></label></td>
+            <td><input type="checkbox" name="options[use_datatables_on_table_list]" id="options_use_datatables_on_table_list"<?php checked( $this->options['use_datatables_on_table_list'] ); ?> value="true" /> <label for="options_use_datatables_on_table_list"><?php printf( __( 'Yes, use the DataTables JavaScript features (sorting, pagination, filtering) on the &quot;%s&quot; screen.', WP_TABLE_RELOADED_TEXTDOMAIN ), __( 'List Tables', WP_TABLE_RELOADED_TEXTDOMAIN ) ); ?></label></td>
         </tr>
 
         </table>
@@ -149,17 +149,17 @@
 
         <tr valign="top">
             <th scope="row"><?php _e( 'Frontend Edit Link', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="options[frontend_edit_table_link]" id="options_frontend_edit_table_link"<?php echo ( $this->options['frontend_edit_table_link'] ) ? ' checked="checked"': '' ; ?><?php echo ( !$is_admin ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="options_frontend_edit_table_link"><?php _e( 'Yes, show an "Edit" link to users with sufficient rights near every table on the frontend.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <td><input type="checkbox" name="options[frontend_edit_table_link]" id="options_frontend_edit_table_link"<?php checked( $this->options['frontend_edit_table_link'] ); ?><?php echo ( !$is_admin ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="options_frontend_edit_table_link"><?php _e( 'Yes, show an "Edit" link to users with sufficient rights near every table on the frontend.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
 
         <tr valign="top">
             <th scope="row"><?php _e( 'WordPress Search', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="options[enable_search]" id="options_enable_search"<?php echo ( $this->options['enable_search'] ) ? ' checked="checked"': '' ; ?><?php echo ( !$is_admin ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="options_enable_search"><?php _e( 'Yes, the WordPress Search shall also find posts and pages that contain the search term inside a table.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <td><input type="checkbox" name="options[enable_search]" id="options_enable_search"<?php checked( $this->options['enable_search'] ); ?><?php echo ( !$is_admin ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="options_enable_search"><?php _e( 'Yes, the WordPress Search shall also find posts and pages that contain the search term inside a table.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
 
         <tr valign="top">
             <th scope="row"><?php _e( 'Remove upon Deactivation', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="options[uninstall_upon_deactivation]" id="options_uninstall_upon_deactivation"<?php echo ( $this->options['uninstall_upon_deactivation'] ) ? ' checked="checked"': '' ; ?><?php echo ( !$is_admin ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="options_uninstall_upon_deactivation"><?php _e( 'Yes, remove all plugin related data from the database when the plugin is deactivated.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <small>(<?php _e( 'Should be activated directly before deactivation only!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>)</small></label></td>
+            <td><input type="checkbox" name="options[uninstall_upon_deactivation]" id="options_uninstall_upon_deactivation"<?php checked( $this->options['uninstall_upon_deactivation'] ); ?><?php echo ( !$is_admin ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="options_uninstall_upon_deactivation"><?php _e( 'Yes, remove all plugin related data from the database when the plugin is deactivated.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <small>(<?php _e( 'Should be activated directly before deactivation only!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>)</small></label></td>
         </tr>
 
         </table>
