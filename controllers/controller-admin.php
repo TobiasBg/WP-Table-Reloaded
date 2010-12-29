@@ -391,6 +391,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
                 $table['options']['table_footer'] = isset( $_POST['table']['options']['table_footer'] );
                 $table['options']['print_name'] = isset( $_POST['table']['options']['print_name'] );
                 $table['options']['print_description'] = isset( $_POST['table']['options']['print_description'] );
+                $table['options']['cache_table_output'] = isset( $_POST['table']['options']['cache_table_output'] );
                 $table['options']['custom_css_class'] = trim( $table['options']['custom_css_class'] ); // more complex sanitize_* functions would change spaces to hyphens...
                 $table['options']['use_tablesorter'] = isset( $_POST['table']['options']['use_tablesorter'] );
                 $table['options']['datatables_sort'] = isset( $_POST['table']['options']['datatables_sort'] );
@@ -1418,6 +1419,10 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
 
             $table = apply_filters( 'wp_table_reloaded_pre_save_table', $table );
             $table = apply_filters( 'wp_table_reloaded_pre_save_table_id-' . $table['id'], $table );
+
+            // delete the transient that caches the table output
+            $cache_name = "wp_table_reloaded_table_output_{$table['id']}";
+            delete_transient( $cache_name );
             
             $this->tables[ $table['id'] ] = ( isset( $this->tables[ $table['id'] ] ) ) ? $this->tables[ $table['id'] ] : $this->optionname['table'] . '_' . $table['id'];
             update_option( $this->tables[ $table['id'] ], $table );
