@@ -25,7 +25,7 @@
         </tr>
         <tr valign="top">
             <th scope="row">&nbsp;</th>
-            <td><?php _e( 'Select the library to use:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <select id="options_tablesorter_script" name="options[tablesorter_script]"<?php echo ( !$this->options['enable_tablesorter'] ) ? ' disabled="disabled"': '' ; ?>>
+            <td><?php _e( 'Select the library to use:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <select id="options_tablesorter_script" name="options[tablesorter_script]"<?php disabled( $this->options['enable_tablesorter'], false ); ?>>
                 <option<?php selected( $this->options['tablesorter_script'], 'datatables' ); ?> value="datatables">DataTables (<?php _e( 'recommended', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>)</option>
                 <option<?php selected( $this->options['tablesorter_script'], 'datatables-tabletools' ); ?> value="datatables-tabletools">DataTables+TableTools</option>
                 <option<?php selected( $this->options['tablesorter_script'], 'tablesorter' ); ?> value="tablesorter">Tablesorter</option>
@@ -46,7 +46,7 @@
         </tr>
         <tr valign="top">
             <th scope="row">&nbsp;</th>
-            <td><textarea name="options[custom_css]" id="options_custom_css" rows="10" cols="40"<?php echo ( !$this->options['use_custom_css'] ) ? ' disabled="disabled"': '' ; ?>><?php echo $this->helper->safe_output( $this->options['custom_css'] ); ?></textarea><br/><br/>
+            <td><textarea name="options[custom_css]" id="options_custom_css" rows="10" cols="40"<?php disabled( $this->options['use_custom_css'], false ); ?>><?php echo $this->helper->safe_output( $this->options['custom_css'] ); ?></textarea><br/><br/>
             <?php printf( __( 'You can get styling examples from the <a href="%s">FAQ</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ), 'http://tobias.baethge.com/go/wp-table-reloaded/faq/' ); ?> <?php printf( __( 'Information on available CSS selectors can be found in the <a href="%s">documentation</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ), 'http://tobias.baethge.com/go/wp-table-reloaded/documentation/' ); ?>
             </td>
         </tr>
@@ -96,7 +96,7 @@
         <?php // the strings don't have a textdomain, because they shall be the same as in the original WP admin menu (and those strings are in WP's textdomain) ?>
         <tr valign="top">
             <th scope="row"><?php _e( 'Plugin Access', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><?php _e( 'To access WP-Table Reloaded, a user needs to be:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <select id="options_user_access_plugin" name="options[user_access_plugin]"<?php echo ( !$is_admin ) ? ' disabled="disabled"': '' ; ?>>
+            <td><?php _e( 'To access WP-Table Reloaded, a user needs to be:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <select id="options_user_access_plugin" name="options[user_access_plugin]"<?php disabled( $is_admin, false ); ?>>
                 <option<?php selected( $this->options['user_access_plugin'], 'admin' ); ?> value="admin"><?php echo _x( 'Administrator', 'User role' ); ?></option>
                 <option<?php selected( $this->options['user_access_plugin'], 'editor' ); ?> value="editor"><?php echo _x( 'Editor', 'User role' ); ?></option>
                 <option<?php selected( $this->options['user_access_plugin'], 'author' ); ?> value="author"><?php echo _x( 'Author', 'User role' ); ?></option>
@@ -107,7 +107,7 @@
         <?php // the strings don't have a textdomain, because they shall be the same as in the original WP admin menu (and those strings are in WP's textdomain) ?>
         <tr valign="top">
             <th scope="row"><?php _e( 'Plugin Options Access', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><?php _e( 'To access the Plugin Options of WP-Table Reloaded, a user needs to be:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <select id="options_user_access_plugin_options" name="options[user_access_plugin_options]"<?php echo ( !$is_admin ) ? ' disabled="disabled"': '' ; ?>>
+            <td><?php _e( 'To access the Plugin Options of WP-Table Reloaded, a user needs to be:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <select id="options_user_access_plugin_options" name="options[user_access_plugin_options]"<?php disabled( $is_admin, false ); ?>>
                 <option<?php selected( $this->options['user_access_plugin_options'], 'admin' ); ?> value="admin"><?php echo _x( 'Administrator', 'User role' ); ?></option>
                 <option<?php selected( $this->options['user_access_plugin_options'], 'editor' ); ?> value="editor"><?php echo _x( 'Editor', 'User role' ); ?></option>
                 <option<?php selected( $this->options['user_access_plugin_options'], 'author' ); ?> value="author"><?php echo _x( 'Author', 'User role' ); ?></option>
@@ -116,7 +116,7 @@
 
         <tr valign="top">
             <th scope="row"><?php _e( 'Plugin Language', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><?php _e( 'WP-Table Reloaded shall be shown in this language:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <select id="options_plugin_language" name="options[plugin_language]"<?php echo ( !$is_admin ) ? ' disabled="disabled"': '' ; ?>>
+            <td><?php _e( 'WP-Table Reloaded shall be shown in this language:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <select id="options_plugin_language" name="options[plugin_language]"<?php disabled( $is_admin, false ); ?>>
                 <option<?php selected( $this->options['plugin_language'], 'auto' ); ?> value="auto"><?php printf( __( 'WordPress Default (currently %s)', WP_TABLE_RELOADED_TEXTDOMAIN ), get_locale() ); ?></option>
                 <?php foreach ( $this->available_plugin_languages as $lang_abbr => $language ) { ?>
                 <option<?php selected( $this->options['plugin_language'], $lang_abbr ); ?> value="<?php echo $lang_abbr; ?>"><?php echo "{$language} ({$lang_abbr})"; ?></option>
@@ -127,7 +127,7 @@
         <?php // the strings don't have a textdomain, because they shall be the same as in the original WP admin menu (and those strings are in WP's textdomain) ?>
         <tr valign="top">
             <th scope="row"><?php _e( 'Admin menu entry', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><?php _e( 'WP-Table Reloaded shall be shown in this section of the admin menu:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <select id="options_admin_menu_parent_page" name="options[admin_menu_parent_page]"<?php echo ( !$is_admin ) ? ' disabled="disabled"': '' ; ?>>
+            <td><?php _e( 'WP-Table Reloaded shall be shown in this section of the admin menu:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <select id="options_admin_menu_parent_page" name="options[admin_menu_parent_page]"<?php disabled( $is_admin, false ); ?>>
                 <option<?php selected( $this->options['admin_menu_parent_page'], 'tools.php' ); ?> value="tools.php"><?php _e( 'Tools' ); ?> (<?php _e( 'recommended', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>)</option>
                 <option<?php selected( $this->options['admin_menu_parent_page'], 'edit.php' ); ?> value="edit.php"><?php _e( 'Posts' ); ?></option>
                 <?php
@@ -149,17 +149,17 @@
 
         <tr valign="top">
             <th scope="row"><?php _e( 'Frontend Edit Link', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="options[frontend_edit_table_link]" id="options_frontend_edit_table_link"<?php checked( $this->options['frontend_edit_table_link'] ); ?><?php echo ( !$is_admin ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="options_frontend_edit_table_link"><?php _e( 'Yes, show an "Edit" link to users with sufficient rights near every table on the frontend.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <td><input type="checkbox" name="options[frontend_edit_table_link]" id="options_frontend_edit_table_link"<?php checked( $this->options['frontend_edit_table_link'] ); ?><?php disabled( $is_admin, false ); ?> value="true" /> <label for="options_frontend_edit_table_link"><?php _e( 'Yes, show an "Edit" link to users with sufficient rights near every table on the frontend.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
 
         <tr valign="top">
             <th scope="row"><?php _e( 'WordPress Search', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="options[enable_search]" id="options_enable_search"<?php checked( $this->options['enable_search'] ); ?><?php echo ( !$is_admin ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="options_enable_search"><?php _e( 'Yes, the WordPress Search shall also find posts and pages that contain the search term inside a table.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <td><input type="checkbox" name="options[enable_search]" id="options_enable_search"<?php checked( $this->options['enable_search'] ); ?><?php disabled( $is_admin, false ); ?> value="true" /> <label for="options_enable_search"><?php _e( 'Yes, the WordPress Search shall also find posts and pages that contain the search term inside a table.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
 
         <tr valign="top">
             <th scope="row"><?php _e( 'Remove upon Deactivation', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="options[uninstall_upon_deactivation]" id="options_uninstall_upon_deactivation"<?php checked( $this->options['uninstall_upon_deactivation'] ); ?><?php echo ( !$is_admin ) ? ' disabled="disabled"': '' ; ?> value="true" /> <label for="options_uninstall_upon_deactivation"><?php _e( 'Yes, remove all plugin related data from the database when the plugin is deactivated.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <small>(<?php _e( 'Should be activated directly before deactivation only!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>)</small></label></td>
+            <td><input type="checkbox" name="options[uninstall_upon_deactivation]" id="options_uninstall_upon_deactivation"<?php checked( $this->options['uninstall_upon_deactivation'] ); ?><?php disabled( $is_admin, false ); ?> value="true" /> <label for="options_uninstall_upon_deactivation"><?php _e( 'Yes, remove all plugin related data from the database when the plugin is deactivated.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <small>(<?php _e( 'Should be activated directly before deactivation only!', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>)</small></label></td>
         </tr>
 
         </table>
@@ -204,7 +204,7 @@
             ?>
                 <form method="post" enctype="multipart/form-data" action="<?php echo $this->get_action_url(); ?>">
                 <?php wp_nonce_field( $this->get_nonce( 'import_dump' ), $this->get_nonce( 'import_dump' ) ); ?>
-                <label for="dump_file"><?php _e( 'Select Dump File', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label> <input name="dump_file" id="dump_file" type="file"<?php echo ( !$is_admin ) ? ' disabled="disabled"': '' ; ?> />
+                <label for="dump_file"><?php _e( 'Select Dump File', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label> <input name="dump_file" id="dump_file" type="file"<?php disabled( $is_admin, false ); ?> />
                 <input type="hidden" name="action" value="import" />
                 <input id="import_wp_table_reloaded_dump_file" type="submit" name="import_wp_table_reloaded_dump_file" class="button-primary" value="<?php _e( 'Import Dump File', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />
                 </form>

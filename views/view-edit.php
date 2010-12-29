@@ -283,8 +283,8 @@
             <th scope="row"><?php _e( 'Table Name', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
             <td><input type="checkbox" name="table[options][print_name]" id="table_options_print_name"<?php checked( $table['options']['print_name'] ); ?> value="true" /> <label for="table_options_print_name"></label>
             <?php
-            $disabled = ( $table['options']['print_name'] ) ? '' : ' disabled="disabled"' ;
-            $position_select = '<select' . $disabled . ' id="table_options_print_name_position" name="table[options][print_name_position]">';
+            $disabled = disabled( $table['options']['print_name'], false, false );
+            $position_select = "<select{$disabled} id='table_options_print_name_position' name='table[options][print_name_position]'>";
             $selected = selected( $table['options']['print_name_position'], 'above', false );
             $position_select .= "<option{$selected} value='above'>" . __( 'above', WP_TABLE_RELOADED_TEXTDOMAIN ) . '</option>';
             $selected = selected( $table['options']['print_name_position'], 'below', false );
@@ -300,8 +300,8 @@
             <th scope="row"><?php _e( 'Table Description', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
             <td><input type="checkbox" name="table[options][print_description]" id="table_options_print_description"<?php checked( $table['options']['print_description'] ); ?> value="true" /> <label for="table_options_print_description"></label>
             <?php
-            $disabled = ( $table['options']['print_description'] ) ? '' : ' disabled="disabled"' ;
-            $position_select = '<select' . $disabled . ' id="table_options_print_description_position" name="table[options][print_description_position]">';
+            $disabled = disabled( $table['options']['print_description'], false, false );
+            $position_select = "<select{$disabled} id='table_options_print_description_position' name='table[options][print_description_position]'>";
             $selected = selected( $table['options']['print_description_position'], 'above', false );
             $position_select .= "<option{$selected} value='above'>" . __( 'above', WP_TABLE_RELOADED_TEXTDOMAIN ) . '</option>';
             $selected = selected( $table['options']['print_description_position'], 'below', false );
