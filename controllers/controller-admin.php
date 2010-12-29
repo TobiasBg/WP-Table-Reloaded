@@ -390,6 +390,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
                 $table['options']['table_footer'] = isset( $_POST['table']['options']['table_footer'] );
                 $table['options']['print_name'] = isset( $_POST['table']['options']['print_name'] );
                 $table['options']['print_description'] = isset( $_POST['table']['options']['print_description'] );
+                $table['options']['custom_css_class'] = trim( $table['options']['custom_css_class'] ); // more complex sanitize_* functions would change spaces to hyphens...
                 $table['options']['use_tablesorter'] = isset( $_POST['table']['options']['use_tablesorter'] );
                 $table['options']['datatables_sort'] = isset( $_POST['table']['options']['datatables_sort'] );
                 $table['options']['datatables_paginate'] = isset( $_POST['table']['options']['datatables_paginate'] );

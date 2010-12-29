@@ -59,6 +59,7 @@ class WP_Table_Reloaded_Controller_Base {
             'print_name_position' => 'above',
             'print_description' => false,
             'print_description_position' => 'below',
+            'custom_css_class' => '',
             'use_tablesorter' => true,
             'datatables_sort' => true,
             'datatables_paginate' => true,

@@ -56,9 +56,9 @@ class WP_Table_Reloaded_Render {
         $this->bothspan_trigger = apply_filters( 'wp_table_reloaded_bothspan_trigger', $this->bothspan_trigger, $table['id'] );
 
         // classes that will be added to <table class=...>, can be used for CSS styling
-        $cssclasses = array( 'wp-table-reloaded', "wp-table-reloaded-id-{$table['id']}" );
+        $cssclasses = array( 'wp-table-reloaded', "wp-table-reloaded-id-{$table['id']}", stripslashes( $this->output_options['custom_css_class'] ) );
         $cssclasses = apply_filters( 'wp_table_reloaded_table_css_class', $cssclasses, $table['id'] );
-        $cssclasses = implode( ' ', $cssclasses );
+        $cssclasses = trim( implode( ' ', $cssclasses ) );
 
         $rows = count( $table['data'] );
         $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;

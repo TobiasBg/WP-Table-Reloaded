@@ -168,6 +168,7 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
             'print_name_position' => -1,
             'print_description' => -1,
             'print_description_position' => -1,
+            'custom_css_class' => -1,
             'use_tablesorter' => -1,
             'datatables_sort' => -1,
             'datatables_paginate' => -1,

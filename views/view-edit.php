@@ -313,6 +313,10 @@
             ?>
         </td>
         </tr>
+        <tr valign="top">
+            <th scope="row"><?php _e( 'Custom CSS Class', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
+            <td><input type="text" name="table[options][custom_css_class]" id="table_options_custom_css_class" value="<?php echo $this->helper->safe_output( $table['options']['custom_css_class'] ); ?>" style="width:100%" /> <label for="table_options_custom_css_class"><small><br/><?php _e( 'Enter a string that will be given to the table as an additional class for styling with CSS.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></small></label></td>
+        </tr>
         <tr valign="top" id="options_use_tablesorter">
             <th scope="row"><?php _e( 'Use JavaScript library', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
             <td>
