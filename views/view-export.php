@@ -24,7 +24,8 @@
                     $name = $this->helper->safe_output( $table['name'] );
                     //$description = $this->helper->safe_output( $table['description'] );
                 unset( $table );
-                echo "<option" . ( ( $id == $table_id ) ? ' selected="selected"': '' ) . " value=\"{$id}\">{$name} (ID {$id})</option>";
+                $selected = selected( $table_id, $id, false );
+                echo "<option{$selected} value='{$id}'>{$name} (ID {$id})</option>";
             }
         ?>
         </select></td>

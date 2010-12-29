@@ -285,10 +285,10 @@
             <?php
             $disabled = ( $table['options']['print_name'] ) ? '' : ' disabled="disabled"' ;
             $position_select = '<select' . $disabled . ' id="table_options_print_name_position" name="table[options][print_name_position]">';
-            $selected = ( 'above' == $table['options']['print_name_position'] ) ? ' selected="selected"': '';
-            $position_select .= '<option' . $selected . ' value="above">' . __( 'above', WP_TABLE_RELOADED_TEXTDOMAIN ) . '</option>';
-            $selected = ( 'below' == $table['options']['print_name_position'] ) ? ' selected="selected"': '';
-            $position_select .= '<option' . $selected . ' value="below">' . __( 'below', WP_TABLE_RELOADED_TEXTDOMAIN ) . '</option>';
+            $selected = selected( $table['options']['print_name_position'], 'above', false );
+            $position_select .= "<option{$selected} value='above'>" . __( 'above', WP_TABLE_RELOADED_TEXTDOMAIN ) . '</option>';
+            $selected = selected( $table['options']['print_name_position'], 'below', false );
+            $position_select .= "<option{$selected} value='below'>" . __( 'below', WP_TABLE_RELOADED_TEXTDOMAIN ) . '</option>';
             $position_select .= '</select>';
             echo '<span style="vertical-align: middle;">';
             printf( __( 'The Table Name shall be written %s the table (HTML tag &lt;h2&gt;).', WP_TABLE_RELOADED_TEXTDOMAIN ), $position_select );
@@ -302,10 +302,10 @@
             <?php
             $disabled = ( $table['options']['print_description'] ) ? '' : ' disabled="disabled"' ;
             $position_select = '<select' . $disabled . ' id="table_options_print_description_position" name="table[options][print_description_position]">';
-            $selected = ( 'above' == $table['options']['print_description_position'] ) ? ' selected="selected"': '';
-            $position_select .= '<option' . $selected . ' value="above">' . __( 'above', WP_TABLE_RELOADED_TEXTDOMAIN ) . '</option>';
-            $selected = ( 'below' == $table['options']['print_description_position'] ) ? ' selected="selected"': '';
-            $position_select .= '<option' . $selected . ' value="below">' . __( 'below', WP_TABLE_RELOADED_TEXTDOMAIN ) . '</option>';
+            $selected = selected( $table['options']['print_description_position'], 'above', false );
+            $position_select .= "<option{$selected} value='above'>" . __( 'above', WP_TABLE_RELOADED_TEXTDOMAIN ) . '</option>';
+            $selected = selected( $table['options']['print_description_position'], 'below', false );
+            $position_select .= "<option{$selected} value='below'>" . __( 'below', WP_TABLE_RELOADED_TEXTDOMAIN ) . '</option>';
             $position_select .= '</select>';
             echo '<span style="vertical-align: middle;">';
             printf( __( 'The Table Description shall be written %s the table.', WP_TABLE_RELOADED_TEXTDOMAIN ), $position_select );
