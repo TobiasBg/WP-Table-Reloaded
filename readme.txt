@@ -57,12 +57,7 @@ If WP-Table Reloaded finds the wp-Table database tables, it can import the found
 
 = Support? =
 
-If you find a bug or have a feature request, please don't hesitate to tell me about it.
-You would help a lot if you could add an issue ticket in the [issue tracker on Google Code](http://code.google.com/p/wp-table-reloaded/).
-Feature requests may also posted in the comments on the plugin website.
-
-For other help or support questions, please use the [WordPress Support Forums](http://wordpress.org/tags/wp-table-reloaded). Please [search](http://wordpress.org/support/) through the forums first, then [open a new thread](http://wordpress.org/tags/wp-table-reloaded) (with the tag "wp-table-reloaded"). Thank you!
-You may also make feature requests using this method! Don't be shy!
+For support questions, bug reports, or feature requests, please use the [WordPress Support Forums](http://wordpress.org/tags/wp-table-reloaded). Please [search](http://wordpress.org/support/) through the forums first, then [open a new thread](http://wordpress.org/tags/wp-table-reloaded) with the tag "wp-table-reloaded". Thank you!
 
 = Requirements? =
 
