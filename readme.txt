@@ -121,7 +121,7 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 * enhancement: Backwards compatibility for deprecated functions, don't use deprecated functions anymore
 * enhancement: Sort on "Edit" screen no longer moves header or footer row, if they are activated
 * enhancement: Added plugin filter hook to change table content prior to rendering
-* enhancement: Added "summary" attribute filter for <table> HTML element
+* enhancement: Added "summary" attribute filter for &lt;table&gt; HTML element
 * enhancement: RTL-languages supported in frontend CSS
 * enhancement: Adjusted default CSS for new default theme "TwentyTen"
 * bugfix: Fixed search to not find table IDs with the same beginning
