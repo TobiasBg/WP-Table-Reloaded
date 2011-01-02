@@ -315,7 +315,7 @@
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Cache Table Output', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
-            <td><input type="checkbox" name="table[options][cache_table_output]" id="table_options_cache_table_output"<?php checked( $table['options']['cache_table_output'] ); ?> value="true" /> <label for="table_options_cache_table_output"><?php _e( 'The resulting HTML output of the table shall be cached.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
+            <td><input type="checkbox" name="table[options][cache_table_output]" id="table_options_cache_table_output"<?php checked( $table['options']['cache_table_output'] ); ?> value="true" /> <label for="table_options_cache_table_output"><?php _e( 'The resulting HTML output of the table shall be cached in the WordPress database cache for faster page generation.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>
         <tr valign="top">
             <th scope="row"><?php _e( 'Custom CSS Class', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
