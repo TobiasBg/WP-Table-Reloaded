@@ -110,10 +110,15 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 == Changelog ==
 
 = Version 1.9 =
-* feature: Updated DataTables JavaScript library to 1.7.4
+* feature: option to have the generated table HTML cached in a WordPress transient for faster page generation
+* feature: tables can get additional custom CSS classes, e.g. for easier layout and styling, and grouping tables
+* feature: Updated DataTables JavaScript library to 1.7.5
+* enhancement: adjustments to make the plugin work better with WordPress 3.1
 * enhancement: Add cell content as a parameter for the CSS class filter
 * enhancement: Additional ID-based CSS classes for the table name and description texts
-* languages: Added Dutch
+* enhancement: JavaScript features on "List of Tables" screen can be customized more
+* enhancement: cleaned up and optimized some code
+* languages: Added Dutch, updated other languages
 
 = Version 1.8 =
 * feature: Updated JavaScript libraries to DataTables 1.7 and TableTools 1.1.4
@@ -239,6 +244,9 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 * First release (not everything functional)
 
 == Upgrade Notice ==
+
+= 1.9 =
+This upgrade includes a few new features, like output caching and a custom table CSS class, and several enhancements.
 
 = 1.8 =
 This upgrade includes an updated DataTables library, enhances several features and fixes a few small issues. 
