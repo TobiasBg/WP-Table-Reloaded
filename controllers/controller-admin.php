@@ -172,13 +172,11 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
             $pages_with_editor_button = array( 'post.php', 'post-new.php', 'page.php', 'page-new.php' );
             foreach ( $pages_with_editor_button as $page )
                 add_action( 'load-' . $page, array( &$this, 'add_editor_button' ) );
-
-            // add message to list of plugins, if an update is available / add additional links on Plugins page, but only if page is plugins.php
-            if ( 'plugins.php' == $GLOBALS['pagenow'] ) {
-                add_action( 'in_plugin_update_message-' . WP_TABLE_RELOADED_BASENAME, array( &$this, 'add_plugin_update_message' ), 10, 2 );
-                add_filter( 'plugin_row_meta', array( &$this, 'add_plugin_row_meta' ), 10, 2);
-            }
         }
+
+        // add message to list of plugins, if an update is available / add additional links on Plugins page, for both regular visits and AJAX calls
+        add_action( 'in_plugin_update_message-' . WP_TABLE_RELOADED_BASENAME, array( &$this, 'add_plugin_update_message' ), 10, 2 );
+        add_filter( 'plugin_row_meta', array( &$this, 'add_plugin_row_meta' ), 10, 2);
     }
 
     /**
