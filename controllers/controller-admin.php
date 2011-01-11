@@ -1759,6 +1759,21 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
         $suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.dev' : '';
         $cssfile = "admin/admin-style{$suffix}.css";
         wp_enqueue_style( 'wp-table-reloaded-admin-css', plugins_url( $cssfile, WP_TABLE_RELOADED__FILE__ ), array(), $this->options['installed_version'] );
+
+        // is_rtl was introduced in WP 3.0, for other versions we need to provide it here
+        if ( !function_exists( 'is_rtl' ) ) {
+            function is_rtl() {
+                global $wp_locale;
+                $is_rtl = isset( $wp_locale ) && isset( $wp_locale->text_direction ) && ( 'rtl' == $wp_locale->text_direction );
+                return $is_rtl;
+            }
+        }
+
+        // RTL languages support
+        if ( is_rtl() ) {
+            $cssfile = "admin/admin-style.rtl.css";
+            wp_enqueue_style( 'wp-table-reloaded-admin-rtl-css', plugins_url( $cssfile, WP_TABLE_RELOADED__FILE__ ), array(), $this->options['installed_version'] );
+        }
     }
 
     /**

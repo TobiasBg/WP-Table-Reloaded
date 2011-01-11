@@ -200,7 +200,8 @@ class WP_Table_Reloaded_Controller_Base {
  * Provide backwards compatibility for deprecated functions or functions that do not yet exist in all supported versions
  */
 
-// copy of is_rtl (introduced in WP 3.0) is located in controller-frontend.php
+// copies of is_rtl (introduced in WP 3.0) are located in controller-frontend.php and controller-admin.php
+// can not be put here, as locale.php is included after plugins
  
 // esc_url replaced clean_url in WP 3.0
 if ( !function_exists( 'esc_url' ) ) {
