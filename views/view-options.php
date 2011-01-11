@@ -97,10 +97,10 @@
         <tr valign="top">
             <th scope="row"><?php _e( 'Plugin Access', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
             <td><?php _e( 'To access WP-Table Reloaded, a user needs to be:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <select id="options_user_access_plugin" name="options[user_access_plugin]"<?php disabled( $is_admin, false ); ?>>
-                <option<?php selected( $this->options['user_access_plugin'], 'admin' ); ?> value="admin"><?php echo _x( 'Administrator', 'User role' ); ?></option>
-                <option<?php selected( $this->options['user_access_plugin'], 'editor' ); ?> value="editor"><?php echo _x( 'Editor', 'User role' ); ?></option>
-                <option<?php selected( $this->options['user_access_plugin'], 'author' ); ?> value="author"><?php echo _x( 'Author', 'User role' ); ?></option>
-                <option<?php selected( $this->options['user_access_plugin'], 'contributor' ); ?> value="contributor"><?php echo _x( 'Contributor', 'User role' ); ?></option>
+                <option<?php selected( $this->options['user_access_plugin'], 'admin' ); ?> value="admin"><?php echo _x( 'Administrator', 'User role', 'default' ); ?></option>
+                <option<?php selected( $this->options['user_access_plugin'], 'editor' ); ?> value="editor"><?php echo _x( 'Editor', 'User role', 'default' ); ?></option>
+                <option<?php selected( $this->options['user_access_plugin'], 'author' ); ?> value="author"><?php echo _x( 'Author', 'User role', 'default' ); ?></option>
+                <option<?php selected( $this->options['user_access_plugin'], 'contributor' ); ?> value="contributor"><?php echo _x( 'Contributor', 'User role', 'default' ); ?></option>
         </select></td>
         </tr>
 
@@ -108,9 +108,9 @@
         <tr valign="top">
             <th scope="row"><?php _e( 'Plugin Options Access', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
             <td><?php _e( 'To access the Plugin Options of WP-Table Reloaded, a user needs to be:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <select id="options_user_access_plugin_options" name="options[user_access_plugin_options]"<?php disabled( $is_admin, false ); ?>>
-                <option<?php selected( $this->options['user_access_plugin_options'], 'admin' ); ?> value="admin"><?php echo _x( 'Administrator', 'User role' ); ?></option>
-                <option<?php selected( $this->options['user_access_plugin_options'], 'editor' ); ?> value="editor"><?php echo _x( 'Editor', 'User role' ); ?></option>
-                <option<?php selected( $this->options['user_access_plugin_options'], 'author' ); ?> value="author"><?php echo _x( 'Author', 'User role' ); ?></option>
+                <option<?php selected( $this->options['user_access_plugin_options'], 'admin' ); ?> value="admin"><?php echo _x( 'Administrator', 'User role', 'default' ); ?></option>
+                <option<?php selected( $this->options['user_access_plugin_options'], 'editor' ); ?> value="editor"><?php echo _x( 'Editor', 'User role', 'default' ); ?></option>
+                <option<?php selected( $this->options['user_access_plugin_options'], 'author' ); ?> value="author"><?php echo _x( 'Author', 'User role', 'default' ); ?></option>
         </select><br/><small>(<?php _e( 'Admin Options, Dump file Import, and Manual Plugin Uninstall are always accessible by Administrators only, regardless of this setting.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>)</small></td>
         </tr>
 
@@ -128,8 +128,8 @@
         <tr valign="top">
             <th scope="row"><?php _e( 'Admin menu entry', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
             <td><?php _e( 'WP-Table Reloaded shall be shown in this section of the admin menu:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?> <select id="options_admin_menu_parent_page" name="options[admin_menu_parent_page]"<?php disabled( $is_admin, false ); ?>>
-                <option<?php selected( $this->options['admin_menu_parent_page'], 'tools.php' ); ?> value="tools.php"><?php _e( 'Tools' ); ?> (<?php _e( 'recommended', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>)</option>
-                <option<?php selected( $this->options['admin_menu_parent_page'], 'edit.php' ); ?> value="edit.php"><?php _e( 'Posts' ); ?></option>
+                <option<?php selected( $this->options['admin_menu_parent_page'], 'tools.php' ); ?> value="tools.php"><?php _e( 'Tools', 'default' ); ?> (<?php _e( 'recommended', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>)</option>
+                <option<?php selected( $this->options['admin_menu_parent_page'], 'edit.php' ); ?> value="edit.php"><?php _e( 'Posts', 'default' ); ?></option>
                 <?php
                     // edit-pages.php was renamed to edit.php?post_type=page in WP 3.0
                     $pages_page = 'edit-pages.php';
@@ -139,10 +139,10 @@
                             $this->options['admin_menu_parent_page'] = 'edit.php?post_type=page';
                     }
                 ?>
-                <option<?php selected( $this->options['admin_menu_parent_page'], $pages_page ); ?> value="<?php echo $pages_page; ?>"><?php _e( 'Pages' ); ?></option>
-                <option<?php selected( $this->options['admin_menu_parent_page'], 'plugins.php' ); ?> value="plugins.php"><?php _e( 'Plugins' ); ?></option>
-                <option<?php selected( $this->options['admin_menu_parent_page'], 'options-general.php' ); ?> value="options-general.php"><?php _e( 'Settings' ); ?></option>
-                <option<?php selected( $this->options['admin_menu_parent_page'], 'index.php' ); ?> value="index.php"><?php _e( 'Dashboard' ); ?></option>
+                <option<?php selected( $this->options['admin_menu_parent_page'], $pages_page ); ?> value="<?php echo $pages_page; ?>"><?php _e( 'Pages', 'default' ); ?></option>
+                <option<?php selected( $this->options['admin_menu_parent_page'], 'plugins.php' ); ?> value="plugins.php"><?php _e( 'Plugins', 'default' ); ?></option>
+                <option<?php selected( $this->options['admin_menu_parent_page'], 'options-general.php' ); ?> value="options-general.php"><?php _e( 'Settings', 'default' ); ?></option>
+                <option<?php selected( $this->options['admin_menu_parent_page'], 'index.php' ); ?> value="index.php"><?php _e( 'Dashboard', 'default' ); ?></option>
                 <option<?php selected( $this->options['admin_menu_parent_page'], 'admin.php' ); ?> value="admin.php"><?php _e( 'Top-Level', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></option>
         </select></td>
         </tr>

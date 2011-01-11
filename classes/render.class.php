@@ -138,7 +138,7 @@ class WP_Table_Reloaded_Render {
 
             $caption = '';
             if ( !empty( $this->output_options['edit_table_url'] ) ) {
-                $edit_table_link = "<a href=\"{$this->output_options['edit_table_url']}\" title=\"" . __( 'Edit' ) . "\">" . __( 'Edit' ) . "</a>";
+                $edit_table_link = "<a href=\"{$this->output_options['edit_table_url']}\" title=\"" . __( 'Edit', 'default' ) . "\">" . __( 'Edit', 'default' ) . "</a>";
                 $caption = "<caption style=\"caption-side: bottom; text-align: left; border:none; background: none;\">{$edit_table_link}</caption>\n";
             }
 
