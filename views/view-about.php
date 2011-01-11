@@ -47,6 +47,7 @@
             <?php _e( 'the submitters of translations:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>
             <?php
                 $credits_links = array(
+                    'ar'    => '<a href="http://jdwel.com/">Mohammed Kashmiry</a>',
                     'be_BY' => '<a href="http://www.mikheev.biz/">Slava Mikheev</a>',
                     'cs_CZ' => '<a href="http://separatista.net/">Separatista</a>',
                     'es_ES' => '<a href="http://halles.cl/">Matias Halles</a>', // <a href="http://theindependentproject.com/">Alejandro Urrutia</a>

@@ -66,7 +66,7 @@ In short: WordPress 2.8 or higher
 = Languages and Localization? =
 
 The plugin currently includes the following languages:
-Belarusian, Brazilian Portuguese, Chinese (Simplified), Czech, Dutch, English, Finnish, French, German, Hindi, Italian, Japanese, Polish, Russian, Slovak, Spanish, Swedish, and Ukrainian.
+Arabic, Belarusian, Brazilian Portuguese, Chinese (Simplified), Czech, Dutch, English, Finnish, French, German, Hindi, Italian, Japanese, Polish, Russian, Slovak, Spanish, Swedish, and Ukrainian.
 
 I'd really appreciate it, if you would translate the plugin into your language! Using Heiko Rabe's WordPress plugin [Codestyling Localization](http://www.code-styling.de/english/development/wordpress-plugin-codestyling-localization-en/) that really is as easy as pie. Just install the plugin, add your language, create the .po-file, translate the strings in the comfortable editor and create the .mo-file. It will automatically be saved in WP-Table Reloaded's plugin folder. If you send me the .mo- and .po-file, I will gladly include them into future plugin releases.
 There is also a .pot-file available to use in the "languages" subfolder. Of course you can also use poEdit as your editor, which also works nicely.
@@ -113,7 +113,7 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 * enhancement: Additional ID-based CSS classes for the table name and description texts
 * enhancement: JavaScript features on "List of Tables" screen can be customized more
 * enhancement: cleaned up and optimized some code
-* languages: Added Dutch, updated other languages
+* languages: Added Arabic and Dutch, updated other languages
 
 = Version 1.8 =
 * feature: Updated JavaScript libraries to DataTables 1.7 and TableTools 1.1.4
