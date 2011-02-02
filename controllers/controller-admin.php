@@ -261,6 +261,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
             'fi_FI' => __( 'Finnish', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'fr_FR' => __( 'French', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'hi_IN' => __( 'Hindi', WP_TABLE_RELOADED_TEXTDOMAIN ),
+            'id_ID' => __( 'Indonesian', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'it_IT' => __( 'Italian', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'ja'    => __( 'Japanese', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'nl_NL' => __( 'Dutch', WP_TABLE_RELOADED_TEXTDOMAIN ),

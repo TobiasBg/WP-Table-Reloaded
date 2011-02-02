@@ -54,6 +54,7 @@
                     'fi_FI' => 'Jaakko',
                     'fr_FR' => '<a href="http://www.ningbohotelreview.com/">NingboHOTELreview</a>',
                     'hi_IN' => '<a href="http://outshinesolutions.com/">Outshine Solutions</a>',
+                    'id_ID' => '<a href="http://sys-talk.com/">Dedy Sofyan</a>',
                     'it_IT' => '<a href="http://www.scrical.it/">Gabriella Mazzon</a>',
                     'ja'    => '<a href="http://www.u-1.net/">Yuuichi</a>',
                     'nl_NL' => '<a href="http://http://www.siteoptimo.com/blog/">Pieter Carette</a>',
