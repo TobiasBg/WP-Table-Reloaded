@@ -273,8 +273,8 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
             'ua_UA' => __( 'Ukrainian', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'zh_CN' => __( 'Chinese (Simplified)', WP_TABLE_RELOADED_TEXTDOMAIN ),
             // the following are inactive because they are not up-to-date
-            'sq_AL' => __( 'Albanian', WP_TABLE_RELOADED_TEXTDOMAIN ),
-            'tr_TR' => __( 'Turkish', WP_TABLE_RELOADED_TEXTDOMAIN ),
+            // 'sq_AL' => __( 'Albanian', WP_TABLE_RELOADED_TEXTDOMAIN ),
+            // 'tr_TR' => __( 'Turkish', WP_TABLE_RELOADED_TEXTDOMAIN ),
         );
         asort( $this->available_plugin_languages );
 

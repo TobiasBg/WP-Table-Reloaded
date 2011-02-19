@@ -66,8 +66,8 @@
                     'ua_UA' => '<a href="http://antsar.info/">murooch</a>',
                     'zh_CN' => '<a href="http://cnzhx.net/">Haoxian Zeng</a>',
                     // inactive languages
-                    'sq_AL' => '<a href="http://www.romeolab.com/">Romeo</a>',
-                    'tr_TR' => '<a href="http://www.wpuzmani.com/">Semih</a>',
+                    // 'sq_AL' => '<a href="http://www.romeolab.com/">Romeo</a>',
+                    // 'tr_TR' => '<a href="http://www.wpuzmani.com/">Semih</a>',
                 );
 
                 // no credits link for English and German, as they are by me :-)
