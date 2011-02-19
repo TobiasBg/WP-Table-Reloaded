@@ -15,14 +15,14 @@ WP-Table Reloaded enables you to create and manage tables in your WP's admin are
 = More information =
 Please see the English plugin website http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/ .
 
-If you like this plugin, please rate it here in the WordPress Plugin Directory or make a [donation](http://tobias.baethge.com/donate/). Thank you!
+If you like this plugin, please rate it here in the WordPress Plugin Directory, make a [donation](http://tobias.baethge.com/donate/), or [flattr it](https://flattr.com/thing/118856/WP-Table-Reloaded). Thank you!
 
 = Informationen auf Deutsch =
 Dieses Plugin erlaubt die komfortable Verwaltung von Tabellen in WordPress. Daf&uuml;r werden keine HTML-Kenntnisse ben&ouml;tigt. Die Daten werden in einer Eingabemaske eingegeben und mittels eines Shortcodes in Artikel, Seiten oder Text-Widgets eingebunden. Zus&auml;tzlich k&ouml;nnen einer Tabelle mit einer JavaScript-Bibliothek weitere F&auml;higkeiten, wie Sortieren, Paginierung und Filterung hinzugef&uuml;gt werden.
 
 Weitere Informationen auf Deutsch: http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-deutsch/
 
-Wenn dir das Plugin gef&auml;llt, bewerte es bitte hier im WordPress Plugin Directory oder [spende](http://tobias.baethge.com/donate/). Danke!
+Wenn dir das Plugin gef&auml;llt, bewerte es bitte hier im WordPress Plugin Directory, [spende](http://tobias.baethge.com/donate/) oder [&quot;flattere&quot;](https://flattr.com/thing/118856/WP-Table-Reloaded). Danke!
 
 == Screenshots ==
 
