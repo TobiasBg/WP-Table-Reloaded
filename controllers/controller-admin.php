@@ -134,6 +134,10 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
         // load plugin options and existing tables
         $this->init_plugin();
 
+        // WordPress 3.1 requires new update check
+        if ( version_compare( $this->options['installed_version'], WP_TABLE_RELOADED_PLUGIN_VERSION, '<' ) )
+            $this->plugin_update();
+
         // init variables to check whether we do valid AJAX
         $doing_ajax = defined( 'DOING_AJAX' ) ? DOING_AJAX : false;
         $valid_ajax_call = ( isset( $_GET['page'] ) && $this->page_slug == $_GET['page'] ) ? true : false;
@@ -999,9 +1003,8 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
                 update_option( $tableoptionname, $dump_table );
             }
             // check if plugin update is necessary, compared to imported data
-            if ( version_compare( $this->options['installed_version'], WP_TABLE_RELOADED_PLUGIN_VERSION, '<' ) ) {
+            if ( version_compare( $this->options['installed_version'], WP_TABLE_RELOADED_PLUGIN_VERSION, '<' ) )
                 $this->plugin_update();
-            }
 
             $this->helper->print_header_message( __( 'All Tables, Settings and Options were successfully imported.', WP_TABLE_RELOADED_TEXTDOMAIN ) );
             $this->do_action_list();
