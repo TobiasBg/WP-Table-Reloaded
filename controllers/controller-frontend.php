@@ -319,14 +319,14 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
 
         // check if table output shall and can be loaded from the transient cache, otherwise generate the output
         $cache_name = "wp_table_reloaded_table_output_{$table_id}";
-        if ( !$output_options['cache_table_output'] || ( false === ( $output = get_transient( $cache_name ) ) ) ) {
+        if ( !$output_options['cache_table_output'] || is_user_logged_in() || ( false === ( $output = get_transient( $cache_name ) ) ) ) {
             // render/generate the table HTML
             $render = $this->create_class_instance( 'WP_Table_Reloaded_Render', 'render.class.php' );
             $render->output_options = apply_filters( 'wp_table_reloaded_frontend_output_options', $output_options, $table['id'], $table );
             $render->table = $table;
             $output = $render->render_table();
 
-            if ( $output_options['cache_table_output'] )
+            if ( $output_options['cache_table_output'] && !is_user_logged_in() )
                 set_transient( $cache_name, $output, 60*60*24 ); // store $output in a transient, set cache timeout to 24 hours
         }
 
