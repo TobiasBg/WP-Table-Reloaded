@@ -4,7 +4,7 @@ Donate link: http://tobias.baethge.com/donate/
 Tags: html,table,data,editor,csv,import,export,excel,widget,admin,sidebar
 Requires at least: 2.8
 Tested up to: 3.1
-Stable tag: 1.9a
+Stable tag: 1.9.1
 
 WP-Table Reloaded lets you manage tables in a comfortable backend in WP's admin area, without any knowledge of HTML, and can add valuable features.
 
@@ -104,7 +104,7 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 
 == Changelog ==
 
-= Version 1.9a =
+= Version 1.9.1 =
 * bugfix: update handling was broken in 1.9
 
 = Version 1.9 =
@@ -243,7 +243,7 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 
 == Upgrade Notice ==
 
-= 1.9a =
+= 1.9.1 =
 This upgrade includes a few new features, like output caching and a custom table CSS class, and several enhancements.
 
 = 1.9 =
