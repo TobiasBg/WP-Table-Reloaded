@@ -136,7 +136,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
 
         // WordPress 3.1 requires new update check
         if ( version_compare( $this->options['installed_version'], WP_TABLE_RELOADED_PLUGIN_VERSION, '<' ) )
-            $this->plugin_update();
+            add_action( 'init', array( &$this, 'plugin_update' ) );
 
         // init variables to check whether we do valid AJAX
         $doing_ajax = defined( 'DOING_AJAX' ) ? DOING_AJAX : false;
@@ -1558,6 +1558,11 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
         // update general plugin options
         // 1. step: by adding/overwriting existing options
 		$this->options = $this->load_options();
+
+        // do nothing, if installed version is up-to-date
+        if ( ! version_compare( $this->options['installed_version'], WP_TABLE_RELOADED_PLUGIN_VERSION, '<' ) )
+            return;
+
 		$new_options = array();
 
         // 1b. step: update new default options before possibly adding them
