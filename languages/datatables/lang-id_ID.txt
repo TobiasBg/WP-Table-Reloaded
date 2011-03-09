@@ -1,9 +1,9 @@
 ﻿{
-	"sProcessing":   "Sedang memroses...",
+	"sProcessing":   "Sedang memproses...",
 	"sLengthMenu":   "Tampilkan entri _MENU_",
-	"sZeroRecords":  "Tidak ditemukan rekor yang cocok",
+	"sZeroRecords":  "Tidak ditemukan data yang cocok",
 	"sInfo":         "Menampilkan _START_ s/d _END_ dari _TOTAL_ entri",
-	"sInfoEmpty":    "Menampilkan 0 to 0 of 0 entri",
+	"sInfoEmpty":    "Menampilkan 0 s/d 0 dari 0 entri",
 	"sInfoFiltered": "(disaring dari total _MAX_ entri)",
 	"sInfoPostFix":  "",
 	"sSearch":       "Cari:",
@@ -11,7 +11,7 @@
 	"oPaginate": {
 		"sFirst":    "Pertama",
 		"sPrevious": "Sebelumnya",
-		"sNext":     "Selanjutnya",
+		"sNext":     "Berikutnya",
 		"sLast":     "Terakhir"
 	}
 }
