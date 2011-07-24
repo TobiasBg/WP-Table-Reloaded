@@ -207,7 +207,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
         if ( 'top-level' == $admin_menu_page )
             $admin_menu_page = 'admin.php';
         // 'edit-pages.php' was renamed to 'edit.php?post_type=page' in WP 3.0
-        if ( 'edit-pages.php' == $admin_menu_page && version_compare( $GLOBALS['wp_version'] , '2.9.9', '>' ) )
+        if ( 'edit-pages.php' == $admin_menu_page )
             $admin_menu_page = 'edit.php?post_type=page';
         if ( !in_array( $admin_menu_page, $this->possible_admin_menu_parent_pages ) )
             $admin_menu_page = 'tools.php';
@@ -1582,7 +1582,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
             $new_options['tablesorter_script'] = ( isset( $this->options['use_tablesorter_extended'] ) && $this->options['use_tablesorter_extended'] ) ? 'tablesorter_extended' : 'tablesorter';
 
         // 2d., 'edit-pages.php' was renamed to 'edit.php?post_type=page' in WP 3.0
-        if ( 'edit-pages.php' == $this->options['admin_menu_parent_page'] && version_compare( $GLOBALS['wp_version'] , '2.9.9', '>' ) )
+        if ( 'edit-pages.php' == $this->options['admin_menu_parent_page'] )
             $new_options['admin_menu_parent_page'] = 'edit.php?post_type=page';
 
         // 2e., 'top-level' was renamed to 'admin.php' (internally)
@@ -1771,15 +1771,6 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
         $suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.dev' : '';
         $cssfile = "admin/admin-style{$suffix}.css";
         wp_enqueue_style( 'wp-table-reloaded-admin-css', plugins_url( $cssfile, WP_TABLE_RELOADED__FILE__ ), array(), $this->options['installed_version'] );
-
-        // is_rtl was introduced in WP 3.0, for other versions we need to provide it here
-        if ( !function_exists( 'is_rtl' ) ) {
-            function is_rtl() {
-                global $wp_locale;
-                $is_rtl = isset( $wp_locale ) && isset( $wp_locale->text_direction ) && ( 'rtl' == $wp_locale->text_direction );
-                return $is_rtl;
-            }
-        }
 
         // RTL languages support
         if ( is_rtl() ) {

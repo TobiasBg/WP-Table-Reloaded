@@ -132,12 +132,9 @@
                 <option<?php selected( $this->options['admin_menu_parent_page'], 'edit.php' ); ?> value="edit.php"><?php _e( 'Posts', 'default' ); ?></option>
                 <?php
                     // edit-pages.php was renamed to edit.php?post_type=page in WP 3.0
-                    $pages_page = 'edit-pages.php';
-                    if ( version_compare( $GLOBALS['wp_version'] , '2.9.9', '>' ) ) {
-                        $pages_page = 'edit.php?post_type=page';
-                        if ( 'edit-pages.php' == $this->options['admin_menu_parent_page'] )
-                            $this->options['admin_menu_parent_page'] = 'edit.php?post_type=page';
-                    }
+                    $pages_page = 'edit.php?post_type=page';
+                    if ( 'edit-pages.php' == $this->options['admin_menu_parent_page'] )
+                        $this->options['admin_menu_parent_page'] = 'edit.php?post_type=page';
                 ?>
                 <option<?php selected( $this->options['admin_menu_parent_page'], $pages_page ); ?> value="<?php echo $pages_page; ?>"><?php _e( 'Pages', 'default' ); ?></option>
                 <option<?php selected( $this->options['admin_menu_parent_page'], 'plugins.php' ); ?> value="plugins.php"><?php _e( 'Plugins', 'default' ); ?></option>

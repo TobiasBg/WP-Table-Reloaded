@@ -196,25 +196,4 @@ class WP_Table_Reloaded_Controller_Base {
 
 } // class WP_Table_Reloaded_Controller_Base
 
-/**
- * Provide backwards compatibility for deprecated functions or functions that do not yet exist in all supported versions
- */
-
-// copies of is_rtl (introduced in WP 3.0) are located in controller-frontend.php and controller-admin.php
-// can not be put here, as locale.php is included after plugins
- 
-// esc_url replaced clean_url in WP 3.0
-if ( !function_exists( 'esc_url' ) ) {
-    function esc_url( $url ) {
-        return clean_url( $url );
-    }
-}
-
-// disabled was added in WP 3.0, to supplement existing helpers checked() and selected()
-if ( !function_exists( 'disabled' ) ) {
-    function disabled( $disabled, $current = true, $echo = true ) {
-        return __checked_selected_helper( $disabled, $current, $echo, 'disabled' );
-    }
-}
-
 ?>
