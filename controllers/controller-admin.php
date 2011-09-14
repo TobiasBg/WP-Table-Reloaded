@@ -34,7 +34,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
      * @var array
      */
     var $allowed_actions = array( 'list', 'add', 'edit', 'bulk_edit', 'copy', 'delete', 'import', 'export', 'options', 'uninstall', 'about', 'hide_donate_nag', 'hide_welcome_message' );
-                            // 'ajax_list', 'ajax_preview', 'ajax_delete_table' also exist, but are handled separately
+                            // 'ajax_list', 'ajax_preview' also exist, but are handled separately
 
     /**
      * current action that is performed in this page load, populated in load_manage_page()
@@ -141,10 +141,6 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
         // init variables to check whether we do valid AJAX
         $doing_ajax = defined( 'DOING_AJAX' ) ? DOING_AJAX : false;
         $valid_ajax_call = ( isset( $_GET['page'] ) && $this->page_slug == $_GET['page'] ) ? true : false;
-
-        // real WP AJAX actions (other AJAX calls can not be done like this, because they are GET-requests)
-        if ( $doing_ajax )
-            add_action( 'wp_ajax_delete-wp-table-reloaded-table', array( &$this, 'do_action_ajax_delete_table' ) );
 
         // have to check for possible "export all" request this early,
         // because otherwise http-headers will be sent by WP before we can send download headers
@@ -1219,16 +1215,6 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
     }
 
     /**
-     * "AJAX Delete Table" action handler
-     */
-    function do_action_ajax_delete_table() {
-        check_ajax_referer( $this->get_nonce( 'delete', 'table' ) );
-        $table_id = isset( $_POST['id'] ) ? (int) $_POST['id'] : 0;
-        $this->delete_table( $table_id );
-        die( '1' );
-    }
-
-    /**
      * "Hide welcome message" action handler (which either is a plugin update or a plugin install message)
      */
     function do_action_hide_welcome_message() {
@@ -1848,16 +1834,6 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
      * Load DataTables library and print JavaScript commands for sorting and AJAX functions on the "List Tables" screen
      */
     function output_tablesorter_js() {
-        wp_print_scripts( 'wp-lists' ); // for AJAX on list of tables
-        $wpList = <<<WPLIST
-var delBefore;
-delBefore = function(s) {
-    return confirm( WP_Table_Reloaded_Admin.str_DeleteTableLink ) ? s : false;
-}
-$('#the-list').wpList( { alt: 'even', delBefore: delBefore } );
-$('.delete a[class^="delete"]').click(function(){return false;});\n
-WPLIST;
-
         $datatables = '';
         // filter to false, to prevent using DataTables in the List of Tables (seems to cause problems with IE 7)
         $use_datatables = $this->options['use_datatables_on_table_list'];
@@ -1924,7 +1900,7 @@ DATATABLES;
 <script type="text/javascript">
 /* <![CDATA[ */
 jQuery(document).ready(function($){
-{$wpList}{$datatables}
+{$datatables}
 });
 /* ]]> */
 </script>

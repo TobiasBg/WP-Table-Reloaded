@@ -27,8 +27,8 @@
                     <th scope="col"><?php _e( 'Last Modified', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></th>
                 </tr>
             </tfoot>
+            <tbody>
             <?php
-            echo "<tbody id=\"the-list\" class=\"list:wp-table-reloaded-table\">\n";
             $bg_style_index = 0;
             foreach ( $this->tables as $id => $tableoptionname ) {
                 $bg_style_index++;
@@ -62,7 +62,7 @@
                 echo "<a href=\"javascript:void(0);\" class=\"table_shortcode_link\" title=\"{$shortcode}\">" . __( 'Shortcode', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
                 echo "<a class=\"copy_table_link\" href=\"{$copy_url}\">" . __( 'Copy', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
                 echo "<a href=\"{$export_url}\">" . __( 'Export', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>" . " | ";
-                echo "<span class=\"delete\"><a class=\"delete:the-list:wp-table-reloaded-table-{$id} delete_table_link\" href=\"{$delete_url}\">" . __( 'Delete', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a></span>" . " | ";
+                echo "<span class=\"delete\"><a class=\"delete_table_link\" href=\"{$delete_url}\">" . __( 'Delete', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a></span>" . " | ";
                 $preview_title = sprintf( __( 'Preview of Table %s', WP_TABLE_RELOADED_TEXTDOMAIN ), $id );
                 echo "<a class=\"preview-link\" href=\"{$preview_url}\" title=\"{$preview_title}\">" . __( 'Preview', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</a>";
                 echo "</div>\n";
@@ -70,10 +70,9 @@
                 echo "\t<td>{$description}</td>\n";
                 echo "\t<td class=\"no-wrap\">{$last_modified}<br/>{$last_editor}</td>\n";
                 echo "</tr>\n";
-
             }
-            echo "</tbody>\n";
             ?>
+            </tbody>
             </table>
         <input type="hidden" name="action" value="bulk_edit" />
         <p class="submit" style="clear:both;"><?php _e( 'Bulk actions:', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>  <input type="submit" name="submit[copy]" class="button-primary bulk_copy_tables" value="<?php _e( 'Copy Tables', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" /> <input type="submit" name="submit[delete]" class="button-primary bulk_delete_tables" value="<?php _e( 'Delete Tables', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>" />

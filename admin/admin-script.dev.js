@@ -313,12 +313,9 @@ jQuery(document).ready( function( $ ) {
     	return confirm( WP_Table_Reloaded_Admin.str_CopyTableLink );
     } );
 
-    /*
-    // moved to inline script, because of using wpList script
-    $( 'a.delete_table_link' ).click( function () {
+    $( '#wp-table-reloaded-list a.delete_table_link' ).click( function () {
     	return confirm( WP_Table_Reloaded_Admin.str_DeleteTableLink );
     } );
-    */
 
     $( '#button-delete-rows' ).click( function () {
         var rows_cb = $( '#table_contents tr:not(".table-foot") :checkbox' ).length - 1; // -1 because of invisible checkbox in .table-head
