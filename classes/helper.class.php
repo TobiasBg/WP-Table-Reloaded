@@ -71,7 +71,7 @@ class WP_Table_Reloaded_Helper {
     // ###################################################################################################################
     // add admin footer text
     function add_admin_footer_text( $content ) {
-        $content .= ' | ' . __( 'Thank you for using <a href="http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/">WP-Table Reloaded</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ) . ' ' . sprintf( __( 'Support the plugin with your <a href="%s">donation</a>!', WP_TABLE_RELOADED_TEXTDOMAIN ), 'http://tobias.baethge.com/donate-message/' );
+        $content .= ' &bull; ' . __( 'Thank you for using <a href="http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/">WP-Table Reloaded</a>.', WP_TABLE_RELOADED_TEXTDOMAIN ) . ' ' . sprintf( __( 'Support the plugin with your <a href="%s">donation</a>!', WP_TABLE_RELOADED_TEXTDOMAIN ), 'http://tobias.baethge.com/donate-message/' );
         return $content;
     }
 
