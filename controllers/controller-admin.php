@@ -262,7 +262,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
             'de_DE' => __( 'German', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'en_US' => __( 'English', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'es_ES' => __( 'Spanish', WP_TABLE_RELOADED_TEXTDOMAIN ),
-            'fi_FI' => __( 'Finnish', WP_TABLE_RELOADED_TEXTDOMAIN ),
+            'fi'    => __( 'Finnish', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'fr_FR' => __( 'French', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'hi_IN' => __( 'Hindi', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'id_ID' => __( 'Indonesian', WP_TABLE_RELOADED_TEXTDOMAIN ),

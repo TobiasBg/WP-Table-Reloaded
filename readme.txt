@@ -105,7 +105,7 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 == Changelog ==
 
 = Version 1.9.5 =
-* languages: Added Irish and Portuguese (Portugal), updated other languages
+* languages: Added Irish and Portuguese (Portugal), updated other languages, renamed Finnish language code to "fi"
 * bugfix: ...
 * update: new DataTables version 1.8.2
 * dropped support for outdated WordPress 2.8 and 2.9
