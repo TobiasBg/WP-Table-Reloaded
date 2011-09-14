@@ -215,7 +215,7 @@
             $row1_select .= '</select>';
             $row2_select .= '</select>';
 
-            $move_where_select = '<select ' . $row_disabled . 'name="move[where]">';
+            $move_where_select = '<select ' . $row_disabled . 'name="move[row][where]">';
             $move_where_select .= "<option value=\"before\">" . __( 'before', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</option>";
             $move_where_select .= "<option value=\"after\">" . __( 'after', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</option>";
             $move_where_select .= '</select>';
@@ -235,7 +235,7 @@
             $col1_select .= '</select>';
             $col2_select .= '</select>';
 
-            $move_where_select = '<select ' . $col_disabled . 'name="move[where]">';
+            $move_where_select = '<select ' . $col_disabled . 'name="move[col][where]">';
             $move_where_select .= "<option value=\"before\">" . __( 'before', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</option>";
             $move_where_select .= "<option value=\"after\">" . __( 'after', WP_TABLE_RELOADED_TEXTDOMAIN ) . "</option>";
             $move_where_select .= '</select>';

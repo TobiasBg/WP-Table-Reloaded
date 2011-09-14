@@ -505,13 +505,15 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
                 $table_id = $_POST['table']['id'];
                 $row_id1 = ( isset( $_POST['move']['row'][1] ) ) ? $_POST['move']['row'][1] : -1;
                 $row_id2 = ( isset( $_POST['move']['row'][2] ) ) ? $_POST['move']['row'][2] : -1;
-                $move_where = ( isset( $_POST['move']['where'] ) ) ? $_POST['move']['where'] : 'before';
+                $move_where = ( isset( $_POST['move']['row']['where'] ) ) ? $_POST['move']['row']['where'] : 'before';
                 if ( 'after' == $move_where )
                     $row_id2 = $row_id2 + 1; // move after is the same as move before the next row
                 $table = $this->load_table( $table_id );
                 $rows = count( $table['data'] );
                 // move row $row_id1 before/after $row_id2
                 if ( ( 1 < $rows ) && ( -1 < $row_id1 ) && ( -1 < $row_id2 ) && ( $row_id1 != $row_id2 ) ) {
+                    if ( $row_id2 > $row_id1 )
+                        $row_id2 = $row_id2 - 1; // if target higher than source, source element is removed, so target index smaller by one
                     $temp_row = array( $table['data'][$row_id1] );
                     unset( $table['data'][$row_id1] );
                     array_splice( $table['data'], $row_id2, 0, $temp_row );
@@ -526,7 +528,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
                 $table_id = $_POST['table']['id'];
                 $col_id1 = ( isset( $_POST['move']['col'][1] ) ) ? $_POST['move']['col'][1] : -1;
                 $col_id2 = ( isset( $_POST['move']['col'][2] ) ) ? $_POST['move']['col'][2] : -1;
-                $move_where = ( isset( $_POST['move']['where'] ) ) ? $_POST['move']['where'] : 'before';
+                $move_where = ( isset( $_POST['move']['col']['where'] ) ) ? $_POST['move']['col']['where'] : 'before';
                 if ( 'after' == $move_where )
                     $col_id2 = $col_id2 + 1; // move after is the same as move before the next row
                 $table = $this->load_table( $table_id );
@@ -534,6 +536,8 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
                 $cols = (0 < $rows) ? count( $table['data'][0] ) : 0;
                 // move col $col_id1 before/after $col_id2
                 if ( ( 1 < $cols ) && ( -1 < $col_id1 ) && ( -1 < $col_id2 ) && ( $col_id1 != $col_id2 ) ) {
+                    if ( $col_id2 > $col_id1 )
+                        $col_id2 = $col_id2 - 1; // if target higher than source, source element is removed, so target index smaller by one
                     foreach ( $table['data'] as $row_idx => $row ) {
                         $temp_col = $table['data'][$row_idx][$col_id1];
                         unset( $table['data'][$row_idx][$col_id1] );
