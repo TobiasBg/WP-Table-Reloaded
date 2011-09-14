@@ -27,6 +27,7 @@
         <tr valign="top" class="tr-import-addreplace-table">
             <th scope="row"><label for="import_addreplace_table"><?php _e( 'Select existing Table to Replace', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
             <td><select id="import_addreplace_table" name="import_addreplace_table">
+            <option value="-1">&nbsp;</option>
         <?php
             foreach ( $this->tables as $id => $tableoptionname ) {
                 // get name and description to show in list
