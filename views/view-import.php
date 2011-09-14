@@ -6,7 +6,7 @@
         <form method="post" enctype="multipart/form-data" action="<?php echo $this->get_action_url(); ?>">
         <?php wp_nonce_field( $this->get_nonce( 'import' ) ); ?>
         <table class="wp-table-reloaded-options">
-        <tr valign="top">
+        <tr>
             <th scope="row"><label for="import_format"><?php _e( 'Select Import Format', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
             <td><select id="import_format" name="import_format">
         <?php
@@ -17,14 +17,14 @@
         </select></td>
         </tr>
         <?php if ( 0 < count( $this->tables ) ) { ?>
-        <tr valign="top" class="tr-import-addreplace">
+        <tr class="tr-import-addreplace">
             <th scope="row"><?php _e( 'Add or Replace Table?', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
             <td>
             <input name="import_addreplace" id="import_addreplace_add" type="radio" value="add" <?php echo ( isset( $_POST['import_addreplace'] ) && 'add' != $_POST['import_addreplace'] ) ? '' : 'checked="checked" ' ; ?>/> <label for="import_addreplace_add"><?php _e( 'Add as new Table', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label>
             <input name="import_addreplace" id="import_addreplace_replace" type="radio" value="replace" <?php echo ( isset( $_POST['import_addreplace'] ) && 'replace' == $_POST['import_addreplace'] ) ? 'checked="checked" ': '' ; ?>/> <label for="import_addreplace_replace"><?php _e( 'Replace existing Table', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label>
             </td>
         </tr>
-        <tr valign="top" class="tr-import-addreplace-table">
+        <tr class="tr-import-addreplace-table">
             <th scope="row"><label for="import_addreplace_table"><?php _e( 'Select existing Table to Replace', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
             <td><select id="import_addreplace_table" name="import_addreplace_table">
             <option value="-1">&nbsp;</option>
@@ -41,7 +41,7 @@
         </select></td>
         </tr>
         <?php } ?>
-        <tr valign="top" class="tr-import-from">
+        <tr class="tr-import-from">
             <th scope="row"><?php _e( 'Select source for Import', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
             <td>
             <input name="import_from" id="import_from_file" type="radio" value="file-upload" <?php echo ( isset( $_POST['import_from'] ) && 'file-upload' != $_POST['import_from'] ) ? '' : 'checked="checked" ' ; ?>/> <label for="import_from_file"><?php _e( 'File upload', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label>
@@ -50,19 +50,19 @@
             <input name="import_from" id="import_from_server" type="radio" value="server" <?php echo ( isset( $_POST['import_from'] ) && 'server' == $_POST['import_from'] ) ? 'checked="checked" ': '' ; ?>/> <label for="import_from_server"><?php _e( 'File on server', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label>
             </td>
         </tr>
-        <tr valign="top" class="tr-import-file-upload">
+        <tr class="tr-import-file-upload">
             <th scope="row"><label for="import_file"><?php _e( 'Select File with Table to Import', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
             <td><input name="import_file" id="import_file" type="file" /></td>
         </tr>
-        <tr valign="top" class="tr-import-url">
+        <tr class="tr-import-url">
             <th scope="row"><label for="import_url"><?php _e( 'URL to Import Table from', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
             <td><input type="text" name="import_url" id="import_url" style="width:400px;" value="<?php echo ( isset( $_POST['import_url'] ) ) ? $_POST['import_url'] : 'http://' ; ?>" /></td>
         </tr>
-        <tr valign="top" class="tr-import-server">
+        <tr class="tr-import-server">
             <th scope="row"><label for="import_server"><?php _e( 'Path to file on server', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
             <td><input type="text" name="import_server" id="import_server" style="width:400px;" value="<?php echo ( isset( $_POST['import_server'] ) ) ? $_POST['import_server'] : '' ; ?>" /></td>
         </tr>
-        <tr valign="top" class="tr-import-form-field">
+        <tr class="tr-import-form-field">
             <th scope="row" style="vertical-align:top;"><label for="import_data"><?php _e( 'Paste data with Table to Import', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
             <td><textarea  name="import_data" id="import_data" rows="15" cols="40" style="width:600px;height:300px;"></textarea></td>
         </tr>

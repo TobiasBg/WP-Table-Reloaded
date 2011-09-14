@@ -14,7 +14,7 @@
         <form method="post" action="<?php echo $this->get_action_url(); ?>">
         <?php wp_nonce_field( $this->get_nonce( 'export' ) ); ?>
         <table class="wp-table-reloaded-options">
-        <tr valign="top">
+        <tr>
             <th scope="row"><label for="table_id"><?php _e( 'Select Table to Export', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
             <td><select id="table_id" name="table_id">
         <?php
@@ -30,7 +30,7 @@
         ?>
         </select></td>
         </tr>
-        <tr valign="top">
+        <tr>
             <th scope="row"><label for="export_format"><?php _e( 'Select Export Format', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
             <td><select id="export_format" name="export_format">
         <?php
@@ -40,7 +40,7 @@
         ?>
         </select></td>
         </tr>
-        <tr valign="top" class="tr-export-delimiter">
+        <tr class="tr-export-delimiter">
             <th scope="row"><label for="delimiter"><?php _e( 'Select Delimiter to use', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</label></th>
             <td><select id="delimiter" name="delimiter">
         <?php
@@ -50,7 +50,7 @@
         ?>
         </select> <small>(<?php _e( 'Only needed for CSV export.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>)</small></td>
         </tr>
-        <tr valign="top">
+        <tr>
             <th scope="row"><?php _e( 'Download file', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>:</th>
             <td><input type="checkbox" name="download_export_file" id="download_export_file" value="true"<?php echo ( isset( $_POST['submit'] ) && !isset( $_POST['download_export_file'] ) ) ? '' : ' checked="checked"'; ?> /> <label for="download_export_file"><?php _e( 'Yes, I want to download the export file.', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></label></td>
         </tr>

@@ -115,6 +115,10 @@
     vertical-align:baseline!important;
 }
 
+.postbox .inside p {
+  line-height: 1.2!important;
+}
+
 #table_custom_fields td {
     vertical-align:middle!important;
 }
