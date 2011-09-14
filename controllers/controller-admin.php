@@ -1790,7 +1790,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
         $jsfile = "admin/admin-editor-buttons-script{$suffix}.js";
 
         // HTML editor integration
-        wp_enqueue_script( 'wp-table-reloaded-editor-button-js', plugins_url( $jsfile, WP_TABLE_RELOADED__FILE__ ), array( 'jquery', 'thickbox', 'media-upload' ), $this->options['installed_version'], true );
+        wp_register_script( 'wp-table-reloaded-editor-button-js', plugins_url( $jsfile, WP_TABLE_RELOADED__FILE__ ), array( 'jquery', 'thickbox', 'media-upload', 'quicktags' ), $this->options['installed_version'], true );
         wp_localize_script( 'wp-table-reloaded-editor-button-js', 'WP_Table_Reloaded_Editor_Button', array(
 	  	    'str_EditorButtonCaption' => __( 'Table', WP_TABLE_RELOADED_TEXTDOMAIN ),
 	  	    'str_EditorButtonTitle' => __( 'Insert a Table', WP_TABLE_RELOADED_TEXTDOMAIN ),
@@ -1803,6 +1803,12 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
         	add_filter( 'mce_external_plugins', array( &$this, 'add_tinymce_plugin' ) );
         	add_filter( 'mce_buttons', array( &$this, 'add_tinymce_button' ) );
         }
+        
+        add_action( 'admin_print_footer_scripts', array( &$this, '_print_editor_button' ), 100 );
+    }
+
+    function _print_editor_button() {
+        wp_print_scripts( 'wp-table-reloaded-editor-button-js' );
     }
 
     /**
