@@ -3,7 +3,7 @@ Contributors: TobiasBg
 Donate link: http://tobias.baethge.com/donate/
 Tags: html,table,data,editor,csv,import,export,excel,widget,admin,sidebar
 Requires at least: 3.0
-Tested up to: 3.2
+Tested up to: 3.2.1
 Stable tag: 1.9.1
 
 WP-Table Reloaded lets you manage tables in a comfortable backend in WP's admin area, without any knowledge of HTML, and can add valuable features.
@@ -107,7 +107,7 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 = Version 1.9.5 =
 * languages: Added Irish and Portuguese (Portugal), updated other languages
 * bugfix: ...
-* update: new DataTables version 1.8.1
+* update: new DataTables version 1.8.2
 * dropped support for outdated WordPress 2.8 and 2.9
 
 = Version 1.9.1 =
