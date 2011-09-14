@@ -57,7 +57,15 @@ if ( is_admin() ) {
     $WP_Table_Reloaded_Admin = new WP_Table_Reloaded_Controller_Admin();
 } else {
     include_once ( WP_TABLE_RELOADED_ABSPATH . 'controllers/controller-frontend.php' );
-    $WP_Table_Reloaded_Frontend = new WP_Table_Reloaded_Controller_Frontend();
+    add_action( 'init', '_wp_table_reloaded_controller_frontend_constructor' );
+    
+    /**
+     * Call constructor on init hook
+     */
+    function _wp_table_reloaded_controller_frontend_constructor() {
+        global $WP_Table_Reloaded_Frontend;
+        $WP_Table_Reloaded_Frontend = new WP_Table_Reloaded_Controller_Frontend();
+    }
 
     /**
      * Add template tag function for "table" shortcode to be used anywhere in the template

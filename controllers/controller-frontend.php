@@ -54,17 +54,10 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
     /**
      * PHP5 class constructor
      *
-     * Startup plugin on init hook
-     */
-    function __construct() {
-        add_action( 'init', array( &$this, 'startup' ) );
-    }
-
-    /**
      * Initiate frontend functionality, by loading plugin options and tables, registering Shortcodes,
      * possibly enabling WP Search, and loading plugin's CSS and JS files in header or footer
      */
-    function startup() {
+    function __construct() {
         // load options and tables from WP database; if not available: abort without further action
         $this->options = $this->load_options();
         $this->tables = $this->load_tables();
