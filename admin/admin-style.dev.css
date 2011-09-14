@@ -150,6 +150,10 @@
     text-align: right;
 }
 
+#table_contents .table-foot .check-column {
+    width: auto!important;
+}
+
 .no-wrap {
     white-space:nowrap;
 }
