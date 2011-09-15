@@ -42,10 +42,6 @@
     text-align: right;
 }
 
-#wp-table-reloaded-list .even { /* = alternate*/
-    background-color:#F9F9F9;
-}
-
 #wp-table-reloaded-list {
     margin-top: 10px;
     margin-bottom: 10px;

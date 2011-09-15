@@ -32,7 +32,7 @@
             $bg_style_index = 0;
             foreach ( $this->tables as $id => $tableoptionname ) {
                 $bg_style_index++;
-                $bg_style = ( 1 == ($bg_style_index % 2) ) ? ' class="even"' : ' class="odd"';
+                $bg_style = ( 1 == ($bg_style_index % 2) ) ? ' class="alternate"' : '';
 
                 // get name and description to show in list
                 $table = $this->load_table( $id );

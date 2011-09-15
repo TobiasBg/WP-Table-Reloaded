@@ -1874,7 +1874,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
     "aaSorting": [],
     "bProcessing": true,
     "sPaginationType": "full_numbers",
-    "asStripClasses": ['even','odd'],
+    "asStripClasses": ['alternate',''],
     "aoColumns": [
         { "sWidth": "24px", "bSortable": false, "bSearchable": false },
         { "sType": "numeric" },
