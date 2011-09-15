@@ -61,7 +61,7 @@ For support questions, bug reports, or feature requests, please use the [WordPre
 
 = Requirements? =
 
-In short: WordPress 2.8 or higher
+In short: WordPress 3.0 or higher, the latest version of WordPress is recommended
 
 = Languages and Localization? =
 
@@ -104,11 +104,14 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 
 == Changelog ==
 
-= Version 1.9.5 =
+= Version 1.9.2 =
+* bugfix: Correct column width of "Edit" screen input fields in Internet Explorer 9
+* bugfix: Fix bug when a moved columns/rows was not moved to the correct place
+* bugfix: Restore functionality of the "Delete" link on the "List of Tables"
+* update: Added new DataTables version 1.8.2
+* enhancement: several code changes for better compatibility, adjustments to current WordPress versions
+* Dropped support for outdated WordPress versions 2.8 and 2.9
 * languages: Added Irish and Portuguese (Portugal), updated other languages, renamed Finnish language code to "fi"
-* bugfix: ...
-* update: new DataTables version 1.8.2
-* dropped support for outdated WordPress 2.8 and 2.9
 
 = Version 1.9.1 =
 * bugfix: update handling was broken in 1.9
@@ -249,7 +252,7 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 
 == Upgrade Notice ==
 
-= 1.9.5 =
+= 1.9.2 =
 This upgrade includes several bugfixes and a few enhancements. It now requires WordPress 3.0!
 
 = 1.9.1 =
