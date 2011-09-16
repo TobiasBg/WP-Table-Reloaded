@@ -106,7 +106,7 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 
 = Version 1.9.2 =
 * bugfix: Correct column width of "Edit" screen input fields in Internet Explorer 9
-* bugfix: Fix bug when a moved columns/rows was not moved to the correct place
+* bugfix: Fix bug when a moved columns/rows were not moved to the correct place
 * bugfix: Restore functionality of the "Delete" link on the "List of Tables"
 * update: Added new DataTables version 1.8.2
 * enhancement: several code changes for better compatibility, adjustments to current WordPress versions
