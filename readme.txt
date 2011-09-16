@@ -253,7 +253,7 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 == Upgrade Notice ==
 
 = 1.9.2 =
-This upgrade includes several bugfixes and a few enhancements. It now requires WordPress 3.0!
+This upgrade includes several bugfixes and a few enhancements, like an updated DataTables library.
 
 = 1.9.1 =
 This upgrade includes a few new features, like output caching and a custom table CSS class, and several enhancements.
