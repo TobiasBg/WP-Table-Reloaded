@@ -53,6 +53,7 @@
                     'es_ES' => '<a href="http://halles.cl/">Matias Halles</a>', // <a href="http://theindependentproject.com/">Alejandro Urrutia</a>
                     'fi'    => 'Jaakko',
                     'fr_FR' => '<a href="http://www.ningbohotelreview.com/">NingboHOTELreview</a>',
+                    'he_IL' => '<a href="http://www.site2goal.co.il/">Mulli Bahr</a>',
                     'hi_IN' => '<a href="http://outshinesolutions.com/">Outshine Solutions</a>',
                     'id_ID' => '<a href="http://sys-talk.com/">Dedy Sofyan</a>, <a href="http://kelayang.com/">Kelayang</a>',
                     'it_IT' => '<a href="http://www.scrical.it/">Gabriella Mazzon</a>',

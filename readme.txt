@@ -111,7 +111,7 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 * update: Added new DataTables version 1.8.2
 * enhancement: several code changes for better compatibility, adjustments to current WordPress versions
 * Dropped support for outdated WordPress versions 2.8 and 2.9
-* languages: Added Irish and Portuguese (Portugal), updated other languages, renamed Finnish language code to "fi"
+* languages: Added Irish, Hebrew and Portuguese (Portugal), updated other languages, renamed Finnish language code to "fi"
 
 = Version 1.9.1 =
 * bugfix: update handling was broken in 1.9

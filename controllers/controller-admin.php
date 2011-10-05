@@ -260,6 +260,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
             'es_ES' => __( 'Spanish', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'fi'    => __( 'Finnish', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'fr_FR' => __( 'French', WP_TABLE_RELOADED_TEXTDOMAIN ),
+            'he_IL' => __( 'Hebrew', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'hi_IN' => __( 'Hindi', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'id_ID' => __( 'Indonesian', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'it_IT' => __( 'Italian', WP_TABLE_RELOADED_TEXTDOMAIN ),
