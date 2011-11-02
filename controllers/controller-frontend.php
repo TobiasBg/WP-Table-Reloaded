@@ -145,6 +145,8 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
                 }
         }
 
+		$output = apply_filters( 'wp_table_reloaded_shortcode_table_info_output', $output, $atts );
+
         return $output;
     }
 
