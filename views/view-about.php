@@ -49,6 +49,7 @@
                 $credits_links = array(
                     'ar'    => '<a href="http://jdwel.com/">Mohammed Kashmiry</a>',
                     'be_BY' => '<a href="http://www.mikheev.biz/">Slava Mikheev</a>',
+                    'bg_BG' => '<a href="http://www.ajoft.com/">Gill Ajoft</a>',
                     'cs_CZ' => '<a href="http://separatista.net/">Separatista</a>',
                     'es_ES' => '<a href="http://halles.cl/">Matias Halles</a>', // <a href="http://theindependentproject.com/">Alejandro Urrutia</a>
                     'fi'    => 'Jaakko',
