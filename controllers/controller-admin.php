@@ -1099,7 +1099,9 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
             $this->options['use_default_css'] = isset( $new_options['use_default_css'] );
             $this->options['use_custom_css'] = isset( $new_options['use_custom_css'] );
             $this->options['add_target_blank_to_links'] = isset( $new_options['add_target_blank_to_links'] );
-            $this->options['tablesorter_script'] = $new_options['tablesorter_script'];
+            // drop down: only set when not disabled (by JavaScript)
+            if ( isset( $new_options['tablesorter_script'] ) )
+            	$this->options['tablesorter_script'] = $new_options['tablesorter_script'];
 
             // only save these settings, if user is administrator, as they are admin options
             if ( current_user_can( 'manage_options' ) ) {
