@@ -3,7 +3,7 @@ Contributors: TobiasBg
 Donate link: http://tobias.baethge.com/donate/
 Tags: html,table,data,editor,csv,import,export,excel,widget,admin,sidebar
 Requires at least: 3.0
-Tested up to: 3.3-beta1
+Tested up to: 3.3
 Stable tag: 1.9.2
 
 WP-Table Reloaded lets you manage tables in a comfortable backend in WP's admin area, without any knowledge of HTML, and can add valuable features.
@@ -66,7 +66,7 @@ In short: WordPress 3.0 or higher, the latest version of WordPress is recommende
 = Languages and Localization? =
 
 The plugin currently includes the following languages:
-Arabic, Belarusian, Brazilian Portuguese, Chinese (Simplified), Czech, Dutch, English, Finnish, French, German, Hebrew, Hindi, Indonesian, Italian, Japanese, Polish, Russian, Slovak, Spanish, Swedish, and Ukrainian.
+Arabic, Belarusian, Brazilian Portuguese, Bulgarian, Chinese (Simplified), Czech, Dutch, English, Finnish, French, German, Hebrew, Hindi, Indonesian, Italian, Japanese, Polish, Russian, Slovak, Spanish, Swedish, and Ukrainian.
 
 I'd really appreciate it, if you would translate the plugin into your language! Using Heiko Rabe's WordPress plugin [Codestyling Localization](http://www.code-styling.de/english/development/wordpress-plugin-codestyling-localization-en/) that really is as easy as pie. Just install the plugin, add your language, create the .po-file, translate the strings in the comfortable editor and create the .mo-file. It will automatically be saved in WP-Table Reloaded's plugin folder. If you send me the .mo- and .po-file, I will gladly include them into future plugin releases.
 There is also a .pot-file available to use in the "languages" subfolder. Of course you can also use poEdit as your editor, which also works nicely.
@@ -103,6 +103,10 @@ I kindly ask you for link somewhere on your website to http://tobias.baethge.com
 I'm also happy about [donations](http://tobias.baethge.com/donate/) or something from [my wishlist](http://tobias.baethge.com/wishlist)! Thanks!
 
 == Changelog ==
+
+= Version 1.9.3-dev =
+* enhancement: better resizing behavior for textareas on the "Edit" screen, when manually increasing the size or textareas in the same row or column
+* languages: Added Bulgarian
 
 = Version 1.9.2 =
 * bugfix: Correct column width of "Edit" screen input fields in Internet Explorer 9
