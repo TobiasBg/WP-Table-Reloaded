@@ -249,12 +249,11 @@ jQuery(document).ready( function( $ ) {
         set_table_data_changed();
     }
 
-    function add_image() {
+    $( '#a-insert-image' ).click( function() {
         if ( confirm( WP_Table_Reloaded_Admin.str_DataManipulationImageInsertThickbox ) )
             $( '#table_contents' ).delegate( 'textarea', 'click', call_media_library_thickbox );
         return false;
-    }
-    $( '#a-insert-image' ).bind( 'click', add_image );
+    } );
 
     // not all characters allowed for name of Custom Data Field
     $( '#insert_custom_field_name' ).keyup( function () {
