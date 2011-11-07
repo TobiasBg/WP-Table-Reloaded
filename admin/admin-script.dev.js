@@ -366,8 +366,8 @@ jQuery(document).ready( function( $ ) {
 
     function set_table_data_changed() {
         table_data_changed = true;
-        $( '#wp_table_reloaded_edit_table' ).find( '#table_name, textarea' ).unbind( 'change', set_table_data_changed );
-        $( '#wp_table_reloaded_edit_table .wp-table-reloaded-options input, #wp_table_reloaded_edit_table .wp-table-reloaded-options select' ).unbind( 'change', set_table_data_changed );
+        if ( WP_Table_Reloaded_Admin.option_show_exit_warning )
+            $( '#wp_table_reloaded_edit_table' ).undelegate( '#table_name, textarea, .wp-table-reloaded-options input, .wp-table-reloaded-options select', 'change', set_table_data_changed ); // see also ID change function above
     }
 
     if ( WP_Table_Reloaded_Admin.option_show_exit_warning ) {
@@ -376,13 +376,12 @@ jQuery(document).ready( function( $ ) {
                 return WP_Table_Reloaded_Admin.str_saveAlert;
         };
 
-        $("#wp_table_reloaded_edit_table input[name='submit[update]'], #wp_table_reloaded_edit_table input[name='submit[save_back]']").click(function(){
+        $( '#wp_table_reloaded_edit_table input[name="submit[update]"], #wp_table_reloaded_edit_table input[name="submit[save_back]"]' ).click(function(){
             $( '#wp_table_reloaded_edit_table .wp-table-reloaded-options input, #wp_table_reloaded_edit_table .wp-table-reloaded-options select' ).removeAttr( 'disabled' );
             window.onbeforeunload = null;
         } );
 
-        $( '#wp_table_reloaded_edit_table' ).find( '#table_name, textarea' ).bind( 'change', set_table_data_changed ); // see also ID change function above
-        $( '#wp_table_reloaded_edit_table .wp-table-reloaded-options input, #wp_table_reloaded_edit_table .wp-table-reloaded-options select' ).bind( 'change', set_table_data_changed );
+        $( '#wp_table_reloaded_edit_table' ).delegate( '#table_name, textarea, .wp-table-reloaded-options input, .wp-table-reloaded-options select', 'change', set_table_data_changed ); // see also ID change function above
     }
     
     tb_init( 'a.help-link' );
