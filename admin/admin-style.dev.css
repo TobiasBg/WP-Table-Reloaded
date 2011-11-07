@@ -55,6 +55,10 @@
     min-height:84px;
 }
 
+#table_custom_fields .focus {
+    min-height:54px;
+}
+
 #options_custom_css {
     width:600px;
     height:100px;
