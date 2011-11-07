@@ -241,9 +241,9 @@ jQuery(document).ready( function( $ ) {
     // insert image functions
     function call_media_library_thickbox() {
         edCanvas = this;
-        $( '#table_contents textarea' ).unbind( 'click', call_media_library_thickbox );
-        var link = $( '#a-insert-image' );
-        tb_show( link.attr('title'), link.attr('href'), link.attr('rel') );
+        $( '#table_contents' ).undelegate( 'textarea', 'click', call_media_library_thickbox );
+        var $link = $( '#a-insert-image' );
+        tb_show( $link.attr('title'), $link.attr('href'), $link.attr('rel') );
         tb_my_position();
         $(this).blur();
         set_table_data_changed();
@@ -251,10 +251,10 @@ jQuery(document).ready( function( $ ) {
 
     function add_image() {
         if ( confirm( WP_Table_Reloaded_Admin.str_DataManipulationImageInsertThickbox ) )
-            $("#table_contents textarea").bind( 'click', call_media_library_thickbox );
+            $( '#table_contents' ).delegate( 'textarea', 'click', call_media_library_thickbox );
         return false;
     }
-    $( '#a-insert-image' ).bind('click', add_image);
+    $( '#a-insert-image' ).bind( 'click', add_image );
 
     // not all characters allowed for name of Custom Data Field
     $( '#insert_custom_field_name' ).keyup( function () {
