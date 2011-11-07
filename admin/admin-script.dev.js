@@ -362,25 +362,21 @@ jQuery(document).ready( function( $ ) {
     } );
 
     // exit message, if table content was changed but not yet saved
-    var table_data_changed = false;
-
-    function set_table_data_changed() {
-        table_data_changed = true;
-        if ( WP_Table_Reloaded_Admin.option_show_exit_warning )
-            $( '#wp_table_reloaded_edit_table' ).undelegate( '#table_name, textarea, .wp-table-reloaded-options input, .wp-table-reloaded-options select', 'change', set_table_data_changed ); // see also ID change function above
-    }
+	function set_table_data_changed() {
+		if ( ! WP_Table_Reloaded_Admin.option_show_exit_warning )
+			return;
+			
+		window.onbeforeunload = function() {
+			return WP_Table_Reloaded_Admin.str_saveAlert;
+		};
+		$( '#wp_table_reloaded_edit_table' ).undelegate( '#table_name, textarea, .wp-table-reloaded-options input, .wp-table-reloaded-options select', 'change', set_table_data_changed ); // see also ID change function above
+	}
 
     if ( WP_Table_Reloaded_Admin.option_show_exit_warning ) {
-        window.onbeforeunload = function(){
-            if ( table_data_changed )
-                return WP_Table_Reloaded_Admin.str_saveAlert;
-        };
-
+        $( '#wp_table_reloaded_edit_table' ).delegate( '#table_name, textarea, .wp-table-reloaded-options input, .wp-table-reloaded-options select', 'change', set_table_data_changed ); // see also ID change function above
         $( '#wp_table_reloaded_edit_table' ).find( 'input[name="submit[update]"], input[name="submit[save_back]"]' ).click(function(){
             window.onbeforeunload = null;
         } );
-
-        $( '#wp_table_reloaded_edit_table' ).delegate( '#table_name, textarea, .wp-table-reloaded-options input, .wp-table-reloaded-options select', 'change', set_table_data_changed ); // see also ID change function above
     }
 
     // enable disabled fields, so that they are transmitted in the POST request
