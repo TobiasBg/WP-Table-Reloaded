@@ -164,12 +164,8 @@ jQuery(document).ready( function( $ ) {
     if ( WP_Table_Reloaded_Admin.option_tablesorter_enabled && WP_Table_Reloaded_Admin.option_datatables_active ) {
         $( '#table_options_first_row_th' ).change( function () {
             if( $(this).attr('checked') ) {
-                $( '#table_options_use_tablesorter' ).removeAttr( 'disabled' );
-                if ( $( '#table_options_use_tablesorter' ).attr('checked') ) {
-                    $( '.wp-table-reloaded-datatables-options input' ).removeAttr( 'disabled' );
-                    if ( !WP_Table_Reloaded_Admin.option_tabletools_active )
-                        $( '#table_options_datatables_tabletools' ).attr( 'disabled', 'disabled' );
-                }
+                $( '#table_options_use_tablesorter' ).removeAttr( 'disabled' )
+                .change();
             } else {
                 $( '#table_options_use_tablesorter' ).attr( 'disabled', 'disabled' );
                 $( '.wp-table-reloaded-datatables-options input' ).attr( 'disabled', 'disabled' );
@@ -182,8 +178,7 @@ jQuery(document).ready( function( $ ) {
                 $( '.wp-table-reloaded-datatables-options input' ).removeAttr( 'disabled' );
                 if ( !WP_Table_Reloaded_Admin.option_tabletools_active )
                     $( '#table_options_datatables_tabletools' ).attr( 'disabled', 'disabled' );
-                if ( !$( '#table_options_datatables_paginate' ).attr('checked') )
-                    $( '#table_options_datatables_paginate_entries' ).attr( 'disabled', 'disabled' );
+                $( '#table_options_datatables_paginate' ).change();
             } else {
                 $( '.wp-table-reloaded-datatables-options input' ).attr( 'disabled', 'disabled' );
             }
