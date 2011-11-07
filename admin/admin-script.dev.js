@@ -105,11 +105,10 @@ jQuery(document).ready( function( $ ) {
         } );
     }
 
-    // custom css textarea grows on focus
-    function css_textarea_focus() {
-        $( '#options_custom_css' ).addClass('focus');
-    }
-    $( '#options_custom_css' ).one( 'focus', css_textarea_focus );
+    // "Custom CSS" textarea grows on focus, once
+    $( '#options_custom_css' ).one( 'focus', function() {
+        $(this).addClass( 'focus' );
+    } );
 
     // show export delimiter dropdown box only if export format is csv
     $( '#export_format' ).change( function () {
