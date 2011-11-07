@@ -74,24 +74,20 @@ jQuery(document).ready( function( $ ) {
         }
 	});
 
-    var span_type = '';
-    function add_span() {
-        $(this).val( span_type );
-        $( '#table_contents textarea' ).unbind( 'click', add_span );
+    // function to add rowspan / colspan to cells
+    function add_span( event ) {
+        $(this).val( event.data.span_type );
+        $( '#table_contents' ).undelegate( 'textarea', 'click', add_span );
         set_table_data_changed();
     }
-
-    // function to add rowspan / colspan to cells
     $( '#a-add-colspan' ).click( function() {
-        span_type = '#colspan#';
         if ( confirm( WP_Table_Reloaded_Admin.str_DataManipulationAddColspan ) )
-            $("#table_contents textarea").bind( 'click', add_span );
+            $( '#table_contents' ).delegate( 'textarea', 'click', { span_type: '#colspan#' }, add_span );
         return false;
 	});
     $( '#a-add-rowspan' ).click( function() {
-        span_type = '#rowspan#';
         if ( confirm( WP_Table_Reloaded_Admin.str_DataManipulationAddRowspan ) )
-            $("#table_contents textarea").bind( 'click', add_span );
+            $( '#table_contents' ).delegate( 'textarea', 'click', { span_type: '#rowspan#' }, add_span );
         return false;
 	});
 
