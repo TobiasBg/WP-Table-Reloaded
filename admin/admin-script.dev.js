@@ -96,12 +96,12 @@ jQuery(document).ready( function( $ ) {
 	});
 
     // functions to make focussed textareas bigger (if backend option is enabled)
-    var focussed = null;
+    var $focussed = $(null);
     if ( WP_Table_Reloaded_Admin.option_growing_textareas ) {
-        $( '#table_contents textarea' ).focus( function() {
-            $(focussed).removeClass('focus');
-            focussed = $(this).parents('tr').find('textarea');
-            $(focussed).addClass('focus');
+        $( '#table_contents' ).delegate( 'textarea', 'focus', function() {
+            $focussed.removeClass( 'focus' );
+            $focussed = $(this);
+            $focussed.addClass( 'focus' );
         } );
     }
 
