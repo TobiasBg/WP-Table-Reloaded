@@ -376,14 +376,18 @@ jQuery(document).ready( function( $ ) {
                 return WP_Table_Reloaded_Admin.str_saveAlert;
         };
 
-        $( '#wp_table_reloaded_edit_table input[name="submit[update]"], #wp_table_reloaded_edit_table input[name="submit[save_back]"]' ).click(function(){
-            $( '#wp_table_reloaded_edit_table .wp-table-reloaded-options input, #wp_table_reloaded_edit_table .wp-table-reloaded-options select' ).removeAttr( 'disabled' );
+        $( '#wp_table_reloaded_edit_table' ).find( 'input[name="submit[update]"], input[name="submit[save_back]"]' ).click(function(){
             window.onbeforeunload = null;
         } );
 
         $( '#wp_table_reloaded_edit_table' ).delegate( '#table_name, textarea, .wp-table-reloaded-options input, .wp-table-reloaded-options select', 'change', set_table_data_changed ); // see also ID change function above
     }
-    
+
+    // enable disabled fields, so that they are transmitted in the POST request
+    $( '#wp_table_reloaded_edit_table' ).find( 'input[name="submit[update]"], input[name="submit[save_back]"]' ).click(function(){
+        $( '#wp_table_reloaded_edit_table .wp-table-reloaded-options' ).find( 'input, select' ).removeAttr( 'disabled' );
+    } );
+
     tb_init( 'a.help-link' );
     tb_init( 'a.preview-link' );
     tb_my_position();
