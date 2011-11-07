@@ -214,28 +214,25 @@ jQuery(document).ready( function( $ ) {
             return confirm( WP_Table_Reloaded_Admin.str_UninstallCheckboxActivation );
     } );
 
-
     // insert link functions
-    var insert_html = '';
-    function add_html() {
-        $(this).val( $(this).val() + insert_html );
-        $( '#table_contents textarea' ).unbind( 'click', add_html );
+    function add_html( event ) {
+        $(this).val( $(this).val() + event.data.html );
+        $( '#table_contents' ).undelegate( 'textarea', 'click', add_html );
         set_table_data_changed();
     }
 
     $( '#a-insert-link' ).click( function () {
-        var target = '';
-        if ( WP_Table_Reloaded_Admin.option_add_target_blank_to_links )
-            target = ' target="_blank"';
         var link_url = prompt( WP_Table_Reloaded_Admin.str_DataManipulationLinkInsertURL + ':', 'http://' );
         if ( link_url ) {
             var link_text = prompt( WP_Table_Reloaded_Admin.str_DataManipulationLinkInsertText + ':', WP_Table_Reloaded_Admin.str_DataManipulationLinkInsertText );
             if ( link_text ) {
-                insert_html = '<a href="' + link_url + '"' + target + '>' + link_text + '</a>';
+                var target = '';
+                if ( WP_Table_Reloaded_Admin.option_add_target_blank_to_links )
+                    target = ' target="_blank"';
+                var insert_html = '<a href="' + link_url + '"' + target + '>' + link_text + '</a>';
                 insert_html = prompt( WP_Table_Reloaded_Admin.str_DataManipulationLinkInsertExplain, insert_html )
-                if ( insert_html ) {
-                    $("#table_contents textarea").bind('click', add_html);
-                }
+                if ( insert_html )
+                    $( '#table_contents' ).delegate( 'textarea', 'click', { html: insert_html }, add_html );
             }
         }
 		return false;
