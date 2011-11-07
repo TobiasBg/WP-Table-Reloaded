@@ -35,7 +35,7 @@ jQuery(document).ready( function( $ ) {
             alert( WP_Table_Reloaded_Admin.str_UnHideColsNoSelection );
         } else {
             $( '#table_contents .table-foot :checked' ).removeAttr( 'checked' ).next().val( true ).each( function() {
-                $( '#table_contents .' + $(this).attr('id') ).addClass( 'column-hidden' );
+                $( '#table_contents .' + this.id ).addClass( 'column-hidden' );
             } );
             set_table_data_changed();
         }
