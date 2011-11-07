@@ -17,7 +17,7 @@ jQuery(document).ready( function( $ ) {
             set_table_data_changed();
         }
         return false;
-	});
+	} );
     $( '#a-unhide-rows' ).click( function() {
         var rows_selected = $( '#table_contents tr:not(".table-foot") :checked' ).length;
         if ( rows_selected == 0 ) {
@@ -27,7 +27,7 @@ jQuery(document).ready( function( $ ) {
             set_table_data_changed();
         }
         return false;
-	});
+	} );
 	
     $( '#a-hide-columns' ).click( function() {
         var cols_selected = $( '#table_contents .table-foot :checked' ).length;
@@ -40,7 +40,7 @@ jQuery(document).ready( function( $ ) {
             set_table_data_changed();
         }
         return false;
-	});
+	} );
     $( '#a-unhide-columns' ).click( function() {
         var cols_selected = $( '#table_contents .table-foot :checked' ).length;
         if ( cols_selected == 0 ) {
@@ -52,7 +52,7 @@ jQuery(document).ready( function( $ ) {
             set_table_data_changed();
         }
         return false;
-	});
+	} );
 	
 	$( '#button-insert-rows' ).click( function() {
         var rows_selected = $( '#table_contents tr:not(".table-foot") :checked' ).length;
@@ -62,7 +62,7 @@ jQuery(document).ready( function( $ ) {
         } else {
             return true;
         }
-	});
+	} );
 
     $( '#button-insert-columns' ).click( function() {
         var cols_selected = $( '#table_contents .table-foot :checked' ).length;
@@ -72,7 +72,7 @@ jQuery(document).ready( function( $ ) {
         } else {
             return true;
         }
-	});
+	} );
 
     // function to add rowspan / colspan to cells
     function add_span( event ) {
@@ -84,12 +84,12 @@ jQuery(document).ready( function( $ ) {
         if ( confirm( WP_Table_Reloaded_Admin.str_DataManipulationAddColspan ) )
             $( '#table_contents' ).delegate( 'textarea', 'click', { span_type: '#colspan#' }, add_span );
         return false;
-	});
+	} );
     $( '#a-add-rowspan' ).click( function() {
         if ( confirm( WP_Table_Reloaded_Admin.str_DataManipulationAddRowspan ) )
             $( '#table_contents' ).delegate( 'textarea', 'click', { span_type: '#rowspan#' }, add_span );
         return false;
-	});
+	} );
 
     // functions to make focussed textareas bigger (if backend option is enabled)
     var $focussed = $(null);
@@ -107,17 +107,17 @@ jQuery(document).ready( function( $ ) {
     } );
 
     // show export delimiter dropdown box only if export format is csv
-    $( '#export_format' ).change( function () {
+    $( '#export_format' ).change( function() {
         if ( 'csv' == $(this).val() )
             $('.tr-export-delimiter').show();
         else
             $('.tr-export-delimiter').hide();
-    })
+    } )
     .change();
 
     // confirm change of table ID
     var table_id = $( '.wp-table-reloaded-table-information #table_id' ).val();
-    $( '.wp-table-reloaded-table-information #table_id' ).change( function () {
+    $( '.wp-table-reloaded-table-information #table_id' ).change( function() {
         if ( table_id != $(this).val() ) {
             if ( confirm( WP_Table_Reloaded_Admin.str_ChangeTableID ) ) {
                 table_id = $(this).val();
@@ -129,7 +129,7 @@ jQuery(document).ready( function( $ ) {
     } );
 
     // show select box for table to replace only if needed
-    $( '.tr-import-addreplace input' ).click( function () {
+    $( '.tr-import-addreplace input' ).click( function() {
         if( 'replace' == $( '.tr-import-addreplace input:checked' ).val() )
             $( '.tr-import-addreplace-table' ).show();
         else
@@ -138,14 +138,14 @@ jQuery(document).ready( function( $ ) {
     $( '.tr-import-addreplace input:checked' ).click();
 
     // show only checked import fields depending on radio button
-    $( '.tr-import-from input' ).click( function () {
+    $( '.tr-import-from input' ).click( function() {
         $('.tr-import-file-upload, .tr-import-url, .tr-import-form-field, .tr-import-server').hide();
         $( '.tr-import-' + $( '.tr-import-from input:checked' ).val() ).show();
     } );
     $('.tr-import-from input:checked').click();
 
     // enable/disable custom css textarea according to state of checkbox
-    $( '#options_use_custom_css' ).change( function () {
+    $( '#options_use_custom_css' ).change( function() {
         if( $(this).attr('checked') )
             $( '#options_custom_css' ).removeAttr( 'disabled' );
         else
@@ -153,7 +153,7 @@ jQuery(document).ready( function( $ ) {
     } );
 
     // tablesorter selection dropdown according to state of checkbox
-    $( '#options_enable_tablesorter' ).change( function () {
+    $( '#options_enable_tablesorter' ).change( function() {
         if( $(this).attr('checked') )
             $( '#options_tablesorter_script' ).removeAttr( 'disabled' );
         else
@@ -162,7 +162,7 @@ jQuery(document).ready( function( $ ) {
 
     // enable/disable "use tableheadline" according to state of checkbox
     if ( WP_Table_Reloaded_Admin.option_tablesorter_enabled && WP_Table_Reloaded_Admin.option_datatables_active ) {
-        $( '#table_options_first_row_th' ).change( function () {
+        $( '#table_options_first_row_th' ).change( function() {
             if( $(this).attr('checked') ) {
                 $( '#table_options_use_tablesorter' ).removeAttr( 'disabled' )
                 .change();
@@ -173,7 +173,7 @@ jQuery(document).ready( function( $ ) {
         } );
 
         // enable/disable DataTables options according to checkbox state
-        $( '#table_options_use_tablesorter' ).change( function () {
+        $( '#table_options_use_tablesorter' ).change( function() {
             if( $(this).attr('checked') ) {
                 $( '.wp-table-reloaded-datatables-options input' ).removeAttr( 'disabled' );
                 if ( !WP_Table_Reloaded_Admin.option_tabletools_active )
@@ -184,7 +184,7 @@ jQuery(document).ready( function( $ ) {
             }
         } );
         
-        $( '#table_options_datatables_paginate' ).change( function () {
+        $( '#table_options_datatables_paginate' ).change( function() {
             if( $(this).attr('checked') ) {
                 $( '#table_options_datatables_paginate_entries' ).removeAttr( 'disabled' );
             } else {
@@ -193,7 +193,7 @@ jQuery(document).ready( function( $ ) {
         } );
 
     } else if ( WP_Table_Reloaded_Admin.option_tablesorter_enabled ) {
-        $( '#table_options_first_row_th' ).change( function () {
+        $( '#table_options_first_row_th' ).change( function() {
             if( $(this).attr('checked') )
                 $( '#table_options_use_tablesorter' ).removeAttr( 'disabled' );
             else
@@ -201,7 +201,7 @@ jQuery(document).ready( function( $ ) {
         } );
     }
 
-    $( '#table_options_print_name, #table_options_print_description' ).change( function () {
+    $( '#table_options_print_name, #table_options_print_description' ).change( function() {
         if( $(this).attr('checked') )
             $( '#' + this.id + '_position' ).removeAttr( 'disabled' );
         else
@@ -209,7 +209,7 @@ jQuery(document).ready( function( $ ) {
     } );
 
     // confirm uninstall setting
-    $( '#options_uninstall_upon_deactivation').click( function () {
+    $( '#options_uninstall_upon_deactivation').click( function() {
         if( $(this).attr('checked') )
             return confirm( WP_Table_Reloaded_Admin.str_UninstallCheckboxActivation );
     } );
@@ -221,7 +221,7 @@ jQuery(document).ready( function( $ ) {
         set_table_data_changed();
     }
 
-    $( '#a-insert-link' ).click( function () {
+    $( '#a-insert-link' ).click( function() {
         var link_url = prompt( WP_Table_Reloaded_Admin.str_DataManipulationLinkInsertURL + ':', 'http://' );
         if ( link_url ) {
             var link_text = prompt( WP_Table_Reloaded_Admin.str_DataManipulationLinkInsertText + ':', WP_Table_Reloaded_Admin.str_DataManipulationLinkInsertText );
@@ -256,16 +256,16 @@ jQuery(document).ready( function( $ ) {
     } );
 
     // not all characters allowed for name of Custom Data Field
-    $( '#insert_custom_field_name' ).keyup( function () {
+    $( '#insert_custom_field_name' ).keyup( function() {
         $(this).val( $(this).val().toLowerCase().replace(/[^a-z0-9_-]/g, '') );
     } );
 
     // remove/add title on focus/blur
-    $( '.focus-blur-change' ).focus( function () {
+    $( '.focus-blur-change' ).focus( function() {
         if ( $(this).attr('title') == $(this).val() )
             $(this).val( '' );
     } )
-    .blur( function () {
+    .blur( function() {
         if ( '' == $(this).val() )
             $(this).val( $(this).attr('title') );
     } );
@@ -276,27 +276,27 @@ jQuery(document).ready( function( $ ) {
     } );
 
     // confirmation of certain actions
-    $( 'input.bulk_copy_tables' ).click( function () {
+    $( 'input.bulk_copy_tables' ).click( function() {
         return confirm( WP_Table_Reloaded_Admin.str_BulkCopyTablesLink );
     } );
 
-    $( 'input.bulk_delete_tables' ).click( function () {
+    $( 'input.bulk_delete_tables' ).click( function() {
     	return confirm( WP_Table_Reloaded_Admin.str_BulkDeleteTablesLink );
     } );
 
-    $( 'input.bulk_wp_table_import_tables' ).click( function () {
+    $( 'input.bulk_wp_table_import_tables' ).click( function() {
     	return confirm( WP_Table_Reloaded_Admin.str_BulkImportwpTableTablesLink );
     } );
 
-    $( 'a.copy_table_link' ).click( function () {
+    $( 'a.copy_table_link' ).click( function() {
     	return confirm( WP_Table_Reloaded_Admin.str_CopyTableLink );
     } );
 
-    $( '#wp-table-reloaded-list a.delete_table_link' ).click( function () {
+    $( '#wp-table-reloaded-list a.delete_table_link' ).click( function() {
     	return confirm( WP_Table_Reloaded_Admin.str_DeleteTableLink );
     } );
 
-    $( '#button-delete-rows' ).click( function () {
+    $( '#button-delete-rows' ).click( function() {
         var rows_cb = $( '#table_contents tr:not(".table-foot") :checkbox' ).length - 1; // -1 because of invisible checkbox in .table-head
         var rows_selected = $( '#table_contents tr:not(".table-foot") :checked' ).length;
 
@@ -308,12 +308,12 @@ jQuery(document).ready( function( $ ) {
                 alert( WP_Table_Reloaded_Admin.str_DeleteRowsFailedNotAll );
                 return false;
             } else {
-        	   return confirm( WP_Table_Reloaded_Admin.str_DeleteRowsConfirm );
+                return confirm( WP_Table_Reloaded_Admin.str_DeleteRowsConfirm );
             }
         }
     } );
     
-    $( '#button-delete-columns' ).click( function () {
+    $( '#button-delete-columns' ).click( function() {
         var cols_cb = $( '#table_contents .table-foot :checkbox' ).length;
         var cols_selected = $( '#table_contents .table-foot :checked' ).length;
 
@@ -325,32 +325,32 @@ jQuery(document).ready( function( $ ) {
                 alert( WP_Table_Reloaded_Admin.str_DeleteColsFailedNotAll );
                 return false;
             } else {
-        	   return confirm( WP_Table_Reloaded_Admin.str_DeleteColsConfirm );
+                return confirm( WP_Table_Reloaded_Admin.str_DeleteColsConfirm );
             }
         }
     } );
     
-    $( 'a.import_wptable_link' ).click( function () {
+    $( 'a.import_wptable_link' ).click( function() {
     	return confirm( WP_Table_Reloaded_Admin.str_ImportwpTableLink );
     } );
 
-    $( '#import_wp_table_reloaded_dump_file' ).click( function () {
+    $( '#import_wp_table_reloaded_dump_file' ).click( function() {
     	return confirm( WP_Table_Reloaded_Admin.str_ImportDumpFile );
     } );
 
-    $( '#uninstall_plugin_link' ).click( function () {
+    $( '#uninstall_plugin_link' ).click( function() {
         if ( confirm( WP_Table_Reloaded_Admin.str_UninstallPluginLink_1 ) )
             return confirm( WP_Table_Reloaded_Admin.str_UninstallPluginLink_2 );
         else
             return false;
     } );
 
-    $( 'a.cf_shortcode_link' ).click( function () {
+    $( 'a.cf_shortcode_link' ).click( function() {
     	var dummy = prompt( WP_Table_Reloaded_Admin.str_CFShortcodeMessage, $(this).attr('title') );
     	return false;
     } );
 
-    $( 'a.table_shortcode_link' ).click( function () {
+    $( 'a.table_shortcode_link' ).click( function() {
     	var dummy = prompt( WP_Table_Reloaded_Admin.str_TableShortcodeMessage, $(this).attr('title') );
     	return false;
     } );
@@ -405,8 +405,8 @@ var tb_my_position;
 	tb_my_position = function() {
 		var tbWindow = $('#TB_window'), width = $(window).width(), H = $(window).height(), W = ( 720 < width ) ? 720 : width, adminbar_height = 0;
 
-        if ( $('body.admin-bar').length )
-            adminbar_height = 28;
+		if ( $('body.admin-bar').length )
+			adminbar_height = 28;
 
 		if ( tbWindow.size() ) {
 			tbWindow.width( W - 50 ).height( H - 45 - adminbar_height );
