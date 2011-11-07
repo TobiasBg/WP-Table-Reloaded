@@ -271,7 +271,7 @@ jQuery(document).ready( function( $ ) {
             $(this).val( $(this).attr('title') );
     } );
 
-    $( '#table_custom_fields textarea' ).focus( function() {
+    $( '#table_custom_fields' ).delegate( 'textarea', 'focus', function() {
         $( '#table_custom_fields .focus' ).removeClass('focus');
         $(this).addClass('focus');
     } );
