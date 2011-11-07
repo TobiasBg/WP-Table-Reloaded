@@ -201,18 +201,11 @@ jQuery(document).ready( function( $ ) {
         } );
     }
 
-    $( '#table_options_print_name' ).change( function () {
+    $( '#table_options_print_name, #table_options_print_description' ).change( function () {
         if( $(this).attr('checked') )
-            $( '#table_options_print_name_position' ).removeAttr( 'disabled' );
+            $( '#' + this.id + '_position' ).removeAttr( 'disabled' );
         else
-            $( '#table_options_print_name_position' ).attr( 'disabled', 'disabled' );
-    } );
-
-    $( '#table_options_print_description' ).change( function () {
-        if( $(this).attr('checked') )
-            $( '#table_options_print_description_position' ).removeAttr( 'disabled' );
-        else
-            $( '#table_options_print_description_position' ).attr( 'disabled', 'disabled' );
+            $( '#' + this.id + '_position' ).attr( 'disabled', 'disabled' );
     } );
 
     // confirm uninstall setting
