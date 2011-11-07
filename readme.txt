@@ -2,7 +2,7 @@
 Contributors: TobiasBg 
 Donate link: http://tobias.baethge.com/donate/
 Tags: html,table,data,editor,csv,import,export,excel,widget,admin,sidebar
-Requires at least: 3.0
+Requires at least: 3.1
 Tested up to: 3.3
 Stable tag: 1.9.2
 
@@ -18,11 +18,11 @@ Please see the English plugin website http://tobias.baethge.com/wordpress-plugin
 If you like this plugin, please rate it here in the WordPress Plugin Directory, make a [donation](http://tobias.baethge.com/donate/), or [flattr it](https://flattr.com/thing/118856/WP-Table-Reloaded). Thank you!
 
 = Informationen auf Deutsch =
-Dieses Plugin erlaubt die komfortable Verwaltung von Tabellen in WordPress. Daf&uuml;r werden keine HTML-Kenntnisse ben&ouml;tigt. Die Daten werden in einer Eingabemaske eingegeben und mittels eines Shortcodes in Artikel, Seiten oder Text-Widgets eingebunden. Zus&auml;tzlich k&ouml;nnen einer Tabelle mit einer JavaScript-Bibliothek weitere F&auml;higkeiten, wie Sortieren, Paginierung und Filterung hinzugef&uuml;gt werden.
+Dieses Plugin erlaubt die komfortable Verwaltung von Tabellen in WordPress. Dafür werden keine HTML-Kenntnisse benötigt. Die Daten werden in einer Eingabemaske eingegeben und mittels eines Shortcodes in Artikel, Seiten oder Text-Widgets eingebunden. Zusätzlich können einer Tabelle mit einer JavaScript-Bibliothek weitere Fähigkeiten, wie Sortieren, Paginierung und Filterung hinzugefügt werden.
 
 Weitere Informationen auf Deutsch: http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-deutsch/
 
-Wenn dir das Plugin gef&auml;llt, bewerte es bitte hier im WordPress Plugin Directory, [spende](http://tobias.baethge.com/donate/) oder [&quot;flattere&quot;](https://flattr.com/thing/118856/WP-Table-Reloaded). Danke!
+Wenn dir das Plugin gefällt, bewerte es bitte hier im WordPress Plugin Directory, [spende](http://tobias.baethge.com/donate/) oder [&quot;flattere&quot;](https://flattr.com/thing/118856/WP-Table-Reloaded). Danke!
 
 == Screenshots ==
 
@@ -75,7 +75,7 @@ There is also a .pot-file available to use in the "languages" subfolder. Of cour
 
 Please visit the [official plugin website](http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/) for the latest information on this plugin.
 
-Die Webseite des Plugins ist auch [auf Deutsch](http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-deutsch/) verf&uuml;gbar.
+Die Webseite des Plugins ist auch [auf Deutsch](http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-deutsch/) verfügbar.
 
 == Usage ==
 
@@ -91,7 +91,7 @@ You may also add certain features (like sorting, pagination, filtering, alternat
 
 Thanks go to [Alex Rabe](http://alexrabe.boelinger.com/) for the initial wp-Table plugin!
 Special thanks go to [Allan Jardine](http://www.datatables.net/) for the DataTables-jQuery-plugin.
-Thanks go to [Christian Bach](http://tablesorter.com/docs/) for the TableSorter-jQuery-plugin and to [S&ouml;ren Krings](http://tablesorter.openwerk.de/) for the TableSorter-Extended-jQuery-plugin.
+Thanks go to [Christian Bach](http://tablesorter.com/docs/) for the TableSorter-jQuery-plugin and to [Sören Krings](http://tablesorter.openwerk.de/) for the TableSorter-Extended-jQuery-plugin.
 Thanks to all language file translators!
 Thanks to every donor, supporter and bug reporter!
 
@@ -105,7 +105,9 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 == Changelog ==
 
 = Version 1.9.3-dev =
-* enhancement: better resizing behavior for textareas on the "Edit" screen, when manually increasing the size or textareas in the same row or column
+* bugfix: a few minor fixes to logical errors in JavaScript code on the WP-Table Reloaded screens
+* enhancement: many improvements to the performance of JavaScript code on the WP-Table Reloaded screens
+* Dropped support for outdated WordPress version 3.0
 * languages: Added Bulgarian
 
 = Version 1.9.2 =
@@ -255,6 +257,9 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 * First release (not everything functional)
 
 == Upgrade Notice ==
+
+= 1.9.3-dev =
+// to be written before release
 
 = 1.9.2 =
 This upgrade includes several bugfixes and a few enhancements, like an updated DataTables library.
