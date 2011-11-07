@@ -230,7 +230,7 @@ jQuery(document).ready( function( $ ) {
                 if ( WP_Table_Reloaded_Admin.option_add_target_blank_to_links )
                     target = ' target="_blank"';
                 var insert_html = '<a href="' + link_url + '"' + target + '>' + link_text + '</a>';
-                insert_html = prompt( WP_Table_Reloaded_Admin.str_DataManipulationLinkInsertExplain, insert_html )
+                insert_html = prompt( WP_Table_Reloaded_Admin.str_DataManipulationLinkInsertExplain, insert_html );
                 if ( insert_html )
                     $( '#table_contents' ).delegate( 'textarea', 'click', { html: insert_html }, add_html );
             }
