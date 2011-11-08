@@ -434,12 +434,11 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
         $exact = get_query_var( 'exact' ); // if $_GET['exact'] is set, WordPress doesn't use % in SQL LIKE clauses
         $n = ( !empty( $exact ) ) ? '' : '%';
         foreach ( $query_result as $search_term => $tables ) {
-            foreach ( $tables as $table_id ) {
-                $old_or = "OR ({$wpdb->posts}.post_content LIKE '{$n}{$search_term}{$n}')";
-                $shortcode = "[table id={$table_id} "; // only the beginning, as there might be more Shortcode atts coming, does not find [table id="<ID>" though, might need another loop? The space at the end is necessary to make sure that no table IDs with the same beginning are found.
-                $new_or = $old_or. " OR ({$wpdb->posts}.post_content LIKE '%{$shortcode}%')";
-                $search_sql = str_replace( $old_or, $new_or, $search_sql );
-            }
+            $old_or = "OR ({$wpdb->posts}.post_content LIKE '{$n}{$search_term}{$n}')";
+            $table_ids = implode( '|', $tables );
+            $regexp = '\\\\[table id=(["\\\']?)(' . $table_ids . ')(["\\\' ])'; // ' needs to be single escaped, [ double escaped (with \\) in mySQL
+            $new_or = $old_or . " OR ({$wpdb->posts}.post_content REGEXP '{$regexp}')";
+            $search_sql = str_replace( $old_or, $new_or, $search_sql );
         }
 
         return $search_sql;
