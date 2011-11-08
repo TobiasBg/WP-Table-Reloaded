@@ -105,6 +105,7 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 == Changelog ==
 
 = Version 1.9.3-dev =
+* bugfix: fixes to handling of the "Insert Image" thickbox
 * bugfix: a few minor fixes to logical errors in JavaScript code on the WP-Table Reloaded screens
 * enhancement: improve behavior and returned results of integration of the WP search
 * enhancement: many improvements to the performance of JavaScript code on the WP-Table Reloaded screens
