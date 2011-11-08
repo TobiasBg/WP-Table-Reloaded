@@ -106,6 +106,7 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 
 = Version 1.9.3-dev =
 * bugfix: a few minor fixes to logical errors in JavaScript code on the WP-Table Reloaded screens
+* enhancement: improve behavior and returned results of integration of the WP search
 * enhancement: many improvements to the performance of JavaScript code on the WP-Table Reloaded screens
 * Dropped support for outdated WordPress version 3.0
 * languages: Added Bulgarian
