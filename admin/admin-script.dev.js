@@ -243,7 +243,7 @@ jQuery(document).ready( function( $ ) {
         edCanvas = this;
         $( '#table_contents' ).undelegate( 'textarea', 'click', call_media_library_thickbox );
         var $link = $( '#a-insert-image' );
-        tb_show( $link.attr('title'), $link.attr('href'), $link.attr('rel') );
+        tb_show( $link.attr('title'), $link.attr('href'), false );
         tb_my_position();
         $(this).blur();
         set_table_data_changed();
