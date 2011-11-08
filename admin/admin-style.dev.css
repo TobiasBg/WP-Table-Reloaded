@@ -51,7 +51,7 @@
     background-color:#FFE0E0;
 }
 
-#table_contents .focus {
+#table_contents textarea.focus {
     min-height:84px;
 }
 
@@ -140,6 +140,7 @@
 
 #table_contents textarea {
     min-width:180px;
+    min-height:24px;
     width:100%;
     height:100%;
 }
