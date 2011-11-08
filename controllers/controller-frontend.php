@@ -76,7 +76,7 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
 
         // extend WordPress Search to also find posts/pages that have a table with the one of the search terms in them
         if ( $this->options['enable_search'] )
-            add_filter( 'posts_where', array( &$this, 'handle_posts_where_filter' ) );
+            add_filter( 'posts_search', array( &$this, 'handle_posts_search_filter' ) );
 
         // if a JavaScript library is (globally) enabled, include respective files
         if ( $this->options['enable_tablesorter'] ) {
@@ -365,13 +365,13 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
      * saving all tables's IDs that have a search term and then expanding the WP query to search for posts or pages that have the
      * Shortcode for one of these tables in their content.
      *
-     * @param string $where Current "WHERE" clause of the SQL statement used to get posts/pages from the WP database
+     * @param string $search Current part of the "WHERE" clause of the SQL statement used to get posts/pages from the WP database that is related to searching
      * @uses $wpdb
      * @return string Eventually extended SQL "WHERE" clause, to also find posts/pages with Shortcodes in them
      */
-    function handle_posts_where_filter( $where ) {
+    function handle_posts_search_filter( $search_sql ) {
         if ( !is_search() )
-            return $where;
+            return $search_sql;
 
         global $wpdb;
 
@@ -438,11 +438,11 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
                 $old_or = "OR ({$wpdb->posts}.post_content LIKE '{$n}{$search_term}{$n}')";
                 $shortcode = "[table id={$table_id} "; // only the beginning, as there might be more Shortcode atts coming, does not find [table id="<ID>" though, might need another loop? The space at the end is necessary to make sure that no table IDs with the same beginning are found.
                 $new_or = $old_or. " OR ({$wpdb->posts}.post_content LIKE '%{$shortcode}%')";
-                $where = str_replace( $old_or, $new_or, $where );
+                $search_sql = str_replace( $old_or, $new_or, $search_sql );
             }
         }
 
-        return $where;
+        return $search_sql;
     }
 
     /**
