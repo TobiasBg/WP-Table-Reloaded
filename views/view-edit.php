@@ -112,7 +112,7 @@
 
         <tr><td>
             <a id="a-insert-link" class="button-primary" href="javascript:void(0);"><?php _e( 'Insert Link', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
-            <a id="a-insert-image" href="<?php echo admin_url( 'media-upload.php' ); ?>?type=image&amp;tab=library&amp;TB_iframe=true" class="button-primary" onclick="javascript:return false;"><?php _e( 'Insert Image', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
+            <a id="a-insert-image" href="<?php echo admin_url( 'media-upload.php' ); ?>?type=image&amp;tab=library&amp;TB_iframe=true" class="button-primary" onclick="javascript:return false;" title="<?php _e( 'Insert Image', WP_TABLE_RELOADED_TEXTDOMAIN ); ?>"><?php _e( 'Insert Image', WP_TABLE_RELOADED_TEXTDOMAIN ); ?></a>
         </td><td>
             <?php
             $col_select = '<select ' . $row_disabled . 'name="sort[col]">';
