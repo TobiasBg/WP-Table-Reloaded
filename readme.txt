@@ -2,11 +2,11 @@
 Contributors: TobiasBg 
 Donate link: http://tobias.baethge.com/donate/
 Tags: html,table,data,editor,csv,import,export,excel,widget,admin,sidebar
-Requires at least: 3.0
-Tested up to: 3.3-beta1
-Stable tag: 1.9.2
+Requires at least: 3.1
+Tested up to: 3.3.1
+Stable tag: 1.9.3
 
-WP-Table Reloaded lets you manage tables in a comfortable backend in WP's admin area, without any knowledge of HTML, and can add valuable features.
+WP-Table Reloaded enables you to create and manage tables, without having to write HTML code, and it adds valuable functions for your visitors.
 
 == Description ==
 
@@ -18,11 +18,11 @@ Please see the English plugin website http://tobias.baethge.com/wordpress-plugin
 If you like this plugin, please rate it here in the WordPress Plugin Directory, make a [donation](http://tobias.baethge.com/donate/), or [flattr it](https://flattr.com/thing/118856/WP-Table-Reloaded). Thank you!
 
 = Informationen auf Deutsch =
-Dieses Plugin erlaubt die komfortable Verwaltung von Tabellen in WordPress. Daf&uuml;r werden keine HTML-Kenntnisse ben&ouml;tigt. Die Daten werden in einer Eingabemaske eingegeben und mittels eines Shortcodes in Artikel, Seiten oder Text-Widgets eingebunden. Zus&auml;tzlich k&ouml;nnen einer Tabelle mit einer JavaScript-Bibliothek weitere F&auml;higkeiten, wie Sortieren, Paginierung und Filterung hinzugef&uuml;gt werden.
+Dieses Plugin erlaubt die komfortable Verwaltung von Tabellen in WordPress. Dafür werden keine HTML-Kenntnisse benötigt. Die Daten werden in einer Eingabemaske eingegeben und mittels eines Shortcodes in Artikel, Seiten oder Text-Widgets eingebunden. Zusätzlich können einer Tabelle mit einer JavaScript-Bibliothek weitere Fähigkeiten, wie Sortieren, Paginierung und Filterung hinzugefügt werden.
 
 Weitere Informationen auf Deutsch: http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-deutsch/
 
-Wenn dir das Plugin gef&auml;llt, bewerte es bitte hier im WordPress Plugin Directory, [spende](http://tobias.baethge.com/donate/) oder [&quot;flattere&quot;](https://flattr.com/thing/118856/WP-Table-Reloaded). Danke!
+Wenn dir das Plugin gefällt, bewerte es bitte hier im WordPress Plugin Directory, [spende](http://tobias.baethge.com/donate/) oder [&quot;flattere&quot;](https://flattr.com/thing/118856/WP-Table-Reloaded). Danke!
 
 == Screenshots ==
 
@@ -61,12 +61,12 @@ For support questions, bug reports, or feature requests, please use the [WordPre
 
 = Requirements? =
 
-In short: WordPress 3.0 or higher, the latest version of WordPress is recommended
+In short: WordPress 3.1 or higher, the latest version of WordPress is recommended
 
 = Languages and Localization? =
 
 The plugin currently includes the following languages:
-Arabic, Belarusian, Brazilian Portuguese, Chinese (Simplified), Czech, Dutch, English, Finnish, French, German, Hebrew, Hindi, Indonesian, Italian, Japanese, Polish, Russian, Slovak, Spanish, Swedish, and Ukrainian.
+Arabic, Belarusian, Brazilian Portuguese, Bulgarian, Chinese (Simplified), Czech, Dutch, English, Finnish, French, German, Hebrew, Hindi, Indonesian, Italian, Japanese, Polish, Russian, Slovak, Spanish, Swedish, and Ukrainian.
 
 I'd really appreciate it, if you would translate the plugin into your language! Using Heiko Rabe's WordPress plugin [Codestyling Localization](http://www.code-styling.de/english/development/wordpress-plugin-codestyling-localization-en/) that really is as easy as pie. Just install the plugin, add your language, create the .po-file, translate the strings in the comfortable editor and create the .mo-file. It will automatically be saved in WP-Table Reloaded's plugin folder. If you send me the .mo- and .po-file, I will gladly include them into future plugin releases.
 There is also a .pot-file available to use in the "languages" subfolder. Of course you can also use poEdit as your editor, which also works nicely.
@@ -75,7 +75,7 @@ There is also a .pot-file available to use in the "languages" subfolder. Of cour
 
 Please visit the [official plugin website](http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/) for the latest information on this plugin.
 
-Die Webseite des Plugins ist auch [auf Deutsch](http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-deutsch/) verf&uuml;gbar.
+Die Webseite des Plugins ist auch [auf Deutsch](http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-deutsch/) verfügbar.
 
 == Usage ==
 
@@ -91,7 +91,7 @@ You may also add certain features (like sorting, pagination, filtering, alternat
 
 Thanks go to [Alex Rabe](http://alexrabe.boelinger.com/) for the initial wp-Table plugin!
 Special thanks go to [Allan Jardine](http://www.datatables.net/) for the DataTables-jQuery-plugin.
-Thanks go to [Christian Bach](http://tablesorter.com/docs/) for the TableSorter-jQuery-plugin and to [S&ouml;ren Krings](http://tablesorter.openwerk.de/) for the TableSorter-Extended-jQuery-plugin.
+Thanks go to [Christian Bach](http://tablesorter.com/docs/) for the TableSorter-jQuery-plugin and to [Sören Krings](http://tablesorter.openwerk.de/) for the TableSorter-Extended-jQuery-plugin.
 Thanks to all language file translators!
 Thanks to every donor, supporter and bug reporter!
 
@@ -103,6 +103,17 @@ I kindly ask you for link somewhere on your website to http://tobias.baethge.com
 I'm also happy about [donations](http://tobias.baethge.com/donate/) or something from [my wishlist](http://tobias.baethge.com/wishlist)! Thanks!
 
 == Changelog ==
+
+= Version 1.9.3 =
+* enhancement: reduce problems with blank space below tables, caused by a no-longer necessary minimum height
+* enhancement: improve behavior and returned results of integration of the WP search
+* enhancement: many improvements to the performance of JavaScript code on the WP-Table Reloaded screens
+* enhancement: improvements in possibilities for developer interaction (additional plugin filters, etc.)
+* bugfix: fixed naming of the sorting arrow images, which where wrongly pointing in the opposite direction
+* bugfix: fixes to handling of the "Insert Image" thickbox
+* bugfix: a few minor fixes to logical errors in JavaScript code on the WP-Table Reloaded screens
+* Dropped support for outdated WordPress version 3.0
+* languages: Added Bulgarian
 
 = Version 1.9.2 =
 * bugfix: Correct column width of "Edit" screen input fields in Internet Explorer 9
@@ -251,6 +262,9 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 * First release (not everything functional)
 
 == Upgrade Notice ==
+
+= 1.9.3 =
+This upgrade includes several bugfixes and a few enhancements, and is a recommended maintenance release.
 
 = 1.9.2 =
 This upgrade includes several bugfixes and a few enhancements, like an updated DataTables library.

@@ -254,6 +254,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
         $this->available_plugin_languages = array(
             'ar'    => __( 'Arabic', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'be_BY' => __( 'Belarusian', WP_TABLE_RELOADED_TEXTDOMAIN ),
+			'bg_BG' => __( 'Bulgarian', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'cs_CZ' => __( 'Czech', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'de_DE' => __( 'German', WP_TABLE_RELOADED_TEXTDOMAIN ),
             'en_US' => __( 'English', WP_TABLE_RELOADED_TEXTDOMAIN ),
@@ -1098,7 +1099,9 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
             $this->options['use_default_css'] = isset( $new_options['use_default_css'] );
             $this->options['use_custom_css'] = isset( $new_options['use_custom_css'] );
             $this->options['add_target_blank_to_links'] = isset( $new_options['add_target_blank_to_links'] );
-            $this->options['tablesorter_script'] = $new_options['tablesorter_script'];
+            // drop down: only set when not disabled (by JavaScript)
+            if ( isset( $new_options['tablesorter_script'] ) )
+            	$this->options['tablesorter_script'] = $new_options['tablesorter_script'];
 
             // only save these settings, if user is administrator, as they are admin options
             if ( current_user_can( 'manage_options' ) ) {
@@ -1902,7 +1905,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
 .find('.sorting').append('&nbsp;<span>&nbsp;&nbsp;&nbsp;</span>');\n
 DATATABLES;
         }
-
+		$datatables = apply_filters( 'wp_table_reloaded_admin_datatables_js', $datatables );
         echo <<<JSSCRIPT
 <script type="text/javascript">
 /* <![CDATA[ */
