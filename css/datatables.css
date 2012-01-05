@@ -19,8 +19,6 @@
 .dataTables_wrapper {
     position: relative;
     zoom: 1;
-    min-height: 302px;
-	_height: 302px;
 	clear: both;
 }
 
