@@ -1905,7 +1905,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
 .find('.sorting').append('&nbsp;<span>&nbsp;&nbsp;&nbsp;</span>');\n
 DATATABLES;
         }
-
+		$datatables = apply_filters( 'wp_table_reloaded_admin_datatables_js', $datatables );
         echo <<<JSSCRIPT
 <script type="text/javascript">
 /* <![CDATA[ */
