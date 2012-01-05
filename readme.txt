@@ -3,10 +3,10 @@ Contributors: TobiasBg
 Donate link: http://tobias.baethge.com/donate/
 Tags: html,table,data,editor,csv,import,export,excel,widget,admin,sidebar
 Requires at least: 3.1
-Tested up to: 3.3
-Stable tag: 1.9.2
+Tested up to: 3.3.1
+Stable tag: 1.9.3
 
-WP-Table Reloaded lets you manage tables in a comfortable backend in WP's admin area, without any knowledge of HTML, and can add valuable features.
+WP-Table Reloaded enables you to create and manage tables, without having to write HTML code, and it adds valuable functions for your visitors.
 
 == Description ==
 
@@ -61,7 +61,7 @@ For support questions, bug reports, or feature requests, please use the [WordPre
 
 = Requirements? =
 
-In short: WordPress 3.0 or higher, the latest version of WordPress is recommended
+In short: WordPress 3.1 or higher, the latest version of WordPress is recommended
 
 = Languages and Localization? =
 
@@ -104,11 +104,14 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 
 == Changelog ==
 
-= Version 1.9.3-dev =
-* bugfix: fixes to handling of the "Insert Image" thickbox
-* bugfix: a few minor fixes to logical errors in JavaScript code on the WP-Table Reloaded screens
+= Version 1.9.3 =
+* enhancement: reduce problems with blank space below tables, caused by a no-longer necessary minimum height
 * enhancement: improve behavior and returned results of integration of the WP search
 * enhancement: many improvements to the performance of JavaScript code on the WP-Table Reloaded screens
+* enhancement: improvements in possibilities for developer interaction (additional plugin filters, etc.)
+* bugfix: fixed naming of the sorting arrow images, which where wrongly pointing in the opposite direction
+* bugfix: fixes to handling of the "Insert Image" thickbox
+* bugfix: a few minor fixes to logical errors in JavaScript code on the WP-Table Reloaded screens
 * Dropped support for outdated WordPress version 3.0
 * languages: Added Bulgarian
 
@@ -260,8 +263,8 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 
 == Upgrade Notice ==
 
-= 1.9.3-dev =
-// to be written before release
+= 1.9.3 =
+This upgrade includes several bugfixes and a few enhancements, and is a recommended maintenance release.
 
 = 1.9.2 =
 This upgrade includes several bugfixes and a few enhancements, like an updated DataTables library.
