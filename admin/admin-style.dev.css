@@ -51,12 +51,12 @@
     background-color:#FFE0E0;
 }
 
-#table_contents textarea.focus {
+#table_contents .focus textarea {
     min-height:84px;
 }
 
 #table_custom_fields .focus {
-    min-height:54px;
+	min-height:54px;
 }
 
 #options_custom_css {

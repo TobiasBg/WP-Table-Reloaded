@@ -96,8 +96,7 @@ jQuery(document).ready( function( $ ) {
     if ( WP_Table_Reloaded_Admin.option_growing_textareas ) {
         $( '#table_contents' ).delegate( 'textarea', 'focus', function() {
             $focussed.removeClass( 'focus' );
-            $focussed = $(this);
-            $focussed.addClass( 'focus' );
+            $focussed = $(this).closest( 'tr' ).addClass( 'focus' );
         } );
     }
 
