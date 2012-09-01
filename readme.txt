@@ -1,5 +1,5 @@
 === WP-Table Reloaded ===
-Contributors: TobiasBg 
+Contributors: TobiasBg
 Donate link: http://tobias.baethge.com/donate/
 Tags: html,table,data,editor,csv,import,export,excel,widget,admin,sidebar
 Requires at least: 3.1
@@ -57,7 +57,7 @@ If WP-Table Reloaded finds the wp-Table database tables, it can import the found
 
 = Support? =
 
-For support questions, bug reports, or feature requests, please use the [WordPress Support Forums](http://wordpress.org/tags/wp-table-reloaded). Please [search](http://wordpress.org/support/) through the forums first, then [open a new thread](http://wordpress.org/tags/wp-table-reloaded) with the tag "wp-table-reloaded". Thank you!
+For support questions, bug reports, or feature requests, please use the [WordPress Support Forums](http://wordpress.org/support/plugin/wp-table-reloaded). Please [search](http://wordpress.org/support/) through the forums first, and then only [open a new thread](http://wordpress.org/support/plugin/wp-table-reloaded) if you don't find an existing answer. Thank you!
 
 = Requirements? =
 
@@ -276,7 +276,7 @@ This upgrade includes a few new features, like output caching and a custom table
 This upgrade includes a few new features, like output caching and a custom table CSS class, and several enhancements.
 
 = 1.8 =
-This upgrade includes an updated DataTables library, enhances several features and fixes a few small issues. 
+This upgrade includes an updated DataTables library, enhances several features and fixes a few small issues.
 
 = 1.7 =
 This upgrade includes an updated DataTables library, adds a "Table" button in the toolbar of the visual editor, and enhances several other things.
