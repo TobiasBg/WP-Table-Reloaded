@@ -3,7 +3,7 @@ Contributors: TobiasBg
 Donate link: http://tobias.baethge.com/donate/
 Tags: html,table,data,editor,csv,import,export,excel,widget,admin,sidebar
 Requires at least: 3.1
-Tested up to: 3.3.1
+Tested up to: 3.5
 Stable tag: 1.9.3
 
 WP-Table Reloaded enables you to create and manage tables, without having to write HTML code, and it adds valuable functions for your visitors.
@@ -65,7 +65,7 @@ For support questions, bug reports, or feature requests, please use the [WordPre
 
 = Requirements? =
 
-In short: WordPress 3.1 or higher, the latest version of WordPress is recommended
+In short: WordPress 3.1 or higher, the latest version of WordPress is recommended.
 
 = Languages and Localization? =
 
