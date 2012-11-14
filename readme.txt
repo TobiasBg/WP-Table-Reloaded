@@ -10,6 +10,10 @@ WP-Table Reloaded enables you to create and manage tables, without having to wri
 
 == Description ==
 
+> #### Attention: WP-Table Reloaded is being replaced with TablePress!
+> If you are starting a new project, please do not use WP-Table Reloaded anymore! Instead, please use the [TablePress](http://wordpress.org/extend/plugins/tablepress/) plugin, which is the official and designated successor of WP-Table Reloaded.
+> For users of WP-Table Reloaded, no immediate action is necessary, but it is recommended that you [migrate](http://tablepress.org/migration-from-wp-table-reloaded/) to TablePress soon.
+
 WP-Table Reloaded enables you to create and manage tables in your WP's admin area. No HTML knowledge is needed. A comfortable backend allows to easily edit table data. Tables can contain any type of data and additional JavaScript libraries can be used to extend it with features like sorting, pagination, filtering, and more. You can include the tables into your posts, on your pages or in text widgets by using a shortcode or a template tag function. Tables can be imported and exported from/to CSV, XML and HTML.
 
 = More information =
