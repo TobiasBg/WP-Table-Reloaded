@@ -21,7 +21,7 @@ License: GPL 2
 Donate URI: http://tobias.baethge.com/donate/
 */
 
-/*  Copyright 2009-2012 Tobias Bäthge
+/*  Copyright 2009-2013 Tobias Bäthge
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as
@@ -58,7 +58,7 @@ if ( is_admin() ) {
 } else {
     include_once ( WP_TABLE_RELOADED_ABSPATH . 'controllers/controller-frontend.php' );
     add_action( 'init', '_wp_table_reloaded_controller_frontend_constructor' );
-    
+
     /**
      * Call constructor on init hook
      */
