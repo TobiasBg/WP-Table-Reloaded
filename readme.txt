@@ -30,9 +30,17 @@ Wenn dir das Plugin gefällt, bewerte es bitte hier im WordPress Plugin Director
 
 == Screenshots ==
 
+> #### Attention: WP-Table Reloaded is being replaced with TablePress!
+> If you are starting a new project, please do not use WP-Table Reloaded anymore! Instead, please use the [TablePress](http://wordpress.org/extend/plugins/tablepress/) plugin, which is the official and designated successor of WP-Table Reloaded.
+> For users of WP-Table Reloaded, no immediate action is necessary, but it is recommended that you [migrate](http://tablepress.org/migration-from-wp-table-reloaded/) to TablePress soon.
+
 Screenshots are available on http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/ .
 
 == Installation ==
+
+> #### Attention: WP-Table Reloaded is being replaced with TablePress!
+> If you are starting a new project, please do not use WP-Table Reloaded anymore! Instead, please use the [TablePress](http://wordpress.org/extend/plugins/tablepress/) plugin, which is the official and designated successor of WP-Table Reloaded.
+> For users of WP-Table Reloaded, no immediate action is necessary, but it is recommended that you [migrate](http://tablepress.org/migration-from-wp-table-reloaded/) to TablePress soon.
 
 The easiest way is through your WordPress Admin area. Go to the plugin section and search for "WP-Table Reloaded" in the WordPress Plugin Directory. Then you can click "Install" and the following steps will be done for you automatically. You just have to activate the plugin (step 5).
 
@@ -49,6 +57,10 @@ Manual Installation works just as for most other WordPress plugins:
 1. You might want to add styling features via the option in the "Plugin Options" screen, where you can enter your CSS directly.
 
 == Frequently Asked Questions ==
+
+> #### Attention: WP-Table Reloaded is being replaced with TablePress!
+> If you are starting a new project, please do not use WP-Table Reloaded anymore! Instead, please use the [TablePress](http://wordpress.org/extend/plugins/tablepress/) plugin, which is the official and designated successor of WP-Table Reloaded.
+> For users of WP-Table Reloaded, no immediate action is necessary, but it is recommended that you [migrate](http://tablepress.org/migration-from-wp-table-reloaded/) to TablePress soon.
 
 = Where can I find answers to Frequently Asked Questions? =
 
@@ -83,6 +95,10 @@ Die Webseite des Plugins ist auch [auf Deutsch](http://tobias.baethge.com/wordpr
 
 == Usage ==
 
+> #### Attention: WP-Table Reloaded is being replaced with TablePress!
+> If you are starting a new project, please do not use WP-Table Reloaded anymore! Instead, please use the [TablePress](http://wordpress.org/extend/plugins/tablepress/) plugin, which is the official and designated successor of WP-Table Reloaded.
+> For users of WP-Table Reloaded, no immediate action is necessary, but it is recommended that you [migrate](http://tablepress.org/migration-from-wp-table-reloaded/) to TablePress soon.
+
 After installing the plugin, you can add, import, export, edit, copy, delete, ... tables via the "WP-Table Reloaded" screen which appears under the "Tools" section in your Admin menu.
 Everything should be self-explaining there.
 
@@ -107,6 +123,10 @@ I kindly ask you for link somewhere on your website to http://tobias.baethge.com
 I'm also happy about [donations](http://tobias.baethge.com/donate/) or something from [my wishlist](http://tobias.baethge.com/wishlist)! Thanks!
 
 == Changelog ==
+
+> #### Attention: WP-Table Reloaded is being replaced with TablePress!
+> If you are starting a new project, please do not use WP-Table Reloaded anymore! Instead, please use the [TablePress](http://wordpress.org/extend/plugins/tablepress/) plugin, which is the official and designated successor of WP-Table Reloaded.
+> For users of WP-Table Reloaded, no immediate action is necessary, but it is recommended that you [migrate](http://tablepress.org/migration-from-wp-table-reloaded/) to TablePress soon.
 
 = Version 1.9.3 =
 * enhancement: reduce problems with blank space below tables, caused by a no-longer necessary minimum height
