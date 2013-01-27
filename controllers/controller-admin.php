@@ -61,7 +61,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
         'use_datatables_on_table_list' => true,
         'add_target_blank_to_links' => false,
         'enable_tablesorter' => true,
-        'tablesorter_script' => 'datatables', // others are 'datatables-tabletools', 'tablesorter', and 'tablesorter_extended'
+        'tablesorter_script' => 'datatables', // others are 'tablesorter' and 'tablesorter_extended'
         'use_default_css' => true,
         'use_custom_css' => true,
         'custom_css' => '',
@@ -330,6 +330,10 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
             );
         }
 
+		// Add WP-Table Reloaded deprecation notice
+		if ( current_user_can( 'install_plugins' ) )
+			$this->helper->print_header_message( __( 'Important note: WP-Table Reloaded is being discontinued and will no longer be developed.<br /><span style="font-weight:normal">Instead, it will be officially replaced with <a href="http://wordpress.org/extend/plugins/tablepress/">TablePress</a>, which not only fixed many problems, but also has better and new features.<br />Please <a href="http://tobias.baethge.com/2013/01/tablepress-replaces-wp-table-reloaded/" style="font-weight:bold">read this announcement</a> for more information and switch from WP-Table Reloaded to TablePress soon.</span>', WP_TABLE_RELOADED_TEXTDOMAIN ) );
+
         $this->load_view( 'list' );
     }
 
@@ -407,7 +411,6 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
                 $table['options']['datatables_lengthchange'] = isset( $_POST['table']['options']['datatables_lengthchange'] );
                 $table['options']['datatables_filter'] = isset( $_POST['table']['options']['datatables_filter'] );
                 $table['options']['datatables_info'] = isset( $_POST['table']['options']['datatables_info'] );
-                $table['options']['datatables_tabletools'] = isset( $_POST['table']['options']['datatables_tabletools'] );
                 $table['options']['datatables_paginate_entries'] = ( is_numeric( $table['options']['datatables_paginate_entries'] ) ) ? absint( $table['options']['datatables_paginate_entries'] ) : $this->default_table['options']['datatables_paginate_entries'];
                 // $table['options']['datatables_customcommands'] is an input type=text field that is always submitted
                 // $table['options']['print_name|description_position'] are select fields that are always submitted
@@ -1563,6 +1566,8 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
         if ( ! version_compare( $this->options['installed_version'], WP_TABLE_RELOADED_PLUGIN_VERSION, '<' ) )
             return;
 
+		$previous_version = $this->options['installed_version'];
+
 		$new_options = array();
 
         // 1b. step: update new default options before possibly adding them
@@ -1587,6 +1592,12 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
         if ( 'top-level' == $this->options['admin_menu_parent_page'] )
             $new_options['admin_menu_parent_page'] = 'admin.php';
 
+        // 2f., TableTools was removed in 1.9.4
+        if ( version_compare( $this->options['installed_version'] , '1.9.4', '<' ) ) {
+			if ( isset( $this->options['tablesorter_script'] ) && 'datatables-tabletools' == $this->options['tablesorter_script'] )
+				$new_options['tablesorter_script'] = 'datatables';
+		}
+
         // 3. step: update installed version number, empty update message cache, set welcome message
         $new_options['installed_version'] = WP_TABLE_RELOADED_PLUGIN_VERSION;
         $new_options['update_message'] = array();
@@ -1595,6 +1606,10 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
         // 4. step: save the new options
         $this->options = $new_options;
         $this->update_options();
+
+		// (temporary) 5. step: Bail, if we are updating from 1.9.3 or higher, to not touch tables
+        if ( version_compare( $previous_version , '1.9.3', '>=' ) )
+        	return;
 
         // update individual tables and their options
 		$this->tables = $this->load_tables();
@@ -1756,8 +1771,7 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
             'option_growing_textareas' => $this->options['growing_textareas'],
             'option_add_target_blank_to_links' => $this->options['add_target_blank_to_links'],
             'option_tablesorter_enabled' => $this->options['enable_tablesorter'],
-            'option_datatables_active' => $this->options['enable_tablesorter'] && ( 'datatables' == $this->options['tablesorter_script'] || 'datatables-tabletools' == $this->options['tablesorter_script'] ),
-            'option_tabletools_active' => $this->options['enable_tablesorter'] && ( 'datatables-tabletools' == $this->options['tablesorter_script'] ),
+            'option_datatables_active' => $this->options['enable_tablesorter'] && ( 'datatables' == $this->options['tablesorter_script'] ),
             'l10n_print_after' => 'try{convertEntities(WP_Table_Reloaded_Admin);}catch(e){};'
         ) );
     }

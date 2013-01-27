@@ -3,8 +3,8 @@ Contributors: TobiasBg
 Donate link: http://tobias.baethge.com/donate/
 Tags: html,table,data,editor,csv,import,export,excel,widget,admin,sidebar
 Requires at least: 3.1
-Tested up to: 3.5
-Stable tag: 1.9.3
+Tested up to: 3.5.1
+Stable tag: 1.9.4
 
 WP-Table Reloaded enables you to create and manage tables, without having to write HTML code, and it adds valuable functions for your visitors.
 
@@ -127,6 +127,10 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 > #### Attention: WP-Table Reloaded is being replaced with TablePress!
 > If you are starting a new project, please do not use WP-Table Reloaded anymore! Instead, please use the [TablePress](http://wordpress.org/extend/plugins/tablepress/) plugin, which is the official and designated successor of WP-Table Reloaded.
 > For users of WP-Table Reloaded, no immediate action is necessary, but it is recommended that you [migrate](http://tablepress.org/migration-from-wp-table-reloaded/) to TablePress soon.
+
+= Version 1.9.4 =
+* bugfix: Remove TableTools for DataTables, due to incompatibility
+* Important note: WP-Table Reloaded is outdated! Please [switch](http://tablepress.org/migration-from-wp-table-reloaded/) to TablePress soon.
 
 = Version 1.9.3 =
 * enhancement: reduce problems with blank space below tables, caused by a no-longer necessary minimum height
@@ -286,6 +290,9 @@ I'm also happy about [donations](http://tobias.baethge.com/donate/) or something
 * First release (not everything functional)
 
 == Upgrade Notice ==
+
+= 1.9.4 =
+This upgrade includes an important bugfix and removes the TableTools. It is a strongly recommended maintenance release.
 
 = 1.9.3 =
 This upgrade includes several bugfixes and a few enhancements, and is a recommended maintenance release.
