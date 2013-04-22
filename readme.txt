@@ -6,7 +6,7 @@ Requires at least: 3.1
 Tested up to: 3.5.1
 Stable tag: 1.9.4
 
-WP-Table Reloaded enables you to create and manage tables, without having to write HTML code, and it adds valuable functions for your visitors.
+WP-Table Reloaded is outdated! Please install its successor TablePress only. Visit http://tablepress.org/ for more information.
 
 == Description ==
 
