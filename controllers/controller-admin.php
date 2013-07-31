@@ -114,13 +114,6 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
     var $page_url = '';
 
     /**
-     * PHP4 class constructor, calls the PHP5 class constructor __construct()
-     */
-    function WP_Table_Reloaded_Controller_Admin() {
-        $this->__construct();
-    }
-
-    /**
      * PHP5 class constructor
      *
      * Initiate Backend functionality, by checking for AJAX calls, eventually answering those or setting up the admin page
@@ -329,10 +322,6 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
                 sprintf( '<a href="%s" style="font-weight:normal;">%s</a>', $donated_false_url, __( 'No, thanks. Don\'t ask again.', WP_TABLE_RELOADED_TEXTDOMAIN ) )
             );
         }
-
-		// Add WP-Table Reloaded deprecation notice
-		if ( current_user_can( 'install_plugins' ) )
-			$this->helper->print_header_message( __( 'Important note: WP-Table Reloaded is being discontinued and will no longer be developed.<br /><span style="font-weight:normal">Instead, it will be officially replaced with <a href="http://wordpress.org/extend/plugins/tablepress/">TablePress</a>, which not only fixed many problems, but also has better and new features.<br />Please <a href="http://tobias.baethge.com/2013/01/tablepress-replaces-wp-table-reloaded/" style="font-weight:bold">read this announcement</a> for more information and switch from WP-Table Reloaded to TablePress soon.</span>', WP_TABLE_RELOADED_TEXTDOMAIN ) );
 
         $this->load_view( 'list' );
     }
@@ -1268,6 +1257,10 @@ class WP_Table_Reloaded_Controller_Admin extends WP_Table_Reloaded_Controller_Ba
      */
     function load_view( $name, $params = array(), $print_submenu_navigation = true ) {
         extract( $params );
+
+		// Add WP-Table Reloaded deprecation notice
+		if ( current_user_can( 'install_plugins' ) )
+			$this->helper->print_header_message( __( '<span style="font-size:120%">Important note: WP-Table Reloaded has been discontinued and will no longer be developed.<br /><span style="font-weight:normal">It has officially been replaced with <a href="http://wordpress.org/plugins/tablepress/">TablePress</a>, which not only fixed many problems, but also has better and new features.<br />Please <a href="http://tobias.baethge.com/2013/01/tablepress-replaces-wp-table-reloaded/" style="font-weight:bold">read this announcement</a> for more information and switch from WP-Table Reloaded to TablePress.</span></span>', WP_TABLE_RELOADED_TEXTDOMAIN ), 'error' );
 
         $headlines = array(
             'list' => __( 'List of Tables', WP_TABLE_RELOADED_TEXTDOMAIN ) . ' &lsaquo; ' . __( 'WP-Table Reloaded', WP_TABLE_RELOADED_TEXTDOMAIN ),

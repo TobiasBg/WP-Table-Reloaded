@@ -36,13 +36,6 @@ class WP_Table_Reloaded_Render {
     var $colspan = array();
 
     /**
-     * PHP4 class constructor
-     */
-    function WP_Table_Reloaded_Render() {
-        // nothing to init here
-    }
-
-    /**
      * Returns the rendered HTML of a table
      */
     function render_table() {
@@ -76,7 +69,7 @@ class WP_Table_Reloaded_Render {
                 $name_html = "<{$print_name_html_tag} class=\"{$print_name_css_class}\">" . $this->safe_output( $table['name'] ) . "</{$print_name_html_tag}>\n";
                 $print_name_position = $this->output_options['print_name_position'];
                 $print_name_position = apply_filters( 'wp_table_reloaded_print_name_position', $print_name_position, $table['id'] );
-                
+
                 if ( 'above' == $print_name_position )
                     $output .= $name_html;
             }
@@ -87,7 +80,7 @@ class WP_Table_Reloaded_Render {
                 $description_html = "<{$print_description_html_tag} class=\"{$print_description_css_class}\">" . $this->safe_output( $table['description'] ) . "</{$print_description_html_tag}>\n";
                 $print_description_position = $this->output_options['print_description_position'];
                 $print_description_position = apply_filters( 'wp_table_reloaded_print_description_position', $print_description_position, $table['id'] );
-                
+
                 if ( 'above' == $print_description_position )
                     $output .= $description_html;
             }
@@ -295,9 +288,9 @@ class WP_Table_Reloaded_Render {
             }
             $table['data'][$row_idx] = array_merge( $row );
         }
-        
+
         $table = apply_filters( 'wp_table_reloaded_render_table', $table, $orig_table, $this->output_options );
-        
+
         return $table;
     }
 

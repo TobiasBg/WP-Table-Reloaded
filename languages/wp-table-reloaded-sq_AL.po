@@ -704,8 +704,8 @@ msgid "More Information and Documentation"
 msgstr "Informacione dhe dokumentacione të tjera"
 
 #: wp-table-reloaded-admin.php:1234
-msgid "More information can be found on the <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/\">plugin's website</a> or on its page in the <a href=\"http://wordpress.org/extend/plugins/wp-table-reloaded/\">WordPress Plugin Directory</a>."
-msgstr "Më shumë informacione gjen tek  <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded/\">Faqja e Plugin</a> ose  tek faqja e <a href=\"http://wordpress.org/extend/plugins/wp-table-reloaded/\">WordPress Plugin Directory.</a>"
+msgid "More information can be found on the <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded-english/\">plugin's website</a> or on its page in the <a href=\"http://wordpress.org/plugins/wp-table-reloaded/\">WordPress Plugin Directory</a>."
+msgstr "Më shumë informacione gjen tek  <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded/\">Faqja e Plugin</a> ose  tek faqja e <a href=\"http://wordpress.org/plugins/wp-table-reloaded/\">WordPress Plugin Directory.</a>"
 
 #: wp-table-reloaded-admin.php:1234
 #: wp-table-reloaded-admin.php:1325
@@ -721,8 +721,8 @@ msgid "This plugin was written by <a href=\"http://tobias.baethge.com/\">Tobias 
 msgstr "Ky Plugin u shkrua nga <a href=\"http://tobias.baethge.com/\">Tobias B&auml;thge</a> . Plugini është Falas dhe nën liçencën GPL v2 ."
 
 #: wp-table-reloaded-admin.php:1241
-msgid "If you like the plugin, please consider <a href=\"http://tobias.baethge.com/wordpress-plugins/donate/\"><strong>a donation</strong></a> and rate the plugin in the <a href=\"http://wordpress.org/extend/plugins/wp-table-reloaded/\">WordPress Plugin Directory</a>."
-msgstr "Nëse të pëlqen ky plugin atëher mund të<a href=\"http://tobias.baethge.com/wordpress-plugins/donate/\"><strong>dhurosh diçka</strong></a> ose vlerëso pluginin në faqen e <a href=\"http://wordpress.org/extend/plugins/wp-table-reloaded/\">WordPress Plugin Directory</a> . Faleminderit!"
+msgid "If you like the plugin, please consider <a href=\"http://tobias.baethge.com/wordpress-plugins/donate/\"><strong>a donation</strong></a> and rate the plugin in the <a href=\"http://wordpress.org/plugins/wp-table-reloaded/\">WordPress Plugin Directory</a>."
+msgstr "Nëse të pëlqen ky plugin atëher mund të<a href=\"http://tobias.baethge.com/wordpress-plugins/donate/\"><strong>dhurosh diçka</strong></a> ose vlerëso pluginin në faqen e <a href=\"http://wordpress.org/plugins/wp-table-reloaded/\">WordPress Plugin Directory</a> . Faleminderit!"
 
 #: wp-table-reloaded-admin.php:1241
 msgid "Donations and good ratings encourage me to further develop the plugin and to provide countless hours of support. Any amount is appreciated! Thanks!"

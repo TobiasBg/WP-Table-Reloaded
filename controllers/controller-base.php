@@ -86,13 +86,6 @@ class WP_Table_Reloaded_Controller_Base {
     var $possible_admin_menu_parent_pages = array( 'tools.php', 'admin.php', 'edit.php', 'edit.php?post_type=page', 'edit-pages.php', 'plugins.php', 'index.php', 'options-general.php' );
 
     /**
-     * PHP4 class constructor, calls the PHP5 class constructor __construct()
-     */
-    function WP_Table_Reloaded_Controller_Base() {
-        $this->__construct();
-    }
-
-    /**
      * PHP5 class constructor
      */
     function __construct() {

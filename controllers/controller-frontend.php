@@ -45,13 +45,6 @@ class WP_Table_Reloaded_Controller_Frontend extends WP_Table_Reloaded_Controller
     var $tablesorter_tables = array();
 
     /**
-     * PHP4 class constructor, calls the PHP5 class constructor __construct()
-     */
-    function WP_Table_Reloaded_Controller_Frontend() {
-        $this->__construct();
-    }
-
-    /**
      * PHP5 class constructor
      *
      * Initiate frontend functionality, by loading plugin options and tables, registering Shortcodes,

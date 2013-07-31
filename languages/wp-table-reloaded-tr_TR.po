@@ -526,7 +526,7 @@ msgid "More Information and Documentation"
 msgstr "Daha Fazla Bilgi Ve Döküman"
 
 #: wp-table-reloaded-admin.php:1039
-msgid "More information can be found on the <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded/\">plugin's website</a> or on its page in the <a href=\"http://wordpress.org/extend/plugins/wp-table-reloaded/\">WordPress Plugin Directory</a>. A documentation and certain support and help request possibilities will be available soon."
+msgid "More information can be found on the <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-reloaded/\">plugin's website</a> or on its page in the <a href=\"http://wordpress.org/plugins/wp-table-reloaded/\">WordPress Plugin Directory</a>. A documentation and certain support and help request possibilities will be available soon."
 msgstr "Daha fazla bilgiyi <a href=\"http://tobias.baethge.com/wordpress-plugins/wp-table-roladed/\">eklentinin websitesinde</a> bulabilirsiniz. Belgeler, eklenti desteği ve yardım istekleri çok yakında hazır olacak."
 
 #: wp-table-reloaded-admin.php:1044
@@ -538,8 +538,8 @@ msgid "This plugin was written by <a href=\"http://tobias.baethge.com/\">Tobias 
 msgstr "Bu eklenti <a href=\"http://tobias.baethge.com/\">Tobias B&auml;thge</a> tarafından yazılmıştır. GPL 2 ile Ücretsiz Yazılım olarak lisanslanmıştır."
 
 #: wp-table-reloaded-admin.php:1046
-msgid "If you like the plugin, please consider <a href=\"http://tobias.baethge.com/wordpress-plugins/donate/\">donating</a> or rating it at the <a href=\"http://wordpress.org/extend/plugins/wp-table-reloaded/\">WordPress Plugin Directory</a>. Thanks!"
-msgstr "Eğer eklentiyi sevdiyseniz, lütfen <a href=\"http://tobias.baethge.com/wordpress-plugins/donate/\">bağış yapın</a> veya <a href=\"http://wordpress.org/extend/plugins/wp-table-reloaded/\">WordPress Eklenti Dizininde</a> oy verin. Teşekkürler!"
+msgid "If you like the plugin, please consider <a href=\"http://tobias.baethge.com/wordpress-plugins/donate/\">donating</a> or rating it at the <a href=\"http://wordpress.org/plugins/wp-table-reloaded/\">WordPress Plugin Directory</a>. Thanks!"
+msgstr "Eğer eklentiyi sevdiyseniz, lütfen <a href=\"http://tobias.baethge.com/wordpress-plugins/donate/\">bağış yapın</a> veya <a href=\"http://wordpress.org/plugins/wp-table-reloaded/\">WordPress Eklenti Dizininde</a> oy verin. Teşekkürler!"
 
 #: wp-table-reloaded-admin.php:1051
 msgid "Credits and Thanks"
